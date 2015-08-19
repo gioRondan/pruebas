@@ -10,6 +10,6 @@ package logica;
  * @author giovani
  */
 public class DataCliente {
-    //holaPutooooooo
+    //hola
     
 }
