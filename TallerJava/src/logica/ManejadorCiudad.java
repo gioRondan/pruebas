@@ -10,7 +10,7 @@ package logica;
  * @author giovani
  */
 public class ManejadorCiudad {
-    /* operaciones para alta usuario
+    /* operaciones para alta servicio
         getDataCiudades()
         getCiudad()
         getInstance()
