@@ -20,6 +20,7 @@ public class ControladoProveedor {
     private String proveedor;
     private String descripcionServicio;
     private float precioServicio = 0;
+    private String categoria;
     private void liberarMemoria(){
         
     }
@@ -37,7 +38,7 @@ public class ControladoProveedor {
     public void ingresarCategoriaServicio( String categoria){
         this.categoriasServicio.add(categoria);
     }
-    public Set<DataCategorias> listarCategorias(){
+    public Set<DataCategoria> listarCategorias(){
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
         return mCa.getDataCategorias();//falta implementar manejadorcategoria
     }
@@ -68,8 +69,13 @@ public class ControladoProveedor {
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         return mPr.getDataProveedores();
     }
+    public void seleccionarCategoria(String categoria){
+        this.categoria = categoria;
+    }
     public Set<DataServicio> listarServiciosXCategoria( String nomCategoria){
-        return null;
+        ManejadorCategoria mCa = ManejadorCategoria.getInstance();
+        Categoria cat = mCa.getCategoria(categoria);
+        return cat.getDataServicios();
     }
     public void ingresarNombreCategoria( String nombre){
     
@@ -147,7 +153,10 @@ public class ControladoProveedor {
         return null;
     }
     public DataInfoServicio verInfoServicio( String nomServicio){
-        return null;
+        ManejadorProveedor mPr = ManejadorProveedor.getInstance();
+        Proveedor prov = mPr.getProveedor(proveedor);
+        Servicio ser = prov.getServicio(nomServicio);
+        return ser.getDataInfoServicio();
     }
     public DataInfoProveedor verInfoProveedor( String nomProveedor){
         return null;
