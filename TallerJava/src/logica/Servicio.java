@@ -59,7 +59,7 @@ public class Servicio {
     public void asociarOrigen(Ciudad origen){
         this.origen = origen;
     }
-    public void asociardestino(Ciudad destino){
+    public void asociarDestino(Ciudad destino){
         this.destino = destino;
     }
     public void agregarCategoria(Categoria categoria){
