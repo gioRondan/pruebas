@@ -6,6 +6,7 @@
 
 package logica;
 import java.util.Date;
+import java.util.Set;
 
 /**
  *
@@ -14,6 +15,7 @@ import java.util.Date;
 public class Proveedor extends Usuario{
     private String empresa;
     private String link_empresa;
+    private Set<Servicio> servicios;
     
     public Proveedor(String nickname, String nombre, String apellido,String email, Date fechaNac, String url){
         super(nickname,nombre,apellido,email,fechaNac,url);
@@ -25,6 +27,11 @@ public class Proveedor extends Usuario{
     public void set_link_empresa(String url){
         this.link_empresa=url;
     }
-    
+    public DataProveedor getDataProveedor(){
+        return new DataProveedor();
+    }
+    public void asociarServicio(Servicio ser){
+        this.servicios.add(ser);
+    }
 }
 
