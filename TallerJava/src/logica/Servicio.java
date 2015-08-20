@@ -6,8 +6,7 @@
 
 package logica;
 
-import java.util.Date;
-
+import java.util.Map;
 /**
  *
  * @author matias.heredia
@@ -16,7 +15,11 @@ public class Servicio {
     private String nombre;
     private String descripcion;
     private String [] imagen;
+    private int contImagen = 0;
     private float precio;
+    private Ciudad origen;
+    private Ciudad destino;
+    private Map<String, Categoria> categorias;
     
     public Servicio(String nombre,String descripcion,float precio){
         this.nombre=nombre;
@@ -32,9 +35,10 @@ public class Servicio {
         this.descripcion= des;
     }
     public void agregar_imagen(String img){
-        this.imagen[0] = img;
-        this.imagen[1] = img;
-        this.imagen[2] = img;
+        if (contImagen < 4){
+            this.imagen[contImagen] = img;
+            contImagen++;
+        }
     }
     public float set_precio(Float nom){
         return this.precio;
@@ -52,8 +56,15 @@ public class Servicio {
     public String get_imagen(int num){
         return this.imagen[num];
     }
-
-
+    public void asociarOrigen(Ciudad origen){
+        this.origen = origen;
+    }
+    public void asociardestino(Ciudad destino){
+        this.destino = destino;
+    }
+    public void agregarCategoria(Categoria categoria){
+        this.categorias.put(categoria.getNombre(), categoria);
+    }
 
 
 
