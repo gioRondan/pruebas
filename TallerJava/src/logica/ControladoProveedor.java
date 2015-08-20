@@ -19,8 +19,10 @@ public class ControladoProveedor {
     private String servicio;
     private String proveedor;
     private String descripcionServicio;
-    private float precioServicio;
-    
+    private float precioServicio = 0;
+    private void liberarMemoria(){
+        
+    }
     
     public void ingresarImagenServicio(String imagen){
         this.imagenServicio.add(imagen);
@@ -60,6 +62,7 @@ public class ControladoProveedor {
         if (!destinoServicio.isEmpty()){
             ser.asociarDestino(mCi.getCiudad(destinoServicio));
         }
+        liberarMemoria();
     }
     public Set<DataProveedor> listarProveedores(){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
@@ -104,7 +107,32 @@ public class ControladoProveedor {
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
         Servicio ser = prov.getServicio(servicio);
-        
+        if (!descripcionServicio.isEmpty()){
+            ser.set_desc(descripcionServicio);
+        }
+        for(String im : imagenServicio){
+            ser.agregar_imagen(im);//revisar
+        }
+        if (precioServicio != 0){
+            ser.set_precio(precioServicio);
+        }
+        if (!origenServicio.isEmpty()){
+            ManejadorCiudad mCi = ManejadorCiudad.getInstance();
+            ser.asociarOrigen(mCi.getCiudad(origenServicio));
+        }
+        if (!destinoServicio.isEmpty()){
+            ManejadorCiudad mCi = ManejadorCiudad.getInstance();
+            ser.asociarDestino(mCi.getCiudad(destinoServicio));
+        }
+        for(String im : imagenServicio){
+            ser.agregar_imagen(im);//revisar
+        }
+        for(String categoria : categoriasServicio){
+            Categoria cat = mCa.getCategoria(categoria);//hay que eliminar las categorias anteriores?
+            cat.setServicio(ser);
+            ser.agregarCategoria(cat);
+        }
+        liberarMemoria();
     }
     public Set<DataEmpresa> listarEmpresas(){
         return null;
