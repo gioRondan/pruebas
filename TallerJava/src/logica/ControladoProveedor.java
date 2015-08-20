@@ -12,12 +12,12 @@ import java.util.*;
  * @author Juan
  */
 public class ControladoProveedor {
-    private String imagenServicio;
+    private Set<String> imagenServicio;
     private String destinoServicio;
     private Set<String> categoriasServicio;
     
     public void ingresarImagen(String imagen){
-        this.imagenServicio = imagen;
+        this.imagenServicio.add(imagen);
     }
     public void ingresarDestino(String  destino ){
         this.destinoServicio = destino;
@@ -35,7 +35,9 @@ public class ControladoProveedor {
     }
     public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor){
         Servicio ser = new Servicio(nombre, descripcion, precio);
-        if
+        for (String im : imagenServicio){
+            ser.agregar_imagen(im);
+        }
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
         prov.asociarServicio(ser);
@@ -44,7 +46,7 @@ public class ControladoProveedor {
         Set<Categoria> categorias;
         for(String categoria : categoriasServicio){
             Categoria cat = mCa.getCategoria(categoria);
-            cat.asociarServicioCategoria(ser);
+            cat.setServicio(ser);
             ser.agregarCategoria(cat);
         }
         ManejadorCiudad mCi = ManejadorCiudad.getInstance();
