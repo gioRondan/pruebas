@@ -14,19 +14,25 @@ import java.util.*;
 public class ControladoProveedor {
     private Set<String> imagenServicio;
     private String destinoServicio;
+    private String origenServicio;
     private Set<String> categoriasServicio;
+    private String servicio;
+    private String proveedor;
+    private String descripcionServicio;
+    private float precioServicio;
     
-    public void ingresarImagen(String imagen){
+    
+    public void ingresarImagenServicio(String imagen){
         this.imagenServicio.add(imagen);
     }
-    public void ingresarDestino(String  destino ){
+    public void ingresarDestinoServicio(String  destino ){
         this.destinoServicio = destino;
     }
     public Set<DataCiudad> listarCiudades(){
         ManejadorCiudad mCi = ManejadorCiudad.getInstance();
         return mCi.getDataCiudades();//falta implementar manejadorciudad
     }
-    public void ingresarCategoria( String categoria){
+    public void ingresarCategoriaServicio( String categoria){
         this.categoriasServicio.add(categoria);
     }
     public Set<DataCategorias> listarCategorias(){
@@ -73,7 +79,11 @@ public class ControladoProveedor {
     public Set<DataServicio> listarServiciosXProveedor( String nomProveedor){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(nomProveedor);//nickname
-        return null;
+        this.proveedor = nomProveedor;
+        return prov.getDataServicios();
+    }
+    public void seleccionarServicio(String nomServicio){
+        this.servicio = nomServicio;
     }
     public void altaPromocion( String nomProveedor,Set<String> ser, String nombre){
     
@@ -82,24 +92,18 @@ public class ControladoProveedor {
     
     }
     public void ingresarDescripcionServicio( String desc){
-    
-    }
-    public void ingresarImagenServicio( String imagen){
-    
+        this.descripcionServicio = desc;
     }
     public void ingresarPrecioServicio(int precio){
-    
+        this.precioServicio = precio;
     }
     public void ingresarOrigenServicio( String origen){
-    
-    }
-    public void ingresarDestinoServicio( String destino){
-    
-    }
-    public void ingresarCategoriaServicio(Categoria String ){
-    
+        this.origenServicio = origen;
     }
     public void modificarServicio(){
+        ManejadorProveedor mPr = ManejadorProveedor.getInstance();
+        Proveedor prov = mPr.getProveedor(proveedor);
+        Servicio ser = prov.getServicio(servicio);
         
     }
     public Set<DataEmpresa> listarEmpresas(){
