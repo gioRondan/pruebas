@@ -12,33 +12,33 @@ import java.util.*;
  * @author Juan
  */
 public class ControladoProveedor {
-     
-    private ControladoProveedor instancia ;
-            
-            
-    public ControladoProveedor getInstance(){
-        return instancia;
-    }
-    public void ingresarImagen( String imagen){
-        
-    }
-    public void voidingresarDestino(String  destino ){
+    private String imagenServicio;
+    private String destinoServicio;
+    private String categoriaServicio;
     
+    public void ingresarImagen(String imagen){
+        this.imagenServicio = imagen;
+    }
+    public void ingresarDestino(String  destino ){
+        this.destinoServicio = destino;
     }
     public Set<DataCiudad> listarCiudades(){
-        return null;
+        ManejadorCiudad mCi = ManejadorCiudad.getInstance();
+        return mCi.getDataCiudades();//falta implementar manejadorciudad
     }
-    public void ingresarCategoria( String Categoria){
-    
+    public void ingresarCategoria( String categoria){
+        this.categoriaServicio = categoria;
     }
     public Set<DataCategorias> listarCategorias(){
-        return null;
+        ManejadorCategoria mCa = ManejadorCategoria.getInstance();
+        return mCa.getDataCategorias();//falta implementar manejadorcategoria
     }
     public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor){
     
     }
     public Set<DataProveedor> listarProveedores(){
-        return null;
+        ManejadorProveedor mPr = ManejadorProveedor.getInstance();
+        return mPr.getDataProveedores();
     }
     public Set<DataServicio> listarServiciosXCategoria( String nomCategoria){
         return null;
