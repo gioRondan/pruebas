@@ -65,7 +65,9 @@ public class Servicio {
     public void agregarCategoria(Categoria categoria){
         this.categorias.put(categoria.getNombre(), categoria);
     }
-
+    public DataServicio getDataServicio(){
+        return new DataServicio(nombre, descripcion, precio);
+    }
 
 
 }
