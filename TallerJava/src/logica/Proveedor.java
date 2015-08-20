@@ -28,7 +28,7 @@ public class Proveedor extends Usuario{
         this.link_empresa=url;
     }
     public DataProveedor getDataProveedor(){
-        return new DataProveedor();
+        return new DataProveedor(this.getNombre(), this.getApellido(), this.getNickname(), this.empresa);
     }
     public void asociarServicio(Servicio ser){
         this.servicios.add(ser);
