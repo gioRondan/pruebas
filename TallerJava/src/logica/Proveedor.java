@@ -30,6 +30,13 @@ public class Proveedor extends Usuario{
     public DataProveedor getDataProveedor(){
         return new DataProveedor(this.getNombre(), this.getApellido(), this.getNickname(), this.empresa);
     }
+    public Set<DataServicio> getDataServicios(){
+        Set<DataServicio> dts = null;
+        for (Servicio value : servicios){
+            dts.add(value.getDataServicio());
+        }
+        return dts;
+    }
     public void asociarServicio(Servicio ser){
         this.servicios.add(ser);
     }
