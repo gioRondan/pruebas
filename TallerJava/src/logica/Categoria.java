@@ -51,6 +51,9 @@ public class Categoria {
         }
         return dts;
     }
+    public DataCategoria getDataCategoria(){
+        return new DataCategoria(/**/);
+    }
     public void setServicio(Servicio servicio){
         this.servicios.add(servicio);
     }
