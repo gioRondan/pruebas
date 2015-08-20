@@ -9,7 +9,7 @@ import java.util.*;
 
 /**
  *
- * @author Juan0
+ * @author Juan
  */
 public class ControladoProveedor {
     private Set<String> imagenServicio;
