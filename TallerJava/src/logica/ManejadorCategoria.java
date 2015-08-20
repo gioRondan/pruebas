@@ -12,6 +12,7 @@ package logica;
 public class ManejadorCategoria {
     /* operaciones para alta usuario
         getDataCategorias()
+        getCategoria()
         getInstance()
     */
 }
