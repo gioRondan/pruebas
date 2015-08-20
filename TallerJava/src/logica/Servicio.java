@@ -7,6 +7,7 @@
 package logica;
 
 import java.util.Map;
+import java.util.Set;
 /**
  *
  * @author matias.heredia
@@ -40,8 +41,8 @@ public class Servicio {
             contImagen++;
         }
     }
-    public float set_precio(Float nom){
-        return this.precio;
+    public void set_precio(float precio){
+         this.precio = precio;
     }
     
     public String get_nombre(){
@@ -68,8 +69,19 @@ public class Servicio {
     public DataServicio getDataServicio(){
         return new DataServicio(nombre, descripcion, precio);
     }
-    public DataInfoServicio getDataInfoServicio(){
-        return new DataInfoServicio();
+    public DataInfoServicio getDataInfoServicio (){
+        DataCiudad des = null;
+        if (!destino.getNombre().isEmpty()){
+            des = destino.getDataCiudad();
+        }
+        return new DataInfoServicio(nombre, descripcion, imagen, precio, origen.getDataCiudad(), des, getDataCategorias());
+    }
+    public Set<DataCategoria> getDataCategorias(){
+        Set<DataCategoria> dts = null;
+        for (Categoria c : categorias.values()){
+            dts.add(c.getDataCategoria());
+        }
+        return dts;
     }
 
 }
