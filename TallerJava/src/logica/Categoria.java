@@ -53,9 +53,6 @@ public class Categoria {
      *
      * @param serv agrega este servicio a la coleccion de servicios de la categoria 
      */
-    public void asociarServicioCategoria(Servicio serv){
-    
-    }
     
     /**
      *
