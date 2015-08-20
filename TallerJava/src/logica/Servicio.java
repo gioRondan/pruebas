@@ -68,6 +68,8 @@ public class Servicio {
     public DataServicio getDataServicio(){
         return new DataServicio(nombre, descripcion, precio);
     }
-
+    public DataInfoServicio getDataInfoServicio(){
+        return new DataInfoServicio();
+    }
 
 }
