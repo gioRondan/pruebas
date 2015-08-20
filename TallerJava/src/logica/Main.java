@@ -38,7 +38,7 @@ public class Main {
         for (String nom : s) {
             //Una forma de recorrer
           total = total + "\n " + nom; 
-          
+          //HOLA gente<sadsadsadadasd
         }
         JOptionPane.showMessageDialog(null,total);
     }

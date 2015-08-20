@@ -18,6 +18,15 @@ public class Usuario {
     private Date fechaNac;
     private String imagen;
 
+    public Usuario(String nombre, String nickname, String apellido, String email, Date fechaNac, String imagen) {
+        this.nombre = nombre;
+        this.nickname = nickname;
+        this.apellido = apellido;
+        this.email = email;
+        this.fechaNac = fechaNac;
+        this.imagen = imagen;
+    }    
+     
     public String getNombre() {
         return nombre;
     }
@@ -66,14 +75,6 @@ public class Usuario {
         this.imagen = imagen;
     }
 
-    public Usuario(String nombre, String nickname, String apellido, String email, Date fechaNac, String imagen) {
-        this.nombre = nombre;
-        this.nickname = nickname;
-        this.apellido = apellido;
-        this.email = email;
-        this.fechaNac = fechaNac;
-        this.imagen = imagen;
-    }
-    
+   
     
 }

@@ -6,8 +6,8 @@
 
 package logica;
 
-import java.util.Date;
-
+import java.util.Map;
+import java.util.Set;
 /**
  *
  * @author matias.heredia
@@ -16,7 +16,11 @@ public class Servicio {
     private String nombre;
     private String descripcion;
     private String [] imagen;
+    private int contImagen = 0;
     private float precio;
+    private Ciudad origen;
+    private Ciudad destino;
+    private Map<String, Categoria> categorias;
     
     public Servicio(String nombre,String descripcion,float precio){
         this.nombre=nombre;
@@ -32,12 +36,13 @@ public class Servicio {
         this.descripcion= des;
     }
     public void agregar_imagen(String img){
-        this.imagen[0] = img;
-        this.imagen[1] = img;
-        this.imagen[2] = img;
+        if (contImagen < 4){
+            this.imagen[contImagen] = img;
+            contImagen++;
+        }
     }
-    public float set_precio(Float nom){
-        return this.precio;
+    public void set_precio(float precio){
+         this.precio = precio;
     }
     
     public String get_nombre(){
@@ -52,9 +57,31 @@ public class Servicio {
     public String get_imagen(int num){
         return this.imagen[num];
     }
-
-
-
-
+    public void asociarOrigen(Ciudad origen){
+        this.origen = origen;
+    }
+    public void asociarDestino(Ciudad destino){
+        this.destino = destino;
+    }
+    public void agregarCategoria(Categoria categoria){
+        this.categorias.put(categoria.getNombre(), categoria);
+    }
+    public DataServicio getDataServicio(){
+        return new DataServicio(nombre, descripcion, precio);
+    }
+    public DataInfoServicio getDataInfoServicio (){
+        DataCiudad des = null;
+        if (!destino.getNombre().isEmpty()){
+            des = destino.getDataCiudad();
+        }
+        return new DataInfoServicio(nombre, descripcion, imagen, precio, origen.getDataCiudad(), des, getDataCategorias());
+    }
+    public Set<DataCategoria> getDataCategorias(){
+        Set<DataCategoria> dts = null;
+        for (Categoria c : categorias.values()){
+            dts.add(c.getDataCategoria());
+        }
+        return dts;
+    }
 
 }

@@ -7,14 +7,8 @@ package logica;
 
 /**
  *
- * @author giovani
+ * @author Juan
  */
-public class DataCliente {
-    //holaasdf
-}
-    //hola
-    //Branch1
-    //Branch12
-    //vas a ver
-    //nooo
+public class DataCategoria {
+    
 }

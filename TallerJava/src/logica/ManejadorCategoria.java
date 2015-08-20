@@ -10,5 +10,9 @@ package logica;
  * @author giovani
  */
 public class ManejadorCategoria {
-    
+    /* operaciones para alta servicio
+        getDataCategorias()
+        getCategoria()
+        getInstance()
+    */
 }

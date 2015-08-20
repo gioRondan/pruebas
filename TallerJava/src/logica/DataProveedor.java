@@ -5,10 +5,38 @@
  */
 package logica;
 
+
 /**
  *
  * @author Juan
  */
 public class DataProveedor {
+    private String nickname;
+    private String nombre;
+    private String apellido;
+    private String empresa;
+    public DataProveedor(String nombre, String apellido, String nickname, String empresa){
+        this.nickname = nickname;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.empresa = empresa;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public String getEmpresa() {
+        return empresa;
+    }
+
     
 }

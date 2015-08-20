@@ -44,7 +44,16 @@ public class Categoria {
     public Set<Servicio> getServicios(){
         return this.servicios;
     }
-    
+    public Set<DataServicio> getDataServicios(){
+        Set<DataServicio> dts = null; //?????????
+        for(Servicio s : servicios){
+            dts.add(s.getDataServicio());
+        }
+        return dts;
+    }
+    public DataCategoria getDataCategoria(){
+        return new DataCategoria(/**/);
+    }
     public void setServicio(Servicio servicio){
         this.servicios.add(servicio);
     }
@@ -53,9 +62,6 @@ public class Categoria {
      *
      * @param serv agrega este servicio a la coleccion de servicios de la categoria 
      */
-    public void asociarServicioCategoria(Servicio serv){
-    
-    }
     
     /**
      *

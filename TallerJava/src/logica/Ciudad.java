@@ -34,4 +34,7 @@ public class Ciudad {
     public void setPais(Pais pais){
         this.pais = pais;
     }
+    public DataCiudad getDataCiudad(){
+        return new DataCiudad(/**/);
+    }
 }
