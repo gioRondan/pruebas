@@ -12,6 +12,7 @@ package logica;
 public class ManejadorCiudad {
     /* operaciones para alta usuario
         getDataCiudades()
+        getCiudad()
         getInstance()
     */
 }
