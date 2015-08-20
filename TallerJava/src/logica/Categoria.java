@@ -44,7 +44,13 @@ public class Categoria {
     public Set<Servicio> getServicios(){
         return this.servicios;
     }
-    
+    public Set<DataServicio> getDataServicios(){
+        Set<DataServicio> dts = null; //?????????
+        for(Servicio s : servicios){
+            dts.add(s.getDataServicio());
+        }
+        return dts;
+    }
     public void setServicio(Servicio servicio){
         this.servicios.add(servicio);
     }
