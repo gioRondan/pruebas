@@ -14,7 +14,7 @@ import java.util.*;
 public class ControladoProveedor {
     private String imagenServicio;
     private String destinoServicio;
-    private String categoriaServicio;
+    private Set<String> categoriasServicio;
     
     public void ingresarImagen(String imagen){
         this.imagenServicio = imagen;
@@ -27,14 +27,31 @@ public class ControladoProveedor {
         return mCi.getDataCiudades();//falta implementar manejadorciudad
     }
     public void ingresarCategoria( String categoria){
-        this.categoriaServicio = categoria;
+        this.categoriasServicio.add(categoria);
     }
     public Set<DataCategorias> listarCategorias(){
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
         return mCa.getDataCategorias();//falta implementar manejadorcategoria
     }
     public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor){
-    
+        Servicio ser = new Servicio(nombre, descripcion, precio);
+        if
+        ManejadorProveedor mPr = ManejadorProveedor.getInstance();
+        Proveedor prov = mPr.getProveedor(proveedor);
+        prov.asociarServicio(ser);
+//asociar servicio a proveedor??????
+        ManejadorCategoria mCa = ManejadorCategoria.getInstance();
+        Set<Categoria> categorias;
+        for(String categoria : categoriasServicio){
+            Categoria cat = mCa.getCategoria(categoria);
+            cat.asociarServicioCategoria(ser);
+            ser.agregarCategoria(cat);
+        }
+        ManejadorCiudad mCi = ManejadorCiudad.getInstance();
+        ser.asociarOrigen(mCi.getCiudad(origen));
+        if (!destinoServicio.isEmpty()){
+            ser.asociarDestino(mCi.getCiudad(destinoServicio));
+        }
     }
     public Set<DataProveedor> listarProveedores(){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
