@@ -143,13 +143,13 @@ public class ControladoProveedor {
     public Set<DataPromocion> listarPromocionesXProveedor( String nomProveedor){
         return null;
     }
-    public DataPromocion verInfoPromocion( String nomPromocion){
+    public DataInfoPromocion verInfoPromocion( String nomPromocion){
         return null;
     }
-    public DataServicio verInfoServicio( String nomServicio){
+    public DataInfoServicio verInfoServicio( String nomServicio){
         return null;
     }
-    public DataProveedor verInfoProveedor( String nomProveedor){
+    public DataInfoProveedor verInfoProveedor( String nomProveedor){
         return null;
     }
 
