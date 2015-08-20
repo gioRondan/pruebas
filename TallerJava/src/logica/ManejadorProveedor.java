@@ -6,6 +6,8 @@
 
 package logica;
 import java.util.Map;
+import java.util.Iterator;
+import java.util.Set;
 /**
  *
  * @author matias.heredia
@@ -26,7 +28,14 @@ public class ManejadorProveedor {
     public void addProveedor(Proveedor proveedor){
         proveedores.put(proveedor.getNickname(), proveedor);
     }
-    public void removeProvvedor(String nickname){
+    public void removeProveedor(String nickname){
         proveedores.remove(nickname);
+    }
+    public Set<DataProveedor> getDataProveedores(){
+        Set<DataProveedor> dts = null;
+        for (Proveedor value : proveedores.values()){
+            dts.add(value.getDataProveedor());
+        }
+        return dts;
     }
 }
