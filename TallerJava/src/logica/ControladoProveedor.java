@@ -71,6 +71,8 @@ public class ControladoProveedor {
     public void altaCategoria(){
     }
     public Set<DataServicio> listarServiciosXProveedor( String nomProveedor){
+        ManejadorProveedor mPr = ManejadorProveedor.getInstance();
+        Proveedor prov = mPr.getProveedor(nomProveedor);//nickname
         return null;
     }
     public void altaPromocion( String nomProveedor,Set<String> ser, String nombre){
