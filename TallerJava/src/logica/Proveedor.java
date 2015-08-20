@@ -6,6 +6,7 @@
 
 package logica;
 import java.util.Date;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -15,7 +16,7 @@ import java.util.Set;
 public class Proveedor extends Usuario{
     private String empresa;
     private String link_empresa;
-    private Set<Servicio> servicios;
+    private Map<String, Servicio> servicios;
     
     public Proveedor(String nickname, String nombre, String apellido,String email, Date fechaNac, String url){
         super(nickname,nombre,apellido,email,fechaNac,url);
@@ -32,13 +33,16 @@ public class Proveedor extends Usuario{
     }
     public Set<DataServicio> getDataServicios(){
         Set<DataServicio> dts = null;
-        for (Servicio value : servicios){
+        for (Servicio value : servicios.values()){
             dts.add(value.getDataServicio());
         }
         return dts;
     }
     public void asociarServicio(Servicio ser){
-        this.servicios.add(ser);
+        this.servicios.put(ser.get_nombre(), ser);
+    }
+    public Servicio getServicio(String nombre){
+        return servicios.get(nombre);
     }
 }
 
