@@ -5,7 +5,6 @@
  */
 
 package logica;
-import java.util.Collections;
 import java.util.Date;
 import java.util.Map;
 import java.util.Set;
@@ -51,6 +50,9 @@ public class Proveedor extends Usuario{
     }
     public void asociarServicio(Servicio ser){
         this.servicios.put(ser.getNombre(), ser);
+    }
+    public void asociarPromocion(Promocion prom){
+        this.promociones.put(prom.getNombre(), prom);
     }
     public Servicio getServicio(String nombre){
         return servicios.get(nombre);

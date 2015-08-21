@@ -12,18 +12,20 @@ import java.util.Map;
  * @author giovani
  */
 public class Promocion {
+    private final String id;
     private String nombre;
     private int descuento;
     private int precioTotal;
     private Map<String,Servicio> servicios;
     
-    public Promocion(String nombre, int descuento, int precioTotal){
+    public Promocion(String provedorNombre, String nombre, int descuento, int precioTotal){
+        this.id = provedorNombre + "-" + nombre;
         this.nombre = nombre;
         this.descuento = descuento;
         this.precioTotal = precioTotal;
     }
     public DataPromocion getDataPromocion(){
-        return new DataPromocion(nombre, descuento, precioTotal);
+        return new DataPromocion(id, nombre, descuento, precioTotal);
     }
     public String getNombre(){
         return nombre;
