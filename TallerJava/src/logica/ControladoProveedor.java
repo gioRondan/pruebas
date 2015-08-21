@@ -84,6 +84,7 @@ public class ControladoProveedor {
    
     }
     public void altaCategoria(){
+        //Rodrigo
     }
     public Set<DataServicio> listarServiciosXProveedor( String nomProveedor){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
@@ -99,6 +100,9 @@ public class ControladoProveedor {
     }
     public void actualizarEstadoReserva(int idReserva, String nomCliente,Estado estado){
     
+    }
+    public void cancelarReserva(int idReserva, String nomCliente){
+    //Rodrigo
     }
     public void ingresarDescripcionServicio( String desc){
         this.descripcionServicio = desc;
@@ -161,5 +165,8 @@ public class ControladoProveedor {
     public DataInfoProveedor verInfoProveedor( String nomProveedor){
         return null;
     }
-
+    public DataInfoCliente verInfoCliente( String nomCliente){
+        //Rodrigo
+        return null;
+    }
 }
