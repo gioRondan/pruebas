@@ -37,7 +37,7 @@ public class ControladorCliente {
     
     public Set<DataReserva> listarReservasXCliente(String nomCliente){
         ManejadorCliente mCl = ManejadorCliente.getInstance();
-        return mCl.getCliente(nomCliente).;
+        return mCl.getCliente(nomCliente).getDataReservas();
     }
     public DataInfoReserva verInfoReserva(int id){
         return null;
