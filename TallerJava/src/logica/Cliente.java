@@ -25,6 +25,11 @@ public class Cliente extends Usuario{
         return null;
     }
     public void reservarServicio(Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
+        Date fecha_actual = new Date();
+        Estado est = new Estado();
+        est.estado=registrada;
+        Reserva res = new Reserva(fecha_actual,fechaIni,fechaFin,0,registada);
+        
         
     }
 }
