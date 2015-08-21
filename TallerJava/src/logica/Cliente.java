@@ -35,7 +35,7 @@ public class Cliente extends Usuario{
     }
     public void reservarServicio(Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
         Date fecha_actual = new Date();
-        String clave = nombre + - + reservas.size();
+        String clave = this.nombre + "-" + reservas.size();
         Reserva res = new Reserva(clave,fecha_actual,fechaIni,fechaFin,0,Estado.registrada);
         
         reservas.put(res.getId(),res);
@@ -50,7 +50,7 @@ public class Cliente extends Usuario{
     }
     public void reservarPromocion(Promocion prom,int cantidad,Date fechaIni,Date fechaFin){
         Date fecha_actual = new Date();
-        String clave = nombre + - + reservas.size();
+        String clave = this.nombre + "-" + reservas.size();
         Reserva res = new Reserva(clave,fecha_actual,fechaIni,fechaFin,0,Estado.registrada);
         reservas.put(res.getId(),res);
         ItemReserva item = new ItemReserva(cantidad,prom);

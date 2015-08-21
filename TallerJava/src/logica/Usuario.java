@@ -11,12 +11,12 @@ import java.util.*;
  * @author matias.heredia
  */
 public class Usuario {
-    private String nombre;
-    private String nickname;
-    private String apellido;
-    private String email  ;
-    private Date fechaNac;
-    private String imagen;
+    protected String nombre;
+    protected String nickname;
+    protected String apellido;
+    protected String email  ;
+    protected Date fechaNac;
+    protected String imagen;
 
     public Usuario(String nombre, String nickname, String apellido, String email, Date fechaNac, String imagen) {
         this.nombre = nombre;
