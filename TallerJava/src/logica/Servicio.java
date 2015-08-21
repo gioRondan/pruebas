@@ -67,7 +67,7 @@ public class Servicio {
         this.categorias.put(categoria.getNombre(), categoria);
     }
     public DataServicio getDataServicio(){
-        return new DataServicio(nombre, descripcion, precio);
+        return new DataServicio(nombre, descripcion, precio, imagen);
     }
     public DataInfoServicio getDataInfoServicio (){
         DataCiudad des = null;

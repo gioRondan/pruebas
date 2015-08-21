@@ -69,4 +69,7 @@ public class Reserva {
     public void agregarItem(ItemReserva ite){
         this.item.add(ite);
     }
+    public DataReserva getDataReserva(){
+        return new DataReserva(id, fechaCreacion, fechaInicio, fechaFin, precio, estado);
+    }
 }
