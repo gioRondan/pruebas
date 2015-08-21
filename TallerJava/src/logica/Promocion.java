@@ -22,6 +22,9 @@ public class Promocion {
         this.descuento = descuento;
         this.precioTotal = precioTotal;
     }
+    public DataPromocion getDataPromocion(){
+        return new DataPromocion(nombre, descuento, precioTotal);
+    }
     public String getNombre(){
         return nombre;
     }
