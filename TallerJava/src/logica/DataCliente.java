@@ -12,6 +12,7 @@ import java.util.Date;
  * @author diego
  */
 public class DataCliente {
+    
     private String nickname;
     private String nombre;
     private String apellido;
@@ -19,6 +20,7 @@ public class DataCliente {
     private Date fechaNac;
     private String imagen;    
     
+    //Constructores
     public DataCliente(){
         this.nombre     = "";
         this.nickname   = "";
@@ -37,6 +39,7 @@ public class DataCliente {
         this.imagen     = imagen;
     }         
 
+    //Getters
     public String getNickname() {
         return nickname;
     }
