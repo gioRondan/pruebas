@@ -15,15 +15,14 @@ import java.util.Set;
  */
 public class DataInfoProveedor {
     
-    private String nickname;
-    private String nombre;
-    private String apellido;
-    private String email;
-    private Date fechaNac;
-    private String imagen;   
-    private DataEmpresa empresa;
-    private Set<DataPromocion> promociones;
-    private Set<DataServicio> servicios;
+    private final String nickname;
+    private final String nombre;
+    private final String apellido;
+    private final String email;
+    private final Date fechaNac;
+    private final String imagen;   
+    private final DataEmpresa empresa;
+    private final Set<DataServicio> servicios;
     
     
     //Constructores
@@ -35,11 +34,10 @@ public class DataInfoProveedor {
         this.fechaNac       = null;
         this.imagen         = "";
         this.empresa        = null;
-        this.promociones    = null;
         this.servicios      = null;
     }
     
-    public DataInfoProveedor(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, DataEmpresa empresa, Set<DataPromocion> promociones, Set<DataServicio> servicios){
+    public DataInfoProveedor(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, DataEmpresa empresa, Set<DataServicio> servicios){
         this.nickname      = nickname;
         this.nombre        = nombre;
         this.apellido      = apellido;
@@ -47,7 +45,6 @@ public class DataInfoProveedor {
         this.fechaNac      = fechaNac;
         this.imagen        = imagen;
         this.empresa       = empresa;
-        this.promociones   = promociones;
         this.servicios     = servicios;
     }
 
@@ -78,10 +75,6 @@ public class DataInfoProveedor {
     
     public DataEmpresa getEmpresa(){
         return empresa;
-    }
-    
-    public Set<DataPromocion> getPromociones(){
-        return promociones;
     }
     
     public Set<DataServicio> getServicios(){
