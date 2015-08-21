@@ -13,7 +13,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  *
  * @author Juan
  */
-public class Main extends javax.swing.JFrame {
+public class Main {
 
     /**
      * Creates new form Main
@@ -75,12 +75,12 @@ public class Main extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        UIManager.setLookAndFeel(new UpperEssentialLookAndFeel());//Linea de interface linda
+       // UIManager.setLookAndFeel(new UpperEssentialLookAndFeel());//Linea de interface linda
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Main().setVisible(true);
             }
-        });
+        }
     } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

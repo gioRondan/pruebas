@@ -171,7 +171,7 @@ public class ControladoProveedor {
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
         
-        return prov.getData();
+        return prov.getDataPromociones();
     }
     public DataInfoPromocion verInfoPromocion( String nomPromocion){
         
