@@ -5,6 +5,8 @@
  */
 
 package logica;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Map;
 import java.util.Set;
@@ -14,26 +16,24 @@ import java.util.Set;
  * @author matias.heredia
  */
 public class Proveedor extends Usuario{
-    private String empresa;
-    private String link_empresa;
+    private Empresa empresa;
     private Map<String, Promocion> promociones;
     private Map<String, Servicio> servicios;
     
     public Proveedor(String nickname, String nombre, String apellido,String email, Date fechaNac, String url){
         super(nickname,nombre,apellido,email,fechaNac,url);
     }
-    
-    public void setEmpresa(String emp){
-        this.empresa=emp;
-    }
-    public void setLinkEmpresa(String url){
-        this.link_empresa=url;
-    }
+
+     
     public DataProveedor getDataProveedor(){
-        return new DataProveedor(this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),this.getImagen() , empresa);
+        return new DataProveedor(this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),this.getImagen() , this.empresa.getNombre(),this.empresa.getUrl());
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
     }
     public Set<DataServicio> getDataServicios(){
-        Set<DataServicio> dts = null;
+        Set<DataServicio> dts = Collections.EMPTY_SET;
         for (Servicio value : servicios.values()){
             dts.add(value.getDataServicio());
         }
@@ -42,7 +42,13 @@ public class Proveedor extends Usuario{
     public Promocion getPromocion(String nomPromocion){
         return this.promociones.get(nomPromocion);
     }
-    
+    public Set<DataPromocion> getDataPromociones(){
+        Set<DataPromocion> dts = Collections.EMPTY_SET;
+        for (Promocion value : promociones.values()){
+            dts.add(value.getDataPromocion());
+        }
+        return dts;
+    }
     public void asociarServicio(Servicio ser){
         this.servicios.put(ser.getNombre(), ser);
     }
