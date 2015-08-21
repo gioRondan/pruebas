@@ -30,6 +30,14 @@ public class ManejadorProveedor {
     public void removeProveedor(String nickname){
         proveedores.remove(nickname);
     }
+    public Set<DataProveedor> listraPromocionesSistemas(){
+        Set<DataProveedor> dts = null;
+        for (Proveedor value : proveedores.values()){
+            dts.add(value.getDataProveedor());
+        } 
+        return null;
+    }
+    
     public Set<DataProveedor> getDataProveedores(){
         Set<DataProveedor> dts = null;
         for (Proveedor value : proveedores.values()){

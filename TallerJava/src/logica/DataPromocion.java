@@ -10,7 +10,7 @@ package logica;
  * @author diego
  */
 public class DataPromocion {
-    private String id;
+
     private String nombre;
     private int descuento;
     private int precioTotal;
@@ -22,8 +22,8 @@ public class DataPromocion {
         precioTotal = 0;
     }
     
-    public DataPromocion(String id, String nombre, int descuento, int precioTotal){
-        this.id = id ;
+    public DataPromocion(String nombre, int descuento, int precioTotal){
+    
         this.nombre      = nombre;
         this.descuento   = descuento;
         this.precioTotal = precioTotal;
@@ -33,9 +33,6 @@ public class DataPromocion {
     
     //Getters
     
-    public String getId() {
-        return id;
-    }
     
     public String getNombre(){
         return nombre;

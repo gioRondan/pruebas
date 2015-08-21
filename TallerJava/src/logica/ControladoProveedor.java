@@ -104,7 +104,7 @@ public class ControladoProveedor {
         Proveedor prov = mPr.getProveedor(nomProveedor);//nickname
         Iterator<String> itera = ser.iterator();
         int totalPrecio=0;
-        Promocion p = new Promocion(nomProveedor, nombre, descuento, totalPrecio);
+        Promocion p = new Promocion(nombre, descuento, totalPrecio);
         prov.asociarPromocion(p);
         while (itera.hasNext()) {
             //recorro los servicos a agregar y voy calculando el precio de la promocion sin el descuento
@@ -162,15 +162,14 @@ public class ControladoProveedor {
     public void altaProveedor( String nick, String nombe, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp){//iria un dt como entrada calculo yo
     
     }
+
+
     public Set<DataPromocion> listarPromocionesXProveedor( String nomProveedor){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
         return prov.getDataPromociones();
     }
-    public DataInfoPromocion verInfoPromocion( String nomPromocion){
-        
-        return null;
-    }
+    
     public DataInfoServicio verInfoServicio( String nomServicio){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
