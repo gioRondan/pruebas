@@ -115,12 +115,6 @@ public class ControladoProveedor {
         totalPrecio=(int)(totalPrecio * (0.1*descuento));//aplico el descuento
         p.setPrecioTotal(totalPrecio);//Seteo el precio total con el descuento aplicado 
     }
-    public void actualizarEstadoReserva(int idReserva, String nomCliente,Estado estado){
-    
-    }
-    public void cancelarReserva(int idReserva, String nomCliente){
-    //Rodrigo
-    }
     public void ingresarDescripcionServicio( String desc){
         this.descripcionServicio = desc;
     }
