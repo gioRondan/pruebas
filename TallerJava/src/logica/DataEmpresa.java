@@ -11,4 +11,27 @@ package logica;
  */
 public class DataEmpresa {
     
+    private String nombre;
+    private String url;
+    
+    //Constructores
+    public DataEmpresa(){
+        this.nombre = "";
+        this.url    = "";
+    }
+    
+    public DataEmpresa(String nombre, String url){
+        this.nombre = nombre;
+        this.url    = url;
+    }
+    
+    //Getters    
+    public String getNombre(){
+        return nombre;
+    }
+    
+    public String getUrl(){
+        return url;
+    }
+    
 }

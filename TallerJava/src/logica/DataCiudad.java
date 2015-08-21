@@ -12,17 +12,17 @@ package logica;
 public class DataCiudad {
     
     private String nombre;
-    private String url;
+    private String pais;
     
     //Constructores
     public DataCiudad(){
         this.nombre = "";
-        this.url    = "";
+        this.pais    = "";
     }
     
-    public DataCiudad(String nombre, String url){
+    public DataCiudad(String nombre, String pais){
         this.nombre = nombre;
-        this.url    = url;
+        this.pais   = pais;
     }
     
     //Getters    
@@ -30,8 +30,8 @@ public class DataCiudad {
         return nombre;
     }
     
-    public String getUrl(){
-        return url;
+    public String getPais(){
+        return pais;
     }
 
 }

@@ -56,8 +56,8 @@ public class ControladoProveedor {
         //asociar servicio a proveedor??????
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
         Set<Categoria> categorias;
-        for(String categoria : categoriasServicio){
-            Categoria cat = mCa.getCategoria(categoria);
+        for(String cats : categoriasServicio){
+            Categoria cat = mCa.getCategoria(cats);
             cat.setServicio(ser);
             ser.agregarCategoria(cat);
         }
@@ -153,9 +153,9 @@ public class ControladoProveedor {
         for(String im : imagenServicio){
             ser.agregarImagen(im);//revisar
         }
-        for(String categoria : categoriasServicio){
+        for(String cats : categoriasServicio){
             ManejadorCategoria mCa = ManejadorCategoria.getInstance();
-            Categoria cat = mCa.getCategoria(categoria);//hay que eliminar las categorias anteriores?
+            Categoria cat = mCa.getCategoria(cats);//hay que eliminar las categorias anteriores?
             cat.setServicio(ser);
             ser.agregarCategoria(cat);
         }
