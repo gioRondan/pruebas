@@ -105,6 +105,7 @@ public class ControladoProveedor {
         Iterator<String> itera = ser.iterator();
         int totalPrecio=0;
         Promocion p = new Promocion(nombre, descuento, totalPrecio);
+        prov.asociarPromocion(p);
         while (itera.hasNext()) {
             //recorro los servicos a agregar y voy calculando el precio de la promocion sin el descuento
             Servicio s = prov.getServicio(itera.next()); 
