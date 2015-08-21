@@ -9,7 +9,7 @@ package logica;
 import java.util.Date;
 import java.util.Map;
 import java.util.Set;
-
+import java.util.Collections;
 
 /**
  *
@@ -28,7 +28,7 @@ public class Cliente extends Usuario{
         return null;
     }
     public Set<DataReserva> getDataReservas(){
-        Set<DataReserva> dts = null;
+        Set<DataReserva> dts = Collections.EMPTY_SET;
         for (Reserva value : reservas.values()){
             dts.add(value.getDataReserva());
         }
@@ -40,6 +40,12 @@ public class Cliente extends Usuario{
         reservas.put(res.getId(),res);
         ItemReserva item = new ItemReserva(cantidad,serv);
         res.agregarItem(item);
+    }
+    public void modificarEstadoReserva(String id, Estado estado){
+        Reserva res = reservas.get(id);
+        if (res.getEstado() == Estado.registrada){
+            res.setEstado(estado);
+        }
     }
     public void reservarPromocion(Promocion prom,int cantidad,Date fechaIni,Date fechaFin){
         Date fecha_actual = new Date();
