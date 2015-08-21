@@ -5,10 +5,86 @@
  */
 package logica;
 
+import java.util.Date;
+import java.util.Set;
+
+
 /**
  *
- * @author giovani
+ * @author diego
  */
 public class DataInfoProveedor {
     
+    private String nickname;
+    private String nombre;
+    private String apellido;
+    private String email;
+    private Date fechaNac;
+    private String imagen;   
+    private DataEmpresa empresa;
+    private Set<DataPromocion> promociones;
+    private Set<DataServicio> servicios;
+    
+    
+    //Constructores
+    public DataInfoProveedor(){
+        this.nickname       = "";
+        this.nombre         = "";
+        this.apellido       = "";
+        this.email          = "";
+        this.fechaNac       = null;
+        this.imagen         = "";
+        this.empresa        = null;
+        this.promociones    = null;
+        this.servicios      = null;
+    }
+    
+    public DataInfoProveedor(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, DataEmpresa empresa, Set<DataPromocion> promociones, Set<DataServicio> servicios){
+        this.nickname      = nickname;
+        this.nombre        = nombre;
+        this.apellido      = apellido;
+        this.email         = email;
+        this.fechaNac      = fechaNac;
+        this.imagen        = imagen;
+        this.empresa       = empresa;
+        this.promociones   = promociones;
+        this.servicios     = servicios;
+    }
+
+    //Getters
+    public String getNickname(){
+        return nickname;
+    }
+
+    public String getNombre(){
+        return nombre;
+    }
+        
+    public String getApellido(){
+        return apellido;
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public Date getFechaNac(){
+        return fechaNac;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+    
+    public DataEmpresa getEmpresa(){
+        return empresa;
+    }
+    
+    public Set<DataPromocion> getPromociones(){
+        return promociones;
+    }
+    
+    public Set<DataServicio> getServicios(){
+        return servicios;
+    }
 }
