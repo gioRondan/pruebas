@@ -8,6 +8,7 @@ package logica;
 import java.util.Date;
 import java.util.Set;
 
+
 /**
  *
  * @author Juan
@@ -36,7 +37,21 @@ public class ControladorCliente {
     }
     public void reservarPromocion(String proveedor, String promo, int cantidad, Date fechaIni, Date fechaFin){}
     
-    public void altaCliente(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen){}
+    public void altaCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen)throws Exception{
+        ManejadorCliente mCl = ManejadorCliente.getInstance();
+        boolean existeNickname = mCl.existeCliente(nickname);
+        boolean existeMail     = mCl.existeCliente(email);      
+        if(existeNickname){
+            throw new Exception("Ya existe un usuario con el nickname: " + nickname);
+        }
+        else if(existeMail){
+            throw new Exception("Ya existe un usuario con el email: " + email);
+        }
+        else{
+            Cliente cliente = new Cliente(nickname, nombre, apellido, email, fechaNac, imagen);
+            mCl.addCliente(cliente);
+        }        
+    }
     
     public Set<DataCliente> listarClientes(){
         ManejadorCliente mCl = ManejadorCliente.getInstance();
