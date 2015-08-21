@@ -7,8 +7,37 @@ package logica;
 
 /**
  *
- * @author Juan
+ * @author diego
  */
 public class DataPromocion {
+    private String nombre;
+    private int descuento;
+    private float precioTotal;
+    
+    //Constructores
+    public DataPromocion(){
+        nombre      = "";
+        descuento   = 0;
+        precioTotal = 0;
+    }
+    
+    public DataPromocion( String nombre, int descuento, float precioTotal){
+        this.nombre      = nombre;
+        this.descuento   = descuento;
+        this.precioTotal = precioTotal;
+    }
+    
+    //Getters
+    public String getNombre(){
+        return nombre;
+    }
+    
+    public int getDescuento(){
+        return descuento;
+    }
+    
+    public float getPrecioTotal(){
+        return precioTotal;
+    }
     
 }
