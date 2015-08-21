@@ -29,32 +29,32 @@ public class Servicio {
         this.imagen=new String[3];
     }
 
-    public void set_nombre(String nom){
+    public void setNombre(String nom){
         this.nombre = nom;
     }
-    public void set_desc(String des){
+    public void setDesc(String des){
         this.descripcion= des;
     }
-    public void agregar_imagen(String img){
+    public void agregarImagen(String img){
         if (contImagen < 4){
             this.imagen[contImagen] = img;
             contImagen++;
         }
     }
-    public void set_precio(float precio){
+    public void setPrecio(float precio){
          this.precio = precio;
     }
     
-    public String get_nombre(){
+    public String getNombre(){
         return this.nombre;
     }
-    public String get_desc(){
+    public String getDesc(){
         return this.descripcion;
     }
-    public float get_precio(){
+    public float getPrecio(){
         return this.precio;
     }
-    public String get_imagen(int num){
+    public String getImagen(int num){
         return this.imagen[num];
     }
     public void asociarOrigen(Ciudad origen){

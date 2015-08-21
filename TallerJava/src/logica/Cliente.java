@@ -19,7 +19,9 @@ public class Cliente extends Usuario{
     
     public Cliente(String nickname, String nombre, String apellido,String email, Date fechaNac, String url){
         super(nickname,nombre,apellido,email,fechaNac,url);
-        int chupen_me_la_pija=0;
+        
     }
-    
+    public DataCliente getDataCliente(){
+        return null;
+    }
 }

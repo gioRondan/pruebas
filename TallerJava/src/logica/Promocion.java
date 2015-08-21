@@ -5,6 +5,8 @@
  */
 package logica;
 
+import java.util.Map;
+
 /**
  *
  * @author giovani
@@ -13,6 +15,7 @@ public class Promocion {
     private String nombre;
     private int descuento;
     private int precioTotal;
+    private Map<String,Servicio> servicios;
     
     public Promocion(String nombre, int descuento, int precioTotal){
         this.nombre = nombre;
@@ -38,6 +41,6 @@ public class Promocion {
         this.precioTotal = precioTotal;
     }
     public void agregarServicio(Servicio servicio){
-        
+        servicios.put(servicio.getNombre(), servicio);
     }
 }

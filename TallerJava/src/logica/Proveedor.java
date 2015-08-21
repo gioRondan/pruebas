@@ -22,10 +22,10 @@ public class Proveedor extends Usuario{
         super(nickname,nombre,apellido,email,fechaNac,url);
     }
     
-    public void set_empresa(String emp){
+    public void setEmpresa(String emp){
         this.empresa=emp;
     }
-    public void set_link_empresa(String url){
+    public void setLinkEmpresa(String url){
         this.link_empresa=url;
     }
     public DataProveedor getDataProveedor(){
@@ -39,7 +39,7 @@ public class Proveedor extends Usuario{
         return dts;
     }
     public void asociarServicio(Servicio ser){
-        this.servicios.put(ser.get_nombre(), ser);
+        this.servicios.put(ser.getNombre(), ser);
     }
     public Servicio getServicio(String nombre){
         return servicios.get(nombre);

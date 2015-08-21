@@ -5,14 +5,31 @@
  */
 package logica;
 
+import java.util.Map;
+import java.util.Set;
+
 /**
  *
  * @author giovani
  */
 public class ManejadorCiudad {
+    private Map<String,Ciudad> ciudades;
+    private static ManejadorCiudad instance = null;
+    private ManejadorCiudad(){}
+    
+    public static ManejadorCiudad getInstance(){
+        if(instance == null)
+            instance = new ManejadorCiudad();
+        return instance;
+    } 
+    
+   public Set<DataCiudad> getDataCiudades(){
+       return null;
+   }
+    public Ciudad getCiudad(String a){
+        return null;
+    }
     /* operaciones para alta servicio
-        getDataCiudades()
-        getCiudad()
-        getInstance()
+        
     */
 }

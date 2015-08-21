@@ -21,6 +21,7 @@ public class ControladoProveedor {
     private String descripcionServicio;
     private float precioServicio = 0;
     private String categoria;
+    
     private void liberarMemoria(){
         
     }
@@ -45,12 +46,12 @@ public class ControladoProveedor {
     public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor){
         Servicio ser = new Servicio(nombre, descripcion, precio);
         for (String im : imagenServicio){
-            ser.agregar_imagen(im);
+            ser.agregarImagen(im);
         }
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
         prov.asociarServicio(ser);
-//asociar servicio a proveedor??????
+        //asociar servicio a proveedor??????
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
         Set<Categoria> categorias;
         for(String categoria : categoriasServicio){
@@ -88,14 +89,26 @@ public class ControladoProveedor {
     public Set<DataServicio> listarServiciosXProveedor( String nomProveedor){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(nomProveedor);//nickname
-        this.proveedor = nomProveedor;
+        this.proveedor = nomProveedor;//para que esta linea ?
         return prov.getDataServicios();
     }
     public void seleccionarServicio(String nomServicio){
         this.servicio = nomServicio;
     }
-    public void altaPromocion( String nomProveedor,Set<String> ser, String nombre){
-    
+    public void altaPromocion( String nomProveedor,Set<String> ser, String nombre, int descuento){
+        ManejadorProveedor mPr = ManejadorProveedor.getInstance();
+        Proveedor prov = mPr.getProveedor(nomProveedor);//nickname
+        Iterator<String> itera = ser.iterator();
+        int totalPrecio=0;
+        Promocion p = new Promocion(nombre, descuento, totalPrecio);
+        while (itera.hasNext()) {
+            //recorro los servicos a agregar y voy calculando el precio de la promocion sin el descuento
+            Servicio s = prov.getServicio(itera.next()); 
+            totalPrecio += s.getPrecio();
+            p.agregarServicio(s);
+        }
+        totalPrecio=(int)(totalPrecio * (0.1*descuento));//aplico el descuento
+        p.setPrecioTotal(totalPrecio);//Seteo el precio total con el descuento aplicado 
     }
     public void actualizarEstadoReserva(int idReserva, String nomCliente,Estado estado){
     
@@ -114,13 +127,13 @@ public class ControladoProveedor {
         Proveedor prov = mPr.getProveedor(proveedor);
         Servicio ser = prov.getServicio(servicio);
         if (!descripcionServicio.isEmpty()){
-            ser.set_desc(descripcionServicio);
+            ser.setDesc(descripcionServicio);
         }
         for(String im : imagenServicio){
-            ser.agregar_imagen(im);//revisar
+            ser.agregarImagen(im);//revisar
         }
         if (precioServicio != 0){
-            ser.set_precio(precioServicio);
+            ser.setPrecio(precioServicio);
         }
         if (!origenServicio.isEmpty()){
             ManejadorCiudad mCi = ManejadorCiudad.getInstance();
@@ -131,9 +144,10 @@ public class ControladoProveedor {
             ser.asociarDestino(mCi.getCiudad(destinoServicio));
         }
         for(String im : imagenServicio){
-            ser.agregar_imagen(im);//revisar
+            ser.agregarImagen(im);//revisar
         }
         for(String categoria : categoriasServicio){
+            ManejadorCategoria mCa = ManejadorCategoria.getInstance();
             Categoria cat = mCa.getCategoria(categoria);//hay que eliminar las categorias anteriores?
             cat.setServicio(ser);
             ser.agregarCategoria(cat);
