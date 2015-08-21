@@ -48,7 +48,8 @@ public class ControladorCliente {
             throw new Exception("Ya existe un usuario con el email: " + email);
         }
         else{
-            Cliente cliente = new Cliente(nickname, nombre, apellido, email, fechaNac, imagen);
+            Cliente cliente;
+            cliente = new Cliente(nickname, nombre, apellido, email, fechaNac, imagen);
             mCl.addCliente(cliente);
         }        
     }
