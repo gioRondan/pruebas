@@ -32,6 +32,16 @@ public class ManejadorCliente {
     public void removeCliente(String nickname){
         clientes.remove(nickname);
     }
+    public boolean existeCliente(String valor){
+        Cliente cliente = clientes.get(valor);
+        if(cliente != null){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }   
+    
     public Set<DataReserva> listarReservas(){
         Set<DataReserva> dts;
         dts = Collections.EMPTY_SET;

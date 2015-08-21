@@ -162,15 +162,14 @@ public class ControladoProveedor {
     public void altaProveedor( String nick, String nombe, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp){//iria un dt como entrada calculo yo
     
     }
+
+
     public Set<DataPromocion> listarPromocionesXProveedor( String nomProveedor){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
         return prov.getDataPromociones();
     }
-    public DataInfoPromocion verInfoPromocion( String nomPromocion){
-        
-        return null;
-    }
+    
     public DataInfoServicio verInfoServicio( String nomServicio){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);

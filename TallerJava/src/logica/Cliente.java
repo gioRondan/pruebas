@@ -19,6 +19,8 @@ public class Cliente extends Usuario{
     private Map<String,Reserva> reservas; 
     
     
+    
+    
     public Cliente(String nickname, String nombre, String apellido,String email, Date fechaNac, String url){
         super(nickname,nombre,apellido,email,fechaNac,url);
         
