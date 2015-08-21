@@ -21,6 +21,8 @@ public class ControladoProveedor {
     private String descripcionServicio;
     private float precioServicio = 0;
     private String categoria;
+    private String nomCategoria;
+    private String nomPadre = "";
     
     private void liberarMemoria(){
         
@@ -78,14 +80,15 @@ public class ControladoProveedor {
         Categoria cat = mCa.getCategoria(categoria);
         return cat.getDataServicios();
     }
-    public void ingresarNombreCategoria( String nombre){
-    
+    public void ingresarNombreCategoria(String nombre){
+        this.nomCategoria = nombre;
     }
-    public void seleccionarPadre( String nombre){
-   
-    }
+    public void seleccionarPadre(String nombre){
+        this.nomPadre = nombre;
+    }    
     public void altaCategoria(){
-        //Rodrigo
+        ManejadorCategoria mCa = ManejadorCategoria.getInstance();
+        mCa.crearCategoria(this.nomCategoria,this.nomPadre);
     }
     public Set<DataServicio> listarServiciosXProveedor( String nomProveedor){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();

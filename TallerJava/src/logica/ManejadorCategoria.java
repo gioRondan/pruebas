@@ -38,6 +38,9 @@ public class ManejadorCategoria {
         }
         return dts;
     }
+    public void crearCategoria(String nomCategoria, String nomPadre){
+        
+    }
     /* operaciones para alta servicio
         getDataCategorias()
         getCategoria()
