@@ -31,7 +31,7 @@ public class ManejadorCliente {
     public void removeCliente(String nickname){
         clientes.remove(nickname);
     }
-    public Set<DataCliente> getDataCliente(){
+    public Set<DataCliente> getDataClientes(){
         Set<DataCliente> dts = null;
         for (Cliente value : clientes.values()){
             dts.add(value.getDataCliente());

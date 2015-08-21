@@ -48,7 +48,7 @@ public class Reserva {
     public Estado getEstado(){
         return estado;
     }
-    public void setId(int id){
+    public void setId(String id){
         this.id = id;
     }
     public void setFechaCreacion(Date fechaCreacion){
@@ -68,5 +68,8 @@ public class Reserva {
     }
     public void agregarItem(ItemReserva ite){
         this.item.add(ite);
+    }
+    public DataReserva getDataReserva(){
+        return new DataReserva(id, fechaCreacion, fechaInicio, fechaFin, precio, estado);
     }
 }

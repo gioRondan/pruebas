@@ -35,15 +35,16 @@ public class ControladorCliente {
     public void altaCliente(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen){}
     
     public Set<DataCliente> listarClientes(){
-        return null;
+        ManejadorCliente mCl = ManejadorCliente.getInstance();
+        return mCl.getDataClientes();
     }
-    
     public void reservarServicio(String proveedor, String promo, int cantidad, Date fechaIni, Date fechaFin){}
     
     public void cancelarReserva(String nomCliente, int id){}
     
     public Set<DataReserva> listarReservasXCliente(String nomCliente){
-        return null;
+        ManejadorCliente mCl = ManejadorCliente.getInstance();
+        return mCl.getCliente(nomCliente).getDataReservas();
     }
     public DataInfoReserva verInfoReserva(int id){
         return null;
