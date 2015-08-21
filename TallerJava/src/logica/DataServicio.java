@@ -10,15 +10,27 @@ package logica;
  * @author Juan
  */
 public class DataServicio {
-    private String nombre;
-    private String descripcion;
-    private float precio;
-    public DataServicio(String nombre, String descripcion, float precio){
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.precio = precio;
+    private final String nombre;
+    private final String descripcion;
+    private final float precio;
+    private String [] imagen;
+    
+    //Contructores
+    public DataServicio(){
+        this.nombre         = "";
+        this.descripcion    = "";
+        this.precio         = 0;
+        this.imagen         = null;
+    }
+        
+    public DataServicio(String nombre, String descripcion, float precio, String[] imagen){
+        this.nombre         = nombre;
+        this.descripcion    = descripcion;
+        this.precio         = precio;
+        this.imagen         = imagen;
     }
 
+    //Getters
     public String getNombre() {
         return nombre;
     }
@@ -27,6 +39,10 @@ public class DataServicio {
         return descripcion;
     }
 
+    public String[] getImagen(){
+        return imagen;
+    }
+        
     public float getPrecio() {
         return precio;
     }
