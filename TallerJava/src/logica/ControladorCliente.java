@@ -59,7 +59,5 @@ public class ControladorCliente {
     public DataInfoReserva verInfoReserva(int id){
         return null;
     }
-    public DataInfoCliente verInfoCliente(String nomCliente){
-        return null;
-    }
+  
 }
