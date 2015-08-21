@@ -16,8 +16,7 @@ import java.util.Collections;
  * @author matias.heredia
  */
 public class Cliente extends Usuario{
-    private Map<String,Reserva> reservas;
-    
+    private Map<String,Reserva> reservas; 
     
     
     public Cliente(String nickname, String nombre, String apellido,String email, Date fechaNac, String url){
@@ -36,7 +35,9 @@ public class Cliente extends Usuario{
     }
     public void reservarServicio(Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
         Date fecha_actual = new Date();
-        Reserva res = new Reserva(fecha_actual,fechaIni,fechaFin,0,Estado.registrada);
+        String clave = nombre + - + reservas.size();
+        Reserva res = new Reserva(clave,fecha_actual,fechaIni,fechaFin,0,Estado.registrada);
+        
         reservas.put(res.getId(),res);
         ItemReserva item = new ItemReserva(cantidad,serv);
         res.agregarItem(item);
@@ -49,7 +50,8 @@ public class Cliente extends Usuario{
     }
     public void reservarPromocion(Promocion prom,int cantidad,Date fechaIni,Date fechaFin){
         Date fecha_actual = new Date();
-        Reserva res = new Reserva(fecha_actual,fechaIni,fechaFin,0,Estado.registrada);
+        String clave = nombre + - + reservas.size();
+        Reserva res = new Reserva(clave,fecha_actual,fechaIni,fechaFin,0,Estado.registrada);
         reservas.put(res.getId(),res);
         ItemReserva item = new ItemReserva(cantidad,prom);
         res.agregarItem(item);

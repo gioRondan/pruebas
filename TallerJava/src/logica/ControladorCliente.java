@@ -46,6 +46,12 @@ public class ControladorCliente {
     
     public void cancelarReserva(String nomCliente, int id){}
     
+    public Set<DataReserva> listarReservasSistema(){
+        ManejadorCliente mCl = ManejadorCliente.getInstance();
+        return mCl.listarReservas();
+        
+    }
+    
     public Set<DataReserva> listarReservasXCliente(String nomCliente){
         ManejadorCliente mCl = ManejadorCliente.getInstance();
         return mCl.getCliente(nomCliente).getDataReservas();

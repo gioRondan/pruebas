@@ -5,6 +5,7 @@
  */
 package logica;
 
+import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 
@@ -31,11 +32,20 @@ public class ManejadorCliente {
     public void removeCliente(String nickname){
         clientes.remove(nickname);
     }
+    public Set<DataReserva> listarReservas(){
+        Set<DataReserva> dts;
+        dts = Collections.EMPTY_SET;
+        clientes.values().stream().forEach((Cliente value) -> {
+             boolean ni = dts.addAll(value.getDataReservas());
+         });
+        return dts;
+        
+    }
     public Set<DataCliente> getDataClientes(){
-        Set<DataCliente> dts = null;
-        for (Cliente value : clientes.values()){
-            dts.add(value.getDataCliente());
-        }
+        Set<DataCliente> dts = Collections.EMPTY_SET;
+        clientes.values().stream().forEach((value) -> {
+             dts.add(value.getDataCliente());
+         });
         return dts;
     }
     
