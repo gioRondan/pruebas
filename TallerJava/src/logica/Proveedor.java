@@ -8,6 +8,7 @@ package logica;
 import java.util.Date;
 import java.util.Map;
 import java.util.Set;
+import java.util.Collections;
 
 /**
  *
@@ -33,7 +34,7 @@ public class Proveedor extends Usuario{
         return new DataProveedor(this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),this.getImagen() , empresa);
     }
     public Set<DataServicio> getDataServicios(){
-        Set<DataServicio> dts = null;
+        Set<DataServicio> dts = Collections.EMPTY_SET;
         for (Servicio value : servicios.values()){
             dts.add(value.getDataServicio());
         }
