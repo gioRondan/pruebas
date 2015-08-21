@@ -33,7 +33,8 @@ public class ManejadorCliente {
         clientes.remove(nickname);
     }
     public Set<DataReserva> listarReservas(){
-        Set<DataReserva> dts = Collections.EMPTY_SET;
+        Set<DataReserva> dts;
+        dts = Collections.EMPTY_SET;
         clientes.values().stream().forEach((Cliente value) -> {
              boolean ni = dts.addAll(value.getDataReservas());
          });

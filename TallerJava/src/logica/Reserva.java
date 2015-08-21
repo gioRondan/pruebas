@@ -21,8 +21,8 @@ public class Reserva {
     private Estado estado;
     private Set<ItemReserva> item;
     
-    public Reserva(Date fechaCreacion, Date fechaInicio, Date fechaFin, float precio, Estado estado){
-        
+    public Reserva(String id,Date fechaCreacion, Date fechaInicio, Date fechaFin, float precio, Estado estado){
+        this.id=id;
         this.fechaCreacion = fechaCreacion;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
