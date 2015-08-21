@@ -44,7 +44,11 @@ public class ControladorCliente {
     }
     public void reservarServicio(String proveedor, String promo, int cantidad, Date fechaIni, Date fechaFin){}
     
-    public void cancelarReserva(String nomCliente, int id){}
+    public void cancelarReserva(String nomCliente, int id){
+        ManejadorCliente mCl = ManejadorCliente.getInstance();
+        Cliente cli = mCl.getCliente(nomCliente);
+        cli.cancelarReserva(id);
+    }
     
     public Set<DataReserva> listarReservasSistema(){
         ManejadorCliente mCl = ManejadorCliente.getInstance();

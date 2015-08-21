@@ -5,6 +5,8 @@
  */
 package logica;
 
+import java.util.Date;
+
 /**
  *
  * @author giovani
@@ -13,16 +15,22 @@ public class ItemReserva {
     private int cantidad;
     private Servicio servicio;
     private Promocion promocion;
+    private Date inicio;
+    private Date fin;
     
-    public ItemReserva(int cantidad,Servicio serv){
+    public ItemReserva(int cantidad,Servicio serv, Date inicio, Date fin){
         this.cantidad = cantidad;
         servicio=serv;
         promocion=null;
+        this.inicio = inicio;
+        this.fin = fin;
     }
-    public ItemReserva(int cantidad,Promocion pro){
+    public ItemReserva(int cantidad,Promocion pro, Date inicio, Date fin){
         this.cantidad = cantidad;
         promocion=pro;
         servicio=null;
+        this.inicio = inicio;
+        this.fin = fin;
     }
     public int getCantidad(){
         return cantidad;

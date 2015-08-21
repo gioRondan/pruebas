@@ -72,4 +72,9 @@ public class Reserva {
     public DataReserva getDataReserva(){
         return new DataReserva(id, fechaCreacion, fechaInicio, fechaFin, precio, estado);
     }
+    public void darDeBaja(){
+        for(ItemReserva it : item){
+            item.remove(it);
+        }
+    }
 }

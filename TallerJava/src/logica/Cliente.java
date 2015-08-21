@@ -56,4 +56,9 @@ public class Cliente extends Usuario{
         ItemReserva item = new ItemReserva(cantidad,prom);
         res.agregarItem(item);
     }
+    public void cancelarReserva(int id){
+        Reserva res = reservas.get(id);
+        res.darDeBaja();
+        reservas.remove(id);
+    }
 }
