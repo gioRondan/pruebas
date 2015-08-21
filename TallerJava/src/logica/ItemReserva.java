@@ -14,8 +14,15 @@ public class ItemReserva {
     private Servicio servicio;
     private Promocion promocion;
     
-    public ItemReserva(int cantidad){
+    public ItemReserva(int cantidad,Servicio serv){
         this.cantidad = cantidad;
+        servicio=serv;
+        promocion=null;
+    }
+    public ItemReserva(int cantidad,Promocion pro){
+        this.cantidad = cantidad;
+        promocion=pro;
+        servicio=null;
     }
     public int getCantidad(){
         return cantidad;
