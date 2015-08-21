@@ -168,9 +168,13 @@ public class ControladoProveedor {
     
     }
     public Set<DataPromocion> listarPromocionesXProveedor( String nomProveedor){
+        ManejadorProveedor mPr = ManejadorProveedor.getInstance();
+        Proveedor prov = mPr.getProveedor(proveedor);
+        
         return null;
     }
     public DataInfoPromocion verInfoPromocion( String nomPromocion){
+        
         return null;
     }
     public DataInfoServicio verInfoServicio( String nomServicio){

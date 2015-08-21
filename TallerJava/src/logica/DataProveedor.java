@@ -19,28 +19,30 @@ public class DataProveedor {
     private String email;
     private Date fechaNac;
     private String imagen;
-    private String empresa;
+    private String nombreEmpresa;
+    private String urlEmpresa;
     
     
     //Constructores
     public DataProveedor(){
-        this.nickname   = "";
-        this.nombre     = "";
-        this.apellido   = "";
-        this.email      = "";
-        this.fechaNac   = null;
-        this.imagen     = "";
-        this.empresa    = "";
+        this.nickname     = "";
+        this.nombre       = "";
+        this.apellido     = "";
+        this.email        = "";
+        this.fechaNac     = null;
+        this.imagen       = "";
+        this.nombreEmpresa= "";
+        this.urlEmpresa   = "";
     }
     
-    public DataProveedor(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, String empresa){
-        this.nickname   = nickname;
-        this.nombre     = nombre;
-        this.apellido   = apellido;
-        this.email      = email;
-        this.fechaNac   = fechaNac;
-        this.imagen     = imagen;
-        this.empresa    = empresa;
+    public DataProveedor(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmpresa, String urlEmpresa){
+        this.nickname       = nickname;
+        this.nombre         = nombre;
+        this.apellido       = apellido;
+        this.email          = email;
+        this.fechaNac       = fechaNac;
+        this.imagen         = imagen;
+        this.nombreEmpresa  = nombreEmpresa;
     }
 
     //Getters
@@ -68,8 +70,12 @@ public class DataProveedor {
         return imagen;
     }
     
-    public String getEmpresa(){
-        return empresa;
+    public String getnombreEmpresa(){
+        return nombreEmpresa;
+    }
+    
+    public String getUrlEmpresa(){
+        return urlEmpresa;
     }
     
 }

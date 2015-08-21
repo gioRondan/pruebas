@@ -47,4 +47,11 @@ public class Cliente extends Usuario{
             res.setEstado(estado);
         }
     }
+    public void reservarPromocion(Promocion prom,int cantidad,Date fechaIni,Date fechaFin){
+        Date fecha_actual = new Date();
+        Reserva res = new Reserva(fecha_actual,fechaIni,fechaFin,0,Estado.registrada);
+        reservas.put(res.getId(),res);
+        ItemReserva item = new ItemReserva(cantidad,prom);
+        res.agregarItem(item);
+    }
 }
