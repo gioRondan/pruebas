@@ -9,6 +9,7 @@ package logica;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 
 /**
@@ -26,6 +27,13 @@ public class Cliente extends Usuario{
     }
     public DataCliente getDataCliente(){
         return null;
+    }
+    public Set<DataReserva> getDataReservas(){
+        Set<DataReserva> dts = null;
+        for (Reserva value : reservas.values()){
+            dts.add(value.getDataReserva());
+        }
+        return dts;
     }
     public void reservarServicio(Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
         Date fecha_actual = new Date();
