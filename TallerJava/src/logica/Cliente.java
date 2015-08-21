@@ -16,7 +16,6 @@ import java.util.Map;
  * @author matias.heredia
  */
 public class Cliente extends Usuario{
-    private Map<String,Servicio> servicios;
     private Map<String,Reserva> reservas;
     
     
