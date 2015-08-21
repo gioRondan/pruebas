@@ -12,7 +12,7 @@ package logica;
 public class DataPromocion {
     private String nombre;
     private int descuento;
-    private float precioTotal;
+    private int precioTotal;
     
     //Constructores
     public DataPromocion(){
@@ -21,7 +21,7 @@ public class DataPromocion {
         precioTotal = 0;
     }
     
-    public DataPromocion( String nombre, int descuento, float precioTotal){
+    public DataPromocion( String nombre, int descuento, int precioTotal){
         this.nombre      = nombre;
         this.descuento   = descuento;
         this.precioTotal = precioTotal;
