@@ -14,13 +14,27 @@ import java.util.Set;
  */
 public class ControladorCliente {
     public void actualizarEstadoReserva(String nomReserva, String nomCliente){}
+    
+    public void realizarReserva(String proveedor,String cliente,String servicio,int cantidad,Date fechaInicio,Date fechaFin){
+        ManejadorCliente mcli = ManejadorCliente.getInstance();
+        Cliente aux_cliente = mcli.getCliente(cliente);
+        ManejadorProveedor mpr = ManejadorProveedor.getInstance();
+        Proveedor prov = mpr.getProveedor(proveedor);
+        Servicio serv = prov.getServicio(servicio);
+        aux_cliente.reservarServicio(serv,cantidad,fechaInicio,fechaFin);
+    }
     public void reservarPromocion(String proveedor, String promo, int cantidad, Date fechaIni, Date fechaFin){}
+    
     public void altaCliente(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen){}
+    
     public Set<DataCliente> listarClientes(){
         return null;
     }
+    
     public void reservarServicio(String proveedor, String promo, int cantidad, Date fechaIni, Date fechaFin){}
+    
     public void cancelarReserva(String nomCliente, int id){}
+    
     public Set<DataReserva> listarReservasXCliente(String nomCliente){
         return null;
     }
