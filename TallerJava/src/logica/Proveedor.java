@@ -16,6 +16,7 @@ import java.util.Set;
 public class Proveedor extends Usuario{
     private String empresa;
     private String link_empresa;
+    private Map<String, Promocion> promociones;
     private Map<String, Servicio> servicios;
     
     public Proveedor(String nickname, String nombre, String apellido,String email, Date fechaNac, String url){
@@ -29,7 +30,7 @@ public class Proveedor extends Usuario{
         this.link_empresa=url;
     }
     public DataProveedor getDataProveedor(){
-        return new DataProveedor(this.getNombre(), this.getApellido(), this.getNickname(), this.empresa);
+        return new DataProveedor(this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),this.getImagen() , empresa);
     }
     public Set<DataServicio> getDataServicios(){
         Set<DataServicio> dts = null;
@@ -38,6 +39,10 @@ public class Proveedor extends Usuario{
         }
         return dts;
     }
+    public Promocion getPromocion(String nomPromocion){
+        return this.promociones.get(nomPromocion);
+    }
+    
     public void asociarServicio(Servicio ser){
         this.servicios.put(ser.getNombre(), ser);
     }
