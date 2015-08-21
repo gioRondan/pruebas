@@ -24,4 +24,7 @@ public class Cliente extends Usuario{
     public DataCliente getDataCliente(){
         return null;
     }
+    public void reservarServicio(Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
+        
+    }
 }
