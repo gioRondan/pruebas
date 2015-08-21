@@ -48,7 +48,7 @@ public class Reserva {
     public Estado getEstado(){
         return estado;
     }
-    public void setId(int id){
+    public void setId(String id){
         this.id = id;
     }
     public void setFechaCreacion(Date fechaCreacion){
