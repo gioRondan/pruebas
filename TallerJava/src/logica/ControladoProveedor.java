@@ -12,10 +12,10 @@ import java.util.*;
  * @author Juan
  */
 public class ControladoProveedor {
-    private Set<String> imagenServicio = "";
+    private Set<String> imagenServicio = Collections.EMPTY_SET;
     private String destinoServicio = "";
     private String origenServicio = "";
-    private Set<String> categoriasServicio = "";
+    private Set<String> categoriasServicio = Collections.EMPTY_SET;
     private String servicio = "";
     private String proveedor = "";
     private String descripcionServicio = "";
@@ -55,7 +55,6 @@ public class ControladoProveedor {
         prov.asociarServicio(ser);
         //asociar servicio a proveedor??????
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
-        Set<Categoria> categorias;
         for(String cats : categoriasServicio){
             Categoria cat = mCa.getCategoria(cats);
             cat.setServicio(ser);
