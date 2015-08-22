@@ -13,7 +13,7 @@ import java.util.Set;
  *
  * @author Juan
  */
-public class ControladorCliente {
+public class ControladorCliente implements IControladorCliente{
     public void actualizarEstadoReserva(String id, String nomCliente, Estado estado){
         ManejadorCliente mCl = ManejadorCliente.getInstance();
         Cliente cli = mCl.getCliente(nomCliente);
@@ -36,20 +36,20 @@ public class ControladorCliente {
         }
     }
     
-    public void altaCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen)throws Exception{
+    public void altaCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen){
         ManejadorCliente mCl = ManejadorCliente.getInstance();
         boolean existeNickname = mCl.existeCliente(nickname);
         boolean existeMail     = mCl.existeCliente(email);      
         if(existeNickname){
-            throw new Exception("Ya existe un usuario con el nickname: " + nickname);
-        }
-        else if(existeMail){
-            throw new Exception("Ya existe un usuario con el email: " + email);
-        }
-        else{
-            Cliente cliente;
-            cliente = new Cliente(nickname, nombre, apellido, email, fechaNac, imagen);
-            mCl.addCliente(cliente);
+//            throw new Exception("Ya existe un usuario con el nickname: " + nickname);
+//        }
+//        else if(existeMail){
+//            throw new Exception("Ya existe un usuario con el email: " + email);
+//        }
+//        else{
+//            Cliente cliente;
+//            cliente = new Cliente(nickname, nombre, apellido, email, fechaNac, imagen);
+//            mCl.addCliente(cliente);
         }        
     }
     
@@ -74,11 +74,19 @@ public class ControladorCliente {
         ManejadorCliente mCl = ManejadorCliente.getInstance();
         return mCl.getCliente(nomCliente).getDataReservas();
     }
+    
     public DataInfoReserva verInfoReserva(int id){
         return null;
     }
+    
     public DataInfoCliente verInfoCliente( String nomCliente){
         ManejadorCliente mCl = ManejadorCliente.getInstance();
         return mCl.getCliente(nomCliente).getDataInfoCliente();
     }
+    
+    public void reservarPromocion(String proveedor, String promo, int cantidad, Date fechaIni, Date fechaFin){
+    };
+    public void reservarServicio(String proveedor, String promo, int cantidad, Date fechaIni, Date fechaFin){
+    };
+
 }
