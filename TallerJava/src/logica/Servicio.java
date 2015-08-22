@@ -35,11 +35,12 @@ public class Servicio {
     public void setDesc(String des){
         this.descripcion= des;
     }
-    public void agregarImagen(String img){
+    public void agregarImagen(String img)throws Exception{
         if (contImagen < 4){
             this.imagen[contImagen] = img;
             contImagen++;
-        }
+        }else
+            throw new Exception("El servicio ya tiene asignado 3 imagenes");
     }
     public void setPrecio(float precio){
          this.precio = precio;
