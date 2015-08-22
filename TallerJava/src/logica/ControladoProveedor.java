@@ -45,7 +45,7 @@ public class ControladoProveedor {
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
         return mCa.getDataCategorias();//falta implementar manejadorcategoria
     }
-    public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor){
+    public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor) throws Exception{
         Servicio ser = new Servicio(nombre, descripcion, precio);
         for (String im : imagenServicio){
             ser.agregarImagen(im);
@@ -124,7 +124,7 @@ public class ControladoProveedor {
     public void ingresarOrigenServicio( String origen){
         this.origenServicio = origen;
     }
-    public void modificarServicio(){
+    public void modificarServicio()throws Exception{
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
         Servicio ser = prov.getServicio(servicio);
