@@ -43,5 +43,4 @@ public class Main {
         }
         JOptionPane.showMessageDialog(null,total);
     }
-    
 }
