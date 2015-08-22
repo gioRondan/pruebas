@@ -179,8 +179,5 @@ public class ControladoProveedor {
     public DataInfoProveedor verInfoProveedor( String nomProveedor){
         return null;
     }
-    public DataInfoCliente verInfoCliente( String nomCliente){
-        //Rodrigo
-        return null;
-    }
+    
 }
