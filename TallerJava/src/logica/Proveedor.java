@@ -19,8 +19,8 @@ public class Proveedor extends Usuario{
     private Map<String, Promocion> promociones;
     private Map<String, Servicio> servicios;
     
-    public Proveedor(String nickname, String nombre, String apellido,String email, Date fechaNac, String url){
-        super(nickname,nombre,apellido,email,fechaNac,url);
+    public Proveedor(String nickname, String nombre, String apellido,String email, Date fechaNac, String imagen){
+        super(nickname,nombre,apellido,email,fechaNac,imagen);
     }
 
      
@@ -56,6 +56,9 @@ public class Proveedor extends Usuario{
     }
     public Servicio getServicio(String nombre){
         return servicios.get(nombre);
+    }
+    public void asociarEmpresa(Empresa empresa){
+        this.empresa = empresa;
     }
 }
 

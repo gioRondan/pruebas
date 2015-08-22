@@ -35,7 +35,6 @@ public class ControladorCliente {
             aux_cliente.reservarPromocion(pr, cantidad, fechaInicio, fechaFin);
         }
     }
-    public void reservarPromocion(String proveedor, String promo, int cantidad, Date fechaIni, Date fechaFin){}
     
     public void altaCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen)throws Exception{
         ManejadorCliente mCl = ManejadorCliente.getInstance();
@@ -58,7 +57,6 @@ public class ControladorCliente {
         ManejadorCliente mCl = ManejadorCliente.getInstance();
         return mCl.getDataClientes();
     }
-    public void reservarServicio(String proveedor, String promo, int cantidad, Date fechaIni, Date fechaFin){}
     
     public void cancelarReserva(String nomCliente, int id){
         ManejadorCliente mCl = ManejadorCliente.getInstance();

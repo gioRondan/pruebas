@@ -159,8 +159,18 @@ public class ControladoProveedor {
     public Set<DataEmpresa> listarEmpresas(){
         return null;
     }
-    public void altaProveedor( String nick, String nombe, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp){//iria un dt como entrada calculo yo
-    
+    public void altaProveedor( String nick, String nombre, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp, String linkEmp) throws Exception{//iria un dt como entrada calculo yo
+        ManejadorProveedor mPr = ManejadorProveedor.getInstance();
+        mPr.unicidadNick(nick);//bomba!!!!!!!!!!!!
+        mPr.unicidadEmail(email);
+        if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty()) || (imagen.isEmpty()) || (nombreEmp.isEmpty())){
+            throw new Exception("los datos ingresados no son correctos");
+        }else{
+            Proveedor prov = new Proveedor(nick, nombre, apellido, email, fechaNac, imagen);
+            Empresa empresa = new Empresa(nombreEmp, linkEmp);
+            prov.asociarEmpresa(empresa);
+            mPr.addProveedor(prov);
+        }
     }
 
 

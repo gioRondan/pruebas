@@ -7,6 +7,8 @@
 package logica;
 import java.util.Map;
 import java.util.Set;
+import java.util.Iterator;
+import java.util.Map.Entry;
 /**
  *
  * @author matias.heredia
@@ -44,6 +46,19 @@ public class ManejadorProveedor {
             dts.add(value.getDataProveedor());
         }
         return dts;
+    }
+
+    void unicidadNick(String nick) throws Exception{
+        if (proveedores.containsKey(nick))
+            throw new Exception("Not supported yet."); 
+    }
+
+    void unicidadEmail(String email) throws Exception{
+        for(Proveedor it : proveedores.values()){
+            if (it.getEmail().equals(email)){
+                throw new Exception("el email ingresado ya pertenece a otro proveedor");
+            }
+        }
     }
     
   
