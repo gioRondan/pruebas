@@ -26,7 +26,7 @@ public class Cliente extends Usuario{
         
     }
     public DataCliente getDataCliente(){
-        return null;
+        return new DataCliente( nickname, nombre, apellido, email, fechaNac, imagen);
     }
     public Set<DataReserva> getDataReservas(){
         Set<DataReserva> dts = Collections.EMPTY_SET;

@@ -70,4 +70,9 @@ public class Categoria {
     public void asociarPadre(Categoria cat){
     
     }
+    public void esHoja()throws Exception{
+        if (!hijos.isEmpty()){
+            throw new Exception("La categoria seleccionada tiene hijos");
+        }
+    }
 }
