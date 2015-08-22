@@ -12,16 +12,16 @@ import java.util.*;
  * @author Juan
  */
 public class ControladoProveedor {
-    private Set<String> imagenServicio;
-    private String destinoServicio;
-    private String origenServicio;
-    private Set<String> categoriasServicio;
-    private String servicio;
-    private String proveedor;
-    private String descripcionServicio;
+    private Set<String> imagenServicio = Collections.EMPTY_SET;
+    private String destinoServicio = "";
+    private String origenServicio = "";
+    private Set<String> categoriasServicio = Collections.EMPTY_SET;
+    private String servicio = "";
+    private String proveedor = "";
+    private String descripcionServicio = "";
     private float precioServicio = 0;
-    private String categoria;
-    private String nomCategoria;
+    private String categoria = "";
+    private String nomCategoria = "";
     private String nomPadre = "";
     
     private void liberarMemoria(){
@@ -55,7 +55,6 @@ public class ControladoProveedor {
         prov.asociarServicio(ser);
         //asociar servicio a proveedor??????
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
-        Set<Categoria> categorias;
         for(String cats : categoriasServicio){
             Categoria cat = mCa.getCategoria(cats);
             cat.setServicio(ser);
@@ -162,7 +161,7 @@ public class ControladoProveedor {
     public void altaProveedor( String nick, String nombre, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp, String linkEmp) throws Exception{//iria un dt como entrada calculo yo
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         mPr.unicidadNick(nick);//bomba!!!!!!!!!!!!
-        mPr.unicidadEmail(email);
+        mPr.unicidadEmail(email);//bomba!!!!!!!!!!!!
         if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty()) || (imagen.isEmpty()) || (nombreEmp.isEmpty())){
             throw new Exception("los datos ingresados no son correctos");
         }else{
