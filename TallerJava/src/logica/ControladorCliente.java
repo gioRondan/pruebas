@@ -80,6 +80,7 @@ public class ControladorCliente {
         return null;
     }
     public DataInfoCliente verInfoCliente( String nomCliente){
-        return null;
+        ManejadorCliente mCl = ManejadorCliente.getInstance();
+        return mCl.getCliente(nomCliente).getDataInfoCliente();
     }
 }

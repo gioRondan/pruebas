@@ -63,4 +63,7 @@ public class Cliente extends Usuario{
         res.darDeBaja();
         reservas.remove(id);
     }
+    public DataInfoCliente getDataInfoCliente(){
+        return new DataInfoCliente(nickname, nombre, apellido, email, fechaNac, imagen, getDataReservas());
+    }
 }
