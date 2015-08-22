@@ -41,7 +41,7 @@ public class Cliente extends Usuario{
         Reserva res = new Reserva(clave,fecha_actual,fechaIni,fechaFin,0,Estado.registrada);
         
         reservas.put(res.getId(),res);
-        ItemReserva item = new ItemReserva(cantidad,serv);
+        ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin);
         res.agregarItem(item);
     }
     public void modificarEstadoReserva(String id, Estado estado){
@@ -55,7 +55,7 @@ public class Cliente extends Usuario{
         String clave = this.nombre + "-" + reservas.size();
         Reserva res = new Reserva(clave,fecha_actual,fechaIni,fechaFin,0,Estado.registrada);
         reservas.put(res.getId(),res);
-        ItemReserva item = new ItemReserva(cantidad,prom);
+        ItemReserva item = new ItemReserva(cantidad,prom, fechaIni, fechaFin);
         res.agregarItem(item);
     }
     public void cancelarReserva(int id){
