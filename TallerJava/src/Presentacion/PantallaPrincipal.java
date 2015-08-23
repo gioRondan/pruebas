@@ -23,27 +23,34 @@ import org.jdatepicker.impl.UtilDateModel;
  * @author rodrigo.linares
  */
 public class PantallaPrincipal extends javax.swing.JFrame {
+    
 
     /**
      * Creates new form PantallaPrincipal
      */
-    
+    private static PantallaPrincipal instancia = null;
     public IControladorProveedor ICP;
     public IControladorCliente ICC;
     
-    public PantallaPrincipal() {
+    private PantallaPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
-        ListarEmpresas.setVisible(false);
-        SelectorImagen.setVisible(false);
-        ISelectorImagen.setVisible(false);
-        
+        instancia= this;    
         Fabrica fabrica = Fabrica.getInstance();
         ICP = fabrica.getIControladorProveedor();
         ICC = fabrica.getIControladorCliente();
     }
     
+    public static PantallaPrincipal getInstancia(){
+        if(instancia == null)
+            instancia = new PantallaPrincipal();
+        return instancia;
+    };
+    public void abrirListarEmpresas(){
+        ListarEmpresas al = new ListarEmpresas();
+        Escritorio.add(al);
+        al.show();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,15 +60,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ListarEmpresas = new javax.swing.JInternalFrame();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        ISelectorImagen = new javax.swing.JInternalFrame();
-        SelectorImagen = new javax.swing.JFileChooser();
         Escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -81,88 +79,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
-
-        ListarEmpresas.setTitle("Listar Empresas");
-        ListarEmpresas.setVisible(true);
-
-        jList2.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(jList2);
-
-        jButton8.setText("Nueva Empresa");
-
-        jButton9.setText("Aceptar");
-
-        jButton10.setText("Cancelar");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel11.setText("Empresas");
-
-        javax.swing.GroupLayout ListarEmpresasLayout = new javax.swing.GroupLayout(ListarEmpresas.getContentPane());
-        ListarEmpresas.getContentPane().setLayout(ListarEmpresasLayout);
-        ListarEmpresasLayout.setHorizontalGroup(
-            ListarEmpresasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ListarEmpresasLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(ListarEmpresasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(ListarEmpresasLayout.createSequentialGroup()
-                        .addComponent(jButton9)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton10))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ListarEmpresasLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton8)
-                .addContainerGap())
-        );
-        ListarEmpresasLayout.setVerticalGroup(
-            ListarEmpresasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ListarEmpresasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(ListarEmpresasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton8)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ListarEmpresasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9)
-                    .addComponent(jButton10))
-                .addContainerGap(49, Short.MAX_VALUE))
-        );
-
-        ISelectorImagen.setResizable(true);
-        ISelectorImagen.setVisible(true);
-
-        SelectorImagen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SelectorImagenActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout ISelectorImagenLayout = new javax.swing.GroupLayout(ISelectorImagen.getContentPane());
-        ISelectorImagen.getContentPane().setLayout(ISelectorImagenLayout);
-        ISelectorImagenLayout.setHorizontalGroup(
-            ISelectorImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ISelectorImagenLayout.createSequentialGroup()
-                .addComponent(SelectorImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        ISelectorImagenLayout.setVerticalGroup(
-            ISelectorImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SelectorImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem13 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal H4T");
@@ -171,7 +89,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         Escritorio.setLayout(EscritorioLayout);
         EscritorioLayout.setHorizontalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 729, Short.MAX_VALUE)
+            .addGap(0, 773, Short.MAX_VALUE)
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,6 +163,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jMenu5.setText("Empresas");
+
+        jMenuItem13.setText("ListarEmpresas");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem13);
+
+        jMenuBar1.add(jMenu5);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -272,17 +202,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
         // TODO add your handling code here:
-        ListarEmpresas.setVisible(false);
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void SelectorImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectorImagenActionPerformed
-        File f = null;
-        // TODO add your handling code here:
-        SelectorImagen.accept(f);
-        SelectorImagen.setVisible(false);
-    }//GEN-LAST:event_SelectorImagenActionPerformed
+        this.abrirListarEmpresas();
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,23 +244,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane Escritorio;
-    private javax.swing.JInternalFrame ISelectorImagen;
-    private javax.swing.JInternalFrame ListarEmpresas;
-    private javax.swing.JFileChooser SelectorImagen;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JList jList2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
@@ -347,6 +264,5 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
-    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
