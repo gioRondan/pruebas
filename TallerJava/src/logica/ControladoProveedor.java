@@ -6,12 +6,14 @@
 package logica;
 
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Juan
  */
-public class ControladoProveedor {
+public class ControladoProveedor implements IControladorProveedor{
     private Set<String> imagenServicio = Collections.EMPTY_SET;
     private String destinoServicio = "";
     private String origenServicio = "";
@@ -27,7 +29,6 @@ public class ControladoProveedor {
     private void liberarMemoria(){
         
     }
-    
     public void ingresarImagenServicio(String imagen){
         this.imagenServicio.add(imagen);
     }
@@ -45,10 +46,14 @@ public class ControladoProveedor {
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
         return mCa.getDataCategorias();//falta implementar manejadorcategoria
     }
-    public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor) throws Exception{
+    public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor){
         Servicio ser = new Servicio(nombre, descripcion, precio);
         for (String im : imagenServicio){
-            ser.agregarImagen(im);
+            try {
+                ser.agregarImagen(im);
+            } catch (Exception ex) {
+                Logger.getLogger(ControladoProveedor.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
@@ -123,7 +128,7 @@ public class ControladoProveedor {
     public void ingresarOrigenServicio( String origen){
         this.origenServicio = origen;
     }
-    public void modificarServicio()throws Exception{
+    public void modificarServicio(){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
         Servicio ser = prov.getServicio(servicio);
@@ -131,7 +136,11 @@ public class ControladoProveedor {
             ser.setDesc(descripcionServicio);
         }
         for(String im : imagenServicio){
-            ser.agregarImagen(im);//revisar
+            try {
+                ser.agregarImagen(im);//revisar
+            } catch (Exception ex) {
+                Logger.getLogger(ControladoProveedor.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         if (precioServicio != 0){
             ser.setPrecio(precioServicio);
@@ -145,7 +154,11 @@ public class ControladoProveedor {
             ser.asociarDestino(mCi.getCiudad(destinoServicio));
         }
         for(String im : imagenServicio){
-            ser.agregarImagen(im);//revisar
+            try {
+                ser.agregarImagen(im);//revisar
+            } catch (Exception ex) {
+                Logger.getLogger(ControladoProveedor.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         for(String cats : categoriasServicio){
             ManejadorCategoria mCa = ManejadorCategoria.getInstance();
@@ -171,22 +184,48 @@ public class ControladoProveedor {
             mPr.addProveedor(prov);
         }
     }
-
-
     public Set<DataPromocion> listarPromocionesXProveedor( String nomProveedor){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
         return prov.getDataPromociones();
     }
-    
     public DataInfoServicio verInfoServicio( String nomServicio){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
         Servicio ser = prov.getServicio(nomServicio);
         return ser.getDataInfoServicio();
     }
+    @Override
     public DataInfoProveedor verInfoProveedor( String nomProveedor){
         return null;
+    }
+    @Override
+    public void ingresarImagen(String imagen) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    @Override
+    public void ingresarDestino(String destino) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    @Override
+    public void ingresarCategoria(String Categoria) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    @Override
+    public void altaPromocion(String nomProveedor, Set<String> ser, String nombre) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    @Override
+    public void actualizarEstadoReserva(int idReserva, String nomCliente, Estado estado) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    @Override
+    public void altaProveedor(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmp) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    @Override
+    public DataInfoPromocion verInfoPromocion(String nomPromocion) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
