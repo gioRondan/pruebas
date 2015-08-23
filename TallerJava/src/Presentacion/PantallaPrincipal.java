@@ -30,6 +30,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     
     public IControladorProveedor ICP;
     public IControladorCliente ICC;
+    private static PantallaPrincipal instance = null;
     
     public PantallaPrincipal() {
         initComponents();
@@ -43,7 +44,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         ICP = fabrica.getIControladorProveedor();
         ICC = fabrica.getIControladorCliente();
     }
-    
+    public PantallaPrincipal getInstancia(){
+        if(instance == null)
+            instance = new PantallaPrincipal();
+        return instance;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -314,7 +319,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PantallaPrincipal().setVisible(true);
+               PantallaPrincipal x = new PantallaPrincipal();
+               x.setVisible(true);
+               instance = x;
             }
         });
     }

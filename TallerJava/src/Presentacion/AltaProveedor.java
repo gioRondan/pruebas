@@ -11,6 +11,7 @@ import java.util.Properties;
 
 import javafx.scene.control.DatePicker;
 import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
 import logica.Fabrica;
 import logica.IControladorCliente;
 import logica.IControladorProveedor;
@@ -36,12 +37,13 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
         initComponents();
         UtilDateModel model = new UtilDateModel();
         Properties x = new Properties(  );
-        model.setDate(1, 1, 1990);
-        JDatePanelImpl datePanel= new JDatePanelImpl(model,x);
         
+        JDatePanelImpl datePanel= new JDatePanelImpl(model,x);
+        model.setDate(1, 1, 1990);
         datePicker = new JDatePickerImpl(datePanel,new DateComponentFormatter());// (datePanel);
         datePicker.setBounds(136, 172, 206, 30);
         datePicker.setVisible(true);
+        datePicker.getModel().setDate(01, 01, 1900);
         this.add(datePicker);
     
         Fabrica fabrica = Fabrica.getInstance();
@@ -270,7 +272,12 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
 //        Date fecha;
 //        fecha = Date(d,m,a);
         Date selectedDate = (Date) this.datePicker.getModel().getValue();
-        ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , proveedorImagen.getText(), proveedorEmpresaNombre.getText());
+        
+        JOptionPane.showMessageDialog(null,"Fecha:" + selectedDate.toString());
+        ICP.altaProveedor(proveedorNick.getText(), proveedorNombre.getText(), proveedorApellido.getText(),
+                proveedorEmail.getText(), selectedDate, proveedorImagen.getText(), proveedorEmpresaNombre.getText(),
+                proveedorEmpresaLink.getText());
+        JOptionPane.showMessageDialog(null,"Se dio de alta el proveedor");
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -280,7 +287,7 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-       
+      // PantallaPrincipal x = PantallaPrincipal.getWindows()
 
     }//GEN-LAST:event_jButton6ActionPerformed
 
