@@ -27,7 +27,7 @@ public class Fabrica {
         return IG;
     }
     public IControladorProveedor getIControladorProveedor() {
-        IControladorProveedor IG =  new ControladoProveedor();
+        IControladorProveedor IG =  new ControladorProveedor();
         return IG;
     }
 }

@@ -36,7 +36,7 @@ public interface IControladorProveedor {
     public void ingresarCategoriaServicio(String categoria);
     public void modificarServicio();
     public Set<DataEmpresa> listarEmpresas();
-    public void altaProveedor(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmp);
+    public void altaProveedor(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmp, String LinkEmpres);
     public Set<DataPromocion> listarPromocionesXProveedor(String nomProveedor);
     public DataInfoPromocion verInfoPromocion(String nomPromocion);
     public DataInfoServicio verInfoServicio(String nomServicio);
