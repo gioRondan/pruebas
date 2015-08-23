@@ -26,7 +26,7 @@ public interface IControladorProveedor {
     public void seleccionarPadre(String nombre);
     public void altaCategoria(/*sin parametros?*/);
     public Set<DataServicio> listarServiciosXProveedor(String nomProveedor);
-    public void altaPromocion( String nomProveedor,Set<String> ser, String nombre, int descuento);
+    public void altaPromocion(String nomProveedor, Set<String> ser, String nombre);
     public void actualizarEstadoReserva(int idReserva,String nomCliente,Estado estado);
     public void ingresarDescripcionServicio(String desc);
     public void ingresarImagenServicio(String imagen);
@@ -36,7 +36,7 @@ public interface IControladorProveedor {
     public void ingresarCategoriaServicio(String categoria);
     public void modificarServicio();
     public Set<DataEmpresa> listarEmpresas();
-    public void altaProveedor(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmp,String linkEmp);
+    public void altaProveedor(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmp);
     public Set<DataPromocion> listarPromocionesXProveedor(String nomProveedor);
     public DataInfoPromocion verInfoPromocion(String nomPromocion);
     public DataInfoServicio verInfoServicio(String nomServicio);

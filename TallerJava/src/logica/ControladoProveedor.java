@@ -8,7 +8,6 @@ package logica;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -172,27 +171,12 @@ public class ControladoProveedor implements IControladorProveedor{
     public Set<DataEmpresa> listarEmpresas(){
         return null;
     }
-    
-     public void altaProveedor( String nick, String nombre, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp, String linkEmp){//iria un dt como entrada calculo yo
-       JOptionPane.showMessageDialog(null,"paso la bomba");  
+    public void altaProveedor( String nick, String nombre, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp, String linkEmp) throws Exception{//iria un dt como entrada calculo yo
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
-        try {
-            mPr.unicidadNick(nick);//bomba!!!!!!!!!!!!
-        } catch (Exception ex) {
-            Logger.getLogger(ControladoProveedor.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            mPr.unicidadEmail(email);//bomba!!!!!!!!!!!!
-        } catch (Exception ex) {
-            Logger.getLogger(ControladoProveedor.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        JOptionPane.showMessageDialog(null,"paso la bomba");
+        mPr.unicidadNick(nick);//bomba!!!!!!!!!!!!
+        mPr.unicidadEmail(email);//bomba!!!!!!!!!!!!
         if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty()) || (imagen.isEmpty()) || (nombreEmp.isEmpty())){
-           try {
-               throw new Exception("los datos ingresados no son correctos");
-           } catch (Exception ex) {
-               Logger.getLogger(ControladoProveedor.class.getName()).log(Level.SEVERE, null, ex);
-           }
+            throw new Exception("los datos ingresados no son correctos");
         }else{
             Proveedor prov = new Proveedor(nick, nombre, apellido, email, fechaNac, imagen);
             Empresa empresa = new Empresa(nombreEmp, linkEmp);
@@ -227,9 +211,16 @@ public class ControladoProveedor implements IControladorProveedor{
     public void ingresarCategoria(String Categoria) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-   
+    @Override
+    public void altaPromocion(String nomProveedor, Set<String> ser, String nombre) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     @Override
     public void actualizarEstadoReserva(int idReserva, String nomCliente, Estado estado) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    @Override
+    public void altaProveedor(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmp) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     @Override
