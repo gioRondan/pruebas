@@ -15,8 +15,11 @@ import java.util.Set;
  */
 public class ManejadorCliente {
      private Map<String,Cliente> clientes;
+     private int id;
     private static ManejadorCliente instance = null;
-    private ManejadorCliente(){}
+    private ManejadorCliente(){
+        id=111;
+    }
     
     public static ManejadorCliente getInstance(){
         if(instance == null)
@@ -57,6 +60,11 @@ public class ManejadorCliente {
              dts.add(value.getDataCliente());
          });
         return dts;
+    }
+
+    public int getUltimoid() {
+        id++;
+        return id;
     }
     
 }
