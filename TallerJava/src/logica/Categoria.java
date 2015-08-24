@@ -5,6 +5,7 @@
  */
 package logica;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -45,30 +46,24 @@ public class Categoria {
         return this.servicios;
     }
     public Set<DataServicio> getDataServicios(){
-        Set<DataServicio> dts = null; //?????????
+        Set<DataServicio> dts = new HashSet();
         for(Servicio s : servicios){
             dts.add(s.getDataServicio());
         }
         return dts;
     }
+    public Set<DataCategoria> getDataHijos(){
+        Set<DataCategoria> dts = new HashSet();
+        for(Categoria c : hijos){
+            dts.add(c.getDataCategoria());
+        }
+        return dts;
+    }
     public DataCategoria getDataCategoria(){
-        return new DataCategoria(/**/);
+        return new DataCategoria(nombre, getDataHijos());
     }
     public void setServicio(Servicio servicio){
         this.servicios.add(servicio);
-    }
-    
-    /**
-     *
-     * @param serv agrega este servicio a la coleccion de servicios de la categoria 
-     */
-    
-    /**
-     *
-     * @param cat es la categoria padre a la cual hay que agregarlo a sus hijos.
-     */
-    public void asociarPadre(Categoria cat){
-    
     }
     public void esHoja()throws Exception{
         if (!hijos.isEmpty()){
