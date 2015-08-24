@@ -187,11 +187,13 @@ public class ControladorProveedor implements IControladorProveedor{
 //           // throw new Exception("los datos ingresados no son correctos");
 //        }else{
             Proveedor prov = new Proveedor(nick, nombre, apellido, email, fechaNac, imagen);
-            
-            Empresa empresa = new Empresa(nombreEmp, linkEmp);
-            
+            ManejadorEmpresa mEmp =  ManejadorEmpresa.getInstance();
+            Empresa emp = mEmp.getEmpresa(nombreEmp);
+            if (emp == null){
+                emp = new Empresa(nombreEmp, linkEmp);
+                mEmp.addEmpresa(emp);
+            }
             prov.asociarEmpresa(empresa);
-            
             mPr.addProveedor(prov);
             JOptionPane.showMessageDialog(null, imagen);
 //        }
