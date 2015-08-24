@@ -24,13 +24,13 @@ public class ListarEmpresas extends javax.swing.JInternalFrame {
     /**
      * Creates new form ListarEmpresas
      */
-    
+        DefaultListModel<String> x = new DefaultListModel<>();
+        PantallaPrincipal pp = PantallaPrincipal.getInstancia();
+        List<DataEmpresa> dts = pp.ICP.listarEmpresas();
  
     public ListarEmpresas() {
         initComponents();
-        DefaultListModel<String> x = new DefaultListModel<>();
-         PantallaPrincipal pp = PantallaPrincipal.getInstancia();
-        List<DataEmpresa> dts = pp.ICP.listarEmpresas();
+        
          Iterator<DataEmpresa> itera = dts.iterator();
          while (itera.hasNext()) {
              x.addElement(itera.next().getNombre());       
@@ -133,7 +133,10 @@ public class ListarEmpresas extends javax.swing.JInternalFrame {
              }
         }
         else{
-         this.setVisible(false);
+        DataEmpresa dte = dts.get( jList2.getSelectedIndex());
+            AltaProveedor.proveedorEmpresaNombre.setText(dte.getNombre()); 
+            AltaProveedor.proveedorEmpresaLink.setText(dte.getUrl());
+            this.dispose();
         }
            
     }//GEN-LAST:event_jButton9ActionPerformed

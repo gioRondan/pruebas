@@ -29,9 +29,10 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
     /**
      * Creates new form AltaProveedor
      */
-     private IControladorProveedor ICP;
+     
     private JDatePickerImpl datePicker;
-   
+    PantallaPrincipal Pantallaprin = PantallaPrincipal.getInstancia();
+    
     public AltaProveedor() {
         initComponents();
         UtilDateModel model = new UtilDateModel();
@@ -268,9 +269,9 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
 //        Date fecha;
 //        fecha = Date(d,m,a);
         Date selectedDate = (Date) this.datePicker.getModel().getValue();
-        PantallaPrincipal x = PantallaPrincipal.getInstancia();
         
-        x.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , proveedorImagen.getText(), proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
+        
+      Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , proveedorImagen.getText(), proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -280,15 +281,14 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-      PantallaPrincipal x= PantallaPrincipal.getInstancia() ;
-      x.abrirListarEmpresas();
+      
+      Pantallaprin.abrirListarEmpresas();
       
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-//        SelectorImagen.setVisible(true);
-//        SelectorImagen.setBounds(100, 100, 300, 340);
+        Pantallaprin.abrirSelectorImagen();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void formAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_formAncestorAdded
@@ -316,9 +316,9 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField proveedorApellido;
     private javax.swing.JTextField proveedorEmail;
-    private javax.swing.JTextField proveedorEmpresaLink;
-    private javax.swing.JTextField proveedorEmpresaNombre;
-    private javax.swing.JTextField proveedorImagen;
+    public static javax.swing.JTextField proveedorEmpresaLink;
+    public static javax.swing.JTextField proveedorEmpresaNombre;
+    public static javax.swing.JTextField proveedorImagen;
     private javax.swing.JTextField proveedorNick;
     private javax.swing.JTextField proveedorNombre;
     // End of variables declaration//GEN-END:variables

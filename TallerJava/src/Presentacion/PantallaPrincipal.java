@@ -54,6 +54,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         Escritorio.add(al);
         al.show();
     }
+     public void abrirSelectorImagen(){
+        SelectorImagen al = new SelectorImagen();
+        Escritorio.add(al);
+        al.show();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
