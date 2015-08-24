@@ -11,10 +11,10 @@ import javax.swing.JOptionPane;
  * @author Juan
  */
 public class ControladorProveedor implements IControladorProveedor{
-    private Set<String> imagenServicio = Collections.EMPTY_SET;
+    private Set<String> imagenServicio = new HashSet();
     private String destinoServicio = "";
     private String origenServicio = "";
-    private Set<String> categoriasServicio = Collections.EMPTY_SET;
+    private Set<String> categoriasServicio = new HashSet();
     private String servicio = "";
     private String proveedor = "";
     private String descripcionServicio = "";
@@ -238,6 +238,7 @@ public class ControladorProveedor implements IControladorProveedor{
     
     @Override
     public DataInfoPromocion verInfoPromocion(String nomPromocion) {
+        
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

@@ -5,6 +5,7 @@
  */
 package logica;
 
+import java.util.HashSet;
 import java.util.Set;
 /**
  *
@@ -21,7 +22,7 @@ public class DataInfoPromocion {
         nombre      = "";
         descuento   = 0;
         precioTotal = 0;
-        servicios   = null;
+        servicios   = new HashSet();
     }
     
     public DataInfoPromocion( String nombre, int descuento, float precioTotal, Set<DataServicio> servicios){
