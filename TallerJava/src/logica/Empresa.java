@@ -33,4 +33,7 @@ public class Empresa {
     public void setUrl(String url){
         this.url = url;
     }
+    public DataEmpresa getDataEmpresa(){
+        return new DataEmpresa(nombre, url);
+    }
 }

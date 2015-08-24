@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 import java.util.Properties;
 
-import javafx.scene.control.DatePicker;
+//import javafx.scene.control.DatePicker;
 import javax.swing.JFormattedTextField;
 import logica.Fabrica;
 import logica.IControladorCliente;
