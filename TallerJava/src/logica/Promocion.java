@@ -5,6 +5,8 @@
  */
 package logica;
 
+
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -21,6 +23,7 @@ public class Promocion {
         this.nombre = nombre;
         this.descuento = descuento;
         this.precioTotal = precioTotal;
+        this.servicios = new HashMap();
     }
     public DataPromocion getDataPromocion(){
         return new DataPromocion(nombre, descuento, precioTotal);
