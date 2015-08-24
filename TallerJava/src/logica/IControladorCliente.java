@@ -12,12 +12,13 @@ import java.util.Set;
  * @author Juan
  */
 public interface IControladorCliente {
-    public void actualizarEstadoReserva(String id, String nomCliente, Estado estado);
+    public void actualizarEstadoReserva(int id, String nomCliente, Estado estado);
     public void altaCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen);
     public Set<DataCliente> listarClientes();
     public void cancelarReserva(String nomCliente, int id);
     public Set<DataReserva> listarReservasXCliente(String nomCliente);
-    public DataInfoReserva verInfoReserva(int id);
+    public Set<DataReserva> listarReservasSistema();
+    public DataInfoReserva verInfoReserva(String nomCliente, int id);
     public DataInfoCliente verInfoCliente(String nomCliente);
     public void realizarReserva(String proveedor,String cliente,String servicio,int cantidad,Date fechaInicio,Date fechaFin,boolean esServicio );
 }
