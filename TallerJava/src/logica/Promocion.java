@@ -8,6 +8,7 @@ package logica;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -48,5 +49,12 @@ public class Promocion {
     }
     public void agregarServicio(Servicio servicio){
         servicios.put(servicio.getNombre(), servicio);
+    }
+
+    DataInfoPromocion getDataInfoPromocion() {
+         //DataInfoPromocion( String nombre, int descuento, int precioTotal, Set<DataServicio> servicios){
+        Set<DataServicio> servicios=null;
+        DataInfoPromocion x = new DataInfoPromocion(this.getNombre(),this.getDescuento(),this.getPrecioTotal(),servicios);
+        return x;
     }
 }

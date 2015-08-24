@@ -39,7 +39,7 @@ public interface IControladorProveedor {
     public List<DataEmpresa> listarEmpresas();
     public void altaProveedor(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmp, String LinkEmpres);
     public Set<DataPromocion> listarPromocionesXProveedor(String nomProveedor);
-    public DataInfoPromocion verInfoPromocion(String nomPromocion);
+    public DataInfoPromocion verInfoPromocion(String nickproveedor, String nomPromocion);
     public DataInfoServicio verInfoServicio(String nomServicio);
     public DataInfoProveedor verInfoProveedor(String nomProveedor);
 }
