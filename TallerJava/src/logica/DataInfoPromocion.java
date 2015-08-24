@@ -14,7 +14,7 @@ import java.util.Set;
 public class DataInfoPromocion {
     private final String nombre;
     private final int descuento;
-    private final float precioTotal;
+    private final int precioTotal;
     private final Set<DataServicio> servicios;
     
     //Constructores
@@ -25,7 +25,7 @@ public class DataInfoPromocion {
         servicios   = new HashSet();
     }
     
-    public DataInfoPromocion( String nombre, int descuento, float precioTotal, Set<DataServicio> servicios){
+    public DataInfoPromocion( String nombre, int descuento, int precioTotal, Set<DataServicio> servicios){
         this.nombre      = nombre;
         this.descuento   = descuento;
         this.precioTotal = precioTotal;
@@ -41,7 +41,7 @@ public class DataInfoPromocion {
         return descuento;
     }
     
-    public float getPrecioTotal(){
+    public int getPrecioTotal(){
         return precioTotal;
     }
     

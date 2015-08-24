@@ -14,11 +14,8 @@ import java.util.List;
  * @author Juan
  */
 public interface IControladorProveedor {
-    
     public void ingresarImagen(String imagen);
-    public void ingresarDestino(String destino);
     public Set<DataCiudad> listarCiudades();
-    public void ingresarCategoria(String Categoria);
     public Set<DataCategoria> listarCategorias();
     public void altaServicio(String nombre, String descripcion, int precio, String origen, String proveedor);
     public Set<DataProveedor> listarProveedores();
@@ -28,7 +25,6 @@ public interface IControladorProveedor {
     public void altaCategoria(/*sin parametros?*/);
     public Set<DataServicio> listarServiciosXProveedor(String nomProveedor);
     public void altaPromocion( String nomProveedor,Set<String> ser, String nombre, int descuento);
-    public void actualizarEstadoReserva(int idReserva,String nomCliente,Estado estado);
     public void ingresarDescripcionServicio(String desc);
     public void ingresarImagenServicio(String imagen);
     public void ingresarPrecioServicio(int precio);
@@ -39,7 +35,7 @@ public interface IControladorProveedor {
     public List<DataEmpresa> listarEmpresas();
     public void altaProveedor(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmp, String LinkEmpres);
     public Set<DataPromocion> listarPromocionesXProveedor(String nomProveedor);
-    public DataInfoPromocion verInfoPromocion(String nomPromocion);
+    public DataInfoPromocion verInfoPromocion(String nickproveedor, String nomPromocion);
     public DataInfoServicio verInfoServicio(String nomServicio);
     public DataInfoProveedor verInfoProveedor(String nomProveedor);
 }
