@@ -77,4 +77,15 @@ public class Reserva {
             item.remove(it);
         }
     }
+    public Set<DataItemReserva> getDataItemsReserva(){
+        Set<DataItemReserva> dts = new HashSet();
+        for(ItemReserva it : item){
+            dts.add(it.getDataItem());
+        }
+        return dts;
+    }
+    public DataInfoReserva getDataInfoReserva() {
+     
+        return new DataInfoReserva( id,  fechaCreacion,  fechaInicio,  fechaFin,  precio,  estado, getDataItemsReserva());
+    }
 }

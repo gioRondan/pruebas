@@ -68,4 +68,7 @@ public class Cliente extends Usuario{
     public DataInfoCliente getDataInfoCliente(){
         return new DataInfoCliente(nickname, nombre, apellido, email, fechaNac, imagen, getDataReservas());
     }
+    public Reserva getReserva(int id) {
+        return reservas.get(id);
+    }
 }

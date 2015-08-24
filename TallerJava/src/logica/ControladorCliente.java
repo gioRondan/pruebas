@@ -77,9 +77,11 @@ public class ControladorCliente implements IControladorCliente{
         return mCl.getCliente(nomCliente).getDataReservas();
     }
     
-    public DataInfoReserva verInfoReserva(int id){
-        
-        return null;
+    public DataInfoReserva verInfoReserva(String nomCliente, int id){
+        ManejadorCliente mCl = ManejadorCliente.getInstance();
+        Cliente cliente = mCl.getCliente(nomCliente);
+        Reserva reserva = cliente.getReserva(id);
+        return reserva.getDataInfoReserva();
     }
     
     public DataInfoCliente verInfoCliente( String nomCliente){
