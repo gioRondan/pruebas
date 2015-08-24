@@ -5,11 +5,13 @@
  */
 
 package logica;
-import java.util.Date;
-import java.util.Map;
-import java.util.Set;
 import java.util.Collections;
 import static java.util.Collections.emptyMap;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -22,8 +24,8 @@ public class Proveedor extends Usuario{
     
     public Proveedor(String nickname, String nombre, String apellido,String email, Date fechaNac, String imagen){
         super(nickname,nombre,apellido,email,fechaNac,imagen);
-       promociones =  emptyMap();
-       servicios = emptyMap();
+       promociones =  new HashMap();
+       servicios =  new HashMap();
     }
 
      
@@ -35,7 +37,7 @@ public class Proveedor extends Usuario{
         return empresa;
     }
     public Set<DataServicio> getDataServicios(){
-        Set<DataServicio> dts = Collections.EMPTY_SET;
+        Set<DataServicio> dts =  new HashSet();
         for (Servicio value : servicios.values()){
             dts.add(value.getDataServicio());
         }
@@ -45,7 +47,7 @@ public class Proveedor extends Usuario{
         return this.promociones.get(nomPromocion);
     }
     public Set<DataPromocion> getDataPromociones(){
-        Set<DataPromocion> dts = Collections.EMPTY_SET;
+        Set<DataPromocion> dts =  new HashSet();
         for (Promocion value : promociones.values()){
             dts.add(value.getDataPromocion());
         }

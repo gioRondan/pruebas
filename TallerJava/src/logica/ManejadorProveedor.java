@@ -8,6 +8,7 @@ package logica;
 import java.util.Collections;
 import static java.util.Collections.emptyMap;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 /**
@@ -36,7 +37,7 @@ public class ManejadorProveedor {
         proveedores.remove(nickname);
     }
     public Set<DataProveedor> listarPromocionesSistemas(){
-        Set<DataProveedor> dts = Collections.EMPTY_SET;
+        Set<DataProveedor> dts = new HashSet();
         for (Proveedor value : proveedores.values()){
             dts.add(value.getDataProveedor());
         } 
@@ -44,7 +45,7 @@ public class ManejadorProveedor {
     }
     
     public Set<DataProveedor> getDataProveedores(){
-        Set<DataProveedor> dts = Collections.EMPTY_SET;
+        Set<DataProveedor> dts =  new HashSet();
         for (Proveedor value : proveedores.values()){
             dts.add(value.getDataProveedor());
         }
