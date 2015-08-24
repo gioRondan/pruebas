@@ -193,7 +193,7 @@ public class ControladorProveedor implements IControladorProveedor{
                 emp = new Empresa(nombreEmp, linkEmp);
                 mEmp.addEmpresa(emp);
             }
-            prov.asociarEmpresa(empresa);
+            prov.asociarEmpresa(emp);
             mPr.addProveedor(prov);
             JOptionPane.showMessageDialog(null, imagen);
 //        }
