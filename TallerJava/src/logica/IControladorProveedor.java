@@ -14,7 +14,6 @@ import java.util.List;
  * @author Juan
  */
 public interface IControladorProveedor {
-    
     public void ingresarImagen(String imagen);
     public void ingresarDestino(String destino);
     public Set<DataCiudad> listarCiudades();

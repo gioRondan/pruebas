@@ -7,6 +7,8 @@ package logica;
 
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -51,10 +53,11 @@ public class Promocion {
         servicios.put(servicio.getNombre(), servicio);
     }
 
-    DataInfoPromocion getDataInfoPromocion() {
-         //DataInfoPromocion( String nombre, int descuento, int precioTotal, Set<DataServicio> servicios){
-        Set<DataServicio> servicios=null;
-        DataInfoPromocion x = new DataInfoPromocion(this.getNombre(),this.getDescuento(),this.getPrecioTotal(),servicios);
-        return x;
+    DataInfoPromocion getDataInfoPromocion() {       
+        Set<DataServicio> dts =  new HashSet();
+        for (Servicio value : servicios.values()){
+            dts.add(value.getDataServicio());
+        }
+        return new DataInfoPromocion(this.getNombre(),this.getDescuento(),this.getPrecioTotal(),dts);
     }
 }
