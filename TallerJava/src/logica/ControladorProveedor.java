@@ -230,10 +230,7 @@ public class ControladorProveedor implements IControladorProveedor{
     public void ingresarCategoria(String Categoria) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    @Override
-    public void altaPromocion(String nomProveedor, Set<String> ser, String nombre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
     @Override
     public void actualizarEstadoReserva(int idReserva, String nomCliente, Estado estado) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
