@@ -22,27 +22,34 @@ public class ControladorProveedor implements IControladorProveedor{
     private String categoria = "";
     private String nomCategoria = "";
     private String nomPadre = "";
+    private String imagenProveedor;
     
     private void liberarMemoria(){
         
     }
+    @Override
     public void ingresarImagenServicio(String imagen){
         this.imagenServicio.add(imagen);
     }
+    @Override
     public void ingresarDestinoServicio(String  destino ){
         this.destinoServicio = destino;
     }
+    @Override
     public Set<DataCiudad> listarCiudades(){
         ManejadorCiudad mCi = ManejadorCiudad.getInstance();
         return mCi.getDataCiudades();//falta implementar manejadorciudad
     }
+    @Override
     public void ingresarCategoriaServicio( String categoria){
         this.categoriasServicio.add(categoria);
     }
+    @Override
     public Set<DataCategoria> listarCategorias(){
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
         return mCa.getDataCategorias();//falta implementar manejadorcategoria
     }
+    @Override
     public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor){
         Servicio ser = new Servicio(nombre, descripcion, precio);
         for (String im : imagenServicio){
@@ -69,6 +76,7 @@ public class ControladorProveedor implements IControladorProveedor{
         }
         liberarMemoria();
     }
+    @Override
     public Set<DataProveedor> listarProveedores(){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         return mPr.getDataProveedores();
@@ -76,21 +84,26 @@ public class ControladorProveedor implements IControladorProveedor{
     public void seleccionarCategoria(String categoria){
         this.categoria = categoria;
     }
+    @Override
     public Set<DataServicio> listarServiciosXCategoria( String nomCategoria){
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
         Categoria cat = mCa.getCategoria(categoria);
         return cat.getDataServicios();
     }
+    @Override
     public void ingresarNombreCategoria(String nombre){
         this.nomCategoria = nombre;
     }
+    @Override
     public void seleccionarPadre(String nombre){
         this.nomPadre = nombre;
     }    
+    @Override
     public void altaCategoria(){
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
         mCa.crearCategoria(this.nomCategoria,this.nomPadre);
     }
+    @Override
     public Set<DataServicio> listarServiciosXProveedor( String nomProveedor){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(nomProveedor);//nickname
@@ -100,6 +113,7 @@ public class ControladorProveedor implements IControladorProveedor{
     public void seleccionarServicio(String nomServicio){
         this.servicio = nomServicio;
     }
+    @Override
     public void altaPromocion( String nomProveedor,Set<String> ser, String nombre, int descuento){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(nomProveedor);//nickname
@@ -116,15 +130,19 @@ public class ControladorProveedor implements IControladorProveedor{
         totalPrecio=(int)(totalPrecio * (0.1*descuento));//aplico el descuento
         p.setPrecioTotal(totalPrecio);//Seteo el precio total con el descuento aplicado 
     }
+    @Override
     public void ingresarDescripcionServicio( String desc){
         this.descripcionServicio = desc;
     }
+    @Override
     public void ingresarPrecioServicio(int precio){
         this.precioServicio = precio;
     }
+    @Override
     public void ingresarOrigenServicio( String origen){
         this.origenServicio = origen;
     }
+    @Override
     public void modificarServicio(){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
@@ -165,6 +183,7 @@ public class ControladorProveedor implements IControladorProveedor{
         }
         liberarMemoria();
     }
+    @Override
     public List<DataEmpresa> listarEmpresas(){
         ManejadorEmpresa mEmp = ManejadorEmpresa.getInstance();
         return mEmp.getDataEmpresas();
@@ -182,6 +201,7 @@ public class ControladorProveedor implements IControladorProveedor{
         return dts;
     }*/
     
+    @Override
     public void altaProveedor( String nick, String nombre, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp, String linkEmp) {//iria un dt como entrada calculo yo
        
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
@@ -203,11 +223,13 @@ public class ControladorProveedor implements IControladorProveedor{
             JOptionPane.showMessageDialog(null, imagen);
 //        }
     }
+    @Override
     public Set<DataPromocion> listarPromocionesXProveedor( String nomProveedor){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
         return prov.getDataPromociones();
     }
+    @Override
     public DataInfoServicio verInfoServicio( String nomServicio){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
@@ -222,26 +244,14 @@ public class ControladorProveedor implements IControladorProveedor{
     }
     @Override
     public void ingresarImagen(String imagen) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    @Override
-    public void ingresarDestino(String destino) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    @Override
-    public void ingresarCategoria(String Categoria) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.imagenProveedor = imagen;
     }
 
-    @Override
-    public void actualizarEstadoReserva(int idReserva, String nomCliente, Estado estado) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
+
+
     @Override
     public DataInfoPromocion verInfoPromocion(String nomPromocion) {
-        
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }
