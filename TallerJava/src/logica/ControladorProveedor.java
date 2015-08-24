@@ -165,7 +165,7 @@ public class ControladorProveedor implements IControladorProveedor{
         }
         liberarMemoria();
     }
-    public Set<DataEmpresa> listarEmpresas(){
+    public List<DataEmpresa> listarEmpresas(){
         ManejadorEmpresa mEmp = ManejadorEmpresa.getInstance();
         return mEmp.getDataEmpresas();
     }
