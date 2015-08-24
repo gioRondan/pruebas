@@ -76,6 +76,7 @@ public class ControladorCliente implements IControladorCliente{
     }
     
     public DataInfoReserva verInfoReserva(int id){
+        
         return null;
     }
     
@@ -83,10 +84,5 @@ public class ControladorCliente implements IControladorCliente{
         ManejadorCliente mCl = ManejadorCliente.getInstance();
         return mCl.getCliente(nomCliente).getDataInfoCliente();
     }
-    
-    public void reservarPromocion(String proveedor, String promo, int cantidad, Date fechaIni, Date fechaFin){
-    };
-    public void reservarServicio(String proveedor, String promo, int cantidad, Date fechaIni, Date fechaFin){
-    };
 
 }
