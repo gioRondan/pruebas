@@ -23,8 +23,10 @@ public class ControladorCliente implements IControladorCliente{
     public void realizarReserva(String proveedor,String cliente,String servicio,int cantidad,Date fechaInicio,Date fechaFin,boolean esServicio ){ //el bool servicio indica si voy a reservar un servicio, si es false es para reservar una promocion
         ManejadorCliente mcli = ManejadorCliente.getInstance();
         Cliente aux_cliente = mcli.getCliente(cliente);
+        
         ManejadorProveedor mpr = ManejadorProveedor.getInstance();
         Proveedor prov = mpr.getProveedor(proveedor);
+        
         if (esServicio){
             Servicio serv = prov.getServicio(servicio);
             aux_cliente.reservarServicio(serv,cantidad,fechaInicio,fechaFin);
