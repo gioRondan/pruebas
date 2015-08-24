@@ -165,7 +165,11 @@ public class ControladorProveedor implements IControladorProveedor{
         }
         liberarMemoria();
     }
-    public List<DataEmpresa> listarEmpresas(){
+    public Set<DataEmpresa> listarEmpresas(){
+        ManejadorEmpresa mEmp = ManejadorEmpresa.getInstance();
+        return mEmp.getDataEmpresas();
+    }
+    /*public List<DataEmpresa> listarEmpresas(){
       //NO ESTA ECHA ES UNA PROEBA NADA MAS 
         List<DataEmpresa> dts ; 
         dts = new ArrayList<>();        
@@ -176,7 +180,8 @@ public class ControladorProveedor implements IControladorProveedor{
         dts.add(dte);
        
         return dts;
-    }
+    }*/
+    
     public void altaProveedor( String nick, String nombre, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp, String linkEmp) {//iria un dt como entrada calculo yo
        
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();

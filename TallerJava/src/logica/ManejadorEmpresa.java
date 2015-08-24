@@ -6,11 +6,10 @@
 
 package logica;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  *
@@ -37,8 +36,8 @@ public class ManejadorEmpresa {
     public void removeEmpresa(String nombre){
         empresas.remove(nombre);
     }
-    public Set<DataEmpresa> getDataProveedores(){
-        Set<DataEmpresa> dts = new HashSet();
+    public List<DataEmpresa> getDataEmpresas(){
+        List<DataEmpresa> dts = new ArrayList<>();
         for (Empresa value : empresas.values()){
             dts.add(value.getDataEmpresa());
         }
