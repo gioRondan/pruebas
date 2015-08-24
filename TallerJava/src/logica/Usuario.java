@@ -11,14 +11,15 @@ import java.util.*;
  * @author matias.heredia
  */
 public class Usuario {
-    protected String nombre;
+    
     protected String nickname;
+    protected String nombre;
     protected String apellido;
     protected String email  ;
     protected Date fechaNac;
     protected String imagen;
 
-    public Usuario(String nombre, String nickname, String apellido, String email, Date fechaNac, String imagen) {
+    public Usuario(String nickname,String nombre, String apellido, String email, Date fechaNac, String imagen) {
         this.nombre = nombre;
         this.nickname = nickname;
         this.apellido = apellido;

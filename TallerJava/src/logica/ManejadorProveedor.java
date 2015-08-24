@@ -6,6 +6,8 @@
 
 package logica;
 import java.util.Collections;
+import static java.util.Collections.emptyMap;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 /**
@@ -15,7 +17,9 @@ import java.util.Set;
 public class ManejadorProveedor {
     private Map<String,Proveedor> proveedores;
     private static ManejadorProveedor instance = null;
-    private ManejadorProveedor(){}
+    private ManejadorProveedor(){
+        proveedores = new HashMap<String,Proveedor>();
+    }
     
     public static ManejadorProveedor getInstance(){
         if(instance == null)

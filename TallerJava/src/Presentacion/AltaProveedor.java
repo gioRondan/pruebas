@@ -268,7 +268,9 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
 //        Date fecha;
 //        fecha = Date(d,m,a);
         Date selectedDate = (Date) this.datePicker.getModel().getValue();
-        ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , proveedorImagen.getText(), proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
+        PantallaPrincipal x = PantallaPrincipal.getInstancia();
+        
+        x.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , proveedorImagen.getText(), proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 

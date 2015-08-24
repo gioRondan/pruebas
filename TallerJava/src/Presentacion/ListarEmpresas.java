@@ -24,11 +24,13 @@ public class ListarEmpresas extends javax.swing.JInternalFrame {
     /**
      * Creates new form ListarEmpresas
      */
+    
+ 
     public ListarEmpresas() {
         initComponents();
         DefaultListModel<String> x = new DefaultListModel<>();
          PantallaPrincipal pp = PantallaPrincipal.getInstancia();
-         List<DataEmpresa> dts = pp.ICP.listarEmpresas();
+        List<DataEmpresa> dts = pp.ICP.listarEmpresas();
          Iterator<DataEmpresa> itera = dts.iterator();
          while (itera.hasNext()) {
              x.addElement(itera.next().getNombre());       
@@ -135,7 +137,7 @@ public class ListarEmpresas extends javax.swing.JInternalFrame {
         }
            
     }//GEN-LAST:event_jButton9ActionPerformed
-
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton10;

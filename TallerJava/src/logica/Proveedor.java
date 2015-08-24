@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 import java.util.Collections;
+import static java.util.Collections.emptyMap;
 
 /**
  *
@@ -21,6 +22,8 @@ public class Proveedor extends Usuario{
     
     public Proveedor(String nickname, String nombre, String apellido,String email, Date fechaNac, String imagen){
         super(nickname,nombre,apellido,email,fechaNac,imagen);
+       promociones =  emptyMap();
+       servicios = emptyMap();
     }
 
      

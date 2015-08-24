@@ -166,29 +166,35 @@ public class ControladorProveedor implements IControladorProveedor{
         liberarMemoria();
     }
     public List<DataEmpresa> listarEmpresas(){
-      
+      //NO ESTA ECHA ES UNA PROEBA NADA MAS 
         List<DataEmpresa> dts ; 
         dts = new ArrayList<>();        
         DataEmpresa dte = new DataEmpresa("Antel","www.antel.com.uy");
         Boolean ok = dts.add(dte);
-        JOptionPane.showMessageDialog(null,dte.getNombre());
+       
         dte = new DataEmpresa("Coonaprole", "www.coonaprole.com.uy");
         dts.add(dte);
-        JOptionPane.showMessageDialog(null,dte.getNombre());
+       
         return dts;
     }
     public void altaProveedor( String nick, String nombre, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp, String linkEmp) {//iria un dt como entrada calculo yo
+       
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
+       
        //mPr.unicidadNick(nick);//bomba!!!!!!!!!!!!
         //mPr.unicidadEmail(email);//bomba!!!!!!!!!!!!
-        if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty()) || (imagen.isEmpty()) || (nombreEmp.isEmpty())){
-           // throw new Exception("los datos ingresados no son correctos");
-        }else{
+//        if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty()) || (imagen.isEmpty()) || (nombreEmp.isEmpty())){
+//           // throw new Exception("los datos ingresados no son correctos");
+//        }else{
             Proveedor prov = new Proveedor(nick, nombre, apellido, email, fechaNac, imagen);
+            
             Empresa empresa = new Empresa(nombreEmp, linkEmp);
+            
             prov.asociarEmpresa(empresa);
+            
             mPr.addProveedor(prov);
-        }
+            JOptionPane.showMessageDialog(null, imagen);
+//        }
     }
     public Set<DataPromocion> listarPromocionesXProveedor( String nomProveedor){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
