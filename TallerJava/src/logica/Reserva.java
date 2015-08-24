@@ -13,7 +13,7 @@ import java.util.Set;
  * @author giovani
  */
 public class Reserva {
-    private String id; 
+    private int id; 
     private Date fechaCreacion;
     private Date fechaInicio;
     private Date fechaFin;
@@ -21,7 +21,7 @@ public class Reserva {
     private Estado estado;
     private Set<ItemReserva> item;
     
-    public Reserva(String id,Date fechaCreacion, Date fechaInicio, Date fechaFin, float precio, Estado estado){
+    public Reserva(int id,Date fechaCreacion, Date fechaInicio, Date fechaFin, float precio, Estado estado){
         this.id=id;
         this.fechaCreacion = fechaCreacion;
         this.fechaInicio = fechaInicio;
@@ -30,7 +30,7 @@ public class Reserva {
         this.estado = estado;
     }
     
-    public String getId(){
+    public int getId(){
         return id;
     }
     public Date getFechaCreacion(){
@@ -48,7 +48,7 @@ public class Reserva {
     public Estado getEstado(){
         return estado;
     }
-    public void setId(String id){
+    public void setId(int id){
         this.id = id;
     }
     public void setFechaCreacion(Date fechaCreacion){
