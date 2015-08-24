@@ -6,9 +6,12 @@
 
 package Presentacion;
 
+import UpperEssential.UpperEssentialLookAndFeel;
 import java.io.File;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 import logica.DataProveedor;
 import logica.Fabrica;
@@ -42,7 +45,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
     
     public static PantallaPrincipal getInstancia(){
-        if(instancia == null)
+        if(instancia == null) 
             instancia = new PantallaPrincipal();
         return instancia;
     };
@@ -210,7 +213,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]){ // throws UnsupportedLookAndFeelException {
+        //UIManager.setLookAndFeel(new UpperEssentialLookAndFeel());//Linea de interface linda
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

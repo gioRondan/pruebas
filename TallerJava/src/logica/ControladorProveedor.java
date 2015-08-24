@@ -3,6 +3,7 @@ package logica;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -164,8 +165,17 @@ public class ControladorProveedor implements IControladorProveedor{
         }
         liberarMemoria();
     }
-    public Set<DataEmpresa> listarEmpresas(){
-        return null;
+    public List<DataEmpresa> listarEmpresas(){
+      
+        List<DataEmpresa> dts ; 
+        dts = new ArrayList<>();        
+        DataEmpresa dte = new DataEmpresa("Antel","www.antel.com.uy");
+        Boolean ok = dts.add(dte);
+        JOptionPane.showMessageDialog(null,dte.getNombre());
+        dte = new DataEmpresa("Coonaprole", "www.coonaprole.com.uy");
+        dts.add(dte);
+        JOptionPane.showMessageDialog(null,dte.getNombre());
+        return dts;
     }
     public void altaProveedor( String nick, String nombre, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp, String linkEmp) {//iria un dt como entrada calculo yo
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();

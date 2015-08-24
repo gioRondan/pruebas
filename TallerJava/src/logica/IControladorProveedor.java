@@ -8,6 +8,7 @@ package logica;
 
 import java.util.Set;
 import java.util.Date;
+import java.util.List;
 /**
  *
  * @author Juan
@@ -35,7 +36,7 @@ public interface IControladorProveedor {
     public void ingresarDestinoServicio(String destino);
     public void ingresarCategoriaServicio(String categoria);
     public void modificarServicio();
-    public Set<DataEmpresa> listarEmpresas();
+    public List<DataEmpresa> listarEmpresas();
     public void altaProveedor(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmp, String LinkEmpres);
     public Set<DataPromocion> listarPromocionesXProveedor(String nomProveedor);
     public DataInfoPromocion verInfoPromocion(String nomPromocion);

@@ -5,7 +5,7 @@
  */
 
 package logica;
-import UpperEssential.UpperEssentialLookAndFeel;
+//import UpperEssential.UpperEssentialLookAndFeel;
 import java.util.*;
 import javax.swing.*;
 /**
@@ -18,7 +18,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws UnsupportedLookAndFeelException {
-        UIManager.setLookAndFeel(new UpperEssentialLookAndFeel());//Linea de interface linda
+       // UIManager.setLookAndFeel(new UpperEssentialLookAndFeel());//Linea de interface linda
         List<String> s;
         s = new ArrayList<>();
         String x;

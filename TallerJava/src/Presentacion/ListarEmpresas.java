@@ -5,6 +5,16 @@
  */
 package Presentacion;
 
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.swing.ListModel;
+import javax.swing.event.ListDataListener;
+import logica.DataEmpresa;
+
 /**
  *
  * @author Juan
@@ -16,7 +26,16 @@ public class ListarEmpresas extends javax.swing.JInternalFrame {
      */
     public ListarEmpresas() {
         initComponents();
-        
+        DefaultListModel<String> x = new DefaultListModel<>();
+         PantallaPrincipal pp = PantallaPrincipal.getInstancia();
+         List<DataEmpresa> dts = pp.ICP.listarEmpresas();
+         Iterator<DataEmpresa> itera = dts.iterator();
+         while (itera.hasNext()) {
+             x.addElement(itera.next().getNombre());       
+         }
+         jList2.setModel(x);
+//       
+                
     }
 
     /**
@@ -30,21 +49,23 @@ public class ListarEmpresas extends javax.swing.JInternalFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList();
-        jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
 
         jList2.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "Item1" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane2.setViewportView(jList2);
 
-        jButton8.setText("Nueva Empresa");
-
         jButton9.setText("Aceptar");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jButton10.setText("Cancelar");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -76,17 +97,14 @@ public class ListarEmpresas extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton8)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(29, 29, 29))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(jButton8))
+                .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -104,10 +122,23 @@ public class ListarEmpresas extends javax.swing.JInternalFrame {
       this.dispose();
     }//GEN-LAST:event_jButton10ActionPerformed
 
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        if ( jList2.getSelectedIndex()== -1) {
+             int ret = JOptionPane.showConfirmDialog(null,"Seguro que no desea selecionar una empresa ?");
+             if (ret == 0){
+                 this.dispose();
+             }
+        }
+        else{
+         this.setVisible(false);
+        }
+           
+    }//GEN-LAST:event_jButton9ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JList jList2;

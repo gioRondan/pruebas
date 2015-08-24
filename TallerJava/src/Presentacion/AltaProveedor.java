@@ -280,6 +280,7 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
       PantallaPrincipal x= PantallaPrincipal.getInstancia() ;
       x.abrirListarEmpresas();
+      
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed

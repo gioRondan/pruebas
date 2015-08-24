@@ -5,6 +5,7 @@
  */
 
 package logica;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 /**
@@ -30,16 +31,16 @@ public class ManejadorProveedor {
     public void removeProveedor(String nickname){
         proveedores.remove(nickname);
     }
-    public Set<DataProveedor> listraPromocionesSistemas(){
-        Set<DataProveedor> dts = null;
+    public Set<DataProveedor> listarPromocionesSistemas(){
+        Set<DataProveedor> dts = Collections.EMPTY_SET;
         for (Proveedor value : proveedores.values()){
             dts.add(value.getDataProveedor());
         } 
-        return null;
+        return dts;
     }
     
     public Set<DataProveedor> getDataProveedores(){
-        Set<DataProveedor> dts = null;
+        Set<DataProveedor> dts = Collections.EMPTY_SET;
         for (Proveedor value : proveedores.values()){
             dts.add(value.getDataProveedor());
         }
