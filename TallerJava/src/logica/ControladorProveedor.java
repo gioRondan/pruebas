@@ -248,10 +248,12 @@ public class ControladorProveedor implements IControladorProveedor{
     }
 
     
-
-
-    @Override
-    public DataInfoPromocion verInfoPromocion(String nomPromocion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public DataInfoPromocion verInfoPromocion(String nickproveedor, String nomPromocion) {
+        ManejadorProveedor m = ManejadorProveedor.getInstance();
+        Proveedor p = m.getProveedor(nickproveedor);
+        Promocion promo = p.getPromocion(nomPromocion);
+        
+        return promo.getDataInfoPromocion();
     }
 }
