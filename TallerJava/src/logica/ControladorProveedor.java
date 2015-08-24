@@ -216,7 +216,9 @@ public class ControladorProveedor implements IControladorProveedor{
     }
     @Override
     public DataInfoProveedor verInfoProveedor( String nomProveedor){
-        return null;
+        ManejadorProveedor mPr = ManejadorProveedor.getInstance();
+        Proveedor prov = mPr.getProveedor(proveedor);
+        return prov.getDataInfoProveedor();
     }
     @Override
     public void ingresarImagen(String imagen) {

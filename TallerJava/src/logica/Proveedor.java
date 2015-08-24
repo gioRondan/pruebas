@@ -65,5 +65,9 @@ public class Proveedor extends Usuario{
     public void asociarEmpresa(Empresa empresa){
         this.empresa = empresa;
     }
+
+    public DataInfoProveedor getDataInfoProveedor() {
+        return new DataInfoProveedor(nickname,  nombre,  apellido, email, fechaNac,  imagen,  empresa.getDataEmpresa(), getDataServicios());
+    }
 }
 

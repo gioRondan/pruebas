@@ -54,7 +54,7 @@ public class ManejadorProveedor {
 
     void unicidadNick(String nick) throws Exception{
         if (proveedores.containsKey(nick))
-            throw new Exception("Not supported yet."); 
+            throw new Exception("el nick ingresado ya pertenece a otro proveedor"); 
     }
 
     void unicidadEmail(String email) throws Exception{
