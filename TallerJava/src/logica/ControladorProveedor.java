@@ -202,15 +202,16 @@ public class ControladorProveedor implements IControladorProveedor{
     }*/
     
     @Override
-    public void altaProveedor( String nick, String nombre, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp, String linkEmp) {//iria un dt como entrada calculo yo
+    public void altaProveedor( String nick, String nombre, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp, String linkEmp)throws Exception {
        
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
        
-       //mPr.unicidadNick(nick);//bomba!!!!!!!!!!!!
-        //mPr.unicidadEmail(email);//bomba!!!!!!!!!!!!
-//        if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty()) || (imagen.isEmpty()) || (nombreEmp.isEmpty())){
-//           // throw new Exception("los datos ingresados no son correctos");
-//        }else{
+       mPr.unicidadNick(nick);//bomba!!!!!!!!!!!!
+        mPr.unicidadEmail(email);//bomba!!!!!!!!!!!!
+        switch case
+        if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty())  || (nombreEmp.isEmpty())){
+            throw new Exception("los datos ingresados no son correctos");
+        }else{
             Proveedor prov = new Proveedor(nick, nombre, apellido, email, fechaNac, imagen);
             ManejadorEmpresa mEmp =  ManejadorEmpresa.getInstance();
             Empresa emp = mEmp.getEmpresa(nombreEmp);
@@ -221,7 +222,7 @@ public class ControladorProveedor implements IControladorProveedor{
             prov.asociarEmpresa(emp);
             mPr.addProveedor(prov);
             JOptionPane.showMessageDialog(null, imagen);
-//        }
+        }
     }
     @Override
     public Set<DataPromocion> listarPromocionesXProveedor( String nomProveedor){

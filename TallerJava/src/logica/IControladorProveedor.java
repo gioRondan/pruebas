@@ -33,7 +33,7 @@ public interface IControladorProveedor {
     public void ingresarCategoriaServicio(String categoria);
     public void modificarServicio();
     public List<DataEmpresa> listarEmpresas();
-    public void altaProveedor(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmp, String LinkEmpres);
+    public void altaProveedor(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmp, String LinkEmpres)throws Exception;
     public Set<DataPromocion> listarPromocionesXProveedor(String nomProveedor);
     public DataInfoPromocion verInfoPromocion(String nickproveedor, String nomPromocion);
     public DataInfoServicio verInfoServicio(String nomServicio);

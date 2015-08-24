@@ -13,7 +13,7 @@ import java.util.Set;
  */
 public interface IControladorCliente {
     public void actualizarEstadoReserva(int id, String nomCliente, Estado estado);
-    public void altaCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen);
+    public void altaCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen)throws Exception;
     public Set<DataCliente> listarClientes();
     public void cancelarReserva(String nomCliente, int id);
     public Set<DataReserva> listarReservasXCliente(String nomCliente);
