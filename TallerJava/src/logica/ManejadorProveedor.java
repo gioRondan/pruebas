@@ -29,6 +29,8 @@ public class ManejadorProveedor {
     }
     public Proveedor getProveedor(String nickname){
         return proveedores.get(nickname);
+        
+        
     }
     public void addProveedor(Proveedor proveedor){
         proveedores.put(proveedor.getNickname(), proveedor);
