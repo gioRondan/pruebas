@@ -319,7 +319,7 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
     public static javax.swing.JTextField proveedorEmpresaLink;
     public static javax.swing.JTextField proveedorEmpresaNombre;
     public static javax.swing.JTextField proveedorImagen;
-    private javax.swing.JTextField proveedorNick;
+    public static javax.swing.JTextField proveedorNick;
     private javax.swing.JTextField proveedorNombre;
     // End of variables declaration//GEN-END:variables
 

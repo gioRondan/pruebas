@@ -6,6 +6,14 @@
 package Presentacion;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.CopyOption;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 
 /**
@@ -58,11 +66,27 @@ public class SelectorImagen extends javax.swing.JInternalFrame {
         String comando = evt.getActionCommand();
         if (comando.equals(JFileChooser.APPROVE_SELECTION)){
             File archivoSeleccionado = selectro.getSelectedFile();
+            File nuevo = new File("C:\\Users\\Juan\\Documents\\NetBeansProjects\\tpgr07\\TallerJava\\src\\Imagenes\\Usuarios\\"+AltaProveedor.proveedorNick.getText()+".jpg");
+            archivoSeleccionado.renameTo(nuevo);
             AltaProveedor.proveedorImagen.setText(archivoSeleccionado.getAbsolutePath());
             this.dispose();
         }else if (comando.equals(JFileChooser.CANCEL_SELECTION)){
             this.dispose();
         }
+        //             Para copiar a distintos failsystem
+        //  Path FROM = Paths.get(archivoSeleccionado.getAbsolutePath());     
+//             Path TO = Paths.get("C:\\Users\\Juan\\Documents\\NetBeansProjects\\tpgr07\\TallerJava\\src\\Imagenes\\");
+//            //sobreescribir el fichero de destino, si existe, y copiar
+//            // los atributos, incluyendo los permisos rwx
+//             CopyOption[] options = new CopyOption[]{
+//            StandardCopyOption.REPLACE_EXISTING,
+//            StandardCopyOption.COPY_ATTRIBUTES
+//            }; 
+//            try {
+//                Files.copy(FROM, TO, options);
+//            } catch (IOException ex) {
+//                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
+//            }
     }//GEN-LAST:event_jFileChooser1ActionPerformed
 
 
