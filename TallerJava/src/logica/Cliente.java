@@ -16,7 +16,10 @@ import java.util.Collections;
  * @author matias.heredia
  */
 public class Cliente extends Usuario{
-    private Map<String,Reserva> reservas; 
+    private Map<Integer,Reserva> reservas;
+    
+    
+    
     
     
     
@@ -35,24 +38,23 @@ public class Cliente extends Usuario{
         }
         return dts;
     }
-    public void reservarServicio(Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
+    public void reservarServicio(int id,Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
         Date fecha_actual = new Date();
-        String clave = this.nombre + "-" + reservas.size();
-        Reserva res = new Reserva(clave,fecha_actual,fechaIni,fechaFin,0,Estado.registrada);
+        
+        Reserva res = new Reserva(id,fecha_actual,fechaIni,fechaFin,0,Estado.registrada);
         
         reservas.put(res.getId(),res);
         ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin);
         res.agregarItem(item);
     }
-    public void modificarEstadoReserva(String id, Estado estado){
+    public void modificarEstadoReserva(int id, Estado estado){
         Reserva res = reservas.get(id);
         if (res.getEstado() == Estado.registrada){
             res.setEstado(estado);
         }
     }
-    public void reservarPromocion(Promocion prom,int cantidad,Date fechaIni,Date fechaFin){
+    public void reservarPromocion(int clave,Promocion prom,int cantidad,Date fechaIni,Date fechaFin){
         Date fecha_actual = new Date();
-        String clave = this.nombre + "-" + reservas.size();
         Reserva res = new Reserva(clave,fecha_actual,fechaIni,fechaFin,0,Estado.registrada);
         reservas.put(res.getId(),res);
         ItemReserva item = new ItemReserva(cantidad,prom, fechaIni, fechaFin);
