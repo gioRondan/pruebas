@@ -202,13 +202,15 @@ public class ControladorProveedor implements IControladorProveedor{
     }*/
     
     @Override
-    public void altaProveedor( String nick, String nombre, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp, String linkEmp)throws Exception {
+    public void altaProveedor( String nick, String nombre, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp, String linkEmp) {
+        
        
-        ManejadorProveedor mPr = ManejadorProveedor.getInstance();
+        //ManejadorProveedor mPr = ManejadorProveedor.getInstance();
        
-       mPr.unicidadNick(nick);//bomba!!!!!!!!!!!!
-        mPr.unicidadEmail(email);//bomba!!!!!!!!!!!!
-        switch case
+       //mPr.unicidadNick(nick);//bomba!!!!!!!!!!!!
+        //mPr.unicidadEmail(email);//bomba!!!!!!!!!!!!
+    
+        /*switch case
         if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty())  || (nombreEmp.isEmpty())){
             throw new Exception("los datos ingresados no son correctos");
         }else{
@@ -222,7 +224,7 @@ public class ControladorProveedor implements IControladorProveedor{
             prov.asociarEmpresa(emp);
             mPr.addProveedor(prov);
             JOptionPane.showMessageDialog(null, imagen);
-        }
+        }*/
     }
     @Override
     public Set<DataPromocion> listarPromocionesXProveedor( String nomProveedor){
@@ -249,7 +251,7 @@ public class ControladorProveedor implements IControladorProveedor{
     }
 
     
-    
+    @Override
     public DataInfoPromocion verInfoPromocion(String nickproveedor, String nomPromocion) {
         ManejadorProveedor m = ManejadorProveedor.getInstance();
         Proveedor p = m.getProveedor(nickproveedor);
@@ -258,3 +260,4 @@ public class ControladorProveedor implements IControladorProveedor{
         return promo.getDataInfoPromocion();
     }
 }
+
