@@ -6,6 +6,7 @@
 package logica;
 
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -19,6 +20,7 @@ public class ManejadorCliente {
     private static ManejadorCliente instance = null;
     private ManejadorCliente(){
         id=111;
+        clientes = Collections.emptyMap();
     }
     
     public static ManejadorCliente getInstance(){
@@ -56,9 +58,11 @@ public class ManejadorCliente {
     }
     public Set<DataCliente> getDataClientes(){
         Set<DataCliente> dts = Collections.EMPTY_SET;
-        clientes.values().stream().forEach((value) -> {
-             dts.add(value.getDataCliente());
-         });
+        Iterator iter = clientes.values().iterator();
+        for (Cliente c : clientes.values()){
+            dts.add(c.getDataCliente());
+        }
+         
         return dts;
     }
 

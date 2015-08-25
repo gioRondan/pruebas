@@ -21,8 +21,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
      * Creates new form realizarReserva2
      */
              
-            PantallaPrincipal pp = PantallaPrincipal.getInstancia();
-            Set<DataCliente> dts = pp.ICC.listarClientes();
+            
 
     public realizarReserva() {
         //matias trabajando
@@ -30,8 +29,9 @@ public class realizarReserva extends javax.swing.JInternalFrame {
         jScrollPane1.getViewport().add(jList2);
         
         DefaultListModel<String> mol = new DefaultListModel<>();  
-        
-            //Iterator<DataCliente> itera = dts.iterator();
+        PantallaPrincipal pp = PantallaPrincipal.getInstancia();
+        Set<DataCliente> dts = pp.ICC.listarClientes();
+        Iterator<DataCliente> itera = dts.iterator();
             //while (itera.hasNext()) {
         for(int i=1;i<=500;i++){    
             mol.addElement("nabo");

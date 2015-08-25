@@ -61,8 +61,7 @@ public class ControladorCliente implements IControladorCliente{
     @Override
     public Set<DataCliente> listarClientes(){
         ManejadorCliente mCl = ManejadorCliente.getInstance();
-        return null;
-//return mCl.getDataClientes();
+        return mCl.getDataClientes();
     }
     
     @Override

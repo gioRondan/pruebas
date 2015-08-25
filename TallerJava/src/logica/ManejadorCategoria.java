@@ -5,6 +5,7 @@
  */
 package logica;
 
+import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 
@@ -15,7 +16,9 @@ import java.util.Set;
 public class ManejadorCategoria {
     private Map<String,Categoria> categorias;
     private static ManejadorCategoria instance = null;
-    private ManejadorCategoria(){}
+    private ManejadorCategoria(){
+        categorias = Collections.emptyMap();
+    }
     
     public static ManejadorCategoria getInstance(){
         if(instance == null)

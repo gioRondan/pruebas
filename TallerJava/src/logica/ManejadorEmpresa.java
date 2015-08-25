@@ -7,6 +7,7 @@
 package logica;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,7 @@ public class ManejadorEmpresa {
     private Map<String,Empresa> empresas;
     private static ManejadorEmpresa instance = null;
     private ManejadorEmpresa(){
-        empresas = new HashMap<String,Empresa>();
+        empresas = Collections.emptyMap();
     }
     
     public static ManejadorEmpresa getInstance(){
