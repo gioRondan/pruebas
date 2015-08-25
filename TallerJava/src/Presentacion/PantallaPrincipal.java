@@ -161,6 +161,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenu3.setText("Reservas");
 
         jMenuItem10.setText("Realizar reserva");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem10);
 
         jMenuItem11.setText("Actualizar estado");
@@ -214,6 +219,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.abrirListarEmpresas();
     }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+        realizarReserva rr = new realizarReserva();
+        Escritorio.add(rr);
+        rr.show();
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     /**
      * @param args the command line arguments
