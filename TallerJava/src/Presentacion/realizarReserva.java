@@ -25,6 +25,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             Set<DataCliente> dts = pp.ICC.listarClientes();
 
     public realizarReserva() {
+        //matias trabajando
         initComponents();
         jScrollPane1.getViewport().add(jList2);
         
