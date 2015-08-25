@@ -64,6 +64,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         Escritorio.add(al);
         al.show();
     }
+     public void abrirAltacliente(){
+        AltaCliente al = new AltaCliente();
+        Escritorio.add(al);
+        al.show();
+     }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -124,6 +129,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenu4.add(jMenuItem1);
 
         jMenuItem14.setText("Cliente");
+        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem14ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem14);
 
         jMenu1.add(jMenu4);
@@ -229,6 +239,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.abrirRealizarReserva();
     }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+        // TODO add your handling code here:
+        this.abrirAltacliente();
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
 
     /**
      * @param args the command line arguments
