@@ -7,6 +7,7 @@
 package Presentacion;
 
 import UpperEssential.UpperEssentialLookAndFeel;
+import java.awt.Component;
 import java.io.File;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
@@ -53,6 +54,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         ListarEmpresas al = new ListarEmpresas();
         Escritorio.add(al);
         al.show();
+    }
+    public void abrirRealizarReserva(){
+        realizarReserva rr = new realizarReserva();
+        Escritorio.add(rr);
+        rr.setVisible(true);
     }
      public void abrirSelectorImagen(){
         SelectorImagen al = new SelectorImagen();
@@ -222,9 +228,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
-        realizarReserva rr = new realizarReserva();
-        Escritorio.add(rr);
-        rr.show();
+        this.abrirRealizarReserva();
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     /**
