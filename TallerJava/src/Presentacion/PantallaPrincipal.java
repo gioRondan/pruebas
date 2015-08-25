@@ -38,8 +38,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     
     private PantallaPrincipal() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        instancia= this;    
+        this.setLocationRelativeTo(null);  
         Fabrica fabrica = Fabrica.getInstance();
         ICP = fabrica.getIControladorProveedor();
         ICC = fabrica.getIControladorCliente();

@@ -20,13 +20,13 @@ public class realizarReserva extends javax.swing.JPanel {
     /**
      * Creates new form realizarReserva
      */
-            DefaultListModel<String> mol = new DefaultListModel<>();
-        PantallaPrincipal pp = PantallaPrincipal.getInstancia();
-        Set<DataCliente> dts = pp.ICC.listarClientes();
+     
         
     public realizarReserva() {
         initComponents();
-
+        DefaultListModel<String> mol = new DefaultListModel<>();
+        PantallaPrincipal pp = PantallaPrincipal.getInstancia();
+        Set<DataCliente> dts = pp.ICC.listarClientes();
         Iterator<DataCliente> itera = dts.iterator();
          while (itera.hasNext()) {
              mol.addElement(itera.next().getNombre());       
