@@ -9,17 +9,18 @@ import java.util.Iterator;
 import java.util.Set;
 import javax.swing.DefaultListModel;
 import logica.DataCliente;
-import logica.DataEmpresa;
+
 
 /**
  *
  * @author Mati
  */
-public class realizarReserva extends javax.swing.JPanel {
+public class realizarReserva extends javax.swing.JInternalFrame  {
 
     /**
      * Creates new form realizarReserva
      */
+    PantallaPrincipal pp = PantallaPrincipal.getInstancia();
      
         
     public realizarReserva() {
@@ -27,11 +28,11 @@ public class realizarReserva extends javax.swing.JPanel {
         DefaultListModel<String> mol = new DefaultListModel<>();
         PantallaPrincipal pp = PantallaPrincipal.getInstancia();
         Set<DataCliente> dts = pp.ICC.listarClientes();
-        Iterator<DataCliente> itera = dts.iterator();
+        /*Iterator<DataCliente> itera = dts.iterator();
          while (itera.hasNext()) {
              mol.addElement(itera.next().getNombre());       
          }
-         jList2.setModel(mol);
+         jList2.setModel(mol);*/
     }
 
     /**

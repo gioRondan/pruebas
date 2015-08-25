@@ -57,7 +57,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     public void abrirRealizarReserva(){
         realizarReserva rr = new realizarReserva();
         Escritorio.add(rr);
-        rr.setVisible(true);
+        rr.show();
     }
      public void abrirSelectorImagen(){
         SelectorImagen al = new SelectorImagen();
