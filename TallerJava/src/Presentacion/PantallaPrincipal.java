@@ -140,6 +140,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenu4);
 
         jMenuItem2.setText("Categoria");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setText("Servicio");
@@ -245,6 +250,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.abrirAltacliente();
     }//GEN-LAST:event_jMenuItem14ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        AltaCategoria altaCat = new AltaCategoria();
+        Escritorio.add(altaCat);
+        altaCat.show();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
