@@ -202,15 +202,14 @@ public class ControladorProveedor implements IControladorProveedor{
     }*/
     
     @Override
-    public void altaProveedor( String nick, String nombre, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp, String linkEmp) {
+    public void altaProveedor( String nick, String nombre, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp, String linkEmp) throws Exception{
         
        
-        //ManejadorProveedor mPr = ManejadorProveedor.getInstance();
+        ManejadorProveedor mPr = ManejadorProveedor.getInstance();
        
-       //mPr.unicidadNick(nick);//bomba!!!!!!!!!!!!
-        //mPr.unicidadEmail(email);//bomba!!!!!!!!!!!!
-    
-        /*switch case
+       mPr.unicidadNick(nick);//bomba!!!!!!!!!!!!
+        mPr.unicidadEmail(email);//bomba!!!!!!!!!!!!
+   
         if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty())  || (nombreEmp.isEmpty())){
             throw new Exception("los datos ingresados no son correctos");
         }else{
@@ -224,7 +223,7 @@ public class ControladorProveedor implements IControladorProveedor{
             prov.asociarEmpresa(emp);
             mPr.addProveedor(prov);
             JOptionPane.showMessageDialog(null, imagen);
-        }*/
+        }
     }
     @Override
     public Set<DataPromocion> listarPromocionesXProveedor( String nomProveedor){

@@ -8,9 +8,12 @@ package Presentacion;
 import java.awt.event.ActionListener;
 import java.util.Date;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 //import javafx.scene.control.DatePicker;
 import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
 import logica.Fabrica;
 import logica.IControladorCliente;
 import logica.IControladorProveedor;
@@ -263,16 +266,15 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_proveedorNickActionPerformed
    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-//        int d = Integer.parseInt(Dia.getText());
-//        int m = Integer.parseInt(Mes.getText());
-//        int a = Integer.parseInt(Anio.getText());
-//        Date fecha;
-//        fecha = Date(d,m,a);
+
         Date selectedDate = (Date) this.datePicker.getModel().getValue();
         
         
-      //Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , proveedorImagen.getText(), proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
-        this.dispose();
+        try {
+            Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , proveedorImagen.getText(), proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
+        } catch (Exception ex){
+            JOptionPane.showInternalMessageDialog(null, ex);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

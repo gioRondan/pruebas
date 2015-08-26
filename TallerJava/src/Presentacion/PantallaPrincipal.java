@@ -40,6 +40,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);  
         Fabrica fabrica = Fabrica.getInstance();
+        instancia = this;
         ICP = fabrica.getIControladorProveedor();
         ICC = fabrica.getIControladorCliente();
     }
