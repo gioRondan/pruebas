@@ -9,7 +9,9 @@ import java.util.Iterator;
 import java.util.Set;
 import javax.swing.DefaultListModel;
 import javax.swing.JScrollPane;
+import javax.swing.tree.TreeModel;
 import logica.DataCliente;
+import logica.DataProveedor;
 
 /**
  *
@@ -37,6 +39,26 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             String aux = dt.getNickname();
             mol.addElement(aux);
         }
+        TreeModel jmodel;
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Proveedores");
+        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("nabo");
+        treeNode1.add(treeNode3);
+        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jmodel = jTree1.getModel();
+        Set<DataProveedor> dtps = pp.ICP.listarProveedores();
+        Iterator<DataProveedor> it = dtps.iterator();
+        
+        while (it.hasNext()){
+            DataProveedor dtp = it.next();
+            String aux1 = dtp.getNickname();
+            javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode(aux1);
+            treeNode1.add(treeNode2);
+        }
+        for(int i=1;i<=500;i++){
+            javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("nabo");
+            treeNode1.add(treeNode2);
+        }
+        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
          jList2.setModel(mol);
     }
           
@@ -81,6 +103,8 @@ public class realizarReserva extends javax.swing.JInternalFrame {
         jLabel3.setText("El precio total es:");
         jLabel3.setAlignmentY(0.0F);
 
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane2.setViewportView(jTree1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
