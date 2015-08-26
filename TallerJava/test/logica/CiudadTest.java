@@ -49,8 +49,7 @@ public class CiudadTest {
         String expResult = "soriano";
         String result = instance.getNombre();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -59,11 +58,15 @@ public class CiudadTest {
     @Test
     public void testSetNombre() {
         System.out.println("setNombre");
-        String nombre = "";
-        Ciudad instance = null;
+        String nombre = "artigas";
+        Pais uruguay = new Pais("uruguay");
+        Ciudad instance = new Ciudad("soriano", uruguay);
         instance.setNombre(nombre);
+        String result = instance.getNombre();
+        String expResult = "artigas";
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -72,12 +75,14 @@ public class CiudadTest {
     @Test
     public void testGetPais() {
         System.out.println("getPais");
-        Ciudad instance = null;
-        Pais expResult = null;
+        String nombre = "artigas";
+        Pais uruguay = new Pais("uruguay");
+        Ciudad instance = new Ciudad("soriano", uruguay);
+        String expResult = "uruguay";
         Pais result = instance.getPais();
-        assertEquals(expResult, result);
+        assertEquals(expResult, result.getNombre());
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -86,11 +91,15 @@ public class CiudadTest {
     @Test
     public void testSetPais() {
         System.out.println("setPais");
-        Pais pais = null;
-        Ciudad instance = null;
+        String nombre = "artigas";
+        Pais uruguay = new Pais("uruguay");
+        Ciudad instance = new Ciudad("soriano", uruguay);
+        Pais pais = new Pais("argentina");
         instance.setPais(pais);
+        String expResult = "argentina";
+        assertEquals(expResult, instance.getPais().getNombre());
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -99,12 +108,13 @@ public class CiudadTest {
     @Test
     public void testGetDataCiudad() {
         System.out.println("getDataCiudad");
-        Ciudad instance = null;
-        DataCiudad expResult = null;
+        Pais uruguay = new Pais("uruguay");
+        Ciudad instance = new Ciudad("soriano", uruguay);
+        String expResult = "soriano";
         DataCiudad result = instance.getDataCiudad();
-        assertEquals(expResult, result);
+        assertEquals(expResult, result.getNombre());
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }
