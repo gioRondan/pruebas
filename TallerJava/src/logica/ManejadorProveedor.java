@@ -19,7 +19,7 @@ public class ManejadorProveedor {
     private Map<String,Proveedor> proveedores;
     private static ManejadorProveedor instance = null;
     private ManejadorProveedor(){
-        proveedores = Collections.emptyMap();
+        proveedores = new HashMap();
     }
     
     public static ManejadorProveedor getInstance(){

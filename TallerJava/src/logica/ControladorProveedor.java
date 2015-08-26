@@ -210,7 +210,7 @@ public class ControladorProveedor implements IControladorProveedor{
        mPr.unicidadNick(nick);//bomba!!!!!!!!!!!!
         mPr.unicidadEmail(email);//bomba!!!!!!!!!!!!
    
-        if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty())  || (nombreEmp.isEmpty())){
+       if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty())  || (nombreEmp.isEmpty())){
             throw new Exception("los datos ingresados no son correctos");
         }else{
             Proveedor prov = new Proveedor(nick, nombre, apellido, email, fechaNac, imagen);
@@ -222,7 +222,7 @@ public class ControladorProveedor implements IControladorProveedor{
             }
             prov.asociarEmpresa(emp);
             mPr.addProveedor(prov);
-            JOptionPane.showMessageDialog(null, imagen);
+            JOptionPane.showMessageDialog(null, "El proveedor se a ingresado con exito");
         }
     }
     @Override

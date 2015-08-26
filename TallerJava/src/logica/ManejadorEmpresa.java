@@ -20,7 +20,7 @@ public class ManejadorEmpresa {
     private Map<String,Empresa> empresas;
     private static ManejadorEmpresa instance = null;
     private ManejadorEmpresa(){
-        empresas = Collections.emptyMap();
+        empresas = new HashMap();
     }
     
     public static ManejadorEmpresa getInstance(){

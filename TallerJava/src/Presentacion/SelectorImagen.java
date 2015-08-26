@@ -66,8 +66,8 @@ public class SelectorImagen extends javax.swing.JInternalFrame {
         String comando = evt.getActionCommand();
         if (comando.equals(JFileChooser.APPROVE_SELECTION)){
             File archivoSeleccionado = selectro.getSelectedFile();
-            File nuevo = new File("C:\\Users\\Juan\\Documents\\NetBeansProjects\\tpgr07\\TallerJava\\src\\Imagenes\\Usuarios\\"+AltaProveedor.proveedorNick.getText()+".jpg");
-            archivoSeleccionado.renameTo(nuevo);
+//            File nuevo = new File("C:\\Users\\Juan\\Documents\\NetBeansProjects\\tpgr07\\TallerJava\\src\\Imagenes\\Usuarios\\"+AltaProveedor.proveedorNick.getText()+".jpg");
+//            archivoSeleccionado.renameTo(nuevo);
             AltaProveedor.proveedorImagen.setText(archivoSeleccionado.getAbsolutePath());
             this.dispose();
         }else if (comando.equals(JFileChooser.CANCEL_SELECTION)){

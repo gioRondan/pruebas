@@ -273,8 +273,10 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
         try {
             Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , proveedorImagen.getText(), proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
         } catch (Exception ex){
-            JOptionPane.showInternalMessageDialog(null, ex);
+            JOptionPane.showMessageDialog(null,ex.getMessage());
+           
         }
+        //this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
