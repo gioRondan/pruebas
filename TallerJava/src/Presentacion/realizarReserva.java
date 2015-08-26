@@ -32,9 +32,10 @@ public class realizarReserva extends javax.swing.JInternalFrame {
         PantallaPrincipal pp = PantallaPrincipal.getInstancia();
         Set<DataCliente> dts = pp.ICC.listarClientes();
         Iterator<DataCliente> itera = dts.iterator();
-            //while (itera.hasNext()) {
-        for(int i=1;i<=500;i++){    
-            mol.addElement("nabo");
+        while (itera.hasNext()) {
+            DataCliente dt = itera.next();
+            String aux = dt.getNickname();
+            mol.addElement(aux);
         }
          jList2.setModel(mol);
     }

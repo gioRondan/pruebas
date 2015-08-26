@@ -12,7 +12,6 @@ import java.util.Set;
  */
 public class Pais {
     private String nombre;
-    private Set<Ciudad> ciudades;
     
     public Pais(String nombre){
         this.nombre = nombre;
