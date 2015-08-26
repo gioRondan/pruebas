@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ControladorCliente.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TallerJava&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">logica</a> &gt; <span class="el_source">ControladorCliente.java</span></div><h1>ControladorCliente.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package logica;
+
+import java.util.Date;
+import java.util.Set;
+
+
+/**
+ *
+ * @author Juan
+ */
+<span class="nc" id="L16">public class ControladorCliente implements IControladorCliente{</span>
+    @Override
+    public void actualizarEstadoReserva(int id, String nomCliente, Estado estado){
+<span class="nc" id="L19">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="nc" id="L20">        Cliente cli = mCl.getCliente(nomCliente);</span>
+<span class="nc" id="L21">        cli.modificarEstadoReserva(id, estado);</span>
+<span class="nc" id="L22">    }</span>
+    
+    @Override
+    public void realizarReserva(String proveedor,String cliente,String servicio,int cantidad,Date fechaInicio,Date fechaFin,boolean esServicio ){ //el bool servicio indica si voy a reservar un servicio, si es false es para reservar una promocion
+<span class="nc" id="L26">        ManejadorCliente mcli = ManejadorCliente.getInstance();</span>
+<span class="nc" id="L27">        Cliente aux_cliente = mcli.getCliente(cliente);</span>
+<span class="nc" id="L28">        int clave1 = mcli.getUltimoid();</span>
+<span class="nc" id="L29">        ManejadorProveedor mpr = ManejadorProveedor.getInstance();</span>
+<span class="nc" id="L30">        Proveedor prov = mpr.getProveedor(proveedor);</span>
+        
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        if (esServicio){</span>
+<span class="nc" id="L33">            Servicio serv = prov.getServicio(servicio);</span>
+<span class="nc" id="L34">            aux_cliente.reservarServicio(clave1,serv,cantidad,fechaInicio,fechaFin);</span>
+<span class="nc" id="L35">        }</span>
+        else
+        {
+<span class="nc" id="L38">            Promocion pr = prov.getPromocion(servicio);</span>
+<span class="nc" id="L39">            aux_cliente.reservarPromocion(clave1,pr, cantidad, fechaInicio, fechaFin);</span>
+        }
+<span class="nc" id="L41">    }</span>
+    
+    @Override
+    public void altaCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen) throws Exception{
+<span class="nc" id="L45">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="nc" id="L46">        boolean existeNickname = mCl.existeCliente(nickname);</span>
+<span class="nc" id="L47">        boolean existeMail     = mCl.existeCliente(email);      </span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">        if(existeNickname){</span>
+<span class="nc" id="L49">            throw new Exception(&quot;Ya existe un usuario con el nickname: &quot; + nickname);</span>
+        }
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        else if(existeMail){</span>
+<span class="nc" id="L52">            throw new Exception(&quot;Ya existe un usuario con el email: &quot; + email);</span>
+        }
+        else{
+            Cliente cliente;
+<span class="nc" id="L56">            cliente = new Cliente(nickname, nombre, apellido, email, fechaNac, imagen);</span>
+<span class="nc" id="L57">            mCl.addCliente(cliente);</span>
+        }        
+<span class="nc" id="L59">    }</span>
+    
+    @Override
+    public Set&lt;DataCliente&gt; listarClientes(){
+<span class="nc" id="L63">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="nc" id="L64">        return mCl.getDataClientes();</span>
+    }
+    
+    @Override
+    public void cancelarReserva(String nomCliente, int id){
+<span class="nc" id="L69">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="nc" id="L70">        Cliente cli = mCl.getCliente(nomCliente);</span>
+<span class="nc" id="L71">        cli.cancelarReserva(id);</span>
+<span class="nc" id="L72">    }</span>
+    
+    @Override
+    public Set&lt;DataReserva&gt; listarReservasSistema(){
+<span class="nc" id="L76">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="nc" id="L77">        return mCl.listarReservas();</span>
+        
+    }
+    
+    @Override
+    public Set&lt;DataReserva&gt; listarReservasXCliente(String nomCliente){
+<span class="nc" id="L83">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="nc" id="L84">        return mCl.getCliente(nomCliente).getDataReservas();</span>
+    }
+    
+    @Override
+    public DataInfoReserva verInfoReserva(String nomCliente, int id){
+<span class="nc" id="L89">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="nc" id="L90">        Cliente cliente = mCl.getCliente(nomCliente);</span>
+<span class="nc" id="L91">        Reserva reserva = cliente.getReserva(id);</span>
+<span class="nc" id="L92">        return reserva.getDataInfoReserva();</span>
+    }
+    
+    @Override
+    public DataInfoCliente verInfoCliente( String nomCliente){
+<span class="nc" id="L97">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="nc" id="L98">        return mCl.getCliente(nomCliente).getDataInfoCliente();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

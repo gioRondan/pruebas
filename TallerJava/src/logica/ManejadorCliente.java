@@ -6,6 +6,7 @@
 package logica;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -20,7 +21,7 @@ public class ManejadorCliente {
     private static ManejadorCliente instance = null;
     private ManejadorCliente(){
         id=111;
-        clientes = Collections.emptyMap();
+        clientes = new HashMap();
     }
     
     public static ManejadorCliente getInstance(){

@@ -14,6 +14,7 @@ import java.util.Set;
  * @author Juan
  */
 public class ControladorCliente implements IControladorCliente{
+    
     @Override
     public void actualizarEstadoReserva(int id, String nomCliente, Estado estado){
         ManejadorCliente mCl = ManejadorCliente.getInstance();
