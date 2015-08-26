@@ -79,32 +79,46 @@ public class ControladorClienteTest {
      */
     @Test
     public void testAltaCliente() throws Exception {
+        /*System.out.println("altaCliente");
+        ControladorCliente instance = new ControladorCliente();
+        instance.altaCliente(nickname, nombre, apellido, email, fechaNac, imagen);*/
+        // TODO review the generated test code and remove the default call to fail.
+        
+        //fail("The test case is a prototype.");
+    }
+    public void testAltaCliente2(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen) throws Exception {
         System.out.println("altaCliente");
-        String nickname = "gio";
-        String nombre = "giovani";
-        String apellido = "rondan";
-        String email = "grondan93@gmail.com";
-        Date fechaNac = new Date(26, 8, 2015);
-        String imagen = "url";
         ControladorCliente instance = new ControladorCliente();
         instance.altaCliente(nickname, nombre, apellido, email, fechaNac, imagen);
         // TODO review the generated test code and remove the default call to fail.
         
         //fail("The test case is a prototype.");
     }
-
     /**
      * Test of listarClientes method, of class ControladorCliente.
      */
     @Test
     public void testListarClientes() {
         System.out.println("listarClientes");
+        try{
+            for (int i=1; i<=10; ++i){
+                int n = i;
+                testAltaCliente2(Integer.toString(n), "giovani", "rondan", "grondan93@gmail.com", new Date(i, i, 2015), "url");
+            }
+        }catch (Exception ex){}
         ControladorCliente instance = new ControladorCliente();
-        Set<DataCliente> expResult = null;
+        String[] expResult ={"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         Set<DataCliente> result = instance.listarClientes();
-        assertEquals(expResult, result);
+        DataCliente dt;
+        int j = 1;
+        for(DataCliente it : result){
+          
+            assertEquals(Integer.toString(j), it.getNickname());
+            j++;
+        }
+        
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**

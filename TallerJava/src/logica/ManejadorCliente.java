@@ -7,6 +7,7 @@ package logica;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -50,7 +51,7 @@ public class ManejadorCliente {
     
     public Set<DataReserva> listarReservas(){
         Set<DataReserva> dts;
-        dts = Collections.EMPTY_SET;
+        dts = new HashSet();
         clientes.values().stream().forEach((Cliente value) -> {
              boolean ni = dts.addAll(value.getDataReservas());
          });
@@ -58,7 +59,7 @@ public class ManejadorCliente {
         
     }
     public Set<DataCliente> getDataClientes(){
-        Set<DataCliente> dts = Collections.EMPTY_SET;
+        Set<DataCliente> dts = new HashSet();
         Iterator iter = clientes.values().iterator();
         for (Cliente c : clientes.values()){
             dts.add(c.getDataCliente());
