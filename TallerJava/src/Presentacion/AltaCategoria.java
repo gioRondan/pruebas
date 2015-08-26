@@ -6,6 +6,15 @@
 
 package Presentacion;
 
+import java.util.Iterator;
+import java.util.Set;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeModel;
+import javax.swing.tree.TreePath;
+import logica.DataCategoria;
+import logica.DataProveedor;
+
 /**
  *
  * @author rodrigo.linares
@@ -15,9 +24,21 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
     /**
      * Creates new form NewJInternalFrame
      */
+    public Object seleccionado;
     PantallaPrincipal Pantallaprin = PantallaPrincipal.getInstancia();
     public AltaCategoria() {
         initComponents();
+        TreeModel jmodel;
+        DefaultMutableTreeNode treeNode1 = new DefaultMutableTreeNode("Categorías");
+//        Set<DataCategoria> dtps = Pantallaprin.ICP.listarCategorias();
+//        Iterator<DataCategoria> it = dtps.iterator();
+//        while (it.hasNext()){
+//            DataCategoria dtCat = it.next();
+//            String nomCategoria = dtCat.getNombre();
+//            DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode(nomCategoria);
+//            treeNode1.add(treeNode2);
+//        }
+        Arbol.setModel(new DefaultTreeModel(treeNode1));
     }
 
     /**
@@ -30,19 +51,21 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        Arbol = new javax.swing.JTree();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         NombreCategoria = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
 
-        jTree1.addMouseListener(new java.awt.event.MouseAdapter() {
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        Arbol.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        Arbol.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTree1MouseClicked(evt);
+                ArbolMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTree1);
+        jScrollPane1.setViewportView(Arbol);
 
         jLabel1.setText("Categoría padre");
 
@@ -117,6 +140,13 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String st = NombreCategoria.getText();
+        DefaultTreeModel model;
+        model = (DefaultTreeModel) Arbol.getModel();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) this.seleccionado;
+        model.insertNodeInto(new DefaultMutableTreeNode(st), root, root.getChildCount());
+        Pantallaprin.ICP.ingresarNombreCategoria(NombreCategoria.getText());
+//        Pantallaprin.ICP.seleccionarPadre(Sacar el nombre del tree);
         Pantallaprin.ICP.altaCategoria();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -129,21 +159,25 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void NombreCategoriaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NombreCategoriaFocusLost
-        Pantallaprin.ICP.ingresarNombreCategoria(NombreCategoria.getText());
+        
     }//GEN-LAST:event_NombreCategoriaFocusLost
 
-    private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
-        //Pantallaprin.ICP.seleccionarPadre(Sacar el nombre del tree);
-    }//GEN-LAST:event_jTree1MouseClicked
+    private void ArbolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ArbolMouseClicked
+        this.seleccionado = Arbol.getLastSelectedPathComponent();
+        TreeModel model = Arbol.getModel();
+        TreePath x = Arbol.getSelectionPath();
+        jLabel1.setText(x.toString());
+//Pantallaprin.ICP.seleccionarPadre(Sacar el nombre del tree);
+    }//GEN-LAST:event_ArbolMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTree Arbol;
     private javax.swing.JTextField NombreCategoria;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTree jTree1;
     // End of variables declaration//GEN-END:variables
 }
