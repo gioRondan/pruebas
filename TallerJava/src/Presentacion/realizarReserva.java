@@ -12,6 +12,7 @@ import javax.swing.JScrollPane;
 import javax.swing.tree.TreeModel;
 import logica.DataCliente;
 import logica.DataProveedor;
+import logica.DataServicio;
 
 /**
  *
@@ -46,17 +47,26 @@ public class realizarReserva extends javax.swing.JInternalFrame {
         
         Set<DataProveedor> dtps = pp.ICP.listarProveedores();
         Iterator<DataProveedor> it = dtps.iterator();
-        
         while (it.hasNext()){
             DataProveedor dtp = it.next();
             String aux1 = dtp.getNickname();
             javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode(aux1);
             treeNode1.add(treeNode2);
-        }
+            Set<DataServicio> dtss = pp.ICP.listarServiciosXProveedor(aux1);
+            Iterator<DataServicio> it1 = dtss.iterator();
+            while (it.hasNext()){
+                DataServicio d = it1.next();
+                String aux2 = d.getNombre();
+                javax.swing.tree.DefaultMutableTreeNode treeNode5 = new javax.swing.tree.DefaultMutableTreeNode(aux2);
+                treeNode2.add(treeNode5);
+            }
+            
+        }   // agregamos todos los proveedores al jtree {matias heredia}
         /*for(int i=1;i<=500;i++){
             javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("nabo");
             treeNode1.add(treeNode2);
         }*/
+        
         jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
          jList2.setModel(mol);
     }
