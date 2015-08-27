@@ -74,9 +74,11 @@ public class ControladorClienteTest {
         try{
             for (int i=1; i<=10; ++i){
                 int n = i;
-                testAltaCliente2(Integer.toString(n), "giovani", "rondan", "grondan93@gmail.com", new Date(i, i, 2015), "url");
+                testAltaCliente2(Integer.toString(n), "giovani", "rondan", Integer.toString(n), new Date(i, i, 2015), "url");
             }
-        }catch (Exception ex){}
+        }catch (Exception ex){
+            System.out.println("throw alta cliente");
+        }
         ControladorCliente instance = new ControladorCliente();
         String[] expResult ={"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         List<DataCliente> result = instance.listarClientes();

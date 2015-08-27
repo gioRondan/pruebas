@@ -41,15 +41,17 @@ public class ManejadorCliente {
     public void removeCliente(String nickname){
         clientes.remove(nickname);
     }
-    public boolean existeCliente(String valor){
-        Cliente cliente = clientes.get(valor);
-        if(cliente != null){
-            return true;
+    void unicidadNick(String nick) throws Exception{
+        if (clientes.containsKey(nick))
+            throw new Exception("el nick ingresado ya pertenece a otro proveedor"); 
+    }
+    void unicidadEmail(String email) throws Exception{
+        for(Cliente it : clientes.values()){
+            if (it.getEmail().equals(email)){
+                throw new Exception("el email ingresado ya pertenece a otro proveedor");
+            }
         }
-        else{
-            return false;
-        }
-    }   
+    }
     
     public List<DataReserva> listarReservas(){
         List<DataReserva> dts;

@@ -45,19 +45,12 @@ public class ControladorCliente implements IControladorCliente{
     @Override
     public void altaCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen) throws Exception{
         ManejadorCliente mCl = ManejadorCliente.getInstance();
-        boolean existeNickname = mCl.existeCliente(nickname);
-        boolean existeMail     = mCl.existeCliente(email);      
-        if(existeNickname){
-            throw new Exception("Ya existe un usuario con el nickname: " + nickname);
-        }
-        else if(existeMail){
-            throw new Exception("Ya existe un usuario con el email: " + email);
-        }
-        else{
+        mCl.unicidadNick(nickname);
+        mCl.unicidadEmail(email);
+        
             Cliente cliente;
             cliente = new Cliente(nickname, nombre, apellido, email, fechaNac, imagen);
-            mCl.addCliente(cliente);
-        }        
+            mCl.addCliente(cliente);        
     }
     
     @Override

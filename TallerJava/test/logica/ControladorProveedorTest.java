@@ -59,8 +59,36 @@ public class ControladorProveedorTest {
         }catch (Exception e){
             System.out.println("fallo altaproveedor");
         }
-// TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+    }
+    /**
+     * Test of listarProveedores method, of class ControladorProveedor.
+     */
+    @Test
+    public void testListarProveedores() {
+      /*  System.out.println("listarProveedores");
+        try{
+            for (int i=1; i<=10; ++i){
+                int n = i;
+                //testAltaProveedor2(Integer.toString(n), "giovani", "rondan", "grondan93@gmail.com", new Date(i, i, 2015), "url");
+            }
+        }catch (Exception ex){}
+        ControladorCliente instance = new ControladorCliente();
+        String[] expResult ={"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        List<DataCliente> result = instance.listarClientes();
+        DataCliente dt;
+        int j = 1;
+        for(DataCliente it : result){
+          
+            assertEquals(Integer.toString(j), it.getNickname());
+            j++;
+        }*/
+        ControladorProveedor instance = new ControladorProveedor();
+        Set<DataProveedor> expResult = null;
+        List<DataProveedor> result = instance.listarProveedores();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    
     }
     /**
      * Test of ingresarImagenServicio method, of class ControladorProveedor.
@@ -146,19 +174,6 @@ public class ControladorProveedorTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of listarProveedores method, of class ControladorProveedor.
-     */
-    @Test
-    public void testListarProveedores() {
-        System.out.println("listarProveedores");
-        ControladorProveedor instance = new ControladorProveedor();
-        Set<DataProveedor> expResult = null;
-        List<DataProveedor> result = instance.listarProveedores();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of seleccionarCategoria method, of class ControladorProveedor.
