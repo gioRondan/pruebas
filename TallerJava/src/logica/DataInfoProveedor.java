@@ -5,6 +5,7 @@
  */
 package logica;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -36,7 +37,7 @@ public class DataInfoProveedor {
         this.fechaNac       =new Date();
         this.imagen         = "";
         this.empresa        = new DataEmpresa();
-        this.servicios      = new HashSet();
+        this.servicios      = new ArrayList<>();
     }
     
     public DataInfoProveedor(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, DataEmpresa empresa, List<DataServicio> servicios){
@@ -79,7 +80,7 @@ public class DataInfoProveedor {
         return empresa;
     }
     
-    public Set<DataServicio> getServicios(){
+    public List<DataServicio> getServicios(){
         return servicios;
     }
 }

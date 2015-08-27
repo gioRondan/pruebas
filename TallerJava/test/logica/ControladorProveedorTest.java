@@ -96,7 +96,7 @@ public class ControladorProveedorTest {
         System.out.println("listarCiudades");
         ControladorProveedor instance = new ControladorProveedor();
         Set<DataCiudad> expResult = null;
-        Set<DataCiudad> result = instance.listarCiudades();
+        List<DataCiudad> result = instance.listarCiudades();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -123,7 +123,7 @@ public class ControladorProveedorTest {
         System.out.println("listarCategorias");
         ControladorProveedor instance = new ControladorProveedor();
         Set<DataCategoria> expResult = null;
-        Set<DataCategoria> result = instance.listarCategorias();
+        List<DataCategoria> result = instance.listarCategorias();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -154,7 +154,7 @@ public class ControladorProveedorTest {
         System.out.println("listarProveedores");
         ControladorProveedor instance = new ControladorProveedor();
         Set<DataProveedor> expResult = null;
-        Set<DataProveedor> result = instance.listarProveedores();
+        List<DataProveedor> result = instance.listarProveedores();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -182,7 +182,7 @@ public class ControladorProveedorTest {
         String nomCategoria = "";
         ControladorProveedor instance = new ControladorProveedor();
         Set<DataServicio> expResult = null;
-        Set<DataServicio> result = instance.listarServiciosXCategoria(nomCategoria);
+        List<DataServicio> result = instance.listarServiciosXCategoria(nomCategoria);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -235,7 +235,7 @@ public class ControladorProveedorTest {
         String nomProveedor = "";
         ControladorProveedor instance = new ControladorProveedor();
         Set<DataServicio> expResult = null;
-        Set<DataServicio> result = instance.listarServiciosXProveedor(nomProveedor);
+        List<DataServicio> result = instance.listarServiciosXProveedor(nomProveedor);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -346,7 +346,7 @@ public class ControladorProveedorTest {
         String nomProveedor = "";
         ControladorProveedor instance = new ControladorProveedor();
         Set<DataPromocion> expResult = null;
-        Set<DataPromocion> result = instance.listarPromocionesXProveedor(nomProveedor);
+        List<DataPromocion> result = instance.listarPromocionesXProveedor(nomProveedor);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
