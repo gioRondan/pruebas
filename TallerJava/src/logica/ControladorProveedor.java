@@ -3,7 +3,6 @@ package logica;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 
 /**
@@ -36,7 +35,7 @@ public class ControladorProveedor implements IControladorProveedor{
         this.destinoServicio = destino;
     }
     @Override
-    public Set<DataCiudad> listarCiudades(){
+    public List<DataCiudad> listarCiudades(){
         ManejadorCiudad mCi = ManejadorCiudad.getInstance();
         return mCi.getDataCiudades();//falta implementar manejadorciudad
     }
@@ -45,7 +44,7 @@ public class ControladorProveedor implements IControladorProveedor{
         this.categoriasServicio.add(categoria);
     }
     @Override
-    public Set<DataCategoria> listarCategorias(){
+    public List<DataCategoria> listarCategorias(){
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
         return mCa.getDataCategorias();//falta implementar manejadorcategoria
     }
@@ -77,7 +76,7 @@ public class ControladorProveedor implements IControladorProveedor{
         liberarMemoria();
     }
     @Override
-    public Set<DataProveedor> listarProveedores(){
+    public List<DataProveedor> listarProveedores(){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         return mPr.getDataProveedores();
     }
@@ -85,7 +84,7 @@ public class ControladorProveedor implements IControladorProveedor{
         this.categoria = categoria;
     }
     @Override
-    public Set<DataServicio> listarServiciosXCategoria( String nomCategoria){
+    public List<DataServicio> listarServiciosXCategoria( String nomCategoria){
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
         Categoria cat = mCa.getCategoria(categoria);
         return cat.getDataServicios();
@@ -104,7 +103,7 @@ public class ControladorProveedor implements IControladorProveedor{
         mCa.crearCategoria(this.nomCategoria,this.nomPadre);
     }
     @Override
-    public Set<DataServicio> listarServiciosXProveedor( String nomProveedor){
+    public List<DataServicio> listarServiciosXProveedor( String nomProveedor){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(nomProveedor);//nickname
         this.proveedor = nomProveedor;//para que esta linea ?
@@ -225,7 +224,7 @@ public class ControladorProveedor implements IControladorProveedor{
         }
     }
     @Override
-    public Set<DataPromocion> listarPromocionesXProveedor( String nomProveedor){
+    public List<DataPromocion> listarPromocionesXProveedor( String nomProveedor){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
         return prov.getDataPromociones();

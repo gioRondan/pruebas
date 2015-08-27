@@ -5,10 +5,12 @@
  */
 
 package logica;
+import java.util.ArrayList;
 import java.util.Collections;
 import static java.util.Collections.emptyMap;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 /**
@@ -44,8 +46,8 @@ public class ManejadorProveedor {
         return dts;
     }
     
-    public Set<DataProveedor> getDataProveedores(){
-        Set<DataProveedor> dts =  new HashSet();
+    public List<DataProveedor> getDataProveedores(){
+        List<DataProveedor> dts =  new ArrayList<>();
         for (Proveedor value : proveedores.values()){
             dts.add(value.getDataProveedor());
         }

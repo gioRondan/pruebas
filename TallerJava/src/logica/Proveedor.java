@@ -5,11 +5,13 @@
  */
 
 package logica;
+import java.util.ArrayList;
 import java.util.Collections;
 import static java.util.Collections.emptyMap;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -36,8 +38,8 @@ public class Proveedor extends Usuario{
     public Empresa getEmpresa() {
         return empresa;
     }
-    public Set<DataServicio> getDataServicios(){
-        Set<DataServicio> dts =  new HashSet();
+    public List<DataServicio> getDataServicios(){
+        List<DataServicio> dts =  new ArrayList<>();
         for (Servicio value : servicios.values()){
             dts.add(value.getDataServicio());
         }
@@ -46,8 +48,8 @@ public class Proveedor extends Usuario{
     public Promocion getPromocion(String nomPromocion){
         return this.promociones.get(nomPromocion);
     }
-    public Set<DataPromocion> getDataPromociones(){
-        Set<DataPromocion> dts =  new HashSet();
+    public List<DataPromocion> getDataPromociones(){
+        List<DataPromocion> dts =  new ArrayList<>();
         for (Promocion value : promociones.values()){
             dts.add(value.getDataPromocion());
         }

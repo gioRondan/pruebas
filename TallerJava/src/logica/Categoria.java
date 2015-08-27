@@ -5,7 +5,9 @@
  */
 package logica;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -45,8 +47,8 @@ public class Categoria {
     public Set<Servicio> getServicios(){
         return this.servicios;
     }
-    public Set<DataServicio> getDataServicios(){
-        Set<DataServicio> dts = new HashSet();
+    public List<DataServicio> getDataServicios(){
+        List<DataServicio> dts = new ArrayList<>();
         for(Servicio s : servicios){
             dts.add(s.getDataServicio());
         }

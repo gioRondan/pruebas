@@ -15,15 +15,15 @@ import java.util.List;
  */
 public interface IControladorProveedor {
     public void ingresarImagen(String imagen);
-    public Set<DataCiudad> listarCiudades();
-    public Set<DataCategoria> listarCategorias();
+    public List<DataCiudad> listarCiudades();
+    public List<DataCategoria> listarCategorias();
     public void altaServicio(String nombre, String descripcion, int precio, String origen, String proveedor);
-    public Set<DataProveedor> listarProveedores();
-    public Set<DataServicio> listarServiciosXCategoria(String nomCategoria);
+    public List<DataProveedor> listarProveedores();
+    public List<DataServicio> listarServiciosXCategoria(String nomCategoria);
     public void ingresarNombreCategoria(String nombre);
     public void seleccionarPadre(String nombre);
     public void altaCategoria(/*sin parametros?*/);
-    public Set<DataServicio> listarServiciosXProveedor(String nomProveedor);
+    public List<DataServicio> listarServiciosXProveedor(String nomProveedor);
     public void altaPromocion( String nomProveedor,Set<String> ser, String nombre, int descuento);
     public void ingresarDescripcionServicio(String desc);
     public void ingresarImagenServicio(String imagen);
@@ -34,7 +34,7 @@ public interface IControladorProveedor {
     public void modificarServicio();
     public List<DataEmpresa> listarEmpresas();
     public void altaProveedor(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmp, String LinkEmpres) throws Exception;
-    public Set<DataPromocion> listarPromocionesXProveedor(String nomProveedor);
+    public List<DataPromocion> listarPromocionesXProveedor(String nomProveedor);
     public DataInfoPromocion verInfoPromocion(String nickproveedor, String nomPromocion);
     public DataInfoServicio verInfoServicio(String nomServicio);
     public DataInfoProveedor verInfoProveedor(String nomProveedor);

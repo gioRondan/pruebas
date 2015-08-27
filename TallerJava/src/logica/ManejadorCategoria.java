@@ -5,7 +5,9 @@
  */
 package logica;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -34,8 +36,8 @@ public class ManejadorCategoria {
     public void removeCategoria(String nombre){
         categorias.remove(nombre);
     }
-    public Set<DataCategoria> getDataCategorias(){
-        Set<DataCategoria> dts = null;
+    public List<DataCategoria> getDataCategorias(){
+        List<DataCategoria> dts = new ArrayList<>();
         for (Categoria value : categorias.values()){
             dts.add(value.getDataCategoria());
         }

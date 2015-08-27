@@ -5,6 +5,7 @@
  */
 package logica;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -23,7 +24,7 @@ public class ManejadorCiudad {
         return instance;
     } 
     
-   public Set<DataCiudad> getDataCiudades(){
+   public List<DataCiudad> getDataCiudades(){
        return null;
    }
     public Ciudad getCiudad(String a){
