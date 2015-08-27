@@ -60,16 +60,28 @@ public class ControladorProveedorTest {
             System.out.println("fallo altaproveedor");
         }
     }
+    
+    public void testAltaProveedor2(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen) throws Exception  {
+        System.out.println("altaProveedor2");
+        String nombreEmp = "hola";
+        String linkEmp = "mundo";
+        ControladorProveedor instance = new ControladorProveedor();
+        try{
+        instance.altaProveedor(nickname, nombre, apellido, email, fechaNac, imagen, nombreEmp, linkEmp);
+        }catch (Exception e){
+            System.out.println("fallo altaproveedor2");
+        }
+    }
     /**
      * Test of listarProveedores method, of class ControladorProveedor.
      */
     @Test
     public void testListarProveedores() {
-      /*  System.out.println("listarProveedores");
+        System.out.println("listarProveedores");
         try{
             for (int i=1; i<=10; ++i){
                 int n = i;
-                //testAltaProveedor2(Integer.toString(n), "giovani", "rondan", "grondan93@gmail.com", new Date(i, i, 2015), "url");
+                testAltaProveedor2(Integer.toString(n), "giovani", "rondan", Integer.toString(n), new Date(i, i, 2015), "url");
             }
         }catch (Exception ex){}
         ControladorCliente instance = new ControladorCliente();
@@ -81,14 +93,7 @@ public class ControladorProveedorTest {
           
             assertEquals(Integer.toString(j), it.getNickname());
             j++;
-        }*/
-        ControladorProveedor instance = new ControladorProveedor();
-        Set<DataProveedor> expResult = null;
-        List<DataProveedor> result = instance.listarProveedores();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    
+        }
     }
     /**
      * Test of ingresarImagenServicio method, of class ControladorProveedor.
