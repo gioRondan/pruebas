@@ -17,11 +17,11 @@ public class Img extends javax.swing.JInternalFrame {
     /**
      * Creates new form Img
      */
-    public Img(){
+    public Img(String x){
             initComponents();
             this.setBounds(0,0, PantallaPrincipal.Escritorio.getWidth(), PantallaPrincipal.Escritorio.getHeight());
            
-            Imagen im = new Imagen(jPanel1);
+            Imagen im = new Imagen(jPanel1,x);
             jPanel1.add(im).repaint();
             
     }

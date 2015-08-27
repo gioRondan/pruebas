@@ -330,8 +330,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 
-    void abrirImagen() {
-        Img altaCat = new Img();
+    void abrirImagen(String ruta) {
+        Img altaCat = new Img(ruta);
         Escritorio.add(altaCat);
         altaCat.show();
     }

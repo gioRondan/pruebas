@@ -22,6 +22,7 @@ import logica.DataServicio;
 public class VerInfoProveedor extends javax.swing.JInternalFrame {
      PantallaPrincipal pp = PantallaPrincipal.getInstancia();
      List<DataProveedor> info = pp.ICP.listarProveedores();
+     String ruta;
     /**
      * Creates new form VerInfoProveedor
      */
@@ -36,7 +37,8 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
             String nick = dt.getNickname();
             model.addElement(nick);
         }
-        jList1.setModel(model);
+            jList1.setModel(model);
+            this.ruta ="";
         }
 
     /**
@@ -285,9 +287,10 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
           proveedorEmpresaNombre.setText(dtinfoprv.getEmpresa().getNombre());
           proveedorEmpresaLink.setText(dtinfoprv.getEmpresa().getUrl());
           FechaNac.setText(dtinfoprv.getFechaNac().toString());
-          Imagen im = new Imagen(jPanel1);
-          jPanel1.add(im).repaint();
           
+          Imagen im = new Imagen(jPanel1,dtinfoprv.getImagen());
+          jPanel1.add(im).repaint();
+          this.ruta=dtinfoprv.getImagen();
          
           List<DataServicio> datas = dtinfoprv.getServicios();
           Iterator<DataServicio> it = datas.iterator();
@@ -303,7 +306,7 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
         // TODO add your handling code here:
-        pp.abrirImagen();
+        pp.abrirImagen(ruta);
     }//GEN-LAST:event_jPanel1MouseClicked
 
     private void jList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList2MouseClicked

@@ -12,16 +12,18 @@ import javax.swing.JPanel;
 
 public class Imagen extends javax.swing.JPanel {
     int x, y;
+    String rutaArchivo;
 
-    public Imagen(JPanel jPanel1) {
+    public Imagen(JPanel jPanel1,String nom) {
         this.x = jPanel1.getWidth();
         this.y = jPanel1.getHeight();
         this.setSize(x, y);
+        this.rutaArchivo = nom;
     }
 
     @Override
     public void paint(Graphics g) {
-        ImageIcon Img = new ImageIcon(getClass().getResource("/Imagenes/icon_512.png"));
+        ImageIcon Img = new ImageIcon(getClass().getResource(this.rutaArchivo));
         g.drawImage(Img.getImage(), 0, 0, x, y, null);
     }    
 
