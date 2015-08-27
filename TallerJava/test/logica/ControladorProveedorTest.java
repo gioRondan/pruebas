@@ -1,0 +1,410 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package logica;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+/**
+ *
+ * @author giovani
+ */
+public class ControladorProveedorTest {
+    
+    public ControladorProveedorTest() {
+    }
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
+
+    /**
+     * Test of ingresarImagenServicio method, of class ControladorProveedor.
+     */
+    @Test
+    public void testIngresarImagenServicio() {
+        System.out.println("ingresarImagenServicio");
+        String imagen = "";
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.ingresarImagenServicio(imagen);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of ingresarDestinoServicio method, of class ControladorProveedor.
+     */
+    @Test
+    public void testIngresarDestinoServicio() {
+        System.out.println("ingresarDestinoServicio");
+        String destino = "";
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.ingresarDestinoServicio(destino);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of listarCiudades method, of class ControladorProveedor.
+     */
+    @Test
+    public void testListarCiudades() {
+        System.out.println("listarCiudades");
+        ControladorProveedor instance = new ControladorProveedor();
+        Set<DataCiudad> expResult = null;
+        Set<DataCiudad> result = instance.listarCiudades();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of ingresarCategoriaServicio method, of class ControladorProveedor.
+     */
+    @Test
+    public void testIngresarCategoriaServicio() {
+        System.out.println("ingresarCategoriaServicio");
+        String categoria = "";
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.ingresarCategoriaServicio(categoria);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of listarCategorias method, of class ControladorProveedor.
+     */
+    @Test
+    public void testListarCategorias() {
+        System.out.println("listarCategorias");
+        ControladorProveedor instance = new ControladorProveedor();
+        Set<DataCategoria> expResult = null;
+        Set<DataCategoria> result = instance.listarCategorias();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of altaServicio method, of class ControladorProveedor.
+     */
+    @Test
+    public void testAltaServicio() {
+        System.out.println("altaServicio");
+        String nombre = "";
+        String descripcion = "";
+        int precio = 0;
+        String origen = "";
+        String proveedor = "";
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.altaServicio(nombre, descripcion, precio, origen, proveedor);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of listarProveedores method, of class ControladorProveedor.
+     */
+    @Test
+    public void testListarProveedores() {
+        System.out.println("listarProveedores");
+        ControladorProveedor instance = new ControladorProveedor();
+        Set<DataProveedor> expResult = null;
+        Set<DataProveedor> result = instance.listarProveedores();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of seleccionarCategoria method, of class ControladorProveedor.
+     */
+    @Test
+    public void testSeleccionarCategoria() {
+        System.out.println("seleccionarCategoria");
+        String categoria = "";
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.seleccionarCategoria(categoria);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of listarServiciosXCategoria method, of class ControladorProveedor.
+     */
+    @Test
+    public void testListarServiciosXCategoria() {
+        System.out.println("listarServiciosXCategoria");
+        String nomCategoria = "";
+        ControladorProveedor instance = new ControladorProveedor();
+        Set<DataServicio> expResult = null;
+        Set<DataServicio> result = instance.listarServiciosXCategoria(nomCategoria);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of ingresarNombreCategoria method, of class ControladorProveedor.
+     */
+    @Test
+    public void testIngresarNombreCategoria() {
+        System.out.println("ingresarNombreCategoria");
+        String nombre = "";
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.ingresarNombreCategoria(nombre);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of seleccionarPadre method, of class ControladorProveedor.
+     */
+    @Test
+    public void testSeleccionarPadre() {
+        System.out.println("seleccionarPadre");
+        String nombre = "";
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.seleccionarPadre(nombre);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of altaCategoria method, of class ControladorProveedor.
+     */
+    @Test
+    public void testAltaCategoria() {
+        System.out.println("altaCategoria");
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.altaCategoria();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of listarServiciosXProveedor method, of class ControladorProveedor.
+     */
+    @Test
+    public void testListarServiciosXProveedor() {
+        System.out.println("listarServiciosXProveedor");
+        String nomProveedor = "";
+        ControladorProveedor instance = new ControladorProveedor();
+        Set<DataServicio> expResult = null;
+        Set<DataServicio> result = instance.listarServiciosXProveedor(nomProveedor);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of seleccionarServicio method, of class ControladorProveedor.
+     */
+    @Test
+    public void testSeleccionarServicio() {
+        System.out.println("seleccionarServicio");
+        String nomServicio = "";
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.seleccionarServicio(nomServicio);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of altaPromocion method, of class ControladorProveedor.
+     */
+    @Test
+    public void testAltaPromocion() {
+        System.out.println("altaPromocion");
+        String nomProveedor = "";
+        Set<String> ser = null;
+        String nombre = "";
+        int descuento = 0;
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.altaPromocion(nomProveedor, ser, nombre, descuento);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of ingresarDescripcionServicio method, of class ControladorProveedor.
+     */
+    @Test
+    public void testIngresarDescripcionServicio() {
+        System.out.println("ingresarDescripcionServicio");
+        String desc = "";
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.ingresarDescripcionServicio(desc);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of ingresarPrecioServicio method, of class ControladorProveedor.
+     */
+    @Test
+    public void testIngresarPrecioServicio() {
+        System.out.println("ingresarPrecioServicio");
+        int precio = 0;
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.ingresarPrecioServicio(precio);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of ingresarOrigenServicio method, of class ControladorProveedor.
+     */
+    @Test
+    public void testIngresarOrigenServicio() {
+        System.out.println("ingresarOrigenServicio");
+        String origen = "";
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.ingresarOrigenServicio(origen);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of modificarServicio method, of class ControladorProveedor.
+     */
+    @Test
+    public void testModificarServicio() {
+        System.out.println("modificarServicio");
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.modificarServicio();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of listarEmpresas method, of class ControladorProveedor.
+     */
+    @Test
+    public void testListarEmpresas() {
+        System.out.println("listarEmpresas");
+        ControladorProveedor instance = new ControladorProveedor();
+        List<DataEmpresa> expResult = null;
+        List<DataEmpresa> result = instance.listarEmpresas();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of altaProveedor method, of class ControladorProveedor.
+     */
+    @Test
+    public void testAltaProveedor() throws Exception {
+        System.out.println("altaProveedor");
+        String nick = "";
+        String nombre = "";
+        String apellido = "";
+        String email = "";
+        Date fechaNac = null;
+        String imagen = "";
+        String nombreEmp = "";
+        String linkEmp = "";
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.altaProveedor(nick, nombre, apellido, email, fechaNac, imagen, nombreEmp, linkEmp);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of listarPromocionesXProveedor method, of class ControladorProveedor.
+     */
+    @Test
+    public void testListarPromocionesXProveedor() {
+        System.out.println("listarPromocionesXProveedor");
+        String nomProveedor = "";
+        ControladorProveedor instance = new ControladorProveedor();
+        Set<DataPromocion> expResult = null;
+        Set<DataPromocion> result = instance.listarPromocionesXProveedor(nomProveedor);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of verInfoServicio method, of class ControladorProveedor.
+     */
+    @Test
+    public void testVerInfoServicio() {
+        System.out.println("verInfoServicio");
+        String nomServicio = "";
+        ControladorProveedor instance = new ControladorProveedor();
+        DataInfoServicio expResult = null;
+        DataInfoServicio result = instance.verInfoServicio(nomServicio);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of verInfoProveedor method, of class ControladorProveedor.
+     */
+    @Test
+    public void testVerInfoProveedor() {
+        System.out.println("verInfoProveedor");
+        String nomProveedor = "";
+        ControladorProveedor instance = new ControladorProveedor();
+        DataInfoProveedor expResult = null;
+        DataInfoProveedor result = instance.verInfoProveedor(nomProveedor);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of ingresarImagen method, of class ControladorProveedor.
+     */
+    @Test
+    public void testIngresarImagen() {
+        System.out.println("ingresarImagen");
+        String imagen = "";
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.ingresarImagen(imagen);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of verInfoPromocion method, of class ControladorProveedor.
+     */
+    @Test
+    public void testVerInfoPromocion() {
+        System.out.println("verInfoPromocion");
+        String nickproveedor = "";
+        String nomPromocion = "";
+        ControladorProveedor instance = new ControladorProveedor();
+        DataInfoPromocion expResult = null;
+        DataInfoPromocion result = instance.verInfoPromocion(nickproveedor, nomPromocion);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+    
+}

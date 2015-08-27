@@ -7,6 +7,7 @@
 package logica;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -40,39 +41,9 @@ public class ControladorClienteTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of actualizarEstadoReserva method, of class ControladorCliente.
-     */
-    @Test
-    public void testActualizarEstadoReserva() {
-        System.out.println("actualizarEstadoReserva");
-        int id = 0;
-        String nomCliente = "";
-        Estado estado = null;
-        ControladorCliente instance = new ControladorCliente();
-        instance.actualizarEstadoReserva(id, nomCliente, estado);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
-    /**
-     * Test of realizarReserva method, of class ControladorCliente.
-     */
-    @Test
-    public void testRealizarReserva() {
-        System.out.println("realizarReserva");
-        String proveedor = "";
-        String cliente = "";
-        String servicio = "";
-        int cantidad = 0;
-        Date fechaInicio = null;
-        Date fechaFin = null;
-        boolean esServicio = false;
-        ControladorCliente instance = new ControladorCliente();
-        instance.realizarReserva(proveedor, cliente, servicio, cantidad, fechaInicio, fechaFin, esServicio);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+
+    
 
     /**
      * Test of altaCliente method, of class ControladorCliente.
@@ -108,7 +79,7 @@ public class ControladorClienteTest {
         }catch (Exception ex){}
         ControladorCliente instance = new ControladorCliente();
         String[] expResult ={"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-        Set<DataCliente> result = instance.listarClientes();
+        List<DataCliente> result = instance.listarClientes();
         DataCliente dt;
         int j = 1;
         for(DataCliente it : result){
@@ -120,7 +91,38 @@ public class ControladorClienteTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
-
+/**
+     * Test of realizarReserva method, of class ControladorCliente.
+     */
+    @Test
+    public void testRealizarReserva() {
+        System.out.println("realizarReserva");
+        String proveedor = "";
+        String cliente = "";
+        String servicio = "";
+        int cantidad = 0;
+        Date fechaInicio = null;
+        Date fechaFin = null;
+        boolean esServicio = false;
+        ControladorCliente instance = new ControladorCliente();
+        instance.realizarReserva(proveedor, cliente, servicio, cantidad, fechaInicio, fechaFin, esServicio);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+        /**
+     * Test of actualizarEstadoReserva method, of class ControladorCliente.
+     */
+    @Test
+    public void testActualizarEstadoReserva() {
+        System.out.println("actualizarEstadoReserva");
+        int id = 0;
+        String nomCliente = "";
+        Estado estado = null;
+        ControladorCliente instance = new ControladorCliente();
+        instance.actualizarEstadoReserva(id, nomCliente, estado);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     /**
      * Test of cancelarReserva method, of class ControladorCliente.
      */
@@ -143,7 +145,7 @@ public class ControladorClienteTest {
         System.out.println("listarReservasSistema");
         ControladorCliente instance = new ControladorCliente();
         Set<DataReserva> expResult = null;
-        Set<DataReserva> result = instance.listarReservasSistema();
+        List<DataReserva> result = instance.listarReservasSistema();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -158,7 +160,7 @@ public class ControladorClienteTest {
         String nomCliente = "";
         ControladorCliente instance = new ControladorCliente();
         Set<DataReserva> expResult = null;
-        Set<DataReserva> result = instance.listarReservasXCliente(nomCliente);
+        List<DataReserva> result = instance.listarReservasXCliente(nomCliente);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
