@@ -91,6 +91,21 @@ public class ControladorClienteTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+    
+    /**
+     * Test of verInfoCliente method, of class ControladorCliente.
+     */
+    @Test
+    public void testVerInfoCliente() {
+        /*System.out.println("verInfoCliente");
+        String nomCliente = "1";
+        ControladorCliente instance = new ControladorCliente();
+        DataInfoCliente expResult = null;
+        DataInfoCliente result = instance.verInfoCliente(nomCliente);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");*/
+    }
 /**
      * Test of realizarReserva method, of class ControladorCliente.
      */
@@ -117,7 +132,7 @@ public class ControladorClienteTest {
         System.out.println("actualizarEstadoReserva");
         int id = 0;
         String nomCliente = "";
-        Estado estado = null;
+        Estado estado = Estado.pagada;
         ControladorCliente instance = new ControladorCliente();
         instance.actualizarEstadoReserva(id, nomCliente, estado);
         // TODO review the generated test code and remove the default call to fail.
@@ -182,19 +197,6 @@ public class ControladorClienteTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of verInfoCliente method, of class ControladorCliente.
-     */
-    @Test
-    public void testVerInfoCliente() {
-        System.out.println("verInfoCliente");
-        String nomCliente = "";
-        ControladorCliente instance = new ControladorCliente();
-        DataInfoCliente expResult = null;
-        DataInfoCliente result = instance.verInfoCliente(nomCliente);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    
     
 }

@@ -222,7 +222,6 @@ public class ControladorProveedor implements IControladorProveedor{
             }
             prov.asociarEmpresa(emp);
             mPr.addProveedor(prov);
-            JOptionPane.showMessageDialog(null, "El proveedor se a ingresado con exito");
         }
     }
     @Override
@@ -242,7 +241,6 @@ public class ControladorProveedor implements IControladorProveedor{
     public DataInfoProveedor verInfoProveedor( String nomProveedor){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(nomProveedor);
-        JOptionPane.showMessageDialog(null, prov.getNickname());
         return prov.getDataInfoProveedor();
     }
     @Override

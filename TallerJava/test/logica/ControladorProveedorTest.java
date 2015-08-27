@@ -39,7 +39,29 @@ public class ControladorProveedorTest {
     @After
     public void tearDown() {
     }
-
+    /**
+     * Test of altaProveedor method, of class ControladorProveedor.
+     */
+    @Test
+    public void testAltaProveedor() {
+        System.out.println("altaProveedor");
+        String nick = "gio2";
+        String nombre = "giovani";
+        String apellido = "rondan";
+        String email = "grondan93@gmail.com";
+        Date fechaNac = new Date(1,1,2015);
+        String imagen = "url";
+        String nombreEmp = "hola";
+        String linkEmp = "mundo";
+        ControladorProveedor instance = new ControladorProveedor();
+        try{
+        instance.altaProveedor(nick, nombre, apellido, email, fechaNac, imagen, nombreEmp, linkEmp);
+        }catch (Exception e){
+            System.out.println("fallo altaproveedor");
+        }
+// TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
     /**
      * Test of ingresarImagenServicio method, of class ControladorProveedor.
      */
@@ -313,25 +335,7 @@ public class ControladorProveedorTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of altaProveedor method, of class ControladorProveedor.
-     */
-    @Test
-    public void testAltaProveedor() throws Exception {
-        System.out.println("altaProveedor");
-        String nick = "";
-        String nombre = "";
-        String apellido = "";
-        String email = "";
-        Date fechaNac = null;
-        String imagen = "";
-        String nombreEmp = "";
-        String linkEmp = "";
-        ControladorProveedor instance = new ControladorProveedor();
-        instance.altaProveedor(nick, nombre, apellido, email, fechaNac, imagen, nombreEmp, linkEmp);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+
 
     /**
      * Test of listarPromocionesXProveedor method, of class ControladorProveedor.

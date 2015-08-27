@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>DataInfoProveedor.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TallerJava&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">logica</a> &gt; <span class="el_source">DataInfoProveedor.java</span></div><h1>DataInfoProveedor.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>DataInfoProveedor.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TallerJava&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">logica</a> &gt; <span class="el_source">DataInfoProveedor.java</span></div><h1>DataInfoProveedor.java</h1><pre class="source lang-java linenums">/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -6,6 +6,7 @@
 package logica;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -26,59 +27,59 @@ public class DataInfoProveedor {
     
     
     //Constructores
-<span class="nc" id="L29">    public DataInfoProveedor(){</span>
-<span class="nc" id="L30">        this.nickname       = &quot;&quot;;</span>
-<span class="nc" id="L31">        this.nombre         = &quot;&quot;;</span>
-<span class="nc" id="L32">        this.apellido       = &quot;&quot;;</span>
-<span class="nc" id="L33">        this.email          = &quot;&quot;;</span>
-<span class="nc" id="L34">        this.fechaNac       = null;</span>
-<span class="nc" id="L35">        this.imagen         = &quot;&quot;;</span>
-<span class="nc" id="L36">        this.empresa        = null;</span>
-<span class="nc" id="L37">        this.servicios      = null;</span>
-<span class="nc" id="L38">    }</span>
+<span class="nc" id="L30">    public DataInfoProveedor(){</span>
+<span class="nc" id="L31">        this.nickname       = &quot;&quot;;</span>
+<span class="nc" id="L32">        this.nombre         = &quot;&quot;;</span>
+<span class="nc" id="L33">        this.apellido       = &quot;&quot;;</span>
+<span class="nc" id="L34">        this.email          = &quot;&quot;;</span>
+<span class="nc" id="L35">        this.fechaNac       =new Date();</span>
+<span class="nc" id="L36">        this.imagen         = &quot;&quot;;</span>
+<span class="nc" id="L37">        this.empresa        = new DataEmpresa();</span>
+<span class="nc" id="L38">        this.servicios      = new HashSet();</span>
+<span class="nc" id="L39">    }</span>
     
-<span class="nc" id="L40">    public DataInfoProveedor(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, DataEmpresa empresa, Set&lt;DataServicio&gt; servicios){</span>
-<span class="nc" id="L41">        this.nickname      = nickname;</span>
-<span class="nc" id="L42">        this.nombre        = nombre;</span>
-<span class="nc" id="L43">        this.apellido      = apellido;</span>
-<span class="nc" id="L44">        this.email         = email;</span>
-<span class="nc" id="L45">        this.fechaNac      = fechaNac;</span>
-<span class="nc" id="L46">        this.imagen        = imagen;</span>
-<span class="nc" id="L47">        this.empresa       = empresa;</span>
-<span class="nc" id="L48">        this.servicios     = servicios;</span>
-<span class="nc" id="L49">    }</span>
+<span class="nc" id="L41">    public DataInfoProveedor(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, DataEmpresa empresa, Set&lt;DataServicio&gt; servicios){</span>
+<span class="nc" id="L42">        this.nickname      = nickname;</span>
+<span class="nc" id="L43">        this.nombre        = nombre;</span>
+<span class="nc" id="L44">        this.apellido      = apellido;</span>
+<span class="nc" id="L45">        this.email         = email;</span>
+<span class="nc" id="L46">        this.fechaNac      = fechaNac;</span>
+<span class="nc" id="L47">        this.imagen        = imagen;</span>
+<span class="nc" id="L48">        this.empresa       = empresa;</span>
+<span class="nc" id="L49">        this.servicios     = servicios;</span>
+<span class="nc" id="L50">    }</span>
 
     //Getters
     public String getNickname(){
-<span class="nc" id="L53">        return nickname;</span>
+<span class="nc" id="L54">        return nickname;</span>
     }
 
     public String getNombre(){
-<span class="nc" id="L57">        return nombre;</span>
+<span class="nc" id="L58">        return nombre;</span>
     }
         
     public String getApellido(){
-<span class="nc" id="L61">        return apellido;</span>
+<span class="nc" id="L62">        return apellido;</span>
     }
 
     public String getEmail(){
-<span class="nc" id="L65">        return email;</span>
+<span class="nc" id="L66">        return email;</span>
     }
 
     public Date getFechaNac(){
-<span class="nc" id="L69">        return fechaNac;</span>
+<span class="nc" id="L70">        return fechaNac;</span>
     }
 
     public String getImagen() {
-<span class="nc" id="L73">        return imagen;</span>
+<span class="nc" id="L74">        return imagen;</span>
     }
     
     public DataEmpresa getEmpresa(){
-<span class="nc" id="L77">        return empresa;</span>
+<span class="nc" id="L78">        return empresa;</span>
     }
     
     public Set&lt;DataServicio&gt; getServicios(){
-<span class="nc" id="L81">        return servicios;</span>
+<span class="nc" id="L82">        return servicios;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
