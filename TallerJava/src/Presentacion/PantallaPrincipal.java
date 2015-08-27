@@ -8,6 +8,7 @@ package Presentacion;
 
 import UpperEssential.UpperEssentialLookAndFeel;
 import java.awt.Component;
+import java.beans.PropertyVetoException;
 import java.io.File;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
@@ -161,6 +162,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem5);
 
         jMenuItem6.setText("Proveedor");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem6);
 
         jMenuItem7.setText("Servicio");
@@ -257,6 +263,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         altaCat.show();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        VerInfoProveedor altaCat = new VerInfoProveedor();
+        Escritorio.add(altaCat);
+        altaCat.show();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -294,7 +307,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane Escritorio;
+    public static javax.swing.JDesktopPane Escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -316,4 +329,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
+
+    void abrirImagen() {
+        Img altaCat = new Img();
+        Escritorio.add(altaCat);
+        altaCat.show();
+    }
 }

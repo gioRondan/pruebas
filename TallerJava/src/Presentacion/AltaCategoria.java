@@ -30,14 +30,14 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
         initComponents();
         TreeModel jmodel;
         DefaultMutableTreeNode treeNode1 = new DefaultMutableTreeNode("Categorías");
-//        Set<DataCategoria> dtps = Pantallaprin.ICP.listarCategorias();
-//        Iterator<DataCategoria> it = dtps.iterator();
-//        while (it.hasNext()){
-//            DataCategoria dtCat = it.next();
-//            String nomCategoria = dtCat.getNombre();
-//            DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode(nomCategoria);
-//            treeNode1.add(treeNode2);
-//        }
+        Set<DataCategoria> dtps = Pantallaprin.ICP.listarCategorias();
+        Iterator<DataCategoria> it = dtps.iterator();
+        while (it.hasNext()){
+            DataCategoria dtCat = it.next();
+            String nomCategoria = dtCat.getNombre();
+            DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode(nomCategoria);
+            treeNode1.add(treeNode2);
+        }
         Arbol.setModel(new DefaultTreeModel(treeNode1));
     }
 

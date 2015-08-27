@@ -241,7 +241,8 @@ public class ControladorProveedor implements IControladorProveedor{
     @Override
     public DataInfoProveedor verInfoProveedor( String nomProveedor){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
-        Proveedor prov = mPr.getProveedor(proveedor);
+        Proveedor prov = mPr.getProveedor(nomProveedor);
+        JOptionPane.showMessageDialog(null, prov.getNickname());
         return prov.getDataInfoProveedor();
     }
     @Override

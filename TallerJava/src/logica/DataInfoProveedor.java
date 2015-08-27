@@ -6,6 +6,7 @@
 package logica;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -31,10 +32,10 @@ public class DataInfoProveedor {
         this.nombre         = "";
         this.apellido       = "";
         this.email          = "";
-        this.fechaNac       = null;
+        this.fechaNac       =new Date();
         this.imagen         = "";
-        this.empresa        = null;
-        this.servicios      = null;
+        this.empresa        = new DataEmpresa();
+        this.servicios      = new HashSet();
     }
     
     public DataInfoProveedor(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, DataEmpresa empresa, Set<DataServicio> servicios){
