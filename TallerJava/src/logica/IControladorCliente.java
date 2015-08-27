@@ -6,7 +6,7 @@
 package logica;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 /**
  *
  * @author Juan
@@ -14,10 +14,10 @@ import java.util.Set;
 public interface IControladorCliente {
     public void actualizarEstadoReserva(int id, String nomCliente, Estado estado);
     public void altaCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen)throws Exception;
-    public Set<DataCliente> listarClientes();
+    public List<DataCliente> listarClientes();
     public void cancelarReserva(String nomCliente, int id);
-    public Set<DataReserva> listarReservasXCliente(String nomCliente);
-    public Set<DataReserva> listarReservasSistema();
+    public List<DataReserva> listarReservasXCliente(String nomCliente);
+    public List<DataReserva> listarReservasSistema();
     public DataInfoReserva verInfoReserva(String nomCliente, int id);
     public DataInfoCliente verInfoCliente(String nomCliente);
     public void realizarReserva(String proveedor,String cliente,String servicio,int cantidad,Date fechaInicio,Date fechaFin,boolean esServicio );

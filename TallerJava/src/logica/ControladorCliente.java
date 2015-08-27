@@ -6,6 +6,7 @@
 package logica;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 
@@ -60,7 +61,7 @@ public class ControladorCliente implements IControladorCliente{
     }
     
     @Override
-    public Set<DataCliente> listarClientes(){
+    public List<DataCliente> listarClientes(){
         ManejadorCliente mCl = ManejadorCliente.getInstance();
         return mCl.getDataClientes();
     }
@@ -73,14 +74,14 @@ public class ControladorCliente implements IControladorCliente{
     }
     
     @Override
-    public Set<DataReserva> listarReservasSistema(){
+    public List<DataReserva> listarReservasSistema(){
         ManejadorCliente mCl = ManejadorCliente.getInstance();
         return mCl.listarReservas();
         
     }
     
     @Override
-    public Set<DataReserva> listarReservasXCliente(String nomCliente){
+    public List<DataReserva> listarReservasXCliente(String nomCliente){
         ManejadorCliente mCl = ManejadorCliente.getInstance();
         return mCl.getCliente(nomCliente).getDataReservas();
     }

@@ -6,6 +6,7 @@
 package logica;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -19,7 +20,7 @@ public class DataInfoCliente {
     private final String email;
     private final Date fechaNac;
     private final String imagen;    
-    private Set<DataReserva> reservas;
+    private List<DataReserva> reservas;
     
     //Constructores
     public DataInfoCliente(){
@@ -32,7 +33,7 @@ public class DataInfoCliente {
         this.reservas   = null;
     }    
      
-    public DataInfoCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, Set<DataReserva> reservas){
+    public DataInfoCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, List<DataReserva> reservas){
         this.nombre     = nombre;
         this.nickname   = nickname;
         this.apellido   = apellido;
@@ -66,7 +67,7 @@ public class DataInfoCliente {
         return imagen;
     }
     
-    public Set<DataReserva> getReservas(){
+    public List<DataReserva> getReservas(){
         return reservas;
     }
     

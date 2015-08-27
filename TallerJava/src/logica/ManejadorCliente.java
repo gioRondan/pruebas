@@ -5,10 +5,12 @@
  */
 package logica;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -49,19 +51,19 @@ public class ManejadorCliente {
         }
     }   
     
-    public Set<DataReserva> listarReservas(){
-        Set<DataReserva> dts;
-        dts = new HashSet();
+    public List<DataReserva> listarReservas(){
+        List<DataReserva> dts;
+        dts = new ArrayList<>();
         clientes.values().stream().forEach((Cliente value) -> {
              boolean ni = dts.addAll(value.getDataReservas());
          });
         return dts;
         
     }
-    public Set<DataCliente> getDataClientes(){
-        Set<DataCliente> dts = new HashSet();
+    public List<DataCliente> getDataClientes(){
+        List<DataCliente> dts = new ArrayList<>();
         Iterator iter = clientes.values().iterator();
-        for (Cliente c : clientes.values()){
+        for(Cliente c : clientes.values()){
             dts.add(c.getDataCliente());
         }
          

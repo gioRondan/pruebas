@@ -6,10 +6,12 @@
 
 package logica;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 import java.util.Collections;
+import java.util.List;
 
 /**
  *
@@ -31,8 +33,8 @@ public class Cliente extends Usuario{
     public DataCliente getDataCliente(){
         return new DataCliente( nickname, nombre, apellido, email, fechaNac, imagen);
     }
-    public Set<DataReserva> getDataReservas(){
-        Set<DataReserva> dts = Collections.EMPTY_SET;
+    public List<DataReserva> getDataReservas(){
+        List<DataReserva> dts = new ArrayList<>();
         for (Reserva value : reservas.values()){
             dts.add(value.getDataReserva());
         }
