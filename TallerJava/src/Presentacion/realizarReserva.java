@@ -46,14 +46,14 @@ public class realizarReserva extends javax.swing.JInternalFrame {
         
         
         
-        Set<DataProveedor> dtps = pp.ICP.listarProveedores();
+        List<DataProveedor> dtps = pp.ICP.listarProveedores();
         Iterator<DataProveedor> it = dtps.iterator();
         while (it.hasNext()){
             DataProveedor dtp = it.next();
             String aux1 = dtp.getNickname();
             javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode(aux1);
             treeNode1.add(treeNode2);
-            Set<DataServicio> dtss = pp.ICP.listarServiciosXProveedor(aux1);
+            List<DataServicio> dtss = pp.ICP.listarServiciosXProveedor(aux1);
             Iterator<DataServicio> it1 = dtss.iterator();
             while (it1.hasNext()){
                 DataServicio d = it1.next();

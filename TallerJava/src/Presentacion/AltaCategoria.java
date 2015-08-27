@@ -7,6 +7,7 @@
 package Presentacion;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -30,7 +31,7 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
         initComponents();
         TreeModel jmodel;
         DefaultMutableTreeNode treeNode1 = new DefaultMutableTreeNode("Categorías");
-        Set<DataCategoria> dtps = Pantallaprin.ICP.listarCategorias();
+        List<DataCategoria> dtps = Pantallaprin.ICP.listarCategorias();
         Iterator<DataCategoria> it = dtps.iterator();
         while (it.hasNext()){
             DataCategoria dtCat = it.next();

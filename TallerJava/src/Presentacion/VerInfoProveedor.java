@@ -6,6 +6,7 @@
 package Presentacion;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -20,7 +21,7 @@ import logica.DataServicio;
  */
 public class VerInfoProveedor extends javax.swing.JInternalFrame {
      PantallaPrincipal pp = PantallaPrincipal.getInstancia();
-     Set<DataProveedor> info = pp.ICP.listarProveedores();
+     List<DataProveedor> info = pp.ICP.listarProveedores();
     /**
      * Creates new form VerInfoProveedor
      */
@@ -288,7 +289,7 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
           jPanel1.add(im).repaint();
           
          
-          Set<DataServicio> datas = dtinfoprv.getServicios();
+          List<DataServicio> datas = dtinfoprv.getServicios();
           Iterator<DataServicio> it = datas.iterator();
           while (it.hasNext()){
              DataServicio dts = it.next();
