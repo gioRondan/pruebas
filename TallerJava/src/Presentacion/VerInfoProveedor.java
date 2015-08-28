@@ -5,12 +5,9 @@
  */
 package Presentacion;
 
-import java.beans.PropertyVetoException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -310,12 +307,8 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jList1MouseClicked
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
-         try {
-             // TODO add your handling code here:
-             pp.abrirImagen(NomImagen);
-         } catch (PropertyVetoException ex) {
-             Logger.getLogger(VerInfoProveedor.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        // TODO add your handling code here:
+        pp.abrirImagen(NomImagen);
     }//GEN-LAST:event_jPanel1MouseClicked
 
     private void jList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList2MouseClicked

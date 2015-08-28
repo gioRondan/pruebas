@@ -70,17 +70,19 @@ public class SelectorImagen extends javax.swing.JInternalFrame {
               //             Para copiar a distintos failsystem
             Path FROM = archivoSeleccionado.toPath();
             JOptionPane.showMessageDialog(null, archivoSeleccionado.getAbsolutePath().trim());
-            String x = "C:\\Users\\Juan\\Documents\\NetBeansProjects\\tpgr07\\TallerJava\\src\\Imagenes\\"+AltaProveedor.proveedorNick+".png";
+            
+            String x = PantallaPrincipal.RutaImagenes+AltaProveedor.proveedorNick.getText()+".png";
             
             Path TO = Paths.get(x);
-            //sobreescribir el fichero de destino, si existe, y copiar
+            JOptionPane.showMessageDialog(null, TO);
+             //sobreescribir el fichero de destino, si existe, y copiar
             // los atributos, incluyendo los permisos rwx
 //             CopyOption[] options = new CopyOption[]{
 //            StandardCopyOption.REPLACE_EXISTING,
 //            StandardCopyOption.COPY_ATTRIBUTES
 //            }; 
             try {
-                Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);
+                Files.copy(FROM,TO, StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException ex) {
                 Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
             }
