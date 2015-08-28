@@ -95,6 +95,57 @@ public class ControladorProveedorTest {
             j++;
         }
     }
+    
+    /**
+     * Test of ingresarNombreCategoria method, of class ControladorProveedor.
+     */
+    @Test
+    public void testIngresarNombreCategoria() {
+        System.out.println("ingresarNombreCategoria");
+        String nombre = "";
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.ingresarNombreCategoria(nombre);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of seleccionarPadre method, of class ControladorProveedor.
+     */
+    @Test
+    public void testSeleccionarPadre() {
+        System.out.println("seleccionarPadre");
+        String nombre = "";
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.seleccionarPadre(nombre);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of altaCategoria method, of class ControladorProveedor.
+     */
+    @Test
+    public void testAltaCategoria() {
+        System.out.println("altaCategoria");
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.altaCategoria();
+    }
+    
+    /**
+     * Test of listarCategorias method, of class ControladorProveedor.
+     */
+    @Test
+    public void testListarCategorias() {
+        System.out.println("listarCategorias");
+        ControladorProveedor instance = new ControladorProveedor();
+        Set<DataCategoria> expResult = null;
+        List<DataCategoria> result = instance.listarCategorias();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
     /**
      * Test of ingresarImagenServicio method, of class ControladorProveedor.
      */
@@ -149,20 +200,6 @@ public class ControladorProveedorTest {
     }
 
     /**
-     * Test of listarCategorias method, of class ControladorProveedor.
-     */
-    @Test
-    public void testListarCategorias() {
-        System.out.println("listarCategorias");
-        ControladorProveedor instance = new ControladorProveedor();
-        Set<DataCategoria> expResult = null;
-        List<DataCategoria> result = instance.listarCategorias();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of altaServicio method, of class ControladorProveedor.
      */
     @Test
@@ -208,43 +245,6 @@ public class ControladorProveedorTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of ingresarNombreCategoria method, of class ControladorProveedor.
-     */
-    @Test
-    public void testIngresarNombreCategoria() {
-        System.out.println("ingresarNombreCategoria");
-        String nombre = "";
-        ControladorProveedor instance = new ControladorProveedor();
-        instance.ingresarNombreCategoria(nombre);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of seleccionarPadre method, of class ControladorProveedor.
-     */
-    @Test
-    public void testSeleccionarPadre() {
-        System.out.println("seleccionarPadre");
-        String nombre = "";
-        ControladorProveedor instance = new ControladorProveedor();
-        instance.seleccionarPadre(nombre);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of altaCategoria method, of class ControladorProveedor.
-     */
-    @Test
-    public void testAltaCategoria() {
-        System.out.println("altaCategoria");
-        ControladorProveedor instance = new ControladorProveedor();
-        instance.altaCategoria();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of listarServiciosXProveedor method, of class ControladorProveedor.
