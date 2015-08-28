@@ -56,10 +56,10 @@ public class ManejadorCliente {
     public List&lt;DataReserva&gt; listarReservas(){
         List&lt;DataReserva&gt; dts;
 <span class="fc" id="L58">        dts = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L59">        clientes.values().stream().forEach((Cliente value) -&gt; {</span>
+<span class="fc" id="L59">        clientes.values().stream().forEach((Cliente value) -&gt; {</span>
 <span class="nc" id="L60">             boolean ni = dts.addAll(value.getDataReservas());</span>
 <span class="nc" id="L61">         });</span>
-<span class="nc" id="L62">        return dts;</span>
+<span class="fc" id="L62">        return dts;</span>
         
     }
     public List&lt;DataCliente&gt; getDataClientes(){

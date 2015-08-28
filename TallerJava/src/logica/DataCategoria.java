@@ -5,6 +5,7 @@
  */
 package logica;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -13,9 +14,9 @@ import java.util.Set;
  */
 public class DataCategoria {
     private String nombre;
-    private Set<DataCategoria> hijos;
+    private List<DataCategoria> hijos;
 
-    public DataCategoria(String nombre, Set<DataCategoria> hijos) {
+    public DataCategoria(String nombre, List<DataCategoria> hijos) {
         this.nombre = nombre;
         this.hijos = hijos;
     }
@@ -24,7 +25,7 @@ public class DataCategoria {
         return nombre;
     }
 
-    public Set<DataCategoria> getHijos() {
+    public List<DataCategoria> getHijos() {
         return hijos;
     }
     

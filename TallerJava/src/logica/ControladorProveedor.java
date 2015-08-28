@@ -10,29 +10,40 @@ import java.util.logging.Logger;
  * @author Juan
  */
 public class ControladorProveedor implements IControladorProveedor{
-    private Set<String> imagenServicio = new HashSet();
-    private String destinoServicio = "";
-    private String origenServicio = "";
-    private Set<String> categoriasServicio = new HashSet();
-    private String servicio = "";
-    private String proveedor = "";
-    private String descripcionServicio = "";
-    private float precioServicio = 0;
-    private String categoria = "";
-    private String nomCategoria = "";
-    private String nomPadre = "";
-    private String imagenProveedor;
+    private static Set<String> imagenServicio = new HashSet();
+    private static String destinoServicio = "";
+    private static String origenServicio = "";
+    private static Set<String> categoriasServicio = new HashSet();
+    private static String servicio = "";
+    private static String proveedor = "";
+    private static String descripcionServicio = "";
+    private static float precioServicio = 0;
+    private static String categoria = "";
+    private static String nomCategoria = "";
+    private static String nomPadre = "";
+    private static String imagenProveedor="";
     
     private void liberarMemoria(){
-        
+        imagenServicio = new HashSet();
+        destinoServicio = "";
+        origenServicio = "";
+        categoriasServicio = new HashSet();
+        servicio = "";
+        proveedor = "";
+        descripcionServicio = "";
+        precioServicio = 0;
+        categoria = "";
+        nomCategoria = "";
+        nomPadre = "";
+        imagenProveedor="";
     }
     @Override
     public void ingresarImagenServicio(String imagen){
-        this.imagenServicio.add(imagen);
+        ControladorProveedor.imagenServicio.add(imagen);
     }
     @Override
     public void ingresarDestinoServicio(String  destino ){
-        this.destinoServicio = destino;
+        ControladorProveedor.destinoServicio = destino;
     }
     @Override
     public List<DataCiudad> listarCiudades(){
@@ -41,7 +52,7 @@ public class ControladorProveedor implements IControladorProveedor{
     }
     @Override
     public void ingresarCategoriaServicio( String categoria){
-        this.categoriasServicio.add(categoria);
+        ControladorProveedor.categoriasServicio.add(categoria);
     }
     @Override
     public List<DataCategoria> listarCategorias(){
@@ -91,26 +102,33 @@ public class ControladorProveedor implements IControladorProveedor{
     }
     @Override
     public void ingresarNombreCategoria(String nombre){
-        this.nomCategoria = nombre;
+        ControladorProveedor.nomCategoria = nombre;        
     }
     @Override
     public void seleccionarPadre(String nombre){
-        this.nomPadre = nombre;
+        ControladorProveedor.nomPadre = nombre;
     }    
     @Override
     public void altaCategoria(){
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
-        mCa.crearCategoria(this.nomCategoria,this.nomPadre);
+        Categoria cat = new Categoria(nomCategoria);
+        System.out.println(nomPadre);
+        System.out.println(nomCategoria);
+        if(nomPadre.equals("")){
+            mCa.addCategoria(cat);
+        }else
+            mCa.getCategoria(nomPadre).setHijo(cat);
+        liberarMemoria();
     }
     @Override
     public List<DataServicio> listarServiciosXProveedor( String nomProveedor){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(nomProveedor);//nickname
-        this.proveedor = nomProveedor;//para que esta linea ?
+        ControladorProveedor.proveedor = nomProveedor;
         return prov.getDataServicios();
     }
     public void seleccionarServicio(String nomServicio){
-        this.servicio = nomServicio;
+        ControladorProveedor.servicio = nomServicio;
     }
     @Override
     public void altaPromocion( String nomProveedor,Set<String> ser, String nombre, int descuento){
@@ -131,15 +149,15 @@ public class ControladorProveedor implements IControladorProveedor{
     }
     @Override
     public void ingresarDescripcionServicio( String desc){
-        this.descripcionServicio = desc;
+        ControladorProveedor.descripcionServicio = desc;
     }
     @Override
     public void ingresarPrecioServicio(int precio){
-        this.precioServicio = precio;
+        ControladorProveedor.precioServicio = precio;
     }
     @Override
     public void ingresarOrigenServicio( String origen){
-        this.origenServicio = origen;
+        ControladorProveedor.origenServicio = origen;
     }
     @Override
     public void modificarServicio(){
@@ -244,7 +262,7 @@ public class ControladorProveedor implements IControladorProveedor{
     }
     @Override
     public void ingresarImagen(String imagen) {
-        this.imagenProveedor = imagen;
+        ControladorProveedor.imagenProveedor = imagen;
     }
 
     

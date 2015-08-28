@@ -19,32 +19,32 @@ import java.util.Set;
 public class Categoria {
     
     private String nombre;
-    private Set&lt;Categoria&gt; hijos;
-    private Set&lt;Servicio&gt; servicios;   
+    private List&lt;Categoria&gt; hijos;
+    private List&lt;Servicio&gt; servicios;   
     
-<span class="nc" id="L25">    public Categoria(String nombre){</span>
-<span class="nc" id="L26">        this.nombre = nombre;</span>
-<span class="nc" id="L27">        this.hijos = null;</span>
-<span class="nc" id="L28">        this.servicios = null;</span>
-<span class="nc" id="L29">    }</span>
+<span class="fc" id="L25">    public Categoria(String nombre){</span>
+<span class="fc" id="L26">        this.nombre = nombre;</span>
+<span class="fc" id="L27">        this.hijos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L28">        this.servicios = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L29">    }</span>
     
     public String getNombre(){
-<span class="nc" id="L32">        return this.nombre;</span>
+<span class="fc" id="L32">        return this.nombre;</span>
     }
     
     public void setNombre(String nombre){
 <span class="nc" id="L36">        this.nombre = nombre;</span>
 <span class="nc" id="L37">    }</span>
     
-    public Set&lt;Categoria&gt; getHijos(){
+    public List&lt;Categoria&gt; getHijos(){
 <span class="nc" id="L40">        return this.hijos;</span>
     }
     
     public void setHijo(Categoria hijo){
-<span class="nc" id="L44">        this.hijos.add(hijo);</span>
-<span class="nc" id="L45">    }</span>
+<span class="fc" id="L44">        this.hijos.add(hijo);</span>
+<span class="fc" id="L45">    }</span>
     
-    public Set&lt;Servicio&gt; getServicios(){
+    public List&lt;Servicio&gt; getServicios(){
 <span class="nc" id="L48">        return this.servicios;</span>
     }
     public List&lt;DataServicio&gt; getDataServicios(){
@@ -54,8 +54,8 @@ public class Categoria {
 <span class="nc" id="L54">        }</span>
 <span class="nc" id="L55">        return dts;</span>
     }
-    public Set&lt;DataCategoria&gt; getDataHijos(){
-<span class="nc" id="L58">        Set&lt;DataCategoria&gt; dts = new HashSet();</span>
+    public List&lt;DataCategoria&gt; getDataHijos(){
+<span class="nc" id="L58">        List&lt;DataCategoria&gt; dts = new ArrayList&lt;&gt;();</span>
 <span class="nc bnc" id="L59" title="All 2 branches missed.">        for(Categoria c : hijos){</span>
 <span class="nc" id="L60">            dts.add(c.getDataCategoria());</span>
 <span class="nc" id="L61">        }</span>
