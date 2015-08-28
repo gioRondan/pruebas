@@ -19,13 +19,13 @@ import java.util.Set;
 public class Categoria {
     
     private String nombre;
-    private Set<Categoria> hijos;
-    private Set<Servicio> servicios;   
+    private List<Categoria> hijos;
+    private List<Servicio> servicios;   
     
     public Categoria(String nombre){
         this.nombre = nombre;
-        this.hijos = null;
-        this.servicios = null;
+        this.hijos = new ArrayList<>();
+        this.servicios = new ArrayList<>();
     }
     
     public String getNombre(){
@@ -36,7 +36,7 @@ public class Categoria {
         this.nombre = nombre;
     }
     
-    public Set<Categoria> getHijos(){
+    public List<Categoria> getHijos(){
         return this.hijos;
     }
     
@@ -44,7 +44,7 @@ public class Categoria {
         this.hijos.add(hijo);
     }
     
-    public Set<Servicio> getServicios(){
+    public List<Servicio> getServicios(){
         return this.servicios;
     }
     public List<DataServicio> getDataServicios(){
@@ -54,8 +54,8 @@ public class Categoria {
         }
         return dts;
     }
-    public Set<DataCategoria> getDataHijos(){
-        Set<DataCategoria> dts = new HashSet();
+    public List<DataCategoria> getDataHijos(){
+        List<DataCategoria> dts = new ArrayList<>();
         for(Categoria c : hijos){
             dts.add(c.getDataCategoria());
         }
