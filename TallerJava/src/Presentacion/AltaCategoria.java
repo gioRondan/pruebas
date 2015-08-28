@@ -149,6 +149,7 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
         Pantallaprin.ICP.ingresarNombreCategoria(NombreCategoria.getText());
 //        Pantallaprin.ICP.seleccionarPadre(Sacar el nombre del tree);
         Pantallaprin.ICP.altaCategoria();
+        NombreCategoria.setText(null);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void NombreCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreCategoriaActionPerformed
