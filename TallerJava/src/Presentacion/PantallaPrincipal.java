@@ -12,6 +12,8 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.beans.PropertyVetoException;
 import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -366,10 +368,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 
-    void abrirImagen(String ruta) throws PropertyVetoException {
+    void abrirImagen(String ruta)  {
         Img altaCat = new Img(ruta);
         Escritorio.add(altaCat);
-        altaCat.setMaximum(true);
+        try {
+            altaCat.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
         altaCat.show();
     }
 }
