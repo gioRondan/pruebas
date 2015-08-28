@@ -6,7 +6,7 @@
 package logica;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -19,7 +19,7 @@ public class ManejadorCategoria {
     private Map<String,Categoria> categorias;
     private static ManejadorCategoria instance = null;
     private ManejadorCategoria(){
-        categorias = Collections.emptyMap();
+        categorias = new HashMap();
     }
     
     public static ManejadorCategoria getInstance(){
@@ -44,11 +44,12 @@ public class ManejadorCategoria {
         return dts;
     }
     public void crearCategoria(String nomCategoria, String nomPadre){
-        
+        Categoria nueva = new Categoria(nomCategoria);
+        if (!(nomPadre.isEmpty())){
+            Categoria padre = categorias.get(nomPadre);
+            padre.setHijo(nueva);
+        }else       //solo quedan en el manejador las categorias de mayor jerarquia, el resto se consiguen por medio de sus hijos. Para mayor informacion consultar a gio
+            categorias.put(nomCategoria, nueva);
     }
-    /* operaciones para alta servicio
-        getDataCategorias()
-        getCategoria()
-        getInstance()
-    */
+    
 }

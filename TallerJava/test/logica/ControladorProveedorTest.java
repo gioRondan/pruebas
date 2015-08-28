@@ -42,7 +42,7 @@ public class ControladorProveedorTest {
     /**
      * Test of altaProveedor method, of class ControladorProveedor.
      */
-    @Test
+   /* @Test
     public void testAltaProveedor() {
         System.out.println("altaProveedor");
         String nick = "gio2";
@@ -60,7 +60,7 @@ public class ControladorProveedorTest {
             System.out.println("fallo altaproveedor");
         }
     }
-    
+    */
     public void testAltaProveedor2(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen) throws Exception  {
         System.out.println("altaProveedor2");
         String nombreEmp = "hola";
@@ -84,12 +84,12 @@ public class ControladorProveedorTest {
                 testAltaProveedor2(Integer.toString(n), "giovani", "rondan", Integer.toString(n), new Date(i, i, 2015), "url");
             }
         }catch (Exception ex){}
-        ControladorCliente instance = new ControladorCliente();
+        ControladorProveedor instance = new ControladorProveedor();
         String[] expResult ={"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-        List<DataCliente> result = instance.listarClientes();
-        DataCliente dt;
+        List<DataProveedor> result = instance.listarProveedores();
+        DataProveedor dt;
         int j = 1;
-        for(DataCliente it : result){
+        for(DataProveedor it : result){
           
             assertEquals(Integer.toString(j), it.getNickname());
             j++;
@@ -102,11 +102,9 @@ public class ControladorProveedorTest {
     @Test
     public void testIngresarNombreCategoria() {
         System.out.println("ingresarNombreCategoria");
-        String nombre = "";
+        String nombre = "vuelos";
         ControladorProveedor instance = new ControladorProveedor();
         instance.ingresarNombreCategoria(nombre);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -115,13 +113,24 @@ public class ControladorProveedorTest {
     @Test
     public void testSeleccionarPadre() {
         System.out.println("seleccionarPadre");
-        String nombre = "";
+        String nombre = "transporte";
         ControladorProveedor instance = new ControladorProveedor();
         instance.seleccionarPadre(nombre);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    }
+    public void testIngresarNombreCategoria2(String nombre) {
+        System.out.println("ingresarNombreCategoria2");
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.ingresarNombreCategoria(nombre);
     }
 
+    /**
+     * Test of seleccionarPadre method, of class ControladorProveedor.
+     */
+    public void testSeleccionarPadre2(String nombre) {
+        System.out.println("seleccionarPadre2");
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.seleccionarPadre(nombre);
+    }
     /**
      * Test of altaCategoria method, of class ControladorProveedor.
      */
@@ -138,12 +147,27 @@ public class ControladorProveedorTest {
     @Test
     public void testListarCategorias() {
         System.out.println("listarCategorias");
+        testIngresarNombreCategoria2("1");
+        testAltaCategoria();
+        //try{
+            for (int i=1; i<=10; ++i){
+                int n = i;
+                testSeleccionarPadre2(Integer.toString(n-1));
+                testIngresarNombreCategoria2(Integer.toString(n));
+                testAltaCategoria();
+            }
+        //}catch (Exception ex){}
         ControladorProveedor instance = new ControladorProveedor();
-        Set<DataCategoria> expResult = null;
+        String[] expResult ={"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         List<DataCategoria> result = instance.listarCategorias();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        DataCategoria dt;
+        int j = 1;
+        for(DataCategoria it : result){
+            if(it != null){
+            assertEquals(Integer.toString(j), it.getNombre());
+            }
+            j++;
+        }
     }
 
     /**

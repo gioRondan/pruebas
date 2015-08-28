@@ -47,11 +47,11 @@ public class ManejadorProveedor {
     }
     
     public List&lt;DataProveedor&gt; getDataProveedores(){
-<span class="nc" id="L50">        List&lt;DataProveedor&gt; dts =  new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L51" title="All 2 branches missed.">        for (Proveedor value : proveedores.values()){</span>
-<span class="nc" id="L52">            dts.add(value.getDataProveedor());</span>
-<span class="nc" id="L53">        }</span>
-<span class="nc" id="L54">        return dts;</span>
+<span class="fc" id="L50">        List&lt;DataProveedor&gt; dts =  new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        for (Proveedor value : proveedores.values()){</span>
+<span class="fc" id="L52">            dts.add(value.getDataProveedor());</span>
+<span class="fc" id="L53">        }</span>
+<span class="fc" id="L54">        return dts;</span>
     }
 
     void unicidadNick(String nick) throws Exception{
