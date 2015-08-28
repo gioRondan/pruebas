@@ -268,10 +268,10 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
         Date selectedDate = (Date) this.datePicker.getModel().getValue();
-        
-        
+
         try {
-            Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , proveedorImagen.getText(), proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
+            Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , PantallaPrincipal.RutaImagenes+proveedorNick.getText()+".png", proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
+            JOptionPane.showMessageDialog(null,"El Proveedor se ingreso con exito");
         } catch (Exception ex){
             JOptionPane.showMessageDialog(null,ex.getMessage());
            

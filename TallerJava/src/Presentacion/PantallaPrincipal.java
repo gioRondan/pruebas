@@ -8,6 +8,8 @@ package Presentacion;
 
 import UpperEssential.UpperEssentialLookAndFeel;
 import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.beans.PropertyVetoException;
 import java.io.File;
 import javax.swing.JInternalFrame;
@@ -36,6 +38,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private static PantallaPrincipal instancia = null;
     public IControladorProveedor ICP;
     public IControladorCliente ICC;
+    public static String RutaImagenes=""; 
     
     private PantallaPrincipal() {
         initComponents();
@@ -44,6 +47,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         instancia = this;
         ICP = fabrica.getIControladorProveedor();
         ICC = fabrica.getIControladorCliente();
+        this.RutaImagenes = JOptionPane.showInputDialog("Selecciones una rata para las imagenes");
     }
     
     public static PantallaPrincipal getInstancia(){
@@ -101,6 +105,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem13 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        jMenuItem15 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal H4T");
@@ -215,6 +221,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu5);
 
+        jMenu6.setText("Configuracion");
+
+        jMenuItem15.setText("Opciones");
+        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem15ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem15);
+
+        jMenuBar1.add(jMenu6);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -234,7 +252,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         AltaProveedor al = new AltaProveedor();
+      
+      
         Escritorio.add(al);
+        //cuentas para centrar
+        int a = (Escritorio.getWidth() - al.getWidth())/2;
+        int b = (Escritorio.getHeight() - al.getHeight()) /2;
+        al.setLocation(a ,b);
         al.show();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
  
@@ -270,6 +294,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         altaCat.show();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
+    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
+        // TODO add your handling code here:
+        Opciones op = new Opciones();
+        Escritorio.add(op);
+        op.show();
+    }//GEN-LAST:event_jMenuItem15ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -301,7 +332,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PantallaPrincipal().setVisible(true);
+                PantallaPrincipal x = new PantallaPrincipal();
+                x.setExtendedState(MAXIMIZED_BOTH);
+                x.setVisible(true);
+                
             }
         });
     }
@@ -313,6 +347,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
@@ -320,6 +355,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
@@ -330,9 +366,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 
-    void abrirImagen(String ruta) {
+    void abrirImagen(String ruta) throws PropertyVetoException {
         Img altaCat = new Img(ruta);
         Escritorio.add(altaCat);
+        altaCat.setMaximum(true);
         altaCat.show();
     }
 }

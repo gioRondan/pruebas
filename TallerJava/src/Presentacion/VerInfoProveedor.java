@@ -5,9 +5,12 @@
  */
 package Presentacion;
 
+import java.beans.PropertyVetoException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -22,7 +25,7 @@ import logica.DataServicio;
 public class VerInfoProveedor extends javax.swing.JInternalFrame {
      PantallaPrincipal pp = PantallaPrincipal.getInstancia();
      List<DataProveedor> info = pp.ICP.listarProveedores();
-     String ruta;
+     String NomImagen;
     /**
      * Creates new form VerInfoProveedor
      */
@@ -38,7 +41,7 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
             model.addElement(nick);
         }
             jList1.setModel(model);
-            this.ruta ="";
+            this.NomImagen ="";
         }
 
     /**
@@ -287,10 +290,12 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
           proveedorEmpresaNombre.setText(dtinfoprv.getEmpresa().getNombre());
           proveedorEmpresaLink.setText(dtinfoprv.getEmpresa().getUrl());
           FechaNac.setText(dtinfoprv.getFechaNac().toString());
-          
-          Imagen im = new Imagen(jPanel1,dtinfoprv.getImagen());
+           this.NomImagen=dtinfoprv.getNickname()+".png";
+           
+          Imagen im = new Imagen(jPanel1, this.NomImagen);
           jPanel1.add(im).repaint();
-          this.ruta=dtinfoprv.getImagen();
+          
+         
          
           List<DataServicio> datas = dtinfoprv.getServicios();
           Iterator<DataServicio> it = datas.iterator();
@@ -305,8 +310,12 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jList1MouseClicked
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
-        // TODO add your handling code here:
-        pp.abrirImagen(ruta);
+         try {
+             // TODO add your handling code here:
+             pp.abrirImagen(NomImagen);
+         } catch (PropertyVetoException ex) {
+             Logger.getLogger(VerInfoProveedor.class.getName()).log(Level.SEVERE, null, ex);
+         }
     }//GEN-LAST:event_jPanel1MouseClicked
 
     private void jList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList2MouseClicked

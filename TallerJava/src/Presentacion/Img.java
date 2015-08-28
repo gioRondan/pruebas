@@ -13,17 +13,15 @@ package Presentacion;
  * @author Juan
  */
 public class Img extends javax.swing.JInternalFrame {
-
+    String nom;
     /**
      * Creates new form Img
      */
     public Img(String x){
             initComponents();
-            this.setBounds(0,0, PantallaPrincipal.Escritorio.getWidth(), PantallaPrincipal.Escritorio.getHeight());
-           
-            Imagen im = new Imagen(jPanel1,x);
-            jPanel1.add(im).repaint();
-            
+            //this.setBounds(0,0, PantallaPrincipal.Escritorio.getWidth(), PantallaPrincipal.Escritorio.getHeight());
+           this.nom=x;
+        
     }
 
     /**
@@ -38,6 +36,33 @@ public class Img extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
 
         setClosable(true);
+        addHierarchyBoundsListener(new java.awt.event.HierarchyBoundsListener() {
+            public void ancestorMoved(java.awt.event.HierarchyEvent evt) {
+            }
+            public void ancestorResized(java.awt.event.HierarchyEvent evt) {
+                formAncestorResized(evt);
+            }
+        });
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                formComponentResized(evt);
+            }
+        });
+        addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                formPropertyChange(evt);
+            }
+        });
+
+        jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jPanel1AncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -63,6 +88,27 @@ public class Img extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jPanel1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel1AncestorAdded
+        // TODO add your handling code here:
+            Imagen im = new Imagen(jPanel1,this.nom);
+            jPanel1.add(im).repaint();
+            
+    }//GEN-LAST:event_jPanel1AncestorAdded
+
+    private void formAncestorResized(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_formAncestorResized
+        
+       
+    }//GEN-LAST:event_formAncestorResized
+
+    private void formPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_formPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formPropertyChange
+
+    private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
+        Imagen im = new Imagen(jPanel1,this.nom);
+       jPanel1.add(im).repaint();
+    }//GEN-LAST:event_formComponentResized
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
