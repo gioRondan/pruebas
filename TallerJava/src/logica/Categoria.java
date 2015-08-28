@@ -20,10 +20,12 @@ public class Categoria {
     
     private String nombre;
     private List<Categoria> hijos;
-    private List<Servicio> servicios;   
+    private List<Servicio> servicios;
+    private boolean tienePadre;
     
-    public Categoria(String nombre){
+    public Categoria(String nombre, boolean tienePadre){
         this.nombre = nombre;
+        this.tienePadre = tienePadre;
         this.hijos = new ArrayList<>();
         this.servicios = new ArrayList<>();
     }
@@ -71,5 +73,9 @@ public class Categoria {
         if (!hijos.isEmpty()){
             throw new Exception("La categoria seleccionada tiene hijos");
         }
+    }
+
+    boolean esRaiz() {
+        return (!(tienePadre));
     }
 }

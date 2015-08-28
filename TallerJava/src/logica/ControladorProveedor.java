@@ -111,13 +111,14 @@ public class ControladorProveedor implements IControladorProveedor{
     @Override
     public void altaCategoria(){
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
-        Categoria cat = new Categoria(nomCategoria);
-        System.out.println(nomPadre);
-        System.out.println(nomCategoria);
+        Categoria cat;
         if(nomPadre.equals("")){
-            mCa.addCategoria(cat);
-        }else
+            cat = new Categoria(nomCategoria, false);
+        }else{
+            cat = new Categoria(nomCategoria, true);
             mCa.getCategoria(nomPadre).setHijo(cat);
+        }
+        mCa.addCategoria(cat);
         liberarMemoria();
     }
     @Override

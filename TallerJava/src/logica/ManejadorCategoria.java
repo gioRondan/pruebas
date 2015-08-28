@@ -40,7 +40,7 @@ public class ManejadorCategoria {
     public List<DataCategoria> getDataCategorias(){
         List<DataCategoria> dts = new ArrayList<>();
         for (Categoria value : categorias.values()) {
-            System.out.println(value.getNombre());
+            if(value.esRaiz())
             dts.add(value.getDataCategoria());
         }
         return dts;
