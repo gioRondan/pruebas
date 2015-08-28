@@ -70,28 +70,30 @@ public class SelectorImagen extends javax.swing.JInternalFrame {
               //             Para copiar a distintos failsystem
 <span class="nc" id="L71">            Path FROM = archivoSeleccionado.toPath();</span>
 <span class="nc" id="L72">            JOptionPane.showMessageDialog(null, archivoSeleccionado.getAbsolutePath().trim());</span>
-<span class="nc" id="L73">            String x = &quot;C:\\Users\\Juan\\Documents\\NetBeansProjects\\tpgr07\\TallerJava\\src\\Imagenes\\&quot;+AltaProveedor.proveedorNick+&quot;.png&quot;;</span>
             
-<span class="nc" id="L75">            Path TO = Paths.get(x);</span>
-            //sobreescribir el fichero de destino, si existe, y copiar
+<span class="nc" id="L74">            String x = PantallaPrincipal.RutaImagenes+AltaProveedor.proveedorNick.getText()+&quot;.png&quot;;</span>
+            
+<span class="nc" id="L76">            Path TO = Paths.get(x);</span>
+<span class="nc" id="L77">            JOptionPane.showMessageDialog(null, TO);</span>
+             //sobreescribir el fichero de destino, si existe, y copiar
             // los atributos, incluyendo los permisos rwx
 //             CopyOption[] options = new CopyOption[]{
 //            StandardCopyOption.REPLACE_EXISTING,
 //            StandardCopyOption.COPY_ATTRIBUTES
 //            }; 
             try {
-<span class="nc" id="L83">                Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);</span>
-<span class="nc" id="L84">            } catch (IOException ex) {</span>
-<span class="nc" id="L85">                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L86">            }</span>
+<span class="nc" id="L85">                Files.copy(FROM,TO, StandardCopyOption.REPLACE_EXISTING);</span>
+<span class="nc" id="L86">            } catch (IOException ex) {</span>
+<span class="nc" id="L87">                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L88">            }</span>
             
-<span class="nc" id="L88">            AltaProveedor.proveedorImagen.setText(archivoSeleccionado.getAbsolutePath());</span>
-<span class="nc" id="L89">            this.dispose();</span>
-<span class="nc bnc" id="L90" title="All 2 branches missed.">        }else if (comando.equals(JFileChooser.CANCEL_SELECTION)){</span>
+<span class="nc" id="L90">            AltaProveedor.proveedorImagen.setText(archivoSeleccionado.getAbsolutePath());</span>
 <span class="nc" id="L91">            this.dispose();</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">        }else if (comando.equals(JFileChooser.CANCEL_SELECTION)){</span>
+<span class="nc" id="L93">            this.dispose();</span>
         }
    
-<span class="nc" id="L94">    }//GEN-LAST:event_jFileChooser1ActionPerformed</span>
+<span class="nc" id="L96">    }//GEN-LAST:event_jFileChooser1ActionPerformed</span>
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -48,7 +48,7 @@ public class ControladorProveedor implements IControladorProveedor{
     @Override
     public List<DataCiudad> listarCiudades(){
         ManejadorCiudad mCi = ManejadorCiudad.getInstance();
-        return mCi.getDataCiudades();//falta implementar manejadorciudad
+        return mCi.getDataCiudades();
     }
     @Override
     public void ingresarCategoriaServicio( String categoria){
@@ -57,7 +57,7 @@ public class ControladorProveedor implements IControladorProveedor{
     @Override
     public List<DataCategoria> listarCategorias(){
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
-        return mCa.getDataCategorias();//falta implementar manejadorcategoria
+        return mCa.getDataCategorias();
     }
     @Override
     public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor){

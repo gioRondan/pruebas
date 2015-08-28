@@ -5,6 +5,8 @@
  */
 package logica;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -16,7 +18,9 @@ import java.util.Set;
 public class ManejadorCiudad {
     private Map<String,Ciudad> ciudades;
     private static ManejadorCiudad instance = null;
-    private ManejadorCiudad(){}
+    private ManejadorCiudad(){
+        ciudades = new HashMap();
+    }
     
     public static ManejadorCiudad getInstance(){
         if(instance == null)
@@ -25,10 +29,14 @@ public class ManejadorCiudad {
     } 
     
    public List<DataCiudad> getDataCiudades(){
-       return null;
+       List<DataCiudad> dts =  new ArrayList<>();
+        for (Ciudad value : ciudades.values()){
+            dts.add(value.getDataCiudad());
+        }
+        return dts;
    }
     public Ciudad getCiudad(String a){
-        return null;
+        return ciudades.get(a);
     }
     /* operaciones para alta servicio
         

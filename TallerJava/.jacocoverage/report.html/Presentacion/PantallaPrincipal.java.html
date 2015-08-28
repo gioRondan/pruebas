@@ -12,6 +12,8 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.beans.PropertyVetoException;
 import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -35,46 +37,46 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form PantallaPrincipal
      */
-<span class="nc" id="L38">    private static PantallaPrincipal instancia = null;</span>
+<span class="nc" id="L40">    private static PantallaPrincipal instancia = null;</span>
     public IControladorProveedor ICP;
     public IControladorCliente ICC;
-<span class="nc" id="L41">    public static String RutaImagenes=&quot;&quot;; </span>
+<span class="nc" id="L43">    public static String RutaImagenes=&quot;&quot;; </span>
     
-<span class="nc" id="L43">    private PantallaPrincipal() {</span>
-<span class="nc" id="L44">        initComponents();</span>
-<span class="nc" id="L45">        this.setLocationRelativeTo(null);  </span>
-<span class="nc" id="L46">        Fabrica fabrica = Fabrica.getInstance();</span>
-<span class="nc" id="L47">        instancia = this;</span>
-<span class="nc" id="L48">        ICP = fabrica.getIControladorProveedor();</span>
-<span class="nc" id="L49">        ICC = fabrica.getIControladorCliente();</span>
-<span class="nc" id="L50">        this.RutaImagenes = JOptionPane.showInputDialog(&quot;Selecciones una rata para las imagenes&quot;);</span>
-<span class="nc" id="L51">    }</span>
+<span class="nc" id="L45">    private PantallaPrincipal() {</span>
+<span class="nc" id="L46">        initComponents();</span>
+<span class="nc" id="L47">        this.setLocationRelativeTo(null);  </span>
+<span class="nc" id="L48">        Fabrica fabrica = Fabrica.getInstance();</span>
+<span class="nc" id="L49">        instancia = this;</span>
+<span class="nc" id="L50">        ICP = fabrica.getIControladorProveedor();</span>
+<span class="nc" id="L51">        ICC = fabrica.getIControladorCliente();</span>
+<span class="nc" id="L52">        this.RutaImagenes = JOptionPane.showInputDialog(&quot;Selecciones una rata para las imagenes&quot;);</span>
+<span class="nc" id="L53">    }</span>
     
     public static PantallaPrincipal getInstancia(){
-<span class="nc bnc" id="L54" title="All 2 branches missed.">        if(instancia == null) </span>
-<span class="nc" id="L55">            instancia = new PantallaPrincipal();</span>
-<span class="nc" id="L56">        return instancia;</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">        if(instancia == null) </span>
+<span class="nc" id="L57">            instancia = new PantallaPrincipal();</span>
+<span class="nc" id="L58">        return instancia;</span>
     };
     public void abrirListarEmpresas(){
-<span class="nc" id="L59">        ListarEmpresas al = new ListarEmpresas();</span>
-<span class="nc" id="L60">        Escritorio.add(al);</span>
-<span class="nc" id="L61">        al.show();</span>
-<span class="nc" id="L62">    }</span>
+<span class="nc" id="L61">        ListarEmpresas al = new ListarEmpresas();</span>
+<span class="nc" id="L62">        Escritorio.add(al);</span>
+<span class="nc" id="L63">        al.show();</span>
+<span class="nc" id="L64">    }</span>
     public void abrirRealizarReserva(){
-<span class="nc" id="L64">        realizarReserva rr = new realizarReserva();</span>
-<span class="nc" id="L65">        Escritorio.add(rr);</span>
-<span class="nc" id="L66">        rr.show();</span>
-<span class="nc" id="L67">    }</span>
+<span class="nc" id="L66">        realizarReserva rr = new realizarReserva();</span>
+<span class="nc" id="L67">        Escritorio.add(rr);</span>
+<span class="nc" id="L68">        rr.show();</span>
+<span class="nc" id="L69">    }</span>
      public void abrirSelectorImagen(){
-<span class="nc" id="L69">        SelectorImagen al = new SelectorImagen();</span>
-<span class="nc" id="L70">        Escritorio.add(al);</span>
-<span class="nc" id="L71">        al.show();</span>
-<span class="nc" id="L72">    }</span>
+<span class="nc" id="L71">        SelectorImagen al = new SelectorImagen();</span>
+<span class="nc" id="L72">        Escritorio.add(al);</span>
+<span class="nc" id="L73">        al.show();</span>
+<span class="nc" id="L74">    }</span>
      public void abrirAltacliente(){
-<span class="nc" id="L74">        AltaCliente al = new AltaCliente();</span>
-<span class="nc" id="L75">        Escritorio.add(al);</span>
-<span class="nc" id="L76">        al.show();</span>
-<span class="nc" id="L77">     }</span>
+<span class="nc" id="L76">        AltaCliente al = new AltaCliente();</span>
+<span class="nc" id="L77">        Escritorio.add(al);</span>
+<span class="nc" id="L78">        al.show();</span>
+<span class="nc" id="L79">     }</span>
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,222 +86,222 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<span class="nc" id="L87">        Escritorio = new javax.swing.JDesktopPane();</span>
-<span class="nc" id="L88">        jMenuBar1 = new javax.swing.JMenuBar();</span>
-<span class="nc" id="L89">        jMenu1 = new javax.swing.JMenu();</span>
-<span class="nc" id="L90">        jMenu4 = new javax.swing.JMenu();</span>
-<span class="nc" id="L91">        jMenuItem1 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L92">        jMenuItem14 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L93">        jMenuItem2 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L94">        jMenuItem3 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L95">        jMenuItem4 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L96">        jMenu2 = new javax.swing.JMenu();</span>
-<span class="nc" id="L97">        jMenuItem5 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L98">        jMenuItem6 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L99">        jMenuItem7 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L100">        jMenuItem8 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L101">        jMenuItem9 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L102">        jMenu3 = new javax.swing.JMenu();</span>
-<span class="nc" id="L103">        jMenuItem10 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L104">        jMenuItem11 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L105">        jMenuItem12 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L106">        jMenu5 = new javax.swing.JMenu();</span>
-<span class="nc" id="L107">        jMenuItem13 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L108">        jMenu6 = new javax.swing.JMenu();</span>
-<span class="nc" id="L109">        jMenuItem15 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L89">        Escritorio = new javax.swing.JDesktopPane();</span>
+<span class="nc" id="L90">        jMenuBar1 = new javax.swing.JMenuBar();</span>
+<span class="nc" id="L91">        jMenu1 = new javax.swing.JMenu();</span>
+<span class="nc" id="L92">        jMenu4 = new javax.swing.JMenu();</span>
+<span class="nc" id="L93">        jMenuItem1 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L94">        jMenuItem14 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L95">        jMenuItem2 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L96">        jMenuItem3 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L97">        jMenuItem4 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L98">        jMenu2 = new javax.swing.JMenu();</span>
+<span class="nc" id="L99">        jMenuItem5 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L100">        jMenuItem6 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L101">        jMenuItem7 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L102">        jMenuItem8 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L103">        jMenuItem9 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L104">        jMenu3 = new javax.swing.JMenu();</span>
+<span class="nc" id="L105">        jMenuItem10 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L106">        jMenuItem11 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L107">        jMenuItem12 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L108">        jMenu5 = new javax.swing.JMenu();</span>
+<span class="nc" id="L109">        jMenuItem13 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L110">        jMenu6 = new javax.swing.JMenu();</span>
+<span class="nc" id="L111">        jMenuItem15 = new javax.swing.JMenuItem();</span>
 
-<span class="nc" id="L111">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
-<span class="nc" id="L112">        setTitle(&quot;Principal H4T&quot;);</span>
+<span class="nc" id="L113">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L114">        setTitle(&quot;Principal H4T&quot;);</span>
 
-<span class="nc" id="L114">        javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);</span>
-<span class="nc" id="L115">        Escritorio.setLayout(EscritorioLayout);</span>
-<span class="nc" id="L116">        EscritorioLayout.setHorizontalGroup(</span>
-<span class="nc" id="L117">            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L118">            .addGap(0, 975, Short.MAX_VALUE)</span>
+<span class="nc" id="L116">        javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);</span>
+<span class="nc" id="L117">        Escritorio.setLayout(EscritorioLayout);</span>
+<span class="nc" id="L118">        EscritorioLayout.setHorizontalGroup(</span>
+<span class="nc" id="L119">            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L120">            .addGap(0, 975, Short.MAX_VALUE)</span>
         );
-<span class="nc" id="L120">        EscritorioLayout.setVerticalGroup(</span>
-<span class="nc" id="L121">            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L122">            .addGap(0, 681, Short.MAX_VALUE)</span>
-        );
-
-<span class="nc" id="L125">        jMenuBar1.setToolTipText(&quot;&quot;);</span>
-
-<span class="nc" id="L127">        jMenu1.setText(&quot;Altas&quot;);</span>
-
-<span class="nc" id="L129">        jMenu4.setText(&quot;Usuario&quot;);</span>
-
-<span class="nc" id="L131">        jMenuItem1.setText(&quot;Proveedor&quot;);</span>
-<span class="nc" id="L132">        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L134">                jMenuItem1ActionPerformed(evt);</span>
-<span class="nc" id="L135">            }</span>
-        });
-<span class="nc" id="L137">        jMenu4.add(jMenuItem1);</span>
-
-<span class="nc" id="L139">        jMenuItem14.setText(&quot;Cliente&quot;);</span>
-<span class="nc" id="L140">        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L142">                jMenuItem14ActionPerformed(evt);</span>
-<span class="nc" id="L143">            }</span>
-        });
-<span class="nc" id="L145">        jMenu4.add(jMenuItem14);</span>
-
-<span class="nc" id="L147">        jMenu1.add(jMenu4);</span>
-
-<span class="nc" id="L149">        jMenuItem2.setText(&quot;Categoria&quot;);</span>
-<span class="nc" id="L150">        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L152">                jMenuItem2ActionPerformed(evt);</span>
-<span class="nc" id="L153">            }</span>
-        });
-<span class="nc" id="L155">        jMenu1.add(jMenuItem2);</span>
-
-<span class="nc" id="L157">        jMenuItem3.setText(&quot;Servicio&quot;);</span>
-<span class="nc" id="L158">        jMenu1.add(jMenuItem3);</span>
-
-<span class="nc" id="L160">        jMenuItem4.setText(&quot;Promocion&quot;);</span>
-<span class="nc" id="L161">        jMenu1.add(jMenuItem4);</span>
-
-<span class="nc" id="L163">        jMenuBar1.add(jMenu1);</span>
-
-<span class="nc" id="L165">        jMenu2.setText(&quot;VerInfo&quot;);</span>
-
-<span class="nc" id="L167">        jMenuItem5.setText(&quot;Clientes&quot;);</span>
-<span class="nc" id="L168">        jMenu2.add(jMenuItem5);</span>
-
-<span class="nc" id="L170">        jMenuItem6.setText(&quot;Proveedor&quot;);</span>
-<span class="nc" id="L171">        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L173">                jMenuItem6ActionPerformed(evt);</span>
-<span class="nc" id="L174">            }</span>
-        });
-<span class="nc" id="L176">        jMenu2.add(jMenuItem6);</span>
-
-<span class="nc" id="L178">        jMenuItem7.setText(&quot;Servicio&quot;);</span>
-<span class="nc" id="L179">        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L181">                jMenuItem7ActionPerformed(evt);</span>
-<span class="nc" id="L182">            }</span>
-        });
-<span class="nc" id="L184">        jMenu2.add(jMenuItem7);</span>
-
-<span class="nc" id="L186">        jMenuItem8.setText(&quot;Promocion&quot;);</span>
-<span class="nc" id="L187">        jMenu2.add(jMenuItem8);</span>
-
-<span class="nc" id="L189">        jMenuItem9.setText(&quot;Reserva&quot;);</span>
-<span class="nc" id="L190">        jMenu2.add(jMenuItem9);</span>
-
-<span class="nc" id="L192">        jMenuBar1.add(jMenu2);</span>
-
-<span class="nc" id="L194">        jMenu3.setText(&quot;Reservas&quot;);</span>
-
-<span class="nc" id="L196">        jMenuItem10.setText(&quot;Realizar reserva&quot;);</span>
-<span class="nc" id="L197">        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L199">                jMenuItem10ActionPerformed(evt);</span>
-<span class="nc" id="L200">            }</span>
-        });
-<span class="nc" id="L202">        jMenu3.add(jMenuItem10);</span>
-
-<span class="nc" id="L204">        jMenuItem11.setText(&quot;Actualizar estado&quot;);</span>
-<span class="nc" id="L205">        jMenu3.add(jMenuItem11);</span>
-
-<span class="nc" id="L207">        jMenuItem12.setText(&quot;Cancelar&quot;);</span>
-<span class="nc" id="L208">        jMenu3.add(jMenuItem12);</span>
-
-<span class="nc" id="L210">        jMenuBar1.add(jMenu3);</span>
-
-<span class="nc" id="L212">        jMenu5.setText(&quot;Empresas&quot;);</span>
-
-<span class="nc" id="L214">        jMenuItem13.setText(&quot;ListarEmpresas&quot;);</span>
-<span class="nc" id="L215">        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L217">                jMenuItem13ActionPerformed(evt);</span>
-<span class="nc" id="L218">            }</span>
-        });
-<span class="nc" id="L220">        jMenu5.add(jMenuItem13);</span>
-
-<span class="nc" id="L222">        jMenuBar1.add(jMenu5);</span>
-
-<span class="nc" id="L224">        jMenu6.setText(&quot;Configuracion&quot;);</span>
-
-<span class="nc" id="L226">        jMenuItem15.setText(&quot;Opciones&quot;);</span>
-<span class="nc" id="L227">        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L229">                jMenuItem15ActionPerformed(evt);</span>
-<span class="nc" id="L230">            }</span>
-        });
-<span class="nc" id="L232">        jMenu6.add(jMenuItem15);</span>
-
-<span class="nc" id="L234">        jMenuBar1.add(jMenu6);</span>
-
-<span class="nc" id="L236">        setJMenuBar(jMenuBar1);</span>
-
-<span class="nc" id="L238">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="nc" id="L239">        getContentPane().setLayout(layout);</span>
-<span class="nc" id="L240">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L241">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L242">            .addComponent(Escritorio)</span>
-        );
-<span class="nc" id="L244">        layout.setVerticalGroup(</span>
-<span class="nc" id="L245">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L246">            .addComponent(Escritorio)</span>
+<span class="nc" id="L122">        EscritorioLayout.setVerticalGroup(</span>
+<span class="nc" id="L123">            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L124">            .addGap(0, 681, Short.MAX_VALUE)</span>
         );
 
-<span class="nc" id="L249">        pack();</span>
-<span class="nc" id="L250">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L127">        jMenuBar1.setToolTipText(&quot;&quot;);</span>
+
+<span class="nc" id="L129">        jMenu1.setText(&quot;Altas&quot;);</span>
+
+<span class="nc" id="L131">        jMenu4.setText(&quot;Usuario&quot;);</span>
+
+<span class="nc" id="L133">        jMenuItem1.setText(&quot;Proveedor&quot;);</span>
+<span class="nc" id="L134">        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L136">                jMenuItem1ActionPerformed(evt);</span>
+<span class="nc" id="L137">            }</span>
+        });
+<span class="nc" id="L139">        jMenu4.add(jMenuItem1);</span>
+
+<span class="nc" id="L141">        jMenuItem14.setText(&quot;Cliente&quot;);</span>
+<span class="nc" id="L142">        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L144">                jMenuItem14ActionPerformed(evt);</span>
+<span class="nc" id="L145">            }</span>
+        });
+<span class="nc" id="L147">        jMenu4.add(jMenuItem14);</span>
+
+<span class="nc" id="L149">        jMenu1.add(jMenu4);</span>
+
+<span class="nc" id="L151">        jMenuItem2.setText(&quot;Categoria&quot;);</span>
+<span class="nc" id="L152">        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L154">                jMenuItem2ActionPerformed(evt);</span>
+<span class="nc" id="L155">            }</span>
+        });
+<span class="nc" id="L157">        jMenu1.add(jMenuItem2);</span>
+
+<span class="nc" id="L159">        jMenuItem3.setText(&quot;Servicio&quot;);</span>
+<span class="nc" id="L160">        jMenu1.add(jMenuItem3);</span>
+
+<span class="nc" id="L162">        jMenuItem4.setText(&quot;Promocion&quot;);</span>
+<span class="nc" id="L163">        jMenu1.add(jMenuItem4);</span>
+
+<span class="nc" id="L165">        jMenuBar1.add(jMenu1);</span>
+
+<span class="nc" id="L167">        jMenu2.setText(&quot;VerInfo&quot;);</span>
+
+<span class="nc" id="L169">        jMenuItem5.setText(&quot;Clientes&quot;);</span>
+<span class="nc" id="L170">        jMenu2.add(jMenuItem5);</span>
+
+<span class="nc" id="L172">        jMenuItem6.setText(&quot;Proveedor&quot;);</span>
+<span class="nc" id="L173">        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L175">                jMenuItem6ActionPerformed(evt);</span>
+<span class="nc" id="L176">            }</span>
+        });
+<span class="nc" id="L178">        jMenu2.add(jMenuItem6);</span>
+
+<span class="nc" id="L180">        jMenuItem7.setText(&quot;Servicio&quot;);</span>
+<span class="nc" id="L181">        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L183">                jMenuItem7ActionPerformed(evt);</span>
+<span class="nc" id="L184">            }</span>
+        });
+<span class="nc" id="L186">        jMenu2.add(jMenuItem7);</span>
+
+<span class="nc" id="L188">        jMenuItem8.setText(&quot;Promocion&quot;);</span>
+<span class="nc" id="L189">        jMenu2.add(jMenuItem8);</span>
+
+<span class="nc" id="L191">        jMenuItem9.setText(&quot;Reserva&quot;);</span>
+<span class="nc" id="L192">        jMenu2.add(jMenuItem9);</span>
+
+<span class="nc" id="L194">        jMenuBar1.add(jMenu2);</span>
+
+<span class="nc" id="L196">        jMenu3.setText(&quot;Reservas&quot;);</span>
+
+<span class="nc" id="L198">        jMenuItem10.setText(&quot;Realizar reserva&quot;);</span>
+<span class="nc" id="L199">        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L201">                jMenuItem10ActionPerformed(evt);</span>
+<span class="nc" id="L202">            }</span>
+        });
+<span class="nc" id="L204">        jMenu3.add(jMenuItem10);</span>
+
+<span class="nc" id="L206">        jMenuItem11.setText(&quot;Actualizar estado&quot;);</span>
+<span class="nc" id="L207">        jMenu3.add(jMenuItem11);</span>
+
+<span class="nc" id="L209">        jMenuItem12.setText(&quot;Cancelar&quot;);</span>
+<span class="nc" id="L210">        jMenu3.add(jMenuItem12);</span>
+
+<span class="nc" id="L212">        jMenuBar1.add(jMenu3);</span>
+
+<span class="nc" id="L214">        jMenu5.setText(&quot;Empresas&quot;);</span>
+
+<span class="nc" id="L216">        jMenuItem13.setText(&quot;ListarEmpresas&quot;);</span>
+<span class="nc" id="L217">        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L219">                jMenuItem13ActionPerformed(evt);</span>
+<span class="nc" id="L220">            }</span>
+        });
+<span class="nc" id="L222">        jMenu5.add(jMenuItem13);</span>
+
+<span class="nc" id="L224">        jMenuBar1.add(jMenu5);</span>
+
+<span class="nc" id="L226">        jMenu6.setText(&quot;Configuracion&quot;);</span>
+
+<span class="nc" id="L228">        jMenuItem15.setText(&quot;Opciones&quot;);</span>
+<span class="nc" id="L229">        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L231">                jMenuItem15ActionPerformed(evt);</span>
+<span class="nc" id="L232">            }</span>
+        });
+<span class="nc" id="L234">        jMenu6.add(jMenuItem15);</span>
+
+<span class="nc" id="L236">        jMenuBar1.add(jMenu6);</span>
+
+<span class="nc" id="L238">        setJMenuBar(jMenuBar1);</span>
+
+<span class="nc" id="L240">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L241">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L242">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L243">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L244">            .addComponent(Escritorio)</span>
+        );
+<span class="nc" id="L246">        layout.setVerticalGroup(</span>
+<span class="nc" id="L247">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L248">            .addComponent(Escritorio)</span>
+        );
+
+<span class="nc" id="L251">        pack();</span>
+<span class="nc" id="L252">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L254">        AltaProveedor al = new AltaProveedor();</span>
+<span class="nc" id="L256">        AltaProveedor al = new AltaProveedor();</span>
       
       
-<span class="nc" id="L257">        Escritorio.add(al);</span>
+<span class="nc" id="L259">        Escritorio.add(al);</span>
         //cuentas para centrar
-<span class="nc" id="L259">        int a = (Escritorio.getWidth() - al.getWidth())/2;</span>
-<span class="nc" id="L260">        int b = (Escritorio.getHeight() - al.getHeight()) /2;</span>
-<span class="nc" id="L261">        al.setLocation(a ,b);</span>
-<span class="nc" id="L262">        al.show();</span>
-<span class="nc" id="L263">    }//GEN-LAST:event_jMenuItem1ActionPerformed</span>
+<span class="nc" id="L261">        int a = (Escritorio.getWidth() - al.getWidth())/2;</span>
+<span class="nc" id="L262">        int b = (Escritorio.getHeight() - al.getHeight()) /2;</span>
+<span class="nc" id="L263">        al.setLocation(a ,b);</span>
+<span class="nc" id="L264">        al.show();</span>
+<span class="nc" id="L265">    }//GEN-LAST:event_jMenuItem1ActionPerformed</span>
  
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L267">    }//GEN-LAST:event_jMenuItem7ActionPerformed</span>
+<span class="nc" id="L269">    }//GEN-LAST:event_jMenuItem7ActionPerformed</span>
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L271">        this.abrirListarEmpresas();</span>
-<span class="nc" id="L272">    }//GEN-LAST:event_jMenuItem13ActionPerformed</span>
+<span class="nc" id="L273">        this.abrirListarEmpresas();</span>
+<span class="nc" id="L274">    }//GEN-LAST:event_jMenuItem13ActionPerformed</span>
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L276">        this.abrirRealizarReserva();</span>
-<span class="nc" id="L277">    }//GEN-LAST:event_jMenuItem10ActionPerformed</span>
+<span class="nc" id="L278">        this.abrirRealizarReserva();</span>
+<span class="nc" id="L279">    }//GEN-LAST:event_jMenuItem10ActionPerformed</span>
 
     private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L281">        this.abrirAltacliente();</span>
-<span class="nc" id="L282">    }//GEN-LAST:event_jMenuItem14ActionPerformed</span>
+<span class="nc" id="L283">        this.abrirAltacliente();</span>
+<span class="nc" id="L284">    }//GEN-LAST:event_jMenuItem14ActionPerformed</span>
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-<span class="nc" id="L285">        AltaCategoria altaCat = new AltaCategoria();</span>
-<span class="nc" id="L286">        Escritorio.add(altaCat);</span>
-<span class="nc" id="L287">        altaCat.show();</span>
-<span class="nc" id="L288">    }//GEN-LAST:event_jMenuItem2ActionPerformed</span>
+<span class="nc" id="L287">        AltaCategoria altaCat = new AltaCategoria();</span>
+<span class="nc" id="L288">        Escritorio.add(altaCat);</span>
+<span class="nc" id="L289">        altaCat.show();</span>
+<span class="nc" id="L290">    }//GEN-LAST:event_jMenuItem2ActionPerformed</span>
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L292">        VerInfoProveedor altaCat = new VerInfoProveedor();</span>
-<span class="nc" id="L293">        Escritorio.add(altaCat);</span>
-<span class="nc" id="L294">        altaCat.show();</span>
-<span class="nc" id="L295">    }//GEN-LAST:event_jMenuItem6ActionPerformed</span>
+<span class="nc" id="L294">        VerInfoProveedor altaCat = new VerInfoProveedor();</span>
+<span class="nc" id="L295">        Escritorio.add(altaCat);</span>
+<span class="nc" id="L296">        altaCat.show();</span>
+<span class="nc" id="L297">    }//GEN-LAST:event_jMenuItem6ActionPerformed</span>
 
     private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L299">        Opciones op = new Opciones();</span>
-<span class="nc" id="L300">        Escritorio.add(op);</span>
-<span class="nc" id="L301">        op.show();</span>
-<span class="nc" id="L302">    }//GEN-LAST:event_jMenuItem15ActionPerformed</span>
+<span class="nc" id="L301">        Opciones op = new Opciones();</span>
+<span class="nc" id="L302">        Escritorio.add(op);</span>
+<span class="nc" id="L303">        op.show();</span>
+<span class="nc" id="L304">    }//GEN-LAST:event_jMenuItem15ActionPerformed</span>
 
     /**
      * @param args the command line arguments
@@ -312,33 +314,33 @@ public class PantallaPrincipal extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-<span class="nc bnc" id="L315" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
-<span class="nc bnc" id="L316" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
-<span class="nc" id="L317">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
-<span class="nc" id="L318">                    break;</span>
+<span class="nc bnc" id="L317" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L318" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L319">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L320">                    break;</span>
                 }
             }
-<span class="nc" id="L321">        } catch (ClassNotFoundException ex) {</span>
-<span class="nc" id="L322">            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L323">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L323">        } catch (ClassNotFoundException ex) {</span>
 <span class="nc" id="L324">            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L325">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L325">        } catch (InstantiationException ex) {</span>
 <span class="nc" id="L326">            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L327">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L327">        } catch (IllegalAccessException ex) {</span>
 <span class="nc" id="L328">            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L329">        }</span>
+<span class="nc" id="L329">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L330">            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L331">        }</span>
         //&lt;/editor-fold&gt;
 
         /* Create and display the form */
-<span class="nc" id="L333">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+<span class="nc" id="L335">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
             public void run() {
-<span class="nc" id="L335">                PantallaPrincipal x = new PantallaPrincipal();</span>
-<span class="nc" id="L336">                x.setExtendedState(MAXIMIZED_BOTH);</span>
-<span class="nc" id="L337">                x.setVisible(true);</span>
+<span class="nc" id="L337">                PantallaPrincipal x = new PantallaPrincipal();</span>
+<span class="nc" id="L338">                x.setExtendedState(MAXIMIZED_BOTH);</span>
+<span class="nc" id="L339">                x.setVisible(true);</span>
                 
-<span class="nc" id="L339">            }</span>
+<span class="nc" id="L341">            }</span>
         });
-<span class="nc" id="L341">    }</span>
+<span class="nc" id="L343">    }</span>
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDesktopPane Escritorio;
@@ -366,11 +368,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 
-    void abrirImagen(String ruta) throws PropertyVetoException {
-<span class="nc" id="L370">        Img altaCat = new Img(ruta);</span>
-<span class="nc" id="L371">        Escritorio.add(altaCat);</span>
-<span class="nc" id="L372">        altaCat.setMaximum(true);</span>
-<span class="nc" id="L373">        altaCat.show();</span>
-<span class="nc" id="L374">    }</span>
+    void abrirImagen(String ruta)  {
+<span class="nc" id="L372">        Img altaCat = new Img(ruta);</span>
+<span class="nc" id="L373">        Escritorio.add(altaCat);</span>
+        try {
+<span class="nc" id="L375">            altaCat.setMaximum(true);</span>
+<span class="nc" id="L376">        } catch (PropertyVetoException ex) {</span>
+<span class="nc" id="L377">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L378">        }</span>
+<span class="nc" id="L379">        altaCat.show();</span>
+<span class="nc" id="L380">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
