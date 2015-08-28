@@ -5,23 +5,29 @@
  */
 package Presentacion;
 
-import java.awt.event.ActionListener;
+
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.Date;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-//import javafx.scene.control.DatePicker;
-import javax.swing.JFormattedTextField;
+
+
 import javax.swing.JOptionPane;
 import logica.Fabrica;
-import logica.IControladorCliente;
+;
 import logica.IControladorProveedor;
 import org.jdatepicker.impl.DateComponentFormatter;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
-//import org.jdatepicker.*;
+
 
 /**
  *
@@ -270,8 +276,32 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
         Date selectedDate = (Date) this.datePicker.getModel().getValue();
 
         try {
+               //             Para copiar le archivo seleccionado
+            Path FROM = Paths.get(proveedorImagen.getText());
+            //muestro la ruta local de la imagen (teteo)
+            JOptionPane.showMessageDialog(null,"ruta local de la imagen: "+proveedorImagen.getText());
+            
+            String x = PantallaPrincipal.RutaImagenes+AltaProveedor.proveedorNick.getText()+".png";
+            
+            Path TO = Paths.get(x);
+            JOptionPane.showMessageDialog(null, TO);
+             //sobreescribir el fichero de destino, si existe, y copiar
+            // los atributos, incluyendo los permisos rwx
+//             CopyOption[] options = new CopyOption[]{
+//            StandardCopyOption.REPLACE_EXISTING,
+//            StandardCopyOption.COPY_ATTRIBUTES
+//            }; 
+            try {
+                Files.copy(FROM,TO, StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException ex) {
+                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+            
             Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , PantallaPrincipal.RutaImagenes+proveedorNick.getText()+".png", proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
             JOptionPane.showMessageDialog(null,"El Proveedor se ingreso con exito");
+            
         } catch (Exception ex){
             JOptionPane.showMessageDialog(null,ex.getMessage());
            
@@ -292,7 +322,7 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        Pantallaprin.abrirSelectorImagen();
+        Pantallaprin.abrirSelectorImagen("AltaProveedor");
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void formAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_formAncestorAdded

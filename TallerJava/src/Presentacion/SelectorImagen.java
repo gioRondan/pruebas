@@ -22,12 +22,14 @@ import javax.swing.JOptionPane;
  * @author Juan
  */
 public class SelectorImagen extends javax.swing.JInternalFrame {
-
+      //public static File archivoSeleccionado;
+     String padre;
     /**
      * Creates new form SelectorImagen
      */
-    public SelectorImagen() {
+    public SelectorImagen(String quien ) {
         initComponents();
+        this.padre = quien;
     }
 
     /**
@@ -67,27 +69,16 @@ public class SelectorImagen extends javax.swing.JInternalFrame {
         String comando = evt.getActionCommand();
         if (comando.equals(JFileChooser.APPROVE_SELECTION)){
             File archivoSeleccionado = selectro.getSelectedFile();
-              //             Para copiar a distintos failsystem
-            Path FROM = archivoSeleccionado.toPath();
-            JOptionPane.showMessageDialog(null, archivoSeleccionado.getAbsolutePath().trim());
-            
-            String x = PantallaPrincipal.RutaImagenes+AltaProveedor.proveedorNick.getText()+".png";
-            
-            Path TO = Paths.get(x);
-            JOptionPane.showMessageDialog(null, TO);
-             //sobreescribir el fichero de destino, si existe, y copiar
-            // los atributos, incluyendo los permisos rwx
-//             CopyOption[] options = new CopyOption[]{
-//            StandardCopyOption.REPLACE_EXISTING,
-//            StandardCopyOption.COPY_ATTRIBUTES
-//            }; 
-            try {
-                Files.copy(FROM,TO, StandardCopyOption.REPLACE_EXISTING);
-            } catch (IOException ex) {
-                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
+            if (this.padre.equals("AltaProveedor")){
+                AltaProveedor.proveedorImagen.setText(archivoSeleccionado.getAbsolutePath());
             }
-            
-            AltaProveedor.proveedorImagen.setText(archivoSeleccionado.getAbsolutePath());
+            if (this.padre.equals("AltaCliente")){
+            // campo a rellena.
+              AltaCliente.clienteImagen.setText(archivoSeleccionado.getAbsolutePath());
+            }
+             if (this.padre.equals(""/*nombre clase*/)){
+                // Accion para la clase.
+            }
             this.dispose();
         }else if (comando.equals(JFileChooser.CANCEL_SELECTION)){
             this.dispose();

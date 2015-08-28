@@ -7,6 +7,7 @@ package Presentacion;
 
 
 import java.awt.Graphics;
+import javafx.scene.image.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -27,6 +28,7 @@ public class Imagen extends javax.swing.JPanel {
        
         String s = "/Imagenes/"+this.NomImagen;
         //JOptionPane.showMessageDialog(null, s);
+        
         ImageIcon Img = new ImageIcon(getClass().getResource(s));
         g.drawImage(Img.getImage(), 0, 0, x, y, null);
     }    

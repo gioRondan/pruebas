@@ -49,7 +49,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         instancia = this;
         ICP = fabrica.getIControladorProveedor();
         ICC = fabrica.getIControladorCliente();
-        this.RutaImagenes = JOptionPane.showInputDialog("Selecciones una rata para las imagenes");
+        this.RutaImagenes = JOptionPane.showInputDialog(null,"Selecciones una rata para las imagenes");
+            if (this.RutaImagenes.isEmpty()){
+                 this.RutaImagenes = "C:\\Users\\Juan\\Documents\\NetBeansProjects\\tpgr07\\TallerJava\\src\\Imagenes\\";
+             }
+        
     }
     
     public static PantallaPrincipal getInstancia(){
@@ -67,8 +71,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         Escritorio.add(rr);
         rr.show();
     }
-     public void abrirSelectorImagen(){
-        SelectorImagen al = new SelectorImagen();
+     public void abrirSelectorImagen(String quienMeAbre){
+//el atributo quienMeAbre permite saber quien creo la ventana para luego ejecura una accion distinta para cada clase
+        SelectorImagen al = new SelectorImagen(quienMeAbre);
         Escritorio.add(al);
         al.show();
     }

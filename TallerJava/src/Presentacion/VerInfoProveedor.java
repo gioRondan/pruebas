@@ -5,9 +5,11 @@
  */
 package Presentacion;
 
+import java.awt.image.ImageProducer;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import javafx.scene.image.Image;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -273,12 +275,11 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
     private void FechaNacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FechaNacActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FechaNacActionPerformed
- DefaultListModel model2 = new DefaultListModel();
+    DefaultListModel model2 = new DefaultListModel();//modelo para los servicos
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
-        int cant = jList1.getAnchorSelectionIndex();
-  
-          String nick =  model.elementAt(cant).toString();
           
+          int cant = jList1.getAnchorSelectionIndex();
+          String nick =  model.elementAt(cant).toString();
           DataInfoProveedor dtinfoprv = pp.ICP.verInfoProveedor( nick);
           proveedorNick.setText(dtinfoprv.getNickname());
           proveedorNombre.setText(dtinfoprv.getNombre());
@@ -287,23 +288,28 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
           proveedorEmpresaNombre.setText(dtinfoprv.getEmpresa().getNombre());
           proveedorEmpresaLink.setText(dtinfoprv.getEmpresa().getUrl());
           FechaNac.setText(dtinfoprv.getFechaNac().toString());
-           this.NomImagen=dtinfoprv.getNickname()+".png";
-           
-          Imagen im = new Imagen(jPanel1, this.NomImagen);
-          jPanel1.add(im).repaint();
           
-         
-         
+            //Seteo el nombre de la imagen  
+          this.NomImagen=dtinfoprv.getNickname()+".png";
+           
+          if (jPanel1.getComponentCount() == 0){//si no tiene ninguan imagen 
+            Imagen im = new Imagen(jPanel1, this.NomImagen);
+            jPanel1.add(im).repaint();        
+          }else{ // si tiene borro y agrego la nueva 
+             jPanel1.removeAll();
+             Imagen im2 = new Imagen(jPanel1, this.NomImagen);
+             jPanel1.add(im2).repaint(); 
+          }
+
           List<DataServicio> datas = dtinfoprv.getServicios();
           Iterator<DataServicio> it = datas.iterator();
           while (it.hasNext()){
-             DataServicio dts = it.next();
+            DataServicio dts = it.next();
             String n = dts.getNombre();
             model2.addElement(n);
           }
-            jList2.setModel(model2);
-          
-           
+          jList2.setModel(model2);
+                     
     }//GEN-LAST:event_jList1MouseClicked
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
@@ -314,8 +320,8 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
     private void jList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList2MouseClicked
         // TODO add your handling code here:
        // pp.abrirInfoServicio();
-         //int cant = jList2.getAnchorSelectionIndex();
-        // elemento del info servicio.settext(model2.elementAt(cant).toString());
+      //  int cant = jList2.getAnchorSelectionIndex();
+     // elemento del info servicio.settext(model2.elementAt(cant).toString());
     }//GEN-LAST:event_jList2MouseClicked
 
 
