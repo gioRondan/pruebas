@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -30,6 +31,7 @@ public class SelectorImagen extends javax.swing.JInternalFrame {
     public SelectorImagen(String quien ) {
         initComponents();
         this.padre = quien;
+        
     }
 
     /**
@@ -65,10 +67,13 @@ public class SelectorImagen extends javax.swing.JInternalFrame {
 
     private void jFileChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser1ActionPerformed
         // TODO add your handling code here:
-        JFileChooser selectro = (JFileChooser)evt.getSource();
+        JFileChooser selector = (JFileChooser)evt.getSource();
+         FileNameExtensionFilter filtroImagen=new FileNameExtensionFilter("JPG, PNG & GIF","jpg","png","gif");
+        selector.setFileFilter(filtroImagen);
+        
         String comando = evt.getActionCommand();
         if (comando.equals(JFileChooser.APPROVE_SELECTION)){
-            File archivoSeleccionado = selectro.getSelectedFile();
+            File archivoSeleccionado = selector.getSelectedFile();
             if (this.padre.equals("AltaProveedor")){
                 AltaProveedor.proveedorImagen.setText(archivoSeleccionado.getAbsolutePath());
             }

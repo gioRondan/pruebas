@@ -43,7 +43,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         instancia = this;
         ICP = fabrica.getIControladorProveedor();
         ICC = fabrica.getIControladorCliente();
-        this.RutaImagenes = JOptionPane.showInputDialog(null,"Selecciones una rata para las imagenes");
+        this.RutaImagenes = JOptionPane.showInputDialog(null,"Selecciones una ruta para las imagenes");
             if (this.RutaImagenes.isEmpty()){
                  this.RutaImagenes = "C:\\Users\\Juan\\Documents\\NetBeansProjects\\tpgr07\\TallerJava\\src\\Imagenes\\";
              }
