@@ -155,6 +155,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenuBar1.setToolTipText("");
 
         jMenu1.setText("Altas");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         jMenu4.setText("Usuario");
 
@@ -359,6 +364,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         al.show();
     
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu1ActionPerformed
 
     /**
      * @param args the command line arguments
