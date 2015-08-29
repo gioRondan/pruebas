@@ -156,7 +156,7 @@ public class ControladorProveedorTest {
      * Test of listarCategorias method, of class ControladorProveedor.
      */
     @Test
-    public void testListarCategorias() {
+    public void testListarCategorias() {//la lista no queda ordenada ej agregar 99 sin padre y lo lista antes que 1
         System.out.println("listarCategorias");
         testIngresarNombreCategoria2("1");
         testAltaCategoria();
@@ -171,6 +171,7 @@ public class ControladorProveedorTest {
         
         ControladorProveedor instance = new ControladorProveedor();
         List<DataCategoria> result = instance.listarCategorias();
+        System.out.println(result.size());
         recorrerCategorias(result, 0, 1);
         /*DataCategoria dt;
         int j = 1;
@@ -198,8 +199,6 @@ public class ControladorProveedorTest {
         String imagen = "";
         ControladorProveedor instance = new ControladorProveedor();
         instance.ingresarImagenServicio(imagen);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -211,8 +210,6 @@ public class ControladorProveedorTest {
         String destino = "";
         ControladorProveedor instance = new ControladorProveedor();
         instance.ingresarDestinoServicio(destino);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
