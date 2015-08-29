@@ -29,11 +29,10 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
      * Creates new form VerInfoProveedor
      */
      DefaultListModel model = new DefaultListModel();
+     
     public VerInfoProveedor() {
         initComponents();
-        
-        
-         Iterator<DataProveedor> it = info.iterator();
+        Iterator<DataProveedor> it = info.iterator();
         while (it.hasNext()){
             DataProveedor dt = it.next();
             String nick = dt.getNickname();
@@ -41,7 +40,7 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
         }
             jList1.setModel(model);
             this.NomImagen ="";
-        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

@@ -7,28 +7,36 @@ package Presentacion;
 
 
 import java.awt.Graphics;
-import javafx.scene.image.Image;
+import java.io.File;
+
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
+
 import javax.swing.JPanel;
 
 public class Imagen extends javax.swing.JPanel {
     int x, y;
-    String NomImagen;
+    String RutaImagen;
 
-    public Imagen(JPanel jPanel1,String nom) {
+    public Imagen(JPanel jPanel1,String ruta) {
         this.x = jPanel1.getWidth();
         this.y = jPanel1.getHeight();
         this.setSize(x, y);
-        this.NomImagen = nom;
+        this.RutaImagen = ruta;
     }
 
     @Override
     public void paint(Graphics g) {
        
-        String s = PantallaPrincipal.RutaImagenes+this.NomImagen;
-        ImageIcon Img = new ImageIcon(s);
-        g.drawImage(Img.getImage(), 0, 0, x, y, null);
-    }    
+        String s = this.RutaImagen;
+        File f = new File(s);
+        if (f.exists()){
+            ImageIcon Img = new ImageIcon(s);
+            g.drawImage(Img.getImage(), 0, 0, x, y, null);
+        }else{
+            ImageIcon Img = new ImageIcon(getClass().getResource("/Imagenes/noImagen.png"));
+            g.drawImage(Img.getImage(), 0, 0, x, y, null);
+        }
+        
+   }    
 
 }

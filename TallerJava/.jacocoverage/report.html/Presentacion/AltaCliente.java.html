@@ -34,15 +34,15 @@ public class AltaCliente extends javax.swing.JInternalFrame {
 <span class="nc" id="L34">        jLabel5 = new javax.swing.JLabel();</span>
 <span class="nc" id="L35">        jLabel7 = new javax.swing.JLabel();</span>
 <span class="nc" id="L36">        jLabel2 = new javax.swing.JLabel();</span>
-<span class="nc" id="L37">        proveedorNombre = new javax.swing.JTextField();</span>
-<span class="nc" id="L38">        proveedorNick = new javax.swing.JTextField();</span>
+<span class="nc" id="L37">        clienteNombre = new javax.swing.JTextField();</span>
+<span class="nc" id="L38">        clienteNick = new javax.swing.JTextField();</span>
 <span class="nc" id="L39">        jLabel3 = new javax.swing.JLabel();</span>
-<span class="nc" id="L40">        proveedorApellido = new javax.swing.JTextField();</span>
+<span class="nc" id="L40">        clienteApellido = new javax.swing.JTextField();</span>
 <span class="nc" id="L41">        jLabel8 = new javax.swing.JLabel();</span>
-<span class="nc" id="L42">        proveedorEmail = new javax.swing.JTextField();</span>
+<span class="nc" id="L42">        clienteEmail = new javax.swing.JTextField();</span>
 <span class="nc" id="L43">        jLabel4 = new javax.swing.JLabel();</span>
 <span class="nc" id="L44">        jLabel9 = new javax.swing.JLabel();</span>
-<span class="nc" id="L45">        proveedorImagen = new javax.swing.JTextField();</span>
+<span class="nc" id="L45">        clienteImagen = new javax.swing.JTextField();</span>
 <span class="nc" id="L46">        jButton7 = new javax.swing.JButton();</span>
 <span class="nc" id="L47">        jButton4 = new javax.swing.JButton();</span>
 <span class="nc" id="L48">        jButton5 = new javax.swing.JButton();</span>
@@ -54,15 +54,15 @@ public class AltaCliente extends javax.swing.JInternalFrame {
 
 <span class="nc" id="L55">        jLabel2.setText(&quot;Nombre:&quot;);</span>
 
-<span class="nc" id="L57">        proveedorNick.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L57">        clienteNick.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L59">                proveedorNickActionPerformed(evt);</span>
+<span class="nc" id="L59">                clienteNickActionPerformed(evt);</span>
 <span class="nc" id="L60">            }</span>
         });
 
 <span class="nc" id="L63">        jLabel3.setText(&quot;Apellido:&quot;);</span>
 
-<span class="nc" id="L65">        proveedorApellido.setToolTipText(&quot;&quot;);</span>
+<span class="nc" id="L65">        clienteApellido.setToolTipText(&quot;&quot;);</span>
 
 <span class="nc" id="L67">        jLabel8.setText(&quot;Correo electornico:&quot;);</span>
 
@@ -110,20 +110,20 @@ public class AltaCliente extends javax.swing.JInternalFrame {
 <span class="nc" id="L110">                                        .addGroup(layout.createSequentialGroup()</span>
 <span class="nc" id="L111">                                            .addComponent(jLabel8)</span>
 <span class="nc" id="L112">                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L113">                                            .addComponent(proveedorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L113">                                            .addComponent(clienteEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
 <span class="nc" id="L114">                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
 <span class="nc" id="L115">                                            .addGroup(layout.createSequentialGroup()</span>
 <span class="nc" id="L116">                                                .addComponent(jLabel3)</span>
 <span class="nc" id="L117">                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L118">                                                .addComponent(proveedorApellido))</span>
+<span class="nc" id="L118">                                                .addComponent(clienteApellido))</span>
 <span class="nc" id="L119">                                            .addGroup(layout.createSequentialGroup()</span>
 <span class="nc" id="L120">                                                .addComponent(jLabel2)</span>
 <span class="nc" id="L121">                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L122">                                                .addComponent(proveedorNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
+<span class="nc" id="L122">                                                .addComponent(clienteNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
 <span class="nc" id="L123">                                        .addGroup(layout.createSequentialGroup()</span>
 <span class="nc" id="L124">                                            .addComponent(jLabel7)</span>
 <span class="nc" id="L125">                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L126">                                            .addComponent(proveedorNick, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))</span>
+<span class="nc" id="L126">                                            .addComponent(clienteNick, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))</span>
 <span class="nc" id="L127">                                .addGap(37, 37, 37))</span>
 <span class="nc" id="L128">                            .addGroup(layout.createSequentialGroup()</span>
 <span class="nc" id="L129">                                .addComponent(jLabel9)</span>
@@ -133,7 +133,7 @@ public class AltaCliente extends javax.swing.JInternalFrame {
 <span class="nc" id="L133">                                        .addComponent(jButton4)</span>
 <span class="nc" id="L134">                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
 <span class="nc" id="L135">                                        .addComponent(jButton5))</span>
-<span class="nc" id="L136">                                    .addComponent(proveedorImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L136">                                    .addComponent(clienteImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
 <span class="nc" id="L137">                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
 <span class="nc" id="L138">                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))</span>
 <span class="nc" id="L139">                .addContainerGap(59, Short.MAX_VALUE))</span>
@@ -145,19 +145,19 @@ public class AltaCliente extends javax.swing.JInternalFrame {
 <span class="nc" id="L145">                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
 <span class="nc" id="L146">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
 <span class="nc" id="L147">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L148">                    .addComponent(proveedorNick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L148">                    .addComponent(clienteNick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
 <span class="nc" id="L149">                    .addComponent(jLabel7))</span>
 <span class="nc" id="L150">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
 <span class="nc" id="L151">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L152">                    .addComponent(proveedorNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L152">                    .addComponent(clienteNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
 <span class="nc" id="L153">                    .addComponent(jLabel2))</span>
 <span class="nc" id="L154">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
 <span class="nc" id="L155">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L156">                    .addComponent(proveedorApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L156">                    .addComponent(clienteApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
 <span class="nc" id="L157">                    .addComponent(jLabel3))</span>
 <span class="nc" id="L158">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
 <span class="nc" id="L159">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L160">                    .addComponent(proveedorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L160">                    .addComponent(clienteEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
 <span class="nc" id="L161">                    .addComponent(jLabel8))</span>
 <span class="nc" id="L162">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
 <span class="nc" id="L163">                .addComponent(jLabel4)</span>
@@ -167,7 +167,7 @@ public class AltaCliente extends javax.swing.JInternalFrame {
 <span class="nc" id="L167">                        .addComponent(jLabel9))</span>
 <span class="nc" id="L168">                    .addGroup(layout.createSequentialGroup()</span>
 <span class="nc" id="L169">                        .addGap(9, 9, 9)</span>
-<span class="nc" id="L170">                        .addComponent(proveedorImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L170">                        .addComponent(clienteImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
 <span class="nc" id="L171">                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
 <span class="nc" id="L172">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
 <span class="nc" id="L173">                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
@@ -181,34 +181,32 @@ public class AltaCliente extends javax.swing.JInternalFrame {
 <span class="nc" id="L181">        pack();</span>
 <span class="nc" id="L182">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
-    private void proveedorNickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorNickActionPerformed
+    private void clienteNickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteNickActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L186">    }//GEN-LAST:event_proveedorNickActionPerformed</span>
+<span class="nc" id="L186">    }//GEN-LAST:event_clienteNickActionPerformed</span>
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L190">        Pantallaprin.abrirSelectorImagen();</span>
+<span class="nc" id="L190">        Pantallaprin.abrirSelectorImagen(&quot;AltaCliente&quot;);</span>
 <span class="nc" id="L191">    }//GEN-LAST:event_jButton7ActionPerformed</span>
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        //        int d = Integer.parseInt(Dia.getText());
-        //        int m = Integer.parseInt(Mes.getText());
-        //        int a = Integer.parseInt(Anio.getText());
-        //        Date fecha;
-        //        fecha = Date(d,m,a);
-        
-
-        //Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , proveedorImagen.getText(), proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
-<span class="nc" id="L202">        this.dispose();</span>
-<span class="nc" id="L203">    }//GEN-LAST:event_jButton4ActionPerformed</span>
+       //Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , proveedorImagen.getText(), proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
+<span class="nc" id="L195">        this.dispose();</span>
+<span class="nc" id="L196">    }//GEN-LAST:event_jButton4ActionPerformed</span>
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L207">        this.dispose();</span>
-<span class="nc" id="L208">    }//GEN-LAST:event_jButton5ActionPerformed</span>
+<span class="nc" id="L200">        this.dispose();</span>
+<span class="nc" id="L201">    }//GEN-LAST:event_jButton5ActionPerformed</span>
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField clienteApellido;
+    private javax.swing.JTextField clienteEmail;
+    public static javax.swing.JTextField clienteImagen;
+    public static javax.swing.JTextField clienteNick;
+    private javax.swing.JTextField clienteNombre;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
@@ -219,11 +217,6 @@ public class AltaCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField proveedorApellido;
-    private javax.swing.JTextField proveedorEmail;
-    public static javax.swing.JTextField proveedorImagen;
-    public static javax.swing.JTextField proveedorNick;
-    private javax.swing.JTextField proveedorNombre;
     // End of variables declaration//GEN-END:variables
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

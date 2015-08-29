@@ -6,42 +6,43 @@
 
 package logica;
 //import UpperEssential.UpperEssentialLookAndFeel;
+import UpperEssential.UpperEssentialLookAndFeel;
 import java.util.*;
 import javax.swing.*;
 /**
  *
  * @author matias.heredia
  */
-<span class="nc" id="L15">public class Main {</span>
+<span class="nc" id="L16">public class Main {</span>
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws UnsupportedLookAndFeelException {
-       // UIManager.setLookAndFeel(new UpperEssentialLookAndFeel());//Linea de interface linda
+<span class="nc" id="L22">       UIManager.setLookAndFeel(new UpperEssentialLookAndFeel());//Linea de interface linda</span>
         List&lt;String&gt; s;
-<span class="nc" id="L23">        s = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L24">        s = new ArrayList&lt;&gt;();</span>
         String x;
         do{
-<span class="nc" id="L26">            x =JOptionPane.showInputDialog(&quot;Compila y este es el Main.java lo que ingreses se carga en una Lista ingresa Juan para Salir&quot;);</span>
-<span class="nc" id="L27">            s.add(x);</span>
-<span class="nc bnc" id="L28" title="All 2 branches missed.">        }while ( !x.equalsIgnoreCase(&quot;JUAN&quot;) ) ;</span>
-<span class="nc" id="L29">        Iterator&lt;String&gt; itera = s.iterator();</span>
-<span class="nc" id="L30">        JOptionPane.showMessageDialog(null,&quot;lista con iterador:&quot;);</span>
+<span class="nc" id="L27">            x =JOptionPane.showInputDialog(&quot;Compila y este es el Main.java lo que ingreses se carga en una Lista ingresa Juan para Salir&quot;);</span>
+<span class="nc" id="L28">            s.add(x);</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        }while ( !x.equalsIgnoreCase(&quot;JUAN&quot;) ) ;</span>
+<span class="nc" id="L30">        Iterator&lt;String&gt; itera = s.iterator();</span>
+<span class="nc" id="L31">        JOptionPane.showMessageDialog(null,&quot;lista con iterador:&quot;);</span>
         
-<span class="nc bnc" id="L32" title="All 2 branches missed.">        while (itera.hasNext()) {</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        while (itera.hasNext()) {</span>
             //Una forma de recorrer    
-<span class="nc" id="L34">            JOptionPane.showMessageDialog(null,itera.next());</span>
+<span class="nc" id="L35">            JOptionPane.showMessageDialog(null,itera.next());</span>
                     
         }
-<span class="nc" id="L37">        JOptionPane.showMessageDialog(null,&quot;Lista ForEach:&quot;);</span>
-<span class="nc" id="L38">        String total=&quot;&quot;;</span>
-<span class="nc bnc" id="L39" title="All 2 branches missed.">        for (String nom : s) {</span>
+<span class="nc" id="L38">        JOptionPane.showMessageDialog(null,&quot;Lista ForEach:&quot;);</span>
+<span class="nc" id="L39">        String total=&quot;&quot;;</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        for (String nom : s) {</span>
             //Una forma de recorrer
-<span class="nc" id="L41">          total = total + &quot;\n &quot; + nom; </span>
+<span class="nc" id="L42">          total = total + &quot;\n &quot; + nom; </span>
           //HOLA gente&lt;sadsadsadadasd
-<span class="nc" id="L43">        }</span>
-<span class="nc" id="L44">        JOptionPane.showMessageDialog(null,total);</span>
-<span class="nc" id="L45">    }</span>
+<span class="nc" id="L44">        }</span>
+<span class="nc" id="L45">        JOptionPane.showMessageDialog(null,total);</span>
+<span class="nc" id="L46">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

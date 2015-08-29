@@ -7,6 +7,7 @@ package Presentacion;
 
 
 import java.awt.Graphics;
+import javafx.scene.image.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -15,19 +16,18 @@ public class Imagen extends javax.swing.JPanel {
     int x, y;
     String NomImagen;
 
-<span class="nc" id="L18">    public Imagen(JPanel jPanel1,String nom) {</span>
-<span class="nc" id="L19">        this.x = jPanel1.getWidth();</span>
-<span class="nc" id="L20">        this.y = jPanel1.getHeight();</span>
-<span class="nc" id="L21">        this.setSize(x, y);</span>
-<span class="nc" id="L22">        this.NomImagen = nom;</span>
-<span class="nc" id="L23">    }</span>
+<span class="nc" id="L19">    public Imagen(JPanel jPanel1,String nom) {</span>
+<span class="nc" id="L20">        this.x = jPanel1.getWidth();</span>
+<span class="nc" id="L21">        this.y = jPanel1.getHeight();</span>
+<span class="nc" id="L22">        this.setSize(x, y);</span>
+<span class="nc" id="L23">        this.NomImagen = nom;</span>
+<span class="nc" id="L24">    }</span>
 
     @Override
     public void paint(Graphics g) {
        
-<span class="nc" id="L28">        String s = &quot;/Imagenes/&quot;+this.NomImagen;</span>
-        //JOptionPane.showMessageDialog(null, s);
-<span class="nc" id="L30">        ImageIcon Img = new ImageIcon(getClass().getResource(s));</span>
+<span class="nc" id="L29">        String s = PantallaPrincipal.RutaImagenes+this.NomImagen;</span>
+<span class="nc" id="L30">        ImageIcon Img = new ImageIcon(s);</span>
 <span class="nc" id="L31">        g.drawImage(Img.getImage(), 0, 0, x, y, null);</span>
 <span class="nc" id="L32">    }    </span>
 

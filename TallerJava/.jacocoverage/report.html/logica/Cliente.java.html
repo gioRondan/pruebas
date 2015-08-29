@@ -27,14 +27,14 @@ public class Cliente extends Usuario{
     
     
     public Cliente(String nickname, String nombre, String apellido,String email, Date fechaNac, String url){
-<span class="fc" id="L30">        super(nickname,nombre,apellido,email,fechaNac,url);</span>
+<span class="nc" id="L30">        super(nickname,nombre,apellido,email,fechaNac,url);</span>
         
-<span class="fc" id="L32">    }</span>
+<span class="nc" id="L32">    }</span>
     public DataCliente getDataCliente(){
-<span class="fc" id="L34">        return new DataCliente( nickname, nombre, apellido, email, fechaNac, imagen);</span>
+<span class="nc" id="L34">        return new DataCliente( nickname, nombre, apellido, email, fechaNac, imagen);</span>
     }
     public List&lt;DataReserva&gt; getDataReservas(){
-<span class="fc" id="L37">        List&lt;DataReserva&gt; dts = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L37">        List&lt;DataReserva&gt; dts = new ArrayList&lt;&gt;();</span>
 <span class="nc bnc" id="L38" title="All 2 branches missed.">        for (Reserva value : reservas.values()){</span>
 <span class="nc" id="L39">            dts.add(value.getDataReserva());</span>
 <span class="nc" id="L40">        }</span>

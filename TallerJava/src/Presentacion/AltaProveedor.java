@@ -256,37 +256,35 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
         Date selectedDate = jXDatePicker1.getLinkDay();
-
-        try {
-               //             Para copiar le archivo seleccionado
+    //             Para copiar le archivo seleccionado
+        if (!proveedorImagen.getText().isEmpty()){
             Path FROM = Paths.get(proveedorImagen.getText());
-            //muestro la ruta local de la imagen (teteo)
-            JOptionPane.showMessageDialog(null,"ruta local de la imagen: "+proveedorImagen.getText());
-            
+                    //muestro la ruta local de la imagen (teteo)
+                   // JOptionPane.showMessageDialog(null,"ruta local de la imagen: "+proveedorImagen.getText());
             String x = PantallaPrincipal.RutaImagenes+AltaProveedor.proveedorNick.getText()+".png";
-            
             Path TO = Paths.get(x);
-            JOptionPane.showMessageDialog(null, "ruta donde se copia la imagen: "+TO);
-             //sobreescribir el fichero de destino, si existe, y copiar
-            // los atributos, incluyendo los permisos rwx
-//             CopyOption[] options = new CopyOption[]{
-//            StandardCopyOption.REPLACE_EXISTING,
-//            StandardCopyOption.COPY_ATTRIBUTES
-//            }; 
+                    //JOptionPane.showMessageDialog(null, "ruta donde se copia la imagen: "+TO);
+                     //sobreescribir el fichero de destino, si existe, y copiar
+                    // los atributos, incluyendo los permisos rwx
+                    //CopyOption[] options = new CopyOption[]{
+                     //StandardCopyOption.REPLACE_EXISTING,
+                    //StandardCopyOption.COPY_ATTRIBUTES
+                    //}; 
             try {
                 Files.copy(FROM,TO, StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "Error al copiar la imagen");
                 Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }
+        try {
             Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , PantallaPrincipal.RutaImagenes+proveedorNick.getText()+".png", proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
             JOptionPane.showMessageDialog(null,"El Proveedor se ingreso con exito");
-            
         } catch (Exception ex){
+            //error en alta proveedor
             JOptionPane.showMessageDialog(null,ex.getMessage());
-           
         }
-        //this.dispose();
+            //this.dispose();(quiero que quede abierta)
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

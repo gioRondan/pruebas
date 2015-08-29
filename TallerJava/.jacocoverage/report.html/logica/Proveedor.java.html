@@ -25,14 +25,14 @@ public class Proveedor extends Usuario{
     private Map&lt;String, Servicio&gt; servicios;
     
     public Proveedor(String nickname, String nombre, String apellido,String email, Date fechaNac, String imagen){
-<span class="fc" id="L28">        super(nickname,nombre,apellido,email,fechaNac,imagen);</span>
-<span class="fc" id="L29">       promociones =  new HashMap();</span>
-<span class="fc" id="L30">       servicios =  new HashMap();</span>
-<span class="fc" id="L31">    }</span>
+<span class="nc" id="L28">        super(nickname,nombre,apellido,email,fechaNac,imagen);</span>
+<span class="nc" id="L29">       promociones =  new HashMap();</span>
+<span class="nc" id="L30">       servicios =  new HashMap();</span>
+<span class="nc" id="L31">    }</span>
 
      
     public DataProveedor getDataProveedor(){
-<span class="fc" id="L35">        return new DataProveedor(this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),this.getImagen() , this.empresa.getNombre(),this.empresa.getUrl());</span>
+<span class="nc" id="L35">        return new DataProveedor(this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),this.getImagen() , this.empresa.getNombre(),this.empresa.getUrl());</span>
     }
 
     public Empresa getEmpresa() {
@@ -65,8 +65,8 @@ public class Proveedor extends Usuario{
 <span class="nc" id="L65">        return servicios.get(nombre);</span>
     }
     public void asociarEmpresa(Empresa empresa){
-<span class="fc" id="L68">        this.empresa = empresa;</span>
-<span class="fc" id="L69">    }</span>
+<span class="nc" id="L68">        this.empresa = empresa;</span>
+<span class="nc" id="L69">    }</span>
 
     public DataInfoProveedor getDataInfoProveedor() {
 <span class="nc" id="L72">        return new DataInfoProveedor(nickname,  nombre,  apellido, email, fechaNac,  imagen,  empresa.getDataEmpresa(), getDataServicios());</span>

@@ -5,6 +5,8 @@
  */
 package logica;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -15,20 +17,26 @@ import java.util.Set;
  */
 public class ManejadorCiudad {
     private Map&lt;String,Ciudad&gt; ciudades;
-<span class="fc" id="L18">    private static ManejadorCiudad instance = null;</span>
-<span class="fc" id="L19">    private ManejadorCiudad(){}</span>
+<span class="nc" id="L20">    private static ManejadorCiudad instance = null;</span>
+<span class="nc" id="L21">    private ManejadorCiudad(){</span>
+<span class="nc" id="L22">        ciudades = new HashMap();</span>
+<span class="nc" id="L23">    }</span>
     
     public static ManejadorCiudad getInstance(){
-<span class="pc bpc" id="L22" title="1 of 2 branches missed.">        if(instance == null)</span>
-<span class="fc" id="L23">            instance = new ManejadorCiudad();</span>
-<span class="fc" id="L24">        return instance;</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        if(instance == null)</span>
+<span class="nc" id="L27">            instance = new ManejadorCiudad();</span>
+<span class="nc" id="L28">        return instance;</span>
     } 
     
    public List&lt;DataCiudad&gt; getDataCiudades(){
-<span class="fc" id="L28">       return null;</span>
+<span class="nc" id="L32">       List&lt;DataCiudad&gt; dts =  new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        for (Ciudad value : ciudades.values()){</span>
+<span class="nc" id="L34">            dts.add(value.getDataCiudad());</span>
+<span class="nc" id="L35">        }</span>
+<span class="nc" id="L36">        return dts;</span>
    }
     public Ciudad getCiudad(String a){
-<span class="nc" id="L31">        return null;</span>
+<span class="nc" id="L39">        return ciudades.get(a);</span>
     }
     /* operaciones para alta servicio
         
