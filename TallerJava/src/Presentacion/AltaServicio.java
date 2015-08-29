@@ -21,8 +21,9 @@ public class AltaServicio extends javax.swing.JInternalFrame {
      * Creates new form AltaServicio
     */
     PantallaPrincipal Pantallaprin = PantallaPrincipal.getInstancia();
-        public Object seleccionado;
+    public Object seleccionado;
     public String padre;
+    
     public void armarArbol(DefaultMutableTreeNode raiz, List<DataCategoria> dtps){
         for (DataCategoria dtcategoria: dtps){
             DefaultMutableTreeNode cate = new DefaultMutableTreeNode();
@@ -40,11 +41,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         armarArbol(raiz, dtps);
         DefaultTreeModel modeloArbol = new DefaultTreeModel(raiz);
         jTree1.setModel(modeloArbol);
-        Object prove = proveedores.getItemAt(1);
-        String p = prove.toString();
-        String pre = precio.getText();
-        precioin=Integer.parseInt(pre);
-        Pantallaprin.ICP.altaServicio(nombre.getText(),descripcion.getText(),precioin,ciudad1.getText(),p);
+        
     }
 
     /**
@@ -836,7 +833,12 @@ public class AltaServicio extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_ciudad2ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-
+           Object prove = proveedores.getItemAt(1);
+        String p = prove.toString();
+        String pre = precio.getText();
+        int precioin;
+        precioin=Integer.parseInt(pre);
+        Pantallaprin.ICP.altaServicio(nombre.getText(),descripcion.getText(),precioin,ciudad1.getText(),p);
         
     }//GEN-LAST:event_jButton14ActionPerformed
 
