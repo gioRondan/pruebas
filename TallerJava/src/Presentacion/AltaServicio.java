@@ -33,14 +33,18 @@ public class AltaServicio extends javax.swing.JInternalFrame {
     }
     public AltaServicio() {
         initComponents();
+        int precioin=0;
         TreeModel jmodel;
         DefaultMutableTreeNode raiz = new DefaultMutableTreeNode("Categorías");
         List<DataCategoria> dtps = Pantallaprin.ICP.listarCategorias();
         armarArbol(raiz, dtps);
         DefaultTreeModel modeloArbol = new DefaultTreeModel(raiz);
         jTree1.setModel(modeloArbol);
-        proveedores.getSelected
-        Pantallaprin.ICP.altaServicio(nombre.getText(),descripcion.getText(),precio.getText(),ciudad1.getText(),proveedores.get);
+        Object prove = proveedores.getItemAt(1);
+        String p = prove.toString();
+        String pre = precio.getText();
+        precioin=pre.toInteger();
+        Pantallaprin.ICP.altaServicio(nombre.getText(),descripcion.getText(),precioin,ciudad1.getText(),p);
     }
 
     /**
@@ -50,10 +54,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
      * @return 
      */
     @SuppressWarnings("unchecked")
-    
-    public Object getSelectedItem(){
-        
-    }
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
