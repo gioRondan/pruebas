@@ -39,9 +39,9 @@ public class ManejadorEmpresa {
 <span class="nc" id="L39">    }</span>
     public List&lt;DataEmpresa&gt; getDataEmpresas(){
 <span class="fc" id="L41">        List&lt;DataEmpresa&gt; dts = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L42" title="All 2 branches covered.">        for (Empresa value : empresas.values()){</span>
-<span class="fc" id="L43">            dts.add(value.getDataEmpresa());</span>
-<span class="fc" id="L44">        }</span>
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">        for (Empresa value : empresas.values()){</span>
+<span class="nc" id="L43">            dts.add(value.getDataEmpresa());</span>
+<span class="nc" id="L44">        }</span>
 <span class="fc" id="L45">        return dts;</span>
     }
     
