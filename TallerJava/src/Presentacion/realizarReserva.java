@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Set;
 import javax.swing.DefaultListModel;
 import javax.swing.JScrollPane;
+import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeModel;
 import logica.DataCliente;
 import logica.DataProveedor;
@@ -24,6 +25,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
     /**
      * Creates new form realizarReserva2
      */
+    private List<DefaultMutableTreeNode> seleccionados;
              
             
 
