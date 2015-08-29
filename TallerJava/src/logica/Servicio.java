@@ -6,6 +6,7 @@
 
 package logica;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 /**
@@ -27,6 +28,7 @@ public class Servicio {
         this.descripcion=descripcion;
         this.precio=precio;
         this.imagen=new String[3];
+        this.categorias = new HashMap();
     }
 
     public void setNombre(String nom){

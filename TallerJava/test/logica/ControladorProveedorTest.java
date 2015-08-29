@@ -156,7 +156,7 @@ public class ControladorProveedorTest {
      * Test of listarCategorias method, of class ControladorProveedor.
      */
     @Test
-    public void testListarCategorias() {
+    public void testListarCategorias() {//la lista no queda ordenada ej agregar 99 sin padre y lo lista antes que 1
         System.out.println("listarCategorias");
         testIngresarNombreCategoria2("1");
         testAltaCategoria();
@@ -171,6 +171,7 @@ public class ControladorProveedorTest {
         
         ControladorProveedor instance = new ControladorProveedor();
         List<DataCategoria> result = instance.listarCategorias();
+        System.out.println(result.size());
         recorrerCategorias(result, 0, 1);
         /*DataCategoria dt;
         int j = 1;
@@ -195,11 +196,9 @@ public class ControladorProveedorTest {
     @Test
     public void testIngresarImagenServicio() {
         System.out.println("ingresarImagenServicio");
-        String imagen = "";
+        String imagen = "imagen";
         ControladorProveedor instance = new ControladorProveedor();
         instance.ingresarImagenServicio(imagen);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -208,11 +207,9 @@ public class ControladorProveedorTest {
     @Test
     public void testIngresarDestinoServicio() {
         System.out.println("ingresarDestinoServicio");
-        String destino = "";
+        String destino = "destino";
         ControladorProveedor instance = new ControladorProveedor();
         instance.ingresarDestinoServicio(destino);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -235,28 +232,35 @@ public class ControladorProveedorTest {
     @Test
     public void testIngresarCategoriaServicio() {
         System.out.println("ingresarCategoriaServicio");
-        String categoria = "";
+        String categoria = "transporte";
         ControladorProveedor instance = new ControladorProveedor();
         instance.ingresarCategoriaServicio(categoria);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-
+    public void testIngresarCategoriaServicio2(String categoria) {
+        System.out.println("ingresarCategoriaServicio");
+        ControladorProveedor instance = new ControladorProveedor();
+        instance.ingresarCategoriaServicio(categoria);
+    }
     /**
      * Test of altaServicio method, of class ControladorProveedor.
      */
     @Test
     public void testAltaServicio() {
+        try{
+        testAltaProveedor2("nickname", "nombre", "apellido", "email", new Date(2,2,2000), "imagen");
+        }catch(Exception ex){}
         System.out.println("altaServicio");
-        String nombre = "";
-        String descripcion = "";
-        int precio = 0;
-        String origen = "";
-        String proveedor = "";
+        String nombre = "vuelo123";
+        String descripcion = "cardona-montevideo en 5 minutos";
+        int precio = 10;
+        String origen = "cardona";
+        String proveedor = "nickname";
+        testIngresarNombreCategoria2("transporte");
+        testAltaCategoria();
+        testIngresarCategoriaServicio2("transporte");
+        
         ControladorProveedor instance = new ControladorProveedor();
         instance.altaServicio(nombre, descripcion, precio, origen, proveedor);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
 
@@ -266,11 +270,9 @@ public class ControladorProveedorTest {
     @Test
     public void testSeleccionarCategoria() {
         System.out.println("seleccionarCategoria");
-        String categoria = "";
+        String categoria = "transporte";
         ControladorProveedor instance = new ControladorProveedor();
         instance.seleccionarCategoria(categoria);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
