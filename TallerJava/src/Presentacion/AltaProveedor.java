@@ -260,10 +260,10 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
         if (!proveedorImagen.getText().isEmpty()){
             Path FROM = Paths.get(proveedorImagen.getText());
                     //muestro la ruta local de la imagen (teteo)
-                   // JOptionPane.showMessageDialog(null,"ruta local de la imagen: "+proveedorImagen.getText());
+                    JOptionPane.showMessageDialog(null,"ruta local de la imagen: "+proveedorImagen.getText());
             String x = PantallaPrincipal.RutaImagenes+AltaProveedor.proveedorNick.getText()+".png";
             Path TO = Paths.get(x);
-                    //JOptionPane.showMessageDialog(null, "ruta donde se copia la imagen: "+TO);
+                    JOptionPane.showMessageDialog(null, "ruta donde se copia la imagen: "+TO);
                      //sobreescribir el fichero de destino, si existe, y copiar
                     // los atributos, incluyendo los permisos rwx
                     //CopyOption[] options = new CopyOption[]{
@@ -272,19 +272,27 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
                     //}; 
             try {
                 Files.copy(FROM,TO, StandardCopyOption.REPLACE_EXISTING);
+                try {
+                    Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , x, proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
+                    JOptionPane.showMessageDialog(null,"El Proveedor se ingreso con exito");
+                } catch (Exception ex){
+                //error en alta proveedor
+                JOptionPane.showMessageDialog(null,ex.getMessage());
+                }
+            //this.dispose();(quiero que quede abierta)
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "Error al copiar la imagen");
                 Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }else{//si no selecciona una imagen
+            try {
+                Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , "", proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
+                JOptionPane.showMessageDialog(null,"El Proveedor se ingreso con exito");
+            } catch (Exception ex){
+                //error en alta proveedor
+                JOptionPane.showMessageDialog(null,ex.getMessage());
+            }     
         }
-        try {
-            Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , PantallaPrincipal.RutaImagenes+proveedorNick.getText()+".png", proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
-            JOptionPane.showMessageDialog(null,"El Proveedor se ingreso con exito");
-        } catch (Exception ex){
-            //error en alta proveedor
-            JOptionPane.showMessageDialog(null,ex.getMessage());
-        }
-            //this.dispose();(quiero que quede abierta)
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

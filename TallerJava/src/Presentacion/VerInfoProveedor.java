@@ -24,7 +24,7 @@ import logica.DataServicio;
 public class VerInfoProveedor extends javax.swing.JInternalFrame {
      PantallaPrincipal pp = PantallaPrincipal.getInstancia();
      List<DataProveedor> info = pp.ICP.listarProveedores();
-     String NomImagen;
+     String rutaImagen;
     /**
      * Creates new form VerInfoProveedor
      */
@@ -39,7 +39,7 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
             model.addElement(nick);
         }
             jList1.setModel(model);
-            this.NomImagen ="";
+            this.rutaImagen ="/Imagenes/noImagen.png";
     }
 
     /**
@@ -287,16 +287,16 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
           proveedorEmpresaNombre.setText(dtinfoprv.getEmpresa().getNombre());
           proveedorEmpresaLink.setText(dtinfoprv.getEmpresa().getUrl());
           FechaNac.setText(dtinfoprv.getFechaNac().toString());
-          
+          this.rutaImagen = dtinfoprv.getImagen();
             //Seteo el nombre de la imagen  
-          this.NomImagen=dtinfoprv.getNickname()+".png";
-           //jPanel1.removeAll();
+          
+           
           if (jPanel1.getComponentCount() == 0){//si no tiene ninguan imagen 
-            Imagen im = new Imagen(jPanel1, this.NomImagen);
+            Imagen im = new Imagen(jPanel1, dtinfoprv.getImagen());
             jPanel1.add(im).repaint();        
           }else{ // si tiene borro y agrego la nueva 
              jPanel1.removeAll();
-             Imagen im2 = new Imagen(jPanel1, this.NomImagen);
+             Imagen im2 = new Imagen(jPanel1, dtinfoprv.getImagen());
              jPanel1.add(im2).repaint(); 
           }
 
@@ -313,7 +313,7 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
         // TODO add your handling code here:
-        pp.abrirImagen(NomImagen);
+        pp.abrirImagen(rutaImagen);
     }//GEN-LAST:event_jPanel1MouseClicked
 
     private void jList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList2MouseClicked
