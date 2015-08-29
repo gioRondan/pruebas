@@ -291,7 +291,7 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
           
             //Seteo el nombre de la imagen  
           this.NomImagen=dtinfoprv.getNickname()+".png";
-           
+           //jPanel1.removeAll();
           if (jPanel1.getComponentCount() == 0){//si no tiene ninguan imagen 
             Imagen im = new Imagen(jPanel1, this.NomImagen);
             jPanel1.add(im).repaint();        

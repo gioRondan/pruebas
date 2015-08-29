@@ -115,7 +115,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         jMenuItem15 = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Principal H4T");
 
         javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
@@ -311,8 +311,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]){ // throws UnsupportedLookAndFeelException {
-        //UIManager.setLookAndFeel(new UpperEssentialLookAndFeel());//Linea de interface linda
+    public static void main(String args[]) throws UnsupportedLookAndFeelException {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -339,7 +339,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+              // Lineas de interface linda
+//                try {
+//                    UIManager.setLookAndFeel(new UpperEssentialLookAndFeel());
+//                } catch (UnsupportedLookAndFeelException ex) {
+//                    Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+//                }
                 PantallaPrincipal x = new PantallaPrincipal();
+                //Pantalla Principal maximisada
                 x.setExtendedState(MAXIMIZED_BOTH);
                 x.setVisible(true);
                 
