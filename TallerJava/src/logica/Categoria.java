@@ -69,13 +69,10 @@ public class Categoria {
     public void setServicio(Servicio servicio){
         this.servicios.add(servicio);
     }
-    public void esHoja()throws Exception{
-        if (!hijos.isEmpty()){
-            throw new Exception("La categoria seleccionada tiene hijos");
-        }
+    public boolean esHoja(){
+        return (hijos.isEmpty());
     }
-
-    boolean esRaiz() {
+    public boolean esRaiz() {
         return (!(tienePadre));
     }
 }

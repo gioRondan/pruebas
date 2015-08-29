@@ -139,7 +139,19 @@ public class ControladorProveedorTest {
         ControladorProveedor instance = new ControladorProveedor();
         instance.altaCategoria();
     }
-    
+    public void recorrerCategorias(List<DataCategoria> categorias, int i, int j){
+        DataCategoria cat = categorias.get(i);
+        assertEquals(Integer.toString(j), cat.getNombre());
+        System.out.println(j);
+        i++;
+        j++;
+        if((!cat.getHijos().isEmpty())){
+            recorrerCategorias(cat.getHijos(), 0, j);
+        }
+        if(i < categorias.size()){
+            recorrerCategorias(categorias, i, j);
+        }
+    }
     /**
      * Test of listarCategorias method, of class ControladorProveedor.
      */
@@ -159,22 +171,24 @@ public class ControladorProveedorTest {
         
         ControladorProveedor instance = new ControladorProveedor();
         List<DataCategoria> result = instance.listarCategorias();
-        
-        for(DataCategoria it : result){
-            if(it != null){
-                System.out.println(it.getNombre());
-            }
-}
-        DataCategoria dt;
+        recorrerCategorias(result, 0, 1);
+        /*DataCategoria dt;
         int j = 1;
         for(DataCategoria it : result){
-            if(it != null){
+            //if(it != null){
             assertEquals(Integer.toString(j), it.getNombre());
+            List<DataCategoria> dt2 = it.getHijos();
+            for(DataCategoria it2 : dt2){
+                assertEquals(Integer.toString(j), it.getNombre());
+                System.out.println(j);
+                j++;
             }
+            System.out.println(j);
             j++;
-        }
+        }*/
     }
 
+    
     /**
      * Test of ingresarImagenServicio method, of class ControladorProveedor.
      */
