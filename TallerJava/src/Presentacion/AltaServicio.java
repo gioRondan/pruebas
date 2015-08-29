@@ -43,7 +43,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         Object prove = proveedores.getItemAt(1);
         String p = prove.toString();
         String pre = precio.getText();
-        precioin=pre.toInteger();
+        precioin=Integer.parseInt(pre);
         Pantallaprin.ICP.altaServicio(nombre.getText(),descripcion.getText(),precioin,ciudad1.getText(),p);
     }
 
