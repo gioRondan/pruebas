@@ -255,8 +255,8 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
-        Date selectedDate = jXDatePicker1.getLinkDay();
-    //             Para copiar le archivo seleccionado
+        Date selectedDate = jXDatePicker1.getDate();
+          //             Para copiar le archivo seleccionado
         if (!proveedorImagen.getText().isEmpty()){
             Path FROM = Paths.get(proveedorImagen.getText());
                     //muestro la ruta local de la imagen (teteo)

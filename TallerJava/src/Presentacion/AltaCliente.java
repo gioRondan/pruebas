@@ -5,6 +5,7 @@
  */
 package Presentacion;
 
+import java.sql.Date;
 import org.jdatepicker.impl.JDatePickerImpl;
 
 /**
@@ -16,7 +17,7 @@ public class AltaCliente extends javax.swing.JInternalFrame {
     /**
      * Creates new form AltaCliente
      */
-    private JDatePickerImpl datePicker;
+    
     PantallaPrincipal Pantallaprin = PantallaPrincipal.getInstancia();
     public AltaCliente() {
         initComponents();
@@ -194,7 +195,8 @@ public class AltaCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       //Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , proveedorImagen.getText(), proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
+      
+        //Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , proveedorImagen.getText(), proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
