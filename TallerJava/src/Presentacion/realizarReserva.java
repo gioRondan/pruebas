@@ -197,9 +197,10 @@ public class realizarReserva extends javax.swing.JInternalFrame {
     private void jTree1ValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTree1ValueChanged
         // TODO add your handling code here:
         if (evt.getNewLeadSelectionPath() != null){
+            
             boolean added;
-            JOptionPane.showMessageDialog(null,evt.getNewLeadSelectionPath().getLastPathComponent().toString());
             added = seleccionados.add(evt.getNewLeadSelectionPath().getLastPathComponent().toString());
+            
             
         }
             
