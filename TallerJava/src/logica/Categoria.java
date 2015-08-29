@@ -77,8 +77,7 @@ public class Categoria {
     public String toString() {
         return nombre;
     }
-
-    boolean esRaiz() {
+    public boolean esRaiz() {
         return (!(tienePadre));
     }
 }
