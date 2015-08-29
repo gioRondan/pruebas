@@ -26,11 +26,8 @@ public class Imagen extends javax.swing.JPanel {
     @Override
     public void paint(Graphics g) {
        
-        //String s = PantallaPrincipal.RutaImagenes+this.NomImagen; //por que no anda ????
-        String s = "/Imagenes/"+this.NomImagen;
-        JOptionPane.showMessageDialog(null, "ruta para cear la imagen: "+s);
-        
-        ImageIcon Img = new ImageIcon(getClass().getResource(s));
+        String s = PantallaPrincipal.RutaImagenes+this.NomImagen;
+        ImageIcon Img = new ImageIcon(s);
         g.drawImage(Img.getImage(), 0, 0, x, y, null);
     }    
 
