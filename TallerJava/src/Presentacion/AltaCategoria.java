@@ -26,20 +26,24 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
      * Creates new form NewJInternalFrame
      */
     public Object seleccionado;
+    public String padre;
     PantallaPrincipal Pantallaprin = PantallaPrincipal.getInstancia();
+    public void armarArbol(DefaultMutableTreeNode raiz, List<DataCategoria> dtps){
+        for (DataCategoria dtcategoria: dtps){
+            DefaultMutableTreeNode cate = new DefaultMutableTreeNode();
+            cate.setUserObject(dtcategoria);
+            raiz.add(cate);
+            armarArbol(cate, dtcategoria.getHijos());
+        }
+    }
     public AltaCategoria() {
         initComponents();
         TreeModel jmodel;
-        DefaultMutableTreeNode treeNode1 = new DefaultMutableTreeNode("Categorías");
+        DefaultMutableTreeNode raiz = new DefaultMutableTreeNode("Categorías");
         List<DataCategoria> dtps = Pantallaprin.ICP.listarCategorias();
-        Iterator<DataCategoria> it = dtps.iterator();
-        while (it.hasNext()){
-            DataCategoria dtCat = it.next();
-            String nomCategoria = dtCat.getNombre();
-            DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode(nomCategoria);
-            treeNode1.add(treeNode2);
-        }
-        Arbol.setModel(new DefaultTreeModel(treeNode1));
+        armarArbol(raiz, dtps);
+        DefaultTreeModel modeloArbol = new DefaultTreeModel(raiz);
+        Arbol.setModel(modeloArbol);
     }
 
     /**
@@ -147,7 +151,7 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
         DefaultMutableTreeNode root = (DefaultMutableTreeNode) this.seleccionado;
         model.insertNodeInto(new DefaultMutableTreeNode(st), root, root.getChildCount());
         Pantallaprin.ICP.ingresarNombreCategoria(NombreCategoria.getText());
-//        Pantallaprin.ICP.seleccionarPadre(Sacar el nombre del tree);
+        Pantallaprin.ICP.seleccionarPadre(this.padre);
         Pantallaprin.ICP.altaCategoria();
         NombreCategoria.setText(null);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -168,7 +172,10 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
         this.seleccionado = Arbol.getLastSelectedPathComponent();
         TreeModel model = Arbol.getModel();
         TreePath x = Arbol.getSelectionPath();
-        jLabel1.setText(x.toString());
+        String padreSelec = x.toString();
+        padreSelec = padreSelec.substring(padreSelec.lastIndexOf(",")+2, padreSelec.lastIndexOf("]"));
+        this.padre = padreSelec;
+        jLabel1.setText(padreSelec);
 //Pantallaprin.ICP.seleccionarPadre(Sacar el nombre del tree);
     }//GEN-LAST:event_ArbolMouseClicked
 

@@ -106,7 +106,9 @@ public class ControladorProveedor implements IControladorProveedor{
     }
     @Override
     public void seleccionarPadre(String nombre){
-        ControladorProveedor.nomPadre = nombre;
+        if (!nombre.equals("Categorías")){
+            ControladorProveedor.nomPadre = nombre;
+        }
     }    
     @Override
     public void altaCategoria(){
@@ -116,7 +118,8 @@ public class ControladorProveedor implements IControladorProveedor{
             cat = new Categoria(nomCategoria, false);
         }else{
             cat = new Categoria(nomCategoria, true);
-            mCa.getCategoria(nomPadre).setHijo(cat);
+            Categoria pa = mCa.getCategoria(nomPadre);
+            pa.setHijo(cat);
         }
         mCa.addCategoria(cat);
         liberarMemoria();

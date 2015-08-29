@@ -28,5 +28,10 @@ public class DataCategoria {
     public List<DataCategoria> getHijos() {
         return hijos;
     }
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
     
 }
