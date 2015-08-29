@@ -47,10 +47,9 @@ public class ControladorCliente implements IControladorCliente{
         ManejadorCliente mCl = ManejadorCliente.getInstance();
         mCl.unicidadNick(nickname);
         mCl.unicidadEmail(email);
-        
-            Cliente cliente;
-            cliente = new Cliente(nickname, nombre, apellido, email, fechaNac, imagen);
-            mCl.addCliente(cliente);        
+        Cliente cliente;
+        cliente = new Cliente(nickname, nombre, apellido, email, fechaNac, imagen);
+        mCl.addCliente(cliente);        
     }
     
     @Override

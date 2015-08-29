@@ -5,8 +5,18 @@
  */
 package Presentacion;
 
-import java.sql.Date;
-import org.jdatepicker.impl.JDatePickerImpl;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.Date;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -195,9 +205,46 @@ public class AltaCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-      
-        //Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , proveedorImagen.getText(), proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
-        this.dispose();
+        Date selectedDate = jXDatePicker1.getDate();
+          //             Para copiar le archivo seleccionado
+        if (!clienteImagen.getText().isEmpty()){
+            Path FROM = Paths.get(clienteImagen.getText());
+                    //muestro la ruta local de la imagen (teteo)
+            //JOptionPane.showMessageDialog(null,"ruta local de la imagen: "+cleinteImagen.getText());
+            String x = PantallaPrincipal.RutaImagenes+clienteNick.getText()+".png";
+            Path TO = Paths.get(x);
+                  //  JOptionPane.showMessageDialog(null, "ruta donde se copia la imagen: "+TO);
+                     //sobreescribir el fichero de destino, si existe, y copiar
+                    // los atributos, incluyendo los permisos rwx
+                    //CopyOption[] options = new CopyOption[]{
+                     //StandardCopyOption.REPLACE_EXISTING,
+                    //StandardCopyOption.COPY_ATTRIBUTES
+                    //}; 
+            try {
+                Files.copy(FROM,TO, StandardCopyOption.REPLACE_EXISTING);
+                try {
+                    Pantallaprin.ICC.altaCliente(clienteNick.getText() ,clienteNombre.getText(), clienteApellido.getText(), clienteEmail.getText() ,selectedDate , x);
+                    JOptionPane.showMessageDialog(null,"El Cliente se ingreso con exito");
+                } catch (Exception ex){
+                //error en alta Cleinete
+                JOptionPane.showMessageDialog(null,ex.getMessage());
+                }
+            //this.dispose();(quiero que quede abierta)
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Error al copiar la imagen");
+                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{//si no selecciona una imagen
+            try {
+                Pantallaprin.ICC.altaCliente(clienteNick.getText() ,clienteNombre.getText(), clienteApellido.getText(), clienteEmail.getText() ,selectedDate , "");
+                JOptionPane.showMessageDialog(null,"El Cliente se ingreso con exito");
+            } catch (Exception ex){
+                //error en alta cliente
+                JOptionPane.showMessageDialog(null,ex.getMessage());
+            }     
+        }
+        
+        //this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
