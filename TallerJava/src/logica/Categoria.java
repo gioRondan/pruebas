@@ -72,6 +72,11 @@ public class Categoria {
     public boolean esHoja(){
         return (hijos.isEmpty());
     }
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
     public boolean esRaiz() {
         return (!(tienePadre));
     }
