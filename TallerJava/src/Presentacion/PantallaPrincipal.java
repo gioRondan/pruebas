@@ -63,6 +63,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         al.setLocation(a ,b);
         al.show();
     }
+    
     public void abrirRealizarReserva(){
         realizarReserva rr = new realizarReserva();
         Escritorio.add(rr);
@@ -198,6 +199,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenu2.setText("VerInfo");
 
         jMenuItem5.setText("Clientes");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem5);
 
         jMenuItem6.setText("Proveedor");
@@ -341,10 +347,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         op.show();
     }//GEN-LAST:event_jMenuItem15ActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-        abrirAltaServicio();
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+        
+        VerInfoCliente al = new VerInfoCliente();
+        Escritorio.add(al);
+        int a = (Escritorio.getWidth() - al.getWidth())/2;
+        int b = (Escritorio.getHeight() - al.getHeight()) /2;
+        al.setLocation(a ,b);
+        al.show();
+    
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
