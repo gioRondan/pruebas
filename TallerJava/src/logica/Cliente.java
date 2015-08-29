@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -28,7 +29,7 @@ public class Cliente extends Usuario{
     
     public Cliente(String nickname, String nombre, String apellido,String email, Date fechaNac, String url){
         super(nickname,nombre,apellido,email,fechaNac,url);
-        
+        this.reservas = new HashMap();
     }
     public DataCliente getDataCliente(){
         return new DataCliente( nickname, nombre, apellido, email, fechaNac, imagen);
