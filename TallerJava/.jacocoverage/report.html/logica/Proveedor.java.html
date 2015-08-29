@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Proveedor.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TallerJava&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">logica</a> &gt; <span class="el_source">Proveedor.java</span></div><h1>Proveedor.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Proveedor.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TallerJava&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">logica</a> &gt; <span class="el_source">Proveedor.java</span></div><h1>Proveedor.java</h1><pre class="source lang-java linenums">/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -25,14 +25,14 @@ public class Proveedor extends Usuario{
     private Map&lt;String, Servicio&gt; servicios;
     
     public Proveedor(String nickname, String nombre, String apellido,String email, Date fechaNac, String imagen){
-<span class="nc" id="L28">        super(nickname,nombre,apellido,email,fechaNac,imagen);</span>
-<span class="nc" id="L29">       promociones =  new HashMap();</span>
-<span class="nc" id="L30">       servicios =  new HashMap();</span>
-<span class="nc" id="L31">    }</span>
+<span class="fc" id="L28">        super(nickname,nombre,apellido,email,fechaNac,imagen);</span>
+<span class="fc" id="L29">       promociones =  new HashMap();</span>
+<span class="fc" id="L30">       servicios =  new HashMap();</span>
+<span class="fc" id="L31">    }</span>
 
      
     public DataProveedor getDataProveedor(){
-<span class="nc" id="L35">        return new DataProveedor(this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),this.getImagen() , this.empresa.getNombre(),this.empresa.getUrl());</span>
+<span class="fc" id="L35">        return new DataProveedor(this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),this.getImagen() , this.empresa.getNombre(),this.empresa.getUrl());</span>
     }
 
     public Empresa getEmpresa() {
@@ -65,8 +65,8 @@ public class Proveedor extends Usuario{
 <span class="nc" id="L65">        return servicios.get(nombre);</span>
     }
     public void asociarEmpresa(Empresa empresa){
-<span class="nc" id="L68">        this.empresa = empresa;</span>
-<span class="nc" id="L69">    }</span>
+<span class="fc" id="L68">        this.empresa = empresa;</span>
+<span class="fc" id="L69">    }</span>
 
     public DataInfoProveedor getDataInfoProveedor() {
 <span class="nc" id="L72">        return new DataInfoProveedor(nickname,  nombre,  apellido, email, fechaNac,  imagen,  empresa.getDataEmpresa(), getDataServicios());</span>

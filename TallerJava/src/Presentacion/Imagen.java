@@ -26,7 +26,6 @@ public class Imagen extends javax.swing.JPanel {
 
     @Override
     public void paint(Graphics g) {
-       
         String s = this.RutaImagen;
         File f = new File(s);
         if (f.exists()){

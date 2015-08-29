@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ControladorCliente.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TallerJava&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">logica</a> &gt; <span class="el_source">ControladorCliente.java</span></div><h1>ControladorCliente.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ControladorCliente.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TallerJava&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">logica</a> &gt; <span class="el_source">ControladorCliente.java</span></div><h1>ControladorCliente.java</h1><pre class="source lang-java linenums">/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -14,21 +14,21 @@ import java.util.Set;
  *
  * @author Juan
  */
-<span class="nc" id="L17">public class ControladorCliente implements IControladorCliente{</span>
+<span class="fc" id="L17">public class ControladorCliente implements IControladorCliente{</span>
     
     @Override
     public void actualizarEstadoReserva(int id, String nomCliente, Estado estado){
-<span class="nc" id="L21">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="nc" id="L22">        Cliente cli = mCl.getCliente(nomCliente);</span>
+<span class="fc" id="L21">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L22">        Cliente cli = mCl.getCliente(nomCliente);</span>
 <span class="nc" id="L23">        cli.modificarEstadoReserva(id, estado);</span>
 <span class="nc" id="L24">    }</span>
     
     @Override
     public void realizarReserva(String proveedor,String cliente,String servicio,int cantidad,Date fechaInicio,Date fechaFin,boolean esServicio ){ //el bool servicio indica si voy a reservar un servicio, si es false es para reservar una promocion
-<span class="nc" id="L28">        ManejadorCliente mcli = ManejadorCliente.getInstance();</span>
-<span class="nc" id="L29">        Cliente aux_cliente = mcli.getCliente(cliente);</span>
-<span class="nc" id="L30">        int clave1 = mcli.getUltimoid();</span>
-<span class="nc" id="L31">        ManejadorProveedor mpr = ManejadorProveedor.getInstance();</span>
+<span class="fc" id="L28">        ManejadorCliente mcli = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L29">        Cliente aux_cliente = mcli.getCliente(cliente);</span>
+<span class="fc" id="L30">        int clave1 = mcli.getUltimoid();</span>
+<span class="fc" id="L31">        ManejadorProveedor mpr = ManejadorProveedor.getInstance();</span>
 <span class="nc" id="L32">        Proveedor prov = mpr.getProveedor(proveedor);</span>
         
 <span class="nc bnc" id="L34" title="All 2 branches missed.">        if (esServicio){</span>
@@ -44,53 +44,52 @@ import java.util.Set;
     
     @Override
     public void altaCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen) throws Exception{
-<span class="nc" id="L47">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="nc" id="L48">        mCl.unicidadNick(nickname);</span>
-<span class="nc" id="L49">        mCl.unicidadEmail(email);</span>
-        
-            Cliente cliente;
-<span class="nc" id="L52">            cliente = new Cliente(nickname, nombre, apellido, email, fechaNac, imagen);</span>
-<span class="nc" id="L53">            mCl.addCliente(cliente);        </span>
-<span class="nc" id="L54">    }</span>
+<span class="fc" id="L47">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L48">        mCl.unicidadNick(nickname);</span>
+<span class="fc" id="L49">        mCl.unicidadEmail(email);</span>
+        Cliente cliente;
+<span class="fc" id="L51">        cliente = new Cliente(nickname, nombre, apellido, email, fechaNac, imagen);</span>
+<span class="fc" id="L52">        mCl.addCliente(cliente);        </span>
+<span class="fc" id="L53">    }</span>
     
     @Override
     public List&lt;DataCliente&gt; listarClientes(){
-<span class="nc" id="L58">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="nc" id="L59">        return mCl.getDataClientes();</span>
+<span class="fc" id="L57">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L58">        return mCl.getDataClientes();</span>
     }
     
     @Override
     public void cancelarReserva(String nomCliente, int id){
-<span class="nc" id="L64">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="nc" id="L65">        Cliente cli = mCl.getCliente(nomCliente);</span>
-<span class="nc" id="L66">        cli.cancelarReserva(id);</span>
-<span class="nc" id="L67">    }</span>
+<span class="fc" id="L63">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L64">        Cliente cli = mCl.getCliente(nomCliente);</span>
+<span class="nc" id="L65">        cli.cancelarReserva(id);</span>
+<span class="nc" id="L66">    }</span>
     
     @Override
     public List&lt;DataReserva&gt; listarReservasSistema(){
-<span class="nc" id="L71">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="nc" id="L72">        return mCl.listarReservas();</span>
+<span class="fc" id="L70">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="nc" id="L71">        return mCl.listarReservas();</span>
         
     }
     
     @Override
     public List&lt;DataReserva&gt; listarReservasXCliente(String nomCliente){
-<span class="nc" id="L78">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="nc" id="L79">        return mCl.getCliente(nomCliente).getDataReservas();</span>
+<span class="fc" id="L77">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="nc" id="L78">        return mCl.getCliente(nomCliente).getDataReservas();</span>
     }
     
     @Override
     public DataInfoReserva verInfoReserva(String nomCliente, int id){
-<span class="nc" id="L84">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="nc" id="L85">        Cliente cliente = mCl.getCliente(nomCliente);</span>
-<span class="nc" id="L86">        Reserva reserva = cliente.getReserva(id);</span>
-<span class="nc" id="L87">        return reserva.getDataInfoReserva();</span>
+<span class="fc" id="L83">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L84">        Cliente cliente = mCl.getCliente(nomCliente);</span>
+<span class="nc" id="L85">        Reserva reserva = cliente.getReserva(id);</span>
+<span class="nc" id="L86">        return reserva.getDataInfoReserva();</span>
     }
     
     @Override
     public DataInfoCliente verInfoCliente( String nomCliente){
-<span class="nc" id="L92">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="nc" id="L93">        return mCl.getCliente(nomCliente).getDataInfoCliente();</span>
+<span class="nc" id="L91">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="nc" id="L92">        return mCl.getCliente(nomCliente).getDataInfoCliente();</span>
     }
 
 }

@@ -9,7 +9,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
+import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeModel;
 import logica.DataCliente;
@@ -25,7 +27,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
     /**
      * Creates new form realizarReserva2
      */
-    private List<DefaultMutableTreeNode> seleccionados;
+    private List<String> seleccionados;
              
             
 
@@ -33,6 +35,8 @@ public class realizarReserva extends javax.swing.JInternalFrame {
         //matias trabajando
         initComponents();
         jScrollPane1.getViewport().add(jList2);
+       
+       
         
         DefaultListModel<String> mol = new DefaultListModel<>();  
         PantallaPrincipal pp = PantallaPrincipal.getInstancia();
@@ -123,6 +127,11 @@ public class realizarReserva extends javax.swing.JInternalFrame {
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
         jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jTree1.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
+                jTree1ValueChanged(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTree1);
 
         jButton2.setText("Aceptar");
@@ -184,6 +193,18 @@ public class realizarReserva extends javax.swing.JInternalFrame {
 
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTree1ValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTree1ValueChanged
+        // TODO add your handling code here:
+        if (evt.getNewLeadSelectionPath() != null){
+            
+            boolean added;
+            added = seleccionados.add(evt.getNewLeadSelectionPath().getLastPathComponent().toString());
+            
+            
+        }
+            
+    }//GEN-LAST:event_jTree1ValueChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
