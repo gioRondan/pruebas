@@ -260,10 +260,10 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
         if (!proveedorImagen.getText().isEmpty()){
             Path FROM = Paths.get(proveedorImagen.getText());
                     //muestro la ruta local de la imagen (teteo)
-                    JOptionPane.showMessageDialog(null,"ruta local de la imagen: "+proveedorImagen.getText());
+            //JOptionPane.showMessageDialog(null,"ruta local de la imagen: "+proveedorImagen.getText());
             String x = PantallaPrincipal.RutaImagenes+AltaProveedor.proveedorNick.getText()+".png";
             Path TO = Paths.get(x);
-                    JOptionPane.showMessageDialog(null, "ruta donde se copia la imagen: "+TO);
+                  //  JOptionPane.showMessageDialog(null, "ruta donde se copia la imagen: "+TO);
                      //sobreescribir el fichero de destino, si existe, y copiar
                     // los atributos, incluyendo los permisos rwx
                     //CopyOption[] options = new CopyOption[]{

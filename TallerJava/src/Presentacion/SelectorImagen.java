@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -68,8 +69,9 @@ public class SelectorImagen extends javax.swing.JInternalFrame {
     private void jFileChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser1ActionPerformed
         // TODO add your handling code here:
         JFileChooser selector = (JFileChooser)evt.getSource();
-         FileNameExtensionFilter filtroImagen=new FileNameExtensionFilter("JPG, PNG & GIF","jpg","png","gif");
+        FileFilter filtroImagen=new FileNameExtensionFilter("JPG, PNG & GIF","jpg","png","gif");
         selector.setFileFilter(filtroImagen);
+        selector.setAcceptAllFileFilterUsed(false);
         
         String comando = evt.getActionCommand();
         if (comando.equals(JFileChooser.APPROVE_SELECTION)){
