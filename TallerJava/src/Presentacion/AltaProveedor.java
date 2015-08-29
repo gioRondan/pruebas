@@ -13,17 +13,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Date;
-import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-
-
 import javax.swing.JOptionPane;
-import org.jdatepicker.impl.DateComponentFormatter;
-import org.jdatepicker.impl.JDatePanelImpl;
-import org.jdatepicker.impl.JDatePickerImpl;
-import org.jdatepicker.impl.UtilDateModel;
+
 
 
 /**
@@ -36,7 +29,6 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
      * Creates new form AltaProveedor
      */
      
-    private JDatePickerImpl datePicker;
     PantallaPrincipal Pantallaprin = PantallaPrincipal.getInstancia();
     
     public AltaProveedor() {
