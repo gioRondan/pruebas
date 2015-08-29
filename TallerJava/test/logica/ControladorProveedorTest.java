@@ -267,10 +267,9 @@ public class ControladorProveedorTest {
     /**
      * Test of seleccionarCategoria method, of class ControladorProveedor.
      */
-    @Test
-    public void testSeleccionarCategoria() {
+   
+    public void testSeleccionarCategoria(String categoria) {
         System.out.println("seleccionarCategoria");
-        String categoria = "transporte";
         ControladorProveedor instance = new ControladorProveedor();
         instance.seleccionarCategoria(categoria);
     }
@@ -281,13 +280,23 @@ public class ControladorProveedorTest {
     @Test
     public void testListarServiciosXCategoria() {
         System.out.println("listarServiciosXCategoria");
-        String nomCategoria = "";
+        try{
+        testAltaProveedor2("nickname", "nombre", "apellido", "email", new Date(2,2,2000), "imagen");
+        }catch(Exception ex){}
+        System.out.println("altaServicio");
+        String nombre = "vuelo123";
+        String descripcion = "cardona-montevideo en 5 minutos";
+        int precio = 10;
+        String origen = "cardona";
+        String proveedor = "nickname";
+        testIngresarNombreCategoria2("transporte");
+        testAltaCategoria();
+        testIngresarCategoriaServicio2("transporte");
         ControladorProveedor instance = new ControladorProveedor();
+        instance.altaServicio(nombre, descripcion, precio, origen, proveedor);
         Set<DataServicio> expResult = null;
-        List<DataServicio> result = instance.listarServiciosXCategoria(nomCategoria);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        List<DataServicio> result = instance.listarServiciosXCategoria("transporte");
+        assertEquals(nombre, result.get(0).getNombre());
     }
 
 

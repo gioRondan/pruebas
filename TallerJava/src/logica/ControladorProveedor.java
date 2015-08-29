@@ -97,7 +97,7 @@ public class ControladorProveedor implements IControladorProveedor{
     @Override
     public List<DataServicio> listarServiciosXCategoria( String nomCategoria){
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
-        Categoria cat = mCa.getCategoria(categoria);
+        Categoria cat = mCa.getCategoria(nomCategoria);
         return cat.getDataServicios();
     }
     @Override
