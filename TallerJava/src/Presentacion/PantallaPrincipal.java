@@ -122,6 +122,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        Servicios = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -185,6 +186,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jMenuItem4.setText("Promocion");
         jMenu1.add(jMenuItem4);
+
+        Servicios.setText("Servicios");
+        jMenu1.add(Servicios);
 
         jMenuBar1.add(jMenu1);
 
@@ -399,6 +403,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDesktopPane Escritorio;
+    private javax.swing.JMenuItem Servicios;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
