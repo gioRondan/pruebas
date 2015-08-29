@@ -266,6 +266,7 @@ public class ControladorProveedorTest {
 
     /**
      * Test of seleccionarCategoria method, of class ControladorProveedor.
+     * @param categoria
      */
    
     public void testSeleccionarCategoria(String categoria) {
@@ -277,13 +278,12 @@ public class ControladorProveedorTest {
     /**
      * Test of listarServiciosXCategoria method, of class ControladorProveedor.
      */
-    @Test
+/*    @Test
     public void testListarServiciosXCategoria() {
         System.out.println("listarServiciosXCategoria");
         try{
-        testAltaProveedor2("nickname", "nombre", "apellido", "email", new Date(2,2,2000), "imagen");
+            testAltaProveedor2("nickname", "nombre", "apellido", "email", new Date(2,2,2000), "imagen");
         }catch(Exception ex){}
-        System.out.println("altaServicio");
         String nombre = "vuelo123";
         String descripcion = "cardona-montevideo en 5 minutos";
         int precio = 10;
@@ -293,26 +293,51 @@ public class ControladorProveedorTest {
         testAltaCategoria();
         testIngresarCategoriaServicio2("transporte");
         ControladorProveedor instance = new ControladorProveedor();
-        instance.altaServicio(nombre, descripcion, precio, origen, proveedor);
-        Set<DataServicio> expResult = null;
+        for(int i = 1; i<=10; i++){
+            int n = i;
+            testIngresarCategoriaServicio2("transporte");
+            instance.altaServicio(Integer.toString(n), descripcion, precio, origen, proveedor);
+        }
         List<DataServicio> result = instance.listarServiciosXCategoria("transporte");
-        assertEquals(nombre, result.get(0).getNombre());
+        System.out.println(result.size());
+        for(int j = 0; j <10;j++){
+            assertEquals(Integer.toString(j+1), result.get(j).getNombre());
+        }
     }
-
+*/
 
     /**
      * Test of listarServiciosXProveedor method, of class ControladorProveedor.
      */
     @Test
     public void testListarServiciosXProveedor() {
-        System.out.println("listarServiciosXProveedor");
-        String nomProveedor = "";
+        try{
+            testAltaProveedor2("nickname", "nombre", "apellido", "email", new Date(2,2,2000), "imagen");
+        }catch(Exception ex){}
+        try{
+            testAltaProveedor2("nickname2", "nombre", "apellido", "email2", new Date(2,2,2000), "imagen");
+        }catch(Exception ex){}
+        String descripcion = "cardona-montevideo en 5 minutos";
+        int precio = 10;
+        String origen = "cardona";
+        String proveedor = "nickname";
+        testIngresarNombreCategoria2("transporte");
+        testAltaCategoria();
+        testIngresarCategoriaServicio2("transporte");
         ControladorProveedor instance = new ControladorProveedor();
-        Set<DataServicio> expResult = null;
-        List<DataServicio> result = instance.listarServiciosXProveedor(nomProveedor);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        for(int i = 1; i<=10; i++){
+            int n = i;
+            testIngresarCategoriaServicio2("transporte");
+            instance.altaServicio(Integer.toString(n), descripcion, precio, origen, proveedor);
+        }
+        List<DataServicio> result = instance.listarServiciosXProveedor("nickname");
+        System.out.println(result.size());
+        for(int j = 0; j <10;j++){
+            assertEquals(Integer.toString(j+1), result.get(j).getNombre());
+        }
+        testIngresarCategoriaServicio2("transporte");
+            instance.altaServicio("1", descripcion, precio, origen, "nickname2");
+            assertEquals("1", result.get(0).getNombre());
     }
 
     /**
