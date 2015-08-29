@@ -776,7 +776,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
-        Pantallaprin.abrirSelectorImagen("AltaProveedor");
+        Pantallaprin.abrirSelectorImagen("AltaServicio");
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void proveedorNick2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorNick2ActionPerformed
