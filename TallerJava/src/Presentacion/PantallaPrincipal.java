@@ -71,6 +71,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         rr.setLocation(a ,b);
         rr.show();
     }
+    
+     public void abrirAltaServicio(){
+        AltaServicio als = new AltaServicio();
+        Escritorio.add(als);
+        int a = (Escritorio.getWidth() - als.getWidth())/2;
+        int b = (Escritorio.getHeight() - als.getHeight()) /2;
+        als.setLocation(a ,b);
+        als.show();
+    }
      public void abrirSelectorImagen(String quienMeAbre){
 //el atributo quienMeAbre permite saber quien creo la ventana para luego ejecura una accion distinta para cada clase
         SelectorImagen al = new SelectorImagen(quienMeAbre);
@@ -174,6 +183,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setText("Servicio");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jMenuItem4.setText("Promocion");
@@ -326,6 +340,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         op.setLocation(a ,b);
         op.show();
     }//GEN-LAST:event_jMenuItem15ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        abrirAltaServicio();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
