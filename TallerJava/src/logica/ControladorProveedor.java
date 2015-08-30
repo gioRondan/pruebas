@@ -274,7 +274,12 @@ public class ControladorProveedor implements IControladorProveedor{
         ControladorProveedor.imagenProveedor = imagen;
     }
 
-    
+    public DataServicio informacionServicio(String prv,String ser){
+        ManejadorProveedor mPr = ManejadorProveedor.getInstance();
+        Proveedor prov = mPr.getProveedor(prv);
+        Servicio servi = prov.getServicio(ser);
+        return servi.getDataServicio();
+    }
     @Override
     public DataInfoPromocion verInfoPromocion(String nickproveedor, String nomPromocion) {
         ManejadorProveedor m = ManejadorProveedor.getInstance();

@@ -38,4 +38,5 @@ public interface IControladorProveedor {
     public DataInfoPromocion verInfoPromocion(String nickproveedor, String nomPromocion);
     public DataInfoServicio verInfoServicio(String nomServicio);
     public DataInfoProveedor verInfoProveedor(String nomProveedor);
+    public DataServicio informacionServicio(String prv,String ser);
 }

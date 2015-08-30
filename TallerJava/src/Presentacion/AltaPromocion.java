@@ -107,6 +107,11 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
         });
 
         jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         prove.setText("jLabel4");
 
@@ -199,16 +204,20 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
             prove.setText(proveedor);
             servi.setText(servicio);
             
-            //DataInfoServicio serinfo =  pp.ICP.verInfoServicio(proveedor,servicio);
+            DataServicio serinfo =  pp.ICP.informacionServicio(proveedor,servicio);
             JOptionPane.showMessageDialog(null,"Precio" + precioTotal.getText());
             JOptionPane.showMessageDialog(null,"Nombre del servicos "+servicio);
             JOptionPane.showMessageDialog(null,"Nombre del proveedor "+proveedor);
    //         JOptionPane.showMessageDialog(null,"Precio del servicio"+Integer.toString(serinfo.getPrecio()) );
-            int total = Integer.parseInt(precioTotal.getText())+5; //serinfo.getPrecio();
-            
-            precioTotal.setText( Integer.toString(total) );
+            float total = Integer.parseInt(precioTotal.getText())+serinfo.getPrecio();
+            precioTotal.setText( Float.toString(total) );
         }
     }//GEN-LAST:event_jTree1MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
