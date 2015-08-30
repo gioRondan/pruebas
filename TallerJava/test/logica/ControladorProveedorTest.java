@@ -6,6 +6,7 @@
 package logica;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.junit.After;
@@ -247,14 +248,14 @@ public class ControladorProveedorTest {
     @Test
     public void testAltaServicio() {
         try{
-        testAltaProveedor2("nickname", "nombre", "apellido", "email", new Date(2,2,2000), "imagen");
+        testAltaProveedor2("nickname11", "nombre", "apellido", "email", new Date(2,2,2000), "imagen");
         }catch(Exception ex){}
         System.out.println("altaServicio");
         String nombre = "vuelo123";
         String descripcion = "cardona-montevideo en 5 minutos";
         int precio = 10;
         String origen = "cardona";
-        String proveedor = "nickname";
+        String proveedor = "nickname11";
         testIngresarNombreCategoria2("transporte");
         testAltaCategoria();
         testIngresarCategoriaServicio2("transporte");
@@ -278,17 +279,17 @@ public class ControladorProveedorTest {
     /**
      * Test of listarServiciosXCategoria method, of class ControladorProveedor.
      */
-/*    @Test
+    @Test
     public void testListarServiciosXCategoria() {
         System.out.println("listarServiciosXCategoria");
         try{
-            testAltaProveedor2("nickname", "nombre", "apellido", "email", new Date(2,2,2000), "imagen");
+            testAltaProveedor2("nickname6", "nombre", "apellido", "email6", new Date(2,2,2000), "imagen");
         }catch(Exception ex){}
         String nombre = "vuelo123";
         String descripcion = "cardona-montevideo en 5 minutos";
         int precio = 10;
         String origen = "cardona";
-        String proveedor = "nickname";
+        String proveedor = "nickname6";
         testIngresarNombreCategoria2("transporte");
         testAltaCategoria();
         testIngresarCategoriaServicio2("transporte");
@@ -304,7 +305,7 @@ public class ControladorProveedorTest {
             assertEquals(Integer.toString(j+1), result.get(j).getNombre());
         }
     }
-*/
+
 
     /**
      * Test of listarServiciosXProveedor method, of class ControladorProveedor.
@@ -312,7 +313,7 @@ public class ControladorProveedorTest {
     @Test
     public void testListarServiciosXProveedor() {
         try{
-            testAltaProveedor2("nickname", "nombre", "apellido", "email", new Date(2,2,2000), "imagen");
+            testAltaProveedor2("nickname", "nombre", "apellido", "email3", new Date(2,2,2000), "imagen");
         }catch(Exception ex){}
         try{
             testAltaProveedor2("nickname2", "nombre", "apellido", "email2", new Date(2,2,2000), "imagen");
@@ -349,8 +350,6 @@ public class ControladorProveedorTest {
         String nomServicio = "";
         ControladorProveedor instance = new ControladorProveedor();
         instance.seleccionarServicio(nomServicio);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -359,14 +358,15 @@ public class ControladorProveedorTest {
     @Test
     public void testAltaPromocion() {
         System.out.println("altaPromocion");
-        String nomProveedor = "";
-        Set<String> ser = null;
-        String nombre = "";
-        int descuento = 0;
+        testListarServiciosXProveedor();
+        String nomProveedor = "nickname";
+        Set<String> ser = new HashSet();
+        ser.add("1");
+        ser.add("2");
+        String nombre = "promo1";
+        int descuento = 10;
         ControladorProveedor instance = new ControladorProveedor();
         instance.altaPromocion(nomProveedor, ser, nombre, descuento);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -378,8 +378,6 @@ public class ControladorProveedorTest {
         String desc = "";
         ControladorProveedor instance = new ControladorProveedor();
         instance.ingresarDescripcionServicio(desc);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -391,8 +389,6 @@ public class ControladorProveedorTest {
         int precio = 0;
         ControladorProveedor instance = new ControladorProveedor();
         instance.ingresarPrecioServicio(precio);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -404,8 +400,6 @@ public class ControladorProveedorTest {
         String origen = "";
         ControladorProveedor instance = new ControladorProveedor();
         instance.ingresarOrigenServicio(origen);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -416,8 +410,6 @@ public class ControladorProveedorTest {
         System.out.println("modificarServicio");
         ControladorProveedor instance = new ControladorProveedor();
         instance.modificarServicio();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -430,8 +422,6 @@ public class ControladorProveedorTest {
         List<DataEmpresa> expResult = null;
         List<DataEmpresa> result = instance.listarEmpresas();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
 
