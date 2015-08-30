@@ -191,15 +191,21 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
 
     private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
         
-        TreePath[] xx = jTree1.getSelectionPaths();
-        for (TreePath x : xx){
+        TreePath[] seleccionados = jTree1.getSelectionPaths();
+        for (TreePath x : seleccionados){
             String path = x.toString();
             String servicio = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]")); 
             String proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
             prove.setText(proveedor);
             servi.setText(servicio);
-            DataInfoServicio serinfo =  pp.ICP.verInfoServicio(servicio);
-            int total =  (int) (Integer.parseInt(precioTotal.getText())+ serinfo.getPrecio());
+            
+            //DataInfoServicio serinfo =  pp.ICP.verInfoServicio(proveedor,servicio);
+            JOptionPane.showMessageDialog(null,"Precio" + precioTotal.getText());
+            JOptionPane.showMessageDialog(null,"Nombre del servicos "+servicio);
+            JOptionPane.showMessageDialog(null,"Nombre del proveedor "+proveedor);
+   //         JOptionPane.showMessageDialog(null,"Precio del servicio"+Integer.toString(serinfo.getPrecio()) );
+            int total = Integer.parseInt(precioTotal.getText())+5; //serinfo.getPrecio();
+            
             precioTotal.setText( Integer.toString(total) );
         }
     }//GEN-LAST:event_jTree1MouseClicked
