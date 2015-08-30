@@ -214,48 +214,65 @@ public class AltaCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Date selectedDate = jDateChooser1.getDate();
-          //             Para copiar le archivo seleccionado
-        if (!clienteImagen.getText().isEmpty()){
+            
+        Date fechaNac   = jDateChooser1.getDate();
+        String nickname = clienteNick.getText();
+        String nombre   = clienteNombre.getText();
+        String apellido = clienteApellido.getText();
+        String email    = clienteEmail.getText();
+        String imagen   = clienteImagen.getText();
+        String urlImagen= "";
+        
+        if(nickname.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese un nickname válido");
+            clienteNick.requestFocus();
+            return;
+        }
+        else if(nombre.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese un nombre válido");
+            clienteNombre.requestFocus();
+            return;
+        }
+        else if(apellido.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese un apellido válido");
+            clienteApellido.requestFocus();
+            return;
+        }
+        else if(email.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese un email válido");
+            clienteEmail.requestFocus();
+            return;
+        }    
+        
+        //Para copiar le archivo seleccionado
+        if (!imagen.isEmpty()){
             Path FROM = Paths.get(clienteImagen.getText());
-                    //muestro la ruta local de la imagen (teteo)
+            //muestro la ruta local de la imagen (teteo)
             //JOptionPane.showMessageDialog(null,"ruta local de la imagen: "+cleinteImagen.getText());
-            String x = PantallaPrincipal.RutaImagenes+clienteNick.getText()+".png";
-            Path TO = Paths.get(x);
-                  //  JOptionPane.showMessageDialog(null, "ruta donde se copia la imagen: "+TO);
-                     //sobreescribir el fichero de destino, si existe, y copiar
-                    // los atributos, incluyendo los permisos rwx
-                    //CopyOption[] options = new CopyOption[]{
-                     //StandardCopyOption.REPLACE_EXISTING,
-                    //StandardCopyOption.COPY_ATTRIBUTES
-                    //}; 
+            urlImagen = PantallaPrincipal.RutaImagenes+nickname+".png";
+            Path TO = Paths.get(urlImagen);
+            //JOptionPane.showMessageDialog(null, "ruta donde se copia la imagen: "+TO);
+            //sobreescribir el fichero de destino, si existe, y copiar
+            // los atributos, incluyendo los permisos rwx
+            //CopyOption[] options = new CopyOption[]{
+            //StandardCopyOption.REPLACE_EXISTING,
+            //StandardCopyOption.COPY_ATTRIBUTES
+            //}; 
             try {
-                Files.copy(FROM,TO, StandardCopyOption.REPLACE_EXISTING);
-                try {
-                    Pantallaprin.ICC.altaCliente(clienteNick.getText() ,clienteNombre.getText(), clienteApellido.getText(), clienteEmail.getText() ,selectedDate , x);
-                    JOptionPane.showMessageDialog(null,"El Cliente se ingreso con exito");
-                    limpiarCampos();
-                } catch (Exception ex){
-                //error en alta Cleinete
-                JOptionPane.showMessageDialog(null,ex.getMessage());
-                }
-            //this.dispose();(quiero que quede abierta)
+                Files.copy(FROM,TO, StandardCopyOption.REPLACE_EXISTING);            
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "Error al copiar la imagen");
                 Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }else{//si no selecciona una imagen
-            try {
-                Pantallaprin.ICC.altaCliente(clienteNick.getText() ,clienteNombre.getText(), clienteApellido.getText(), clienteEmail.getText() ,selectedDate , "");
-                JOptionPane.showMessageDialog(null,"El Cliente se ingreso con exito");
-                limpiarCampos();
-            } catch (Exception ex){
-                //error en alta cliente
-                JOptionPane.showMessageDialog(null,ex.getMessage());
-            }     
         }
-        
-        //this.dispose();
+        try {
+            Pantallaprin.ICC.altaCliente(nickname, nombre, apellido, email, fechaNac, urlImagen);
+            JOptionPane.showMessageDialog(null,"El Cliente se ingresó correctamente");
+            limpiarCampos();
+        } catch (Exception ex){
+            //error en alta cliente
+            JOptionPane.showMessageDialog(null,ex.getMessage());
+        }         
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
