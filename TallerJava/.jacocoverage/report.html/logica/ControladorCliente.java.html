@@ -43,53 +43,64 @@ import java.util.Set;
 <span class="nc" id="L43">    }</span>
     
     @Override
-    public void altaCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen) throws Exception{
-<span class="fc" id="L47">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="fc" id="L48">        mCl.unicidadNick(nickname);</span>
-<span class="fc" id="L49">        mCl.unicidadEmail(email);</span>
-        Cliente cliente;
-<span class="fc" id="L51">        cliente = new Cliente(nickname, nombre, apellido, email, fechaNac, imagen);</span>
-<span class="fc" id="L52">        mCl.addCliente(cliente);        </span>
-<span class="fc" id="L53">    }</span>
+    public void altaCliente(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen) throws Exception{
+        
+<span class="fc" id="L48">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
+<span class="fc" id="L49">        ManejadorCliente mCl   = ManejadorCliente.getInstance();</span>
+        
+        //Control de unicidad de usuarios
+<span class="fc" id="L52">        mPr.unicidadNick(nick);</span>
+<span class="fc" id="L53">        mPr.unicidadEmail(email);</span>
+<span class="fc" id="L54">        mCl.unicidadNick(nick);</span>
+<span class="fc" id="L55">        mCl.unicidadEmail(email);</span>
+        
+<span class="pc bpc" id="L57" title="4 of 8 branches missed.">        if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty())){</span>
+<span class="nc" id="L58">            throw new Exception(&quot;Los datos ingresados no son correctos&quot;);</span>
+        }else{
+<span class="fc" id="L60">            Cliente cliente = new Cliente(nick, nombre, apellido, email, fechaNac, imagen);</span>
+<span class="fc" id="L61">            mCl.addCliente(cliente);        </span>
+        }
+        
+<span class="fc" id="L64">    }</span>
     
     @Override
     public List&lt;DataCliente&gt; listarClientes(){
-<span class="fc" id="L57">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="fc" id="L58">        return mCl.getDataClientes();</span>
+<span class="fc" id="L68">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L69">        return mCl.getDataClientes();</span>
     }
     
     @Override
     public void cancelarReserva(String nomCliente, int id){
-<span class="fc" id="L63">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="fc" id="L64">        Cliente cli = mCl.getCliente(nomCliente);</span>
-<span class="nc" id="L65">        cli.cancelarReserva(id);</span>
-<span class="nc" id="L66">    }</span>
+<span class="fc" id="L74">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L75">        Cliente cli = mCl.getCliente(nomCliente);</span>
+<span class="nc" id="L76">        cli.cancelarReserva(id);</span>
+<span class="nc" id="L77">    }</span>
     
     @Override
     public List&lt;DataReserva&gt; listarReservasSistema(){
-<span class="fc" id="L70">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="fc" id="L71">        return mCl.listarReservas();</span>
+<span class="fc" id="L81">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L82">        return mCl.listarReservas();</span>
         
     }
     
     @Override
     public List&lt;DataReserva&gt; listarReservasXCliente(String nomCliente){
-<span class="fc" id="L77">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="nc" id="L78">        return mCl.getCliente(nomCliente).getDataReservas();</span>
+<span class="fc" id="L88">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="nc" id="L89">        return mCl.getCliente(nomCliente).getDataReservas();</span>
     }
     
     @Override
     public DataInfoReserva verInfoReserva(String nomCliente, int id){
-<span class="fc" id="L83">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="fc" id="L84">        Cliente cliente = mCl.getCliente(nomCliente);</span>
-<span class="nc" id="L85">        Reserva reserva = cliente.getReserva(id);</span>
-<span class="nc" id="L86">        return reserva.getDataInfoReserva();</span>
+<span class="fc" id="L94">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L95">        Cliente cliente = mCl.getCliente(nomCliente);</span>
+<span class="nc" id="L96">        Reserva reserva = cliente.getReserva(id);</span>
+<span class="nc" id="L97">        return reserva.getDataInfoReserva();</span>
     }
     
     @Override
     public DataInfoCliente verInfoCliente( String nomCliente){
-<span class="nc" id="L91">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="nc" id="L92">        return mCl.getCliente(nomCliente).getDataInfoCliente();</span>
+<span class="nc" id="L102">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="nc" id="L103">        return mCl.getCliente(nomCliente).getDataInfoCliente();</span>
     }
 
 }

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package logica;
+import java.util.List;
 import java.util.Set;
 /**
  *
@@ -16,8 +17,9 @@ public class DataInfoServicio {
     private float precio;
     private DataCiudad origen;
     private DataCiudad destino;
-    private Set<DataCategoria> categorias;
-    public DataInfoServicio(String nombre, String descripcion, String [] imagen, float precio, DataCiudad origen, DataCiudad destino, Set<DataCategoria> categorias){
+    private List<DataCategoria> categorias;
+    private DataProveedor proveedor;
+    public DataInfoServicio(String nombre, String descripcion, String [] imagen, float precio, DataCiudad origen, DataCiudad destino, List<DataCategoria> categorias, DataProveedor proveedor){
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.imagen = imagen;
@@ -25,6 +27,7 @@ public class DataInfoServicio {
         this.origen = origen;
         this.destino = destino;
         this.categorias = categorias;
+        this.proveedor = proveedor;
     }
     public String getNombre() {
         return nombre;
@@ -50,8 +53,11 @@ public class DataInfoServicio {
         return destino;
     }
 
-    public Set<DataCategoria> getCategorias() {
+    public List<DataCategoria> getCategorias() {
         return categorias;
+    }
+    public DataProveedor getProveedor(){
+        return proveedor;
     }
     
 }

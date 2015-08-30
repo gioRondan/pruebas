@@ -11,6 +11,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
+import logica.DataInfoServicio;
 import logica.DataProveedor;
 import logica.DataServicio;
 
@@ -19,7 +20,7 @@ import logica.DataServicio;
  * @author Juan
  */
 public class AltaPromocion extends javax.swing.JInternalFrame {
-    PantallaPrincipal x = PantallaPrincipal.getInstancia();
+    PantallaPrincipal pp = PantallaPrincipal.getInstancia();
     /**
      * Creates new form AltaPromocion
      */
@@ -30,25 +31,25 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
         int precioin=0;
         TreeModel jmodel;
         DefaultMutableTreeNode raiz = new DefaultMutableTreeNode("Proveedores");
-        List<DataProveedor> dtproveedores = x.ICP.listarProveedores();
+        List<DataProveedor> dtproveedores = pp.ICP.listarProveedores();
         for (DataProveedor dtprv: dtproveedores){
             DefaultMutableTreeNode prv = new DefaultMutableTreeNode();
             prv.setUserObject(dtprv.getNickname());
             raiz.add(prv);
-            List<DataServicio> dtservicios = x.ICP.listarServiciosXProveedor(dtprv.getNickname());
-//            for (DataServicio dtser: dtservicios){
-////                DefaultMutableTreeNode ser = new DefaultMutableTreeNode();
-////                ser.setUserObject(dtser.getNombre());
-////                prv.add(ser);
-//                
-//            }  
-            DefaultMutableTreeNode ser = new DefaultMutableTreeNode();
-                ser.setUserObject("servicio1");
+            List<DataServicio> dtservicios = pp.ICP.listarServiciosXProveedor(dtprv.getNickname());
+            for (DataServicio dtser: dtservicios){
+                DefaultMutableTreeNode ser = new DefaultMutableTreeNode();
+                ser.setUserObject(dtser.getNombre());
                 prv.add(ser);
-                 ser = new DefaultMutableTreeNode();
-                ser.setUserObject("servicio2");
-                prv.add(ser);
+            }  
+//            DefaultMutableTreeNode ser = new DefaultMutableTreeNode();
+//                ser.setUserObject("servicio1");
+//                prv.add(ser);
+//                 ser = new DefaultMutableTreeNode();
+//                ser.setUserObject("servicio2");
+//                prv.add(ser);
         }
+        precioTotal.setText("0");
         DefaultTreeModel modeloArbol = new DefaultTreeModel(raiz);
         jTree1.setModel(modeloArbol);
     }
@@ -69,7 +70,7 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         promocionNombre = new javax.swing.JTextField();
         promocionDescuento = new javax.swing.JSpinner();
-        procioTotal = new javax.swing.JTextField();
+        precioTotal = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -93,7 +94,7 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
 
         promocionDescuento.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
 
-        procioTotal.setEditable(false);
+        precioTotal.setEditable(false);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Promocion");
@@ -106,6 +107,11 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
         });
 
         jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         prove.setText("jLabel4");
 
@@ -141,7 +147,7 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(promocionDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(procioTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                                            .addComponent(precioTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                                             .addComponent(promocionNombre)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(45, 45, 45)
@@ -168,7 +174,7 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(procioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(precioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(29, 29, 29)
                         .addComponent(prove)
                         .addGap(18, 18, 18)
@@ -189,14 +195,29 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
-        // TODO add your handling code here:
-        TreePath x = jTree1.getSelectionPath();
-        String path = x.toString();
-        String servicio = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]")); 
-        String proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
-        prove.setText(proveedor);
-        servi.setText(servicio);
+        precioTotal.setText( "0" );
+        TreePath[] seleccionados = jTree1.getSelectionPaths();
+        for (TreePath x : seleccionados){
+            String path = x.toString();
+            String servicio = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]")); 
+            String proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
+            prove.setText(proveedor);
+            servi.setText(servicio);
+            
+            DataServicio serinfo =  pp.ICP.informacionServicio(proveedor,servicio);
+            //JOptionPane.showMessageDialog(null,"Precio total: " + precioTotal.getText());
+            //JOptionPane.showMessageDialog(null,"Nombre del servicos "+servicio);
+            //JOptionPane.showMessageDialog(null,"Nombre del proveedor "+proveedor);
+            //JOptionPane.showMessageDialog(null,"Precio del servicio"+Float.toString(serinfo.getPrecio()) );
+            float total = Float.parseFloat(precioTotal.getText())+serinfo.getPrecio();
+            precioTotal.setText( Float.toString(total) );
+        }
     }//GEN-LAST:event_jTree1MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -208,7 +229,7 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTree jTree1;
-    private javax.swing.JTextField procioTotal;
+    private javax.swing.JTextField precioTotal;
     private javax.swing.JSpinner promocionDescuento;
     private javax.swing.JTextField promocionNombre;
     private javax.swing.JLabel prove;

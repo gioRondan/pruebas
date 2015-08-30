@@ -76,6 +76,7 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
         jButton7 = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
+        setClosable(true);
         setTitle("AltaProveedor");
         setToolTipText("");
         addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -263,14 +264,49 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
-        Date selectedDate = jDateChooser1.getDate();
-          //             Para copiar le archivo seleccionado
-        if (!proveedorImagen.getText().isEmpty()){
+        Date fechaNac   = jDateChooser1.getDate();
+        String nickname = proveedorNick.getText();
+        String nombre   = proveedorNombre.getText();
+        String apellido = proveedorApellido.getText();
+        String email    = proveedorEmail.getText();
+        String imagen   = proveedorImagen.getText();
+        String urlImagen= "";
+        String empresa  = proveedorEmpresaNombre.getText();
+        String link     = proveedorEmpresaLink.getText();
+        
+        if(nickname.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese un nickname válido");
+            proveedorNick.requestFocus();
+            return;
+        }
+        else if(nombre.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese un nombre válido");
+            proveedorNombre.requestFocus();
+            return;
+        }
+        else if(apellido.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese un apellido válido");
+            proveedorApellido.requestFocus();
+            return;
+        }
+        else if(email.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese un email válido");
+            proveedorEmail.requestFocus();
+            return;
+        }    
+        else if(empresa.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese un nombre de empresa válido");
+            proveedorEmpresaNombre.requestFocus();
+            return;
+        }    
+        
+        //Para copiar el archivo seleccionado
+        if (!imagen.isEmpty()){
             Path FROM = Paths.get(proveedorImagen.getText());
-                    //muestro la ruta local de la imagen (teteo)
+            //muestro la ruta local de la imagen (teteo)
             //JOptionPane.showMessageDialog(null,"ruta local de la imagen: "+proveedorImagen.getText());
-            String x = PantallaPrincipal.RutaImagenes+AltaProveedor.proveedorNick.getText()+".png";
-            Path TO = Paths.get(x);
+            urlImagen = PantallaPrincipal.RutaImagenes+nickname+".png";
+            Path TO = Paths.get(urlImagen);
                   //  JOptionPane.showMessageDialog(null, "ruta donde se copia la imagen: "+TO);
                      //sobreescribir el fichero de destino, si existe, y copiar
                     // los atributos, incluyendo los permisos rwx
@@ -279,30 +315,20 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
                     //StandardCopyOption.COPY_ATTRIBUTES
                     //}; 
             try {
-                Files.copy(FROM,TO, StandardCopyOption.REPLACE_EXISTING);
-                try {
-                    Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , x, proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
-                    JOptionPane.showMessageDialog(null,"El Proveedor se ingreso con exito");
-                    limpiarCampos();
-                } catch (Exception ex){
-                //error en alta proveedor
-                JOptionPane.showMessageDialog(null,ex.getMessage());
-                }
-            //this.dispose();(quiero que quede abierta)
+                Files.copy(FROM,TO, StandardCopyOption.REPLACE_EXISTING);               
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "Error al copiar la imagen");
                 Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }else{//si no selecciona una imagen
-            try {
-                Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , "", proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
-                JOptionPane.showMessageDialog(null,"El Proveedor se ingreso con exito");
-                limpiarCampos();
-            } catch (Exception ex){
-                //error en alta proveedor
-                JOptionPane.showMessageDialog(null,ex.getMessage());
-            }     
         }
+        try {
+            Pantallaprin.ICP.altaProveedor(nickname, nombre, apellido, email, fechaNac, urlImagen, empresa, link);
+            JOptionPane.showMessageDialog(null,"El Proveedor se ingreso con exito");
+            limpiarCampos();
+        } catch (Exception ex){
+            //error en alta proveedor
+            JOptionPane.showMessageDialog(null,ex.getMessage());
+        }             
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

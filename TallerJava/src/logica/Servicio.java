@@ -6,7 +6,9 @@
 
 package logica;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 /**
@@ -22,6 +24,7 @@ public class Servicio {
     private Ciudad origen;
     private Ciudad destino;
     private Map<String, Categoria> categorias;
+    private Proveedor proveedor;
     
     public Servicio(String nombre,String descripcion,float precio){
         this.nombre=nombre;
@@ -29,6 +32,7 @@ public class Servicio {
         this.precio=precio;
         this.imagen=new String[3];
         this.categorias = new HashMap();
+        proveedor = null;
     }
 
     public void setNombre(String nom){
@@ -70,21 +74,24 @@ public class Servicio {
         this.categorias.put(categoria.getNombre(), categoria);
     }
     public DataServicio getDataServicio(){
-        return new DataServicio(nombre, descripcion, precio, imagen);
+        return new DataServicio(nombre, descripcion, precio, imagen, proveedor.getNickname());
     }
     public DataInfoServicio getDataInfoServicio (){
         DataCiudad des = null;
-        if (!destino.getNombre().isEmpty()){
+        if (destino!= null){
             des = destino.getDataCiudad();
         }
-        return new DataInfoServicio(nombre, descripcion, imagen, precio, origen.getDataCiudad(), des, getDataCategorias());
+        return new DataInfoServicio(nombre, descripcion, imagen, precio, origen.getDataCiudad(), des, getDataCategorias(), proveedor.getDataProveedor());
     }
-    public Set<DataCategoria> getDataCategorias(){
-        Set<DataCategoria> dts = null;
+    public List<DataCategoria> getDataCategorias(){
+        List<DataCategoria> dts = new ArrayList<>();
         for (Categoria c : categorias.values()){
             dts.add(c.getDataCategoria());
         }
         return dts;
+    }
+    public void setProveedor(Proveedor proveedor){
+        this.proveedor = proveedor;
     }
 
 }
