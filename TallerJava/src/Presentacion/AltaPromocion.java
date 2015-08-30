@@ -189,13 +189,15 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
-        // TODO add your handling code here:
-        TreePath x = jTree1.getSelectionPath();
-        String path = x.toString();
-        String servicio = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]")); 
-        String proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
-        prove.setText(proveedor);
-        servi.setText(servicio);
+        
+        TreePath[] xx = jTree1.getSelectionPaths();
+        for (TreePath x : xx){
+            String path = x.toString();
+            String servicio = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]")); 
+            String proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
+            prove.setText(proveedor);
+            servi.setText(servicio);
+        }
     }//GEN-LAST:event_jTree1MouseClicked
 
 
