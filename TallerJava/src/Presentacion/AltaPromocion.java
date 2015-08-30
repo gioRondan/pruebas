@@ -107,6 +107,11 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
         });
 
         jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         prove.setText("jLabel4");
 
@@ -190,7 +195,7 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
-        
+        precioTotal.setText( "0" );
         TreePath[] seleccionados = jTree1.getSelectionPaths();
         for (TreePath x : seleccionados){
             String path = x.toString();
@@ -199,16 +204,20 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
             prove.setText(proveedor);
             servi.setText(servicio);
             
-            //DataInfoServicio serinfo =  pp.ICP.verInfoServicio(proveedor,servicio);
-            JOptionPane.showMessageDialog(null,"Precio" + precioTotal.getText());
-            JOptionPane.showMessageDialog(null,"Nombre del servicos "+servicio);
-            JOptionPane.showMessageDialog(null,"Nombre del proveedor "+proveedor);
-   //         JOptionPane.showMessageDialog(null,"Precio del servicio"+Integer.toString(serinfo.getPrecio()) );
-            int total = Integer.parseInt(precioTotal.getText())+5; //serinfo.getPrecio();
-            
-            precioTotal.setText( Integer.toString(total) );
+            DataServicio serinfo =  pp.ICP.informacionServicio(proveedor,servicio);
+            //JOptionPane.showMessageDialog(null,"Precio total: " + precioTotal.getText());
+            //JOptionPane.showMessageDialog(null,"Nombre del servicos "+servicio);
+            //JOptionPane.showMessageDialog(null,"Nombre del proveedor "+proveedor);
+            //JOptionPane.showMessageDialog(null,"Precio del servicio"+Float.toString(serinfo.getPrecio()) );
+            float total = Float.parseFloat(precioTotal.getText())+serinfo.getPrecio();
+            precioTotal.setText( Float.toString(total) );
         }
     }//GEN-LAST:event_jTree1MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
