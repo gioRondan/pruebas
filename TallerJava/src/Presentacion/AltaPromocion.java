@@ -205,11 +205,11 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
             servi.setText(servicio);
             
             DataServicio serinfo =  pp.ICP.informacionServicio(proveedor,servicio);
-            JOptionPane.showMessageDialog(null,"Precio" + precioTotal.getText());
+            JOptionPane.showMessageDialog(null,"Precio total: " + precioTotal.getText());
             JOptionPane.showMessageDialog(null,"Nombre del servicos "+servicio);
             JOptionPane.showMessageDialog(null,"Nombre del proveedor "+proveedor);
-   //         JOptionPane.showMessageDialog(null,"Precio del servicio"+Integer.toString(serinfo.getPrecio()) );
-            float total = Integer.parseInt(precioTotal.getText())+serinfo.getPrecio();
+            JOptionPane.showMessageDialog(null,"Precio del servicio"+Float.toString(serinfo.getPrecio()) );
+            float total = Float.parseFloat(precioTotal.getText())+serinfo.getPrecio();
             precioTotal.setText( Float.toString(total) );
         }
     }//GEN-LAST:event_jTree1MouseClicked
