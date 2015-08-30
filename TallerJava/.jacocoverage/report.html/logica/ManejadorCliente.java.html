@@ -43,12 +43,12 @@ public class ManejadorCliente {
 <span class="nc" id="L43">    }</span>
     void unicidadNick(String nick) throws Exception{
 <span class="pc bpc" id="L45" title="1 of 2 branches missed.">        if (clientes.containsKey(nick))</span>
-<span class="nc" id="L46">            throw new Exception(&quot;el nick ingresado ya pertenece a otro Usuario&quot;); </span>
+<span class="nc" id="L46">            throw new Exception(&quot;El nick ingresado ya pertenece a otro Cliente&quot;); </span>
 <span class="fc" id="L47">    }</span>
     void unicidadEmail(String email) throws Exception{
 <span class="fc bfc" id="L49" title="All 2 branches covered.">        for(Cliente it : clientes.values()){</span>
 <span class="pc bpc" id="L50" title="1 of 2 branches missed.">            if (it.getEmail().equals(email)){</span>
-<span class="nc" id="L51">                throw new Exception(&quot;el email ingresado ya pertenece a otro Usuario&quot;);</span>
+<span class="nc" id="L51">                throw new Exception(&quot;El email ingresado ya pertenece a otro Cliente&quot;);</span>
             }
 <span class="fc" id="L53">        }</span>
 <span class="fc" id="L54">    }</span>

@@ -72,7 +72,7 @@ public class ControladorProveedor implements IControladorProveedor{
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
         prov.asociarServicio(ser);
-        //asociar servicio a proveedor??????
+        ser.setProveedor(prov);
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
         for(String cats : categoriasServicio){
             Categoria cat = mCa.getCategoria(cats);
@@ -258,9 +258,9 @@ public class ControladorProveedor implements IControladorProveedor{
     }
     @Override
     public DataInfoServicio verInfoServicio( String nomServicio){
-        ManejadorProveedor mPr = ManejadorProveedor.getInstance();
-        Proveedor prov = mPr.getProveedor(proveedor);
-        Servicio ser = prov.getServicio(nomServicio);
+        ManejadorCategoria mCa = ManejadorCategoria.getInstance();
+        Categoria cat = mCa.getCategoria(nomCategoria);
+        Servicio ser = cat.getServicio(nomServicio);
         return ser.getDataInfoServicio();
     }
     @Override
