@@ -6,12 +6,14 @@
 
 package Presentacion;
 
-import UpperEssential.UpperEssentialLookAndFeel;
+
+import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyVetoException;
+import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JInternalFrame;
@@ -408,6 +410,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     /**
      * @param args the command line arguments
+     * @throws javax.swing.UnsupportedLookAndFeelException
      */
     public static void main(String args[]) throws UnsupportedLookAndFeelException {
         
@@ -437,12 +440,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-              // Lineas de interface linda
-//                try {
-//                    UIManager.setLookAndFeel(new UpperEssentialLookAndFeel());
-//                } catch (UnsupportedLookAndFeelException ex) {
-//                    Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-//                }
+                try {
+                    UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
+                } catch (ParseException | UnsupportedLookAndFeelException ex) {
+                    Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            
                 PantallaPrincipal x = new PantallaPrincipal();
                 //Pantalla Principal maximisada
                 x.setExtendedState(MAXIMIZED_BOTH);
