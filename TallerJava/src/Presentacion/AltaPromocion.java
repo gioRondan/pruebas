@@ -195,7 +195,7 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
-        
+        precioTotal.setText( "0" );
         TreePath[] seleccionados = jTree1.getSelectionPaths();
         for (TreePath x : seleccionados){
             String path = x.toString();
@@ -205,10 +205,10 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
             servi.setText(servicio);
             
             DataServicio serinfo =  pp.ICP.informacionServicio(proveedor,servicio);
-            JOptionPane.showMessageDialog(null,"Precio total: " + precioTotal.getText());
-            JOptionPane.showMessageDialog(null,"Nombre del servicos "+servicio);
-            JOptionPane.showMessageDialog(null,"Nombre del proveedor "+proveedor);
-            JOptionPane.showMessageDialog(null,"Precio del servicio"+Float.toString(serinfo.getPrecio()) );
+            //JOptionPane.showMessageDialog(null,"Precio total: " + precioTotal.getText());
+            //JOptionPane.showMessageDialog(null,"Nombre del servicos "+servicio);
+            //JOptionPane.showMessageDialog(null,"Nombre del proveedor "+proveedor);
+            //JOptionPane.showMessageDialog(null,"Precio del servicio"+Float.toString(serinfo.getPrecio()) );
             float total = Float.parseFloat(precioTotal.getText())+serinfo.getPrecio();
             precioTotal.setText( Float.toString(total) );
         }
