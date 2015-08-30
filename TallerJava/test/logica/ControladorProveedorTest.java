@@ -358,6 +358,7 @@ public class ControladorProveedorTest {
     @Test
     public void testAltaPromocion() {
         System.out.println("altaPromocion");
+        
         testListarServiciosXProveedor();
         String nomProveedor = "nickname";
         Set<String> ser = new HashSet();
@@ -432,13 +433,15 @@ public class ControladorProveedorTest {
     @Test
     public void testListarPromocionesXProveedor() {
         System.out.println("listarPromocionesXProveedor");
-        String nomProveedor = "";
+        
+        
+        testAltaPromocion();
         ControladorProveedor instance = new ControladorProveedor();
-        Set<DataPromocion> expResult = null;
-        List<DataPromocion> result = instance.listarPromocionesXProveedor(nomProveedor);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        List<DataPromocion> result = instance.listarPromocionesXProveedor("nickname");
+        assertEquals("promo1", result.get(0).getNombre());
+        /*for(int j = 0; j <10;j++){
+            assertEquals(Integer.toString(j+1), result.get(j).getNombre());
+        }*/
     }
 
     /**

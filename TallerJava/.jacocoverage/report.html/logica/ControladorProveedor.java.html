@@ -129,7 +129,7 @@ import java.util.logging.Logger;
 <span class="fc" id="L129">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
 <span class="fc" id="L130">        Proveedor prov = mPr.getProveedor(nomProveedor);//nickname</span>
 <span class="fc" id="L131">        ControladorProveedor.proveedor = nomProveedor;</span>
-<span class="nc" id="L132">        return prov.getDataServicios();</span>
+<span class="fc" id="L132">        return prov.getDataServicios();</span>
     }
     public void seleccionarServicio(String nomServicio){
 <span class="fc" id="L135">        ControladorProveedor.servicio = nomServicio;</span>
@@ -138,19 +138,19 @@ import java.util.logging.Logger;
     public void altaPromocion( String nomProveedor,Set&lt;String&gt; ser, String nombre, int descuento){
 <span class="fc" id="L139">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
 <span class="fc" id="L140">        Proveedor prov = mPr.getProveedor(nomProveedor);//nickname</span>
-<span class="nc" id="L141">        Iterator&lt;String&gt; itera = ser.iterator();</span>
-<span class="nc" id="L142">        int totalPrecio=0;</span>
-<span class="nc" id="L143">        Promocion p = new Promocion(nombre, descuento, totalPrecio);</span>
-<span class="nc" id="L144">        prov.asociarPromocion(p);</span>
-<span class="nc bnc" id="L145" title="All 2 branches missed.">        while (itera.hasNext()) {</span>
+<span class="fc" id="L141">        Iterator&lt;String&gt; itera = ser.iterator();</span>
+<span class="fc" id="L142">        int totalPrecio=0;</span>
+<span class="fc" id="L143">        Promocion p = new Promocion(nombre, descuento, totalPrecio);</span>
+<span class="fc" id="L144">        prov.asociarPromocion(p);</span>
+<span class="fc bfc" id="L145" title="All 2 branches covered.">        while (itera.hasNext()) {</span>
             //recorro los servicos a agregar y voy calculando el precio de la promocion sin el descuento
-<span class="nc" id="L147">            Servicio s = prov.getServicio(itera.next()); </span>
-<span class="nc" id="L148">            totalPrecio += s.getPrecio();</span>
-<span class="nc" id="L149">            p.agregarServicio(s);</span>
-<span class="nc" id="L150">        }</span>
-<span class="nc" id="L151">        totalPrecio=(int)(totalPrecio * (0.1*descuento));//aplico el descuento</span>
-<span class="nc" id="L152">        p.setPrecioTotal(totalPrecio);//Seteo el precio total con el descuento aplicado </span>
-<span class="nc" id="L153">    }</span>
+<span class="fc" id="L147">            Servicio s = prov.getServicio(itera.next()); </span>
+<span class="fc" id="L148">            totalPrecio += s.getPrecio();</span>
+<span class="fc" id="L149">            p.agregarServicio(s);</span>
+<span class="fc" id="L150">        }</span>
+<span class="fc" id="L151">        totalPrecio=(int)(totalPrecio * (0.1*descuento));//aplico el descuento</span>
+<span class="fc" id="L152">        p.setPrecioTotal(totalPrecio);//Seteo el precio total con el descuento aplicado </span>
+<span class="fc" id="L153">    }</span>
     @Override
     public void ingresarDescripcionServicio( String desc){
 <span class="fc" id="L156">        ControladorProveedor.descripcionServicio = desc;</span>
