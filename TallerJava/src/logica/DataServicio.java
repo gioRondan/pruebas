@@ -49,5 +49,7 @@ public class DataServicio {
     public float getPrecio() {
         return precio;
     }
-    
+    public String getProveedor(){
+        return proveedor;
+    }
 }

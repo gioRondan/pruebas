@@ -465,7 +465,7 @@ public class ControladorProveedorTest {
         testAltaServicio();
         testIngresarNombreCategoria2("transporte");
         ControladorProveedor instance = new ControladorProveedor();
-        DataInfoServicio expResult = new DataInfoServicio(nomServicio, null, null, 0, null, null, null);
+        DataInfoServicio expResult = new DataInfoServicio(nomServicio, null, null, 0, null, null, null, null);
         DataInfoServicio result = instance.verInfoServicio(nomServicio);
         assertEquals(expResult.getNombre(), result.getNombre());
     }

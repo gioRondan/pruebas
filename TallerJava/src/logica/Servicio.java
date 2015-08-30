@@ -79,7 +79,7 @@ public class Servicio {
         if (!destino.getNombre().isEmpty()){
             des = destino.getDataCiudad();
         }
-        return new DataInfoServicio(nombre, descripcion, imagen, precio, origen.getDataCiudad(), des, getDataCategorias());
+        return new DataInfoServicio(nombre, descripcion, imagen, precio, origen.getDataCiudad(), des, getDataCategorias(), proveedor.getDataProveedor());
     }
     public Set<DataCategoria> getDataCategorias(){
         Set<DataCategoria> dts = null;

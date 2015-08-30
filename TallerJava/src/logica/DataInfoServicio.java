@@ -17,7 +17,8 @@ public class DataInfoServicio {
     private DataCiudad origen;
     private DataCiudad destino;
     private Set<DataCategoria> categorias;
-    public DataInfoServicio(String nombre, String descripcion, String [] imagen, float precio, DataCiudad origen, DataCiudad destino, Set<DataCategoria> categorias){
+    private DataProveedor proveedor;
+    public DataInfoServicio(String nombre, String descripcion, String [] imagen, float precio, DataCiudad origen, DataCiudad destino, Set<DataCategoria> categorias, DataProveedor proveedor){
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.imagen = imagen;
@@ -25,6 +26,7 @@ public class DataInfoServicio {
         this.origen = origen;
         this.destino = destino;
         this.categorias = categorias;
+        this.proveedor = proveedor;
     }
     public String getNombre() {
         return nombre;
@@ -52,6 +54,9 @@ public class DataInfoServicio {
 
     public Set<DataCategoria> getCategorias() {
         return categorias;
+    }
+    public DataProveedor getProveedor(){
+        return proveedor;
     }
     
 }
