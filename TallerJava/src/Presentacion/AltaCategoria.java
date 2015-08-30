@@ -178,7 +178,7 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
         padreSelec = padreSelec.substring(padreSelec.lastIndexOf(",")+2, padreSelec.lastIndexOf("]"));
         this.padre = padreSelec;
         jLabel1.setText(padreSelec);
-//Pantallaprin.ICP.seleccionarPadre(Sacar el nombre del tree);
+        //Pantallaprin.ICP.seleccionarPadre(Sacar el nombre del tree);
     }//GEN-LAST:event_ArbolMouseClicked
 
 
