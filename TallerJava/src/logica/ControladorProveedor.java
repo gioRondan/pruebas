@@ -226,16 +226,20 @@ public class ControladorProveedor implements IControladorProveedor{
     
     @Override
     public void altaProveedor( String nick, String nombre, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp, String linkEmp) throws Exception{
-        
-       
+               
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
-       
-       mPr.unicidadNick(nick);//bomba!!!!!!!!!!!!
-        mPr.unicidadEmail(email);//bomba!!!!!!!!!!!!
-   
-       if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty())  || (nombreEmp.isEmpty())){
-            throw new Exception("los datos ingresados no son correctos");
-        }else{
+        ManejadorCliente mCl   = ManejadorCliente.getInstance();
+        
+        //Control de unicidad de usuarios
+        mPr.unicidadNick(nick);
+        mPr.unicidadEmail(email);
+        mCl.unicidadNick(nick);
+        mCl.unicidadEmail(email);
+
+        if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty())  || (nombreEmp.isEmpty())){
+            throw new Exception("Los datos ingresados no son correctos");
+        }else{            
+        
             Proveedor prov = new Proveedor(nick, nombre, apellido, email, fechaNac, imagen);
             ManejadorEmpresa mEmp =  ManejadorEmpresa.getInstance();
             Empresa emp = mEmp.getEmpresa(nombreEmp);

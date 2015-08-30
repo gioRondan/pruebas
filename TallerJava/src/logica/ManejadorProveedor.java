@@ -56,13 +56,13 @@ public class ManejadorProveedor {
 
     void unicidadNick(String nick) throws Exception{
         if (proveedores.containsKey(nick))
-            throw new Exception("el nick ingresado ya pertenece a otro proveedor"); 
+            throw new Exception("El nick ingresado ya pertenece a otro proveedor"); 
     }
 
     void unicidadEmail(String email) throws Exception{
         for(Proveedor it : proveedores.values()){
             if (it.getEmail().equals(email)){
-                throw new Exception("el email ingresado ya pertenece a otro proveedor");
+                throw new Exception("El email ingresado ya pertenece a otro proveedor");
             }
         }
     }
