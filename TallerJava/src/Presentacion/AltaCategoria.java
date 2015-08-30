@@ -63,6 +63,8 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
         NombreCategoria = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
 
+        setTitle("Alta Categoría");
+
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
         Arbol.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         Arbol.addMouseListener(new java.awt.event.MouseAdapter() {

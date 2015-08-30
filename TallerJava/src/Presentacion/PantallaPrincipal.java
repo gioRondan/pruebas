@@ -6,12 +6,14 @@
 
 package Presentacion;
 
-import UpperEssential.UpperEssentialLookAndFeel;
+
+import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyVetoException;
+import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JInternalFrame;
@@ -155,6 +157,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenuBar1.setToolTipText("");
 
         jMenu1.setText("Altas");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         jMenu4.setText("Usuario");
 
@@ -232,6 +239,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Reservas");
+        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu3ActionPerformed(evt);
+            }
+        });
 
         jMenuItem10.setText("Realizar reserva");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
@@ -245,6 +257,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenu3.add(jMenuItem11);
 
         jMenuItem12.setText("Cancelar");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem12);
 
         jMenuBar1.add(jMenu3);
@@ -369,9 +386,31 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         al.setLocation(a ,b);
         al.show();
     }//GEN-LAST:event_ServiciosActionPerformed
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+        cancelarReserva CancelReserva = new cancelarReserva();
+        Escritorio.add(CancelReserva);
+         int a = (Escritorio.getWidth() - CancelReserva.getWidth())/2;
+        int b = (Escritorio.getHeight() - CancelReserva.getHeight()) /2;
+        CancelReserva.setLocation(a ,b);
+        CancelReserva.show();
+    }//GEN-LAST:event_jMenu3ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        cancelarReserva CancelReserva = new cancelarReserva();
+        Escritorio.add(CancelReserva);
+         int a = (Escritorio.getWidth() - CancelReserva.getWidth())/2;
+        int b = (Escritorio.getHeight() - CancelReserva.getHeight()) /2;
+        CancelReserva.setLocation(a ,b);
+        CancelReserva.show();
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     /**
      * @param args the command line arguments
+     * @throws javax.swing.UnsupportedLookAndFeelException
      */
     public static void main(String args[]) throws UnsupportedLookAndFeelException {
         
@@ -401,12 +440,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-              // Lineas de interface linda
-//                try {
-//                    UIManager.setLookAndFeel(new UpperEssentialLookAndFeel());
-//                } catch (UnsupportedLookAndFeelException ex) {
-//                    Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-//                }
+                try {
+                    UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
+                } catch (ParseException | UnsupportedLookAndFeelException ex) {
+                    Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            
                 PantallaPrincipal x = new PantallaPrincipal();
                 //Pantalla Principal maximisada
                 x.setExtendedState(MAXIMIZED_BOTH);

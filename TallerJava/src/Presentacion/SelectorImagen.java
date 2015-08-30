@@ -46,6 +46,8 @@ public class SelectorImagen extends javax.swing.JInternalFrame {
 
         jFileChooser1 = new javax.swing.JFileChooser();
 
+        setTitle("Selector de archivos");
+
         jFileChooser1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFileChooser1ActionPerformed(evt);
