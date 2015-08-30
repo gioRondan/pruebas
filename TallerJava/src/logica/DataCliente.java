@@ -63,5 +63,10 @@ public class DataCliente {
     public String getImagen() {
         return imagen;
     }
+
+    @Override
+    public String toString() {
+        return nickname;
+    }
     
 }

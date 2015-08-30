@@ -228,6 +228,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Reservas");
+        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu3ActionPerformed(evt);
+            }
+        });
 
         jMenuItem10.setText("Realizar reserva");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
@@ -241,6 +246,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenu3.add(jMenuItem11);
 
         jMenuItem12.setText("Cancelar");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem12);
 
         jMenuBar1.add(jMenu3);
@@ -359,6 +369,24 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+        cancelarReserva CancelReserva = new cancelarReserva();
+        Escritorio.add(CancelReserva);
+         int a = (Escritorio.getWidth() - CancelReserva.getWidth())/2;
+        int b = (Escritorio.getHeight() - CancelReserva.getHeight()) /2;
+        CancelReserva.setLocation(a ,b);
+        CancelReserva.show();
+    }//GEN-LAST:event_jMenu3ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        cancelarReserva CancelReserva = new cancelarReserva();
+        Escritorio.add(CancelReserva);
+         int a = (Escritorio.getWidth() - CancelReserva.getWidth())/2;
+        int b = (Escritorio.getHeight() - CancelReserva.getHeight()) /2;
+        CancelReserva.setLocation(a ,b);
+        CancelReserva.show();
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     /**
      * @param args the command line arguments
