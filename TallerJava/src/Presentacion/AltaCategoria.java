@@ -6,6 +6,7 @@
 
 package Presentacion;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -13,6 +14,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
+import logica.Categoria;
 import logica.DataCategoria;
 import logica.DataProveedor;
 
@@ -28,6 +30,7 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
     public Object seleccionado;
     public String padre;
     PantallaPrincipal Pantallaprin = PantallaPrincipal.getInstancia();
+    
     public void armarArbol(DefaultMutableTreeNode raiz, List<DataCategoria> dtps){
         for (DataCategoria dtcategoria: dtps){
             DefaultMutableTreeNode cate = new DefaultMutableTreeNode();
@@ -70,6 +73,11 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
         Arbol.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ArbolMouseClicked(evt);
+            }
+        });
+        Arbol.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
+                ArbolValueChanged(evt);
             }
         });
         jScrollPane1.setViewportView(Arbol);
@@ -171,6 +179,10 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_NombreCategoriaFocusLost
 
     private void ArbolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ArbolMouseClicked
+        
+    }//GEN-LAST:event_ArbolMouseClicked
+
+    private void ArbolValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_ArbolValueChanged
         this.seleccionado = Arbol.getLastSelectedPathComponent();
         TreeModel model = Arbol.getModel();
         TreePath x = Arbol.getSelectionPath();
@@ -178,8 +190,7 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
         padreSelec = padreSelec.substring(padreSelec.lastIndexOf(",")+2, padreSelec.lastIndexOf("]"));
         this.padre = padreSelec;
         jLabel1.setText(padreSelec);
-        //Pantallaprin.ICP.seleccionarPadre(Sacar el nombre del tree);
-    }//GEN-LAST:event_ArbolMouseClicked
+    }//GEN-LAST:event_ArbolValueChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
