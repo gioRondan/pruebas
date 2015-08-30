@@ -14,6 +14,7 @@ public class DataServicio {
     private final String descripcion;
     private final float precio;
     private String [] imagen;
+    private final String proveedor;
     
     //Contructores
     public DataServicio(){
@@ -21,13 +22,15 @@ public class DataServicio {
         this.descripcion    = "";
         this.precio         = 0;
         this.imagen         = null;
+        this.proveedor = "";
     }
         
-    public DataServicio(String nombre, String descripcion, float precio, String[] imagen){
+    public DataServicio(String nombre, String descripcion, float precio, String[] imagen, String proveedor){
         this.nombre         = nombre;
         this.descripcion    = descripcion;
         this.precio         = precio;
         this.imagen         = imagen;
+        this.proveedor = proveedor;
     }
 
     //Getters

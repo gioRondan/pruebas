@@ -72,7 +72,7 @@ public class ControladorProveedor implements IControladorProveedor{
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
         prov.asociarServicio(ser);
-        //asociar servicio a proveedor??????
+        ser.setProveedor(prov);
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
         for(String cats : categoriasServicio){
             Categoria cat = mCa.getCategoria(cats);
