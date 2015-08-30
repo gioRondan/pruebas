@@ -5,16 +5,18 @@
  */
 package Presentacion;
 
+import java.util.List;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
+import logica.DataProveedor;
 
 /**
  *
  * @author Juan
  */
 public class AltaPromocion extends javax.swing.JInternalFrame {
-
+    PantallaPrincipal x = PantallaPrincipal.getInstancia();
     /**
      * Creates new form AltaPromocion
      */
@@ -23,8 +25,8 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
         int precioin=0;
         TreeModel jmodel;
         DefaultMutableTreeNode raiz = new DefaultMutableTreeNode("Categorías");
-        List<DataCategoria> dtps = Pantallaprin.ICP.listarCategorias();
-        armarArbol(raiz, dtps);
+        List<DataProveedor> dtps = x.ICP.listarProveedores();
+     //  armarArbol(raiz, dtps);
         DefaultTreeModel modeloArbol = new DefaultTreeModel(raiz);
         jTree1.setModel(modeloArbol);
     }
