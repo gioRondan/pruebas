@@ -11,6 +11,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
+import logica.DataInfoServicio;
 import logica.DataProveedor;
 import logica.DataServicio;
 
@@ -19,7 +20,7 @@ import logica.DataServicio;
  * @author Juan
  */
 public class AltaPromocion extends javax.swing.JInternalFrame {
-    PantallaPrincipal x = PantallaPrincipal.getInstancia();
+    PantallaPrincipal pp = PantallaPrincipal.getInstancia();
     /**
      * Creates new form AltaPromocion
      */
@@ -30,25 +31,25 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
         int precioin=0;
         TreeModel jmodel;
         DefaultMutableTreeNode raiz = new DefaultMutableTreeNode("Proveedores");
-        List<DataProveedor> dtproveedores = x.ICP.listarProveedores();
+        List<DataProveedor> dtproveedores = pp.ICP.listarProveedores();
         for (DataProveedor dtprv: dtproveedores){
             DefaultMutableTreeNode prv = new DefaultMutableTreeNode();
             prv.setUserObject(dtprv.getNickname());
             raiz.add(prv);
-            List<DataServicio> dtservicios = x.ICP.listarServiciosXProveedor(dtprv.getNickname());
-//            for (DataServicio dtser: dtservicios){
-////                DefaultMutableTreeNode ser = new DefaultMutableTreeNode();
-////                ser.setUserObject(dtser.getNombre());
-////                prv.add(ser);
-//                
-//            }  
-            DefaultMutableTreeNode ser = new DefaultMutableTreeNode();
-                ser.setUserObject("servicio1");
+            List<DataServicio> dtservicios = pp.ICP.listarServiciosXProveedor(dtprv.getNickname());
+            for (DataServicio dtser: dtservicios){
+                DefaultMutableTreeNode ser = new DefaultMutableTreeNode();
+                ser.setUserObject(dtser.getNombre());
                 prv.add(ser);
-                 ser = new DefaultMutableTreeNode();
-                ser.setUserObject("servicio2");
-                prv.add(ser);
+            }  
+//            DefaultMutableTreeNode ser = new DefaultMutableTreeNode();
+//                ser.setUserObject("servicio1");
+//                prv.add(ser);
+//                 ser = new DefaultMutableTreeNode();
+//                ser.setUserObject("servicio2");
+//                prv.add(ser);
         }
+        precioTotal.setText("0");
         DefaultTreeModel modeloArbol = new DefaultTreeModel(raiz);
         jTree1.setModel(modeloArbol);
     }
@@ -69,7 +70,7 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         promocionNombre = new javax.swing.JTextField();
         promocionDescuento = new javax.swing.JSpinner();
-        procioTotal = new javax.swing.JTextField();
+        precioTotal = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -93,7 +94,7 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
 
         promocionDescuento.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
 
-        procioTotal.setEditable(false);
+        precioTotal.setEditable(false);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Promocion");
@@ -141,7 +142,7 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(promocionDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(procioTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                                            .addComponent(precioTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                                             .addComponent(promocionNombre)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(45, 45, 45)
@@ -168,7 +169,7 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(procioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(precioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(29, 29, 29)
                         .addComponent(prove)
                         .addGap(18, 18, 18)
@@ -197,6 +198,9 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
             String proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
             prove.setText(proveedor);
             servi.setText(servicio);
+            DataInfoServicio serinfo =  pp.ICP.verInfoServicio(servicio);
+            int total =  (int) (Integer.parseInt(precioTotal.getText())+ serinfo.getPrecio());
+            precioTotal.setText( Integer.toString(total) );
         }
     }//GEN-LAST:event_jTree1MouseClicked
 
@@ -210,7 +214,7 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTree jTree1;
-    private javax.swing.JTextField procioTotal;
+    private javax.swing.JTextField precioTotal;
     private javax.swing.JSpinner promocionDescuento;
     private javax.swing.JTextField promocionNombre;
     private javax.swing.JLabel prove;
