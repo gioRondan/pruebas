@@ -10,6 +10,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
 import logica.DataProveedor;
+import logica.DataServicio;
 
 /**
  *
@@ -26,12 +27,18 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
         initComponents();
         int precioin=0;
         TreeModel jmodel;
-        DefaultMutableTreeNode raiz = new DefaultMutableTreeNode("Categorías");
-        List<DataProveedor> dtps = x.ICP.listarProveedores();
-        for (DataProveedor dtcategoria: dtps){
-            DefaultMutableTreeNode cate = new DefaultMutableTreeNode();
-            cate.setUserObject(dtcategoria);
-            raiz.add(cate);
+        DefaultMutableTreeNode raiz = new DefaultMutableTreeNode("Proveedores");
+        List<DataProveedor> dtproveedores = x.ICP.listarProveedores();
+        for (DataProveedor dtprv: dtproveedores){
+            DefaultMutableTreeNode prv = new DefaultMutableTreeNode();
+            prv.setUserObject(dtprv.getNickname());
+            raiz.add(prv);
+            List<DataServicio> dtservicios = x.ICP.listarServiciosXProveedor(dtprv.getNickname());
+            for (DataServicio dtser: dtservicios){
+                DefaultMutableTreeNode ser = new DefaultMutableTreeNode();
+                ser.setUserObject(dtser.getNombre());
+                prv.add(ser);
+            }        
         }
         DefaultTreeModel modeloArbol = new DefaultTreeModel(raiz);
         jTree1.setModel(modeloArbol);
@@ -56,6 +63,8 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
         procioTotal = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
+        setClosable(true);
+
         jScrollPane1.setViewportView(jTree1);
 
         jLabel1.setText("Nombre:");
@@ -63,6 +72,8 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
         jLabel2.setText("Precio total:");
 
         jLabel3.setText("Descuento:");
+
+        promocionDescuento.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
 
         procioTotal.setEditable(false);
 
