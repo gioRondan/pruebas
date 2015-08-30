@@ -6,7 +6,9 @@
 
 package logica;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 /**
@@ -76,13 +78,13 @@ public class Servicio {
     }
     public DataInfoServicio getDataInfoServicio (){
         DataCiudad des = null;
-        if (!destino.getNombre().isEmpty()){
+        if (destino!= null){
             des = destino.getDataCiudad();
         }
         return new DataInfoServicio(nombre, descripcion, imagen, precio, origen.getDataCiudad(), des, getDataCategorias(), proveedor.getDataProveedor());
     }
-    public Set<DataCategoria> getDataCategorias(){
-        Set<DataCategoria> dts = null;
+    public List<DataCategoria> getDataCategorias(){
+        List<DataCategoria> dts = new ArrayList<>();
         for (Categoria c : categorias.values()){
             dts.add(c.getDataCategoria());
         }

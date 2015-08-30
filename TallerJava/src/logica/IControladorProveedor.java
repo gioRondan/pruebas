@@ -36,7 +36,7 @@ public interface IControladorProveedor {
     public void altaProveedor(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmp, String LinkEmpres) throws Exception;
     public List<DataPromocion> listarPromocionesXProveedor(String nomProveedor);
     public DataInfoPromocion verInfoPromocion(String nickproveedor, String nomPromocion);
-    public DataInfoServicio verInfoServicio(String nomServicio);
+    public DataInfoServicio verInfoServicio(String nomServicio, String nomProveedor);
     public DataInfoProveedor verInfoProveedor(String nomProveedor);
     public DataServicio informacionServicio(String prv,String ser);
 }

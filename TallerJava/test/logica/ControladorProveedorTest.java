@@ -5,6 +5,7 @@
  */
 package logica;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -462,11 +463,12 @@ public class ControladorProveedorTest {
     public void testVerInfoServicio() {
         System.out.println("verInfoServicio");
         String nomServicio = "vuelo123";
+        String nomProveedor = "nickname11";
         testAltaServicio();
         testIngresarNombreCategoria2("transporte");
         ControladorProveedor instance = new ControladorProveedor();
-        DataInfoServicio expResult = new DataInfoServicio(nomServicio, null, null, 0, null, null, null, null);
-        DataInfoServicio result = instance.verInfoServicio(nomServicio);
+        DataInfoServicio expResult = new DataInfoServicio(nomServicio, null, null, 0, null, null, new ArrayList<>(), null);
+        DataInfoServicio result = instance.verInfoServicio(nomServicio, nomProveedor);
         assertEquals(expResult.getNombre(), result.getNombre());
     }
 

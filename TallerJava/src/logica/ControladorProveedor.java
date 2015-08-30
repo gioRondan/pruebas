@@ -257,10 +257,10 @@ public class ControladorProveedor implements IControladorProveedor{
         return prov.getDataPromociones();
     }
     @Override
-    public DataInfoServicio verInfoServicio( String nomServicio){
-        ManejadorCategoria mCa = ManejadorCategoria.getInstance();
-        Categoria cat = mCa.getCategoria(nomCategoria);
-        Servicio ser = cat.getServicio(nomServicio);
+    public DataInfoServicio verInfoServicio(String nomServicio, String nomProveedor){
+        ManejadorProveedor mPr = ManejadorProveedor.getInstance();
+        Proveedor prov = mPr.getProveedor(nomProveedor);
+        Servicio ser = prov.getServicio(nomServicio);
         return ser.getDataInfoServicio();
     }
     @Override
