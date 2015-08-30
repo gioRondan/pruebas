@@ -80,4 +80,12 @@ public class Categoria {
     public boolean esRaiz() {
         return (!(tienePadre));
     }
+
+    Servicio getServicio(String nomServicio) {
+        for(Servicio it : servicios){
+            if(it.getNombre().equals(nomServicio))
+                return it;
+        }
+        return null;
+    }
 }

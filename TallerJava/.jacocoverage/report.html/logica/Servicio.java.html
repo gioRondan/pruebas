@@ -35,18 +35,18 @@ public class Servicio {
 <span class="nc" id="L35">        this.nombre = nom;</span>
 <span class="nc" id="L36">    }</span>
     public void setDesc(String des){
-<span class="nc" id="L38">        this.descripcion= des;</span>
-<span class="nc" id="L39">    }</span>
+<span class="fc" id="L38">        this.descripcion= des;</span>
+<span class="fc" id="L39">    }</span>
     public void agregarImagen(String img)throws Exception{
-<span class="nc bnc" id="L41" title="All 2 branches missed.">        if (contImagen &lt; 4){</span>
-<span class="nc" id="L42">            this.imagen[contImagen] = img;</span>
-<span class="nc" id="L43">            contImagen++;</span>
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">        if (contImagen &lt; 4){</span>
+<span class="fc" id="L42">            this.imagen[contImagen] = img;</span>
+<span class="fc" id="L43">            contImagen++;</span>
         }else
 <span class="nc" id="L45">            throw new Exception(&quot;El servicio ya tiene asignado 3 imagenes&quot;);</span>
-<span class="nc" id="L46">    }</span>
+<span class="fc" id="L46">    }</span>
     public void setPrecio(float precio){
-<span class="nc" id="L48">         this.precio = precio;</span>
-<span class="nc" id="L49">    }</span>
+<span class="fc" id="L48">         this.precio = precio;</span>
+<span class="fc" id="L49">    }</span>
     
     public String getNombre(){
 <span class="fc" id="L52">        return this.nombre;</span>
@@ -64,8 +64,8 @@ public class Servicio {
 <span class="fc" id="L64">        this.origen = origen;</span>
 <span class="fc" id="L65">    }</span>
     public void asociarDestino(Ciudad destino){
-<span class="nc" id="L67">        this.destino = destino;</span>
-<span class="nc" id="L68">    }</span>
+<span class="fc" id="L67">        this.destino = destino;</span>
+<span class="fc" id="L68">    }</span>
     public void agregarCategoria(Categoria categoria){
 <span class="fc" id="L70">        this.categorias.put(categoria.getNombre(), categoria);</span>
 <span class="fc" id="L71">    }</span>

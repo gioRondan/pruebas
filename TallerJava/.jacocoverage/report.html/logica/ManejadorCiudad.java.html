@@ -38,8 +38,8 @@ public class ManejadorCiudad {
     public Ciudad getCiudad(String a){
 <span class="fc" id="L39">        return ciudades.get(a);</span>
     }
-    /* operaciones para alta servicio
-        
-    */
+    public void addCiudad(Ciudad ciudad){
+<span class="fc" id="L42">        ciudades.put(ciudad.getNombre(), ciudad);</span>
+<span class="fc" id="L43">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
