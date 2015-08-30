@@ -367,7 +367,10 @@ public class ControladorProveedorTest {
         String nombre = "promo1";
         int descuento = 10;
         ControladorProveedor instance = new ControladorProveedor();
-        instance.altaPromocion(nomProveedor, ser, nombre, descuento);
+        for(int j = 0; j <10;j++){
+            instance.altaPromocion(nomProveedor, ser, Integer.toString(j+1), descuento);
+        }
+        
     }
 
     /**
@@ -438,10 +441,9 @@ public class ControladorProveedorTest {
         testAltaPromocion();
         ControladorProveedor instance = new ControladorProveedor();
         List<DataPromocion> result = instance.listarPromocionesXProveedor("nickname");
-        assertEquals("promo1", result.get(0).getNombre());
-        /*for(int j = 0; j <10;j++){
+        for(int j = 0; j <10;j++){
             assertEquals(Integer.toString(j+1), result.get(j).getNombre());
-        }*/
+        }
     }
 
     /**
