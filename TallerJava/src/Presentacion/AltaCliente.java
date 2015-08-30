@@ -33,11 +33,12 @@ public class AltaCliente extends javax.swing.JInternalFrame {
     }
 
     public void limpiarCampos(){
+        clienteNick.setText("");
         this.clienteNombre.setText("");
         this.clienteApellido.setText("");
         this.clienteEmail.setText("");
-        clienteNick.setText("");
-        clienteImagen.setText("");        
+        clienteImagen.setText("");   
+        clienteNick.requestFocus();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -247,6 +248,7 @@ public class AltaCliente extends javax.swing.JInternalFrame {
             try {
                 Pantallaprin.ICC.altaCliente(clienteNick.getText() ,clienteNombre.getText(), clienteApellido.getText(), clienteEmail.getText() ,selectedDate , "");
                 JOptionPane.showMessageDialog(null,"El Cliente se ingreso con exito");
+                limpiarCampos();
             } catch (Exception ex){
                 //error en alta cliente
                 JOptionPane.showMessageDialog(null,ex.getMessage());
