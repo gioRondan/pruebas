@@ -194,10 +194,8 @@ public class ControladorProveedorTest {
     /**
      * Test of ingresarImagenServicio method, of class ControladorProveedor.
      */
-    @Test
-    public void testIngresarImagenServicio() {
+    public void testIngresarImagenServicio(String imagen) {
         System.out.println("ingresarImagenServicio");
-        String imagen = "imagen";
         ControladorProveedor instance = new ControladorProveedor();
         instance.ingresarImagenServicio(imagen);
     }
@@ -205,10 +203,9 @@ public class ControladorProveedorTest {
     /**
      * Test of ingresarDestinoServicio method, of class ControladorProveedor.
      */
-    @Test
-    public void testIngresarDestinoServicio() {
+    
+    public void testIngresarDestinoServicio(String destino) {
         System.out.println("ingresarDestinoServicio");
-        String destino = "destino";
         ControladorProveedor instance = new ControladorProveedor();
         instance.ingresarDestinoServicio(destino);
     }
@@ -223,8 +220,6 @@ public class ControladorProveedorTest {
         Set<DataCiudad> expResult = null;
         List<DataCiudad> result = instance.listarCiudades();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -261,7 +256,7 @@ public class ControladorProveedorTest {
         testIngresarCategoriaServicio2("transporte");
         
         ControladorProveedor instance = new ControladorProveedor();
-        instance.altaServicio(nombre, descripcion, precio, origen, proveedor);
+        instance.altaServicio(nombre, descripcion, precio, origen, proveedor,"0");
     }
 
 
@@ -297,7 +292,7 @@ public class ControladorProveedorTest {
         for(int i = 1; i<=10; i++){
             int n = i;
             testIngresarCategoriaServicio2("transporte");
-            instance.altaServicio(Integer.toString(n), descripcion, precio, origen, proveedor);
+            instance.altaServicio(Integer.toString(n), descripcion, precio, origen, proveedor,"0");
         }
         List<DataServicio> result = instance.listarServiciosXCategoria("transporte");
         System.out.println(result.size());
@@ -329,7 +324,7 @@ public class ControladorProveedorTest {
         for(int i = 1; i<=10; i++){
             int n = i;
             testIngresarCategoriaServicio2("transporte");
-            instance.altaServicio(Integer.toString(n), descripcion, precio, origen, proveedor);
+            instance.altaServicio(Integer.toString(n), descripcion, precio, origen, proveedor,"0");
         }
         List<DataServicio> result = instance.listarServiciosXProveedor("nickname");
         System.out.println(result.size());
@@ -337,17 +332,17 @@ public class ControladorProveedorTest {
             assertEquals(Integer.toString(j+1), result.get(j).getNombre());
         }
         testIngresarCategoriaServicio2("transporte");
-            instance.altaServicio("1", descripcion, precio, origen, "nickname2");
+            instance.altaServicio("1", descripcion, precio, origen, "nickname2","0");
             assertEquals("1", result.get(0).getNombre());
     }
 
     /**
      * Test of seleccionarServicio method, of class ControladorProveedor.
+     * @param nomServicio
      */
-    @Test
-    public void testSeleccionarServicio() {
+    
+    public void testSeleccionarServicio(String nomServicio) {
         System.out.println("seleccionarServicio");
-        String nomServicio = "";
         ControladorProveedor instance = new ControladorProveedor();
         instance.seleccionarServicio(nomServicio);
     }
@@ -355,7 +350,7 @@ public class ControladorProveedorTest {
     /**
      * Test of altaPromocion method, of class ControladorProveedor.
      */
-    @Test
+    
     public void testAltaPromocion() {
         System.out.println("altaPromocion");
         
@@ -375,33 +370,33 @@ public class ControladorProveedorTest {
 
     /**
      * Test of ingresarDescripcionServicio method, of class ControladorProveedor.
+     * @param desc
      */
-    @Test
-    public void testIngresarDescripcionServicio() {
+    
+    public void testIngresarDescripcionServicio(String desc) {
         System.out.println("ingresarDescripcionServicio");
-        String desc = "";
         ControladorProveedor instance = new ControladorProveedor();
         instance.ingresarDescripcionServicio(desc);
     }
 
     /**
      * Test of ingresarPrecioServicio method, of class ControladorProveedor.
+     * @param precio
      */
-    @Test
-    public void testIngresarPrecioServicio() {
+    
+    public void testIngresarPrecioServicio(int precio) {
         System.out.println("ingresarPrecioServicio");
-        int precio = 0;
         ControladorProveedor instance = new ControladorProveedor();
         instance.ingresarPrecioServicio(precio);
     }
 
     /**
      * Test of ingresarOrigenServicio method, of class ControladorProveedor.
+     * @param origen
      */
-    @Test
-    public void testIngresarOrigenServicio() {
+   
+    public void testIngresarOrigenServicio(String origen) {
         System.out.println("ingresarOrigenServicio");
-        String origen = "";
         ControladorProveedor instance = new ControladorProveedor();
         instance.ingresarOrigenServicio(origen);
     }
@@ -413,6 +408,17 @@ public class ControladorProveedorTest {
     public void testModificarServicio() {
         System.out.println("modificarServicio");
         ControladorProveedor instance = new ControladorProveedor();
+        testListarServiciosXProveedor();
+        List<DataServicio> servicios = instance.listarServiciosXProveedor("nickname");
+        testSeleccionarServicio("1");
+        testIngresarDescripcionServicio("modificado");
+        testIngresarImagenServicio("modificada");
+        testIngresarPrecioServicio(9999);
+        testListarCiudades();
+        testIngresarOrigenServicio("4");
+        testIngresarDestinoServicio("4");
+        testListarCategorias();
+        testIngresarCategoriaServicio();
         instance.modificarServicio();
     }
 
