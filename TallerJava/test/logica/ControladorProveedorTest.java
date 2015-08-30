@@ -422,10 +422,13 @@ public class ControladorProveedorTest {
     @Test
     public void testListarEmpresas() {
         System.out.println("listarEmpresas");
+        try{
+            testAltaProveedor2("nickname6", "nombre", "apellido", "email6", new Date(2,2,2000), "imagen");
+        }catch(Exception ex){}
         ControladorProveedor instance = new ControladorProveedor();
-        List<DataEmpresa> expResult = null;
+        String expResult = "hola";
         List<DataEmpresa> result = instance.listarEmpresas();
-        assertEquals(expResult, result);
+        assertEquals(expResult, result.get(0).getNombre());
     }
 
 
@@ -462,6 +465,8 @@ public class ControladorProveedorTest {
     }
 
     /**
+     * 
+     * 
      * Test of verInfoProveedor method, of class ControladorProveedor.
      */
     @Test
@@ -482,11 +487,9 @@ public class ControladorProveedorTest {
     @Test
     public void testIngresarImagen() {
         System.out.println("ingresarImagen");
-        String imagen = "";
+        String imagen = "im";
         ControladorProveedor instance = new ControladorProveedor();
         instance.ingresarImagen(imagen);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**

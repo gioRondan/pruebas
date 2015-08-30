@@ -49,11 +49,11 @@ public class Proveedor extends Usuario{
 <span class="nc" id="L49">        return this.promociones.get(nomPromocion);</span>
     }
     public List&lt;DataPromocion&gt; getDataPromociones(){
-<span class="nc" id="L52">        List&lt;DataPromocion&gt; dts =  new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L53" title="All 2 branches missed.">        for (Promocion value : promociones.values()){</span>
-<span class="nc" id="L54">            dts.add(value.getDataPromocion());</span>
-<span class="nc" id="L55">        }</span>
-<span class="nc" id="L56">        return dts;</span>
+<span class="fc" id="L52">        List&lt;DataPromocion&gt; dts =  new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        for (Promocion value : promociones.values()){</span>
+<span class="fc" id="L54">            dts.add(value.getDataPromocion());</span>
+<span class="fc" id="L55">        }</span>
+<span class="fc" id="L56">        return dts;</span>
     }
     public void asociarServicio(Servicio ser){
 <span class="fc" id="L59">        this.servicios.put(ser.getNombre(), ser);</span>

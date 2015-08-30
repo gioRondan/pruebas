@@ -248,8 +248,8 @@ import java.util.logging.Logger;
     @Override
     public List&lt;DataPromocion&gt; listarPromocionesXProveedor( String nomProveedor){
 <span class="fc" id="L250">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
-<span class="fc" id="L251">        Proveedor prov = mPr.getProveedor(proveedor);</span>
-<span class="nc" id="L252">        return prov.getDataPromociones();</span>
+<span class="fc" id="L251">        Proveedor prov = mPr.getProveedor(nomProveedor);</span>
+<span class="fc" id="L252">        return prov.getDataPromociones();</span>
     }
     @Override
     public DataInfoServicio verInfoServicio( String nomServicio){
