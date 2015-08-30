@@ -6,9 +6,11 @@
 package Presentacion;
 
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
+import javax.swing.tree.TreePath;
 import logica.DataProveedor;
 import logica.DataServicio;
 
@@ -34,11 +36,18 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
             prv.setUserObject(dtprv.getNickname());
             raiz.add(prv);
             List<DataServicio> dtservicios = x.ICP.listarServiciosXProveedor(dtprv.getNickname());
-            for (DataServicio dtser: dtservicios){
-                DefaultMutableTreeNode ser = new DefaultMutableTreeNode();
-                ser.setUserObject(dtser.getNombre());
+//            for (DataServicio dtser: dtservicios){
+////                DefaultMutableTreeNode ser = new DefaultMutableTreeNode();
+////                ser.setUserObject(dtser.getNombre());
+////                prv.add(ser);
+//                
+//            }  
+            DefaultMutableTreeNode ser = new DefaultMutableTreeNode();
+                ser.setUserObject("servicio1");
                 prv.add(ser);
-            }        
+                 ser = new DefaultMutableTreeNode();
+                ser.setUserObject("servicio2");
+                prv.add(ser);
         }
         DefaultTreeModel modeloArbol = new DefaultTreeModel(raiz);
         jTree1.setModel(modeloArbol);
@@ -64,9 +73,16 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        prove = new javax.swing.JLabel();
+        servi = new javax.swing.JLabel();
 
         setClosable(true);
 
+        jTree1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTree1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTree1);
 
         jLabel1.setText("Nombre:");
@@ -83,8 +99,17 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
         jLabel5.setText("Promocion");
 
         jButton1.setText("Aceptar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancelar");
+
+        prove.setText("jLabel4");
+
+        servi.setText("jLabel6");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,29 +119,36 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
                 .addGap(45, 45, 45)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(promocionDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(procioTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
-                                    .addComponent(promocionNombre))))
-                        .addContainerGap(55, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)
-                        .addGap(44, 44, 44))))
+                        .addGap(44, 44, 44))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(22, 22, 22)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel1)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jLabel2))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(promocionDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(procioTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                                            .addComponent(promocionNombre)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(servi)
+                                    .addComponent(prove))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,6 +169,10 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(procioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addComponent(prove)
+                        .addGap(18, 18, 18)
+                        .addComponent(servi)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
@@ -147,6 +183,20 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
+        // TODO add your handling code here:
+        TreePath x = jTree1.getSelectionPath();
+        String path = x.toString();
+        String servicio = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]")); 
+        String proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
+        prove.setText(proveedor);
+        servi.setText(servicio);
+    }//GEN-LAST:event_jTree1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -161,5 +211,7 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField procioTotal;
     private javax.swing.JSpinner promocionDescuento;
     private javax.swing.JTextField promocionNombre;
+    private javax.swing.JLabel prove;
+    private javax.swing.JLabel servi;
     // End of variables declaration//GEN-END:variables
 }
