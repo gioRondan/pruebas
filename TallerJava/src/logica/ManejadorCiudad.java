@@ -38,7 +38,7 @@ public class ManejadorCiudad {
     public Ciudad getCiudad(String a){
         return ciudades.get(a);
     }
-    /* operaciones para alta servicio
-        
-    */
+    public void addCiudad(Ciudad ciudad){
+        ciudades.put(ciudad.getNombre(), ciudad);
+    }
 }

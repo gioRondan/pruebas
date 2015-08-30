@@ -60,9 +60,9 @@ public class ControladorProveedor implements IControladorProveedor{
         return mCa.getDataCategorias();
     }
     @Override
-    public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor){
+    public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor, String pais){
         Servicio ser = new Servicio(nombre, descripcion, precio);
-        for (String im : imagenServicio){
+        for(String im : imagenServicio){
             try {
                 ser.agregarImagen(im);
             } catch (Exception ex) {
@@ -80,8 +80,10 @@ public class ControladorProveedor implements IControladorProveedor{
             ser.agregarCategoria(cat);
         }
         ManejadorCiudad mCi = ManejadorCiudad.getInstance();
+        altaCiudad(origen, pais);
         ser.asociarOrigen(mCi.getCiudad(origen));
         if (!destinoServicio.isEmpty()){
+            altaCiudad(origen, pais);
             ser.asociarDestino(mCi.getCiudad(destinoServicio));
         }
         liberarMemoria();
@@ -277,6 +279,19 @@ public class ControladorProveedor implements IControladorProveedor{
         Promocion promo = p.getPromocion(nomPromocion);
         
         return promo.getDataInfoPromocion();
+    }
+
+    private void altaCiudad(String nomCiudad, String nomPais) {
+        ManejadorCiudad mCi = ManejadorCiudad.getInstance();
+        ManejadorPais mPa = ManejadorPais.getInstance();
+        if(!nomCiudad.isEmpty()){
+            if(mCi.getCiudad(nomCiudad) == null){
+                if(mPa.getPais(nomPais) == null){
+                    mPa.addPais(new Pais(nomPais));
+                }
+                mCi.addCiudad(new Ciudad(nomCiudad, mPa.getPais(nomPais)));
+            }
+        }
     }
 }
 

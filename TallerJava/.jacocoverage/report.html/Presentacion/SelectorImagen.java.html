@@ -46,52 +46,54 @@ public class SelectorImagen extends javax.swing.JInternalFrame {
 
 <span class="nc" id="L47">        jFileChooser1 = new javax.swing.JFileChooser();</span>
 
-<span class="nc" id="L49">        jFileChooser1.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L49">        setTitle(&quot;Selector de archivos&quot;);</span>
+
+<span class="nc" id="L51">        jFileChooser1.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L51">                jFileChooser1ActionPerformed(evt);</span>
-<span class="nc" id="L52">            }</span>
+<span class="nc" id="L53">                jFileChooser1ActionPerformed(evt);</span>
+<span class="nc" id="L54">            }</span>
         });
 
-<span class="nc" id="L55">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="nc" id="L56">        getContentPane().setLayout(layout);</span>
-<span class="nc" id="L57">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L58">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L59">            .addComponent(jFileChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L57">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L58">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L59">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L60">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L61">            .addComponent(jFileChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
         );
-<span class="nc" id="L61">        layout.setVerticalGroup(</span>
-<span class="nc" id="L62">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L63">            .addComponent(jFileChooser1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)</span>
+<span class="nc" id="L63">        layout.setVerticalGroup(</span>
+<span class="nc" id="L64">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L65">            .addComponent(jFileChooser1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)</span>
         );
 
-<span class="nc" id="L66">        pack();</span>
-<span class="nc" id="L67">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L68">        pack();</span>
+<span class="nc" id="L69">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void jFileChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser1ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L71">        JFileChooser selector = (JFileChooser)evt.getSource();</span>
-<span class="nc" id="L72">        FileFilter filtroImagen=new FileNameExtensionFilter(&quot;JPG, PNG &amp; GIF&quot;,&quot;jpg&quot;,&quot;png&quot;,&quot;gif&quot;);</span>
-<span class="nc" id="L73">        selector.setFileFilter(filtroImagen);</span>
-<span class="nc" id="L74">        selector.setAcceptAllFileFilterUsed(false);</span>
+<span class="nc" id="L73">        JFileChooser selector = (JFileChooser)evt.getSource();</span>
+<span class="nc" id="L74">        FileFilter filtroImagen=new FileNameExtensionFilter(&quot;JPG, PNG &amp; GIF&quot;,&quot;jpg&quot;,&quot;png&quot;,&quot;gif&quot;);</span>
+<span class="nc" id="L75">        selector.setFileFilter(filtroImagen);</span>
+<span class="nc" id="L76">        selector.setAcceptAllFileFilterUsed(false);</span>
         
-<span class="nc" id="L76">        String comando = evt.getActionCommand();</span>
-<span class="nc bnc" id="L77" title="All 2 branches missed.">        if (comando.equals(JFileChooser.APPROVE_SELECTION)){</span>
-<span class="nc" id="L78">            File archivoSeleccionado = selector.getSelectedFile();</span>
-<span class="nc bnc" id="L79" title="All 2 branches missed.">            if (this.padre.equals(&quot;AltaProveedor&quot;)){</span>
-<span class="nc" id="L80">                AltaProveedor.proveedorImagen.setText(archivoSeleccionado.getAbsolutePath());</span>
+<span class="nc" id="L78">        String comando = evt.getActionCommand();</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">        if (comando.equals(JFileChooser.APPROVE_SELECTION)){</span>
+<span class="nc" id="L80">            File archivoSeleccionado = selector.getSelectedFile();</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">            if (this.padre.equals(&quot;AltaProveedor&quot;)){</span>
+<span class="nc" id="L82">                AltaProveedor.proveedorImagen.setText(archivoSeleccionado.getAbsolutePath());</span>
             }
-<span class="nc bnc" id="L82" title="All 2 branches missed.">            if (this.padre.equals(&quot;AltaCliente&quot;)){</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">            if (this.padre.equals(&quot;AltaCliente&quot;)){</span>
             // campo a rellena.
-<span class="nc" id="L84">              AltaCliente.clienteImagen.setText(archivoSeleccionado.getAbsolutePath());</span>
+<span class="nc" id="L86">              AltaCliente.clienteImagen.setText(archivoSeleccionado.getAbsolutePath());</span>
             }
-<span class="nc bnc" id="L86" title="All 2 branches missed.">             if (this.padre.equals(&quot;&quot;/*nombre clase*/)){</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">             if (this.padre.equals(&quot;&quot;/*nombre clase*/)){</span>
                 // Accion para la clase.
             }
-<span class="nc" id="L89">            this.dispose();</span>
-<span class="nc bnc" id="L90" title="All 2 branches missed.">        }else if (comando.equals(JFileChooser.CANCEL_SELECTION)){</span>
 <span class="nc" id="L91">            this.dispose();</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">        }else if (comando.equals(JFileChooser.CANCEL_SELECTION)){</span>
+<span class="nc" id="L93">            this.dispose();</span>
         }
    
-<span class="nc" id="L94">    }//GEN-LAST:event_jFileChooser1ActionPerformed</span>
+<span class="nc" id="L96">    }//GEN-LAST:event_jFileChooser1ActionPerformed</span>
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
