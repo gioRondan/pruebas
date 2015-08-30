@@ -238,8 +238,7 @@ public class ControladorProveedor implements IControladorProveedor{
 
         if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty())  || (nombreEmp.isEmpty())){
             throw new Exception("Los datos ingresados no son correctos");
-        }else{            
-        
+        }else{                    
             Proveedor prov = new Proveedor(nick, nombre, apellido, email, fechaNac, imagen);
             ManejadorEmpresa mEmp =  ManejadorEmpresa.getInstance();
             Empresa emp = mEmp.getEmpresa(nombreEmp);

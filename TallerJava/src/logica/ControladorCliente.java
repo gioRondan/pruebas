@@ -43,13 +43,24 @@ public class ControladorCliente implements IControladorCliente{
     }
     
     @Override
-    public void altaCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen) throws Exception{
-        ManejadorCliente mCl = ManejadorCliente.getInstance();
-        mCl.unicidadNick(nickname);
+    public void altaCliente(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen) throws Exception{
+        
+        ManejadorProveedor mPr = ManejadorProveedor.getInstance();
+        ManejadorCliente mCl   = ManejadorCliente.getInstance();
+        
+        //Control de unicidad de usuarios
+        mPr.unicidadNick(nick);
+        mPr.unicidadEmail(email);
+        mCl.unicidadNick(nick);
         mCl.unicidadEmail(email);
-        Cliente cliente;
-        cliente = new Cliente(nickname, nombre, apellido, email, fechaNac, imagen);
-        mCl.addCliente(cliente);        
+        
+        if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty())){
+            throw new Exception("Los datos ingresados no son correctos");
+        }else{
+            Cliente cliente = new Cliente(nick, nombre, apellido, email, fechaNac, imagen);
+            mCl.addCliente(cliente);        
+        }
+        
     }
     
     @Override

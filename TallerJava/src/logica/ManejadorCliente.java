@@ -43,12 +43,12 @@ public class ManejadorCliente {
     }
     void unicidadNick(String nick) throws Exception{
         if (clientes.containsKey(nick))
-            throw new Exception("el nick ingresado ya pertenece a otro Usuario"); 
+            throw new Exception("El nick ingresado ya pertenece a otro Cliente"); 
     }
     void unicidadEmail(String email) throws Exception{
         for(Cliente it : clientes.values()){
             if (it.getEmail().equals(email)){
-                throw new Exception("el email ingresado ya pertenece a otro Usuario");
+                throw new Exception("El email ingresado ya pertenece a otro Cliente");
             }
         }
     }
