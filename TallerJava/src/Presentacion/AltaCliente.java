@@ -32,6 +32,13 @@ public class AltaCliente extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public void limpiarCampos(){
+        this.clienteNombre.setText("");
+        this.clienteApellido.setText("");
+        this.clienteEmail.setText("");
+        clienteNick.setText("");
+        clienteImagen.setText("");        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,6 +64,8 @@ public class AltaCliente extends javax.swing.JInternalFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+
+        setClosable(true);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Cliente");
@@ -224,6 +233,7 @@ public class AltaCliente extends javax.swing.JInternalFrame {
                 try {
                     Pantallaprin.ICC.altaCliente(clienteNick.getText() ,clienteNombre.getText(), clienteApellido.getText(), clienteEmail.getText() ,selectedDate , x);
                     JOptionPane.showMessageDialog(null,"El Cliente se ingreso con exito");
+                    limpiarCampos();
                 } catch (Exception ex){
                 //error en alta Cleinete
                 JOptionPane.showMessageDialog(null,ex.getMessage());
