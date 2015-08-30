@@ -7,6 +7,8 @@ package Presentacion;
 
 
 
+import static Presentacion.AltaCliente.clienteImagen;
+import static Presentacion.AltaCliente.clienteNick;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -29,8 +31,18 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
     PantallaPrincipal Pantallaprin = PantallaPrincipal.getInstancia();
     
     public AltaProveedor() {
-        initComponents();
-       
+        initComponents();       
+    }
+    
+    public void limpiarCampos(){
+        proveedorNick.setText("");
+        this.proveedorNombre.setText("");
+        this.proveedorApellido.setText("");
+        this.proveedorEmail.setText("");
+        proveedorImagen.setText("");    
+        proveedorEmpresaNombre.setText("");
+        proveedorEmpresaLink.setText("");
+        proveedorNick.requestFocus();
     }
 
     /**
@@ -271,6 +283,7 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
                 try {
                     Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , x, proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
                     JOptionPane.showMessageDialog(null,"El Proveedor se ingreso con exito");
+                    limpiarCampos();
                 } catch (Exception ex){
                 //error en alta proveedor
                 JOptionPane.showMessageDialog(null,ex.getMessage());
@@ -284,6 +297,7 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
             try {
                 Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , "", proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
                 JOptionPane.showMessageDialog(null,"El Proveedor se ingreso con exito");
+                limpiarCampos();
             } catch (Exception ex){
                 //error en alta proveedor
                 JOptionPane.showMessageDialog(null,ex.getMessage());
@@ -297,9 +311,7 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-      
-      Pantallaprin.abrirListarEmpresas();
-      
+        Pantallaprin.abrirListarEmpresas();      
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -308,8 +320,7 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void formAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_formAncestorAdded
-        // TODO add your handling code here:
-       
+        // TODO add your handling code here:   
        
     }//GEN-LAST:event_formAncestorAdded
         
