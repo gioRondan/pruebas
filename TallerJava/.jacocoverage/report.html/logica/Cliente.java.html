@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -27,51 +28,51 @@ public class Cliente extends Usuario{
     
     
     public Cliente(String nickname, String nombre, String apellido,String email, Date fechaNac, String url){
-<span class="fc" id="L30">        super(nickname,nombre,apellido,email,fechaNac,url);</span>
-        
-<span class="fc" id="L32">    }</span>
+<span class="fc" id="L31">        super(nickname,nombre,apellido,email,fechaNac,url);</span>
+<span class="fc" id="L32">        this.reservas = new HashMap();</span>
+<span class="fc" id="L33">    }</span>
     public DataCliente getDataCliente(){
-<span class="fc" id="L34">        return new DataCliente( nickname, nombre, apellido, email, fechaNac, imagen);</span>
+<span class="fc" id="L35">        return new DataCliente( nickname, nombre, apellido, email, fechaNac, imagen);</span>
     }
     public List&lt;DataReserva&gt; getDataReservas(){
-<span class="nc" id="L37">        List&lt;DataReserva&gt; dts = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L38" title="All 2 branches missed.">        for (Reserva value : reservas.values()){</span>
-<span class="nc" id="L39">            dts.add(value.getDataReserva());</span>
-<span class="nc" id="L40">        }</span>
-<span class="nc" id="L41">        return dts;</span>
+<span class="fc" id="L38">        List&lt;DataReserva&gt; dts = new ArrayList&lt;&gt;();</span>
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">        for (Reserva value : reservas.values()){</span>
+<span class="nc" id="L40">            dts.add(value.getDataReserva());</span>
+<span class="nc" id="L41">        }</span>
+<span class="fc" id="L42">        return dts;</span>
     }
     public void reservarServicio(int id,Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
-<span class="nc" id="L44">        Date fecha_actual = new Date();</span>
+<span class="nc" id="L45">        Date fecha_actual = new Date();</span>
         
-<span class="nc" id="L46">        Reserva res = new Reserva(id,fecha_actual,fechaIni,fechaFin,0,Estado.registrada);</span>
+<span class="nc" id="L47">        Reserva res = new Reserva(id,fecha_actual,fechaIni,fechaFin,0,Estado.registrada);</span>
         
-<span class="nc" id="L48">        reservas.put(res.getId(),res);</span>
-<span class="nc" id="L49">        ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin);</span>
-<span class="nc" id="L50">        res.agregarItem(item);</span>
-<span class="nc" id="L51">    }</span>
+<span class="nc" id="L49">        reservas.put(res.getId(),res);</span>
+<span class="nc" id="L50">        ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin);</span>
+<span class="nc" id="L51">        res.agregarItem(item);</span>
+<span class="nc" id="L52">    }</span>
     public void modificarEstadoReserva(int id, Estado estado){
-<span class="nc" id="L53">        Reserva res = reservas.get(id);</span>
-<span class="nc bnc" id="L54" title="All 2 branches missed.">        if (res.getEstado() == Estado.registrada){</span>
-<span class="nc" id="L55">            res.setEstado(estado);</span>
+<span class="nc" id="L54">        Reserva res = reservas.get(id);</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">        if (res.getEstado() == Estado.registrada){</span>
+<span class="nc" id="L56">            res.setEstado(estado);</span>
         }
-<span class="nc" id="L57">    }</span>
+<span class="nc" id="L58">    }</span>
     public void reservarPromocion(int clave,Promocion prom,int cantidad,Date fechaIni,Date fechaFin){
-<span class="nc" id="L59">        Date fecha_actual = new Date();</span>
-<span class="nc" id="L60">        Reserva res = new Reserva(clave,fecha_actual,fechaIni,fechaFin,0,Estado.registrada);</span>
-<span class="nc" id="L61">        reservas.put(res.getId(),res);</span>
-<span class="nc" id="L62">        ItemReserva item = new ItemReserva(cantidad,prom, fechaIni, fechaFin);</span>
-<span class="nc" id="L63">        res.agregarItem(item);</span>
-<span class="nc" id="L64">    }</span>
+<span class="nc" id="L60">        Date fecha_actual = new Date();</span>
+<span class="nc" id="L61">        Reserva res = new Reserva(clave,fecha_actual,fechaIni,fechaFin,0,Estado.registrada);</span>
+<span class="nc" id="L62">        reservas.put(res.getId(),res);</span>
+<span class="nc" id="L63">        ItemReserva item = new ItemReserva(cantidad,prom, fechaIni, fechaFin);</span>
+<span class="nc" id="L64">        res.agregarItem(item);</span>
+<span class="nc" id="L65">    }</span>
     public void cancelarReserva(int id){
-<span class="nc" id="L66">        Reserva res = reservas.get(id);</span>
-<span class="nc" id="L67">        res.darDeBaja();</span>
-<span class="nc" id="L68">        reservas.remove(id);</span>
-<span class="nc" id="L69">    }</span>
+<span class="nc" id="L67">        Reserva res = reservas.get(id);</span>
+<span class="nc" id="L68">        res.darDeBaja();</span>
+<span class="nc" id="L69">        reservas.remove(id);</span>
+<span class="nc" id="L70">    }</span>
     public DataInfoCliente getDataInfoCliente(){
-<span class="nc" id="L71">        return new DataInfoCliente(nickname, nombre, apellido, email, fechaNac, imagen, getDataReservas());</span>
+<span class="nc" id="L72">        return new DataInfoCliente(nickname, nombre, apellido, email, fechaNac, imagen, getDataReservas());</span>
     }
     public Reserva getReserva(int id) {
-<span class="nc" id="L74">        return reservas.get(id);</span>
+<span class="nc" id="L75">        return reservas.get(id);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

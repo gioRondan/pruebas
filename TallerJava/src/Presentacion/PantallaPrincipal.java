@@ -122,6 +122,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        Servicios = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -190,6 +191,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jMenuItem4.setText("Promocion");
         jMenu1.add(jMenuItem4);
+
+        Servicios.setText("Servicios");
+        Servicios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ServiciosActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Servicios);
 
         jMenuBar1.add(jMenu1);
 
@@ -366,6 +375,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void ServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ServiciosActionPerformed
+        // TODO add your handling code here:
+        AltaServicio al = new AltaServicio();
+        Escritorio.add(al);
+        int a = (Escritorio.getWidth() - al.getWidth())/2;
+        int b = (Escritorio.getHeight() - al.getHeight()) /2;
+        al.setLocation(a ,b);
+        al.show();
+    }//GEN-LAST:event_ServiciosActionPerformed
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenu1ActionPerformed
@@ -436,6 +454,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDesktopPane Escritorio;
+    private javax.swing.JMenuItem Servicios;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

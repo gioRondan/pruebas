@@ -12,6 +12,7 @@ package logica;
 public class pruebasRealizadas {
     /*
     no agrega clientes con igual email
+    agrega servicios con igual nombre en distintos proveedores
     
     */
 }

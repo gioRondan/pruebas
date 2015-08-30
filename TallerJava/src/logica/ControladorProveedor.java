@@ -97,7 +97,7 @@ public class ControladorProveedor implements IControladorProveedor{
     @Override
     public List<DataServicio> listarServiciosXCategoria( String nomCategoria){
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
-        Categoria cat = mCa.getCategoria(categoria);
+        Categoria cat = mCa.getCategoria(nomCategoria);
         return cat.getDataServicios();
     }
     @Override
@@ -248,7 +248,7 @@ public class ControladorProveedor implements IControladorProveedor{
     @Override
     public List<DataPromocion> listarPromocionesXProveedor( String nomProveedor){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
-        Proveedor prov = mPr.getProveedor(proveedor);
+        Proveedor prov = mPr.getProveedor(nomProveedor);
         return prov.getDataPromociones();
     }
     @Override

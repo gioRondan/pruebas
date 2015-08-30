@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+<Form version="1.7" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
   </SyntheticProperties>
@@ -48,17 +48,31 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="proveedorNick" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="proveedorNick1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="proveedorImagen" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
-                                  <Component id="proveedorNick2" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
-                                  <Component id="proveedorNick3" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
-                                  <Component id="proveedorNick4" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
-                                  <Component id="jList2" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="nombre" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="descripcion" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="proveedorImagen" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
+                                                  <Component id="precio" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                                                  <Component id="ciudad1" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
+                                                  <Component id="jScrollPane1" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="0" pref="38" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jButton13" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="ciudad2" min="-2" pref="97" max="-2" attributes="0"/>
+                                          <Component id="proveedores" min="-2" pref="137" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton13" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -69,7 +83,7 @@
                       <Component id="jButton15" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="55" max="32767" attributes="0"/>
+              <EmptySpace pref="14" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
@@ -101,12 +115,12 @@
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
-                  <Component id="proveedorNick" min="-2" max="-2" attributes="0"/>
+                  <Component id="nombre" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
-                  <Component id="proveedorNick1" min="-2" pref="92" max="-2" attributes="0"/>
+                  <Component id="descripcion" min="-2" pref="92" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -123,30 +137,30 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="proveedorNick2" min="-2" max="-2" attributes="0"/>
+                  <Component id="precio" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
-                  <Component id="proveedorNick3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="ciudad1" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="proveedorNick4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ciudad2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel30" alignment="3" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="proveedores" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jList2" alignment="3" min="-2" pref="77" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="135" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton14" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton15" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -155,23 +169,23 @@
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="277" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="329" max="32767" attributes="0"/>
                   <Component id="jInternalFrame1" min="-2" pref="0" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="278" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="320" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="277" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="329" max="32767" attributes="0"/>
                   <Component id="jInternalFrame2" min="-2" pref="0" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="278" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="320" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="277" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="329" max="32767" attributes="0"/>
                   <Component id="jInternalFrame3" min="-2" pref="0" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="278" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="320" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -809,9 +823,9 @@
         <Property name="text" type="java.lang.String" value="Nombre:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="proveedorNick">
+    <Component class="javax.swing.JTextField" name="nombre">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proveedorNickActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nombreActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -822,14 +836,14 @@
         <Property name="text" type="java.lang.String" value="Proveedor"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="proveedores">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proveedoresActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel26">
@@ -837,9 +851,9 @@
         <Property name="text" type="java.lang.String" value="Descripci&#xf3;n:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="proveedorNick1">
+    <Component class="javax.swing.JTextField" name="descripcion">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proveedorNick1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="descripcionActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -868,9 +882,9 @@
         <Property name="text" type="java.lang.String" value="Precio:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="proveedorNick2">
+    <Component class="javax.swing.JTextField" name="precio">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proveedorNick2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="precioActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -881,9 +895,9 @@
         <Property name="text" type="java.lang.String" value="Ciudad:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="proveedorNick3">
+    <Component class="javax.swing.JTextField" name="ciudad1">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proveedorNick3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ciudad1ActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -894,9 +908,9 @@
         <Property name="text" type="java.lang.String" value="Ciudad destino (opcional):"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="proveedorNick4">
+    <Component class="javax.swing.JTextField" name="ciudad2">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proveedorNick4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ciudad2ActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -905,13 +919,6 @@
     <Component class="javax.swing.JLabel" name="jLabel31">
       <Properties>
         <Property name="text" type="java.lang.String" value="Categorias:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JList" name="jList2">
-      <Properties>
-        <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-          <StringArray count="0"/>
-        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton14">
@@ -930,5 +937,21 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton15ActionPerformed"/>
       </Events>
     </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTree" name="jTree1">
+          <Properties>
+            <Property name="model" type="javax.swing.tree.TreeModel" editor="org.netbeans.modules.form.editors2.TreeModelEditor">
+              <TreeModel code=""/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>

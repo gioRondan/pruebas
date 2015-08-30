@@ -50,11 +50,11 @@ public class Categoria {
 <span class="nc" id="L50">        return this.servicios;</span>
     }
     public List&lt;DataServicio&gt; getDataServicios(){
-<span class="nc" id="L53">        List&lt;DataServicio&gt; dts = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L54" title="All 2 branches missed.">        for(Servicio s : servicios){</span>
-<span class="nc" id="L55">            dts.add(s.getDataServicio());</span>
-<span class="nc" id="L56">        }</span>
-<span class="nc" id="L57">        return dts;</span>
+<span class="fc" id="L53">        List&lt;DataServicio&gt; dts = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        for(Servicio s : servicios){</span>
+<span class="fc" id="L55">            dts.add(s.getDataServicio());</span>
+<span class="fc" id="L56">        }</span>
+<span class="fc" id="L57">        return dts;</span>
     }
     public List&lt;DataCategoria&gt; getDataHijos(){
 <span class="fc" id="L60">        List&lt;DataCategoria&gt; dts = new ArrayList&lt;&gt;();</span>
@@ -67,13 +67,18 @@ public class Categoria {
 <span class="fc" id="L67">        return new DataCategoria(nombre, getDataHijos());</span>
     }
     public void setServicio(Servicio servicio){
-<span class="nc" id="L70">        this.servicios.add(servicio);</span>
-<span class="nc" id="L71">    }</span>
+<span class="fc" id="L70">        this.servicios.add(servicio);</span>
+<span class="fc" id="L71">    }</span>
     public boolean esHoja(){
 <span class="nc" id="L73">        return (hijos.isEmpty());</span>
     }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L78">        return nombre;</span>
+    }
     public boolean esRaiz() {
-<span class="fc bfc" id="L76" title="All 2 branches covered.">        return (!(tienePadre));</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">        return (!(tienePadre));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
