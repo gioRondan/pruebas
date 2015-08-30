@@ -20,13 +20,19 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
     /**
      * Creates new form AltaPromocion
      */
+    
+   
     public AltaPromocion() {
         initComponents();
         int precioin=0;
         TreeModel jmodel;
         DefaultMutableTreeNode raiz = new DefaultMutableTreeNode("Categorías");
         List<DataProveedor> dtps = x.ICP.listarProveedores();
-     //  armarArbol(raiz, dtps);
+        for (DataProveedor dtcategoria: dtps){
+            DefaultMutableTreeNode cate = new DefaultMutableTreeNode();
+            cate.setUserObject(dtcategoria);
+            raiz.add(cate);
+        }
         DefaultTreeModel modeloArbol = new DefaultTreeModel(raiz);
         jTree1.setModel(modeloArbol);
     }
