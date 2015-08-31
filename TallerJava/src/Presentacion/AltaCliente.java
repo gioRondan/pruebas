@@ -249,7 +249,7 @@ public class AltaCliente extends javax.swing.JInternalFrame {
             Path FROM = Paths.get(clienteImagen.getText());
             //muestro la ruta local de la imagen (teteo)
             //JOptionPane.showMessageDialog(null,"ruta local de la imagen: "+cleinteImagen.getText());
-            urlImagen = PantallaPrincipal.RutaImagenes+nickname+".png";
+            urlImagen = PantallaPrincipal.RutaImagenes+"Usuarios\\"+nickname+".png";
             Path TO = Paths.get(urlImagen);
             //JOptionPane.showMessageDialog(null, "ruta donde se copia la imagen: "+TO);
             //sobreescribir el fichero de destino, si existe, y copiar

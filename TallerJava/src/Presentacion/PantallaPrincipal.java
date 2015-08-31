@@ -8,11 +8,14 @@ package Presentacion;
 
 
 import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaBlackMoonLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaBlueMoonLookAndFeel;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyVetoException;
+import java.io.File;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -51,6 +54,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             if (this.RutaImagenes==null){
                  this.RutaImagenes = "C:\\Imagenes\\";
             }
+            else if (this.RutaImagenes.isEmpty()){
+                this.RutaImagenes = "C:\\Imagenes\\";
+            }
+            File usuarios=new File(this.RutaImagenes+"Usuarios"); 
+            usuarios.mkdir();
+            File servicios=new File(this.RutaImagenes+"Servicios"); 
+            servicios.mkdir();
     
     }
     
@@ -131,8 +141,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
         Servicios = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -143,10 +153,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem13 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem15 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Principal H4T");
@@ -199,14 +211,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
-        jMenuItem4.setText("Promocion");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem4);
-
         Servicios.setText("Servicios");
         Servicios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,6 +218,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu1.add(Servicios);
+
+        jMenuItem4.setText("Promocion");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
 
         jMenuBar1.add(jMenu1);
 
@@ -284,18 +296,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu5.setText("Empresas");
-
-        jMenuItem13.setText("ListarEmpresas");
-        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem13ActionPerformed(evt);
-            }
-        });
-        jMenu5.add(jMenuItem13);
-
-        jMenuBar1.add(jMenu5);
-
         jMenu6.setText("Configuracion");
 
         jMenuItem15.setText("Opciones");
@@ -305,6 +305,35 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu6.add(jMenuItem15);
+
+        jMenu5.setText("Thema");
+
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("BlackEye");
+        jRadioButtonMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jRadioButtonMenuItem1);
+
+        jRadioButtonMenuItem2.setText("BlueMoon");
+        jRadioButtonMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jRadioButtonMenuItem2);
+
+        jRadioButtonMenuItem3.setText("BlackMoon");
+        jRadioButtonMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jRadioButtonMenuItem3);
+
+        jMenu6.add(jMenu5);
 
         jMenuBar1.add(jMenu6);
 
@@ -339,11 +368,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         abrirVerInfoServicio("");
     }//GEN-LAST:event_jMenuItem7ActionPerformed
-
-    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-        // TODO add your handling code here:
-        this.abrirListarEmpresas();
-    }//GEN-LAST:event_jMenuItem13ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
@@ -446,6 +470,53 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         ap.show();
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
+    private void jRadioButtonMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        jRadioButtonMenuItem1.setSelected(false);
+        jRadioButtonMenuItem2.setSelected(true);
+        jRadioButtonMenuItem3.setSelected(false);
+        try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            UIManager.setLookAndFeel(new SyntheticaBlueMoonLookAndFeel());
+        } catch (ParseException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+    }//GEN-LAST:event_jRadioButtonMenuItem2ActionPerformed
+
+    private void jRadioButtonMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        jRadioButtonMenuItem1.setSelected(false);
+        jRadioButtonMenuItem2.setSelected(false);
+        jRadioButtonMenuItem3.setSelected(true);
+        try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            UIManager.setLookAndFeel(new SyntheticaBlackMoonLookAndFeel());
+        } catch (ParseException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jRadioButtonMenuItem3ActionPerformed
+
+    private void jRadioButtonMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem2.setSelected(false);
+        jRadioButtonMenuItem3.setSelected(false);
+        
+        try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
+        } catch (ParseException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jRadioButtonMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      * @throws javax.swing.UnsupportedLookAndFeelException
@@ -507,7 +578,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem2;
@@ -517,6 +587,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem3;
     // End of variables declaration//GEN-END:variables
 
    

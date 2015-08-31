@@ -436,7 +436,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         if (!servicioImagen1.getText().isEmpty()){
             Path FROM = Paths.get(servicioImagen1.getText());
             //armo la ruta destino
-            String urlImagenDestino = PantallaPrincipal.RutaImagenes+nombre.getText()+"1.png";
+            String urlImagenDestino = PantallaPrincipal.RutaImagenes+"Servicios\\"+p+" - "+nombre.getText()+" 1.png";
             Path TO = Paths.get(urlImagenDestino);
             try {
                 Files.copy(FROM,TO, StandardCopyOption.REPLACE_EXISTING);
@@ -450,7 +450,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         if (!servicioImagen2.getText().isEmpty()){
             Path FROM = Paths.get(servicioImagen2.getText());
             //armo la ruta destino
-            String urlImagenDestino = PantallaPrincipal.RutaImagenes+nombre.getText()+"2.png";
+            String urlImagenDestino = PantallaPrincipal.RutaImagenes+"Servicios\\"+p+" - "+nombre.getText()+" 2.png";
             Path TO = Paths.get(urlImagenDestino);
             try {
                 Files.copy(FROM,TO, StandardCopyOption.REPLACE_EXISTING);
@@ -464,7 +464,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         if (!servicioImagen3.getText().isEmpty()){
             Path FROM = Paths.get(servicioImagen3.getText());
             //armo la ruta destino
-            String urlImagenDestino = PantallaPrincipal.RutaImagenes+nombre.getText()+"3.png";
+            String urlImagenDestino = PantallaPrincipal.RutaImagenes+"Servicios\\"+p+" - "+nombre.getText()+" 3.png";
             Path TO = Paths.get(urlImagenDestino);
             try {
                 Files.copy(FROM,TO, StandardCopyOption.REPLACE_EXISTING);
