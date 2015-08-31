@@ -76,11 +76,15 @@ public class VerInfoPromocion extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
-        jMenuItem1.setText("jMenuItem1");
-        jMenuItem1.setActionCommand("ver informaicon del servicio");
+        jMenuItem1.setText("ver informaicon del servicio");
         jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenuItem1MouseClicked(evt);
+            }
+        });
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
             }
         });
         jPopupMenu1.add(jMenuItem1);
@@ -203,8 +207,13 @@ DefaultListModel model2 = new DefaultListModel();//modelo para los servicos
 
     private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
         // TODO add your handling code here:
-        pp.abrirVerInfoServicio("VerInfoPromocion");
+        
     }//GEN-LAST:event_jMenuItem1MouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        pp.abrirVerInfoServicio("VerInfoPromocion");
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
