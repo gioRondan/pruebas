@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
+import javax.swing.tree.TreePath;
 import logica.DataCategoria;
 import logica.DataProveedor;
 import logica.DataServicio;
@@ -178,6 +179,11 @@ public class AltaServicio extends javax.swing.JInternalFrame {
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
         jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jTree1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTree1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTree1);
 
         descripcion.setColumns(20);
@@ -215,20 +221,6 @@ public class AltaServicio extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(434, 434, 434)
-                            .addComponent(jButton14)
-                            .addGap(55, 55, 55)
-                            .addComponent(jButton15)
-                            .addGap(9, 9, 9))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(138, 138, 138)
-                            .addComponent(ciudad1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(65, 65, 65)
-                            .addComponent(jLabel30)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(ciudad2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -241,6 +233,19 @@ public class AltaServicio extends javax.swing.JInternalFrame {
                             .addComponent(jLabel29))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGap(434, 434, 434)
+                                    .addComponent(jButton14)
+                                    .addGap(55, 55, 55)
+                                    .addComponent(jButton15)
+                                    .addGap(9, 9, 9))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(ciudad1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(69, 69, 69)
+                                    .addComponent(jLabel30)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(ciudad2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(nombre, javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,7 +272,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
                                     .addComponent(jButton17)))
                             .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(pais, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -296,11 +301,9 @@ public class AltaServicio extends javax.swing.JInternalFrame {
                             .addComponent(pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(ciudad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel29))
-                                .addGap(0, 0, 0))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(ciudad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel29))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(ciudad2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -431,8 +434,8 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         String p = proveedores.getSelectedItem().toString();
         String pre = precio.getText();
         int precioin;
+        Pantallaprin.ICP.ingresarDestinoServicio(ciudad2.getText());
         precioin=Integer.parseInt(pre);
-        Pantallaprin.ICP.altaServicio(nombre.getText(),descripcion.getText(),precioin,ciudad1.getText(),p,pais.getText());
         if (!servicioImagen1.getText().isEmpty()){
             Path FROM = Paths.get(servicioImagen1.getText());
             //armo la ruta destino
@@ -475,6 +478,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
             }
             
         }
+        Pantallaprin.ICP.altaServicio(nombre.getText(),descripcion.getText(),precioin,ciudad1.getText(),p,pais.getText());
         
     }//GEN-LAST:event_jButton14ActionPerformed
 
@@ -496,6 +500,20 @@ public class AltaServicio extends javax.swing.JInternalFrame {
     private void paisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paisActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_paisActionPerformed
+
+    private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
+        TreePath x = jTree1.getSelectionPath();
+        String padreSelec = x.toString();
+        padreSelec = padreSelec.substring(padreSelec.lastIndexOf(",")+2, padreSelec.lastIndexOf("]"));
+        this.padre = padreSelec;
+        Pantallaprin.ICP.ingresarCategoriaServicio(this.padre);
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jTree1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
