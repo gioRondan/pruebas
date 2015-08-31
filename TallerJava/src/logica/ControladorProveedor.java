@@ -83,7 +83,7 @@ public class ControladorProveedor implements IControladorProveedor{
         altaCiudad(origen, pais);
         ser.asociarOrigen(mCi.getCiudad(origen));
         if (!destinoServicio.isEmpty()){
-            altaCiudad(origen, pais);
+            altaCiudad(destinoServicio, pais);
             ser.asociarDestino(mCi.getCiudad(destinoServicio));
         }
         liberarMemoria();

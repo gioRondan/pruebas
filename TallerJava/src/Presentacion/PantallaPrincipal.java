@@ -134,11 +134,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
     public void abrirVerInfoServicio(String s) {
        VerInfoServicio al = new VerInfoServicio(s);
-        Escritorio.add(al);
-        int a = (Escritorio.getWidth() - al.getWidth())/2;
-        int b = (Escritorio.getHeight() - al.getHeight()) /2;
-        al.setLocation(a ,b);
-        al.show();
+       Escritorio.add(al);
+       int a = (Escritorio.getWidth() - al.getWidth())/2;
+       int b = (Escritorio.getHeight() - al.getHeight()) /2;
+       al.setLocation(a ,b);
+       al.show();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

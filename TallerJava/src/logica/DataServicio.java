@@ -52,4 +52,10 @@ public class DataServicio {
     public String getProveedor(){
         return proveedor;
     }
+
+    @Override
+    public String toString() {
+        return nombre + " - " + proveedor;
+    }
+    
 }
