@@ -289,7 +289,7 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
             proveedorApellido.requestFocus();
             return;
         }
-        else if(email.isEmpty()){
+        else if(email.isEmpty() || email.matches("^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[a-zA-Z]{2,4}$")){
             JOptionPane.showMessageDialog(null, "Ingrese un email válido");
             proveedorEmail.requestFocus();
             return;
