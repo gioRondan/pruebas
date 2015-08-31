@@ -296,7 +296,7 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
           String nick =  model.elementAt(cant).toString();
           DataInfoProveedor dtinfoprv = pp.ICP.verInfoProveedor( nick);
           Date fechaNac = dtinfoprv.getFechaNac();
-            DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");		
+          DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");		
           proveedorNick.setText(dtinfoprv.getNickname());
           proveedorNombre.setText(dtinfoprv.getNombre());
           proveedorApellido.setText(dtinfoprv.getApellido());

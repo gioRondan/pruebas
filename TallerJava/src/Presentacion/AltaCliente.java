@@ -11,6 +11,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,7 +44,8 @@ public class AltaCliente extends javax.swing.JInternalFrame {
         this.clienteEmail.setText("");
         clienteImagen.setText("");   
         clienteNick.requestFocus();
-    }
+    }    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -113,6 +117,9 @@ public class AltaCliente extends javax.swing.JInternalFrame {
                 jButton5ActionPerformed(evt);
             }
         });
+
+        jDateChooser1.setMaxSelectableDate(new java.util.Date(253370775660000L));
+        jDateChooser1.setMinSelectableDate(new java.util.Date(-2208971656000L));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -217,18 +224,15 @@ public class AltaCliente extends javax.swing.JInternalFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
-        
+        DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");	
         Date fechaNac   = jDateChooser1.getDate();
         String nickname = clienteNick.getText();
         String nombre   = clienteNombre.getText();
         String apellido = clienteApellido.getText();
         String email    = clienteEmail.getText();
         String imagen   = clienteImagen.getText();
-        String urlImagen= "";
-        
-        Pattern patron      = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-        Matcher emailValido = patron.matcher(email);
-        
+        String urlImagen= "";        
+
         if(nickname.isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese un nickname válido");
             clienteNick.requestFocus();
@@ -249,7 +253,11 @@ public class AltaCliente extends javax.swing.JInternalFrame {
             clienteEmail.requestFocus();
             return;
         }    
-        
+        else if(!formatoFecha.format(fechaNac).matches("^[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}$")){
+            JOptionPane.showMessageDialog(null, "Ingrese una fecha válida");
+            jDateChooser1.requestFocus();
+            return;
+        }
         //Para copiar le archivo seleccionado
         if (!imagen.isEmpty()){
             Path FROM = Paths.get(clienteImagen.getText());

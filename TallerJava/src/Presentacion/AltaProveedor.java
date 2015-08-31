@@ -14,6 +14,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -264,6 +266,7 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
+        DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");	
         Date fechaNac   = jDateChooser1.getDate();
         String nickname = proveedorNick.getText();
         String nombre   = proveedorNombre.getText();
@@ -289,11 +292,16 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
             proveedorApellido.requestFocus();
             return;
         }
-        else if(email.isEmpty() || email.matches("^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[a-zA-Z]{2,4}$")){
+        else if(email.isEmpty() || !email.matches("^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[a-zA-Z]{2,4}$")){
             JOptionPane.showMessageDialog(null, "Ingrese un email válido");
             proveedorEmail.requestFocus();
             return;
         }    
+        else if(!formatoFecha.format(fechaNac).matches("^[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}$")){
+            JOptionPane.showMessageDialog(null, "Ingrese una fecha válida");
+            jDateChooser1.requestFocus();
+            return;
+        }
         else if(empresa.isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese un nombre de empresa válido");
             proveedorEmpresaNombre.requestFocus();
