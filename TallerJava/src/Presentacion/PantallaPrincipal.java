@@ -8,11 +8,24 @@ package Presentacion;
 
 
 import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaBlackMoonLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaBlueIceLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaBlueMoonLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaBlueSteelLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaClassyLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaGreenDreamLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaMauveMetallicLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaOrangeMetallicLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaSilverMoonLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaSimple2DLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaSkyMetallicLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaWhiteVisionLookAndFeel;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyVetoException;
+import java.io.File;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -46,11 +59,19 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         instancia = this;
         ICP = fabrica.getIControladorProveedor();
         ICC = fabrica.getIControladorCliente();
-        this.RutaImagenes = JOptionPane.showInputDialog(null,"Selecciones una ruta para las imagenes");
-            if (this.RutaImagenes.isEmpty()){
+   
+       this.RutaImagenes= JOptionPane.showInputDialog("Selecciones una ruta para las imagenes");
+            if (this.RutaImagenes==null){
                  this.RutaImagenes = "C:\\Imagenes\\";
-             }
-        
+            }
+            else if (this.RutaImagenes.isEmpty()){
+                this.RutaImagenes = "C:\\Imagenes\\";
+            }
+            File usuarios=new File(this.RutaImagenes+"Usuarios"); 
+            usuarios.mkdir();
+            File servicios=new File(this.RutaImagenes+"Servicios"); 
+            servicios.mkdir();
+    
     }
     
     public static PantallaPrincipal getInstancia(){
@@ -101,7 +122,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         al.setLocation(a ,b);
         al.show();
      }
-     void abrirImagen(String ruta)  {
+     public void abrirImagen(String ruta)  {
         Img altaCat = new Img(ruta);
         Escritorio.add(altaCat);
         try {
@@ -111,7 +132,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         }
         altaCat.show();
     }
-  
+    public void abrirVerInfoServicio(String s) {
+       VerInfoServicio al = new VerInfoServicio(s);
+        Escritorio.add(al);
+        int a = (Escritorio.getWidth() - al.getWidth())/2;
+        int b = (Escritorio.getHeight() - al.getHeight()) /2;
+        al.setLocation(a ,b);
+        al.show();
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -123,8 +151,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
         Servicios = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -135,10 +163,22 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem13 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem15 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem4 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem5 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem6 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem7 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem8 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem9 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem10 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem11 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem12 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem13 = new javax.swing.JRadioButtonMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Principal H4T");
@@ -191,14 +231,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
-        jMenuItem4.setText("Promocion");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem4);
-
         Servicios.setText("Servicios");
         Servicios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,6 +238,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu1.add(Servicios);
+
+        jMenuItem4.setText("Promocion");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
 
         jMenuBar1.add(jMenu1);
 
@@ -236,6 +276,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem7);
 
         jMenuItem8.setText("Promocion");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem8);
 
         jMenuItem9.setText("Reserva");
@@ -271,18 +316,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu5.setText("Empresas");
-
-        jMenuItem13.setText("ListarEmpresas");
-        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem13ActionPerformed(evt);
-            }
-        });
-        jMenu5.add(jMenuItem13);
-
-        jMenuBar1.add(jMenu5);
-
         jMenu6.setText("Configuracion");
 
         jMenuItem15.setText("Opciones");
@@ -292,6 +325,115 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu6.add(jMenuItem15);
+
+        jMenu5.setText("Thema");
+
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("BlackEye");
+        jRadioButtonMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jRadioButtonMenuItem1);
+
+        jRadioButtonMenuItem2.setText("BlueMoon");
+        jRadioButtonMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jRadioButtonMenuItem2);
+
+        jRadioButtonMenuItem3.setText("BlackMoon");
+        jRadioButtonMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jRadioButtonMenuItem3);
+
+        jRadioButtonMenuItem4.setText("BlueIce");
+        jRadioButtonMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jRadioButtonMenuItem4);
+
+        jRadioButtonMenuItem5.setText("BlueSteel");
+        jRadioButtonMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jRadioButtonMenuItem5);
+
+        jRadioButtonMenuItem6.setText("Classy");
+        jRadioButtonMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jRadioButtonMenuItem6);
+
+        jRadioButtonMenuItem7.setText("GreenDream");
+        jRadioButtonMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jRadioButtonMenuItem7);
+
+        jRadioButtonMenuItem8.setText("MauveMetallic");
+        jRadioButtonMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jRadioButtonMenuItem8);
+
+        jRadioButtonMenuItem9.setText("OrangeMetallic");
+        jRadioButtonMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jRadioButtonMenuItem9);
+
+        jRadioButtonMenuItem10.setText("SilverMoon");
+        jRadioButtonMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem10ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jRadioButtonMenuItem10);
+
+        jRadioButtonMenuItem11.setText("Simple2D");
+        jRadioButtonMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem11ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jRadioButtonMenuItem11);
+
+        jRadioButtonMenuItem12.setText("SkyMetallic");
+        jRadioButtonMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem12ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jRadioButtonMenuItem12);
+
+        jRadioButtonMenuItem13.setText("jRadioButtonMenuItem13");
+        jRadioButtonMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem13ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jRadioButtonMenuItem13);
+
+        jMenu6.add(jMenu5);
 
         jMenuBar1.add(jMenu6);
 
@@ -324,12 +466,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
  
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
+        abrirVerInfoServicio("");
     }//GEN-LAST:event_jMenuItem7ActionPerformed
-
-    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-        // TODO add your handling code here:
-        this.abrirListarEmpresas();
-    }//GEN-LAST:event_jMenuItem13ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
@@ -423,6 +561,343 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         ap.show();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        VerInfoPromocion ap = new VerInfoPromocion();
+        Escritorio.add(ap);
+        int a = (Escritorio.getWidth() - ap.getWidth())/2;
+        int b = (Escritorio.getHeight() - ap.getHeight()) /2;
+        ap.setLocation(a ,b);
+        ap.show();
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jRadioButtonMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        jRadioButtonMenuItem1.setSelected(false);
+        jRadioButtonMenuItem2.setSelected(true);
+        jRadioButtonMenuItem3.setSelected(false);
+        jRadioButtonMenuItem4.setSelected(false);
+        jRadioButtonMenuItem5.setSelected(false);
+        jRadioButtonMenuItem6.setSelected(false);
+        jRadioButtonMenuItem7.setSelected(false);
+        jRadioButtonMenuItem8.setSelected(false);
+        jRadioButtonMenuItem9.setSelected(false);
+        jRadioButtonMenuItem10.setSelected(false);
+        jRadioButtonMenuItem11.setSelected(false);
+        jRadioButtonMenuItem12.setSelected(false);
+         jRadioButtonMenuItem13.setSelected(false);
+        try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            UIManager.setLookAndFeel(new SyntheticaBlueMoonLookAndFeel());
+        } catch (ParseException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+    }//GEN-LAST:event_jRadioButtonMenuItem2ActionPerformed
+
+    private void jRadioButtonMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        jRadioButtonMenuItem1.setSelected(false);
+        jRadioButtonMenuItem2.setSelected(false);
+        jRadioButtonMenuItem3.setSelected(true);
+        jRadioButtonMenuItem4.setSelected(false);
+        jRadioButtonMenuItem5.setSelected(false);
+        jRadioButtonMenuItem6.setSelected(false);
+        jRadioButtonMenuItem7.setSelected(false);
+        jRadioButtonMenuItem8.setSelected(false);
+        jRadioButtonMenuItem9.setSelected(false);
+        jRadioButtonMenuItem10.setSelected(false);
+        jRadioButtonMenuItem11.setSelected(false);
+        jRadioButtonMenuItem12.setSelected(false);
+         jRadioButtonMenuItem13.setSelected(false);
+        try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            UIManager.setLookAndFeel(new SyntheticaBlackMoonLookAndFeel());
+        } catch (ParseException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jRadioButtonMenuItem3ActionPerformed
+
+    private void jRadioButtonMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem2.setSelected(false);
+        jRadioButtonMenuItem3.setSelected(false);
+        jRadioButtonMenuItem4.setSelected(false);
+        jRadioButtonMenuItem5.setSelected(false);
+        jRadioButtonMenuItem6.setSelected(false);
+        jRadioButtonMenuItem7.setSelected(false);
+        jRadioButtonMenuItem8.setSelected(false);
+        jRadioButtonMenuItem9.setSelected(false);
+        jRadioButtonMenuItem10.setSelected(false);
+        jRadioButtonMenuItem11.setSelected(false);
+        jRadioButtonMenuItem12.setSelected(false);
+         jRadioButtonMenuItem13.setSelected(false);
+        
+        
+        try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
+        } catch (ParseException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jRadioButtonMenuItem1ActionPerformed
+
+    private void jRadioButtonMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem12ActionPerformed
+        // TODO add your handling code here:
+        jRadioButtonMenuItem1.setSelected(false);
+        jRadioButtonMenuItem2.setSelected(false);
+        jRadioButtonMenuItem3.setSelected(false);
+        jRadioButtonMenuItem4.setSelected(false);
+        jRadioButtonMenuItem5.setSelected(false);
+        jRadioButtonMenuItem6.setSelected(false);
+        jRadioButtonMenuItem7.setSelected(false);
+        jRadioButtonMenuItem8.setSelected(false);
+        jRadioButtonMenuItem9.setSelected(false);
+        jRadioButtonMenuItem10.setSelected(false);
+        jRadioButtonMenuItem11.setSelected(false);
+        jRadioButtonMenuItem12.setSelected(true);
+         jRadioButtonMenuItem13.setSelected(false);
+         try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            UIManager.setLookAndFeel(new SyntheticaSkyMetallicLookAndFeel());
+        } catch (ParseException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jRadioButtonMenuItem12ActionPerformed
+
+    private void jRadioButtonMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        jRadioButtonMenuItem1.setSelected(false);
+        jRadioButtonMenuItem2.setSelected(false);
+        jRadioButtonMenuItem3.setSelected(false);
+        jRadioButtonMenuItem4.setSelected(true);
+        jRadioButtonMenuItem5.setSelected(false);
+        jRadioButtonMenuItem6.setSelected(false);
+        jRadioButtonMenuItem7.setSelected(false);
+        jRadioButtonMenuItem8.setSelected(false);
+        jRadioButtonMenuItem9.setSelected(false);
+        jRadioButtonMenuItem10.setSelected(false);
+        jRadioButtonMenuItem11.setSelected(false);
+        jRadioButtonMenuItem12.setSelected(false);
+         jRadioButtonMenuItem13.setSelected(false);
+         try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            UIManager.setLookAndFeel(new SyntheticaBlueIceLookAndFeel());
+        } catch (ParseException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jRadioButtonMenuItem4ActionPerformed
+
+    private void jRadioButtonMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem5ActionPerformed
+        // TODO add your handling code here:
+         jRadioButtonMenuItem1.setSelected(false);
+        jRadioButtonMenuItem2.setSelected(false);
+        jRadioButtonMenuItem3.setSelected(false);
+        jRadioButtonMenuItem4.setSelected(false);
+        jRadioButtonMenuItem5.setSelected(true);
+        jRadioButtonMenuItem6.setSelected(false);
+        jRadioButtonMenuItem7.setSelected(false);
+        jRadioButtonMenuItem8.setSelected(false);
+        jRadioButtonMenuItem9.setSelected(false);
+        jRadioButtonMenuItem10.setSelected(false);
+        jRadioButtonMenuItem11.setSelected(false);
+        jRadioButtonMenuItem12.setSelected(false);
+         try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            UIManager.setLookAndFeel(new SyntheticaBlueSteelLookAndFeel());
+        } catch (ParseException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jRadioButtonMenuItem5ActionPerformed
+
+    private void jRadioButtonMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        jRadioButtonMenuItem1.setSelected(false);
+        jRadioButtonMenuItem2.setSelected(false);
+        jRadioButtonMenuItem3.setSelected(false);
+        jRadioButtonMenuItem4.setSelected(false);
+        jRadioButtonMenuItem5.setSelected(false);
+        jRadioButtonMenuItem6.setSelected(true);
+        jRadioButtonMenuItem7.setSelected(false);
+        jRadioButtonMenuItem8.setSelected(false);
+        jRadioButtonMenuItem9.setSelected(false);
+        jRadioButtonMenuItem10.setSelected(false);
+        jRadioButtonMenuItem11.setSelected(false);
+        jRadioButtonMenuItem12.setSelected(false);
+         jRadioButtonMenuItem13.setSelected(false);
+         try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            UIManager.setLookAndFeel(new SyntheticaClassyLookAndFeel());
+        } catch (ParseException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jRadioButtonMenuItem6ActionPerformed
+
+    private void jRadioButtonMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem7ActionPerformed
+        // TODO add your handling code here:
+        jRadioButtonMenuItem1.setSelected(false);
+        jRadioButtonMenuItem2.setSelected(false);
+        jRadioButtonMenuItem3.setSelected(false);
+        jRadioButtonMenuItem4.setSelected(false);
+        jRadioButtonMenuItem5.setSelected(false);
+        jRadioButtonMenuItem6.setSelected(false);
+        jRadioButtonMenuItem7.setSelected(true);
+        jRadioButtonMenuItem8.setSelected(false);
+        jRadioButtonMenuItem9.setSelected(false);
+        jRadioButtonMenuItem10.setSelected(false);
+        jRadioButtonMenuItem11.setSelected(false);
+        jRadioButtonMenuItem12.setSelected(false);
+         jRadioButtonMenuItem13.setSelected(false);
+         try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            UIManager.setLookAndFeel(new SyntheticaGreenDreamLookAndFeel());
+        } catch (ParseException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jRadioButtonMenuItem7ActionPerformed
+
+    private void jRadioButtonMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem8ActionPerformed
+        // TODO add your handling code here:
+        jRadioButtonMenuItem1.setSelected(false);
+        jRadioButtonMenuItem2.setSelected(false);
+        jRadioButtonMenuItem3.setSelected(false);
+        jRadioButtonMenuItem4.setSelected(false);
+        jRadioButtonMenuItem5.setSelected(false);
+        jRadioButtonMenuItem6.setSelected(false);
+        jRadioButtonMenuItem7.setSelected(false);
+        jRadioButtonMenuItem8.setSelected(true);
+        jRadioButtonMenuItem9.setSelected(false);
+        jRadioButtonMenuItem10.setSelected(false);
+        jRadioButtonMenuItem11.setSelected(false);
+        jRadioButtonMenuItem12.setSelected(false);
+         jRadioButtonMenuItem13.setSelected(false);
+         try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            UIManager.setLookAndFeel(new SyntheticaMauveMetallicLookAndFeel());
+        } catch (ParseException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jRadioButtonMenuItem8ActionPerformed
+
+    private void jRadioButtonMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem9ActionPerformed
+        // TODO add your handling code here:
+        jRadioButtonMenuItem1.setSelected(false);
+        jRadioButtonMenuItem2.setSelected(false);
+        jRadioButtonMenuItem3.setSelected(false);
+        jRadioButtonMenuItem4.setSelected(false);
+        jRadioButtonMenuItem5.setSelected(false);
+        jRadioButtonMenuItem6.setSelected(false);
+        jRadioButtonMenuItem7.setSelected(false);
+        jRadioButtonMenuItem8.setSelected(false);
+        jRadioButtonMenuItem9.setSelected(true);
+        jRadioButtonMenuItem10.setSelected(false);
+        jRadioButtonMenuItem11.setSelected(false);
+        jRadioButtonMenuItem12.setSelected(false);
+         jRadioButtonMenuItem13.setSelected(false);
+         try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            UIManager.setLookAndFeel(new SyntheticaOrangeMetallicLookAndFeel());
+        } catch (ParseException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jRadioButtonMenuItem9ActionPerformed
+
+    private void jRadioButtonMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem10ActionPerformed
+        // TODO add your handling code here:
+        jRadioButtonMenuItem1.setSelected(false);
+        jRadioButtonMenuItem2.setSelected(false);
+        jRadioButtonMenuItem3.setSelected(false);
+        jRadioButtonMenuItem4.setSelected(false);
+        jRadioButtonMenuItem5.setSelected(false);
+        jRadioButtonMenuItem6.setSelected(false);
+        jRadioButtonMenuItem7.setSelected(false);
+        jRadioButtonMenuItem8.setSelected(false);
+        jRadioButtonMenuItem9.setSelected(false);
+        jRadioButtonMenuItem10.setSelected(true);
+        jRadioButtonMenuItem11.setSelected(false);
+        jRadioButtonMenuItem12.setSelected(false);
+         jRadioButtonMenuItem13.setSelected(false);
+         try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            UIManager.setLookAndFeel(new SyntheticaSilverMoonLookAndFeel());
+        } catch (ParseException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jRadioButtonMenuItem10ActionPerformed
+
+    private void jRadioButtonMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem11ActionPerformed
+        // TODO add your handling code here:.
+        jRadioButtonMenuItem1.setSelected(false);
+        jRadioButtonMenuItem2.setSelected(false);
+        jRadioButtonMenuItem3.setSelected(false);
+        jRadioButtonMenuItem4.setSelected(false);
+        jRadioButtonMenuItem5.setSelected(false);
+        jRadioButtonMenuItem6.setSelected(false);
+        jRadioButtonMenuItem7.setSelected(false);
+        jRadioButtonMenuItem8.setSelected(false);
+        jRadioButtonMenuItem9.setSelected(false);
+        jRadioButtonMenuItem10.setSelected(false);
+        jRadioButtonMenuItem11.setSelected(true);
+        jRadioButtonMenuItem12.setSelected(false);
+         jRadioButtonMenuItem13.setSelected(false);
+         try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            UIManager.setLookAndFeel(new SyntheticaSimple2DLookAndFeel());
+        } catch (ParseException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jRadioButtonMenuItem11ActionPerformed
+
+    private void jRadioButtonMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem13ActionPerformed
+        // TODO add your handling code here:
+        jRadioButtonMenuItem1.setSelected(false);
+        jRadioButtonMenuItem2.setSelected(false);
+        jRadioButtonMenuItem3.setSelected(false);
+        jRadioButtonMenuItem4.setSelected(false);
+        jRadioButtonMenuItem5.setSelected(false);
+        jRadioButtonMenuItem6.setSelected(false);
+        jRadioButtonMenuItem7.setSelected(false);
+        jRadioButtonMenuItem8.setSelected(false);
+        jRadioButtonMenuItem9.setSelected(false);
+        jRadioButtonMenuItem10.setSelected(false);
+        jRadioButtonMenuItem11.setSelected(false);
+        jRadioButtonMenuItem12.setSelected(false);
+        jRadioButtonMenuItem13.setSelected(true);
+        jRadioButtonMenuItem13.setSelected(false);
+         try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            UIManager.setLookAndFeel(new SyntheticaWhiteVisionLookAndFeel());
+        } catch (ParseException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jRadioButtonMenuItem13ActionPerformed
+
     /**
      * @param args the command line arguments
      * @throws javax.swing.UnsupportedLookAndFeelException
@@ -484,7 +959,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem2;
@@ -494,7 +968,22 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem10;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem11;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem12;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem13;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem3;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem4;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem5;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem6;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem7;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem8;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem9;
     // End of variables declaration//GEN-END:variables
+
+   
 
    
 }

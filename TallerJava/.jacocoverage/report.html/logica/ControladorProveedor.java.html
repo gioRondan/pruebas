@@ -72,7 +72,7 @@ import java.util.logging.Logger;
 <span class="fc" id="L72">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
 <span class="fc" id="L73">        Proveedor prov = mPr.getProveedor(proveedor);</span>
 <span class="fc" id="L74">        prov.asociarServicio(ser);</span>
-        //asociar servicio a proveedor??????
+<span class="fc" id="L75">        ser.setProveedor(prov);</span>
 <span class="fc" id="L76">        ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
 <span class="fc bfc" id="L77" title="All 2 branches covered.">        for(String cats : categoriasServicio){</span>
 <span class="fc" id="L78">            Categoria cat = mCa.getCategoria(cats);</span>
@@ -257,11 +257,11 @@ import java.util.logging.Logger;
 <span class="fc" id="L257">        return prov.getDataPromociones();</span>
     }
     @Override
-    public DataInfoServicio verInfoServicio( String nomServicio){
+    public DataInfoServicio verInfoServicio(String nomServicio, String nomProveedor){
 <span class="fc" id="L261">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
-<span class="fc" id="L262">        Proveedor prov = mPr.getProveedor(proveedor);</span>
-<span class="nc" id="L263">        Servicio ser = prov.getServicio(nomServicio);</span>
-<span class="nc" id="L264">        return ser.getDataInfoServicio();</span>
+<span class="fc" id="L262">        Proveedor prov = mPr.getProveedor(nomProveedor);</span>
+<span class="fc" id="L263">        Servicio ser = prov.getServicio(nomServicio);</span>
+<span class="fc" id="L264">        return ser.getDataInfoServicio();</span>
     }
     @Override
     public DataInfoProveedor verInfoProveedor( String nomProveedor){
@@ -274,28 +274,33 @@ import java.util.logging.Logger;
 <span class="fc" id="L274">        ControladorProveedor.imagenProveedor = imagen;</span>
 <span class="fc" id="L275">    }</span>
 
-    
+    public DataServicio informacionServicio(String prv,String ser){
+<span class="nc" id="L278">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
+<span class="nc" id="L279">        Proveedor prov = mPr.getProveedor(prv);</span>
+<span class="nc" id="L280">        Servicio servi = prov.getServicio(ser);</span>
+<span class="nc" id="L281">        return servi.getDataServicio();</span>
+    }
     @Override
     public DataInfoPromocion verInfoPromocion(String nickproveedor, String nomPromocion) {
-<span class="fc" id="L280">        ManejadorProveedor m = ManejadorProveedor.getInstance();</span>
-<span class="fc" id="L281">        Proveedor p = m.getProveedor(nickproveedor);</span>
-<span class="nc" id="L282">        Promocion promo = p.getPromocion(nomPromocion);</span>
+<span class="fc" id="L285">        ManejadorProveedor m = ManejadorProveedor.getInstance();</span>
+<span class="fc" id="L286">        Proveedor p = m.getProveedor(nickproveedor);</span>
+<span class="nc" id="L287">        Promocion promo = p.getPromocion(nomPromocion);</span>
         
-<span class="nc" id="L284">        return promo.getDataInfoPromocion();</span>
+<span class="nc" id="L289">        return promo.getDataInfoPromocion();</span>
     }
 
     private void altaCiudad(String nomCiudad, String nomPais) {
-<span class="fc" id="L288">        ManejadorCiudad mCi = ManejadorCiudad.getInstance();</span>
-<span class="fc" id="L289">        ManejadorPais mPa = ManejadorPais.getInstance();</span>
-<span class="pc bpc" id="L290" title="1 of 2 branches missed.">        if(!nomCiudad.isEmpty()){</span>
-<span class="fc bfc" id="L291" title="All 2 branches covered.">            if(mCi.getCiudad(nomCiudad) == null){</span>
-<span class="pc bpc" id="L292" title="1 of 2 branches missed.">                if(mPa.getPais(nomPais) == null){</span>
-<span class="fc" id="L293">                    mPa.addPais(new Pais(nomPais));</span>
+<span class="fc" id="L293">        ManejadorCiudad mCi = ManejadorCiudad.getInstance();</span>
+<span class="fc" id="L294">        ManejadorPais mPa = ManejadorPais.getInstance();</span>
+<span class="pc bpc" id="L295" title="1 of 2 branches missed.">        if(!nomCiudad.isEmpty()){</span>
+<span class="fc bfc" id="L296" title="All 2 branches covered.">            if(mCi.getCiudad(nomCiudad) == null){</span>
+<span class="pc bpc" id="L297" title="1 of 2 branches missed.">                if(mPa.getPais(nomPais) == null){</span>
+<span class="fc" id="L298">                    mPa.addPais(new Pais(nomPais));</span>
                 }
-<span class="fc" id="L295">                mCi.addCiudad(new Ciudad(nomCiudad, mPa.getPais(nomPais)));</span>
+<span class="fc" id="L300">                mCi.addCiudad(new Ciudad(nomCiudad, mPa.getPais(nomPais)));</span>
             }
         }
-<span class="fc" id="L298">    }</span>
+<span class="fc" id="L303">    }</span>
 }
 
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

@@ -150,7 +150,7 @@ public class ControladorProveedor implements IControladorProveedor{
             totalPrecio += s.getPrecio();
             p.agregarServicio(s);
         }
-        totalPrecio=(int)(totalPrecio * (0.1*descuento));//aplico el descuento
+        totalPrecio=(int)(totalPrecio - (totalPrecio * (0.01*descuento)));//aplico el descuento
         p.setPrecioTotal(totalPrecio);//Seteo el precio total con el descuento aplicado 
     }
     @Override
@@ -257,10 +257,10 @@ public class ControladorProveedor implements IControladorProveedor{
         return prov.getDataPromociones();
     }
     @Override
-    public DataInfoServicio verInfoServicio( String nomServicio){
-        ManejadorCategoria mCa = ManejadorCategoria.getInstance();
-        Categoria cat = mCa.getCategoria(nomCategoria);
-        Servicio ser = cat.getServicio(nomServicio);
+    public DataInfoServicio verInfoServicio(String nomServicio, String nomProveedor){
+        ManejadorProveedor mPr = ManejadorProveedor.getInstance();
+        Proveedor prov = mPr.getProveedor(nomProveedor);
+        Servicio ser = prov.getServicio(nomServicio);
         return ser.getDataInfoServicio();
     }
     @Override

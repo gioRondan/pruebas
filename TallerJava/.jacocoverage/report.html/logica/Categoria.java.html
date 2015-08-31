@@ -80,5 +80,13 @@ public class Categoria {
     public boolean esRaiz() {
 <span class="fc bfc" id="L81" title="All 2 branches covered.">        return (!(tienePadre));</span>
     }
+
+    Servicio getServicio(String nomServicio) {
+<span class="nc bnc" id="L85" title="All 2 branches missed.">        for(Servicio it : servicios){</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">            if(it.getNombre().equals(nomServicio))</span>
+<span class="nc" id="L87">                return it;</span>
+<span class="nc" id="L88">        }</span>
+<span class="nc" id="L89">        return null;</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

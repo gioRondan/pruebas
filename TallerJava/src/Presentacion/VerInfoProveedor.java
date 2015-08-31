@@ -51,6 +51,8 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        verinfoServicos = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -74,6 +76,14 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
         jLabel12 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
 
+        verinfoServicos.setText("Ver informacion del servicio");
+        verinfoServicos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verinfoServicosActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(verinfoServicos);
+
         setClosable(true);
         setTitle("Informacion de proveedor");
 
@@ -87,6 +97,7 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
 
         jList2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jList2.setToolTipText("");
+        jList2.setComponentPopupMenu(jPopupMenu1);
         jList2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jList2MouseClicked(evt);
@@ -140,6 +151,7 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
 
         jLabel12.setText("Proveedores:");
 
+        jPanel1.setBorder(new javax.swing.border.MatteBorder(null));
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel1MouseClicked(evt);
@@ -299,7 +311,7 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
              Imagen im2 = new Imagen(jPanel1, dtinfoprv.getImagen());
              jPanel1.add(im2).repaint(); 
           }
-
+          model2.removeAllElements();
           List<DataServicio> datas = dtinfoprv.getServicios();
           Iterator<DataServicio> it = datas.iterator();
           while (it.hasNext()){
@@ -318,10 +330,12 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
 
     private void jList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList2MouseClicked
         // TODO add your handling code here:
-       // pp.abrirInfoServicio();
-      //  int cant = jList2.getAnchorSelectionIndex();
-     // elemento del info servicio.settext(model2.elementAt(cant).toString());
     }//GEN-LAST:event_jList2MouseClicked
+
+    private void verinfoServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verinfoServicosActionPerformed
+        // TODO add your handling code here:
+        pp.abrirVerInfoServicio("VerInfoProveedor");
+    }//GEN-LAST:event_verinfoServicosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -339,6 +353,7 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
     private javax.swing.JList jList1;
     private javax.swing.JList jList2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField proveedorApellido;
@@ -347,5 +362,6 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
     public static javax.swing.JTextField proveedorEmpresaNombre;
     public static javax.swing.JTextField proveedorNick;
     private javax.swing.JTextField proveedorNombre;
+    private javax.swing.JMenuItem verinfoServicos;
     // End of variables declaration//GEN-END:variables
 }
