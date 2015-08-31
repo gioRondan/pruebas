@@ -150,7 +150,7 @@ public class ControladorProveedor implements IControladorProveedor{
             totalPrecio += s.getPrecio();
             p.agregarServicio(s);
         }
-        totalPrecio=(int)(totalPrecio * (0.1*descuento));//aplico el descuento
+        totalPrecio=(int)(totalPrecio - (totalPrecio * (0.01*descuento)));//aplico el descuento
         p.setPrecioTotal(totalPrecio);//Seteo el precio total con el descuento aplicado 
     }
     @Override

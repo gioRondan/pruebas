@@ -151,6 +151,7 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
 
         jLabel12.setText("Proveedores:");
 
+        jPanel1.setBorder(new javax.swing.border.MatteBorder(null));
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel1MouseClicked(evt);
@@ -329,9 +330,6 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
 
     private void jList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList2MouseClicked
         // TODO add your handling code here:
-       // 
-      //  int cant = jList2.getAnchorSelectionIndex();
-     // elemento del info servicio.settext(model2.elementAt(cant).toString());
     }//GEN-LAST:event_jList2MouseClicked
 
     private void verinfoServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verinfoServicosActionPerformed

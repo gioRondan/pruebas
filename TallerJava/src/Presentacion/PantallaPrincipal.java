@@ -243,6 +243,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem7);
 
         jMenuItem8.setText("Promocion");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem8);
 
         jMenuItem9.setText("Reserva");
@@ -430,6 +435,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         ap.setLocation(a ,b);
         ap.show();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        VerInfoPromocion ap = new VerInfoPromocion();
+        Escritorio.add(ap);
+        int a = (Escritorio.getWidth() - ap.getWidth())/2;
+        int b = (Escritorio.getHeight() - ap.getHeight()) /2;
+        ap.setLocation(a ,b);
+        ap.show();
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     /**
      * @param args the command line arguments
