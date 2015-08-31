@@ -101,7 +101,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         al.setLocation(a ,b);
         al.show();
      }
-     void abrirImagen(String ruta)  {
+     public void abrirImagen(String ruta)  {
         Img altaCat = new Img(ruta);
         Escritorio.add(altaCat);
         try {
@@ -111,7 +111,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         }
         altaCat.show();
     }
-  
+    public void abrirVerInfoServicio(String s) {
+       VerInfoServicio al = new VerInfoServicio(s);
+        Escritorio.add(al);
+        int a = (Escritorio.getWidth() - al.getWidth())/2;
+        int b = (Escritorio.getHeight() - al.getHeight()) /2;
+        al.setLocation(a ,b);
+        al.show();
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -324,6 +331,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
  
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
+        abrirVerInfoServicio("");
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
@@ -495,6 +503,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
+
+   
 
    
 }
