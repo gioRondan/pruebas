@@ -226,13 +226,13 @@ public class ControladorProveedorTest {
     /**
      * Test of ingresarCategoriaServicio method, of class ControladorProveedor.
      */
-    @Test
+    /*@Test
     public void testIngresarCategoriaServicio() {
         System.out.println("ingresarCategoriaServicio");
         String categoria = "transporte";
         ControladorProveedor instance = new ControladorProveedor();
         instance.ingresarCategoriaServicio(categoria);
-    }
+    }*/
     public void testIngresarCategoriaServicio2(String categoria) {
         System.out.println("ingresarCategoriaServicio");
         ControladorProveedor instance = new ControladorProveedor();
@@ -419,7 +419,7 @@ public class ControladorProveedorTest {
         testIngresarOrigenServicio("4");
         testIngresarDestinoServicio("4");
         //testListarCategorias();
-        testIngresarCategoriaServicio();
+        testIngresarCategoriaServicio2("transporte");
         instance.modificarServicio();
     }
 
@@ -464,12 +464,17 @@ public class ControladorProveedorTest {
         System.out.println("verInfoServicio");
         String nomServicio = "vuelo123";
         String nomProveedor = "nickname11";
+        String descripcion = "cardona-montevideo en 5 minutos";
+        float precio = 10;
+        String origen = "cardona";
         testAltaServicio();
         testIngresarNombreCategoria2("transporte");
         ControladorProveedor instance = new ControladorProveedor();
-        DataInfoServicio expResult = new DataInfoServicio(nomServicio, null, null, 0, null, null, new ArrayList<>(), null);
+        DataInfoServicio expResult = new DataInfoServicio(nomServicio, descripcion, null, precio, null, null, new ArrayList<>(), null);
         DataInfoServicio result = instance.verInfoServicio(nomServicio, nomProveedor);
         assertEquals(expResult.getNombre(), result.getNombre());
+        assertEquals(expResult.getDescripcion(), result.getDescripcion());
+        //assertEquals(expResult.getPrecio(), result.getPrecio());
     }
 
     /**
@@ -508,18 +513,17 @@ public class ControladorProveedorTest {
 
     /**
      * Test of verInfoPromocion method, of class ControladorProveedor.
+     * @param promocion
      */
-    @Test
-    public void testVerInfoPromocion() {
+    //@Test
+    public void testVerInfoPromocion(Promocion promocion, String nickproveedor) {
         System.out.println("verInfoPromocion");
-        String nickproveedor = "";
-        String nomPromocion = "";
         ControladorProveedor instance = new ControladorProveedor();
-        DataInfoPromocion expResult = null;
-        DataInfoPromocion result = instance.verInfoPromocion(nickproveedor, nomPromocion);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        DataInfoPromocion result = instance.verInfoPromocion(nickproveedor, promocion.getNombre());
+        assertEquals(promocion.getNombre(), result.getNombre());
+        assertEquals(promocion.getDescuento(), result.getDescuento());
+        assertEquals(promocion.getPrecioTotal(), result.getPrecioTotal());
+        assertEquals(promocion.getNombre(), result.getNombre());
     }
     
 }

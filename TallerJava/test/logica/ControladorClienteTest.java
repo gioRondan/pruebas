@@ -112,46 +112,29 @@ public class ControladorClienteTest {
      * Test of realizarReserva method, of class ControladorCliente.
      */
     @Test
-    public void testRealizarReserva() {
+    public void testRealizarReserva(String proveedor, String cliente, String servicio, int cantidad, Date fechaInicio, Date fechaFin, boolean esServicio) {
         System.out.println("realizarReserva");
-        String proveedor = "";
-        String cliente = "";
-        String servicio = "";
-        int cantidad = 0;
-        Date fechaInicio = null;
-        Date fechaFin = null;
-        boolean esServicio = false;
         ControladorCliente instance = new ControladorCliente();
         instance.realizarReserva(proveedor, cliente, servicio, cantidad, fechaInicio, fechaFin, esServicio);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
         /**
      * Test of actualizarEstadoReserva method, of class ControladorCliente.
      */
     @Test
-    public void testActualizarEstadoReserva() {
+    public void testActualizarEstadoReserva(int id, String nomCliente, Estado estado) {
         System.out.println("actualizarEstadoReserva");
-        int id = 0;
-        String nomCliente = "";
-        Estado estado = Estado.pagada;
         ControladorCliente instance = new ControladorCliente();
         instance.actualizarEstadoReserva(id, nomCliente, estado);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     /**
      * Test of cancelarReserva method, of class ControladorCliente.
      */
     @Test
-    public void testCancelarReserva() {
+    public void testCancelarReserva(String nomCliente, int id) {
         System.out.println("cancelarReserva");
-        String nomCliente = "";
-        int id = 0;
         ControladorCliente instance = new ControladorCliente();
         instance.cancelarReserva(nomCliente, id);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -160,6 +143,14 @@ public class ControladorClienteTest {
     @Test
     public void testListarReservasSistema() {
         System.out.println("listarReservasSistema");
+        String proveedor;
+        String cliente;
+        String servicio;
+        int cantidad;
+        Date fechaInicio;
+        Date fechaFin;
+        boolean esServicio;
+        //testRealizarReserva(proveedor, cliente, servicio, cantidad, fechaInicio, fechaFin, esServicio);
         ControladorCliente instance = new ControladorCliente();
         Set<DataReserva> expResult = null;
         List<DataReserva> result = instance.listarReservasSistema();
