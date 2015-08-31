@@ -244,7 +244,7 @@ public class AltaCliente extends javax.swing.JInternalFrame {
             clienteApellido.requestFocus();
             return;
         }
-        else if(email.isEmpty()){
+        else if(email.isEmpty() || !email.matches("^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[a-zA-Z]{2,4}$")){
             JOptionPane.showMessageDialog(null, "Ingrese un email válido");
             clienteEmail.requestFocus();
             return;
