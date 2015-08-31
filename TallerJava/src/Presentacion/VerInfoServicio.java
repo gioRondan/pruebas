@@ -91,7 +91,7 @@ public class VerInfoServicio extends javax.swing.JInternalFrame {
 
     private void ImagenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ImagenMouseClicked
         // TODO add your handling code here:
-        pp.abrirImagen(rutaImagen);
+//        pp.abrirImagen(rutaImagen);
     }//GEN-LAST:event_ImagenMouseClicked
 
 
