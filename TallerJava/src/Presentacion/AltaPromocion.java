@@ -5,7 +5,9 @@
  */
 package Presentacion;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -192,23 +194,37 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        Set<String> ser = new HashSet();
+        TreePath[] seleccionados = jTree1.getSelectionPaths();
+        String proveedor="";
+        for (TreePath x : seleccionados){
+            String path = x.toString();
+            String servicio = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]")); 
+            proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
+            ser.add(servicio);
+        }
+        pp.ICP.altaPromocion(proveedor, ser, promocionNombre.getText(), Integer.parseInt(promocionDescuento.getValue().toString()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
         precioTotal.setText( "0" );
         TreePath[] seleccionados = jTree1.getSelectionPaths();
+         String proveedor="";
+         String proveedorAnt="";
         for (TreePath x : seleccionados){
             String path = x.toString();
             String servicio = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]")); 
-            String proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
+            proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
+            if(!proveedorAnt.isEmpty()){
+                if (!proveedorAnt.equals(proveedor)){
+                    JOptionPane.showMessageDialog(null,"Deve seleccionar servicios del mismo proveedor");
+                    return;
+                }
+            }
             prove.setText(proveedor);
             servi.setText(servicio);
-            
+            proveedorAnt = proveedor;
             DataServicio serinfo =  pp.ICP.informacionServicio(proveedor,servicio);
-            //JOptionPane.showMessageDialog(null,"Precio total: " + precioTotal.getText());
-            //JOptionPane.showMessageDialog(null,"Nombre del servicos "+servicio);
-            //JOptionPane.showMessageDialog(null,"Nombre del proveedor "+proveedor);
-            //JOptionPane.showMessageDialog(null,"Precio del servicio"+Float.toString(serinfo.getPrecio()) );
             float total = Float.parseFloat(precioTotal.getText())+serinfo.getPrecio();
             precioTotal.setText( Float.toString(total) );
         }

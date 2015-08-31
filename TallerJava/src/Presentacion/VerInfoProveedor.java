@@ -299,7 +299,7 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
              Imagen im2 = new Imagen(jPanel1, dtinfoprv.getImagen());
              jPanel1.add(im2).repaint(); 
           }
-
+          model2.removeAllElements();
           List<DataServicio> datas = dtinfoprv.getServicios();
           Iterator<DataServicio> it = datas.iterator();
           while (it.hasNext()){

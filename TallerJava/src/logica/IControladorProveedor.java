@@ -9,6 +9,8 @@ package logica;
 import java.util.Set;
 import java.util.Date;
 import java.util.List;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
 /**
  *
  * @author Juan
