@@ -5,6 +5,9 @@
  */
 package Presentacion;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -286,12 +289,14 @@ public class VerInfoCliente extends javax.swing.JInternalFrame {
 
         int cant = jList1.getAnchorSelectionIndex();
         String nick =  model.elementAt(cant).toString();
-        DataInfoCliente dtinfocli = pp.ICC.verInfoCliente( nick);
+        DataInfoCliente dtinfocli = pp.ICC.verInfoCliente(nick);
+        Date fechaNac = dtinfocli.getFechaNac();
+        DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");		
         clienteNick.setText(dtinfocli.getNickname());
         clienteNombre.setText(dtinfocli.getNombre());
         clienteApellido.setText(dtinfocli.getApellido());
         clienteEmail.setText(dtinfocli.getEmail());
-        FechaNac.setText(dtinfocli.getFechaNac().toString());
+        FechaNac.setText(formatoFecha.format(fechaNac));        
         this.rutaImagen = dtinfocli.getImagen();//falta revisar
         //Seteo el nombre de la imagen
 

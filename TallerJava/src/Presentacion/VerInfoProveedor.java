@@ -6,6 +6,9 @@
 package Presentacion;
 
 import java.awt.image.ImageProducer;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -292,13 +295,15 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
           int cant = jList1.getAnchorSelectionIndex();
           String nick =  model.elementAt(cant).toString();
           DataInfoProveedor dtinfoprv = pp.ICP.verInfoProveedor( nick);
+          Date fechaNac = dtinfoprv.getFechaNac();
+            DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");		
           proveedorNick.setText(dtinfoprv.getNickname());
           proveedorNombre.setText(dtinfoprv.getNombre());
           proveedorApellido.setText(dtinfoprv.getApellido());
           proveedorEmail.setText(dtinfoprv.getEmail());
           proveedorEmpresaNombre.setText(dtinfoprv.getEmpresa().getNombre());
           proveedorEmpresaLink.setText(dtinfoprv.getEmpresa().getUrl());
-          FechaNac.setText(dtinfoprv.getFechaNac().toString());
+          FechaNac.setText(formatoFecha.format(fechaNac));        
           this.rutaImagen = dtinfoprv.getImagen();
             //Seteo el nombre de la imagen  
           

@@ -14,6 +14,8 @@ import java.nio.file.StandardCopyOption;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 
@@ -214,7 +216,8 @@ public class AltaCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-            
+
+        
         Date fechaNac   = jDateChooser1.getDate();
         String nickname = clienteNick.getText();
         String nombre   = clienteNombre.getText();
@@ -222,6 +225,9 @@ public class AltaCliente extends javax.swing.JInternalFrame {
         String email    = clienteEmail.getText();
         String imagen   = clienteImagen.getText();
         String urlImagen= "";
+        
+        Pattern patron      = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        Matcher emailValido = patron.matcher(email);
         
         if(nickname.isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese un nickname válido");
@@ -238,7 +244,7 @@ public class AltaCliente extends javax.swing.JInternalFrame {
             clienteApellido.requestFocus();
             return;
         }
-        else if(email.isEmpty()){
+        else if(email.isEmpty() || !email.matches("^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[a-zA-Z]{2,4}$")){
             JOptionPane.showMessageDialog(null, "Ingrese un email válido");
             clienteEmail.requestFocus();
             return;
