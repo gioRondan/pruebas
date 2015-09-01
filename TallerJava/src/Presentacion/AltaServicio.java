@@ -452,7 +452,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
             }
             
         }else{
-            Pantallaprin.ICP.ingresarImagenServicio("");//siempre se carga una ruta aun que sea vacia
+            Pantallaprin.ICP.ingresarImagenServicio("");//siempre se carga una ruta aunque sea vacia
         }
         if (!servicioImagen2.getText().isEmpty()){
             Path FROM = Paths.get(servicioImagen2.getText());
