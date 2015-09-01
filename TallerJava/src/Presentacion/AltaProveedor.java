@@ -47,6 +47,18 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
         proveedorNick.requestFocus();
     }
     
+    public String letraCapital(String texto){
+    //Convierte la primera letra de una texto a mayuscula, el resto a minusculas
+        String resultado = "";
+        if(!texto.isEmpty()){
+            texto = texto.toLowerCase(); //pasamos a minuscula
+            String[] palabras = texto.split("\\s"); //partimos si tiene mas de una palabra
+            for(String palabra : palabras) {
+                resultado += palabra.substring(0, 1).toUpperCase() + palabra.substring(1)+ " ";
+            }
+        }
+        return resultado;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -270,8 +282,8 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
         DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");	
         Date fechaNac   = jDateChooser1.getDate();
         String nickname = proveedorNick.getText().toLowerCase();
-        String nombre   = proveedorNombre.getText();
-        String apellido = proveedorApellido.getText();
+        String nombre   = letraCapital(proveedorNombre.getText());
+        String apellido = letraCapital(proveedorApellido.getText());
         String email    = proveedorEmail.getText().toLowerCase();
         String imagen   = proveedorImagen.getText();
         String urlImagen= "";

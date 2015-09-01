@@ -46,6 +46,18 @@ public class AltaCliente extends javax.swing.JInternalFrame {
         clienteNick.requestFocus();
     }    
 
+    public String letraCapital(String texto){
+    //Convierte la primera letra de una texto a mayuscula, el resto a minusculas
+        String resultado = "";
+        if(!texto.isEmpty()){
+            texto = texto.toLowerCase(); //pasamos a minuscula
+            String[] palabras = texto.split("\\s"); //partimos si tiene mas de una palabra
+            for(String palabra : palabras) {
+                resultado += palabra.substring(0, 1).toUpperCase() + palabra.substring(1)+ " ";
+            }
+        }
+        return resultado;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -227,8 +239,8 @@ public class AltaCliente extends javax.swing.JInternalFrame {
         DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");	
         Date fechaNac   = jDateChooser1.getDate();
         String nickname = clienteNick.getText().toLowerCase();
-        String nombre   = clienteNombre.getText();
-        String apellido = clienteApellido.getText();
+        String nombre   = letraCapital(clienteNombre.getText());
+        String apellido = letraCapital(clienteApellido.getText());
         String email    = clienteEmail.getText().toLowerCase();
         String imagen   = clienteImagen.getText();
         String urlImagen= "";        

@@ -43,7 +43,6 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
         }
     }
     
-    
     public AltaCategoria() {
         initComponents();
         TreeModel jmodel;
@@ -56,6 +55,19 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
         NombreCategoria.requestFocus();
     }
 
+    public String letraCapital(String texto){
+    //Convierte la primera letra de una texto a mayuscula, el resto a minusculas
+        String resultado = "";
+        if(!texto.isEmpty()){
+            texto = texto.toLowerCase(); //pasamos a minuscula
+            String[] palabras = texto.split("\\s"); //partimos si tiene mas de una palabra
+            for(String palabra : palabras) {
+                resultado += palabra.substring(0, 1).toUpperCase() + palabra.substring(1)+ " ";
+            }
+        }
+        return resultado;
+    }
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -185,16 +197,13 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String st = NombreCategoria.getText();
+        String st = letraCapital(NombreCategoria.getText());
         //Control de nombre de categoría vacío
         if(st.isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese un nombre válido");
             NombreCategoria.requestFocus();
             return;
         }
-        //Criterio letra capital, sirve para controlar categorias repetidas
-        st = st.toLowerCase(); //pasamos a minuscula
-        st = st.substring(0, 1).toUpperCase() + st.substring(1);
         DefaultTreeModel model;
         model = (DefaultTreeModel) Arbol.getModel();
         DefaultMutableTreeNode root = (DefaultMutableTreeNode) this.seleccionado;
