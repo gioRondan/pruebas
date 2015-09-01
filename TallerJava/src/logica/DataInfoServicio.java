@@ -13,7 +13,7 @@ import java.util.Set;
 public class DataInfoServicio {
     private String nombre;
     private String descripcion;
-    private String [] imagen;
+    private String[] imagen;
     private float precio;
     private DataCiudad origen;
     private DataCiudad destino;

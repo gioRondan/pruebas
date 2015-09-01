@@ -3,6 +3,7 @@ package logica;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -10,7 +11,8 @@ import java.util.logging.Logger;
  * @author Juan
  */
 public class ControladorProveedor implements IControladorProveedor{
-    private static Set<String> imagenServicio = new HashSet();
+    private static String[] imagenServicio = new String[3];
+    private static int tope=0;
     private static String destinoServicio = "";
     private static String origenServicio = "";
     private static Set<String> categoriasServicio = new HashSet();
@@ -24,7 +26,7 @@ public class ControladorProveedor implements IControladorProveedor{
     private static String imagenProveedor="";
     
     private void liberarMemoria(){
-        imagenServicio = new HashSet();
+        imagenServicio = new String[3];
         destinoServicio = "";
         origenServicio = "";
         categoriasServicio = new HashSet();
@@ -39,7 +41,8 @@ public class ControladorProveedor implements IControladorProveedor{
     }
     @Override
     public void ingresarImagenServicio(String imagen){
-        ControladorProveedor.imagenServicio.add(imagen);
+        ControladorProveedor.imagenServicio[ControladorProveedor.tope]=imagen;
+        ControladorProveedor.tope++;
     }
     @Override
     public void ingresarDestinoServicio(String  destino ){
@@ -60,14 +63,15 @@ public class ControladorProveedor implements IControladorProveedor{
         return mCa.getDataCategorias();
     }
     @Override
-    public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor, String pais){
+    public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor, String pais) {
         Servicio ser = new Servicio(nombre, descripcion, precio);
-        for(String im : imagenServicio){
-            try {
-                ser.agregarImagen(im);
+        for(int i=0;i<ControladorProveedor.tope;i++){
+            try {            
+                ser.agregarImagen(ControladorProveedor.imagenServicio[i]);
             } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, ex.toString());
                 Logger.getLogger(ControladorProveedor.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            }           
         }
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
@@ -83,7 +87,7 @@ public class ControladorProveedor implements IControladorProveedor{
         altaCiudad(origen, pais);
         ser.asociarOrigen(mCi.getCiudad(origen));
         if (!destinoServicio.isEmpty()){
-            altaCiudad(destinoServicio, pais);
+            altaCiudad(destinoServicio, pais);//no habria que chequear que no exista ya ????
             ser.asociarDestino(mCi.getCiudad(destinoServicio));
         }
         liberarMemoria();

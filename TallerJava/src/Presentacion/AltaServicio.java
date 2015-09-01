@@ -436,6 +436,8 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         int precioin;
         Pantallaprin.ICP.ingresarDestinoServicio(ciudad2.getText());
         precioin=Integer.parseInt(pre);
+        
+        
         if (!servicioImagen1.getText().isEmpty()){
             Path FROM = Paths.get(servicioImagen1.getText());
             //armo la ruta destino
@@ -449,6 +451,8 @@ public class AltaServicio extends javax.swing.JInternalFrame {
                 Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
             }
             
+        }else{
+            Pantallaprin.ICP.ingresarImagenServicio("");//siempre se carga una ruta aun que sea vacia
         }
         if (!servicioImagen2.getText().isEmpty()){
             Path FROM = Paths.get(servicioImagen2.getText());
@@ -463,6 +467,8 @@ public class AltaServicio extends javax.swing.JInternalFrame {
                 Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
             }
             
+        }else{
+            Pantallaprin.ICP.ingresarImagenServicio("");//siempre se carga una ruta aun que sea vacia
         }
         if (!servicioImagen3.getText().isEmpty()){
             Path FROM = Paths.get(servicioImagen3.getText());
@@ -477,9 +483,17 @@ public class AltaServicio extends javax.swing.JInternalFrame {
                 Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
             }
             
+        }else{
+            Pantallaprin.ICP.ingresarImagenServicio("");//siempre se carga una ruta aun que sea vacia
         }
-        Pantallaprin.ICP.altaServicio(nombre.getText(),descripcion.getText(),precioin,ciudad1.getText(),p,pais.getText());
-        
+        try{
+         Pantallaprin.ICP.altaServicio(nombre.getText(),descripcion.getText(),precioin,ciudad1.getText(),p,pais.getText());
+         JOptionPane.showMessageDialog(null,"El Servicio se ingreso con exito");
+            //limpiarCampos();falta hacer
+        } catch (Exception ex){
+            //error en alta proveedor
+            JOptionPane.showMessageDialog(null,ex.getMessage());
+        }             
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
@@ -507,12 +521,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         padreSelec = padreSelec.substring(padreSelec.lastIndexOf(",")+2, padreSelec.lastIndexOf("]"));
         this.padre = padreSelec;
         Pantallaprin.ICP.ingresarCategoriaServicio(this.padre);
-        
-        
-        
-        
-        
-        
+
     }//GEN-LAST:event_jTree1MouseClicked
 
 

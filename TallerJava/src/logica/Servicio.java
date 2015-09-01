@@ -21,8 +21,8 @@ public class Servicio {
     private String [] imagen;
     private int contImagen = 0;
     private float precio;
-    private Ciudad origen;
-    private Ciudad destino;
+    private Ciudad origen=null;
+    private Ciudad destino=null;
     private Map<String, Categoria> categorias;
     private Proveedor proveedor;
     
