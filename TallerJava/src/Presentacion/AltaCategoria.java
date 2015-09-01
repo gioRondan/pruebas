@@ -47,6 +47,7 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
         armarArbol(raiz, dtps);
         DefaultTreeModel modeloArbol = new DefaultTreeModel(raiz);
         Arbol.setModel(modeloArbol);
+        Arbol.setSelectionRow(0); //Selecciono la raiz
     }
 
     /**
@@ -184,7 +185,7 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
         model = (DefaultTreeModel) Arbol.getModel();
         DefaultMutableTreeNode root = (DefaultMutableTreeNode) this.seleccionado;
         model.insertNodeInto(new DefaultMutableTreeNode(st), root, root.getChildCount());
-        Pantallaprin.ICP.ingresarNombreCategoria(NombreCategoria.getText());
+        Pantallaprin.ICP.ingresarNombreCategoria(st);
         Pantallaprin.ICP.seleccionarPadre(this.padre);
         Pantallaprin.ICP.altaCategoria();
         NombreCategoria.setText(null);
@@ -218,8 +219,7 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_ArbolValueChanged
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-        //Seleccionamos la primera categoria al ingresar
-        this.Arbol.setSelectionRow(0);
+
     }//GEN-LAST:event_formInternalFrameOpened
 
 
