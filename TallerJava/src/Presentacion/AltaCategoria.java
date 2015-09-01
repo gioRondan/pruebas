@@ -7,10 +7,13 @@
 package Presentacion;
 
 import java.awt.event.WindowEvent;
+import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -39,6 +42,8 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
             armarArbol(cate, dtcategoria.getHijos());
         }
     }
+    
+    
     public AltaCategoria() {
         initComponents();
         TreeModel jmodel;
@@ -48,6 +53,7 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
         DefaultTreeModel modeloArbol = new DefaultTreeModel(raiz);
         Arbol.setModel(modeloArbol);
         Arbol.setSelectionRow(0); //Selecciono la raiz
+        NombreCategoria.requestFocus();
     }
 
     /**
@@ -107,6 +113,11 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton1KeyPressed(evt);
             }
         });
 
@@ -181,14 +192,22 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
             NombreCategoria.requestFocus();
             return;
         }
+        //Criterio letra capital, sirve para controlar categorias repetidas
+        st = st.toLowerCase(); //pasamos a minuscula
+        st = st.substring(0, 1).toUpperCase() + st.substring(1);
         DefaultTreeModel model;
         model = (DefaultTreeModel) Arbol.getModel();
         DefaultMutableTreeNode root = (DefaultMutableTreeNode) this.seleccionado;
-        model.insertNodeInto(new DefaultMutableTreeNode(st), root, root.getChildCount());
         Pantallaprin.ICP.ingresarNombreCategoria(st);
         Pantallaprin.ICP.seleccionarPadre(this.padre);
-        Pantallaprin.ICP.altaCategoria();
-        NombreCategoria.setText(null);
+        try {
+            Pantallaprin.ICP.altaCategoria();
+            model.insertNodeInto(new DefaultMutableTreeNode(st), root, root.getChildCount());
+            NombreCategoria.setText(null);
+        } catch (Exception ex) {
+             JOptionPane.showMessageDialog(null, ex.getMessage());
+             NombreCategoria.selectAll();
+        }
         NombreCategoria.requestFocus();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -221,6 +240,10 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
 
     }//GEN-LAST:event_formInternalFrameOpened
+
+    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1KeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

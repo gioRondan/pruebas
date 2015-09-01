@@ -117,8 +117,11 @@ public class ControladorProveedor implements IControladorProveedor{
         }
     }    
     @Override
-    public void altaCategoria(){
+    public void altaCategoria() throws Exception{
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
+        if(mCa.getCategoria(nomCategoria) != null){
+            throw new Exception("Ya existe una categoría con ese nombre.");
+        }
         Categoria cat;
         if(nomPadre.equals("")){
             cat = new Categoria(nomCategoria, false);

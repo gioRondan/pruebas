@@ -331,7 +331,7 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
         }
         try {
             Pantallaprin.ICP.altaProveedor(nickname, nombre, apellido, email, fechaNac, urlImagen, empresa, link);
-            JOptionPane.showMessageDialog(null,"El Proveedor se ingreso con exito");
+            JOptionPane.showMessageDialog(null,"El Proveedor se ingresó correctamente");
             limpiarCampos();
         } catch (Exception ex){
             //error en alta proveedor
