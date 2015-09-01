@@ -6,10 +6,12 @@
 
 package Presentacion;
 
+import java.awt.event.WindowEvent;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
@@ -24,13 +26,11 @@ import logica.DataProveedor;
  */
 public class AltaCategoria extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form NewJInternalFrame
-     */
+           
     public Object seleccionado;
     public String padre;
     PantallaPrincipal Pantallaprin = PantallaPrincipal.getInstancia();
-    
+
     public void armarArbol(DefaultMutableTreeNode raiz, List<DataCategoria> dtps){
         for (DataCategoria dtcategoria: dtps){
             DefaultMutableTreeNode cate = new DefaultMutableTreeNode();
@@ -66,7 +66,25 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
         NombreCategoria = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
 
+        setClosable(true);
         setTitle("Alta Categoría");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
         Arbol.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
@@ -156,6 +174,12 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String st = NombreCategoria.getText();
+        //Control de nombre de categoría vacío
+        if(st.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese un nombre válido");
+            NombreCategoria.requestFocus();
+            return;
+        }
         DefaultTreeModel model;
         model = (DefaultTreeModel) Arbol.getModel();
         DefaultMutableTreeNode root = (DefaultMutableTreeNode) this.seleccionado;
@@ -164,6 +188,7 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
         Pantallaprin.ICP.seleccionarPadre(this.padre);
         Pantallaprin.ICP.altaCategoria();
         NombreCategoria.setText(null);
+        NombreCategoria.requestFocus();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void NombreCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreCategoriaActionPerformed
@@ -191,6 +216,11 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
         this.padre = padreSelec;
         jLabel1.setText(padreSelec);
     }//GEN-LAST:event_ArbolValueChanged
+
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        //Seleccionamos la primera categoria al ingresar
+        this.Arbol.setSelectionRow(0);
+    }//GEN-LAST:event_formInternalFrameOpened
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
