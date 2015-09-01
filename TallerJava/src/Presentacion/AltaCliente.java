@@ -226,10 +226,10 @@ public class AltaCliente extends javax.swing.JInternalFrame {
 
         DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");	
         Date fechaNac   = jDateChooser1.getDate();
-        String nickname = clienteNick.getText();
+        String nickname = clienteNick.getText().toLowerCase();
         String nombre   = clienteNombre.getText();
         String apellido = clienteApellido.getText();
-        String email    = clienteEmail.getText();
+        String email    = clienteEmail.getText().toLowerCase();
         String imagen   = clienteImagen.getText();
         String urlImagen= "";        
 

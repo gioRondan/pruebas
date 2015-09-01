@@ -46,6 +46,7 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
         proveedorEmpresaLink.setText("");
         proveedorNick.requestFocus();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -268,14 +269,14 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
 
         DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");	
         Date fechaNac   = jDateChooser1.getDate();
-        String nickname = proveedorNick.getText();
+        String nickname = proveedorNick.getText().toLowerCase();
         String nombre   = proveedorNombre.getText();
         String apellido = proveedorApellido.getText();
-        String email    = proveedorEmail.getText();
+        String email    = proveedorEmail.getText().toLowerCase();
         String imagen   = proveedorImagen.getText();
         String urlImagen= "";
         String empresa  = proveedorEmpresaNombre.getText();
-        String link     = proveedorEmpresaLink.getText();
+        String link     = proveedorEmpresaLink.getText().toLowerCase();
         
         if(nickname.isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese un nickname válido");
