@@ -68,6 +68,19 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         nombre.requestFocus();
     }
     
+    public String letraCapital(String texto){
+    //Convierte la primera letra de una texto a mayuscula, el resto a minusculas
+        String resultado = "";
+        if(!texto.isEmpty()){
+            texto = texto.toLowerCase(); //pasamos a minuscula
+            String[] palabras = texto.split("\\s"); //partimos si tiene mas de una palabra
+            for(String palabra : palabras) {
+                resultado += palabra.substring(0, 1).toUpperCase() + palabra.substring(1)+ " ";
+            }
+        }
+        return resultado;
+    }
+        
     public void limpiarCampos(){
         nombre.setText("");
         descripcion.setText("");
@@ -454,18 +467,51 @@ public class AltaServicio extends javax.swing.JInternalFrame {
             return;
         }        
         
-        String prov = proveedores.getSelectedItem().toString();
+        String nombreServicio  = letraCapital(nombre.getText());
+        String descServicio    = descripcion.getText();
+        String proveedor       = proveedores.getSelectedItem().toString();
+        String ciudadOrigen    = letraCapital(ciudad1.getText());
+        String ciudadDestino   = letraCapital(ciudad2.getText());
+        String paisServicio    = letraCapital(pais.getText());
+        int precioServicio     = Integer.parseInt(precio.getText());            
         
-        Pantallaprin.ICP.ingresarDestinoServicio(ciudad2.getText());
+        if(nombreServicio.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese un nombre válido");
+            nombre.requestFocus();
+            return;
+        }
+        else if(descServicio.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese una descripción válida");
+            descripcion.requestFocus();
+            return;
+        }
+        else if(paisServicio.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese un país válido.");
+            pais.requestFocus();
+            return;
+        }
+        else if(ciudadOrigen.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese la ciudad de orígen válida.");
+            ciudad1.requestFocus();
+            return;
+        }
+        else if(precioServicio <= 0){
+            JOptionPane.showMessageDialog(null, "Ingrese un precio válido.");
+            precio.requestFocus();
+            return;
+        }        
         
-        String pre = precio.getText();
-        int precioin;
-        precioin = Integer.parseInt(pre);
+        try{
+            Pantallaprin.ICP.ingresarDestinoServicio(ciudadDestino);
+        }
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage());            
+        }                
         
         if (!servicioImagen1.getText().isEmpty()) {
             Path FROM = Paths.get(servicioImagen1.getText());
             //armo la ruta destino
-            String urlImagenDestino = PantallaPrincipal.RutaImagenes + "Servicios\\" + prov + " - " + nombre.getText() + " 1.png";
+            String urlImagenDestino = PantallaPrincipal.RutaImagenes + "Servicios\\" + proveedor + " - " + nombre.getText() + " 1.png";
             Path TO = Paths.get(urlImagenDestino);
             try {
                 Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);
@@ -474,14 +520,13 @@ public class AltaServicio extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Error al copiar la imagen 1");
                 Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
             }
-
         } else {
             Pantallaprin.ICP.ingresarImagenServicio("");//siempre se carga una ruta aunque sea vacia
         }
         if (!servicioImagen2.getText().isEmpty()) {
             Path FROM = Paths.get(servicioImagen2.getText());
             //armo la ruta destino
-            String urlImagenDestino = PantallaPrincipal.RutaImagenes + "Servicios\\" + prov + " - " + nombre.getText() + " 2.png";
+            String urlImagenDestino = PantallaPrincipal.RutaImagenes + "Servicios\\" + proveedor + " - " + nombre.getText() + " 2.png";
             Path TO = Paths.get(urlImagenDestino);
             try {
                 Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);
@@ -490,14 +535,13 @@ public class AltaServicio extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Error al copiar la imagen 2");
                 Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
             }
-
         } else {
             Pantallaprin.ICP.ingresarImagenServicio("");//siempre se carga una ruta aun que sea vacia
         }
         if (!servicioImagen3.getText().isEmpty()) {
             Path FROM = Paths.get(servicioImagen3.getText());
             //armo la ruta destino
-            String urlImagenDestino = PantallaPrincipal.RutaImagenes + "Servicios\\" + prov + " - " + nombre.getText() + " 3.png";
+            String urlImagenDestino = PantallaPrincipal.RutaImagenes + "Servicios\\" + proveedor + " - " + nombre.getText() + " 3.png";
             Path TO = Paths.get(urlImagenDestino);
             try {
                 Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);
@@ -506,16 +550,15 @@ public class AltaServicio extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Error al copiar la imagen 3");
                 Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
             }
-
         } else {
             Pantallaprin.ICP.ingresarImagenServicio("");//siempre se carga una ruta aun que sea vacia
         }
         try {          
-            Pantallaprin.ICP.altaServicio(nombre.getText(), descripcion.getText(), precioin, ciudad1.getText(), prov, pais.getText());
+            Pantallaprin.ICP.altaServicio(nombreServicio, descServicio, precioServicio, ciudadOrigen, proveedor, paisServicio);
             JOptionPane.showMessageDialog(null, "El Servicio se ingresó correctamente");
             limpiarCampos();
         } catch (Exception ex) {
-            //error en alta proveedor
+            //error en alta servicio
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
     }//GEN-LAST:event_jButton14ActionPerformed
