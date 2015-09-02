@@ -27,6 +27,7 @@ public class ControladorProveedor implements IControladorProveedor{
     
     private void liberarMemoria(){
         imagenServicio = new String[3];
+        tope=0;
         destinoServicio = "";
         origenServicio = "";
         categoriasServicio = new HashSet();
@@ -73,10 +74,13 @@ public class ControladorProveedor implements IControladorProveedor{
                 Logger.getLogger(ControladorProveedor.class.getName()).log(Level.SEVERE, null, ex);
             }           
         }
+        ControladorProveedor.tope=0;
+        
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
         prov.asociarServicio(ser);
         ser.setProveedor(prov);
+        
         ManejadorCategoria mCa = ManejadorCategoria.getInstance();
         for(String cats : categoriasServicio){
             Categoria cat = mCa.getCategoria(cats);
