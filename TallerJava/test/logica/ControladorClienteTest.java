@@ -96,42 +96,67 @@ public class ControladorClienteTest {
     
     /**
      * Test of verInfoCliente method, of class ControladorCliente.
+     * @throws java.lang.Exception
      */
     @Test
-    public void testVerInfoCliente() {
-        /*System.out.println("verInfoCliente");
-        String nomCliente = "1";
+    public void testVerInfoCliente() throws Exception {
+        System.out.println("verInfoCliente");
+        String nickname = "asd";
+        String nomCliente = "NOM";
+        String apellido = "AP";
+        String email = "EMAIL";
+        Date fechaNac = new Date(1,1,2015);
+        String imagen = "imagen";
+        testAltaCliente2(nickname, nomCliente, apellido, email, fechaNac, imagen);
         ControladorCliente instance = new ControladorCliente();
-        DataInfoCliente expResult = null;
-        DataInfoCliente result = instance.verInfoCliente(nomCliente);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");*/
+        DataInfoCliente result = instance.verInfoCliente(nickname);
+        assertEquals(nickname, result.getNickname());
+        assertEquals(nomCliente, result.getNombre());
+        assertEquals(apellido, result.getApellido());
+        assertEquals(fechaNac, result.getFechaNac());
+        assertEquals(imagen, result.getImagen());
+        //assertEquals(, result.getReservas());
     }
 /**
      * Test of realizarReserva method, of class ControladorCliente.
      */
     @Test
-    public void testRealizarReserva(String proveedor, String cliente, String servicio, int cantidad, Date fechaInicio, Date fechaFin, boolean esServicio) {
+    public void testRealizarReserva(/*String proveedor, String cliente, String servicio, int cantidad, Date fechaInicio, Date fechaFin, boolean esServicio*/) {
+        /*System.out.println("realizarReserva");
+        ControladorCliente instance = new ControladorCliente();
+        instance.realizarReserva(proveedor, cliente, servicio, cantidad, fechaInicio, fechaFin, esServicio);
+        */
+    }
+    
+    public void testRealizarReserva2(String proveedor, String cliente, String servicio, int cantidad, Date fechaInicio, Date fechaFin, boolean esServicio) {
         System.out.println("realizarReserva");
         ControladorCliente instance = new ControladorCliente();
+        
         instance.realizarReserva(proveedor, cliente, servicio, cantidad, fechaInicio, fechaFin, esServicio);
         
     }
         /**
      * Test of actualizarEstadoReserva method, of class ControladorCliente.
+     * @param id
+     * @param nomCliente
+     * @param estado
      */
-    @Test
-    public void testActualizarEstadoReserva(int id, String nomCliente, Estado estado) {
+    /*@Test
+    public void testActualizarEstadoReserva2(int id, String nomCliente, Estado estado) {
         System.out.println("actualizarEstadoReserva");
         ControladorCliente instance = new ControladorCliente();
         instance.actualizarEstadoReserva(id, nomCliente, estado);
-    }
+    }*/
     /**
      * Test of cancelarReserva method, of class ControladorCliente.
+     * @param nomCliente
+     * @param id
      */
     @Test
-    public void testCancelarReserva(String nomCliente, int id) {
+    public void testCancelarReserva2() {
+        
+        String nomCliente = "";
+        int id= 1;
         System.out.println("cancelarReserva");
         ControladorCliente instance = new ControladorCliente();
         instance.cancelarReserva(nomCliente, id);

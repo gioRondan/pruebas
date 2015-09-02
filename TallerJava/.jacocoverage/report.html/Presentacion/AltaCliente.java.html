@@ -11,9 +11,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 
@@ -27,19 +32,32 @@ public class AltaCliente extends javax.swing.JInternalFrame {
      * Creates new form AltaCliente
      */
     
-<span class="nc" id="L30">    PantallaPrincipal Pantallaprin = PantallaPrincipal.getInstancia();</span>
-<span class="nc" id="L31">    public AltaCliente() {</span>
-<span class="nc" id="L32">        initComponents();</span>
-<span class="nc" id="L33">    }</span>
+<span class="nc" id="L35">    PantallaPrincipal Pantallaprin = PantallaPrincipal.getInstancia();</span>
+<span class="nc" id="L36">    public AltaCliente() {</span>
+<span class="nc" id="L37">        initComponents();</span>
+<span class="nc" id="L38">    }</span>
 
     public void limpiarCampos(){
-<span class="nc" id="L36">        clienteNick.setText(&quot;&quot;);</span>
-<span class="nc" id="L37">        this.clienteNombre.setText(&quot;&quot;);</span>
-<span class="nc" id="L38">        this.clienteApellido.setText(&quot;&quot;);</span>
-<span class="nc" id="L39">        this.clienteEmail.setText(&quot;&quot;);</span>
-<span class="nc" id="L40">        clienteImagen.setText(&quot;&quot;);   </span>
-<span class="nc" id="L41">        clienteNick.requestFocus();</span>
-<span class="nc" id="L42">    }</span>
+<span class="nc" id="L41">        clienteNick.setText(&quot;&quot;);</span>
+<span class="nc" id="L42">        this.clienteNombre.setText(&quot;&quot;);</span>
+<span class="nc" id="L43">        this.clienteApellido.setText(&quot;&quot;);</span>
+<span class="nc" id="L44">        this.clienteEmail.setText(&quot;&quot;);</span>
+<span class="nc" id="L45">        clienteImagen.setText(&quot;&quot;);   </span>
+<span class="nc" id="L46">        clienteNick.requestFocus();</span>
+<span class="nc" id="L47">    }    </span>
+
+    public String letraCapital(String texto){
+    //Convierte la primera letra de una texto a mayuscula, el resto a minusculas
+<span class="nc" id="L51">        String resultado = &quot;&quot;;</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">        if(!texto.isEmpty()){</span>
+<span class="nc" id="L53">            texto = texto.toLowerCase(); //pasamos a minuscula</span>
+<span class="nc" id="L54">            String[] palabras = texto.split(&quot;\\s&quot;); //partimos si tiene mas de una palabra</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">            for(String palabra : palabras) {</span>
+<span class="nc" id="L56">                resultado += palabra.substring(0, 1).toUpperCase() + palabra.substring(1)+ &quot; &quot;;</span>
+            }
+        }
+<span class="nc" id="L59">        return resultado;</span>
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,208 +67,216 @@ public class AltaCliente extends javax.swing.JInternalFrame {
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<span class="nc" id="L52">        jLabel5 = new javax.swing.JLabel();</span>
-<span class="nc" id="L53">        jLabel7 = new javax.swing.JLabel();</span>
-<span class="nc" id="L54">        jLabel2 = new javax.swing.JLabel();</span>
-<span class="nc" id="L55">        clienteNombre = new javax.swing.JTextField();</span>
-<span class="nc" id="L56">        clienteNick = new javax.swing.JTextField();</span>
-<span class="nc" id="L57">        jLabel3 = new javax.swing.JLabel();</span>
-<span class="nc" id="L58">        clienteApellido = new javax.swing.JTextField();</span>
-<span class="nc" id="L59">        jLabel8 = new javax.swing.JLabel();</span>
-<span class="nc" id="L60">        clienteEmail = new javax.swing.JTextField();</span>
-<span class="nc" id="L61">        jLabel4 = new javax.swing.JLabel();</span>
-<span class="nc" id="L62">        jLabel9 = new javax.swing.JLabel();</span>
-<span class="nc" id="L63">        clienteImagen = new javax.swing.JTextField();</span>
-<span class="nc" id="L64">        jButton7 = new javax.swing.JButton();</span>
-<span class="nc" id="L65">        jButton4 = new javax.swing.JButton();</span>
-<span class="nc" id="L66">        jButton5 = new javax.swing.JButton();</span>
-<span class="nc" id="L67">        jDateChooser1 = new com.toedter.calendar.JDateChooser();</span>
+<span class="nc" id="L70">        jLabel5 = new javax.swing.JLabel();</span>
+<span class="nc" id="L71">        jLabel7 = new javax.swing.JLabel();</span>
+<span class="nc" id="L72">        jLabel2 = new javax.swing.JLabel();</span>
+<span class="nc" id="L73">        clienteNombre = new javax.swing.JTextField();</span>
+<span class="nc" id="L74">        clienteNick = new javax.swing.JTextField();</span>
+<span class="nc" id="L75">        jLabel3 = new javax.swing.JLabel();</span>
+<span class="nc" id="L76">        clienteApellido = new javax.swing.JTextField();</span>
+<span class="nc" id="L77">        jLabel8 = new javax.swing.JLabel();</span>
+<span class="nc" id="L78">        clienteEmail = new javax.swing.JTextField();</span>
+<span class="nc" id="L79">        jLabel4 = new javax.swing.JLabel();</span>
+<span class="nc" id="L80">        jLabel9 = new javax.swing.JLabel();</span>
+<span class="nc" id="L81">        clienteImagen = new javax.swing.JTextField();</span>
+<span class="nc" id="L82">        jButton7 = new javax.swing.JButton();</span>
+<span class="nc" id="L83">        jButton4 = new javax.swing.JButton();</span>
+<span class="nc" id="L84">        jButton5 = new javax.swing.JButton();</span>
+<span class="nc" id="L85">        jDateChooser1 = new com.toedter.calendar.JDateChooser();</span>
 
-<span class="nc" id="L69">        setClosable(true);</span>
+<span class="nc" id="L87">        setClosable(true);</span>
 
-<span class="nc" id="L71">        jLabel5.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L72">        jLabel5.setText(&quot;Cliente&quot;);</span>
+<span class="nc" id="L89">        jLabel5.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L90">        jLabel5.setText(&quot;Cliente&quot;);</span>
 
-<span class="nc" id="L74">        jLabel7.setText(&quot;Nickname:&quot;);</span>
+<span class="nc" id="L92">        jLabel7.setText(&quot;Nickname:&quot;);</span>
 
-<span class="nc" id="L76">        jLabel2.setText(&quot;Nombre:&quot;);</span>
+<span class="nc" id="L94">        jLabel2.setText(&quot;Nombre:&quot;);</span>
 
-<span class="nc" id="L78">        clienteNick.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L96">        clienteNick.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L80">                clienteNickActionPerformed(evt);</span>
-<span class="nc" id="L81">            }</span>
+<span class="nc" id="L98">                clienteNickActionPerformed(evt);</span>
+<span class="nc" id="L99">            }</span>
         });
 
-<span class="nc" id="L84">        jLabel3.setText(&quot;Apellido:&quot;);</span>
+<span class="nc" id="L102">        jLabel3.setText(&quot;Apellido:&quot;);</span>
 
-<span class="nc" id="L86">        clienteApellido.setToolTipText(&quot;&quot;);</span>
+<span class="nc" id="L104">        clienteApellido.setToolTipText(&quot;&quot;);</span>
 
-<span class="nc" id="L88">        jLabel8.setText(&quot;Correo electornico:&quot;);</span>
+<span class="nc" id="L106">        jLabel8.setText(&quot;Correo electornico:&quot;);</span>
 
-<span class="nc" id="L90">        jLabel4.setText(&quot;Fecha de Nacimiento:&quot;);</span>
+<span class="nc" id="L108">        jLabel4.setText(&quot;Fecha de Nacimiento:&quot;);</span>
 
-<span class="nc" id="L92">        jLabel9.setText(&quot;Imagen:&quot;);</span>
+<span class="nc" id="L110">        jLabel9.setText(&quot;Imagen:&quot;);</span>
 
-<span class="nc" id="L94">        jButton7.setInheritsPopupMenu(true);</span>
-<span class="nc" id="L95">        jButton7.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L112">        jButton7.setInheritsPopupMenu(true);</span>
+<span class="nc" id="L113">        jButton7.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L97">                jButton7ActionPerformed(evt);</span>
-<span class="nc" id="L98">            }</span>
+<span class="nc" id="L115">                jButton7ActionPerformed(evt);</span>
+<span class="nc" id="L116">            }</span>
         });
 
-<span class="nc" id="L101">        jButton4.setText(&quot;Aceptar&quot;);</span>
-<span class="nc" id="L102">        jButton4.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L119">        jButton4.setText(&quot;Aceptar&quot;);</span>
+<span class="nc" id="L120">        jButton4.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L104">                jButton4ActionPerformed(evt);</span>
-<span class="nc" id="L105">            }</span>
+<span class="nc" id="L122">                jButton4ActionPerformed(evt);</span>
+<span class="nc" id="L123">            }</span>
         });
 
-<span class="nc" id="L108">        jButton5.setText(&quot;Cancelar&quot;);</span>
-<span class="nc" id="L109">        jButton5.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L126">        jButton5.setText(&quot;Cancelar&quot;);</span>
+<span class="nc" id="L127">        jButton5.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L111">                jButton5ActionPerformed(evt);</span>
-<span class="nc" id="L112">            }</span>
+<span class="nc" id="L129">                jButton5ActionPerformed(evt);</span>
+<span class="nc" id="L130">            }</span>
         });
 
-<span class="nc" id="L115">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="nc" id="L116">        getContentPane().setLayout(layout);</span>
-<span class="nc" id="L117">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L118">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L119">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L120">                .addGap(38, 38, 38)</span>
-<span class="nc" id="L121">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L122">                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L123">                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
-<span class="nc" id="L124">                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
-<span class="nc" id="L125">                                .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L126">                                    .addComponent(jLabel8)</span>
-<span class="nc" id="L127">                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L128">                                    .addComponent(clienteEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L129">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
-<span class="nc" id="L130">                                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L131">                                        .addComponent(jLabel3)</span>
-<span class="nc" id="L132">                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L133">                                        .addComponent(clienteApellido))</span>
-<span class="nc" id="L134">                                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L135">                                        .addComponent(jLabel2)</span>
-<span class="nc" id="L136">                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L137">                                        .addComponent(clienteNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
-<span class="nc" id="L138">                                .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L139">                                    .addComponent(jLabel7)</span>
-<span class="nc" id="L140">                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L141">                                    .addComponent(clienteNick, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L142">                                .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L143">                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L144">                                    .addGap(182, 182, 182)))</span>
-<span class="nc" id="L145">                            .addGap(40, 40, 40))</span>
-<span class="nc" id="L146">                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
-<span class="nc" id="L147">                            .addComponent(jLabel4)</span>
-<span class="nc" id="L148">                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L149">                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
-<span class="nc" id="L150">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L151">                        .addGap(90, 90, 90)</span>
-<span class="nc" id="L152">                        .addComponent(jLabel9)</span>
-<span class="nc" id="L153">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L154">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
-<span class="nc" id="L155">                            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L156">                                .addComponent(jButton4)</span>
-<span class="nc" id="L157">                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L158">                                .addComponent(jButton5))</span>
-<span class="nc" id="L159">                            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L160">                                .addComponent(clienteImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L161">                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L162">                                .addComponent(jButton7)))))</span>
-<span class="nc" id="L163">                .addContainerGap(40, Short.MAX_VALUE))</span>
+<span class="nc" id="L133">        jDateChooser1.setMaxSelectableDate(new java.util.Date(253370775660000L));</span>
+<span class="nc" id="L134">        jDateChooser1.setMinSelectableDate(new java.util.Date(-2208971656000L));</span>
+
+<span class="nc" id="L136">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L137">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L138">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L139">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L140">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L141">                .addGap(38, 38, 38)</span>
+<span class="nc" id="L142">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L143">                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L144">                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="nc" id="L145">                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
+<span class="nc" id="L146">                                .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L147">                                    .addComponent(jLabel8)</span>
+<span class="nc" id="L148">                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L149">                                    .addComponent(clienteEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L150">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
+<span class="nc" id="L151">                                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L152">                                        .addComponent(jLabel3)</span>
+<span class="nc" id="L153">                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L154">                                        .addComponent(clienteApellido))</span>
+<span class="nc" id="L155">                                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L156">                                        .addComponent(jLabel2)</span>
+<span class="nc" id="L157">                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L158">                                        .addComponent(clienteNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
+<span class="nc" id="L159">                                .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L160">                                    .addComponent(jLabel7)</span>
+<span class="nc" id="L161">                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L162">                                    .addComponent(clienteNick, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L163">                                .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L164">                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L165">                                    .addGap(182, 182, 182)))</span>
+<span class="nc" id="L166">                            .addGap(40, 40, 40))</span>
+<span class="nc" id="L167">                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="nc" id="L168">                            .addComponent(jLabel4)</span>
+<span class="nc" id="L169">                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L170">                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
+<span class="nc" id="L171">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L172">                        .addGap(90, 90, 90)</span>
+<span class="nc" id="L173">                        .addComponent(jLabel9)</span>
+<span class="nc" id="L174">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L175">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
+<span class="nc" id="L176">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L177">                                .addComponent(jButton4)</span>
+<span class="nc" id="L178">                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L179">                                .addComponent(jButton5))</span>
+<span class="nc" id="L180">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L181">                                .addComponent(clienteImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L182">                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L183">                                .addComponent(jButton7)))))</span>
+<span class="nc" id="L184">                .addContainerGap(40, Short.MAX_VALUE))</span>
         );
-<span class="nc" id="L165">        layout.setVerticalGroup(</span>
-<span class="nc" id="L166">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L167">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L168">                .addGap(26, 26, 26)</span>
-<span class="nc" id="L169">                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L170">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L171">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L172">                    .addComponent(clienteNick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L173">                    .addComponent(jLabel7))</span>
-<span class="nc" id="L174">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L175">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L176">                    .addComponent(clienteNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L177">                    .addComponent(jLabel2))</span>
-<span class="nc" id="L178">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L179">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L180">                    .addComponent(clienteApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L181">                    .addComponent(jLabel3))</span>
-<span class="nc" id="L182">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L183">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L184">                    .addComponent(clienteEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L185">                    .addComponent(jLabel8))</span>
-<span class="nc" id="L186">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L187">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
-<span class="nc" id="L188">                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L189">                    .addComponent(jLabel4))</span>
-<span class="nc" id="L190">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L191">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L192">                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L193">                        .addComponent(jLabel9)</span>
-<span class="nc" id="L194">                        .addComponent(clienteImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L195">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L196">                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L197">                        .addGap(18, 18, 18)</span>
-<span class="nc" id="L198">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L199">                            .addComponent(jButton4)</span>
-<span class="nc" id="L200">                            .addComponent(jButton5))))</span>
-<span class="nc" id="L201">                .addContainerGap(68, Short.MAX_VALUE))</span>
+<span class="nc" id="L186">        layout.setVerticalGroup(</span>
+<span class="nc" id="L187">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L188">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L189">                .addGap(26, 26, 26)</span>
+<span class="nc" id="L190">                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L191">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L192">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L193">                    .addComponent(clienteNick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L194">                    .addComponent(jLabel7))</span>
+<span class="nc" id="L195">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L196">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L197">                    .addComponent(clienteNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L198">                    .addComponent(jLabel2))</span>
+<span class="nc" id="L199">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L200">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L201">                    .addComponent(clienteApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L202">                    .addComponent(jLabel3))</span>
+<span class="nc" id="L203">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L204">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L205">                    .addComponent(clienteEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L206">                    .addComponent(jLabel8))</span>
+<span class="nc" id="L207">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L208">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
+<span class="nc" id="L209">                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L210">                    .addComponent(jLabel4))</span>
+<span class="nc" id="L211">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L212">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L213">                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L214">                        .addComponent(jLabel9)</span>
+<span class="nc" id="L215">                        .addComponent(clienteImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L216">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L217">                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L218">                        .addGap(18, 18, 18)</span>
+<span class="nc" id="L219">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L220">                            .addComponent(jButton4)</span>
+<span class="nc" id="L221">                            .addComponent(jButton5))))</span>
+<span class="nc" id="L222">                .addContainerGap(68, Short.MAX_VALUE))</span>
         );
 
-<span class="nc" id="L204">        pack();</span>
-<span class="nc" id="L205">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L225">        pack();</span>
+<span class="nc" id="L226">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void clienteNickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteNickActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L209">    }//GEN-LAST:event_clienteNickActionPerformed</span>
+<span class="nc" id="L230">    }//GEN-LAST:event_clienteNickActionPerformed</span>
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L213">        Pantallaprin.abrirSelectorImagen(&quot;AltaCliente&quot;);</span>
-<span class="nc" id="L214">    }//GEN-LAST:event_jButton7ActionPerformed</span>
+<span class="nc" id="L234">        Pantallaprin.abrirSelectorImagen(&quot;AltaCliente&quot;);</span>
+<span class="nc" id="L235">    }//GEN-LAST:event_jButton7ActionPerformed</span>
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-            
-<span class="nc" id="L218">        Date fechaNac   = jDateChooser1.getDate();</span>
-<span class="nc" id="L219">        String nickname = clienteNick.getText();</span>
-<span class="nc" id="L220">        String nombre   = clienteNombre.getText();</span>
-<span class="nc" id="L221">        String apellido = clienteApellido.getText();</span>
-<span class="nc" id="L222">        String email    = clienteEmail.getText();</span>
-<span class="nc" id="L223">        String imagen   = clienteImagen.getText();</span>
-<span class="nc" id="L224">        String urlImagen= &quot;&quot;;</span>
-        
-<span class="nc bnc" id="L226" title="All 2 branches missed.">        if(nickname.isEmpty()){</span>
-<span class="nc" id="L227">            JOptionPane.showMessageDialog(null, &quot;Ingrese un nickname válido&quot;);</span>
-<span class="nc" id="L228">            clienteNick.requestFocus();</span>
-<span class="nc" id="L229">            return;</span>
+
+<span class="nc" id="L239">        DateFormat formatoFecha = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);	</span>
+<span class="nc" id="L240">        Date fechaNac   = jDateChooser1.getDate();</span>
+<span class="nc" id="L241">        String nickname = clienteNick.getText().toLowerCase();</span>
+<span class="nc" id="L242">        String nombre   = letraCapital(clienteNombre.getText());</span>
+<span class="nc" id="L243">        String apellido = letraCapital(clienteApellido.getText());</span>
+<span class="nc" id="L244">        String email    = clienteEmail.getText().toLowerCase();</span>
+<span class="nc" id="L245">        String imagen   = clienteImagen.getText();</span>
+<span class="nc" id="L246">        String urlImagen= &quot;&quot;;        </span>
+
+<span class="nc bnc" id="L248" title="All 2 branches missed.">        if(nickname.isEmpty()){</span>
+<span class="nc" id="L249">            JOptionPane.showMessageDialog(null, &quot;Ingrese un nickname válido&quot;);</span>
+<span class="nc" id="L250">            clienteNick.requestFocus();</span>
+<span class="nc" id="L251">            return;</span>
         }
-<span class="nc bnc" id="L231" title="All 2 branches missed.">        else if(nombre.isEmpty()){</span>
-<span class="nc" id="L232">            JOptionPane.showMessageDialog(null, &quot;Ingrese un nombre válido&quot;);</span>
-<span class="nc" id="L233">            clienteNombre.requestFocus();</span>
-<span class="nc" id="L234">            return;</span>
+<span class="nc bnc" id="L253" title="All 2 branches missed.">        else if(nombre.isEmpty()){</span>
+<span class="nc" id="L254">            JOptionPane.showMessageDialog(null, &quot;Ingrese un nombre válido&quot;);</span>
+<span class="nc" id="L255">            clienteNombre.requestFocus();</span>
+<span class="nc" id="L256">            return;</span>
         }
-<span class="nc bnc" id="L236" title="All 2 branches missed.">        else if(apellido.isEmpty()){</span>
-<span class="nc" id="L237">            JOptionPane.showMessageDialog(null, &quot;Ingrese un apellido válido&quot;);</span>
-<span class="nc" id="L238">            clienteApellido.requestFocus();</span>
-<span class="nc" id="L239">            return;</span>
+<span class="nc bnc" id="L258" title="All 2 branches missed.">        else if(apellido.isEmpty()){</span>
+<span class="nc" id="L259">            JOptionPane.showMessageDialog(null, &quot;Ingrese un apellido válido&quot;);</span>
+<span class="nc" id="L260">            clienteApellido.requestFocus();</span>
+<span class="nc" id="L261">            return;</span>
         }
-<span class="nc bnc" id="L241" title="All 2 branches missed.">        else if(email.isEmpty()){</span>
-<span class="nc" id="L242">            JOptionPane.showMessageDialog(null, &quot;Ingrese un email válido&quot;);</span>
-<span class="nc" id="L243">            clienteEmail.requestFocus();</span>
-<span class="nc" id="L244">            return;</span>
+<span class="nc bnc" id="L263" title="All 4 branches missed.">        else if(email.isEmpty() || !email.matches(&quot;^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[a-zA-Z]{2,4}$&quot;)){</span>
+<span class="nc" id="L264">            JOptionPane.showMessageDialog(null, &quot;Ingrese un email válido&quot;);</span>
+<span class="nc" id="L265">            clienteEmail.requestFocus();</span>
+<span class="nc" id="L266">            return;</span>
         }    
-        
+<span class="nc bnc" id="L268" title="All 2 branches missed.">        else if(!formatoFecha.format(fechaNac).matches(&quot;^[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}$&quot;)){</span>
+<span class="nc" id="L269">            JOptionPane.showMessageDialog(null, &quot;Ingrese una fecha válida&quot;);</span>
+<span class="nc" id="L270">            jDateChooser1.requestFocus();</span>
+<span class="nc" id="L271">            return;</span>
+        }
         //Para copiar le archivo seleccionado
-<span class="nc bnc" id="L248" title="All 2 branches missed.">        if (!imagen.isEmpty()){</span>
-<span class="nc" id="L249">            Path FROM = Paths.get(clienteImagen.getText());</span>
+<span class="nc bnc" id="L274" title="All 2 branches missed.">        if (!imagen.isEmpty()){</span>
+<span class="nc" id="L275">            Path FROM = Paths.get(clienteImagen.getText());</span>
             //muestro la ruta local de la imagen (teteo)
             //JOptionPane.showMessageDialog(null,&quot;ruta local de la imagen: &quot;+cleinteImagen.getText());
-<span class="nc" id="L252">            urlImagen = PantallaPrincipal.RutaImagenes+nickname+&quot;.png&quot;;</span>
-<span class="nc" id="L253">            Path TO = Paths.get(urlImagen);</span>
+<span class="nc" id="L278">            urlImagen = PantallaPrincipal.RutaImagenes+&quot;Usuarios\\&quot;+nickname+&quot;.png&quot;;</span>
+<span class="nc" id="L279">            Path TO = Paths.get(urlImagen);</span>
             //JOptionPane.showMessageDialog(null, &quot;ruta donde se copia la imagen: &quot;+TO);
             //sobreescribir el fichero de destino, si existe, y copiar
             // los atributos, incluyendo los permisos rwx
@@ -259,26 +285,26 @@ public class AltaCliente extends javax.swing.JInternalFrame {
             //StandardCopyOption.COPY_ATTRIBUTES
             //}; 
             try {
-<span class="nc" id="L262">                Files.copy(FROM,TO, StandardCopyOption.REPLACE_EXISTING);            </span>
-<span class="nc" id="L263">            } catch (IOException ex) {</span>
-<span class="nc" id="L264">                JOptionPane.showMessageDialog(null, &quot;Error al copiar la imagen&quot;);</span>
-<span class="nc" id="L265">                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L266">            }</span>
+<span class="nc" id="L288">                Files.copy(FROM,TO, StandardCopyOption.REPLACE_EXISTING);            </span>
+<span class="nc" id="L289">            } catch (IOException ex) {</span>
+<span class="nc" id="L290">                JOptionPane.showMessageDialog(null, &quot;Error al copiar la imagen&quot;);</span>
+<span class="nc" id="L291">                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L292">            }</span>
         }
         try {
-<span class="nc" id="L269">            Pantallaprin.ICC.altaCliente(nickname, nombre, apellido, email, fechaNac, urlImagen);</span>
-<span class="nc" id="L270">            JOptionPane.showMessageDialog(null,&quot;El Cliente se ingresó correctamente&quot;);</span>
-<span class="nc" id="L271">            limpiarCampos();</span>
-<span class="nc" id="L272">        } catch (Exception ex){</span>
+<span class="nc" id="L295">            Pantallaprin.ICC.altaCliente(nickname, nombre, apellido, email, fechaNac, urlImagen);</span>
+<span class="nc" id="L296">            JOptionPane.showMessageDialog(null,&quot;El Cliente se ingresó correctamente&quot;);</span>
+<span class="nc" id="L297">            limpiarCampos();</span>
+<span class="nc" id="L298">        } catch (Exception ex){</span>
             //error en alta cliente
-<span class="nc" id="L274">            JOptionPane.showMessageDialog(null,ex.getMessage());</span>
-<span class="nc" id="L275">        }         </span>
-<span class="nc" id="L276">    }//GEN-LAST:event_jButton4ActionPerformed</span>
+<span class="nc" id="L300">            JOptionPane.showMessageDialog(null,ex.getMessage());</span>
+<span class="nc" id="L301">        }         </span>
+<span class="nc" id="L302">    }//GEN-LAST:event_jButton4ActionPerformed</span>
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L280">        this.dispose();</span>
-<span class="nc" id="L281">    }//GEN-LAST:event_jButton5ActionPerformed</span>
+<span class="nc" id="L306">        this.dispose();</span>
+<span class="nc" id="L307">    }//GEN-LAST:event_jButton5ActionPerformed</span>
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
