@@ -20,7 +20,7 @@ import java.util.Set;
  */
 public class ManejadorCliente {
      private Map<String,Cliente> clientes;
-     private int id;
+     private static int id;
     private static ManejadorCliente instance = null;
     private ManejadorCliente(){
         id=111;

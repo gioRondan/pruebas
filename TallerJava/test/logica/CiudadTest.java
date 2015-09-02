@@ -714,27 +714,6 @@ public class CiudadTest {
     }*/
     
 
-    /**
-     * Test of listarReservasSistema method, of class ControladorCliente.
-     */
-    @Test
-    public void testListarReservasSistema() {
-        System.out.println("listarReservasSistema");
-        String proveedor;
-        String cliente;
-        String servicio;
-        int cantidad;
-        Date fechaInicio;
-        Date fechaFin;
-        boolean esServicio;
-        //testRealizarReserva(proveedor, cliente, servicio, cantidad, fechaInicio, fechaFin, esServicio);
-        ControladorCliente instance = new ControladorCliente();
-        Set<DataReserva> expResult = null;
-        List<DataReserva> result = instance.listarReservasSistema();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of listarReservasXCliente method, of class ControladorCliente.
@@ -761,6 +740,46 @@ public class CiudadTest {
     }
 
     /**
+     * Test of listarReservasSistema method, of class ControladorCliente.
+     */
+    @Test
+    public void testListarReservasSistema() throws Exception {
+        System.out.println("listarReservasSistema");
+        String proveedor;
+        String cliente;
+        String servicio;
+        int cantidad;
+        Date fechaInicio;
+        Date fechaFin;
+        boolean esServicio;
+        
+        //testRealizarReserva(proveedor, cliente, servicio, cantidad, fechaInicio, fechaFin, esServicio);
+        ControladorCliente instance = new ControladorCliente();
+        instance.altaCliente("45", "cli2", "ap2", "email45", new Date(2,2,2013), "im45");
+        instance.altaCliente("46", "cli2", "ap2", "email46", new Date(2,2,2013), "im46");
+        
+        ManejadorCliente mcl = ManejadorCliente.getInstance();
+        int id = mcl.testGetId();
+        //id = (id-10);   //en listarreservasxcliente ya se agregaron 10 
+        for(int i = 1; i < 11; ++i){
+        instance.realizarReserva("nickname", "45", Integer.toString(i), 1, new Date(1,2,2013), new Date(1,3,213), true);
+        }
+        for(int i = 1; i < 11; ++i){
+        instance.realizarReserva("nickname", "46", Integer.toString(i), 1, new Date(1,2,2013), new Date(1,3,213), true);    
+        }
+        List<DataReserva> result = instance.listarReservasSistema();
+        /*for(int k= 0;k<10;++k){
+        System.out.println(instance.listarReservasXCliente("45").get(k).getId());
+        }*/
+        for(int j= 10;j<30;++j){//ya habian 10 reservas ingresadas
+            //System.out.println(result.get(j).getId());
+            
+            id++;
+            assertEquals(id, result.get(j).getId());
+        }
+        
+    }
+    /**
      * Test of verInfoReserva method, of class ControladorCliente.
      * @throws java.lang.Exception
      */
@@ -776,14 +795,12 @@ public class CiudadTest {
         DataInfoReserva result = instance.verInfoReserva("cli", (id));
         assertEquals(Estado.registrada, result.getEstado());
         //assertEquals(10, result.getPrecio());
+        assertEquals(id, result.getId());
         /*assertEquals(, result);
-        assertEquals(, result);
         assertEquals(, result);*/
     }
     /**
      * Test of cancelarReserva method, of class ControladorCliente.
-     * @param nomCliente
-     * @param id
      */
     @Test
     public void testCancelarReserva2() {

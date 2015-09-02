@@ -8,6 +8,7 @@ package logica;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -20,7 +21,7 @@ public class ManejadorCategoria {
     private Map<String,Categoria> categorias;
     private static ManejadorCategoria instance = null;
     private ManejadorCategoria(){
-        categorias = new HashMap();
+        categorias = new LinkedHashMap();
     }
     
     public static ManejadorCategoria getInstance(){

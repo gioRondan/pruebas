@@ -8,6 +8,7 @@ package logica;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -18,32 +19,32 @@ import java.util.Set;
  */
 public class ManejadorCategoria {
     private Map&lt;String,Categoria&gt; categorias;
-<span class="fc" id="L21">    private static ManejadorCategoria instance = null;</span>
-<span class="fc" id="L22">    private ManejadorCategoria(){</span>
-<span class="fc" id="L23">        categorias = new HashMap();</span>
-<span class="fc" id="L24">    }</span>
+<span class="fc" id="L22">    private static ManejadorCategoria instance = null;</span>
+<span class="fc" id="L23">    private ManejadorCategoria(){</span>
+<span class="fc" id="L24">        categorias = new LinkedHashMap();</span>
+<span class="fc" id="L25">    }</span>
     
     public static ManejadorCategoria getInstance(){
-<span class="fc bfc" id="L27" title="All 2 branches covered.">        if(instance == null)</span>
-<span class="fc" id="L28">            instance = new ManejadorCategoria();</span>
-<span class="fc" id="L29">        return instance;</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if(instance == null)</span>
+<span class="fc" id="L29">            instance = new ManejadorCategoria();</span>
+<span class="fc" id="L30">        return instance;</span>
     }
     public Categoria getCategoria(String nombre){
-<span class="fc" id="L32">        return categorias.get(nombre);</span>
+<span class="fc" id="L33">        return categorias.get(nombre);</span>
     }
     public void addCategoria(Categoria proveedor){
-<span class="fc" id="L35">        categorias.put(proveedor.getNombre(), proveedor);</span>
-<span class="fc" id="L36">    }</span>
+<span class="fc" id="L36">        categorias.put(proveedor.getNombre(), proveedor);</span>
+<span class="fc" id="L37">    }</span>
     public void removeCategoria(String nombre){
-<span class="nc" id="L38">        categorias.remove(nombre);</span>
-<span class="nc" id="L39">    }</span>
+<span class="nc" id="L39">        categorias.remove(nombre);</span>
+<span class="nc" id="L40">    }</span>
     public List&lt;DataCategoria&gt; getDataCategorias(){
-<span class="fc" id="L41">        List&lt;DataCategoria&gt; dts = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L42" title="All 2 branches covered.">        for (Categoria value : categorias.values()) {</span>
-<span class="fc bfc" id="L43" title="All 2 branches covered.">            if(value.esRaiz())</span>
-<span class="fc" id="L44">            dts.add(value.getDataCategoria());</span>
-<span class="fc" id="L45">        }</span>
-<span class="fc" id="L46">        return dts;</span>
+<span class="fc" id="L42">        List&lt;DataCategoria&gt; dts = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (Categoria value : categorias.values()) {</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">            if(value.esRaiz())</span>
+<span class="fc" id="L45">            dts.add(value.getDataCategoria());</span>
+<span class="fc" id="L46">        }</span>
+<span class="fc" id="L47">        return dts;</span>
     }/*
     public void crearCategoria(String nomCategoria, String nomPadre){
         Categoria nueva = new Categoria(nomCategoria);
