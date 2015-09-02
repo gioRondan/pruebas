@@ -25,22 +25,22 @@ import java.util.Set;
     
     @Override
     public void realizarReserva(String proveedor,String cliente,String servicio,int cantidad,Date fechaInicio,Date fechaFin,boolean esServicio ){ //el bool servicio indica si voy a reservar un servicio, si es false es para reservar una promocion
-<span class="nc" id="L28">        ManejadorCliente mcli = ManejadorCliente.getInstance();</span>
-<span class="nc" id="L29">        Cliente aux_cliente = mcli.getCliente(cliente);</span>
-<span class="nc" id="L30">        int clave1 = mcli.getUltimoid();</span>
-<span class="nc" id="L31">        ManejadorProveedor mpr = ManejadorProveedor.getInstance();</span>
-<span class="nc" id="L32">        Proveedor prov = mpr.getProveedor(proveedor);</span>
+<span class="fc" id="L28">        ManejadorCliente mcli = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L29">        Cliente aux_cliente = mcli.getCliente(cliente);</span>
+<span class="fc" id="L30">        int clave1 = mcli.getUltimoid();</span>
+<span class="fc" id="L31">        ManejadorProveedor mpr = ManejadorProveedor.getInstance();</span>
+<span class="fc" id="L32">        Proveedor prov = mpr.getProveedor(proveedor);</span>
         
-<span class="nc bnc" id="L34" title="All 2 branches missed.">        if (esServicio){</span>
-<span class="nc" id="L35">            Servicio serv = prov.getServicio(servicio);</span>
-<span class="nc" id="L36">            aux_cliente.reservarServicio(clave1,serv,cantidad,fechaInicio,fechaFin);</span>
-<span class="nc" id="L37">        }</span>
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">        if (esServicio){</span>
+<span class="fc" id="L35">            Servicio serv = prov.getServicio(servicio);</span>
+<span class="fc" id="L36">            aux_cliente.reservarServicio(clave1,serv,cantidad,fechaInicio,fechaFin);</span>
+<span class="fc" id="L37">        }</span>
         else
         {
 <span class="nc" id="L40">            Promocion pr = prov.getPromocion(servicio);</span>
 <span class="nc" id="L41">            aux_cliente.reservarPromocion(clave1,pr, cantidad, fechaInicio, fechaFin);</span>
         }
-<span class="nc" id="L43">    }</span>
+<span class="fc" id="L43">    }</span>
     
     @Override
     public void altaCliente(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen) throws Exception{
@@ -93,8 +93,8 @@ import java.util.Set;
     public DataInfoReserva verInfoReserva(String nomCliente, int id){
 <span class="fc" id="L94">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
 <span class="fc" id="L95">        Cliente cliente = mCl.getCliente(nomCliente);</span>
-<span class="nc" id="L96">        Reserva reserva = cliente.getReserva(id);</span>
-<span class="nc" id="L97">        return reserva.getDataInfoReserva();</span>
+<span class="fc" id="L96">        Reserva reserva = cliente.getReserva(id);</span>
+<span class="fc" id="L97">        return reserva.getDataInfoReserva();</span>
     }
     
     @Override

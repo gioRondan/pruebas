@@ -42,14 +42,14 @@ public class Cliente extends Usuario{
 <span class="fc" id="L42">        return dts;</span>
     }
     public void reservarServicio(int id,Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
-<span class="nc" id="L45">        Date fecha_actual = new Date();</span>
+<span class="fc" id="L45">        Date fecha_actual = new Date();</span>
         
-<span class="nc" id="L47">        Reserva res = new Reserva(id,fecha_actual,fechaIni,fechaFin,0,Estado.registrada);</span>
+<span class="fc" id="L47">        Reserva res = new Reserva(id,fecha_actual,fechaIni,fechaFin,0,Estado.registrada);</span>
         
-<span class="nc" id="L49">        reservas.put(res.getId(),res);</span>
-<span class="nc" id="L50">        ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin);</span>
-<span class="nc" id="L51">        res.agregarItem(item);</span>
-<span class="nc" id="L52">    }</span>
+<span class="fc" id="L49">        reservas.put(res.getId(),res);</span>
+<span class="fc" id="L50">        ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin);</span>
+<span class="fc" id="L51">        res.agregarItem(item);</span>
+<span class="fc" id="L52">    }</span>
     public void modificarEstadoReserva(int id, Estado estado){
 <span class="nc" id="L54">        Reserva res = reservas.get(id);</span>
 <span class="nc bnc" id="L55" title="All 2 branches missed.">        if (res.getEstado() == Estado.registrada){</span>
@@ -72,7 +72,7 @@ public class Cliente extends Usuario{
 <span class="fc" id="L72">        return new DataInfoCliente(nickname, nombre, apellido, email, fechaNac, imagen, getDataReservas());</span>
     }
     public Reserva getReserva(int id) {
-<span class="nc" id="L75">        return reservas.get(id);</span>
+<span class="fc" id="L75">        return reservas.get(id);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

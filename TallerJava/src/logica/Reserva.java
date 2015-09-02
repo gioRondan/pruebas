@@ -5,8 +5,10 @@
  */
 package logica;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -20,7 +22,7 @@ public class Reserva {
     private Date fechaFin;
     private float precio;
     private Estado estado;
-    private Set<ItemReserva> item;
+    private List<ItemReserva> item;
     
     public Reserva(int id,Date fechaCreacion, Date fechaInicio, Date fechaFin, float precio, Estado estado){
         this.id=id;
@@ -29,6 +31,7 @@ public class Reserva {
         this.fechaFin = fechaFin;
         this.precio = precio;
         this.estado = estado;
+        this.item = new ArrayList<>();
     }
     
     public int getId(){
