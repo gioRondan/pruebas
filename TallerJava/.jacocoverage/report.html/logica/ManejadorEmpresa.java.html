@@ -18,31 +18,31 @@ import java.util.Map;
  */
 public class ManejadorEmpresa {
     private Map&lt;String,Empresa&gt; empresas;
-<span class="nc" id="L21">    private static ManejadorEmpresa instance = null;</span>
-<span class="nc" id="L22">    private ManejadorEmpresa(){</span>
-<span class="nc" id="L23">        empresas = new HashMap();</span>
-<span class="nc" id="L24">    }</span>
+<span class="fc" id="L21">    private static ManejadorEmpresa instance = null;</span>
+<span class="fc" id="L22">    private ManejadorEmpresa(){</span>
+<span class="fc" id="L23">        empresas = new HashMap();</span>
+<span class="fc" id="L24">    }</span>
     
     public static ManejadorEmpresa getInstance(){
-<span class="nc bnc" id="L27" title="All 2 branches missed.">        if(instance == null)</span>
-<span class="nc" id="L28">            instance = new ManejadorEmpresa();</span>
-<span class="nc" id="L29">        return instance;</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        if(instance == null)</span>
+<span class="fc" id="L28">            instance = new ManejadorEmpresa();</span>
+<span class="fc" id="L29">        return instance;</span>
     }
     public Empresa getEmpresa(String nombre){
-<span class="nc" id="L32">        return empresas.get(nombre);</span>
+<span class="fc" id="L32">        return empresas.get(nombre);</span>
     }
     public void addEmpresa(Empresa empresa){
-<span class="nc" id="L35">        empresas.put(empresa.getNombre(), empresa);</span>
-<span class="nc" id="L36">    }</span>
+<span class="fc" id="L35">        empresas.put(empresa.getNombre(), empresa);</span>
+<span class="fc" id="L36">    }</span>
     public void removeEmpresa(String nombre){
 <span class="nc" id="L38">        empresas.remove(nombre);</span>
 <span class="nc" id="L39">    }</span>
     public List&lt;DataEmpresa&gt; getDataEmpresas(){
-<span class="nc" id="L41">        List&lt;DataEmpresa&gt; dts = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L42" title="All 2 branches missed.">        for (Empresa value : empresas.values()){</span>
-<span class="nc" id="L43">            dts.add(value.getDataEmpresa());</span>
-<span class="nc" id="L44">        }</span>
-<span class="nc" id="L45">        return dts;</span>
+<span class="fc" id="L41">        List&lt;DataEmpresa&gt; dts = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        for (Empresa value : empresas.values()){</span>
+<span class="fc" id="L43">            dts.add(value.getDataEmpresa());</span>
+<span class="fc" id="L44">        }</span>
+<span class="fc" id="L45">        return dts;</span>
     }
     
 }    
