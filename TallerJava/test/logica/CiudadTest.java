@@ -715,20 +715,7 @@ public class CiudadTest {
         ControladorCliente instance = new ControladorCliente();
         instance.actualizarEstadoReserva(id, nomCliente, estado);
     }*/
-    /**
-     * Test of cancelarReserva method, of class ControladorCliente.
-     * @param nomCliente
-     * @param id
-     */
-    @Test
-    public void testCancelarReserva2() {
-        
-        String nomCliente = "";
-        int id= 1;
-        System.out.println("cancelarReserva");
-        ControladorCliente instance = new ControladorCliente();
-        instance.cancelarReserva(nomCliente, id);
-    }
+    
 
     /**
      * Test of listarReservasSistema method, of class ControladorCliente.
@@ -779,12 +766,27 @@ public class CiudadTest {
         testRealizarReserva2("prov", "cli", "ser", 1, new Date(1,1,2014),new Date(2,1,2014), true);
         ControladorCliente instance = new ControladorCliente();
         DataInfoReserva expResult = null;
-        int id = mcl.getUltimoid();
-        DataInfoReserva result = instance.verInfoReserva("cli", (id-1));
+        int id = mcl.testGetId();
+        DataInfoReserva result = instance.verInfoReserva("cli", (id));
         assertEquals(Estado.registrada, result.getEstado());
         //assertEquals(10, result.getPrecio());
         /*assertEquals(, result);
         assertEquals(, result);
         assertEquals(, result);*/
+    }
+    /**
+     * Test of cancelarReserva method, of class ControladorCliente.
+     * @param nomCliente
+     * @param id
+     */
+    @Test
+    public void testCancelarReserva2() {
+        
+        String nomCliente = "cli";
+        ManejadorCliente mcl = ManejadorCliente.getInstance();
+        int id = mcl.testGetId();
+        System.out.println("cancelarReserva");
+        ControladorCliente instance = new ControladorCliente();
+        instance.cancelarReserva(nomCliente, (id));
     }
 }

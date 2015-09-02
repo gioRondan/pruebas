@@ -76,5 +76,9 @@ public class ManejadorCliente {
         id++;
         return id;
     }
+    //solo para el test
+    public int testGetId(){
+        return id;
+    }
     
 }
