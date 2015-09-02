@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>AltaServicio.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TallerJava&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Presentacion</a> &gt; <span class="el_source">AltaServicio.java</span></div><h1>AltaServicio.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>AltaServicio.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TallerJava&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Presentacion</a> &gt; <span class="el_source">AltaServicio.java</span></div><h1>AltaServicio.java</h1><pre class="source lang-java linenums">/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -540,10 +540,10 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         }
 <span class="nc bnc" id="L541" title="All 2 branches missed.">        if (!servicioImagen3.getText().isEmpty()) {</span>
 <span class="nc" id="L542">            Path FROM = Paths.get(servicioImagen3.getText());</span>
-<span class="nc" id="L543">            //armo la ruta destino</span>
+            //armo la ruta destino
 <span class="nc" id="L544">            String urlImagenDestino = PantallaPrincipal.RutaImagenes + &quot;Servicios\\&quot; + proveedor + &quot; - &quot; + nombre.getText() + &quot; 3.png&quot;;</span>
 <span class="nc" id="L545">            Path TO = Paths.get(urlImagenDestino);</span>
-<span class="nc" id="L546">            try {</span>
+            try {
 <span class="nc" id="L547">                Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);</span>
 <span class="nc" id="L548">                Pantallaprin.ICP.ingresarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria</span>
 <span class="nc" id="L549">            } catch (IOException ex) {</span>
@@ -567,13 +567,13 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
 <span class="nc" id="L568">        this.dispose();</span>
 <span class="nc" id="L569">    }//GEN-LAST:event_jButton15ActionPerformed</span>
-<span class="nc" id="L570"></span>
-<span class="nc" id="L571">    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed</span>
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
 <span class="nc" id="L573">        Pantallaprin.abrirSelectorImagen(&quot;AltaServicio2&quot;);</span>
 <span class="nc" id="L574">    }//GEN-LAST:event_jButton16ActionPerformed</span>
 
-<span class="nc" id="L576">    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed</span>
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         // TODO add your handling code here:
 <span class="nc" id="L578">        Pantallaprin.abrirSelectorImagen(&quot;AltaServicio3&quot;);</span>
 <span class="nc" id="L579">    }//GEN-LAST:event_jButton17ActionPerformed</span>
@@ -581,7 +581,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
     private void paisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paisActionPerformed
         // TODO add your handling code here:
 <span class="nc" id="L583">    }//GEN-LAST:event_paisActionPerformed</span>
-<span class="nc" id="L584"></span>
+
     private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
 <span class="nc" id="L586">        TreePath x = jTree1.getSelectionPath();</span>
 <span class="nc" id="L587">        String padreSelec = x.toString();</span>
@@ -590,17 +590,17 @@ public class AltaServicio extends javax.swing.JInternalFrame {
 <span class="nc" id="L590">        Pantallaprin.ICP.ingresarCategoriaServicio(this.padre);</span>
 
 <span class="nc" id="L592">    }//GEN-LAST:event_jTree1MouseClicked</span>
-<span class="nc" id="L593"></span>
 
-<span class="nc" id="L595">    // Variables declaration - do not modify//GEN-BEGIN:variables</span>
-<span class="nc" id="L596">    public static javax.swing.JTextField ciudad1;</span>
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JTextField ciudad1;
     public static javax.swing.JTextField ciudad2;
     private javax.swing.JTextArea descripcion;
     private javax.swing.JButton jButton13;
-<span class="nc" id="L600">    private javax.swing.JButton jButton14;</span>
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
-<span class="nc" id="L602">    private javax.swing.JButton jButton16;</span>
-<span class="nc" id="L603">    private javax.swing.JButton jButton17;</span>
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;

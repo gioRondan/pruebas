@@ -312,5 +312,9 @@ public class ControladorProveedor implements IControladorProveedor{
             }
         }
     }
+
+    void AltaProveedor(String toString, String giovani, String rondan, String toString0, Date date, String imagen, String url, String link) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
 

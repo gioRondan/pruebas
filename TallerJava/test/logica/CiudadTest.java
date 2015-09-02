@@ -121,7 +121,30 @@ public class CiudadTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
-    
+    /**
+     * Test of listarProveedores method, of class ControladorProveedor.
+     */
+    @Test
+    public void testListarProveedores() {
+        System.out.println("listarProveedores");
+        ControladorProveedor cp = new ControladorProveedor();
+        try{
+            for (int i=1; i<=10; ++i){
+                int n = i;
+                cp.altaProveedor(Integer.toString(n), "giovani", "rondan", Integer.toString(n), new Date(i, i, 2015), "imagen","url","link");
+            }
+        }catch (Exception ex){}
+        ControladorProveedor instance = new ControladorProveedor();
+        String[] expResult ={"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        List<DataProveedor> result = instance.listarProveedores();
+        DataProveedor dt;
+        
+        for(int j = 1; j<11;++j){
+          
+            assertEquals(Integer.toString(j), result.get(j-1).getNickname());
+            j++;
+        }
+    }
     /**
      * Test of altaProveedor method, of class ControladorProveedor.
      */
@@ -155,29 +178,7 @@ public class CiudadTest {
             System.out.println("fallo altaproveedor2");
         }
     }
-    /**
-     * Test of listarProveedores method, of class ControladorProveedor.
-     */
-    @Test
-    public void testListarProveedores() {
-        System.out.println("listarProveedores");
-        try{
-            for (int i=1; i<=10; ++i){
-                int n = i;
-                testAltaProveedor2(Integer.toString(n), "giovani", "rondan", Integer.toString(n), new Date(i, i, 2015), "url");
-            }
-        }catch (Exception ex){}
-        ControladorProveedor instance = new ControladorProveedor();
-        String[] expResult ={"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-        List<DataProveedor> result = instance.listarProveedores();
-        DataProveedor dt;
-        int j = 1;
-        for(DataProveedor it : result){
-          
-            assertEquals(Integer.toString(j), it.getNickname());
-            j++;
-        }
-    }
+    
     
     /*
      * Test of ingresarNombreCategoria method, of class ControladorProveedor.
@@ -362,23 +363,23 @@ public class CiudadTest {
     public void testListarServiciosXCategoria() {
         System.out.println("listarServiciosXCategoria");
         try{
-            testAltaProveedor2("nickname6", "nombre", "apellido", "email6", new Date(2,2,2000), "imagen");
+            testAltaProveedor2("nickname67", "nombre", "apellido", "email6", new Date(2,2,2000), "imagen");
         }catch(Exception ex){}
         String nombre = "vuelo123";
         String descripcion = "cardona-montevideo en 5 minutos";
         int precio = 10;
         String origen = "cardona";
-        String proveedor = "nickname6";
-        testIngresarNombreCategoria2("transporte");
+        String proveedor = "nickname67";
+        testIngresarNombreCategoria2("transporte2");
         testAltaCategoria();
-        testIngresarCategoriaServicio2("transporte");
+        testIngresarCategoriaServicio2("transporte2");
         ControladorProveedor instance = new ControladorProveedor();
         for(int i = 1; i<=10; i++){
             int n = i;
-            testIngresarCategoriaServicio2("transporte");
+            testIngresarCategoriaServicio2("transporte2");
             instance.altaServicio(Integer.toString(n), descripcion, precio, origen, proveedor,"0");
         }
-        List<DataServicio> result = instance.listarServiciosXCategoria("transporte");
+        List<DataServicio> result = instance.listarServiciosXCategoria("transporte2");
         System.out.println(result.size());
         for(int j = 0; j <10;j++){
             assertEquals(Integer.toString(j+1), result.get(j).getNombre());
@@ -608,16 +609,16 @@ public class CiudadTest {
         assertEquals(promocion.getPrecioTotal(), result.getPrecioTotal());
         assertEquals(promocion.getNombre(), result.getNombre());
     }
-    
+    /*
     /**
      * Test of altaCliente method, of class ControladorCliente.
      */
-    @Test
+    /*@Test
     public void testAltaCliente() throws Exception {
         System.out.println("altaCliente");
         ControladorCliente instance = new ControladorCliente();
-        instance.altaCliente("1", "nombre", "apellido", "email34", new Date(1,1,2013), "imagen");
-    }
+        instance.altaCliente("111", "nombre", "apellido", "email34", new Date(1,1,2013), "imagen");
+    }*/
     public void testAltaCliente2(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen) throws Exception {
         System.out.println("altaCliente");
         ControladorCliente instance = new ControladorCliente();
@@ -633,7 +634,7 @@ public class CiudadTest {
     public void testListarClientes() {
         System.out.println("listarClientes");
         try{
-            for (int i=1; i<=10; ++i){
+            for (int i=11; i<=20; ++i){
                 int n = i;
                 testAltaCliente2(Integer.toString(n), "giovani", "rondan", Integer.toString(n), new Date(i, i, 2015), "url");
             }
@@ -641,14 +642,13 @@ public class CiudadTest {
             System.out.println("throw alta cliente");
         }
         ControladorCliente instance = new ControladorCliente();
-        String[] expResult ={"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         List<DataCliente> result = instance.listarClientes();
         DataCliente dt;
-        int j = 1;
-        for(DataCliente it : result){
+        
+        for(int j = 11; j <=20;++j){
           
-            assertEquals(Integer.toString(j), it.getNickname());
-            j++;
+            assertEquals(Integer.toString(j), result.get(j-11).getNickname());
+            
         }
         
         // TODO review the generated test code and remove the default call to fail.
@@ -721,7 +721,7 @@ public class CiudadTest {
     @Test
     public void testListarReservasXCliente() {
         System.out.println("listarReservasXCliente");
-        String nickname = "1";
+        String nickname = "11";
         ControladorCliente instance = new ControladorCliente();
         Set<DataReserva> expResult = null;
         ManejadorCliente mcl = ManejadorCliente.getInstance();
