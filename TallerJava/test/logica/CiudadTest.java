@@ -133,9 +133,10 @@ public class CiudadTest {
                 int n = i;
                 cp.altaProveedor(Integer.toString(n), "giovani", "rondan", Integer.toString(n), new Date(i, i, 2015), "imagen","url","link");
             }
-        }catch (Exception ex){}
+        }catch (Exception ex){
+        System.out.println("throw alta proveedor");
+        }
         ControladorProveedor instance = new ControladorProveedor();
-        String[] expResult ={"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         List<DataProveedor> result = instance.listarProveedores();
         DataProveedor dt;
         

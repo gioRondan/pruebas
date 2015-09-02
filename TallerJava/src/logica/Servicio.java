@@ -42,7 +42,7 @@ public class Servicio {
         this.descripcion= des;
     }
     public void agregarImagen(String img)throws Exception{
-        if (contImagen < 4){
+        if (contImagen < 3){
             this.imagen[contImagen] = img;
             contImagen++;
         }else
