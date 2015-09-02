@@ -64,7 +64,22 @@ public class AltaServicio extends javax.swing.JInternalFrame {
             String n = dts.getNickname();
             proveedores.addItem(n);
         }
-
+        jTree1.setSelectionRow(0); //Selecciono la raiz
+        nombre.requestFocus();
+    }
+    
+    public void limpiarCampos(){
+        nombre.setText("");
+        descripcion.setText("");
+        servicioImagen1.setText("");
+        servicioImagen2.setText("");
+        servicioImagen3.setText("");
+        precio.setText("");
+        pais.setText("");
+        ciudad1.setText("");
+        ciudad2.setText("");
+        jTree1.setSelectionRow(0); //Selecciono la raiz
+        nombre.requestFocus();
     }
 
     /**
@@ -434,7 +449,12 @@ public class AltaServicio extends javax.swing.JInternalFrame {
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         
-        String p = proveedores.getSelectedItem().toString();
+        if(proveedores.getItemCount() < 1){
+            JOptionPane.showMessageDialog(null, "No hay proveedores ingresados al sistema");
+            return;
+        }        
+        
+        String prov = proveedores.getSelectedItem().toString();
         
         Pantallaprin.ICP.ingresarDestinoServicio(ciudad2.getText());
         
@@ -445,13 +465,13 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         if (!servicioImagen1.getText().isEmpty()) {
             Path FROM = Paths.get(servicioImagen1.getText());
             //armo la ruta destino
-            String urlImagenDestino = PantallaPrincipal.RutaImagenes + "Servicios\\" + p + " - " + nombre.getText() + " 1.png";
+            String urlImagenDestino = PantallaPrincipal.RutaImagenes + "Servicios\\" + prov + " - " + nombre.getText() + " 1.png";
             Path TO = Paths.get(urlImagenDestino);
             try {
                 Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);
                 Pantallaprin.ICP.ingresarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria
             } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "Error al copiar la imagen1");
+                JOptionPane.showMessageDialog(null, "Error al copiar la imagen 1");
                 Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
             }
 
@@ -461,13 +481,13 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         if (!servicioImagen2.getText().isEmpty()) {
             Path FROM = Paths.get(servicioImagen2.getText());
             //armo la ruta destino
-            String urlImagenDestino = PantallaPrincipal.RutaImagenes + "Servicios\\" + p + " - " + nombre.getText() + " 2.png";
+            String urlImagenDestino = PantallaPrincipal.RutaImagenes + "Servicios\\" + prov + " - " + nombre.getText() + " 2.png";
             Path TO = Paths.get(urlImagenDestino);
             try {
                 Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);
                 Pantallaprin.ICP.ingresarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria
             } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "Error al copiar la imagen2");
+                JOptionPane.showMessageDialog(null, "Error al copiar la imagen 2");
                 Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
             }
 
@@ -477,13 +497,13 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         if (!servicioImagen3.getText().isEmpty()) {
             Path FROM = Paths.get(servicioImagen3.getText());
             //armo la ruta destino
-            String urlImagenDestino = PantallaPrincipal.RutaImagenes + "Servicios\\" + p + " - " + nombre.getText() + " 3.png";
+            String urlImagenDestino = PantallaPrincipal.RutaImagenes + "Servicios\\" + prov + " - " + nombre.getText() + " 3.png";
             Path TO = Paths.get(urlImagenDestino);
             try {
                 Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);
                 Pantallaprin.ICP.ingresarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria
             } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "Error al copiar la imagen3");
+                JOptionPane.showMessageDialog(null, "Error al copiar la imagen 3");
                 Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
             }
 
@@ -491,9 +511,9 @@ public class AltaServicio extends javax.swing.JInternalFrame {
             Pantallaprin.ICP.ingresarImagenServicio("");//siempre se carga una ruta aun que sea vacia
         }
         try {          
-            Pantallaprin.ICP.altaServicio(nombre.getText(), descripcion.getText(), precioin, ciudad1.getText(), p, pais.getText());
-            JOptionPane.showMessageDialog(null, "El Servicio se ingreso con exito");
-            //limpiarCampos();falta hacer
+            Pantallaprin.ICP.altaServicio(nombre.getText(), descripcion.getText(), precioin, ciudad1.getText(), prov, pais.getText());
+            JOptionPane.showMessageDialog(null, "El Servicio se ingresó correctamente");
+            limpiarCampos();
         } catch (Exception ex) {
             //error en alta proveedor
             JOptionPane.showMessageDialog(null, ex.getMessage());
