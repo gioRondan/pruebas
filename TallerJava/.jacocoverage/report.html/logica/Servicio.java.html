@@ -19,80 +19,80 @@ public class Servicio {
     private String nombre;
     private String descripcion;
     private String [] imagen;
-<span class="fc" id="L22">    private int contImagen = 0;</span>
+<span class="nc" id="L22">    private int contImagen = 0;</span>
     private float precio;
-<span class="fc" id="L24">    private Ciudad origen=null;</span>
-<span class="fc" id="L25">    private Ciudad destino=null;</span>
+<span class="nc" id="L24">    private Ciudad origen=null;</span>
+<span class="nc" id="L25">    private Ciudad destino=null;</span>
     private Map&lt;String, Categoria&gt; categorias;
     private Proveedor proveedor;
     
-<span class="fc" id="L29">    public Servicio(String nombre,String descripcion,float precio){</span>
-<span class="fc" id="L30">        this.nombre=nombre;</span>
-<span class="fc" id="L31">        this.descripcion=descripcion;</span>
-<span class="fc" id="L32">        this.precio=precio;</span>
-<span class="fc" id="L33">        this.imagen=new String[3];</span>
-<span class="fc" id="L34">        this.categorias = new HashMap();</span>
-<span class="fc" id="L35">        proveedor = null;</span>
-<span class="fc" id="L36">    }</span>
+<span class="nc" id="L29">    public Servicio(String nombre,String descripcion,float precio){</span>
+<span class="nc" id="L30">        this.nombre=nombre;</span>
+<span class="nc" id="L31">        this.descripcion=descripcion;</span>
+<span class="nc" id="L32">        this.precio=precio;</span>
+<span class="nc" id="L33">        this.imagen=new String[3];</span>
+<span class="nc" id="L34">        this.categorias = new HashMap();</span>
+<span class="nc" id="L35">        proveedor = null;</span>
+<span class="nc" id="L36">    }</span>
 
     public void setNombre(String nom){
 <span class="nc" id="L39">        this.nombre = nom;</span>
 <span class="nc" id="L40">    }</span>
     public void setDesc(String des){
-<span class="fc" id="L42">        this.descripcion= des;</span>
-<span class="fc" id="L43">    }</span>
+<span class="nc" id="L42">        this.descripcion= des;</span>
+<span class="nc" id="L43">    }</span>
     public void agregarImagen(String img)throws Exception{
-<span class="pc bpc" id="L45" title="1 of 2 branches missed.">        if (contImagen &lt; 4){</span>
-<span class="fc" id="L46">            this.imagen[contImagen] = img;</span>
-<span class="fc" id="L47">            contImagen++;</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">        if (contImagen &lt; 4){</span>
+<span class="nc" id="L46">            this.imagen[contImagen] = img;</span>
+<span class="nc" id="L47">            contImagen++;</span>
         }else
 <span class="nc" id="L49">            throw new Exception(&quot;El servicio ya tiene asignado 3 imagenes&quot;);</span>
-<span class="fc" id="L50">    }</span>
+<span class="nc" id="L50">    }</span>
     public void setPrecio(float precio){
-<span class="fc" id="L52">         this.precio = precio;</span>
-<span class="fc" id="L53">    }</span>
+<span class="nc" id="L52">         this.precio = precio;</span>
+<span class="nc" id="L53">    }</span>
     
     public String getNombre(){
-<span class="fc" id="L56">        return this.nombre;</span>
+<span class="nc" id="L56">        return this.nombre;</span>
     }
     public String getDesc(){
 <span class="nc" id="L59">        return this.descripcion;</span>
     }
     public float getPrecio(){
-<span class="fc" id="L62">        return this.precio;</span>
+<span class="nc" id="L62">        return this.precio;</span>
     }
     public String getImagen(int num){
 <span class="nc" id="L65">        return this.imagen[num];</span>
     }
     public void asociarOrigen(Ciudad origen){
-<span class="fc" id="L68">        this.origen = origen;</span>
-<span class="fc" id="L69">    }</span>
+<span class="nc" id="L68">        this.origen = origen;</span>
+<span class="nc" id="L69">    }</span>
     public void asociarDestino(Ciudad destino){
-<span class="fc" id="L71">        this.destino = destino;</span>
-<span class="fc" id="L72">    }</span>
+<span class="nc" id="L71">        this.destino = destino;</span>
+<span class="nc" id="L72">    }</span>
     public void agregarCategoria(Categoria categoria){
-<span class="fc" id="L74">        this.categorias.put(categoria.getNombre(), categoria);</span>
-<span class="fc" id="L75">    }</span>
+<span class="nc" id="L74">        this.categorias.put(categoria.getNombre(), categoria);</span>
+<span class="nc" id="L75">    }</span>
     public DataServicio getDataServicio(){
-<span class="fc" id="L77">        return new DataServicio(nombre, descripcion, precio, imagen, proveedor.getNickname());</span>
+<span class="nc" id="L77">        return new DataServicio(nombre, descripcion, precio, imagen, proveedor.getNickname());</span>
     }
     public DataInfoServicio getDataInfoServicio (){
-<span class="fc" id="L80">        DataCiudad des = null;</span>
-<span class="pc bpc" id="L81" title="1 of 2 branches missed.">        if (destino!= null){</span>
+<span class="nc" id="L80">        DataCiudad des = null;</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">        if (destino!= null){</span>
 <span class="nc" id="L82">            des = destino.getDataCiudad();</span>
         }
-<span class="fc" id="L84">        return new DataInfoServicio(nombre, descripcion, imagen, precio, origen.getDataCiudad(), des, getDataCategorias(), proveedor.getDataProveedor());</span>
+<span class="nc" id="L84">        return new DataInfoServicio(nombre, descripcion, imagen, precio, origen.getDataCiudad(), des, getDataCategorias(), proveedor.getDataProveedor());</span>
     }
     public List&lt;DataCategoria&gt; getDataCategorias(){
-<span class="fc" id="L87">        List&lt;DataCategoria&gt; dts = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L88" title="All 2 branches covered.">        for (Categoria c : categorias.values()){</span>
-<span class="fc" id="L89">            dts.add(c.getDataCategoria());</span>
-<span class="fc" id="L90">        }</span>
-<span class="fc" id="L91">        return dts;</span>
+<span class="nc" id="L87">        List&lt;DataCategoria&gt; dts = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">        for (Categoria c : categorias.values()){</span>
+<span class="nc" id="L89">            dts.add(c.getDataCategoria());</span>
+<span class="nc" id="L90">        }</span>
+<span class="nc" id="L91">        return dts;</span>
     }
     public void setProveedor(Proveedor proveedor){
-<span class="fc" id="L94">        this.proveedor = proveedor;</span>
-<span class="fc" id="L95">    }</span>
+<span class="nc" id="L94">        this.proveedor = proveedor;</span>
+<span class="nc" id="L95">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

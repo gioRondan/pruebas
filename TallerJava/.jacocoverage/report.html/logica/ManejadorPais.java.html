@@ -16,22 +16,22 @@ import java.util.Map;
  */
 public class ManejadorPais {
     private Map&lt;String, Pais&gt; paises;
-<span class="fc" id="L19">    private static ManejadorPais instance = null;</span>
-<span class="fc" id="L20">    private ManejadorPais(){</span>
-<span class="fc" id="L21">        paises = new HashMap();</span>
-<span class="fc" id="L22">    }</span>
+<span class="nc" id="L19">    private static ManejadorPais instance = null;</span>
+<span class="nc" id="L20">    private ManejadorPais(){</span>
+<span class="nc" id="L21">        paises = new HashMap();</span>
+<span class="nc" id="L22">    }</span>
     
     public static ManejadorPais getInstance(){
-<span class="fc bfc" id="L25" title="All 2 branches covered.">        if(instance == null)</span>
-<span class="fc" id="L26">            instance = new ManejadorPais();</span>
-<span class="fc" id="L27">        return instance;</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        if(instance == null)</span>
+<span class="nc" id="L26">            instance = new ManejadorPais();</span>
+<span class="nc" id="L27">        return instance;</span>
     } 
     
     public Pais getPais(String a){
-<span class="fc" id="L31">        return paises.get(a);</span>
+<span class="nc" id="L31">        return paises.get(a);</span>
     }
     public void addPais(Pais pais){
-<span class="fc" id="L34">        paises.put(pais.getNombre(), pais);</span>
-<span class="fc" id="L35">    }</span>
+<span class="nc" id="L34">        paises.put(pais.getNombre(), pais);</span>
+<span class="nc" id="L35">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

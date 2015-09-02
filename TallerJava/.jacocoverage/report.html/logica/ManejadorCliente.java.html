@@ -21,55 +21,55 @@ import java.util.Set;
 public class ManejadorCliente {
      private Map&lt;String,Cliente&gt; clientes;
      private int id;
-<span class="fc" id="L24">    private static ManejadorCliente instance = null;</span>
-<span class="fc" id="L25">    private ManejadorCliente(){</span>
-<span class="fc" id="L26">        id=111;</span>
-<span class="fc" id="L27">        clientes = new HashMap();</span>
-<span class="fc" id="L28">    }</span>
+<span class="nc" id="L24">    private static ManejadorCliente instance = null;</span>
+<span class="nc" id="L25">    private ManejadorCliente(){</span>
+<span class="nc" id="L26">        id=111;</span>
+<span class="nc" id="L27">        clientes = new HashMap();</span>
+<span class="nc" id="L28">    }</span>
     
     public static ManejadorCliente getInstance(){
-<span class="fc bfc" id="L31" title="All 2 branches covered.">        if(instance == null)</span>
-<span class="fc" id="L32">            instance = new ManejadorCliente();</span>
-<span class="fc" id="L33">        return instance;</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        if(instance == null)</span>
+<span class="nc" id="L32">            instance = new ManejadorCliente();</span>
+<span class="nc" id="L33">        return instance;</span>
     }
     public Cliente getCliente(String nickname){
-<span class="fc" id="L36">        return clientes.get(nickname);</span>
+<span class="nc" id="L36">        return clientes.get(nickname);</span>
     }
     public void addCliente(Cliente cliente){
-<span class="fc" id="L39">        clientes.put(cliente.getNickname(), cliente);</span>
-<span class="fc" id="L40">    }</span>
+<span class="nc" id="L39">        clientes.put(cliente.getNickname(), cliente);</span>
+<span class="nc" id="L40">    }</span>
     public void removeCliente(String nickname){
 <span class="nc" id="L42">        clientes.remove(nickname);</span>
 <span class="nc" id="L43">    }</span>
     void unicidadNick(String nick) throws Exception{
-<span class="pc bpc" id="L45" title="1 of 2 branches missed.">        if (clientes.containsKey(nick))</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">        if (clientes.containsKey(nick))</span>
 <span class="nc" id="L46">            throw new Exception(&quot;El nick ingresado ya pertenece a otro Cliente&quot;); </span>
-<span class="fc" id="L47">    }</span>
+<span class="nc" id="L47">    }</span>
     void unicidadEmail(String email) throws Exception{
-<span class="fc bfc" id="L49" title="All 2 branches covered.">        for(Cliente it : clientes.values()){</span>
-<span class="pc bpc" id="L50" title="1 of 2 branches missed.">            if (it.getEmail().equals(email)){</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        for(Cliente it : clientes.values()){</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">            if (it.getEmail().equals(email)){</span>
 <span class="nc" id="L51">                throw new Exception(&quot;El email ingresado ya pertenece a otro Cliente&quot;);</span>
             }
-<span class="fc" id="L53">        }</span>
-<span class="fc" id="L54">    }</span>
+<span class="nc" id="L53">        }</span>
+<span class="nc" id="L54">    }</span>
     
     public List&lt;DataReserva&gt; listarReservas(){
         List&lt;DataReserva&gt; dts;
-<span class="fc" id="L58">        dts = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L59">        clientes.values().stream().forEach((Cliente value) -&gt; {</span>
-<span class="fc" id="L60">             boolean ni = dts.addAll(value.getDataReservas());</span>
-<span class="fc" id="L61">         });</span>
-<span class="fc" id="L62">        return dts;</span>
+<span class="nc" id="L58">        dts = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L59">        clientes.values().stream().forEach((Cliente value) -&gt; {</span>
+<span class="nc" id="L60">             boolean ni = dts.addAll(value.getDataReservas());</span>
+<span class="nc" id="L61">         });</span>
+<span class="nc" id="L62">        return dts;</span>
         
     }
     public List&lt;DataCliente&gt; getDataClientes(){
-<span class="fc" id="L66">        List&lt;DataCliente&gt; dts = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L67">        Iterator iter = clientes.values().iterator();</span>
-<span class="fc bfc" id="L68" title="All 2 branches covered.">        for(Cliente c : clientes.values()){</span>
-<span class="fc" id="L69">            dts.add(c.getDataCliente());</span>
-<span class="fc" id="L70">        }</span>
+<span class="nc" id="L66">        List&lt;DataCliente&gt; dts = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L67">        Iterator iter = clientes.values().iterator();</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">        for(Cliente c : clientes.values()){</span>
+<span class="nc" id="L69">            dts.add(c.getDataCliente());</span>
+<span class="nc" id="L70">        }</span>
          
-<span class="fc" id="L72">        return dts;</span>
+<span class="nc" id="L72">        return dts;</span>
     }
 
     public int getUltimoid() {

@@ -28,18 +28,18 @@ public class Cliente extends Usuario{
     
     
     public Cliente(String nickname, String nombre, String apellido,String email, Date fechaNac, String url){
-<span class="fc" id="L31">        super(nickname,nombre,apellido,email,fechaNac,url);</span>
-<span class="fc" id="L32">        this.reservas = new HashMap();</span>
-<span class="fc" id="L33">    }</span>
+<span class="nc" id="L31">        super(nickname,nombre,apellido,email,fechaNac,url);</span>
+<span class="nc" id="L32">        this.reservas = new HashMap();</span>
+<span class="nc" id="L33">    }</span>
     public DataCliente getDataCliente(){
-<span class="fc" id="L35">        return new DataCliente( nickname, nombre, apellido, email, fechaNac, imagen);</span>
+<span class="nc" id="L35">        return new DataCliente( nickname, nombre, apellido, email, fechaNac, imagen);</span>
     }
     public List&lt;DataReserva&gt; getDataReservas(){
-<span class="fc" id="L38">        List&lt;DataReserva&gt; dts = new ArrayList&lt;&gt;();</span>
-<span class="pc bpc" id="L39" title="1 of 2 branches missed.">        for (Reserva value : reservas.values()){</span>
+<span class="nc" id="L38">        List&lt;DataReserva&gt; dts = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        for (Reserva value : reservas.values()){</span>
 <span class="nc" id="L40">            dts.add(value.getDataReserva());</span>
 <span class="nc" id="L41">        }</span>
-<span class="fc" id="L42">        return dts;</span>
+<span class="nc" id="L42">        return dts;</span>
     }
     public void reservarServicio(int id,Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
 <span class="nc" id="L45">        Date fecha_actual = new Date();</span>
@@ -69,7 +69,7 @@ public class Cliente extends Usuario{
 <span class="nc" id="L69">        reservas.remove(id);</span>
 <span class="nc" id="L70">    }</span>
     public DataInfoCliente getDataInfoCliente(){
-<span class="fc" id="L72">        return new DataInfoCliente(nickname, nombre, apellido, email, fechaNac, imagen, getDataReservas());</span>
+<span class="nc" id="L72">        return new DataInfoCliente(nickname, nombre, apellido, email, fechaNac, imagen, getDataReservas());</span>
     }
     public Reserva getReserva(int id) {
 <span class="nc" id="L75">        return reservas.get(id);</span>

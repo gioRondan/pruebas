@@ -17,29 +17,29 @@ import java.util.Set;
  */
 public class ManejadorCiudad {
     private Map&lt;String,Ciudad&gt; ciudades;
-<span class="fc" id="L20">    private static ManejadorCiudad instance = null;</span>
-<span class="fc" id="L21">    private ManejadorCiudad(){</span>
-<span class="fc" id="L22">        ciudades = new HashMap();</span>
-<span class="fc" id="L23">    }</span>
+<span class="nc" id="L20">    private static ManejadorCiudad instance = null;</span>
+<span class="nc" id="L21">    private ManejadorCiudad(){</span>
+<span class="nc" id="L22">        ciudades = new HashMap();</span>
+<span class="nc" id="L23">    }</span>
     
     public static ManejadorCiudad getInstance(){
-<span class="fc bfc" id="L26" title="All 2 branches covered.">        if(instance == null)</span>
-<span class="fc" id="L27">            instance = new ManejadorCiudad();</span>
-<span class="fc" id="L28">        return instance;</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        if(instance == null)</span>
+<span class="nc" id="L27">            instance = new ManejadorCiudad();</span>
+<span class="nc" id="L28">        return instance;</span>
     } 
     
    public List&lt;DataCiudad&gt; getDataCiudades(){
-<span class="fc" id="L32">       List&lt;DataCiudad&gt; dts =  new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L33" title="All 2 branches covered.">        for (Ciudad value : ciudades.values()){</span>
-<span class="fc" id="L34">            dts.add(value.getDataCiudad());</span>
-<span class="fc" id="L35">        }</span>
-<span class="fc" id="L36">        return dts;</span>
+<span class="nc" id="L32">       List&lt;DataCiudad&gt; dts =  new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        for (Ciudad value : ciudades.values()){</span>
+<span class="nc" id="L34">            dts.add(value.getDataCiudad());</span>
+<span class="nc" id="L35">        }</span>
+<span class="nc" id="L36">        return dts;</span>
    }
     public Ciudad getCiudad(String a){
-<span class="fc" id="L39">        return ciudades.get(a);</span>
+<span class="nc" id="L39">        return ciudades.get(a);</span>
     }
     public void addCiudad(Ciudad ciudad){
-<span class="fc" id="L42">        ciudades.put(ciudad.getNombre(), ciudad);</span>
-<span class="fc" id="L43">    }</span>
+<span class="nc" id="L42">        ciudades.put(ciudad.getNombre(), ciudad);</span>
+<span class="nc" id="L43">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

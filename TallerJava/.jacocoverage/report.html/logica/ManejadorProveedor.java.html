@@ -19,22 +19,22 @@ import java.util.Set;
  */
 public class ManejadorProveedor {
     private Map&lt;String,Proveedor&gt; proveedores;
-<span class="fc" id="L22">    private static ManejadorProveedor instance = null;</span>
-<span class="fc" id="L23">    private ManejadorProveedor(){</span>
-<span class="fc" id="L24">        proveedores = new HashMap();</span>
-<span class="fc" id="L25">    }</span>
+<span class="nc" id="L22">    private static ManejadorProveedor instance = null;</span>
+<span class="nc" id="L23">    private ManejadorProveedor(){</span>
+<span class="nc" id="L24">        proveedores = new HashMap();</span>
+<span class="nc" id="L25">    }</span>
     
     public static ManejadorProveedor getInstance(){
-<span class="fc bfc" id="L28" title="All 2 branches covered.">        if(instance == null)</span>
-<span class="fc" id="L29">            instance = new ManejadorProveedor();</span>
-<span class="fc" id="L30">        return instance;</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">        if(instance == null)</span>
+<span class="nc" id="L29">            instance = new ManejadorProveedor();</span>
+<span class="nc" id="L30">        return instance;</span>
     }
     public Proveedor getProveedor(String nickname){
-<span class="fc" id="L33">        return proveedores.get(nickname);</span>
+<span class="nc" id="L33">        return proveedores.get(nickname);</span>
     }
     public void addProveedor(Proveedor proveedor){
-<span class="fc" id="L36">        proveedores.put(proveedor.getNickname(), proveedor);</span>
-<span class="fc" id="L37">    }</span>
+<span class="nc" id="L36">        proveedores.put(proveedor.getNickname(), proveedor);</span>
+<span class="nc" id="L37">    }</span>
     public void removeProveedor(String nickname){
 <span class="nc" id="L39">        proveedores.remove(nickname);</span>
 <span class="nc" id="L40">    }</span>
@@ -47,25 +47,25 @@ public class ManejadorProveedor {
     }
     
     public List&lt;DataProveedor&gt; getDataProveedores(){
-<span class="fc" id="L50">        List&lt;DataProveedor&gt; dts =  new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L51" title="All 2 branches covered.">        for (Proveedor value : proveedores.values()){</span>
-<span class="fc" id="L52">            dts.add(value.getDataProveedor());</span>
-<span class="fc" id="L53">        }</span>
-<span class="fc" id="L54">        return dts;</span>
+<span class="nc" id="L50">        List&lt;DataProveedor&gt; dts =  new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        for (Proveedor value : proveedores.values()){</span>
+<span class="nc" id="L52">            dts.add(value.getDataProveedor());</span>
+<span class="nc" id="L53">        }</span>
+<span class="nc" id="L54">        return dts;</span>
     }
 
     void unicidadNick(String nick) throws Exception{
-<span class="fc bfc" id="L58" title="All 2 branches covered.">        if (proveedores.containsKey(nick))</span>
-<span class="fc" id="L59">            throw new Exception(&quot;El nick ingresado ya pertenece a otro proveedor&quot;); </span>
-<span class="fc" id="L60">    }</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">        if (proveedores.containsKey(nick))</span>
+<span class="nc" id="L59">            throw new Exception(&quot;El nick ingresado ya pertenece a otro proveedor&quot;); </span>
+<span class="nc" id="L60">    }</span>
 
     void unicidadEmail(String email) throws Exception{
-<span class="fc bfc" id="L63" title="All 2 branches covered.">        for(Proveedor it : proveedores.values()){</span>
-<span class="pc bpc" id="L64" title="1 of 2 branches missed.">            if (it.getEmail().equals(email)){</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">        for(Proveedor it : proveedores.values()){</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">            if (it.getEmail().equals(email)){</span>
 <span class="nc" id="L65">                throw new Exception(&quot;El email ingresado ya pertenece a otro proveedor&quot;);</span>
             }
-<span class="fc" id="L67">        }</span>
-<span class="fc" id="L68">    }</span>
+<span class="nc" id="L67">        }</span>
+<span class="nc" id="L68">    }</span>
     
   
 }
