@@ -139,7 +139,9 @@ public class ControladorProveedorTest {
     public void testAltaCategoria() {
         System.out.println("altaCategoria");
         ControladorProveedor instance = new ControladorProveedor();
-        instance.altaCategoria();
+        try{
+        instance.altaCategoria();}
+        catch (Exception ex){}
     }
     public void recorrerCategorias(List<DataCategoria> categorias, int i, int j){
         DataCategoria cat = categorias.get(i);
