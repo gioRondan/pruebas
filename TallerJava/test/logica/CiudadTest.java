@@ -405,7 +405,7 @@ public class CiudadTest {
         testAltaCategoria();
         testIngresarCategoriaServicio2("transporte");
         ControladorProveedor instance = new ControladorProveedor();
-        for(int i = 1; i<=10; i++){
+        for(int i = 1; i<=10; ++i){
             int n = i;
             testIngresarCategoriaServicio2("transporte");
             instance.altaServicio(Integer.toString(n), descripcion, precio, origen, proveedor,"0");
@@ -614,12 +614,9 @@ public class CiudadTest {
      */
     @Test
     public void testAltaCliente() throws Exception {
-        /*System.out.println("altaCliente");
+        System.out.println("altaCliente");
         ControladorCliente instance = new ControladorCliente();
-        instance.altaCliente(nickname, nombre, apellido, email, fechaNac, imagen);*/
-        // TODO review the generated test code and remove the default call to fail.
-        
-        //fail("The test case is a prototype.");
+        instance.altaCliente("1", "nombre", "apellido", "email34", new Date(1,1,2013), "imagen");
     }
     public void testAltaCliente2(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen) throws Exception {
         System.out.println("altaCliente");
@@ -745,13 +742,22 @@ public class CiudadTest {
     @Test
     public void testListarReservasXCliente() {
         System.out.println("listarReservasXCliente");
-        String nomCliente = "";
+        String nickname = "1";
         ControladorCliente instance = new ControladorCliente();
         Set<DataReserva> expResult = null;
-        List<DataReserva> result = instance.listarReservasXCliente(nomCliente);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ManejadorCliente mcl = ManejadorCliente.getInstance();
+        int id = mcl.testGetId();
+        for(int i = 1; i < 11; ++i){
+        instance.realizarReserva("nickname", nickname, Integer.toString(i), 1, new Date(1,2,2013), new Date(1,3,213), true);
+            
+        }
+        List<DataReserva> result = instance.listarReservasXCliente(nickname);
+        for(int j=0;j<10;++j){
+            id++;
+            assertEquals(id, result.get(j).getId());
+            
+        }
+        
     }
 
     /**
