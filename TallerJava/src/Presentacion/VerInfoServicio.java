@@ -327,32 +327,57 @@ public class VerInfoServicio extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_ListServiciosMouseClicked
 
     private void btn_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextActionPerformed
-        if (imagenSelecc < 2){ 
+        if(imagenSelecc < 3){ 
            imagenSelecc++;
         }
-        
-        if (jPanel1.getComponentCount() == 0){//si no tiene ninguan imagen 
-            Imagen im = new Imagen(jPanel1, rutaImagen[imagenSelecc]);
-            jPanel1.add(im).repaint();        
-        }else{ // si tiene borro y agrego la nueva 
-             jPanel1.removeAll();
-             Imagen im2 = new Imagen(jPanel1, rutaImagen[imagenSelecc]);
-             jPanel1.add(im2).repaint(); 
+        else{
+            imagenSelecc = 0;
         }
+        if(!rutaImagen[imagenSelecc].isEmpty()){
+            if (jPanel1.getComponentCount() == 0){//si no tiene ninguan imagen 
+                Imagen im = new Imagen(jPanel1, rutaImagen[imagenSelecc]);
+                jPanel1.add(im).repaint();        
+            }else{ // si tiene borro y agrego la nueva 
+                 jPanel1.removeAll();
+                 Imagen im2 = new Imagen(jPanel1, rutaImagen[imagenSelecc]);
+                 jPanel1.add(im2).repaint(); 
+            }
+        }
+        else{
+            imagenSelecc = 0;
+            if (jPanel1.getComponentCount() == 0){//si no tiene ninguan imagen 
+                Imagen im = new Imagen(jPanel1, rutaImagen[imagenSelecc]);
+                jPanel1.add(im).repaint();        
+            }else{ // si tiene borro y agrego la nueva 
+                 jPanel1.removeAll();
+                 Imagen im2 = new Imagen(jPanel1, rutaImagen[imagenSelecc]);
+                 jPanel1.add(im2).repaint(); 
+            }
+        }     
     }//GEN-LAST:event_btn_nextActionPerformed
 
     private void btn_previousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_previousActionPerformed
-        if (imagenSelecc > 0){
+        if(imagenSelecc == 0){ 
+           //imagenSelecc.getTope();
+           if(!rutaImagen[2].isEmpty()){ 
+               imagenSelecc = 2;
+           }
+           else if(!rutaImagen[1].isEmpty()){ 
+               imagenSelecc = 1;
+           }
+           else if(!rutaImagen[0].isEmpty()){
+               imagenSelecc = 0;
+           }     
+           else{
+               return;
+           }     
+        }
+        else{
             imagenSelecc--;
-        }
-        if (jPanel1.getComponentCount() == 0){//si no tiene ninguan imagen 
-            Imagen im = new Imagen(jPanel1, rutaImagen[imagenSelecc]);
-            jPanel1.add(im).repaint();        
-        }else{ // si tiene borro y agrego la nueva 
-             jPanel1.removeAll();
-             Imagen im2 = new Imagen(jPanel1, rutaImagen[imagenSelecc]);
-             jPanel1.add(im2).repaint(); 
-        }
+        } 
+        jPanel1.removeAll();
+        Imagen im2 = new Imagen(jPanel1, rutaImagen[imagenSelecc]);
+        jPanel1.add(im2).repaint();         
     }//GEN-LAST:event_btn_previousActionPerformed
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
