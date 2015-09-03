@@ -203,13 +203,6 @@ public class realizarReserva extends javax.swing.JInternalFrame {
 
     private void jTree1ValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTree1ValueChanged
         // TODO add your handling code here:
-        if (evt.getNewLeadSelectionPath() != null){
-            
-            boolean added;
-            added = seleccionados.add(evt.getNewLeadSelectionPath().getLastPathComponent().toString());
-            
-            
-        }
             
     }//GEN-LAST:event_jTree1ValueChanged
 
@@ -228,14 +221,14 @@ public class realizarReserva extends javax.swing.JInternalFrame {
                     return;
                 }
             }
-            nomser.setText(servicio);
+        
+            
             
             proveedorAnt = proveedor;
             DataServicio serinfo =  pp.ICP.informacionServicio(proveedor,servicio);
-            descser.setText(serinfo.getDescripcion());
-            preser.setText(Float.toString(serinfo.getPrecio()));
             float total = Float.parseFloat(precioTotal.getText())+serinfo.getPrecio();
             precioTotal.setText( Float.toString(total) );
+        }
     }//GEN-LAST:event_jTree1MouseClicked
 
 
