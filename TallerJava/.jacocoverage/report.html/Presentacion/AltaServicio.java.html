@@ -35,7 +35,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
      */
 <span class="nc" id="L36">    PantallaPrincipal Pantallaprin = PantallaPrincipal.getInstancia();</span>
     public Object seleccionado;
-    public String padre;
+   
 
     public void armarArbol(DefaultMutableTreeNode raiz, List&lt;DataCategoria&gt; dtps) {
 <span class="nc bnc" id="L41" title="All 2 branches missed.">        for (DataCategoria dtcategoria : dtps) {</span>
@@ -282,15 +282,15 @@ public class AltaServicio extends javax.swing.JInternalFrame {
 <span class="nc" id="L282">                                    .addComponent(nombre, javax.swing.GroupLayout.Alignment.LEADING)</span>
 <span class="nc" id="L283">                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE))</span>
 <span class="nc" id="L284">                                .addGap(26, 26, 26)</span>
-<span class="nc" id="L285">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
+<span class="nc" id="L285">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
 <span class="nc" id="L286">                                    .addGroup(layout.createSequentialGroup()</span>
 <span class="nc" id="L287">                                        .addComponent(jLabel25)</span>
 <span class="nc" id="L288">                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L289">                                        .addComponent(proveedores, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
+<span class="nc" id="L289">                                        .addComponent(proveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
 <span class="nc" id="L290">                                    .addGroup(layout.createSequentialGroup()</span>
 <span class="nc" id="L291">                                        .addComponent(jLabel31)</span>
 <span class="nc" id="L292">                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L293">                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))</span>
+<span class="nc" id="L293">                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))))</span>
 <span class="nc" id="L294">                            .addGroup(layout.createSequentialGroup()</span>
 <span class="nc" id="L295">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
 <span class="nc" id="L296">                                    .addComponent(servicioImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
@@ -320,276 +320,281 @@ public class AltaServicio extends javax.swing.JInternalFrame {
 <span class="nc" id="L320">                            .addComponent(jLabel26)</span>
 <span class="nc" id="L321">                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
 <span class="nc" id="L322">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L323">                        .addGap(158, 158, 158)</span>
-<span class="nc" id="L324">                        .addComponent(jLabel27)</span>
-<span class="nc" id="L325">                        .addGap(94, 94, 94)</span>
-<span class="nc" id="L326">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L327">                            .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L328">                            .addComponent(jLabel28))</span>
-<span class="nc" id="L329">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L330">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L331">                            .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="nc" id="L332">                            .addComponent(pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L333">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L334">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L335">                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L336">                                .addComponent(ciudad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L337">                                .addComponent(jLabel29))</span>
-<span class="nc" id="L338">                            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L339">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L340">                                    .addComponent(ciudad2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L341">                                    .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
-<span class="nc" id="L342">                                .addGap(29, 29, 29)</span>
-<span class="nc" id="L343">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L344">                                    .addComponent(jButton15)</span>
-<span class="nc" id="L345">                                    .addComponent(jButton14)))))</span>
-<span class="nc" id="L346">                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
-<span class="nc" id="L347">                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L348">                        .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L349">                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L350">                                .addComponent(jLabel25)</span>
-<span class="nc" id="L351">                                .addComponent(proveedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L352">                            .addGap(18, 18, 18)</span>
-<span class="nc" id="L353">                            .addComponent(jLabel31)</span>
-<span class="nc" id="L354">                            .addGap(94, 94, 94)</span>
-<span class="nc" id="L355">                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L356">                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
-<span class="nc" id="L357">                                    .addComponent(servicioImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L358">                                    .addGap(12, 12, 12))</span>
-<span class="nc" id="L359">                                .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L360">                                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L361">                                    .addGap(6, 6, 6)))</span>
-<span class="nc" id="L362">                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L363">                                .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L364">                                    .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L365">                                    .addGap(6, 6, 6)</span>
-<span class="nc" id="L366">                                    .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L367">                                .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L368">                                    .addComponent(servicioImagen2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L369">                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
-<span class="nc" id="L370">                                    .addComponent(servicioImagen3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))</span>
-<span class="nc" id="L371">                .addGap(37, 37, 37))</span>
+<span class="nc" id="L323">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L324">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L325">                                .addGap(158, 158, 158)</span>
+<span class="nc" id="L326">                                .addComponent(jLabel27)</span>
+<span class="nc" id="L327">                                .addGap(94, 94, 94)</span>
+<span class="nc" id="L328">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L329">                                    .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L330">                                    .addComponent(jLabel28))</span>
+<span class="nc" id="L331">                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L332">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L333">                                    .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L334">                                    .addComponent(pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
+<span class="nc" id="L335">                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="nc" id="L336">                                .addGap(55, 55, 55)</span>
+<span class="nc" id="L337">                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
+<span class="nc" id="L338">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L339">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L340">                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L341">                                .addComponent(ciudad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L342">                                .addComponent(jLabel29))</span>
+<span class="nc" id="L343">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L344">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L345">                                    .addComponent(ciudad2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L346">                                    .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
+<span class="nc" id="L347">                                .addGap(29, 29, 29)</span>
+<span class="nc" id="L348">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L349">                                    .addComponent(jButton15)</span>
+<span class="nc" id="L350">                                    .addComponent(jButton14)))))</span>
+<span class="nc" id="L351">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L352">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L353">                            .addComponent(jLabel25)</span>
+<span class="nc" id="L354">                            .addComponent(proveedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L355">                        .addGap(18, 18, 18)</span>
+<span class="nc" id="L356">                        .addComponent(jLabel31)</span>
+<span class="nc" id="L357">                        .addGap(94, 94, 94)</span>
+<span class="nc" id="L358">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L359">                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="nc" id="L360">                                .addComponent(servicioImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L361">                                .addGap(12, 12, 12))</span>
+<span class="nc" id="L362">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L363">                                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L364">                                .addGap(6, 6, 6)))</span>
+<span class="nc" id="L365">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L366">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L367">                                .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L368">                                .addGap(6, 6, 6)</span>
+<span class="nc" id="L369">                                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L370">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L371">                                .addComponent(servicioImagen2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L372">                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="nc" id="L373">                                .addComponent(servicioImagen3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))</span>
+<span class="nc" id="L374">                .addGap(37, 37, 37))</span>
         );
 
-<span class="nc" id="L374">        pack();</span>
-<span class="nc" id="L375">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L377">        pack();</span>
+<span class="nc" id="L378">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void clienteNickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteNickActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L379">    }//GEN-LAST:event_clienteNickActionPerformed</span>
+<span class="nc" id="L382">    }//GEN-LAST:event_clienteNickActionPerformed</span>
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
 
-<span class="nc" id="L384">    }//GEN-LAST:event_jButton7ActionPerformed</span>
+<span class="nc" id="L387">    }//GEN-LAST:event_jButton7ActionPerformed</span>
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
         //Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , proveedorImagen.getText(), proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
-<span class="nc" id="L389">        this.dispose();</span>
-<span class="nc" id="L390">    }//GEN-LAST:event_jButton4ActionPerformed</span>
+<span class="nc" id="L392">        this.dispose();</span>
+<span class="nc" id="L393">    }//GEN-LAST:event_jButton4ActionPerformed</span>
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L394">        this.dispose();</span>
-<span class="nc" id="L395">    }//GEN-LAST:event_jButton5ActionPerformed</span>
+<span class="nc" id="L397">        this.dispose();</span>
+<span class="nc" id="L398">    }//GEN-LAST:event_jButton5ActionPerformed</span>
 
     private void clienteNick1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteNick1ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L399">    }//GEN-LAST:event_clienteNick1ActionPerformed</span>
+<span class="nc" id="L402">    }//GEN-LAST:event_clienteNick1ActionPerformed</span>
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
 
-<span class="nc" id="L404">    }//GEN-LAST:event_jButton8ActionPerformed</span>
+<span class="nc" id="L407">    }//GEN-LAST:event_jButton8ActionPerformed</span>
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
         //Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , proveedorImagen.getText(), proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
-<span class="nc" id="L409">        this.dispose();</span>
-<span class="nc" id="L410">    }//GEN-LAST:event_jButton6ActionPerformed</span>
+<span class="nc" id="L412">        this.dispose();</span>
+<span class="nc" id="L413">    }//GEN-LAST:event_jButton6ActionPerformed</span>
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L414">        this.dispose();</span>
-<span class="nc" id="L415">    }//GEN-LAST:event_jButton9ActionPerformed</span>
+<span class="nc" id="L417">        this.dispose();</span>
+<span class="nc" id="L418">    }//GEN-LAST:event_jButton9ActionPerformed</span>
 
     private void clienteNick2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteNick2ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L419">    }//GEN-LAST:event_clienteNick2ActionPerformed</span>
+<span class="nc" id="L422">    }//GEN-LAST:event_clienteNick2ActionPerformed</span>
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
 
-<span class="nc" id="L424">    }//GEN-LAST:event_jButton10ActionPerformed</span>
+<span class="nc" id="L427">    }//GEN-LAST:event_jButton10ActionPerformed</span>
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
 
         //Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , proveedorImagen.getText(), proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
-<span class="nc" id="L429">        this.dispose();</span>
-<span class="nc" id="L430">    }//GEN-LAST:event_jButton11ActionPerformed</span>
+<span class="nc" id="L432">        this.dispose();</span>
+<span class="nc" id="L433">    }//GEN-LAST:event_jButton11ActionPerformed</span>
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L434">        this.dispose();</span>
-<span class="nc" id="L435">    }//GEN-LAST:event_jButton12ActionPerformed</span>
+<span class="nc" id="L437">        this.dispose();</span>
+<span class="nc" id="L438">    }//GEN-LAST:event_jButton12ActionPerformed</span>
 
     private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
         // TODO add your handling code here:
 
-<span class="nc" id="L440">    }//GEN-LAST:event_nombreActionPerformed</span>
+<span class="nc" id="L443">    }//GEN-LAST:event_nombreActionPerformed</span>
 
     private void proveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedoresActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L444">    }//GEN-LAST:event_proveedoresActionPerformed</span>
+<span class="nc" id="L447">    }//GEN-LAST:event_proveedoresActionPerformed</span>
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L448">        Pantallaprin.abrirSelectorImagen(&quot;AltaServicio1&quot;);</span>
-<span class="nc" id="L449">    }//GEN-LAST:event_jButton13ActionPerformed</span>
+<span class="nc" id="L451">        Pantallaprin.abrirSelectorImagen(&quot;AltaServicio1&quot;);</span>
+<span class="nc" id="L452">    }//GEN-LAST:event_jButton13ActionPerformed</span>
 
     private void precioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L453">    }//GEN-LAST:event_precioActionPerformed</span>
+<span class="nc" id="L456">    }//GEN-LAST:event_precioActionPerformed</span>
 
     private void ciudad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ciudad1ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L457">    }//GEN-LAST:event_ciudad1ActionPerformed</span>
+<span class="nc" id="L460">    }//GEN-LAST:event_ciudad1ActionPerformed</span>
 
     private void ciudad2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ciudad2ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L461">    }//GEN-LAST:event_ciudad2ActionPerformed</span>
+<span class="nc" id="L464">    }//GEN-LAST:event_ciudad2ActionPerformed</span>
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         
-<span class="nc bnc" id="L465" title="All 2 branches missed.">        if(proveedores.getItemCount() &lt; 1){</span>
-<span class="nc" id="L466">            JOptionPane.showMessageDialog(null, &quot;No hay proveedores ingresados al sistema&quot;);</span>
-<span class="nc" id="L467">            return;</span>
+<span class="nc bnc" id="L468" title="All 2 branches missed.">        if(proveedores.getItemCount() &lt; 1){</span>
+<span class="nc" id="L469">            JOptionPane.showMessageDialog(null, &quot;No hay proveedores ingresados al sistema&quot;);</span>
+<span class="nc" id="L470">            return;</span>
         }        
         
-<span class="nc" id="L470">        String nombreServicio  = letraCapital(nombre.getText());</span>
-<span class="nc" id="L471">        String descServicio    = descripcion.getText();</span>
-<span class="nc" id="L472">        String proveedor       = proveedores.getSelectedItem().toString();</span>
-<span class="nc" id="L473">        String ciudadOrigen    = letraCapital(ciudad1.getText());</span>
-<span class="nc" id="L474">        String ciudadDestino   = letraCapital(ciudad2.getText());</span>
-<span class="nc" id="L475">        String paisServicio    = letraCapital(pais.getText());</span>
-<span class="nc" id="L476">        int precioServicio     = Integer.parseInt(precio.getText());            </span>
+<span class="nc" id="L473">        String nombreServicio  = letraCapital(nombre.getText());</span>
+<span class="nc" id="L474">        String descServicio    = descripcion.getText();</span>
+<span class="nc" id="L475">        String proveedor       = proveedores.getSelectedItem().toString();</span>
+<span class="nc" id="L476">        String ciudadOrigen    = letraCapital(ciudad1.getText());</span>
+<span class="nc" id="L477">        String ciudadDestino   = letraCapital(ciudad2.getText());</span>
+<span class="nc" id="L478">        String paisServicio    = letraCapital(pais.getText());</span>
+<span class="nc" id="L479">        int precioServicio     = Integer.parseInt(precio.getText());            </span>
         
-<span class="nc bnc" id="L478" title="All 2 branches missed.">        if(nombreServicio.isEmpty()){</span>
-<span class="nc" id="L479">            JOptionPane.showMessageDialog(null, &quot;Ingrese un nombre válido&quot;);</span>
-<span class="nc" id="L480">            nombre.requestFocus();</span>
-<span class="nc" id="L481">            return;</span>
+<span class="nc bnc" id="L481" title="All 2 branches missed.">        if(nombreServicio.isEmpty()){</span>
+<span class="nc" id="L482">            JOptionPane.showMessageDialog(null, &quot;Ingrese un nombre válido&quot;);</span>
+<span class="nc" id="L483">            nombre.requestFocus();</span>
+<span class="nc" id="L484">            return;</span>
         }
-<span class="nc bnc" id="L483" title="All 2 branches missed.">        else if(descServicio.isEmpty()){</span>
-<span class="nc" id="L484">            JOptionPane.showMessageDialog(null, &quot;Ingrese una descripción válida&quot;);</span>
-<span class="nc" id="L485">            descripcion.requestFocus();</span>
-<span class="nc" id="L486">            return;</span>
+<span class="nc bnc" id="L486" title="All 2 branches missed.">        else if(descServicio.isEmpty()){</span>
+<span class="nc" id="L487">            JOptionPane.showMessageDialog(null, &quot;Ingrese una descripción válida&quot;);</span>
+<span class="nc" id="L488">            descripcion.requestFocus();</span>
+<span class="nc" id="L489">            return;</span>
         }
-<span class="nc bnc" id="L488" title="All 2 branches missed.">        else if(paisServicio.isEmpty()){</span>
-<span class="nc" id="L489">            JOptionPane.showMessageDialog(null, &quot;Ingrese un país válido.&quot;);</span>
-<span class="nc" id="L490">            pais.requestFocus();</span>
-<span class="nc" id="L491">            return;</span>
+<span class="nc bnc" id="L491" title="All 2 branches missed.">        else if(paisServicio.isEmpty()){</span>
+<span class="nc" id="L492">            JOptionPane.showMessageDialog(null, &quot;Ingrese un país válido.&quot;);</span>
+<span class="nc" id="L493">            pais.requestFocus();</span>
+<span class="nc" id="L494">            return;</span>
         }
-<span class="nc bnc" id="L493" title="All 2 branches missed.">        else if(ciudadOrigen.isEmpty()){</span>
-<span class="nc" id="L494">            JOptionPane.showMessageDialog(null, &quot;Ingrese la ciudad de orígen válida.&quot;);</span>
-<span class="nc" id="L495">            ciudad1.requestFocus();</span>
-<span class="nc" id="L496">            return;</span>
+<span class="nc bnc" id="L496" title="All 2 branches missed.">        else if(ciudadOrigen.isEmpty()){</span>
+<span class="nc" id="L497">            JOptionPane.showMessageDialog(null, &quot;Ingrese la ciudad de orígen válida.&quot;);</span>
+<span class="nc" id="L498">            ciudad1.requestFocus();</span>
+<span class="nc" id="L499">            return;</span>
         }
-<span class="nc bnc" id="L498" title="All 2 branches missed.">        else if(precioServicio &lt;= 0){</span>
-<span class="nc" id="L499">            JOptionPane.showMessageDialog(null, &quot;Ingrese un precio válido.&quot;);</span>
-<span class="nc" id="L500">            precio.requestFocus();</span>
-<span class="nc" id="L501">            return;</span>
+<span class="nc bnc" id="L501" title="All 2 branches missed.">        else if(precioServicio &lt;= 0){</span>
+<span class="nc" id="L502">            JOptionPane.showMessageDialog(null, &quot;Ingrese un precio válido.&quot;);</span>
+<span class="nc" id="L503">            precio.requestFocus();</span>
+<span class="nc" id="L504">            return;</span>
         }        
         
         try{
-<span class="nc" id="L505">            Pantallaprin.ICP.ingresarDestinoServicio(ciudadDestino);</span>
+<span class="nc" id="L508">            Pantallaprin.ICP.ingresarDestinoServicio(ciudadDestino);</span>
         }
-<span class="nc" id="L507">        catch(Exception ex){</span>
-<span class="nc" id="L508">            JOptionPane.showMessageDialog(null, ex.getMessage());            </span>
-<span class="nc" id="L509">        }                </span>
+<span class="nc" id="L510">        catch(Exception ex){</span>
+<span class="nc" id="L511">            JOptionPane.showMessageDialog(null, ex.getMessage());            </span>
+<span class="nc" id="L512">        }                </span>
         
-<span class="nc bnc" id="L511" title="All 2 branches missed.">        if (!servicioImagen1.getText().isEmpty()) {</span>
-<span class="nc" id="L512">            Path FROM = Paths.get(servicioImagen1.getText());</span>
+<span class="nc bnc" id="L514" title="All 2 branches missed.">        if (!servicioImagen1.getText().isEmpty()) {</span>
+<span class="nc" id="L515">            Path FROM = Paths.get(servicioImagen1.getText());</span>
             //armo la ruta destino
-<span class="nc" id="L514">            String urlImagenDestino = PantallaPrincipal.RutaImagenes + &quot;Servicios/&quot; + proveedor + &quot; - &quot; + nombre.getText() + &quot; 1.png&quot;;</span>
-<span class="nc" id="L515">            Path TO = Paths.get(urlImagenDestino);</span>
+<span class="nc" id="L517">            String urlImagenDestino = PantallaPrincipal.RutaImagenes + &quot;Servicios/&quot; + proveedor + &quot; - &quot; + nombre.getText() + &quot; 1.png&quot;;</span>
+<span class="nc" id="L518">            Path TO = Paths.get(urlImagenDestino);</span>
             try {
-<span class="nc" id="L517">                Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);</span>
-<span class="nc" id="L518">                Pantallaprin.ICP.ingresarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria</span>
-<span class="nc" id="L519">            } catch (IOException ex) {</span>
-<span class="nc" id="L520">                JOptionPane.showMessageDialog(null, &quot;Error al copiar la imagen 1&quot;);</span>
-<span class="nc" id="L521">                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L522">            }</span>
-<span class="nc" id="L523">        } else {</span>
-<span class="nc" id="L524">            Pantallaprin.ICP.ingresarImagenServicio(&quot;&quot;);//siempre se carga una ruta aunque sea vacia</span>
+<span class="nc" id="L520">                Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);</span>
+<span class="nc" id="L521">                Pantallaprin.ICP.ingresarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria</span>
+<span class="nc" id="L522">            } catch (IOException ex) {</span>
+<span class="nc" id="L523">                JOptionPane.showMessageDialog(null, &quot;Error al copiar la imagen 1&quot;);</span>
+<span class="nc" id="L524">                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L525">            }</span>
+<span class="nc" id="L526">        } else {</span>
+<span class="nc" id="L527">            Pantallaprin.ICP.ingresarImagenServicio(&quot;&quot;);//siempre se carga una ruta aunque sea vacia</span>
         }
-<span class="nc bnc" id="L526" title="All 2 branches missed.">        if (!servicioImagen2.getText().isEmpty()) {</span>
-<span class="nc" id="L527">            Path FROM = Paths.get(servicioImagen2.getText());</span>
+<span class="nc bnc" id="L529" title="All 2 branches missed.">        if (!servicioImagen2.getText().isEmpty()) {</span>
+<span class="nc" id="L530">            Path FROM = Paths.get(servicioImagen2.getText());</span>
             //armo la ruta destino
-<span class="nc" id="L529">            String urlImagenDestino = PantallaPrincipal.RutaImagenes + &quot;Servicios/&quot; + proveedor + &quot; - &quot; + nombre.getText() + &quot; 2.png&quot;;</span>
-<span class="nc" id="L530">            Path TO = Paths.get(urlImagenDestino);</span>
+<span class="nc" id="L532">            String urlImagenDestino = PantallaPrincipal.RutaImagenes + &quot;Servicios/&quot; + proveedor + &quot; - &quot; + nombre.getText() + &quot; 2.png&quot;;</span>
+<span class="nc" id="L533">            Path TO = Paths.get(urlImagenDestino);</span>
             try {
-<span class="nc" id="L532">                Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);</span>
-<span class="nc" id="L533">                Pantallaprin.ICP.ingresarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria</span>
-<span class="nc" id="L534">            } catch (IOException ex) {</span>
-<span class="nc" id="L535">                JOptionPane.showMessageDialog(null, &quot;Error al copiar la imagen 2&quot;);</span>
-<span class="nc" id="L536">                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L537">            }</span>
-<span class="nc" id="L538">        } else {</span>
-<span class="nc" id="L539">            Pantallaprin.ICP.ingresarImagenServicio(&quot;&quot;);//siempre se carga una ruta aun que sea vacia</span>
+<span class="nc" id="L535">                Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);</span>
+<span class="nc" id="L536">                Pantallaprin.ICP.ingresarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria</span>
+<span class="nc" id="L537">            } catch (IOException ex) {</span>
+<span class="nc" id="L538">                JOptionPane.showMessageDialog(null, &quot;Error al copiar la imagen 2&quot;);</span>
+<span class="nc" id="L539">                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L540">            }</span>
+<span class="nc" id="L541">        } else {</span>
+<span class="nc" id="L542">            Pantallaprin.ICP.ingresarImagenServicio(&quot;&quot;);//siempre se carga una ruta aun que sea vacia</span>
         }
-<span class="nc bnc" id="L541" title="All 2 branches missed.">        if (!servicioImagen3.getText().isEmpty()) {</span>
-<span class="nc" id="L542">            Path FROM = Paths.get(servicioImagen3.getText());</span>
+<span class="nc bnc" id="L544" title="All 2 branches missed.">        if (!servicioImagen3.getText().isEmpty()) {</span>
+<span class="nc" id="L545">            Path FROM = Paths.get(servicioImagen3.getText());</span>
             //armo la ruta destino
-<span class="nc" id="L544">            String urlImagenDestino = PantallaPrincipal.RutaImagenes + &quot;Servicios/&quot; + proveedor + &quot; - &quot; + nombre.getText() + &quot; 3.png&quot;;</span>
-<span class="nc" id="L545">            Path TO = Paths.get(urlImagenDestino);</span>
+<span class="nc" id="L547">            String urlImagenDestino = PantallaPrincipal.RutaImagenes + &quot;Servicios/&quot; + proveedor + &quot; - &quot; + nombre.getText() + &quot; 3.png&quot;;</span>
+<span class="nc" id="L548">            Path TO = Paths.get(urlImagenDestino);</span>
             try {
-<span class="nc" id="L547">                Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);</span>
-<span class="nc" id="L548">                Pantallaprin.ICP.ingresarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria</span>
-<span class="nc" id="L549">            } catch (IOException ex) {</span>
-<span class="nc" id="L550">                JOptionPane.showMessageDialog(null, &quot;Error al copiar la imagen 3&quot;);</span>
-<span class="nc" id="L551">                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L552">            }</span>
-<span class="nc" id="L553">        } else {</span>
-<span class="nc" id="L554">            Pantallaprin.ICP.ingresarImagenServicio(&quot;&quot;);//siempre se carga una ruta aun que sea vacia</span>
+<span class="nc" id="L550">                Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);</span>
+<span class="nc" id="L551">                Pantallaprin.ICP.ingresarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria</span>
+<span class="nc" id="L552">            } catch (IOException ex) {</span>
+<span class="nc" id="L553">                JOptionPane.showMessageDialog(null, &quot;Error al copiar la imagen 3&quot;);</span>
+<span class="nc" id="L554">                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L555">            }</span>
+<span class="nc" id="L556">        } else {</span>
+<span class="nc" id="L557">            Pantallaprin.ICP.ingresarImagenServicio(&quot;&quot;);//siempre se carga una ruta aun que sea vacia</span>
         }
         try {          
-<span class="nc" id="L557">            Pantallaprin.ICP.altaServicio(nombreServicio, descServicio, precioServicio, ciudadOrigen, proveedor, paisServicio);</span>
-<span class="nc" id="L558">            JOptionPane.showMessageDialog(null, &quot;El Servicio se ingresó correctamente&quot;);</span>
-<span class="nc" id="L559">            limpiarCampos();</span>
-<span class="nc" id="L560">        } catch (Exception ex) {</span>
+<span class="nc" id="L560">            Pantallaprin.ICP.altaServicio(nombreServicio, descServicio, precioServicio, ciudadOrigen, proveedor, paisServicio);</span>
+<span class="nc" id="L561">            JOptionPane.showMessageDialog(null, &quot;El Servicio se ingresó correctamente&quot;);</span>
+<span class="nc" id="L562">            limpiarCampos();</span>
+<span class="nc" id="L563">        } catch (Exception ex) {</span>
             //error en alta servicio
-<span class="nc" id="L562">            JOptionPane.showMessageDialog(null, ex.getMessage());</span>
-<span class="nc" id="L563">        }</span>
-<span class="nc" id="L564">    }//GEN-LAST:event_jButton14ActionPerformed</span>
+<span class="nc" id="L565">            JOptionPane.showMessageDialog(null, ex.getMessage());</span>
+<span class="nc" id="L566">        }</span>
+<span class="nc" id="L567">    }//GEN-LAST:event_jButton14ActionPerformed</span>
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L568">        this.dispose();</span>
-<span class="nc" id="L569">    }//GEN-LAST:event_jButton15ActionPerformed</span>
+<span class="nc" id="L571">        this.dispose();</span>
+<span class="nc" id="L572">    }//GEN-LAST:event_jButton15ActionPerformed</span>
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L573">        Pantallaprin.abrirSelectorImagen(&quot;AltaServicio2&quot;);</span>
-<span class="nc" id="L574">    }//GEN-LAST:event_jButton16ActionPerformed</span>
+<span class="nc" id="L576">        Pantallaprin.abrirSelectorImagen(&quot;AltaServicio2&quot;);</span>
+<span class="nc" id="L577">    }//GEN-LAST:event_jButton16ActionPerformed</span>
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L578">        Pantallaprin.abrirSelectorImagen(&quot;AltaServicio3&quot;);</span>
-<span class="nc" id="L579">    }//GEN-LAST:event_jButton17ActionPerformed</span>
+<span class="nc" id="L581">        Pantallaprin.abrirSelectorImagen(&quot;AltaServicio3&quot;);</span>
+<span class="nc" id="L582">    }//GEN-LAST:event_jButton17ActionPerformed</span>
 
     private void paisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paisActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L583">    }//GEN-LAST:event_paisActionPerformed</span>
+<span class="nc" id="L586">    }//GEN-LAST:event_paisActionPerformed</span>
 
     private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
-<span class="nc" id="L586">        TreePath x = jTree1.getSelectionPath();</span>
-<span class="nc" id="L587">        String padreSelec = x.toString();</span>
-<span class="nc" id="L588">        padreSelec = padreSelec.substring(padreSelec.lastIndexOf(&quot;,&quot;) + 2, padreSelec.lastIndexOf(&quot;]&quot;));</span>
-<span class="nc" id="L589">        this.padre = padreSelec;</span>
-<span class="nc" id="L590">        Pantallaprin.ICP.ingresarCategoriaServicio(this.padre);</span>
-
-<span class="nc" id="L592">    }//GEN-LAST:event_jTree1MouseClicked</span>
+<span class="nc" id="L589">        Pantallaprin.ICP.vaciarCategoriasServicio();//Vacio las categorias del aterior click</span>
+<span class="nc" id="L590">        TreePath[] equis  = jTree1.getSelectionPaths();</span>
+<span class="nc bnc" id="L591" title="All 2 branches missed.">        for (TreePath x : equis){</span>
+<span class="nc" id="L592">            String padreSelec = x.toString();</span>
+<span class="nc" id="L593">            padreSelec = padreSelec.substring(padreSelec.lastIndexOf(&quot;,&quot;) + 2, padreSelec.lastIndexOf(&quot;]&quot;));</span>
+            //JOptionPane.showMessageDialog(null,&quot;El padre seleccionado es &quot;+padreSelec);
+<span class="nc" id="L595">            Pantallaprin.ICP.ingresarCategoriaServicio(padreSelec);</span>
+        }
+<span class="nc" id="L597">    }//GEN-LAST:event_jTree1MouseClicked</span>
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

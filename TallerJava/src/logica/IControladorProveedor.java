@@ -26,7 +26,7 @@ public interface IControladorProveedor {
     public void seleccionarPadre(String nombre);
     public void altaCategoria(/*sin parametros?*/) throws Exception;
     public List<DataServicio> listarServiciosXProveedor(String nomProveedor);
-    public void altaPromocion( String nomProveedor,Set<String> ser, String nombre, int descuento);
+    public void altaPromocion( String nomProveedor,List<String> ser, String nombre, int descuento);
     public void ingresarDescripcionServicio(String desc);
     public void ingresarImagenServicio(String imagen);
     public void ingresarPrecioServicio(int precio);

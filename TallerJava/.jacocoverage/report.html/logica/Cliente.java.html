@@ -43,13 +43,13 @@ public class Cliente extends Usuario{
 <span class="fc" id="L43">        return dts;</span>
     }
     public void reservarServicio(int id,Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
-<span class="fc" id="L46">        Date fecha_actual = new Date();</span>
+<span class="fc" id="L46">        Reserva res = reservas.get(id);</span>
         
-<span class="fc" id="L48">        Reserva res = new Reserva(id,fecha_actual,fechaIni,fechaFin,0,Estado.registrada);</span>
+<span class="fc" id="L48">            ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin);    </span>
+<span class="fc" id="L49">            res.agregarItem(item);</span>
         
-<span class="fc" id="L50">        reservas.put(res.getId(),res);</span>
-<span class="fc" id="L51">        ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin);</span>
-<span class="fc" id="L52">        res.agregarItem(item);</span>
+        
+        
 <span class="fc" id="L53">    }</span>
     public void modificarEstadoReserva(int id, Estado estado){
 <span class="nc" id="L55">        Reserva res = reservas.get(id);</span>
@@ -58,22 +58,24 @@ public class Cliente extends Usuario{
         }
 <span class="nc" id="L59">    }</span>
     public void reservarPromocion(int clave,Promocion prom,int cantidad,Date fechaIni,Date fechaFin){
-<span class="nc" id="L61">        Date fecha_actual = new Date();</span>
-<span class="nc" id="L62">        Reserva res = new Reserva(clave,fecha_actual,fechaIni,fechaFin,0,Estado.registrada);</span>
-<span class="nc" id="L63">        reservas.put(res.getId(),res);</span>
-<span class="nc" id="L64">        ItemReserva item = new ItemReserva(cantidad,prom, fechaIni, fechaFin);</span>
-<span class="nc" id="L65">        res.agregarItem(item);</span>
-<span class="nc" id="L66">    }</span>
+<span class="nc" id="L61">        Reserva res = reservas.get(clave);</span>
+<span class="nc" id="L62">            ItemReserva item = new ItemReserva(cantidad,prom, fechaIni, fechaFin);</span>
+<span class="nc" id="L63">            res.agregarItem(item);</span>
+        
+<span class="nc" id="L65">    }</span>
     public void cancelarReserva(int id){
-<span class="fc" id="L68">        Reserva res = reservas.get(id);</span>
-<span class="nc" id="L69">        res.darDeBaja();</span>
-<span class="nc" id="L70">        reservas.remove(id);</span>
-<span class="nc" id="L71">    }</span>
+<span class="fc" id="L67">        Reserva res = reservas.get(id);</span>
+<span class="nc" id="L68">        res.darDeBaja();</span>
+<span class="nc" id="L69">        reservas.remove(id);</span>
+<span class="nc" id="L70">    }</span>
     public DataInfoCliente getDataInfoCliente(){
-<span class="fc" id="L73">        return new DataInfoCliente(nickname, nombre, apellido, email, fechaNac, imagen, getDataReservas());</span>
+<span class="fc" id="L72">        return new DataInfoCliente(nickname, nombre, apellido, email, fechaNac, imagen, getDataReservas());</span>
     }
     public Reserva getReserva(int id) {
-<span class="fc" id="L76">        return reservas.get(id);</span>
+<span class="nc" id="L75">        return reservas.get(id);</span>
     }
+    public void addReserva(int id, Reserva res){
+<span class="fc" id="L78">        reservas.put(id, res);</span>
+<span class="fc" id="L79">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

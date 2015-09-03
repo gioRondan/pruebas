@@ -152,7 +152,7 @@ public class ControladorProveedor implements IControladorProveedor{
         ControladorProveedor.servicio = nomServicio;
     }
     @Override
-    public void altaPromocion( String nomProveedor,Set<String> ser, String nombre, int descuento){
+    public void altaPromocion( String nomProveedor,List<String> ser, String nombre, int descuento){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(nomProveedor);//nickname
         Iterator<String> itera = ser.iterator();
@@ -304,7 +304,7 @@ public class ControladorProveedor implements IControladorProveedor{
         return promo.getDataInfoPromocion();
     }
 
-    private void altaCiudad(String nomCiudad, String nomPais) {
+    public void altaCiudad(String nomCiudad, String nomPais) {
         ManejadorCiudad mCi = ManejadorCiudad.getInstance();
         ManejadorPais mPa = ManejadorPais.getInstance();
         if(!nomCiudad.isEmpty()){
@@ -317,8 +317,5 @@ public class ControladorProveedor implements IControladorProveedor{
         }
     }
 
-    void AltaProveedor(String toString, String giovani, String rondan, String toString0, Date date, String imagen, String url, String link) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
 

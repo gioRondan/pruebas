@@ -169,7 +169,7 @@ public class CiudadTest {
             System.out.println("fallo altaproveedor");
         }
     }
-    */
+    
     public void testAltaProveedor2(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen) throws Exception  {
         System.out.println("altaProveedor2");
         String nombreEmp = "hola";
@@ -180,7 +180,7 @@ public class CiudadTest {
         }catch (Exception e){
             System.out.println("fallo altaproveedor2");
         }
-    }
+    }*/
     
     
     /*
@@ -220,14 +220,15 @@ public class CiudadTest {
     }
     /**
      * Test of altaCategoria method, of class ControladorProveedor.
-     */
+     
     public void testAltaCategoria() {
         System.out.println("altaCategoria");
         ControladorProveedor instance = new ControladorProveedor();
+        
         try{
         instance.altaCategoria();}
         catch (Exception ex){}
-    }
+    }*/
     public void recorrerCategorias(List<DataCategoria> categorias, int i, int j){
         DataCategoria cat = categorias.get(i);
         assertEquals(Integer.toString(j), cat.getNombre());
@@ -248,17 +249,21 @@ public class CiudadTest {
     public void testListarCategorias() {//la lista no queda ordenada ej agregar 99 sin padre y lo lista antes que 1
         System.out.println("listarCategorias");
         testIngresarNombreCategoria2("1");
-        testAltaCategoria();
+        //testAltaCategoria();
+        ControladorProveedor instance = new ControladorProveedor();
+       try{
+        instance.altaCategoria();
         //try{
             for (int i=2; i<=10; ++i){
                 int n = i;
                 testSeleccionarPadre2(Integer.toString(n-1));
                 testIngresarNombreCategoria2(Integer.toString(n));
-                testAltaCategoria();
+                instance.altaCategoria();
             }
-        //}catch (Exception ex)
+        }catch (Exception ex){
+            System.out.println("throw alta categoria en listar categoria");  
+        }
         
-        ControladorProveedor instance = new ControladorProveedor();
         List<DataCategoria> result = instance.listarCategorias();
         System.out.println(result.size());
         recorrerCategorias(result, 0, 1);
@@ -305,9 +310,15 @@ public class CiudadTest {
     public void testListarCiudades() {
         System.out.println("listarCiudades");
         ControladorProveedor instance = new ControladorProveedor();
-        Set<DataCiudad> expResult = null;
+        for(int i =1; i < 11; ++i){
+            instance.altaCiudad(Integer.toString(i),"1");
+        }
         List<DataCiudad> result = instance.listarCiudades();
-        //assertEquals(expResult, result);
+        for(int j = 1; j < 11; ++j){
+            assertEquals(Integer.toString(j), result.get(j-1).getNombre());
+            assertEquals("1", result.get(j-1).getPais());
+        }
+        //
     }
 
     /**
@@ -321,18 +332,21 @@ public class CiudadTest {
         instance.ingresarCategoriaServicio(categoria);
     }*/
     public void testIngresarCategoriaServicio2(String categoria) {
-        System.out.println("ingresarCategoriaServicio");
+        //System.out.println("ingresarCategoriaServicio");
         ControladorProveedor instance = new ControladorProveedor();
         instance.ingresarCategoriaServicio(categoria);
     }
     /**
      * Test of altaServicio method, of class ControladorProveedor.
-     */
+     *//*
     @Test
     public void testAltaServicio() {
+        ControladorProveedor instance = new ControladorProveedor();
         try{
-        testAltaProveedor2("nickname11", "nombre", "apellido", "email", new Date(2,2,2000), "imagen");
-        }catch(Exception ex){}
+        instance.altaProveedor("nickname11", "nombre", "apellido", "email", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        }catch(Exception ex){
+            System.out.println("throw alta proveedor en listar servicios por categoria");
+        }
         System.out.println("altaServicio");
         String nombre = "vuelo123";
         String descripcion = "cardona-montevideo en 5 minutos";
@@ -345,7 +359,7 @@ public class CiudadTest {
         
         ControladorProveedor instance = new ControladorProveedor();
         instance.altaServicio(nombre, descripcion, precio, origen, proveedor,"0");
-    }
+    }*/
 
 
     /**
@@ -365,18 +379,24 @@ public class CiudadTest {
     @Test
     public void testListarServiciosXCategoria() {
         System.out.println("listarServiciosXCategoria");
+        ControladorProveedor instance = new ControladorProveedor();
         try{
-            testAltaProveedor2("nickname67", "nombre", "apellido", "email6", new Date(2,2,2000), "imagen");
-        }catch(Exception ex){}
+        instance.altaProveedor("nickname11", "nombre", "apellido", "email", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        }catch(Exception ex){
+            System.out.println("throw alta proveedor en listar servicios por categoria");
+        }
         String nombre = "vuelo123";
         String descripcion = "cardona-montevideo en 5 minutos";
         int precio = 10;
         String origen = "cardona";
-        String proveedor = "nickname67";
+        String proveedor = "nickname11";
         testIngresarNombreCategoria2("transporte2");
-        testAltaCategoria();
+        try{
+        instance.altaCategoria();}
+        catch(Exception ex){
+            System.out.println("throw alta categoria en listar servicios por categoria");
+        }
         testIngresarCategoriaServicio2("transporte2");
-        ControladorProveedor instance = new ControladorProveedor();
         for(int i = 1; i<=10; i++){
             int n = i;
             testIngresarCategoriaServicio2("transporte2");
@@ -395,29 +415,39 @@ public class CiudadTest {
      */
     @Test
     public void testListarServiciosXProveedor() {
+        
+        ControladorProveedor instance = new ControladorProveedor();
         try{
-            testAltaProveedor2("nickname", "nombre", "apellido", "email3", new Date(2,2,2000), "imagen");
-        }catch(Exception ex){}
+        instance.altaProveedor("nickname111", "nombre", "apellido", "email111", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        }catch(Exception ex){
+            System.out.println("throw alta proveedor en listar servicios por proveedor");
+        }
         try{
-            testAltaProveedor2("nickname2", "nombre", "apellido", "email2", new Date(2,2,2000), "imagen");
-        }catch(Exception ex){}
+        instance.altaProveedor("nickname1111", "nombre", "apellido", "email1111", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        }catch(Exception ex){
+            System.out.println("throw alta proveedor en listar servicios por categoria");
+        }
         String descripcion = "cardona-montevideo en 5 minutos";
         int precio = 10;
         String origen = "cardona";
-        String proveedor = "nickname";
+        String proveedor = "nickname111";
+        String proveedor2 = "nickname1111";
         testIngresarNombreCategoria2("transporte");
-        testAltaCategoria();
+        try{
+        instance.altaCategoria();}
+        catch(Exception ex){
+            System.out.println("throw alta categoria en listar servicios por proveedor");
+        }
         testIngresarCategoriaServicio2("transporte");
-        ControladorProveedor instance = new ControladorProveedor();
-        for(int i = 1; i<=10; ++i){
+        for(int i = 11; i<=20; ++i){
             int n = i;
             testIngresarCategoriaServicio2("transporte");
             instance.altaServicio(Integer.toString(n), descripcion, precio, origen, proveedor,"0");
         }
-        List<DataServicio> result = instance.listarServiciosXProveedor("nickname");
+        List<DataServicio> result = instance.listarServiciosXProveedor("nickname111");
         System.out.println(result.size());
         for(int j = 0; j <10;j++){
-            assertEquals(Integer.toString(j+1), result.get(j).getNombre());
+            assertEquals(Integer.toString(j+11), result.get(j).getNombre());
         }
         testIngresarCategoriaServicio2("transporte");
             instance.altaServicio("1", descripcion, precio, origen, "nickname2","0");
@@ -444,7 +474,7 @@ public class CiudadTest {
         
         testListarServiciosXProveedor();
         String nomProveedor = "nickname";
-        Set<String> ser = new HashSet();
+        List<String> ser = new ArrayList<>();
         ser.add("1");
         ser.add("2");
         String nombre = "promo1";
@@ -496,18 +526,39 @@ public class CiudadTest {
     public void testModificarServicio() {
         System.out.println("modificarServicio");
         ControladorProveedor instance = new ControladorProveedor();
-        testListarServiciosXProveedor();
+        try{
+        instance.altaProveedor("nickname11111", "nombre", "apellido", "email11111", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        }catch(Exception ex){
+            System.out.println("throw alta proveedor en modificar servicio");
+        }
+        String nombre = "vuelo123";
+        String descripcion = "cardona-montevideo en 5 minutos";
+        int precio = 10;
+        String origen = "cardona";
+        String proveedor = "nickname11111";
+        testIngresarNombreCategoria2("transporte2222");
+        try{
+        instance.altaCategoria();}
+        catch(Exception ex){
+            System.out.println("throw alta categoria en listar servicios por categoria");
+        }
+        testIngresarCategoriaServicio2("transporte2222");
+        instance.altaServicio("amodificar", descripcion, precio, origen, proveedor,"0");
+        
         List<DataServicio> servicios = instance.listarServiciosXProveedor("nickname");
-        testSeleccionarServicio("1");
+        testSeleccionarServicio("amodificar");
         testIngresarDescripcionServicio("modificado");
         testIngresarImagenServicio("modificada");
         testIngresarPrecioServicio(9999);
-        //testListarCiudades();
-        testIngresarOrigenServicio("4");
+        testIngresarOrigenServicio("modificado");
         testIngresarDestinoServicio("4");
-        //testListarCategorias();
-        testIngresarCategoriaServicio2("transporte");
         instance.modificarServicio();
+        DataInfoServicio result = instance.verInfoServicio("amodificar", proveedor);
+        assertEquals("modificado", result.getDescripcion());
+        assertEquals(9999, result.getPrecio());
+        assertEquals("modificada", result.getImagen());
+        assertEquals("modificado", result.getOrigen());
+        assertEquals("4", result.getDestino());
     }
 
     /**
@@ -516,11 +567,12 @@ public class CiudadTest {
     @Test
     public void testListarEmpresas() {
         System.out.println("listarEmpresas");
-        try{
-            testAltaProveedor2("nickname6", "nombre", "apellido", "email6", new Date(2,2,2000), "imagen");
-        }catch(Exception ex){}
         ControladorProveedor instance = new ControladorProveedor();
-        String expResult = "hola";
+        try{
+            instance.altaProveedor("nickname6", "nombre", "apellido", "email6", new Date(2,2,2000), "imagen","url","link");
+        }catch(Exception ex){}
+        
+        String expResult = "url";
         List<DataEmpresa> result = instance.listarEmpresas();
         assertEquals(expResult, result.get(0).getNombre());
     }
@@ -533,20 +585,42 @@ public class CiudadTest {
     @Test
     public void testListarPromocionesXProveedor() {
         System.out.println("listarPromocionesXProveedor");
-        
-        
-        testAltaPromocion();
         ControladorProveedor instance = new ControladorProveedor();
-        List<DataPromocion> result = instance.listarPromocionesXProveedor("nickname");
+        try{
+        instance.altaProveedor("nickname111111", "nombre", "apellido", "email111111", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        }catch(Exception ex){
+            System.out.println("throw alta proveedor en listar promociones por proveedor");
+        }
+        String nombre = "vuelo12345";
+        String descripcion = "cardona-montevideo en 5 minutos";
+        int precio = 10;
+        String origen = "cardona";
+        String proveedor = "nickname111111";
+        testIngresarNombreCategoria2("transporte2222222");
+        try{
+        instance.altaCategoria();}
+        catch(Exception ex){
+            System.out.println("throw alta categoria en listar servicios por categoria");
+        }
+        List<String> serv = new ArrayList<>();
+        for(int i = 50; i<=60; i++){
+            int n = i;
+            testIngresarCategoriaServicio2("transporte2222222");
+            instance.altaServicio(Integer.toString(n), descripcion, precio, origen, proveedor,"0");
+            serv.add(Integer.toString(n));
+        }
+        instance.altaPromocion(proveedor, serv, "promo", 10);
+        List<DataPromocion> result = instance.listarPromocionesXProveedor(proveedor);
         for(int j = 0; j <10;j++){
-            assertEquals(Integer.toString(j+1), result.get(j).getNombre());
+            assertEquals(Integer.toString(j+50), result.get(j).getNombre());
+            //mas chequeos faltan
         }
     }
 
     /**
      * Test of verInfoServicio method, of class ControladorProveedor.
      */
-    @Test
+    /*@Test
     public void testVerInfoServicio() {
         System.out.println("verInfoServicio");
         String nomServicio = "vuelo123";
@@ -562,7 +636,7 @@ public class CiudadTest {
         assertEquals(expResult.getNombre(), result.getNombre());
         assertEquals(expResult.getDescripcion(), result.getDescripcion());
         //assertEquals(expResult.getPrecio(), result.getPrecio());
-    }
+    }*/
 
     /**
      * 
@@ -575,22 +649,23 @@ public class CiudadTest {
         String nomProveedor = "";
         ControladorProveedor instance = new ControladorProveedor();
         try{
-            testAltaProveedor2("nickname8", "nombre", "apellido", "email8", new Date(2,2,2000), "imagen");
-        }catch(Exception ex){}
-        DataInfoProveedor expResult = new DataInfoProveedor("nickname8", "nombre", "apellido", "email8", new Date(2,2,2000), "imagen",null, null);
-        DataInfoProveedor result = instance.verInfoProveedor("nickname8");
-        assertEquals(expResult.getNickname(), result.getNickname());
-        assertEquals(expResult.getNombre(), result.getNombre());
-        assertEquals(expResult.getApellido(), result.getApellido());
-        assertEquals(expResult.getEmail(), result.getEmail());
-        assertEquals(expResult.getFechaNac(), result.getFechaNac());
-        assertEquals(expResult.getImagen(), result.getImagen());
+        instance.altaProveedor("nickname11111111", "nombre", "apellido", "email11111111", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        }catch(Exception ex){
+            System.out.println("throw alta proveedor en listar promociones por proveedor");
+        }
+        DataInfoProveedor result = instance.verInfoProveedor("nickname11111111");
+        assertEquals("nickname11111111", result.getNickname());
+        assertEquals("nombre", result.getNombre());
+        assertEquals("apellido", result.getApellido());
+        assertEquals("email11111111", result.getEmail());
+        assertEquals(new Date(2,2,2000), result.getFechaNac());
+        assertEquals("imagen", result.getImagen());
+        
     }
 
     /**
      * Test of ingresarImagen method, of class ControladorProveedor.
      */
-    @Test
     public void testIngresarImagen() {
         System.out.println("ingresarImagen");
         String imagen = "im";
@@ -600,17 +675,43 @@ public class CiudadTest {
 
     /**
      * Test of verInfoPromocion method, of class ControladorProveedor.
-     * @param promocion
+     * 
      */
-    //@Test
-    public void testVerInfoPromocion(Promocion promocion, String nickproveedor) {
+    @Test
+    public void testVerInfoPromocion() {
         System.out.println("verInfoPromocion");
         ControladorProveedor instance = new ControladorProveedor();
-        DataInfoPromocion result = instance.verInfoPromocion(nickproveedor, promocion.getNombre());
-        assertEquals(promocion.getNombre(), result.getNombre());
-        assertEquals(promocion.getDescuento(), result.getDescuento());
-        assertEquals(promocion.getPrecioTotal(), result.getPrecioTotal());
-        assertEquals(promocion.getNombre(), result.getNombre());
+        try{
+        instance.altaProveedor("nickname13", "nombre", "apellido", "email13", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        }catch(Exception ex){
+            System.out.println("throw alta proveedor en listar promociones por proveedor");
+        }
+        String nombre = "vuelo123456";
+        String descripcion = "cardona-montevideo en 5 minutos";
+        int precio = 10;
+        String origen = "cardona";
+        String proveedor = "nickname13";
+        testIngresarNombreCategoria2("transporte13");
+        try{
+        instance.altaCategoria();}
+        catch(Exception ex){
+            System.out.println("throw alta categoria en listar servicios por categoria");
+        }
+        List<String> serv = new ArrayList<>();
+        for(int i = 50; i<=60; i++){
+            int n = i;
+            testIngresarCategoriaServicio2("transporte13");
+            instance.altaServicio(Integer.toString(n), descripcion, precio, origen, proveedor,"0");
+            serv.add(Integer.toString(n));
+        }
+        
+        instance.altaPromocion(proveedor, serv, "promo", 10);
+        DataInfoPromocion result = instance.verInfoPromocion("nickname13", "promo");
+        assertEquals("promo", result.getNombre());
+        assertEquals(10, result.getDescuento());
+        //assertEquals(, result.getPrecioTotal());
+        //assertEquals(promocion.getNombre(), result.getNombre());
+        //faltan chequeos
     }
     /*
     /**
@@ -621,7 +722,7 @@ public class CiudadTest {
         System.out.println("altaCliente");
         ControladorCliente instance = new ControladorCliente();
         instance.altaCliente("111", "nombre", "apellido", "email34", new Date(1,1,2013), "imagen");
-    }*/
+    }*//*
     public void testAltaCliente2(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen) throws Exception {
         System.out.println("altaCliente");
         ControladorCliente instance = new ControladorCliente();
@@ -629,33 +730,37 @@ public class CiudadTest {
         // TODO review the generated test code and remove the default call to fail.
         
         //fail("The test case is a prototype.");
-    }
+    }*/
     /**
      * Test of listarClientes method, of class ControladorCliente.
      */
     @Test
     public void testListarClientes() {
         System.out.println("listarClientes");
+        ControladorCliente instance = new ControladorCliente();
         try{
-            for (int i=11; i<=20; ++i){
+            for (int i=70; i<=80; ++i){
                 int n = i;
-                testAltaCliente2(Integer.toString(n), "giovani", "rondan", Integer.toString(n), new Date(i, i, 2015), "url");
+                instance.altaCliente(Integer.toString(n), "giovani", "rondan", Integer.toString(n), new Date(4, 4, 2015), "im");
             }
         }catch (Exception ex){
             System.out.println("throw alta cliente");
         }
-        ControladorCliente instance = new ControladorCliente();
         List<DataCliente> result = instance.listarClientes();
         DataCliente dt;
         
-        for(int j = 11; j <=20;++j){
+        for(int j = 0; j <=10;++j){
           
-            assertEquals(Integer.toString(j), result.get(j-11).getNickname());
+            assertEquals(Integer.toString(j+70), result.get(j).getNickname());
+            assertEquals("giovani", result.get(j).getNombre());
+            assertEquals("rondan", result.get(j).getApellido());
+            assertEquals(Integer.toString(j+70), result.get(j).getEmail());
+            assertEquals(new Date(4,4,2015), result.get(j).getFechaNac());
+            assertEquals("im", result.get(j).getImagen());
+            
             
         }
         
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
     
     /**
@@ -665,38 +770,62 @@ public class CiudadTest {
     @Test
     public void testVerInfoCliente() throws Exception {
         System.out.println("verInfoCliente");
-        String nickname = "asd";
-        String nomCliente = "NOM";
-        String apellido = "AP";
-        String email = "EMAIL";
-        Date fechaNac = new Date(1,1,2015);
-        String imagen = "imagen";
-        testAltaCliente2(nickname, nomCliente, apellido, email, fechaNac, imagen);
         ControladorCliente instance = new ControladorCliente();
-        DataInfoCliente result = instance.verInfoCliente(nickname);
-        assertEquals(nickname, result.getNickname());
-        assertEquals(nomCliente, result.getNombre());
-        assertEquals(apellido, result.getApellido());
-        assertEquals(fechaNac, result.getFechaNac());
-        assertEquals(imagen, result.getImagen());
+        try{
+            
+                
+                instance.altaCliente("infocliente", "giovani2", "rondan2", "infocliente", new Date(4, 4, 2015), "im2");
+            
+        }catch (Exception ex){
+            System.out.println("throw alta cliente");
+        }
+        DataInfoCliente result = instance.verInfoCliente("infocliente");
+        assertEquals("infocliente", result.getNickname());
+        assertEquals("giovani2", result.getNombre());
+        assertEquals("rondan2", result.getApellido());
+        assertEquals(new Date(4,4,2015), result.getFechaNac());
+        assertEquals("im2", result.getImagen());
         //assertEquals(, result.getReservas());
     }
 /**
      * Test of realizarReserva method, of class ControladorCliente.
      */
-    @Test
-    public void testRealizarReserva(/*String proveedor, String cliente, String servicio, int cantidad, Date fechaInicio, Date fechaFin, boolean esServicio*/) {
-        /*System.out.println("realizarReserva");
+   /*@Test
+    public void testRealizarReserva(String proveedor, String cliente, String servicio, int cantidad, Date fechaInicio, Date fechaFin, boolean esServicio) {
+        System.out.println("realizarReserva");
         ControladorCliente instance = new ControladorCliente();
         instance.realizarReserva(proveedor, cliente, servicio, cantidad, fechaInicio, fechaFin, esServicio);
-        */
-    }
-    
+        
+    }*/
+    /*
     public void testRealizarReserva2(String proveedor, String cliente, String servicio, int cantidad, Date fechaInicio, Date fechaFin, boolean esServicio) throws Exception {
         System.out.println("realizarReserva");
         ControladorCliente instance = new ControladorCliente();
-        ControladorProveedor cp = new ControladorProveedor();
-        testAltaCliente2(cliente, "nom", "ap", "emailo", new Date(1,1,2015),"im");
+        try{
+            instance.altaCliente("infocliente", "giovani2", "rondan2", "infocliente", new Date(4, 4, 2015), "im2");
+        }catch (Exception ex){
+            System.out.println("throw alta cliente");
+        }
+        ControladorProveedor instance = new ControladorProveedor();
+        try{
+        instance.altaProveedor("nickname11111", "nombre", "apellido", "email11111", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        }catch(Exception ex){
+            System.out.println("throw alta proveedor en modificar servicio");
+        }
+        String nombre = "vuelo123";
+        String descripcion = "cardona-montevideo en 5 minutos";
+        int precio = 10;
+        String origen = "cardona";
+        String proveedor = "nickname11111";
+        testIngresarNombreCategoria2("transporte2222");
+        try{
+        instance.altaCategoria();}
+        catch(Exception ex){
+            System.out.println("throw alta categoria en listar servicios por categoria");
+        }
+        testIngresarCategoriaServicio2("transporte2222");
+        instance.altaServicio("amodificar", descripcion, precio, origen, proveedor,"0");
+        
         cp.altaProveedor(proveedor, "nompr", "appr", "emailpro", new Date(1,1,2014), "impr", "nomemp", "linkemp");
         cp.altaServicio(servicio, "desc", 10, "montevideo", proveedor, "uruguay");
         Map<Integer, String> serv = new HashMap();
@@ -704,9 +833,9 @@ public class CiudadTest {
         
         serv.put(1,servicio);
         
-        instance.realizarReserva(proveedor, cliente, serv, prom, cantidad, fechaInicio, fechaFin);
+        instance.realizarReserva(proveedor, cliente, serv, prom , fechaInicio, fechaFin);
         
-    }
+    }*/
         /**
      * Test of actualizarEstadoReserva method, of class ControladorCliente.
      * @param id
@@ -728,22 +857,44 @@ public class CiudadTest {
     @Test
     public void testListarReservasXCliente() {
         System.out.println("listarReservasXCliente");
-        String nickname = "11";
         ControladorCliente instance = new ControladorCliente();
-        Set<DataReserva> expResult = null;
+        ControladorProveedor instancepr = new ControladorProveedor();
+        try{
+            instance.altaCliente("cli12", "giovani2", "rondan2", "cli12", new Date(4, 4, 2015), "im2");
+        }catch (Exception ex){
+            System.out.println("throw alta cliente");
+        }
+        try{
+        instancepr.altaProveedor("nickname23", "nombre", "apellido", "email23", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        }catch(Exception ex){
+            System.out.println("throw alta proveedor en modificar servicio");
+        }
+        String nombre = "vuelo123";
+        String descripcion = "cardona-montevideo en 5 minutos";
+        int precio = 10;
+        String origen = "cardona";
+        String proveedor = "nickname23";
+        testIngresarNombreCategoria2("transporte23456");
+        try{
+        instancepr.altaCategoria();}
+        catch(Exception ex){
+            System.out.println("throw alta categoria en listar servicios por categoria");
+        }
+        testIngresarCategoriaServicio2("transporte23456");
+        instancepr.altaServicio("hola", descripcion, precio, origen, proveedor,"0");
+        Map<Integer, String> serv = new HashMap();
+        serv.put(2, "hola");
         ManejadorCliente mcl = ManejadorCliente.getInstance();
         int id = mcl.testGetId();
-        Map<Integer, String> serv = new HashMap();
-        Map<Integer, String> prom = new HashMap();
-        serv.put(1,"1");
         for(int i = 1; i < 11; ++i){
             
-            instance.realizarReserva("nickname", nickname, serv, prom, 1, new Date(1,2,2013), new Date(1,3,213));
+            instance.realizarReserva(proveedor, "cli12", serv, new HashMap(), new Date(1,2,2013), new Date(1,3,213));
             
         }
-        List<DataReserva> result = instance.listarReservasXCliente(nickname);
+        List<DataReserva> result = instance.listarReservasXCliente("cli12");
         for(int j=0;j<10;++j){
             id++;
+            System.out.println(id);
             assertEquals(id, result.get(j).getId());
             
         }
@@ -756,41 +907,51 @@ public class CiudadTest {
     @Test
     public void testListarReservasSistema() throws Exception {
         System.out.println("listarReservasSistema");
-        String proveedor;
-        String cliente;
-        String servicio;
-        int cantidad;
-        Date fechaInicio;
-        Date fechaFin;
-        boolean esServicio;
-        
-        //testRealizarReserva(proveedor, cliente, servicio, cantidad, fechaInicio, fechaFin, esServicio);
         ControladorCliente instance = new ControladorCliente();
-        instance.altaCliente("45", "cli2", "ap2", "email45", new Date(2,2,2013), "im45");
-        instance.altaCliente("46", "cli2", "ap2", "email46", new Date(2,2,2013), "im46");
+        ControladorProveedor instancepr = new ControladorProveedor();
+        try{
+            instance.altaCliente("cli123", "giovani2", "rondan2", "cli123", new Date(4, 4, 2015), "im2");
+            instance.altaCliente("cli1234", "giovani2", "rondan2", "cli1234", new Date(4, 4, 2015), "im2");
         
-        ManejadorCliente mcl = ManejadorCliente.getInstance();
-        int id = mcl.testGetId();
-        
-        Map<Integer, String> serv = new HashMap();
-        Map<Integer, String> prom = new HashMap();
-        serv.put(1,"1");
-        //id = (id-10);   //en listarreservasxcliente ya se agregaron 10 
-        for(int i = 1; i < 11; ++i){
-        instance.realizarReserva("nickname", "45", serv, prom, 1, new Date(1,2,2013), new Date(1,3,213));
+        }catch (Exception ex){
+            System.out.println("throw alta cliente");
         }
+        try{
+        instancepr.altaProveedor("nickname34", "nombre", "apellido", "email34", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        instancepr.altaProveedor("nickname45", "nombre", "apellido", "email45", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        }catch(Exception ex){
+            System.out.println("throw alta proveedor en modificar servicio");
+        }
+        String nombre = "vuelo123";
+        String descripcion = "cardona-montevideo en 5 minutos";
+        int precio = 10;
+        String origen = "cardona";
+        String proveedor1 = "nickname34";
+        
+        testIngresarNombreCategoria2("transporte12345");
+        try{
+        instancepr.altaCategoria();}
+        catch(Exception ex){
+            System.out.println("throw alta categoria en listar servicios por categoria");
+        }
+        testIngresarCategoriaServicio2("transporte12345");
+        instancepr.altaServicio("hola1", descripcion, precio, origen, proveedor1,"0");
+        
+        //instancepr.altaServicio("hola2", descripcion, precio, origen, proveedor2,"0");
+        Map<Integer, String> serv = new HashMap();
+        serv.put(2, "hola1");
+        ManejadorCliente mcl = ManejadorCliente.getInstance();
+        int id = 111;
         for(int i = 1; i < 11; ++i){
-        instance.realizarReserva("nickname", "46", serv, prom, 1, new Date(1,2,2013), new Date(1,3,213));    
+            
+            instance.realizarReserva(proveedor1, "cli123", serv, new HashMap(), new Date(1,2,2013), new Date(1,3,213));
+            
+            //instance.realizarReserva(proveedor1, "cli1234", serv, new HashMap(), new Date(1,2,2013), new Date(1,3,213));
         }
         List<DataReserva> result = instance.listarReservasSistema();
-        /*for(int k= 0;k<10;++k){
-        System.out.println(instance.listarReservasXCliente("45").get(k).getId());
-        }*/
-        for(int j= 10;j<30;++j){//ya habian 10 reservas ingresadas
-            //System.out.println(result.get(j).getId());
-            
+        for(DataReserva it : result){
             id++;
-            assertEquals(id, result.get(j).getId());
+            assertEquals(id, it.getId());
         }
         
     }
@@ -801,16 +962,43 @@ public class CiudadTest {
     @Test
     public void testVerInfoReserva() throws Exception {
         System.out.println("verInfoReserva");
-        String nomCliente = "";
-        ManejadorCliente mcl = ManejadorCliente.getInstance();
-        testRealizarReserva2("prov", "cli", "ser", 1, new Date(1,1,2014),new Date(2,1,2014), true);
         ControladorCliente instance = new ControladorCliente();
-        DataInfoReserva expResult = null;
+        ControladorProveedor instancepr = new ControladorProveedor();
+        try{
+            instance.altaCliente("cli123456", "giovani2", "rondan2", "cli123456", new Date(4, 4, 2015), "im2");
+        }catch (Exception ex){
+            System.out.println("throw alta cliente");
+        }
+        try{
+        instancepr.altaProveedor("nickname78", "nombre", "apellido", "email78", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        }catch(Exception ex){
+            System.out.println("throw alta proveedor en modificar servicio");
+        }
+        String nombre = "vuelo123";
+        String descripcion = "cardona-montevideo en 5 minutos";
+        int precio = 10;
+        String origen = "cardona";
+        String proveedor = "nickname78";
+        testIngresarNombreCategoria2("transporte2222");
+        try{
+        instancepr.altaCategoria();}
+        catch(Exception ex){
+            System.out.println("throw alta categoria en listar servicios por categoria");
+        }
+        testIngresarCategoriaServicio2("transporte2222");
+        instancepr.altaServicio("hola", descripcion, precio, origen, proveedor,"0");
+        Map<Integer, String> serv = new HashMap();
+        serv.put(2, "hola");
+        instance.realizarReserva(proveedor, "cli123456", serv, new HashMap(), new Date(1,2,2013), new Date(1,3,213));
+        ManejadorCliente mcl = ManejadorCliente.getInstance();
         int id = mcl.testGetId();
+        id++;
         DataInfoReserva result = instance.verInfoReserva("cli", (id));
         assertEquals(Estado.registrada, result.getEstado());
         //assertEquals(10, result.getPrecio());
         assertEquals(id, result.getId());
+        assertEquals(new Date(1,2,2013), result.getFechaInicio());
+        assertEquals(new Date(1,3,213), result.getFechaFin());
         /*assertEquals(, result);
         assertEquals(, result);*/
     }
@@ -819,12 +1007,36 @@ public class CiudadTest {
      */
     @Test
     public void testCancelarReserva2() {
-        
-        String nomCliente = "cli";
+        ControladorCliente instance = new ControladorCliente();
+        ControladorProveedor instancepr = new ControladorProveedor();
+        try{
+            instance.altaCliente("cli12345678", "giovani2", "rondan2", "cli12345678", new Date(4, 4, 2015), "im2");
+        }catch (Exception ex){
+            System.out.println("throw alta cliente");
+        }
+        try{
+        instancepr.altaProveedor("nickname89", "nombre", "apellido", "email89", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        }catch(Exception ex){
+            System.out.println("throw alta proveedor en modificar servicio");
+        }
+        String nombre = "vuelo123";
+        String descripcion = "cardona-montevideo en 5 minutos";
+        int precio = 10;
+        String origen = "cardona";
+        String proveedor = "nickname89";
+        testIngresarNombreCategoria2("transporte2222");
+        try{
+        instancepr.altaCategoria();}
+        catch(Exception ex){
+            System.out.println("throw alta categoria en listar servicios por categoria");
+        }
+        testIngresarCategoriaServicio2("transporte2222");
+        instancepr.altaServicio("hola", descripcion, precio, origen, proveedor,"0");
+        Map<Integer, String> serv = new HashMap();
+        serv.put(2, "hola");
+        instance.realizarReserva(proveedor, "cli12345678", serv, new HashMap(), new Date(1,2,2013), new Date(1,3,213));
         ManejadorCliente mcl = ManejadorCliente.getInstance();
         int id = mcl.testGetId();
-        System.out.println("cancelarReserva");
-        ControladorCliente instance = new ControladorCliente();
-        instance.cancelarReserva(nomCliente, (id));
+        instance.cancelarReserva("cli12345678", id);
     }
 }

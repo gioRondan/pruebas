@@ -10,6 +10,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -20,11 +21,11 @@ import java.util.Set;
  */
 public class ManejadorCliente {
      private Map<String,Cliente> clientes;
-     private static int id;
+     private  int id;
     private static ManejadorCliente instance = null;
     private ManejadorCliente(){
         id=111;
-        clientes = new HashMap();
+        clientes = new LinkedHashMap();
     }
     
     public static ManejadorCliente getInstance(){
