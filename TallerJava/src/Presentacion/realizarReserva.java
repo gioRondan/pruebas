@@ -19,6 +19,7 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 import logica.DataCliente;
+import logica.DataPromocion;
 import logica.DataProveedor;
 import logica.DataServicio;
 
@@ -69,12 +70,23 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             DefaultMutableTreeNode prv = new DefaultMutableTreeNode();
             prv.setUserObject(dtprv.getNickname());
             raiz.add(prv);
+            DefaultMutableTreeNode sss = new DefaultMutableTreeNode("Servicios");
+            DefaultMutableTreeNode ppp = new DefaultMutableTreeNode("Promociones");
+            prv.add(sss);
+            prv.add(ppp);
             List<DataServicio> dtservicios = pp.ICP.listarServiciosXProveedor(dtprv.getNickname());
             for (DataServicio dtser: dtservicios){
                 DefaultMutableTreeNode ser = new DefaultMutableTreeNode();
                 ser.setUserObject(dtser.getNombre());
-                prv.add(ser);
-            }  
+                sss.add(ser);
+            }
+            List<DataPromocion> dtpromos = pp.ICP.listarPromocionesXProveedor(dtprv.getNickname());
+            for (DataPromocion dtpp: dtpromos){
+                DefaultMutableTreeNode np = new DefaultMutableTreeNode();
+                np.setUserObject(dtpp.getNombre());
+                ppp.add(np);
+        }
+            
             
         }   // agregamos todos los proveedores al jtree {matias heredia}
         /*for(int i=1;i<=500;i++){
