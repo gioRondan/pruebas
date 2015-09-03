@@ -56,7 +56,11 @@ public class ControladorProveedor implements IControladorProveedor{
     }
     @Override
     public void ingresarCategoriaServicio( String categoria){
-        ControladorProveedor.categoriasServicio.add(categoria);
+       ControladorProveedor.categoriasServicio.add(categoria);
+    }
+    public void vaciarCategoriasServicio(){
+        ControladorProveedor.categoriasServicio.clear();
+        ControladorProveedor.categoriasServicio = new HashSet();
     }
     @Override
     public List<DataCategoria> listarCategorias(){

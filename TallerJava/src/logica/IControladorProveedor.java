@@ -32,6 +32,7 @@ public interface IControladorProveedor {
     public void ingresarPrecioServicio(int precio);
     public void ingresarOrigenServicio(String origen);
     public void ingresarDestinoServicio(String destino);
+    public void vaciarCategoriasServicio();
     public void ingresarCategoriaServicio(String categoria);
     public void modificarServicio();
     public List<DataEmpresa> listarEmpresas();
