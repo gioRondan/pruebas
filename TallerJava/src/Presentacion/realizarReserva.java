@@ -5,8 +5,10 @@
  */
 package Presentacion;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -31,13 +33,18 @@ public class realizarReserva extends javax.swing.JInternalFrame {
      */
     
     PantallaPrincipal pp = PantallaPrincipal.getInstancia();
+    private Map<Integer,String> serviciosCant;
+    private Map<Integer,String> promocionesCant;
+    private String proveeElegido;
+    
             
 
     public realizarReserva() {
         //matias trabajando
         initComponents();
         jScrollPane1.getViewport().add(jList2);
-       
+        serviciosCant = new HashMap();
+        promocionesCant = new HashMap();
        
         
         DefaultListModel<String> mol = new DefaultListModel<>(); 
@@ -48,13 +55,12 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             String aux = dt.getNickname();
             mol.addElement(aux);
         }
+
+        jList2.setModel(mol);
+        // ahi quedo la lista
         TreeModel jmodel;
         javax.swing.tree.DefaultMutableTreeNode raiz = new javax.swing.tree.DefaultMutableTreeNode("Proveedores");
         
-  
-        
-            
- 
         List<DataProveedor> dtproveedores = pp.ICP.listarProveedores();
         for (DataProveedor dtprv: dtproveedores){
             DefaultMutableTreeNode prv = new DefaultMutableTreeNode();
@@ -72,7 +78,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("nabo");
             treeNode1.add(treeNode2);
         }*/
-        jList2.setModel(mol);
+        
         precioTotal.setText("0");
         DefaultTreeModel modeloArbol = new DefaultTreeModel(raiz);
         jTree1.setModel(modeloArbol);
@@ -231,29 +237,16 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             
             proveedorAnt = proveedor;
             DataServicio serinfo =  pp.ICP.informacionServicio(proveedor,servicio);
+            serviciosCant.put(1,serinfo.getNombre()); //falta pedir la cantidad por servicio
             float total = Float.parseFloat(precioTotal.getText())+serinfo.getPrecio();
+            proveeElegido=proveedor;
             precioTotal.setText( Float.toString(total) );
         }
     }//GEN-LAST:event_jTree1MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-          TreePath[] seleccionados = jTree1.getSelectionPaths();
-         String proveedor="";
-         String proveedorAnt="";
-        for (TreePath x : seleccionados){
-            String path = x.toString();
-            String servicio = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]")); 
-            proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
-            if(!proveedorAnt.isEmpty()){
-                if (!proveedorAnt.equals(proveedor)){
-                    JOptionPane.showMessageDialog(null,"Deve seleccionar servicios del mismo proveedor");
-                    return;
-                }
-            }
-        }
             
-        pp.ICC.realizarReserva(proveedor,jList2.getSelectedValue().toString(),"servicio",1, null, null,true);
+        pp.ICC.realizarReserva(proveeElegido,jList2.getSelectedValue().toString(),serviciosCant,promocionesCant, null, null);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
