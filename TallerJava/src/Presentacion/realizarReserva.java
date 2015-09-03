@@ -137,6 +137,11 @@ public class realizarReserva extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(jTree1);
 
         jButton2.setText("Aceptar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Precio total:");
 
@@ -230,6 +235,26 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             precioTotal.setText( Float.toString(total) );
         }
     }//GEN-LAST:event_jTree1MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+          TreePath[] seleccionados = jTree1.getSelectionPaths();
+         String proveedor="";
+         String proveedorAnt="";
+        for (TreePath x : seleccionados){
+            String path = x.toString();
+            String servicio = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]")); 
+            proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
+            if(!proveedorAnt.isEmpty()){
+                if (!proveedorAnt.equals(proveedor)){
+                    JOptionPane.showMessageDialog(null,"Deve seleccionar servicios del mismo proveedor");
+                    return;
+                }
+            }
+        }
+            
+        pp.ICC.realizarReserva(proveedor,jList2.getSelectedValue().toString(),"servicio",1, null, null,true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
