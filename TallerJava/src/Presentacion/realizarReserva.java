@@ -246,7 +246,9 @@ public class realizarReserva extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
             
+
         pp.ICC.realizarReserva(proveeElegido,jList2.getSelectedValue().toString(),serviciosCant,promocionesCant, null, null);
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
