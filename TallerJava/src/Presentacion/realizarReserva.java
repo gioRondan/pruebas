@@ -253,7 +253,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             }
         }
             
-        pp.ICC.realizarReserva(proveedor,jList2.getSelectedValue().toString(),"servicio",1, null, null,true);
+        //pp.ICC.realizarReserva(proveedor,jList2.getSelectedValue().toString(),"servicio",1, null, null,true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

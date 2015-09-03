@@ -28,7 +28,7 @@ public class ControladorCliente implements IControladorCliente{
     }
     
     @Override
-    public void realizarReserva(String proveedor,String cliente,Map<Integer, String> servicio, Map<Integer, String> promocion, int cantidad,Date fechaInicio,Date fechaFin ){ //el bool servicio indica si voy a reservar un servicio, si es false es para reservar una promocion
+    public void realizarReserva(String proveedor,String cliente,Map<Integer, String> servicio, Map<Integer, String> promocion,Date fechaInicio,Date fechaFin ){ //el bool servicio indica si voy a reservar un servicio, si es false es para reservar una promocion
         ManejadorCliente mcli = ManejadorCliente.getInstance();
         Cliente aux_cliente = mcli.getCliente(cliente);
         int clave1 = mcli.getUltimoid();
@@ -38,11 +38,11 @@ public class ControladorCliente implements IControladorCliente{
         aux_cliente.addReserva(res.getId(),res);
         Proveedor prov = mpr.getProveedor(proveedor);
         for(Map.Entry<Integer, String> entries : servicio.entrySet()){
-            aux_cliente.reservarServicio(entries.getKey(),prov.getServicio(entries.getValue()),cantidad,fechaInicio,fechaFin);
+            aux_cliente.reservarServicio(clave1, prov.getServicio(entries.getValue()),entries.getKey(),fechaInicio,fechaFin);
         
         }
         for(Map.Entry<Integer, String> entries : promocion.entrySet()){
-            aux_cliente.reservarPromocion(entries.getKey(),prov.getPromocion(entries.getValue()),cantidad,fechaInicio,fechaFin);
+            aux_cliente.reservarPromocion(clave1, prov.getPromocion(entries.getValue()),entries.getKey(),fechaInicio,fechaFin);
         
         }
     }
