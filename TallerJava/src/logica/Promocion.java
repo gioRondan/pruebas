@@ -21,12 +21,14 @@ public class Promocion {
     private int descuento;
     private int precioTotal;
     private Map<String,Servicio> servicios;
+    private Proveedor proveedor;
     
-    public Promocion(String nombre, int descuento, int precioTotal){
+    public Promocion(String nombre, int descuento, int precioTotal,Proveedor prov){
         this.nombre = nombre;
         this.descuento = descuento;
         this.precioTotal = precioTotal;
         this.servicios = new HashMap();
+        this.proveedor = prov;
     }
     public DataPromocion getDataPromocion(){
         return new DataPromocion(nombre, descuento, precioTotal);
@@ -51,6 +53,11 @@ public class Promocion {
     }
     public void agregarServicio(Servicio servicio){
         servicios.put(servicio.getNombre(), servicio);
+    }
+    public void esdeProveedor(String nomProv) throws Exception{
+        if (!(nomProv.equals(proveedor.getNombre()))){
+            throw new Exception("Las promociones deben ser de un mismo proveedor");
+        }
     }
 
     DataInfoPromocion getDataInfoPromocion() {       
