@@ -5,8 +5,12 @@
  */
 package logica;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 
@@ -24,21 +28,22 @@ public class ControladorCliente implements IControladorCliente{
     }
     
     @Override
-    public void realizarReserva(String proveedor,String cliente,String servicio,int cantidad,Date fechaInicio,Date fechaFin,boolean esServicio ){ //el bool servicio indica si voy a reservar un servicio, si es false es para reservar una promocion
+    public void realizarReserva(String proveedor,String cliente,Map<Integer, String> servicio, Map<Integer, String> promocion, int cantidad,Date fechaInicio,Date fechaFin ){ //el bool servicio indica si voy a reservar un servicio, si es false es para reservar una promocion
         ManejadorCliente mcli = ManejadorCliente.getInstance();
         Cliente aux_cliente = mcli.getCliente(cliente);
         int clave1 = mcli.getUltimoid();
         ManejadorProveedor mpr = ManejadorProveedor.getInstance();
+        Date fecha_actual = new Date();
+        Reserva res = new Reserva(clave1,fecha_actual,fechaInicio,fechaFin,0,Estado.registrada);
+        aux_cliente.addReserva(res.getId(),res);
         Proveedor prov = mpr.getProveedor(proveedor);
+        for(Map.Entry<Integer, String> entries : servicio.entrySet()){
+            aux_cliente.reservarServicio(entries.getKey(),prov.getServicio(entries.getValue()),cantidad,fechaInicio,fechaFin);
         
-        if (esServicio){
-            Servicio serv = prov.getServicio(servicio);
-            aux_cliente.reservarServicio(clave1,serv,cantidad,fechaInicio,fechaFin);
         }
-        else
-        {
-            Promocion pr = prov.getPromocion(servicio);
-            aux_cliente.reservarPromocion(clave1,pr, cantidad, fechaInicio, fechaFin);
+        for(Map.Entry<Integer, String> entries : promocion.entrySet()){
+            aux_cliente.reservarPromocion(entries.getKey(),prov.getPromocion(entries.getValue()),cantidad,fechaInicio,fechaFin);
+        
         }
     }
     

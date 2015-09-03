@@ -42,11 +42,11 @@ public class Servicio {
 <span class="fc" id="L42">        this.descripcion= des;</span>
 <span class="fc" id="L43">    }</span>
     public void agregarImagen(String img)throws Exception{
-<span class="pc bpc" id="L45" title="1 of 2 branches missed.">        if (contImagen &lt; 4){</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        if (contImagen &lt; 3){</span>
 <span class="fc" id="L46">            this.imagen[contImagen] = img;</span>
 <span class="fc" id="L47">            contImagen++;</span>
         }else
-<span class="nc" id="L49">            throw new Exception(&quot;El servicio ya tiene asignado 3 imagenes&quot;);</span>
+<span class="fc" id="L49">            throw new Exception(&quot;El servicio ya tiene asignado 3 imagenes&quot;);</span>
 <span class="fc" id="L50">    }</span>
     public void setPrecio(float precio){
 <span class="fc" id="L52">         this.precio = precio;</span>

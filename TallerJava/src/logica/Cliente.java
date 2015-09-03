@@ -43,13 +43,13 @@ public class Cliente extends Usuario{
         return dts;
     }
     public void reservarServicio(int id,Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
-        Date fecha_actual = new Date();
+        Reserva res = reservas.get(id);
         
-        Reserva res = new Reserva(id,fecha_actual,fechaIni,fechaFin,0,Estado.registrada);
+            ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin);    
+            res.agregarItem(item);
         
-        reservas.put(res.getId(),res);
-        ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin);
-        res.agregarItem(item);
+        
+        
     }
     public void modificarEstadoReserva(int id, Estado estado){
         Reserva res = reservas.get(id);
@@ -58,11 +58,10 @@ public class Cliente extends Usuario{
         }
     }
     public void reservarPromocion(int clave,Promocion prom,int cantidad,Date fechaIni,Date fechaFin){
-        Date fecha_actual = new Date();
-        Reserva res = new Reserva(clave,fecha_actual,fechaIni,fechaFin,0,Estado.registrada);
-        reservas.put(res.getId(),res);
-        ItemReserva item = new ItemReserva(cantidad,prom, fechaIni, fechaFin);
-        res.agregarItem(item);
+        Reserva res = reservas.get(clave);
+            ItemReserva item = new ItemReserva(cantidad,prom, fechaIni, fechaFin);
+            res.agregarItem(item);
+        
     }
     public void cancelarReserva(int id){
         Reserva res = reservas.get(id);
@@ -74,5 +73,8 @@ public class Cliente extends Usuario{
     }
     public Reserva getReserva(int id) {
         return reservas.get(id);
+    }
+    public void addReserva(int id, Reserva res){
+        reservas.put(id, res);
     }
 }

@@ -511,7 +511,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
 <span class="nc bnc" id="L511" title="All 2 branches missed.">        if (!servicioImagen1.getText().isEmpty()) {</span>
 <span class="nc" id="L512">            Path FROM = Paths.get(servicioImagen1.getText());</span>
             //armo la ruta destino
-<span class="nc" id="L514">            String urlImagenDestino = PantallaPrincipal.RutaImagenes + &quot;Servicios\\&quot; + proveedor + &quot; - &quot; + nombre.getText() + &quot; 1.png&quot;;</span>
+<span class="nc" id="L514">            String urlImagenDestino = PantallaPrincipal.RutaImagenes + &quot;Servicios/&quot; + proveedor + &quot; - &quot; + nombre.getText() + &quot; 1.png&quot;;</span>
 <span class="nc" id="L515">            Path TO = Paths.get(urlImagenDestino);</span>
             try {
 <span class="nc" id="L517">                Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);</span>
@@ -526,7 +526,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
 <span class="nc bnc" id="L526" title="All 2 branches missed.">        if (!servicioImagen2.getText().isEmpty()) {</span>
 <span class="nc" id="L527">            Path FROM = Paths.get(servicioImagen2.getText());</span>
             //armo la ruta destino
-<span class="nc" id="L529">            String urlImagenDestino = PantallaPrincipal.RutaImagenes + &quot;Servicios\\&quot; + proveedor + &quot; - &quot; + nombre.getText() + &quot; 2.png&quot;;</span>
+<span class="nc" id="L529">            String urlImagenDestino = PantallaPrincipal.RutaImagenes + &quot;Servicios/&quot; + proveedor + &quot; - &quot; + nombre.getText() + &quot; 2.png&quot;;</span>
 <span class="nc" id="L530">            Path TO = Paths.get(urlImagenDestino);</span>
             try {
 <span class="nc" id="L532">                Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);</span>
@@ -541,7 +541,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
 <span class="nc bnc" id="L541" title="All 2 branches missed.">        if (!servicioImagen3.getText().isEmpty()) {</span>
 <span class="nc" id="L542">            Path FROM = Paths.get(servicioImagen3.getText());</span>
             //armo la ruta destino
-<span class="nc" id="L544">            String urlImagenDestino = PantallaPrincipal.RutaImagenes + &quot;Servicios\\&quot; + proveedor + &quot; - &quot; + nombre.getText() + &quot; 3.png&quot;;</span>
+<span class="nc" id="L544">            String urlImagenDestino = PantallaPrincipal.RutaImagenes + &quot;Servicios/&quot; + proveedor + &quot; - &quot; + nombre.getText() + &quot; 3.png&quot;;</span>
 <span class="nc" id="L545">            Path TO = Paths.get(urlImagenDestino);</span>
             try {
 <span class="nc" id="L547">                Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);</span>

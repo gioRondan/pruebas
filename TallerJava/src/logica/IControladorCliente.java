@@ -7,6 +7,7 @@ package logica;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 /**
  *
  * @author Juan
@@ -20,5 +21,5 @@ public interface IControladorCliente {
     public List<DataReserva> listarReservasSistema();
     public DataInfoReserva verInfoReserva(String nomCliente, int id);
     public DataInfoCliente verInfoCliente(String nomCliente);
-    public void realizarReserva(String proveedor,String cliente,String servicio,int cantidad,Date fechaInicio,Date fechaFin,boolean esServicio );
+    public void realizarReserva(String proveedor,String cliente,Map<Integer, String> servicio, Map<Integer, String> promocion, int cantidad,Date fechaInicio,Date fechaFin );
 }

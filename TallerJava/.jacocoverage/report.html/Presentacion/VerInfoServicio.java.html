@@ -327,37 +327,62 @@ public class VerInfoServicio extends javax.swing.JInternalFrame {
 <span class="nc" id="L327">    }//GEN-LAST:event_ListServiciosMouseClicked</span>
 
     private void btn_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextActionPerformed
-<span class="nc bnc" id="L330" title="All 2 branches missed.">        if (imagenSelecc &lt; 2){ </span>
+<span class="nc bnc" id="L330" title="All 2 branches missed.">        if(imagenSelecc &lt; 3){ </span>
 <span class="nc" id="L331">           imagenSelecc++;</span>
         }
-        
-<span class="nc bnc" id="L334" title="All 2 branches missed.">        if (jPanel1.getComponentCount() == 0){//si no tiene ninguan imagen </span>
-<span class="nc" id="L335">            Imagen im = new Imagen(jPanel1, rutaImagen[imagenSelecc]);</span>
-<span class="nc" id="L336">            jPanel1.add(im).repaint();        </span>
-<span class="nc" id="L337">        }else{ // si tiene borro y agrego la nueva </span>
-<span class="nc" id="L338">             jPanel1.removeAll();</span>
-<span class="nc" id="L339">             Imagen im2 = new Imagen(jPanel1, rutaImagen[imagenSelecc]);</span>
-<span class="nc" id="L340">             jPanel1.add(im2).repaint(); </span>
+        else{
+<span class="nc" id="L334">            imagenSelecc = 0;</span>
         }
-<span class="nc" id="L342">    }//GEN-LAST:event_btn_nextActionPerformed</span>
+<span class="nc bnc" id="L336" title="All 2 branches missed.">        if(!rutaImagen[imagenSelecc].isEmpty()){</span>
+<span class="nc bnc" id="L337" title="All 2 branches missed.">            if (jPanel1.getComponentCount() == 0){//si no tiene ninguan imagen </span>
+<span class="nc" id="L338">                Imagen im = new Imagen(jPanel1, rutaImagen[imagenSelecc]);</span>
+<span class="nc" id="L339">                jPanel1.add(im).repaint();        </span>
+<span class="nc" id="L340">            }else{ // si tiene borro y agrego la nueva </span>
+<span class="nc" id="L341">                 jPanel1.removeAll();</span>
+<span class="nc" id="L342">                 Imagen im2 = new Imagen(jPanel1, rutaImagen[imagenSelecc]);</span>
+<span class="nc" id="L343">                 jPanel1.add(im2).repaint(); </span>
+<span class="nc" id="L344">            }</span>
+        }
+        else{
+<span class="nc" id="L347">            imagenSelecc = 0;</span>
+<span class="nc bnc" id="L348" title="All 2 branches missed.">            if (jPanel1.getComponentCount() == 0){//si no tiene ninguan imagen </span>
+<span class="nc" id="L349">                Imagen im = new Imagen(jPanel1, rutaImagen[imagenSelecc]);</span>
+<span class="nc" id="L350">                jPanel1.add(im).repaint();        </span>
+<span class="nc" id="L351">            }else{ // si tiene borro y agrego la nueva </span>
+<span class="nc" id="L352">                 jPanel1.removeAll();</span>
+<span class="nc" id="L353">                 Imagen im2 = new Imagen(jPanel1, rutaImagen[imagenSelecc]);</span>
+<span class="nc" id="L354">                 jPanel1.add(im2).repaint(); </span>
+            }
+        }     
+<span class="nc" id="L357">    }//GEN-LAST:event_btn_nextActionPerformed</span>
 
     private void btn_previousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_previousActionPerformed
-<span class="nc bnc" id="L345" title="All 2 branches missed.">        if (imagenSelecc &gt; 0){</span>
-<span class="nc" id="L346">            imagenSelecc--;</span>
+<span class="nc bnc" id="L360" title="All 2 branches missed.">        if(imagenSelecc == 0){ </span>
+           //imagenSelecc.getTope();
+<span class="nc bnc" id="L362" title="All 2 branches missed.">           if(!rutaImagen[2].isEmpty()){ </span>
+<span class="nc" id="L363">               imagenSelecc = 2;</span>
+           }
+<span class="nc bnc" id="L365" title="All 2 branches missed.">           else if(!rutaImagen[1].isEmpty()){ </span>
+<span class="nc" id="L366">               imagenSelecc = 1;</span>
+           }
+<span class="nc bnc" id="L368" title="All 2 branches missed.">           else if(!rutaImagen[0].isEmpty()){</span>
+<span class="nc" id="L369">               imagenSelecc = 0;</span>
+           }     
+           else{
+<span class="nc" id="L372">               return;</span>
+           }     
         }
-<span class="nc bnc" id="L348" title="All 2 branches missed.">        if (jPanel1.getComponentCount() == 0){//si no tiene ninguan imagen </span>
-<span class="nc" id="L349">            Imagen im = new Imagen(jPanel1, rutaImagen[imagenSelecc]);</span>
-<span class="nc" id="L350">            jPanel1.add(im).repaint();        </span>
-<span class="nc" id="L351">        }else{ // si tiene borro y agrego la nueva </span>
-<span class="nc" id="L352">             jPanel1.removeAll();</span>
-<span class="nc" id="L353">             Imagen im2 = new Imagen(jPanel1, rutaImagen[imagenSelecc]);</span>
-<span class="nc" id="L354">             jPanel1.add(im2).repaint(); </span>
-        }
-<span class="nc" id="L356">    }//GEN-LAST:event_btn_previousActionPerformed</span>
+        else{
+<span class="nc" id="L376">            imagenSelecc--;</span>
+        } 
+<span class="nc" id="L378">        jPanel1.removeAll();</span>
+<span class="nc" id="L379">        Imagen im2 = new Imagen(jPanel1, rutaImagen[imagenSelecc]);</span>
+<span class="nc" id="L380">        jPanel1.add(im2).repaint();         </span>
+<span class="nc" id="L381">    }//GEN-LAST:event_btn_previousActionPerformed</span>
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
-<span class="nc" id="L359">        Pantallaprin.abrirImagen(rutaImagen[imagenSelecc]);</span>
-<span class="nc" id="L360">    }//GEN-LAST:event_jPanel1MouseClicked</span>
+<span class="nc" id="L384">        Pantallaprin.abrirImagen(rutaImagen[imagenSelecc]);</span>
+<span class="nc" id="L385">    }//GEN-LAST:event_jPanel1MouseClicked</span>
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
