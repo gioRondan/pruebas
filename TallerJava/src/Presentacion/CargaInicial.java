@@ -47,7 +47,66 @@ public class CargaInicial {
             ICC.altaCliente("eWaston" , "Emma", "Watson", "e.watson@gmail.com", toDate("15/4/1990"),PantallaPrincipal.RutaImagenes+"Usuarios/eWaston.png");
             ICC.altaCliente("BruceS" , "Bruce", "Sewell", "bruce.sewell@gmail.com", toDate("3/12/1978"),"");
             ICC.altaCliente("JeffW" , "Jeff", "Wiliams", "jeff.williams@gmail.com", toDate("27/11/1984"),"");
-            
+            //CATEGORIAS
+                ICP.ingresarNombreCategoria("Vuelos");ICP.seleccionarPadre("");ICP.altaCategoria();
+                    ICP.ingresarNombreCategoria("Empresas");ICP.seleccionarPadre("Vuelos");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("Iberia");ICP.seleccionarPadre("Empresas");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("American Airlines");ICP.seleccionarPadre("Empresas");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("Air France");ICP.seleccionarPadre("Empresas");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("TAM");ICP.seleccionarPadre("Empresas");ICP.altaCategoria();
+                    ICP.ingresarNombreCategoria("Tipo vuelo");ICP.seleccionarPadre("Vuelos");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("LowCost");ICP.seleccionarPadre("Tipo vuelo");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("Standard");ICP.seleccionarPadre("Tipo vuelo");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("First Class");ICP.seleccionarPadre("Tipo vuelo");ICP.altaCategoria();
+                ICP.ingresarNombreCategoria("Alojamientos");ICP.seleccionarPadre("");ICP.altaCategoria();
+                    ICP.ingresarNombreCategoria("Tipo alojamiento");ICP.seleccionarPadre("Alojamientos");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("Hotel");ICP.seleccionarPadre("Tipo alojamiento");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("Hostal");ICP.seleccionarPadre("Tipo alojamiento");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("Apartamento");ICP.seleccionarPadre("Tipo alojamiento");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("Casa");ICP.seleccionarPadre("Tipo alojamiento");ICP.altaCategoria();
+                    ICP.ingresarNombreCategoria("Ubicación");ICP.seleccionarPadre("Alojamientos");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("Playa");ICP.seleccionarPadre("Ubicación");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("Rural");ICP.seleccionarPadre("Ubicación");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("Montaña");ICP.seleccionarPadre("Ubicación");ICP.altaCategoria();
+                    ICP.ingresarNombreCategoria("Habitaciones");ICP.seleccionarPadre("Alojamientos");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("1 ambiente");ICP.seleccionarPadre("Habitaciones");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("1 dormitorio");ICP.seleccionarPadre("Habitaciones");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("2 dormitorios");ICP.seleccionarPadre("Habitaciones");ICP.altaCategoria();
+                ICP.ingresarNombreCategoria("Automóviles");ICP.seleccionarPadre("");ICP.altaCategoria();
+                    ICP.ingresarNombreCategoria("Tarifa");ICP.seleccionarPadre("Automóviles");ICP.altaCategoria();
+                          ICP.ingresarNombreCategoria("Mini");ICP.seleccionarPadre("Tarifa");ICP.altaCategoria();
+                          ICP.ingresarNombreCategoria("Económico");ICP.seleccionarPadre("Tarifa");ICP.altaCategoria();
+//                        ICP.ingresarNombreCategoria("Standard");ICP.seleccionarPadre("Tarifa");ICP.altaCategoria();
+                          ICP.ingresarNombreCategoria("Full");ICP.seleccionarPadre("Tarifa");ICP.altaCategoria();
+                    ICP.ingresarNombreCategoria("Tipo vehículo");ICP.seleccionarPadre("Automóviles");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("Auto");ICP.seleccionarPadre("Tipo vehículo");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("Camioneta");ICP.seleccionarPadre("Tipo vehículo");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("Camión");ICP.seleccionarPadre("Tipo vehículo");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("Moto");ICP.seleccionarPadre("Tipo vehículo");ICP.altaCategoria();
+                    ICP.ingresarNombreCategoria("Marca");ICP.seleccionarPadre("Automóviles");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("Chevrolet");ICP.seleccionarPadre("Marca");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("Peugeot");ICP.seleccionarPadre("Marca");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("Daihatsu");ICP.seleccionarPadre("Marca");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("Fiat");ICP.seleccionarPadre("Marca");ICP.altaCategoria();
+                        ICP.ingresarNombreCategoria("Ford");ICP.seleccionarPadre("Marca");ICP.altaCategoria();
+                ICP.ingresarNombreCategoria("Cruceros");ICP.seleccionarPadre("");ICP.altaCategoria();
+                    ICP.ingresarNombreCategoria("Mediterráneo");ICP.seleccionarPadre("Cruceros");ICP.altaCategoria();
+                    ICP.ingresarNombreCategoria("Mar Negro");ICP.seleccionarPadre("Cruceros");ICP.altaCategoria();
+                    ICP.ingresarNombreCategoria("Caribe");ICP.seleccionarPadre("Cruceros");ICP.altaCategoria();
+                    ICP.ingresarNombreCategoria("Nilo");ICP.seleccionarPadre("Cruceros");ICP.altaCategoria();
+                    ICP.ingresarNombreCategoria("Alaska");ICP.seleccionarPadre("Cruceros");ICP.altaCategoria();
+                                    
+                    
+                
+            //SERVICIOS nombre, descripcion,precio,origen,proveedor,pais
+//                ICP.ingresarImagenServicio(null);
+//                ICP.ingresarImagenServicio(null);
+//                ICP.ingresarImagenServicio(null);
+//                ICP.ingresarCategoriaServicio(null);
+//                ICP.ingresarDestinoServicio(null);
+//                ICP.altaServicio(null, null, null, null, null, null);
+            //PROMOCIONES
+                
         } catch (Exception ex) {
             Logger.getLogger(CargaInicial.class.getName()).log(Level.SEVERE, null, ex);
         }
