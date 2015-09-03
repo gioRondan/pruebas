@@ -109,7 +109,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         precioTotal = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
-        jSpinner1 = new javax.swing.JSpinner();
+        cant = new javax.swing.JSpinner();
 
         jList2.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item1" };
@@ -189,7 +189,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
                                 .addGap(6, 6, 6)
                                 .addComponent(jButton3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(cant, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(90, 90, 90)
                         .addComponent(jLabel4)
@@ -216,7 +216,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
@@ -243,7 +243,20 @@ public class realizarReserva extends javax.swing.JInternalFrame {
 
     private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
         // TODO add your handling code here:
-         TreePath[] seleccionados = jTree1.getSelectionPaths();
+      
+        
+    }//GEN-LAST:event_jTree1MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+            
+
+        pp.ICC.realizarReserva(proveeElegido,jList2.getSelectedValue().toString(),serviciosCant,promocionesCant, null, null);
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+   TreePath[] seleccionados = jTree1.getSelectionPaths();
          String proveedor="";
          String proveedorAnt="";
         for (TreePath x : seleccionados){
@@ -261,27 +274,17 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             
             proveedorAnt = proveedor;
             DataServicio serinfo =  pp.ICP.informacionServicio(proveedor,servicio);
-            serviciosCant.put(1,serinfo.getNombre()); //falta pedir la cantidad por servicio
+            serviciosCant.put(Integer.parseInt(cant.getValue().toString()),serinfo.getNombre()); 
             float total = Float.parseFloat(precioTotal.getText())+serinfo.getPrecio();
             proveeElegido=proveedor;
             precioTotal.setText( Float.toString(total) );
-        }
-    }//GEN-LAST:event_jTree1MouseClicked
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-            
-
-        pp.ICC.realizarReserva(proveeElegido,jList2.getSelectedValue().toString(),serviciosCant,promocionesCant, null, null);
-
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
         
+        }   
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSpinner cant;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -291,7 +294,6 @@ public class realizarReserva extends javax.swing.JInternalFrame {
     private javax.swing.JList jList2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTree jTree1;
     private javax.swing.JTextField precioTotal;
     // End of variables declaration//GEN-END:variables
