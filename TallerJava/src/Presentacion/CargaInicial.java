@@ -99,12 +99,65 @@ public class CargaInicial {
                     
                 
             //SERVICIOS nombre, descripcion,precio,origen,proveedor,pais
-//                ICP.ingresarImagenServicio(null);
-//                ICP.ingresarImagenServicio(null);
-//                ICP.ingresarImagenServicio(null);
-//                ICP.ingresarCategoriaServicio(null);
-//                ICP.ingresarDestinoServicio(null);
-//                ICP.altaServicio(null, null, null, null, null, null);
+                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/remus - Euro-Vuelo-S 1.png");
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarCategoriaServicio("Iberia");
+                ICP.ingresarCategoriaServicio("Standard");    
+                ICP.ingresarDestinoServicio("Valencia");
+                ICP.altaServicio("Euro-Vuelo-S", "Vuelo con excelente atención y comodidad.", 1100, "Montevideo", "remus", "Uruguay");
+                
+                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/remus - Euro-Vuelo-LC 1.png");
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarCategoriaServicio("Iberia");
+                ICP.ingresarCategoriaServicio("LowCost");    
+                ICP.ingresarDestinoServicio("Valencia");
+                ICP.altaServicio("Euro-Vuelo-LC", "Vuelo con excelente atención y comodidad a un precio accesible.", 850, "Montevideo", "remus", "Uruguay");
+                
+                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/remus - Euro-Vuelo-FC 1.png");
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarCategoriaServicio("Iberia");
+                ICP.ingresarCategoriaServicio("First Class");    
+                ICP.ingresarDestinoServicio("Valencia");
+                ICP.altaServicio("Euro-Vuelo-FC", "Vuelo de primera clase. Excelente atención, comodidad y servicio.", 1300, "Montevideo", "remus", "Uruguay");
+                
+                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/moody - Euro-Car-1 1.png");
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarCategoriaServicio("Económico");
+                ICP.ingresarCategoriaServicio("Auto");
+                ICP.ingresarCategoriaServicio("Chevrolet");
+                ICP.ingresarDestinoServicio("Valencia");
+                ICP.altaServicio("Euro-Car-1", "Euro-Car. Autos de buena calidad y comodidad. Versión Económica.", 300, "Madrid", "moody", "España");
+                
+                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/moody - Euro-Car-2 1.png" );
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarCategoriaServicio("Standard");
+                ICP.ingresarCategoriaServicio("Auto");
+                ICP.ingresarCategoriaServicio("Chevrolet");
+                ICP.ingresarDestinoServicio("Valencia");
+                ICP.altaServicio("Euro-Car-2", "Euro-Car. Autos de buena calidad y comodidad. Versión Standard.", 300, "Madrid", "moody", "España");
+                
+                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/moody - Euro-Car-3 1.png" );
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarCategoriaServicio("Full");
+                ICP.ingresarCategoriaServicio("Chevrolet");
+                ICP.ingresarCategoriaServicio("Camioneta");
+                ICP.altaServicio("Euro-Car-3", "Euro-Car. Autos de buena calidad y comodidad. Una camioneta para toda la familia.", 300, "Valencia", "moody", "España");
+                
+                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/mHooch - Casa para p4 BsAs 1.png" );
+                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/mHooch - Casa para p4 BsAs 2.png" );
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarCategoriaServicio("Casa");
+                ICP.ingresarCategoriaServicio("2 dormitorios");
+                ICP.altaServicio("Casa para p4 BsAs", "Esta hermosa casa, se encuentra ubicada en el corazón de Buenos Aires y ofrece una capacidad\n" +
+"para cuatro personas. La propiedad cuenta con un dormitorio con dos camas simples, que pueden\n" +
+"transformarse en una matrimonial y dos baños completos, que incluyen toallas.", 80, "Buenos Aires", "mHooch", "Argentina");
+                
             //PROMOCIONES
                 
         } catch (Exception ex) {
