@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
 import logica.DataCliente;
 import logica.DataProveedor;
@@ -28,7 +29,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
      * Creates new form realizarReserva2
      */
     private List<String> seleccionados;
-             
+    PantallaPrincipal pp = PantallaPrincipal.getInstancia();
             
 
     public realizarReserva() {
@@ -38,8 +39,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
        
        
         
-        DefaultListModel<String> mol = new DefaultListModel<>();  
-        PantallaPrincipal pp = PantallaPrincipal.getInstancia();
+        DefaultListModel<String> mol = new DefaultListModel<>(); 
         List<DataCliente> dts = pp.ICC.listarClientes();
         Iterator<DataCliente> itera = dts.iterator();
         while (itera.hasNext()) {
@@ -48,34 +48,33 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             mol.addElement(aux);
         }
         TreeModel jmodel;
-        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Proveedores");
+        javax.swing.tree.DefaultMutableTreeNode raiz = new javax.swing.tree.DefaultMutableTreeNode("Proveedores");
         
+  
         
-        
-        List<DataProveedor> dtps = pp.ICP.listarProveedores();
-        Iterator<DataProveedor> it = dtps.iterator();
-        while (it.hasNext()){
-            DataProveedor dtp = it.next();
-            String aux1 = dtp.getNickname();
-            javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode(aux1);
-            treeNode1.add(treeNode2);
-            List<DataServicio> dtss = pp.ICP.listarServiciosXProveedor(aux1);
-            Iterator<DataServicio> it1 = dtss.iterator();
-            while (it1.hasNext()){
-                DataServicio d = it1.next();
-                String aux2 = d.getNombre();
-                javax.swing.tree.DefaultMutableTreeNode treeNode5 = new javax.swing.tree.DefaultMutableTreeNode(aux2);
-                treeNode2.add(treeNode5);
-            }
+            
+ 
+        List<DataProveedor> dtproveedores = pp.ICP.listarProveedores();
+        for (DataProveedor dtprv: dtproveedores){
+            DefaultMutableTreeNode prv = new DefaultMutableTreeNode();
+            prv.setUserObject(dtprv.getNickname());
+            raiz.add(prv);
+            List<DataServicio> dtservicios = pp.ICP.listarServiciosXProveedor(dtprv.getNickname());
+            for (DataServicio dtser: dtservicios){
+                DefaultMutableTreeNode ser = new DefaultMutableTreeNode();
+                ser.setUserObject(dtser.getNombre());
+                prv.add(ser);
+            }  
             
         }   // agregamos todos los proveedores al jtree {matias heredia}
         /*for(int i=1;i<=500;i++){
             javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("nabo");
             treeNode1.add(treeNode2);
         }*/
-        
-        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-         jList2.setModel(mol);
+        jList2.setModel(mol);
+        precioTotal.setText("0");
+        DefaultTreeModel modeloArbol = new DefaultTreeModel(raiz);
+        jTree1.setModel(modeloArbol);
     }
           
     
@@ -94,10 +93,11 @@ public class realizarReserva extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
         jButton2 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        precioTotal = new javax.swing.JTextField();
 
         jList2.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item1" };
@@ -121,10 +121,6 @@ public class realizarReserva extends javax.swing.JInternalFrame {
         jLabel2.setText("Seleccione un cliente");
         jLabel2.setAlignmentY(0.0F);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setText("El precio total es:");
-        jLabel3.setAlignmentY(0.0F);
-
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
         jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jTree1.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
@@ -136,35 +132,38 @@ public class realizarReserva extends javax.swing.JInternalFrame {
 
         jButton2.setText("Aceptar");
 
+        jLabel4.setText("Precio total:");
+
+        precioTotal.setEditable(false);
+        precioTotal.setToolTipText("Precio de los servicios seleccionado sin el descuento");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(62, 62, 62)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(61, 61, 61)
+                            .addComponent(jLabel1)
+                            .addGap(11, 11, 11)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(90, 90, 90)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(139, 139, 139)
-                                .addComponent(jButton2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(72, 72, 72)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(jButton1)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1))
+                            .addComponent(precioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,13 +172,15 @@ public class realizarReserva extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(precioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -212,10 +213,11 @@ public class realizarReserva extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JList jList2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTree jTree1;
+    private javax.swing.JTextField precioTotal;
     // End of variables declaration//GEN-END:variables
 }
