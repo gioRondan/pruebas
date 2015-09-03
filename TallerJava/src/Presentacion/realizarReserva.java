@@ -15,6 +15,7 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
+import javax.swing.tree.TreePath;
 import logica.DataCliente;
 import logica.DataProveedor;
 import logica.DataServicio;
@@ -28,7 +29,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
     /**
      * Creates new form realizarReserva2
      */
-    private List<String> seleccionados;
+    
     PantallaPrincipal pp = PantallaPrincipal.getInstancia();
             
 
@@ -123,6 +124,11 @@ public class realizarReserva extends javax.swing.JInternalFrame {
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
         jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jTree1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTree1MouseClicked(evt);
+            }
+        });
         jTree1.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 jTree1ValueChanged(evt);
@@ -206,6 +212,31 @@ public class realizarReserva extends javax.swing.JInternalFrame {
         }
             
     }//GEN-LAST:event_jTree1ValueChanged
+
+    private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
+        // TODO add your handling code here:
+         TreePath[] seleccionados = jTree1.getSelectionPaths();
+         String proveedor="";
+         String proveedorAnt="";
+        for (TreePath x : seleccionados){
+            String path = x.toString();
+            String servicio = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]")); 
+            proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
+            if(!proveedorAnt.isEmpty()){
+                if (!proveedorAnt.equals(proveedor)){
+                    JOptionPane.showMessageDialog(null,"Deve seleccionar servicios del mismo proveedor");
+                    return;
+                }
+            }
+            nomser.setText(servicio);
+            
+            proveedorAnt = proveedor;
+            DataServicio serinfo =  pp.ICP.informacionServicio(proveedor,servicio);
+            descser.setText(serinfo.getDescripcion());
+            preser.setText(Float.toString(serinfo.getPrecio()));
+            float total = Float.parseFloat(precioTotal.getText())+serinfo.getPrecio();
+            precioTotal.setText( Float.toString(total) );
+    }//GEN-LAST:event_jTree1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
