@@ -5,6 +5,7 @@
  */
 package Presentacion;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -317,6 +318,10 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             }
             proveedorAnt = proveedor;
             DataServicio serinfo =  pp.ICP.informacionServicio(proveedor,servicio);
+            Date fecha1   = jDateChooser1.getDate();
+            Date fecha2   = jDateChooser2.getDate();
+            DataExpira dtx= new DataExpira(fecha1,fecha2);
+            fechas.put(serinfo.getNombre(),dtx);
             serviciosCant.put(Integer.parseInt(cant.getValue().toString()),serinfo.getNombre()); 
             float total = Float.parseFloat(precioTotal.getText())+serinfo.getPrecio();
             proveeElegido=proveedor;
