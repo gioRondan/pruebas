@@ -37,6 +37,7 @@ public class ControladorCliente implements IControladorCliente{
         Reserva res = new Reserva(clave1,fecha_actual,fecha_actual,fecha_actual,0,Estado.registrada);
         aux_cliente.addReserva(res.getId(),res);
         Proveedor prov = mpr.getProveedor(proveedor);
+        
         for(Map.Entry<Integer, String> entries : servicio.entrySet()){
             aux_cliente.reservarServicio(clave1, prov.getServicio(entries.getValue()),entries.getKey(),fechas.get(entries.getValue()).getFechai(),fechas.get(entries.getValue()).getFechaf());
         

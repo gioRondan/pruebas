@@ -11,6 +11,7 @@ import static java.util.Collections.emptyMap;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -26,8 +27,8 @@ public class Proveedor extends Usuario{
     
     public Proveedor(String nickname, String nombre, String apellido,String email, Date fechaNac, String imagen){
         super(nickname,nombre,apellido,email,fechaNac,imagen);
-       promociones =  new HashMap();
-       servicios =  new HashMap();
+       promociones =  new LinkedHashMap();
+       servicios =  new LinkedHashMap();
     }
 
      

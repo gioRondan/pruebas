@@ -43,7 +43,7 @@ public class ControladorProveedor implements IControladorProveedor{
     @Override
     public void ingresarImagenServicio(String imagen){
         ControladorProveedor.imagenServicio[ControladorProveedor.tope]=imagen;
-        ControladorProveedor.tope++;
+        ControladorProveedor.tope = ControladorProveedor.tope+1;
     }
     @Override
     public void ingresarDestinoServicio(String  destino ){
@@ -68,9 +68,9 @@ public class ControladorProveedor implements IControladorProveedor{
         return mCa.getDataCategorias();
     }
     @Override
-    public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor, String pais) {
+    public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor, String pais){
         Servicio ser = new Servicio(nombre, descripcion, precio);
-        for(int i=0;i<ControladorProveedor.tope;i++){
+        for(int i=0;i<=ControladorProveedor.tope;++i){
             try {            
                 ser.agregarImagen(ControladorProveedor.imagenServicio[i]);
             } catch (Exception ex) {
@@ -315,6 +315,10 @@ public class ControladorProveedor implements IControladorProveedor{
                 mCi.addCiudad(new Ciudad(nomCiudad, mPa.getPais(nomPais)));
             }
         }
+    }
+
+    void seleccionarProveedor(String proveedor) {
+        ControladorProveedor.proveedor = proveedor;
     }
 
 }

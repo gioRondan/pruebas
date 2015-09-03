@@ -21,44 +21,51 @@ public class Promocion {
     private int descuento;
     private int precioTotal;
     private Map&lt;String,Servicio&gt; servicios;
+    private Proveedor proveedor;
     
-<span class="fc" id="L25">    public Promocion(String nombre, int descuento, int precioTotal){</span>
-<span class="fc" id="L26">        this.nombre = nombre;</span>
-<span class="fc" id="L27">        this.descuento = descuento;</span>
-<span class="fc" id="L28">        this.precioTotal = precioTotal;</span>
-<span class="fc" id="L29">        this.servicios = new HashMap();</span>
-<span class="fc" id="L30">    }</span>
+<span class="fc" id="L26">    public Promocion(String nombre, int descuento, int precioTotal,Proveedor prov){</span>
+<span class="fc" id="L27">        this.nombre = nombre;</span>
+<span class="fc" id="L28">        this.descuento = descuento;</span>
+<span class="fc" id="L29">        this.precioTotal = precioTotal;</span>
+<span class="fc" id="L30">        this.servicios = new HashMap();</span>
+<span class="fc" id="L31">        this.proveedor = prov;</span>
+<span class="fc" id="L32">    }</span>
     public DataPromocion getDataPromocion(){
-<span class="fc" id="L32">        return new DataPromocion(nombre, descuento, precioTotal);</span>
+<span class="fc" id="L34">        return new DataPromocion(nombre, descuento, precioTotal);</span>
     }
     public String getNombre(){
-<span class="fc" id="L35">        return nombre;</span>
+<span class="fc" id="L37">        return nombre;</span>
     }
     public int getDescuento(){
-<span class="fc" id="L38">        return descuento;</span>
+<span class="fc" id="L40">        return descuento;</span>
     }
     public int getPrecioTotal(){
-<span class="fc" id="L41">        return precioTotal;</span>
+<span class="fc" id="L43">        return precioTotal;</span>
     }
     public void setNombre(String nombre){
-<span class="nc" id="L44">        this.nombre = nombre;</span>
-<span class="nc" id="L45">    }</span>
+<span class="nc" id="L46">        this.nombre = nombre;</span>
+<span class="nc" id="L47">    }</span>
     public void setDescuento(int descuento){
-<span class="nc" id="L47">        this.descuento = descuento;</span>
-<span class="nc" id="L48">    }</span>
+<span class="nc" id="L49">        this.descuento = descuento;</span>
+<span class="nc" id="L50">    }</span>
     public void setPrecioTotal(int precioTotal){
-<span class="fc" id="L50">        this.precioTotal = precioTotal;</span>
-<span class="fc" id="L51">    }</span>
+<span class="fc" id="L52">        this.precioTotal = precioTotal;</span>
+<span class="fc" id="L53">    }</span>
     public void agregarServicio(Servicio servicio){
-<span class="fc" id="L53">        servicios.put(servicio.getNombre(), servicio);</span>
-<span class="fc" id="L54">    }</span>
+<span class="fc" id="L55">        servicios.put(servicio.getNombre(), servicio);</span>
+<span class="fc" id="L56">    }</span>
+    public void esdeProveedor(String nomProv) throws Exception{
+<span class="nc bnc" id="L58" title="All 2 branches missed.">        if (!(nomProv.equals(proveedor.getNombre()))){</span>
+<span class="nc" id="L59">            throw new Exception(&quot;Las promociones deben ser de un mismo proveedor&quot;);</span>
+        }
+<span class="nc" id="L61">    }</span>
 
     DataInfoPromocion getDataInfoPromocion() {       
-<span class="fc" id="L57">        Set&lt;DataServicio&gt; dts =  new HashSet();</span>
-<span class="fc bfc" id="L58" title="All 2 branches covered.">        for (Servicio value : servicios.values()){</span>
-<span class="fc" id="L59">            dts.add(value.getDataServicio());</span>
-<span class="fc" id="L60">        }</span>
-<span class="fc" id="L61">        return new DataInfoPromocion(this.getNombre(),this.getDescuento(),this.getPrecioTotal(),dts);</span>
+<span class="fc" id="L64">        Set&lt;DataServicio&gt; dts =  new HashSet();</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        for (Servicio value : servicios.values()){</span>
+<span class="fc" id="L66">            dts.add(value.getDataServicio());</span>
+<span class="fc" id="L67">        }</span>
+<span class="fc" id="L68">        return new DataInfoPromocion(this.getNombre(),this.getDescuento(),this.getPrecioTotal(),dts);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

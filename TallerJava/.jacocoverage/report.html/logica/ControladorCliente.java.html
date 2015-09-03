@@ -28,84 +28,85 @@ import java.util.Set;
 <span class="nc" id="L28">    }</span>
     
     @Override
-    public void realizarReserva(String proveedor,String cliente,Map&lt;Integer, String&gt; servicio, Map&lt;Integer, String&gt; promocion,Date fechaInicio,Date fechaFin ){
+    public void realizarReserva(String proveedor,String cliente,Map&lt;Integer, String&gt; servicio, Map&lt;Integer, String&gt; promocion,Map&lt;String,DataExpira&gt; fechas ){
 <span class="fc" id="L32">        ManejadorCliente mcli = ManejadorCliente.getInstance();</span>
 <span class="fc" id="L33">        Cliente aux_cliente = mcli.getCliente(cliente);</span>
 <span class="fc" id="L34">        int clave1 = mcli.getUltimoid();</span>
 <span class="fc" id="L35">        ManejadorProveedor mpr = ManejadorProveedor.getInstance();</span>
 <span class="fc" id="L36">        Date fecha_actual = new Date();</span>
-<span class="fc" id="L37">        Reserva res = new Reserva(clave1,fecha_actual,fechaInicio,fechaFin,0,Estado.registrada);</span>
+<span class="fc" id="L37">        Reserva res = new Reserva(clave1,fecha_actual,fecha_actual,fecha_actual,0,Estado.registrada);</span>
 <span class="fc" id="L38">        aux_cliente.addReserva(res.getId(),res);</span>
 <span class="fc" id="L39">        Proveedor prov = mpr.getProveedor(proveedor);</span>
-<span class="fc bfc" id="L40" title="All 2 branches covered.">        for(Map.Entry&lt;Integer, String&gt; entries : servicio.entrySet()){</span>
-<span class="fc" id="L41">            aux_cliente.reservarServicio(clave1, prov.getServicio(entries.getValue()),entries.getKey(),fechaInicio,fechaFin);</span>
         
-<span class="fc" id="L43">        }</span>
-<span class="pc bpc" id="L44" title="1 of 2 branches missed.">        for(Map.Entry&lt;Integer, String&gt; entries : promocion.entrySet()){</span>
-<span class="nc" id="L45">            aux_cliente.reservarPromocion(clave1, prov.getPromocion(entries.getValue()),entries.getKey(),fechaInicio,fechaFin);</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        for(Map.Entry&lt;Integer, String&gt; entries : servicio.entrySet()){</span>
+<span class="fc" id="L42">            aux_cliente.reservarServicio(clave1, prov.getServicio(entries.getValue()),entries.getKey(),fechas.get(entries.getValue()).getFechai(),fechas.get(entries.getValue()).getFechaf());</span>
         
-<span class="nc" id="L47">        }</span>
-<span class="fc" id="L48">    }</span>
+<span class="fc" id="L44">        }</span>
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">        for(Map.Entry&lt;Integer, String&gt; entries : promocion.entrySet()){</span>
+<span class="nc" id="L46">            aux_cliente.reservarPromocion(clave1, prov.getPromocion(entries.getValue()),entries.getKey(),fechas.get(entries.getValue()).getFechai(),fechas.get(entries.getValue()).getFechaf());</span>
+        
+<span class="nc" id="L48">        }</span>
+<span class="fc" id="L49">    }</span>
     
     @Override
     public void altaCliente(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen) throws Exception{
         
-<span class="fc" id="L53">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
-<span class="fc" id="L54">        ManejadorCliente mCl   = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L54">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
+<span class="fc" id="L55">        ManejadorCliente mCl   = ManejadorCliente.getInstance();</span>
         
         //Control de unicidad de usuarios
-<span class="fc" id="L57">        mPr.unicidadNick(nick);</span>
-<span class="fc" id="L58">        mPr.unicidadEmail(email);</span>
-<span class="fc" id="L59">        mCl.unicidadNick(nick);</span>
-<span class="fc" id="L60">        mCl.unicidadEmail(email);</span>
+<span class="fc" id="L58">        mPr.unicidadNick(nick);</span>
+<span class="fc" id="L59">        mPr.unicidadEmail(email);</span>
+<span class="fc" id="L60">        mCl.unicidadNick(nick);</span>
+<span class="fc" id="L61">        mCl.unicidadEmail(email);</span>
         
-<span class="pc bpc" id="L62" title="4 of 8 branches missed.">        if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty())){</span>
-<span class="nc" id="L63">            throw new Exception(&quot;Los datos ingresados no son correctos&quot;);</span>
+<span class="pc bpc" id="L63" title="4 of 8 branches missed.">        if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty())){</span>
+<span class="nc" id="L64">            throw new Exception(&quot;Los datos ingresados no son correctos&quot;);</span>
         }else{
-<span class="fc" id="L65">            Cliente cliente = new Cliente(nick, nombre, apellido, email, fechaNac, imagen);</span>
-<span class="fc" id="L66">            mCl.addCliente(cliente);        </span>
+<span class="fc" id="L66">            Cliente cliente = new Cliente(nick, nombre, apellido, email, fechaNac, imagen);</span>
+<span class="fc" id="L67">            mCl.addCliente(cliente);        </span>
         }
         
-<span class="fc" id="L69">    }</span>
+<span class="fc" id="L70">    }</span>
     
     @Override
     public List&lt;DataCliente&gt; listarClientes(){
-<span class="fc" id="L73">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="fc" id="L74">        return mCl.getDataClientes();</span>
+<span class="fc" id="L74">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L75">        return mCl.getDataClientes();</span>
     }
     
     @Override
     public void cancelarReserva(String nomCliente, int id){
-<span class="fc" id="L79">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="fc" id="L80">        Cliente cli = mCl.getCliente(nomCliente);</span>
-<span class="nc" id="L81">        cli.cancelarReserva(id);</span>
-<span class="nc" id="L82">    }</span>
+<span class="fc" id="L80">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L81">        Cliente cli = mCl.getCliente(nomCliente);</span>
+<span class="nc" id="L82">        cli.cancelarReserva(id);</span>
+<span class="nc" id="L83">    }</span>
     
     @Override
     public List&lt;DataReserva&gt; listarReservasSistema(){
-<span class="fc" id="L86">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="fc" id="L87">        return mCl.listarReservas();</span>
+<span class="fc" id="L87">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L88">        return mCl.listarReservas();</span>
         
     }
     
     @Override
     public List&lt;DataReserva&gt; listarReservasXCliente(String nomCliente){
-<span class="fc" id="L93">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="fc" id="L94">        return mCl.getCliente(nomCliente).getDataReservas();</span>
+<span class="fc" id="L94">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L95">        return mCl.getCliente(nomCliente).getDataReservas();</span>
     }
     
     @Override
     public DataInfoReserva verInfoReserva(String nomCliente, int id){
-<span class="fc" id="L99">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="fc" id="L100">        Cliente cliente = mCl.getCliente(nomCliente);</span>
-<span class="nc" id="L101">        Reserva reserva = cliente.getReserva(id);</span>
-<span class="nc" id="L102">        return reserva.getDataInfoReserva();</span>
+<span class="fc" id="L100">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L101">        Cliente cliente = mCl.getCliente(nomCliente);</span>
+<span class="fc" id="L102">        Reserva reserva = cliente.getReserva(id);</span>
+<span class="fc" id="L103">        return reserva.getDataInfoReserva();</span>
     }
     
     @Override
     public DataInfoCliente verInfoCliente( String nomCliente){
-<span class="fc" id="L107">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="fc" id="L108">        return mCl.getCliente(nomCliente).getDataInfoCliente();</span>
+<span class="fc" id="L108">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L109">        return mCl.getCliente(nomCliente).getDataInfoCliente();</span>
     }
 
 }

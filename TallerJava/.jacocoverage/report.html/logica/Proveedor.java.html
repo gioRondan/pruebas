@@ -11,6 +11,7 @@ import static java.util.Collections.emptyMap;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -25,51 +26,51 @@ public class Proveedor extends Usuario{
     private Map&lt;String, Servicio&gt; servicios;
     
     public Proveedor(String nickname, String nombre, String apellido,String email, Date fechaNac, String imagen){
-<span class="fc" id="L28">        super(nickname,nombre,apellido,email,fechaNac,imagen);</span>
-<span class="fc" id="L29">       promociones =  new HashMap();</span>
-<span class="fc" id="L30">       servicios =  new HashMap();</span>
-<span class="fc" id="L31">    }</span>
+<span class="fc" id="L29">        super(nickname,nombre,apellido,email,fechaNac,imagen);</span>
+<span class="fc" id="L30">       promociones =  new LinkedHashMap();</span>
+<span class="fc" id="L31">       servicios =  new LinkedHashMap();</span>
+<span class="fc" id="L32">    }</span>
 
      
     public DataProveedor getDataProveedor(){
-<span class="fc" id="L35">        return new DataProveedor(this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),this.getImagen() , this.empresa.getNombre(),this.empresa.getUrl());</span>
+<span class="fc" id="L36">        return new DataProveedor(this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),this.getImagen() , this.empresa.getNombre(),this.empresa.getUrl());</span>
     }
 
     public Empresa getEmpresa() {
-<span class="nc" id="L39">        return empresa;</span>
+<span class="nc" id="L40">        return empresa;</span>
     }
     public List&lt;DataServicio&gt; getDataServicios(){
-<span class="fc" id="L42">        List&lt;DataServicio&gt; dts =  new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (Servicio value : servicios.values()){</span>
-<span class="fc" id="L44">            dts.add(value.getDataServicio());</span>
-<span class="fc" id="L45">        }</span>
-<span class="fc" id="L46">        return dts;</span>
+<span class="fc" id="L43">        List&lt;DataServicio&gt; dts =  new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        for (Servicio value : servicios.values()){</span>
+<span class="fc" id="L45">            dts.add(value.getDataServicio());</span>
+<span class="fc" id="L46">        }</span>
+<span class="fc" id="L47">        return dts;</span>
     }
     public Promocion getPromocion(String nomPromocion){
-<span class="fc" id="L49">        return this.promociones.get(nomPromocion);</span>
+<span class="fc" id="L50">        return this.promociones.get(nomPromocion);</span>
     }
     public List&lt;DataPromocion&gt; getDataPromociones(){
-<span class="fc" id="L52">        List&lt;DataPromocion&gt; dts =  new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L53" title="All 2 branches covered.">        for (Promocion value : promociones.values()){</span>
-<span class="fc" id="L54">            dts.add(value.getDataPromocion());</span>
-<span class="fc" id="L55">        }</span>
-<span class="fc" id="L56">        return dts;</span>
+<span class="fc" id="L53">        List&lt;DataPromocion&gt; dts =  new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        for (Promocion value : promociones.values()){</span>
+<span class="fc" id="L55">            dts.add(value.getDataPromocion());</span>
+<span class="fc" id="L56">        }</span>
+<span class="fc" id="L57">        return dts;</span>
     }
     public void asociarServicio(Servicio ser){
-<span class="fc" id="L59">        this.servicios.put(ser.getNombre(), ser);</span>
-<span class="fc" id="L60">    }</span>
+<span class="fc" id="L60">        this.servicios.put(ser.getNombre(), ser);</span>
+<span class="fc" id="L61">    }</span>
     public void asociarPromocion(Promocion prom){
-<span class="fc" id="L62">        this.promociones.put(prom.getNombre(), prom);</span>
-<span class="fc" id="L63">    }</span>
+<span class="fc" id="L63">        this.promociones.put(prom.getNombre(), prom);</span>
+<span class="fc" id="L64">    }</span>
     public Servicio getServicio(String nombre){
-<span class="fc" id="L65">        return servicios.get(nombre);</span>
+<span class="fc" id="L66">        return servicios.get(nombre);</span>
     }
     public void asociarEmpresa(Empresa empresa){
-<span class="fc" id="L68">        this.empresa = empresa;</span>
-<span class="fc" id="L69">    }</span>
+<span class="fc" id="L69">        this.empresa = empresa;</span>
+<span class="fc" id="L70">    }</span>
 
     public DataInfoProveedor getDataInfoProveedor() {
-<span class="fc" id="L72">        return new DataInfoProveedor(nickname,  nombre,  apellido, email, fechaNac,  imagen,  empresa.getDataEmpresa(), getDataServicios());</span>
+<span class="fc" id="L73">        return new DataInfoProveedor(nickname,  nombre,  apellido, email, fechaNac,  imagen,  empresa.getDataEmpresa(), getDataServicios());</span>
     }
 }
 
