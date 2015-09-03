@@ -23,11 +23,12 @@ public class Promocion {
     private Map<String,Servicio> servicios;
     private Proveedor proveedor;
     
-    public Promocion(String nombre, int descuento, int precioTotal){
+    public Promocion(String nombre, int descuento, int precioTotal,Proveedor prov){
         this.nombre = nombre;
         this.descuento = descuento;
         this.precioTotal = precioTotal;
         this.servicios = new HashMap();
+        this.proveedor = prov;
     }
     public DataPromocion getDataPromocion(){
         return new DataPromocion(nombre, descuento, precioTotal);
