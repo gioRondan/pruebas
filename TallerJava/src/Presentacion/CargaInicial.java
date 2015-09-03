@@ -42,6 +42,8 @@ public class CargaInicial {
             ICP.altaProveedor("moody","Alastor", "Moody", "eu.car@eucar.com",toDate("2/9/1965"), PantallaPrincipal.RutaImagenes+"Usuarios/moody.png","EuropCar", "http://www.europcar.com.uy/");
             ICP.altaProveedor("remus","Remus", "Lupin", "iberia@gmail.com",toDate("4/5/1970"), PantallaPrincipal.RutaImagenes+"Usuarios/remus.png","Iberia", "http://www.iberia.com/uy/");
             ICP.altaProveedor("adippet","Armando", "Dippet", "tam@outlook.com",toDate("12/2/1967"), PantallaPrincipal.RutaImagenes+"Usuarios/adippet.png","Tam", "http://www.tam.com.br/");
+            ICP.altaProveedor("mHooch","Madam", "Hooch", "segHogar@gmail.com",toDate("5/8/1963"), PantallaPrincipal.RutaImagenes+"Usuarios/mHooch.png","Segundo Hogar", "http://www.segundohogar.com/");
+            
             // CLIENTES
             ICC.altaCliente("oWood" , "Oliver", "Wood", "quidditch28@gmail.com", toDate("28/12/1988"),PantallaPrincipal.RutaImagenes+"Usuarios/oWood.png");
             ICC.altaCliente("eWaston" , "Emma", "Watson", "e.watson@gmail.com", toDate("15/4/1990"),PantallaPrincipal.RutaImagenes+"Usuarios/eWaston.png");

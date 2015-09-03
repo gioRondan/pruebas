@@ -70,7 +70,7 @@ public class ControladorProveedor implements IControladorProveedor{
     @Override
     public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor, String pais){
         Servicio ser = new Servicio(nombre, descripcion, precio);
-        for(int i=0;i<=ControladorProveedor.tope;++i){
+        for(int i=0;i<ControladorProveedor.tope;++i){
             try {            
                 ser.agregarImagen(ControladorProveedor.imagenServicio[i]);
             } catch (Exception ex) {
