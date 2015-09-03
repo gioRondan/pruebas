@@ -20,16 +20,13 @@ import de.javasoft.plaf.synthetica.SyntheticaSilverMoonLookAndFeel;
 import de.javasoft.plaf.synthetica.SyntheticaSimple2DLookAndFeel;
 import de.javasoft.plaf.synthetica.SyntheticaSkyMetallicLookAndFeel;
 import de.javasoft.plaf.synthetica.SyntheticaWhiteVisionLookAndFeel;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
+
 import java.beans.PropertyVetoException;
 import java.io.File;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JInternalFrame;
+
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -60,16 +57,16 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         ICP = fabrica.getIControladorProveedor();
         ICC = fabrica.getIControladorCliente();
    
-       this.RutaImagenes= JOptionPane.showInputDialog("Selecciones una ruta para las imagenes");
-            if (this.RutaImagenes==null){
-                 this.RutaImagenes = "C:\\Imagenes\\";
+       PantallaPrincipal.RutaImagenes= JOptionPane.showInputDialog("Selecciones una ruta para las imagenes");
+            if (PantallaPrincipal.RutaImagenes==null){
+                 PantallaPrincipal.RutaImagenes = "C:\\Imagenes\\";
             }
-            else if (this.RutaImagenes.isEmpty()){
-                this.RutaImagenes = "C:\\Imagenes\\";
+            else if (PantallaPrincipal.RutaImagenes.isEmpty()){
+                PantallaPrincipal.RutaImagenes = "C:\\Imagenes\\";
             }
-            File usuarios=new File(this.RutaImagenes+"Usuarios"); 
+            File usuarios=new File(PantallaPrincipal.RutaImagenes+"Usuarios"); 
             usuarios.mkdir();
-            File servicios=new File(this.RutaImagenes+"Servicios"); 
+            File servicios=new File(PantallaPrincipal.RutaImagenes+"Servicios"); 
             servicios.mkdir();
     
     }
@@ -179,6 +176,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jRadioButtonMenuItem11 = new javax.swing.JRadioButtonMenuItem();
         jRadioButtonMenuItem12 = new javax.swing.JRadioButtonMenuItem();
         jRadioButtonMenuItem13 = new javax.swing.JRadioButtonMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Principal H4T");
@@ -434,6 +432,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenu5.add(jRadioButtonMenuItem13);
 
         jMenu6.add(jMenu5);
+
+        jMenuItem3.setText("CargaInicial");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem3);
 
         jMenuBar1.add(jMenu6);
 
@@ -898,6 +904,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jRadioButtonMenuItem13ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Se inicia la carga");
+        CargaInicial c = new CargaInicial();
+        c.cargar();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     /**
      * @param args the command line arguments
      * @throws javax.swing.UnsupportedLookAndFeelException
@@ -962,6 +975,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
