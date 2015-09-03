@@ -8,15 +8,17 @@ package logica;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -697,8 +699,12 @@ public class CiudadTest {
         testAltaCliente2(cliente, "nom", "ap", "emailo", new Date(1,1,2015),"im");
         cp.altaProveedor(proveedor, "nompr", "appr", "emailpro", new Date(1,1,2014), "impr", "nomemp", "linkemp");
         cp.altaServicio(servicio, "desc", 10, "montevideo", proveedor, "uruguay");
+        Map<Integer, String> serv = new HashMap();
+        Map<Integer, String> prom = new HashMap();
         
-        instance.realizarReserva(proveedor, cliente, servicio, cantidad, fechaInicio, fechaFin, esServicio);
+        serv.put(1,servicio);
+        
+        instance.realizarReserva(proveedor, cliente, serv, prom, cantidad, fechaInicio, fechaFin);
         
     }
         /**
@@ -727,8 +733,12 @@ public class CiudadTest {
         Set<DataReserva> expResult = null;
         ManejadorCliente mcl = ManejadorCliente.getInstance();
         int id = mcl.testGetId();
+        Map<Integer, String> serv = new HashMap();
+        Map<Integer, String> prom = new HashMap();
+        serv.put(1,"1");
         for(int i = 1; i < 11; ++i){
-        instance.realizarReserva("nickname", nickname, Integer.toString(i), 1, new Date(1,2,2013), new Date(1,3,213), true);
+            
+            instance.realizarReserva("nickname", nickname, serv, prom, 1, new Date(1,2,2013), new Date(1,3,213));
             
         }
         List<DataReserva> result = instance.listarReservasXCliente(nickname);
@@ -761,12 +771,16 @@ public class CiudadTest {
         
         ManejadorCliente mcl = ManejadorCliente.getInstance();
         int id = mcl.testGetId();
+        
+        Map<Integer, String> serv = new HashMap();
+        Map<Integer, String> prom = new HashMap();
+        serv.put(1,"1");
         //id = (id-10);   //en listarreservasxcliente ya se agregaron 10 
         for(int i = 1; i < 11; ++i){
-        instance.realizarReserva("nickname", "45", Integer.toString(i), 1, new Date(1,2,2013), new Date(1,3,213), true);
+        instance.realizarReserva("nickname", "45", serv, prom, 1, new Date(1,2,2013), new Date(1,3,213));
         }
         for(int i = 1; i < 11; ++i){
-        instance.realizarReserva("nickname", "46", Integer.toString(i), 1, new Date(1,2,2013), new Date(1,3,213), true);    
+        instance.realizarReserva("nickname", "46", serv, prom, 1, new Date(1,2,2013), new Date(1,3,213));    
         }
         List<DataReserva> result = instance.listarReservasSistema();
         /*for(int k= 0;k<10;++k){
