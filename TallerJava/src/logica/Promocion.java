@@ -21,6 +21,7 @@ public class Promocion {
     private int descuento;
     private int precioTotal;
     private Map<String,Servicio> servicios;
+    private Proveedor proveedor;
     
     public Promocion(String nombre, int descuento, int precioTotal){
         this.nombre = nombre;
@@ -51,6 +52,11 @@ public class Promocion {
     }
     public void agregarServicio(Servicio servicio){
         servicios.put(servicio.getNombre(), servicio);
+    }
+    public void esdeProveedor(String nomProv) throws Exception{
+        if (!(nomProv.equals(proveedor.getNombre()))){
+            throw new Exception("Las promociones deben ser de un mismo proveedor");
+        }
     }
 
     DataInfoPromocion getDataInfoPromocion() {       
