@@ -200,10 +200,12 @@ public class ControladorProveedor implements IControladorProveedor{
         }
         if (!origenServicio.isEmpty()){
             ManejadorCiudad mCi = ManejadorCiudad.getInstance();
+            altaCiudad(origenServicio,"pais");//para probar
             ser.asociarOrigen(mCi.getCiudad(origenServicio));
         }
         if (!destinoServicio.isEmpty()){
             ManejadorCiudad mCi = ManejadorCiudad.getInstance();
+            altaCiudad(origenServicio,"pais");//para probar
             ser.asociarDestino(mCi.getCiudad(destinoServicio));
         }
         for(String im : imagenServicio){
