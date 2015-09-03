@@ -19,6 +19,7 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 import logica.DataCliente;
+import logica.DataExpira;
 import logica.DataPromocion;
 import logica.DataProveedor;
 import logica.DataServicio;
@@ -36,6 +37,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
     PantallaPrincipal pp = PantallaPrincipal.getInstancia();
     private Map<Integer,String> serviciosCant;
     private Map<Integer,String> promocionesCant;
+    private Map<String,DataExpira> fechas;
     private String proveeElegido;
     
     
@@ -48,6 +50,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
 
         serviciosCant = new HashMap();
         promocionesCant = new HashMap();
+        fechas = new HashMap();
        
         
         DefaultListModel<String> mol = new DefaultListModel<>(); 
@@ -290,7 +293,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
             
     try{
-        pp.ICC.realizarReserva(proveeElegido,jList2.getSelectedValue().toString(),serviciosCant,promocionesCant, null, null);
+        pp.ICC.realizarReserva(proveeElegido,jList2.getSelectedValue().toString(),serviciosCant,promocionesCant, fechas);
     }   catch (Exception ex){
             JOptionPane.showMessageDialog(null,ex.getMessage());
         }
