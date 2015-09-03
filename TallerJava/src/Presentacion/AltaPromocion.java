@@ -232,7 +232,7 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
             proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
             ser.add(servicio);
         }
-        pp.ICP.altaPromocion(proveedor, ser, promocionNombre.getText(), Integer.parseInt(promocionDescuento.getValue().toString()));
+        //pp.ICP.altaPromocion(proveedor, ser, promocionNombre.getText(), Integer.parseInt(promocionDescuento.getValue().toString()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked

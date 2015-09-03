@@ -886,9 +886,10 @@ public class CiudadTest {
         serv.put(2, "hola");
         ManejadorCliente mcl = ManejadorCliente.getInstance();
         int id = mcl.testGetId();
+        Map<String, DataExpira> es = new HashMap();
         for(int i = 1; i < 11; ++i){
             
-            instance.realizarReserva(proveedor, "cli12", serv, new HashMap(), new Date(1,2,2013), new Date(1,3,213));
+            instance.realizarReserva(proveedor, "cli12", serv, new HashMap(), es);
             
         }
         List<DataReserva> result = instance.listarReservasXCliente("cli12");
@@ -942,9 +943,10 @@ public class CiudadTest {
         serv.put(2, "hola1");
         ManejadorCliente mcl = ManejadorCliente.getInstance();
         int id = 111;
+        Map<String, DataExpira> es = new HashMap();
         for(int i = 1; i < 11; ++i){
             
-            instance.realizarReserva(proveedor1, "cli123", serv, new HashMap(), new Date(1,2,2013), new Date(1,3,213));
+            instance.realizarReserva(proveedor1, "cli123", serv, new HashMap(), es);
             
             //instance.realizarReserva(proveedor1, "cli1234", serv, new HashMap(), new Date(1,2,2013), new Date(1,3,213));
         }
@@ -989,7 +991,8 @@ public class CiudadTest {
         instancepr.altaServicio("hola", descripcion, precio, origen, proveedor,"0");
         Map<Integer, String> serv = new HashMap();
         serv.put(2, "hola");
-        instance.realizarReserva(proveedor, "cli123456", serv, new HashMap(), new Date(1,2,2013), new Date(1,3,213));
+        Map<String, DataExpira> es = new HashMap();
+        instance.realizarReserva(proveedor, "cli123456", serv, new HashMap(), es);
         ManejadorCliente mcl = ManejadorCliente.getInstance();
         int id = mcl.testGetId();
         id++;
@@ -997,8 +1000,8 @@ public class CiudadTest {
         assertEquals(Estado.registrada, result.getEstado());
         //assertEquals(10, result.getPrecio());
         assertEquals(id, result.getId());
-        assertEquals(new Date(1,2,2013), result.getFechaInicio());
-        assertEquals(new Date(1,3,213), result.getFechaFin());
+        //assertEquals(new Date(1,2,2013), result.getFechaInicio());
+        //assertEquals(new Date(1,3,213), result.getFechaFin());
         /*assertEquals(, result);
         assertEquals(, result);*/
     }
@@ -1034,7 +1037,8 @@ public class CiudadTest {
         instancepr.altaServicio("hola", descripcion, precio, origen, proveedor,"0");
         Map<Integer, String> serv = new HashMap();
         serv.put(2, "hola");
-        instance.realizarReserva(proveedor, "cli12345678", serv, new HashMap(), new Date(1,2,2013), new Date(1,3,213));
+        Map<String, DataExpira> es = new HashMap();
+        instance.realizarReserva(proveedor, "cli12345678", serv, new HashMap(), es);
         ManejadorCliente mcl = ManejadorCliente.getInstance();
         int id = mcl.testGetId();
         instance.cancelarReserva("cli12345678", id);
