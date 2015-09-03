@@ -28,7 +28,7 @@ public class ControladorCliente implements IControladorCliente{
     }
     
     @Override
-    public void realizarReserva(String proveedor,String cliente,Map<Integer, String> servicio, Map<Integer, String> promocion,Date fechaInicio,Date fechaFin ){ //el bool servicio indica si voy a reservar un servicio, si es false es para reservar una promocion
+    public void realizarReserva(String proveedor,String cliente,Map<Integer, String> servicio, Map<Integer, String> promocion,Date fechaInicio,Date fechaFin ){
         ManejadorCliente mcli = ManejadorCliente.getInstance();
         Cliente aux_cliente = mcli.getCliente(cliente);
         int clave1 = mcli.getUltimoid();
