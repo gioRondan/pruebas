@@ -37,7 +37,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
     private Map<Integer,String> serviciosCant;
     private Map<Integer,String> promocionesCant;
     private String proveeElegido;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    
     
             
 
@@ -45,8 +45,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
         //matias trabajando
         initComponents();
         jScrollPane1.getViewport().add(jList2);
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser1.show();
+
         serviciosCant = new HashMap();
         promocionesCant = new HashMap();
        
@@ -268,9 +267,9 @@ public class realizarReserva extends javax.swing.JInternalFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-   TreePath[] seleccionados = jTree1.getSelectionPaths();
-         String proveedor="";
-         String proveedorAnt="";
+        TreePath[] seleccionados = jTree1.getSelectionPaths();
+        String proveedor="";
+        String proveedorAnt="";
         for (TreePath x : seleccionados){
             String path = x.toString();
             String servicio = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]")); 
@@ -281,9 +280,6 @@ public class realizarReserva extends javax.swing.JInternalFrame {
                     return;
                 }
             }
-        
-            
-            
             proveedorAnt = proveedor;
             DataServicio serinfo =  pp.ICP.informacionServicio(proveedor,servicio);
             serviciosCant.put(Integer.parseInt(cant.getValue().toString()),serinfo.getNombre()); 
