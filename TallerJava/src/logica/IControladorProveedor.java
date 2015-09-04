@@ -33,7 +33,7 @@ public interface IControladorProveedor {
     public void ingresarOrigenServicio(String origen);
     public void ingresarDestinoServicio(String destino);
     public void vaciarCategoriasServicio();
-    public void ingresarCategoriaServicio(String categoria);
+    public void ingresarCategoriaServicio(String categoria)throws Exception;
     public void modificarServicio();
     public List<DataEmpresa> listarEmpresas();
     public void altaProveedor(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmp, String LinkEmpres) throws Exception;

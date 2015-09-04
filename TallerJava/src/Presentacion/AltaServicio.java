@@ -591,8 +591,12 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         for (TreePath x : equis){
             String padreSelec = x.toString();
             padreSelec = padreSelec.substring(padreSelec.lastIndexOf(",") + 2, padreSelec.lastIndexOf("]"));
-            //JOptionPane.showMessageDialog(null,"El padre seleccionado es "+padreSelec);
-            Pantallaprin.ICP.ingresarCategoriaServicio(padreSelec);
+            try {
+                //JOptionPane.showMessageDialog(null,"El padre seleccionado es "+padreSelec);
+                Pantallaprin.ICP.ingresarCategoriaServicio(padreSelec);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null,ex.getMessage());
+            }
         }
     }//GEN-LAST:event_jTree1MouseClicked
 
