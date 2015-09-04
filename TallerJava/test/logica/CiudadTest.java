@@ -544,6 +544,13 @@ public class CiudadTest {
         catch(Exception ex){
             System.out.println("throw alta categoria en listar servicios por categoria");
         }
+        
+        testIngresarNombreCategoria2("turismo");
+        try{
+        instance.altaCategoria();}
+        catch(Exception ex){
+            System.out.println("throw alta categoria en listar servicios por categoria");
+        }
         try{
         instance.ingresarCategoriaServicio("transporte2222");
         }catch(Exception ex){}
@@ -557,16 +564,25 @@ public class CiudadTest {
         testIngresarOrigenServicio("modificado");
         testIngresarDestinoServicio("4");
         instance.seleccionarProveedor(proveedor);
+        instance.ingresarImagenBorrarServicio("imser");
+        
+        try{
+        instance.ingresarCategoriaServicio("turismo");
+        
+        }catch(Exception ex){}
+        instance.ingresarCategoriaBorrarServicio("transporte2222");
         try{
             instance.modificarServicio();
         }catch(Exception ex){}
+        
         DataInfoServicio result = instance.verInfoServicio("amodificar", proveedor);
         assertEquals("modificado", result.getDescripcion());
         //assertEquals(9999, result.getPrecio());
-        assertEquals("imser", result.getImagen()[0]);
-        assertEquals("modificada", result.getImagen()[1]);
+        assertEquals("modificada", result.getImagen()[0]);
+        assertEquals("turismo",result.getCategorias().get(0).getNombre());
         assertEquals("modificado", result.getOrigen().getNombre());
         assertEquals("4", result.getDestino().getNombre());
+        
     }
 
     /**

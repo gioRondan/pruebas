@@ -80,8 +80,8 @@ public class Servicio {
     }
     public DataInfoServicio getDataInfoServicio (){
 <span class="fc" id="L82">        DataCiudad des = null;</span>
-<span class="pc bpc" id="L83" title="1 of 2 branches missed.">        if (destino!= null){</span>
-<span class="nc" id="L84">            des = destino.getDataCiudad();</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">        if (destino!= null){</span>
+<span class="fc" id="L84">            des = destino.getDataCiudad();</span>
         }
 <span class="fc" id="L86">        return new DataInfoServicio(nombre, descripcion, imagen, precio, origen.getDataCiudad(), des, getDataCategorias(), proveedor.getDataProveedor());</span>
     }
@@ -101,24 +101,24 @@ public class Servicio {
         }
 <span class="nc" id="L102">    }</span>
     public void eliminarImagen(String imagen) throws Exception{
-<span class="nc" id="L104">        int it = 0;</span>
-<span class="nc bnc" id="L105" title="All 4 branches missed.">        while((it &lt;= contImagen)&amp;&amp;(!this.imagen[it].equals(imagen)))</span>
+<span class="fc" id="L104">        int it = 0;</span>
+<span class="pc bpc" id="L105" title="2 of 4 branches missed.">        while((it &lt; contImagen)&amp;&amp;(!this.imagen[it].equals(imagen)))</span>
 <span class="nc" id="L106">            ++it;</span>
-<span class="nc bnc" id="L107" title="All 2 branches missed.">        if(it&gt;contImagen)</span>
+<span class="pc bpc" id="L107" title="1 of 2 branches missed.">        if(it&gt;contImagen)</span>
 <span class="nc" id="L108">            throw new Exception(&quot;la imagen seleccionada no pertenece al servicio&quot;);</span>
         else{
-<span class="nc" id="L110">            Files.delete(Paths.get(this.imagen[it]));</span>
-<span class="nc" id="L111">            this.imagen[it] = this.imagen[contImagen];</span>
-<span class="nc" id="L112">            this.imagen[contImagen] = &quot;&quot;;</span>
-<span class="nc" id="L113">            contImagen--;</span>
+            //Files.delete(Paths.get(this.imagen[it]));
+<span class="fc" id="L111">            this.imagen[it] = this.imagen[contImagen-1];</span>
+<span class="fc" id="L112">            this.imagen[contImagen-1] = &quot;&quot;;</span>
+<span class="fc" id="L113">            contImagen--;</span>
         }
-<span class="nc" id="L115">    }</span>
+<span class="fc" id="L115">    }</span>
     public void eliminarCategoria(String categoria) throws Exception{
-<span class="nc bnc" id="L117" title="All 2 branches missed.">        if(categorias.containsKey(categoria)){</span>
-<span class="nc" id="L118">            this.categorias.remove(categoria);</span>
+<span class="pc bpc" id="L117" title="1 of 2 branches missed.">        if(categorias.containsKey(categoria)){</span>
+<span class="fc" id="L118">            this.categorias.remove(categoria);</span>
         }else{
 <span class="nc" id="L120">            throw new Exception(&quot;la categoria no pertenece al servicio&quot;); </span>
         }
-<span class="nc" id="L122">    }</span>
+<span class="fc" id="L122">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

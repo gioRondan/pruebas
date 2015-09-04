@@ -47,12 +47,12 @@ import javax.swing.JOptionPane;
     
     @Override
     public void ingresarImagenBorrarServicio(String imagen){
-<span class="nc" id="L50">        ControladorProveedor.imagenBorrar.add(imagen);</span>
-<span class="nc" id="L51">    }</span>
+<span class="fc" id="L50">        ControladorProveedor.imagenBorrar.add(imagen);</span>
+<span class="fc" id="L51">    }</span>
     @Override
     public void ingresarCategoriaBorrarServicio(String categoria){
-<span class="nc" id="L54">        ControladorProveedor.categoriaBorrar.add(categoria);</span>
-<span class="nc" id="L55">    }</span>
+<span class="fc" id="L54">        ControladorProveedor.categoriaBorrar.add(categoria);</span>
+<span class="fc" id="L55">    }</span>
     @Override
     public void ingresarImagenServicio(String imagen){
 <span class="fc" id="L58">        ControladorProveedor.imagenServicio[ControladorProveedor.tope]=imagen;</span>
@@ -218,7 +218,7 @@ import javax.swing.JOptionPane;
         }
 <span class="pc bpc" id="L219" title="1 of 2 branches missed.">        if (!destinoServicio.isEmpty()){</span>
 <span class="fc" id="L220">            ManejadorCiudad mCi = ManejadorCiudad.getInstance();</span>
-<span class="fc" id="L221">            altaCiudad(origenServicio,&quot;pais&quot;);//para probar</span>
+<span class="fc" id="L221">            altaCiudad(destinoServicio,&quot;pais&quot;);//para probar</span>
 <span class="fc" id="L222">            ser.asociarDestino(mCi.getCiudad(destinoServicio));</span>
         }
 <span class="fc bfc" id="L224" title="All 2 branches covered.">        for(int i=0;i&lt;ControladorProveedor.tope;++i){</span>
@@ -229,21 +229,21 @@ import javax.swing.JOptionPane;
 <span class="nc" id="L229">                Logger.getLogger(ControladorProveedor.class.getName()).log(Level.SEVERE, null, ex);</span>
 <span class="fc" id="L230">            }           </span>
         }
-<span class="pc bpc" id="L232" title="1 of 2 branches missed.">        for(String cats : categoriasServicio){</span>
-<span class="nc" id="L233">            ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
-<span class="nc" id="L234">            Categoria cat = mCa.getCategoria(cats);</span>
-<span class="nc" id="L235">            cat.setServicio(ser);</span>
-<span class="nc" id="L236">            ser.agregarCategoria(cat);</span>
-<span class="nc" id="L237">        }</span>
-<span class="pc bpc" id="L238" title="1 of 2 branches missed.">        for(String it1 : categoriaBorrar){</span>
-<span class="nc" id="L239">            ser.eliminarCategoria(it1);</span>
-<span class="nc" id="L240">            ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
-<span class="nc" id="L241">            Categoria cat = mCa.getCategoria(it1);</span>
-<span class="nc" id="L242">            cat.eliminarServicio(ser);</span>
-<span class="nc" id="L243">        }</span>
-<span class="pc bpc" id="L244" title="1 of 2 branches missed.">        for(String it2 : imagenBorrar){</span>
-<span class="nc" id="L245">            ser.eliminarImagen(it2);</span>
-<span class="nc" id="L246">        }</span>
+<span class="fc bfc" id="L232" title="All 2 branches covered.">        for(String cats : categoriasServicio){</span>
+<span class="fc" id="L233">            ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
+<span class="fc" id="L234">            Categoria cat = mCa.getCategoria(cats);</span>
+<span class="fc" id="L235">            cat.setServicio(ser);</span>
+<span class="fc" id="L236">            ser.agregarCategoria(cat);</span>
+<span class="fc" id="L237">        }</span>
+<span class="fc bfc" id="L238" title="All 2 branches covered.">        for(String it1 : categoriaBorrar){</span>
+<span class="fc" id="L239">            ser.eliminarCategoria(it1);</span>
+<span class="fc" id="L240">            ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
+<span class="fc" id="L241">            Categoria cat = mCa.getCategoria(it1);</span>
+<span class="fc" id="L242">            cat.eliminarServicio(ser);</span>
+<span class="fc" id="L243">        }</span>
+<span class="fc bfc" id="L244" title="All 2 branches covered.">        for(String it2 : imagenBorrar){</span>
+<span class="fc" id="L245">            ser.eliminarImagen(it2);</span>
+<span class="fc" id="L246">        }</span>
 <span class="fc" id="L247">        liberarMemoria();</span>
 <span class="fc" id="L248">    }</span>
     @Override
@@ -322,7 +322,7 @@ import javax.swing.JOptionPane;
 <span class="fc" id="L322">        ManejadorPais mPa = ManejadorPais.getInstance();</span>
 <span class="pc bpc" id="L323" title="1 of 2 branches missed.">        if(!nomCiudad.isEmpty()){</span>
 <span class="fc bfc" id="L324" title="All 2 branches covered.">            if(mCi.getCiudad(nomCiudad) == null){</span>
-<span class="pc bpc" id="L325" title="1 of 2 branches missed.">                if(mPa.getPais(nomPais) == null){</span>
+<span class="fc bfc" id="L325" title="All 2 branches covered.">                if(mPa.getPais(nomPais) == null){</span>
 <span class="fc" id="L326">                    mPa.addPais(new Pais(nomPais));</span>
                 }
 <span class="fc" id="L328">                mCi.addCiudad(new Ciudad(nomCiudad, mPa.getPais(nomPais)));</span>
