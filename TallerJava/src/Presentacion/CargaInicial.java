@@ -269,38 +269,41 @@ public class CargaInicial {
             fechass.clear();
             fechasp.clear();
             //R2
-//            servicio.put(2, "Euro-Vuelo-S");
-//            servicio.put(1, "Euro-Vuelo-LC");
-//            f = new DataExpira(toDate("1/1/2015"),toDate("1/1/2015"));
-//            fechass.put("Euro-Vuelo-S",f);
-//            f = new DataExpira(toDate("1/1/2015"),toDate("1/1/2015"));
-//            fechass.put("Euro-Vuelo-LC",f);
-//            //ICC.realizarReserva("remus","oWood",servicio,promocion,fechass,fechasp,toDate("1/1/2015"));    
-//            ICC.actualizarEstadoReserva(1, "oWood", Estado.facturada);
-//            servicio.clear();
-//            promocion.clear();
-//            fechass.clear();
-//            fechasp.clear();
-//            //R3
-//            servicio.put(1, "Euro-Vuelo-S ");
-//            f = new DataExpira(toDate("5/3/2015"),toDate("2/4/2015"));
-//            fechasp.put("",f);
-//            //ICC.realizarReserva("remus","oWood",servicio,promocion,fechass,fechasp,toDate("1/1/2015"));    
-//            ICC.actualizarEstadoReserva(1, "oWood", Estado.facturada);
-//            servicio.clear();
-//            promocion.clear();
-//            fechass.clear();
-//            fechasp.clear();
-//            //R4
-//            servicio.put(1, "Euro-Vuelo-S ");
-//            f = new DataExpira(toDate("1/1/2015"),toDate("1/1/2015"));
-//            fechass.put("",f);
-//            //ICC.realizarReserva("remus","oWood",servicio,promocion,fechass,fechasp,toDate("1/1/2015"));    
-//            ICC.actualizarEstadoReserva(1, "oWood", Estado.facturada);
-//            servicio.clear();
-//            promocion.clear();
-//            fechass.clear();
-//            fechasp.clear();
+            servicio.put(2, "Euro-Vuelo-S");
+            servicio.put(1, "Euro-Vuelo-LC");
+            f = new DataExpira(toDate("1/1/2015"),toDate("1/1/2015"));
+            fechass.put("Euro-Vuelo-S",f);
+            f = new DataExpira(toDate("1/1/2015"),toDate("1/1/2015"));
+            fechass.put("Euro-Vuelo-LC",f);
+            ICC.realizarReserva("remus","eWaston",servicio,promocion,fechass,fechasp,toDate("1/1/2015"));    
+            ICC.actualizarEstadoReserva(2, "eWaston", Estado.cancelada);
+            servicio.clear();
+            promocion.clear();
+            fechass.clear();
+            fechasp.clear();
+            //R3
+            promocion.put(1,"Sudamerica-Casas");
+            f = new DataExpira(toDate("5/3/2015"),toDate("2/4/2015"));
+            fechass.put("Sudamerica-Casas",f);
+            ICC.realizarReserva("mHooch","BruceS",servicio,promocion,fechass,fechasp,toDate("5/3/2015"));    
+            ICC.actualizarEstadoReserva(3, "BruceS", Estado.pagada);
+            servicio.clear();
+            promocion.clear();
+            fechass.clear();
+            fechasp.clear();
+            //R4
+            servicio.put(1, "Euro-Car-2");
+            servicio.put(1, "Euro-Car-3");
+            f = new DataExpira(toDate("8/5/2015"),toDate("12/5/2015"));
+            fechass.put("Euro-Car-2",f);
+            f = new DataExpira(toDate("8/5/2015"),toDate("12/5/2015"));
+            fechass.put("Euro-Car-3",f);
+            ICC.realizarReserva("moody","JeffW",servicio,promocion,fechass,fechasp,toDate("8/5/2015"));    
+            ICC.actualizarEstadoReserva(4, "JeffW", Estado.pagada);
+            servicio.clear();
+            promocion.clear();
+            fechass.clear();
+            fechasp.clear();
 //            //R5
 //            servicio.put(1, "Euro-Vuelo-S ");
 //            f = new DataExpira(toDate("1/1/2015"),toDate("1/1/2015"));
