@@ -891,11 +891,12 @@ public class CiudadTest {
         ManejadorCliente mcl = ManejadorCliente.getInstance();
         int id = mcl.testGetId();
         Map<String, DataExpira> es = new HashMap();
+        Map<String, DataExpira> es2 = new HashMap();
         es.put("hola", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
         es.put("hola", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
         for(int i = 1; i < 11; ++i){
             
-            instance.realizarReserva(proveedor, "cli12", serv, new HashMap(), es);
+            instance.realizarReserva(proveedor, "cli12", serv, new HashMap(), es, es2, new Date(1,2,2013));
             
         }
         List<DataReserva> result = instance.listarReservasXCliente("cli12");
@@ -949,11 +950,12 @@ public class CiudadTest {
         ManejadorCliente mcl = ManejadorCliente.getInstance();
         int id = mcl.testGetId();
         Map<String, DataExpira> es = new HashMap();
+        Map<String, DataExpira> es2 = new HashMap();
         es.put("hola1", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
         es.put("hola1", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
         for(int i = 1; i < 11; ++i){
             
-            instance.realizarReserva(proveedor1, "cli123", serv, new HashMap(), es);
+            instance.realizarReserva(proveedor1, "cli123", serv, new HashMap(), es, es2, new Date(1,2,2013));
             
             //instance.realizarReserva(proveedor1, "cli1234", serv, new HashMap(), new Date(1,2,2013), new Date(1,3,213));
         }
@@ -1001,9 +1003,10 @@ public class CiudadTest {
         Map<Integer, String> serv = new HashMap();
         serv.put(2, "hola");
         Map<String, DataExpira> es = new HashMap();
+        Map<String, DataExpira> es2 = new HashMap();
         es.put("hola", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
         es.put("hola", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
-        instance.realizarReserva(proveedor, "cli123456", serv, new HashMap(), es);
+        instance.realizarReserva(proveedor, "cli123456", serv, new HashMap(), es, es2, new Date(1,2,2013));
         ManejadorCliente mcl = ManejadorCliente.getInstance();
         int id = mcl.testGetId();
         
@@ -1049,9 +1052,10 @@ public class CiudadTest {
         Map<Integer, String> serv = new HashMap();
         serv.put(2, "hola");
         Map<String, DataExpira> es = new HashMap();
+        Map<String, DataExpira> es2 = new HashMap();
         es.put("hola", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
         es.put("hola", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
-        instance.realizarReserva(proveedor, "cli12345678", serv, new HashMap(), es);
+        instance.realizarReserva(proveedor, "cli12345678", serv, new HashMap(), es, es2, new Date(1,2,2013));
         ManejadorCliente mcl = ManejadorCliente.getInstance();
         int id = mcl.testGetId();
         instance.cancelarReserva("cli12345678", id);
