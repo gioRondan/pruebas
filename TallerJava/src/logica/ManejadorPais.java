@@ -5,10 +5,12 @@
  */
 package logica;
 
-import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.List;
+
 import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -16,6 +18,7 @@ import java.util.Map;
  */
 public class ManejadorPais {
     private Map<String, Pais> paises;
+    
     private static ManejadorPais instance = null;
     private ManejadorPais(){
         paises = new HashMap();
@@ -25,12 +28,15 @@ public class ManejadorPais {
         if(instance == null)
             instance = new ManejadorPais();
         return instance;
-    } 
-    
+    }  
     public Pais getPais(String a){
         return paises.get(a);
     }
     public void addPais(Pais pais){
         paises.put(pais.getNombre(), pais);
     }
+    public Set<String> getNombresPaises(){
+        return paises.keySet();
+    }
+    
 }

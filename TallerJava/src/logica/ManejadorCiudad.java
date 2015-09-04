@@ -40,4 +40,13 @@ public class ManejadorCiudad {
     public void addCiudad(Ciudad ciudad){
         ciudades.put(ciudad.getNombre(), ciudad);
     }
+    public List<DataCiudad> getDataCiudadesXpais(Pais p){
+       List<DataCiudad> dts =  new ArrayList<>();
+        for (Ciudad value : ciudades.values()){
+            if (value.getPais().getNombre().equals(p.getNombre())){
+                dts.add(value.getDataCiudad());
+            }
+        }
+        return dts;
+   }
 }

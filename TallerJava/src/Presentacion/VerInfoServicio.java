@@ -76,7 +76,6 @@ public class VerInfoServicio extends javax.swing.JInternalFrame {
                edt_destino.setVisible(false);
                jLabel5.setVisible(false);
             }
-
             edt_origen.setText(mostrar.getOrigen().getNombre());
             edt_precio.setText(Float.toString(mostrar.getPrecio()));
             edt_proveedor.setText(mostrar.getProveedor().getNickname());

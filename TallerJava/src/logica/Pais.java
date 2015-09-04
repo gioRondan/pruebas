@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package logica;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -12,13 +14,16 @@ import java.util.Set;
  */
 public class Pais {
     private String nombre;
+
     
     public Pais(String nombre){
         this.nombre = nombre;
+
     }
     public String getNombre(){
         return nombre;
     }
+
     public void setNombre(String nombre){
         this.nombre = nombre;
     }

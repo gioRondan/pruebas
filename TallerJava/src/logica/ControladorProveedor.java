@@ -322,7 +322,15 @@ public class ControladorProveedor implements IControladorProveedor{
         
         return promo.getDataInfoPromocion();
     }
-
+    public void altaPais(String nomPais) throws Exception {
+        ManejadorPais mPa = ManejadorPais.getInstance();
+         if(mPa.getPais(nomPais) == null){
+                    mPa.addPais(new Pais(nomPais));
+         }else{
+             throw new Exception("Ya Exuiste ese");
+         }
+             
+    }
     public void altaCiudad(String nomCiudad, String nomPais) {
         ManejadorCiudad mCi = ManejadorCiudad.getInstance();
         ManejadorPais mPa = ManejadorPais.getInstance();
@@ -332,13 +340,26 @@ public class ControladorProveedor implements IControladorProveedor{
                     mPa.addPais(new Pais(nomPais));
                 }
                 mCi.addCiudad(new Ciudad(nomCiudad, mPa.getPais(nomPais)));
+                
             }
         }
     }
 
+        
     void seleccionarProveedor(String proveedor) {
         ControladorProveedor.proveedor = proveedor;
     }
+    public Set<String> infoPaises(){
+       ManejadorPais mPa = ManejadorPais.getInstance();
+       return mPa.getNombresPaises();
+    }
+     public List<DataCiudad> ciudadesXpais( String pa){
+       ManejadorCiudad mCi = ManejadorCiudad.getInstance();
+        ManejadorPais mPa = ManejadorPais.getInstance();
+        Pais p = mPa.getPais(pa);
+       return mCi.getDataCiudadesXpais(p);
+    }
+    
 
 }
 

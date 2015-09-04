@@ -44,4 +44,8 @@ public interface IControladorProveedor {
     public DataInfoServicio verInfoServicio(String nomServicio, String nomProveedor);
     public DataInfoProveedor verInfoProveedor(String nomProveedor);
     public DataServicio informacionServicio(String prv,String ser);
+    public Set<String> infoPaises();
+    public List<DataCiudad> ciudadesXpais( String pa);
+    public void altaPais(String pa)throws Exception;
+    public void altaCiudad(String pa,String nombre);
 }
