@@ -7,7 +7,9 @@ package Presentacion;
 
 import java.util.Iterator;
 import java.util.List;
+import javax.swing.DefaultListModel;
 import logica.DataProveedor;
+import logica.DataServicio;
 
 /**
  *
@@ -19,6 +21,7 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
      * Creates new form NewJInternalFrame
      */
     
+    DefaultListModel modeloServicios = new DefaultListModel();
     PantallaPrincipal Pantallaprin = PantallaPrincipal.getInstancia();
     
     public ActualizarServicio() {
@@ -44,7 +47,7 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
         Combo_Proveedores = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        List_Servicios = new javax.swing.JList();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -79,7 +82,7 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Proveedor");
 
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(List_Servicios);
 
         jLabel2.setText("Descripción");
 
@@ -114,6 +117,11 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
         jButton9.setText("Salir");
 
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/plus.png"))); // NOI18N
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -252,12 +260,21 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Combo_ProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combo_ProveedoresActionPerformed
-        
+        List<DataServicio> servi = Pantallaprin.ICP.listarServiciosXProveedor(Combo_Proveedores.getSelectedItem().toString());
+        for (DataServicio it: servi){
+            modeloServicios.addElement(it);
+        }
+        List_Servicios.setModel(modeloServicios);
     }//GEN-LAST:event_Combo_ProveedoresActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        Pantallaprin.abrirAgregarCategoria();
+    }//GEN-LAST:event_jButton10ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox Combo_Proveedores;
+    private javax.swing.JList List_Servicios;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
@@ -275,7 +292,6 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JList jList1;
     private javax.swing.JList jList2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
