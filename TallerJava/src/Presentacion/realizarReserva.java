@@ -132,6 +132,9 @@ public class realizarReserva extends javax.swing.JInternalFrame {
         label2 = new java.awt.Label();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
 
+        setClosable(true);
+        setTitle("Realizar reserva");
+
         jList2.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item1" };
             public int getSize() { return strings.length; }

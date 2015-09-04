@@ -59,7 +59,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
    
        PantallaPrincipal.RutaImagenes= JOptionPane.showInputDialog("Selecciones una ruta para las imagenes");
             if (PantallaPrincipal.RutaImagenes==null){
-                 PantallaPrincipal.RutaImagenes = "C:\\Imagenes\\";
+                
+                PantallaPrincipal.RutaImagenes = "C:\\Imagenes\\";
             }
             else if (PantallaPrincipal.RutaImagenes.isEmpty()){
                 PantallaPrincipal.RutaImagenes = "C:\\Imagenes\\";
@@ -182,6 +183,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Principal H4T");
+
+        Escritorio.setAutoscrolls(true);
 
         javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
         Escritorio.setLayout(EscritorioLayout);

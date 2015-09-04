@@ -137,6 +137,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         pais = new javax.swing.JTextField();
 
         setClosable(true);
+        setTitle("Nuevo servicio");
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel23.setText("Servicio");
@@ -218,6 +219,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTree1);
 
         descripcion.setColumns(20);
+        descripcion.setLineWrap(true);
         descripcion.setRows(5);
         jScrollPane2.setViewportView(descripcion);
 

@@ -33,6 +33,9 @@ public class Opciones extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
+        setClosable(true);
+        setTitle("Configuracion");
+
         jLabel1.setText("Ruta Para Imagenes");
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {

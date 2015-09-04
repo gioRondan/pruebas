@@ -55,6 +55,9 @@ public class ListarEmpresas extends javax.swing.JInternalFrame {
         jButton10 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setTitle("Listar Empresas");
+
         jList2.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item1" };
             public int getSize() { return strings.length; }

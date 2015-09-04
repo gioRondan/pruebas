@@ -83,6 +83,7 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
         preser = new javax.swing.JTextField();
 
         setClosable(true);
+        setTitle("Nueva promocion");
 
         jTree1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -127,6 +128,7 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
 
         descser.setEditable(false);
         descser.setColumns(20);
+        descser.setLineWrap(true);
         descser.setRows(5);
         descser.setText("Descripcion");
         jScrollPane2.setViewportView(descser);

@@ -85,6 +85,8 @@ public class AltaCliente extends javax.swing.JInternalFrame {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setClosable(true);
+        setTitle("Nuevo cliente");
+        setToolTipText("");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Cliente");

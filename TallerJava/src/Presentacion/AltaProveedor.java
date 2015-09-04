@@ -92,7 +92,7 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setClosable(true);
-        setTitle("AltaProveedor");
+        setTitle("Nuevo proveedor");
         setToolTipText("");
         addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
