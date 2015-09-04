@@ -16,6 +16,8 @@ import javax.swing.JTextField;
  * @author Juan
  */
 public interface IControladorProveedor {
+    public void ingresarImagenBorrarServicio(String imagen);
+    public void ingresarCategoriaBorrarServicio(String categoria);
     public void ingresarImagen(String imagen);
     public List<DataCiudad> listarCiudades();
     public List<DataCategoria> listarCategorias();
@@ -34,7 +36,7 @@ public interface IControladorProveedor {
     public void ingresarDestinoServicio(String destino);
     public void vaciarCategoriasServicio();
     public void ingresarCategoriaServicio(String categoria)throws Exception;
-    public void modificarServicio();
+    public void modificarServicio()throws Exception;
     public List<DataEmpresa> listarEmpresas();
     public void altaProveedor(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmp, String LinkEmpres) throws Exception;
     public List<DataPromocion> listarPromocionesXProveedor(String nomProveedor);

@@ -6,6 +6,8 @@
 
 package logica;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -98,5 +100,24 @@ public class Servicio {
             throw new Exception("Los servicios deben ser de un mismo proveedor");
         }
     }
-
+    public void eliminarImagen(String imagen) throws Exception{
+        int it = 0;
+        while((it <= contImagen)&&(!this.imagen[it].equals(imagen)))
+            ++it;
+        if(it>contImagen)
+            throw new Exception("la imagen seleccionada no pertenece al servicio");
+        else{
+            Files.delete(Paths.get(this.imagen[it]));
+            this.imagen[it] = this.imagen[contImagen];
+            this.imagen[contImagen] = "";
+            contImagen--;
+        }
+    }
+    public void eliminarCategoria(String categoria) throws Exception{
+        if(categorias.containsKey(categoria)){
+            this.categorias.remove(categoria);
+        }else{
+            throw new Exception("la categoria no pertenece al servicio"); 
+        }
+    }
 }
