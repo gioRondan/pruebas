@@ -293,9 +293,11 @@ public class realizarReserva extends javax.swing.JInternalFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
             
     try{
+        JOptionPane.showMessageDialog(null,jList2.getSelectedValue().toString());
         pp.ICC.realizarReserva(proveeElegido,jList2.getSelectedValue().toString(),serviciosCant,promocionesCant, fechas);
+        JOptionPane.showMessageDialog(null,"la reserva se realizo correctamente");
     }   catch (Exception ex){
-            JOptionPane.showMessageDialog(null,ex.getMessage());
+            JOptionPane.showMessageDialog(null,"Error al ingresar reserva" + ex.getMessage());
         }
 
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -309,6 +311,9 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             String path = x.toString();
             String servicio = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]")); 
             proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
+            proveedor = proveedor.substring(0,proveedor.indexOf(",") );
+            JOptionPane.showMessageDialog(null, "selecciono el proveedor"+proveedor );
+            JOptionPane.showMessageDialog(null, "selecciono el servicio"+servicio );
             if(!proveedorAnt.isEmpty()){
                 if (!proveedorAnt.equals(proveedor)){
                     JOptionPane.showMessageDialog(null,"Deve seleccionar servicios del mismo proveedor");

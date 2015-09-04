@@ -53,10 +53,6 @@ public class VerInfoCliente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel11 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList();
         jLabel4 = new javax.swing.JLabel();
         clienteNick = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -75,34 +71,6 @@ public class VerInfoCliente extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jList3 = new javax.swing.JList();
-
-        jLabel11.setText("Servicios:");
-
-        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel2MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 122, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 101, Short.MAX_VALUE)
-        );
-
-        jList2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jList2.setToolTipText("");
-        jList2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jList2MouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(jList2);
 
         setClosable(true);
 
@@ -267,9 +235,7 @@ public class VerInfoCliente extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(105, 105, 105))
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(91, 91, 91))
         );
@@ -308,29 +274,14 @@ public class VerInfoCliente extends javax.swing.JInternalFrame {
             Imagen im2 = new Imagen(jPanel1, dtinfocli.getImagen());
             jPanel1.add(im2).repaint();
         }
-
-        List<DataReserva> datas = dtinfocli.getReservas();
-        Iterator<DataReserva> it = datas.iterator();
-        while (it.hasNext()){
-            DataReserva dts = it.next();
-            int n = dts.getId();
-            model2.addElement(n);
-        }
-        jList2.setModel(model2);
+        model2.removeAllElements();
+        List<DataReserva> dtRes = pp.ICC.listarReservasXCliente(nick);
+        for(DataReserva dtR : dtRes){
+            model2.addElement(dtR.getId());
+        }    
+        jList3.setModel(model2);
 
     }//GEN-LAST:event_jList1MouseClicked
-
-    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
-        // TODO add your handling code here:
-        pp.abrirImagen(rutaImagen);
-    }//GEN-LAST:event_jPanel2MouseClicked
-
-    private void jList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList2MouseClicked
-        // TODO add your handling code here:
-        // pp.abrirInfoServicio();
-        //  int cant = jList2.getAnchorSelectionIndex();
-        // elemento del info servicio.settext(model2.elementAt(cant).toString());
-    }//GEN-LAST:event_jList2MouseClicked
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
         // TODO add your handling code here:
@@ -339,9 +290,7 @@ public class VerInfoCliente extends javax.swing.JInternalFrame {
 
     private void jList3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList3MouseClicked
         // TODO add your handling code here:
-        // pp.abrirInfoServicio();
-        //  int cant = jList2.getAnchorSelectionIndex();
-        // elemento del info servicio.settext(model2.elementAt(cant).toString());
+        pp.abrirVerInfoServicio("VerInfoCliente");
     }//GEN-LAST:event_jList3MouseClicked
 
 
@@ -351,7 +300,6 @@ public class VerInfoCliente extends javax.swing.JInternalFrame {
     private javax.swing.JTextField clienteEmail;
     public static javax.swing.JTextField clienteNick;
     private javax.swing.JTextField clienteNombre;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
@@ -361,12 +309,9 @@ public class VerInfoCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JList jList1;
-    private javax.swing.JList jList2;
     private javax.swing.JList jList3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     // End of variables declaration//GEN-END:variables
 }

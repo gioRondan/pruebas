@@ -24,7 +24,7 @@ public class ManejadorCliente {
      private  int id;
     private static ManejadorCliente instance = null;
     private ManejadorCliente(){
-        id=111;
+        id=0;
         clientes = new LinkedHashMap();
     }
     

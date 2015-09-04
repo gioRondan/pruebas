@@ -114,9 +114,11 @@ public class cancelarReserva extends javax.swing.JInternalFrame {
 
     private void ListClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListClientesMouseClicked
         
+        
         List<DataReserva> dtRes = Pantallaprin.ICC.listarReservasXCliente(modeloClientes.elementAt(ListClientes.getAnchorSelectionIndex()).toString());
+        modeloReservas.removeAllElements();
         for(DataReserva dtR : dtRes){
-            modeloReservas.addElement(dtR);
+            modeloReservas.addElement(dtR.getId());
         }    
         ListReservas.setModel(modeloReservas);
     }//GEN-LAST:event_ListClientesMouseClicked
