@@ -8,11 +8,17 @@ package Presentacion;
 import Presentacion.PantallaPrincipal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import logica.DataExpira;
+import logica.Estado;
 import logica.Fabrica;
 import logica.IControladorCliente;
 import logica.IControladorProveedor;
@@ -101,6 +107,7 @@ public class CargaInicial {
                     
                 
             //SERVICIOS nombre, descripcion,precio,origen,proveedor,pais
+                //S1
                 ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/remus - Euro-Vuelo-S 1.png");
                 ICP.ingresarImagenServicio("");
                 ICP.ingresarImagenServicio("");
@@ -108,7 +115,7 @@ public class CargaInicial {
                 ICP.ingresarCategoriaServicio("Standard");    
                 ICP.ingresarDestinoServicio("Valencia");
                 ICP.altaServicio("Euro-Vuelo-S", "Vuelo con excelente atención y comodidad.", 1100, "Montevideo", "remus", "Uruguay");
-                
+                //S2
                 ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/remus - Euro-Vuelo-LC 1.png");
                 ICP.ingresarImagenServicio("");
                 ICP.ingresarImagenServicio("");
@@ -116,7 +123,7 @@ public class CargaInicial {
                 ICP.ingresarCategoriaServicio("LowCost");    
                 ICP.ingresarDestinoServicio("Valencia");
                 ICP.altaServicio("Euro-Vuelo-LC", "Vuelo con excelente atención y comodidad a un precio accesible.", 850, "Montevideo", "remus", "Uruguay");
-                
+                //S3
                 ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/remus - Euro-Vuelo-FC 1.png");
                 ICP.ingresarImagenServicio("");
                 ICP.ingresarImagenServicio("");
@@ -124,7 +131,7 @@ public class CargaInicial {
                 ICP.ingresarCategoriaServicio("First Class");    
                 ICP.ingresarDestinoServicio("Valencia");
                 ICP.altaServicio("Euro-Vuelo-FC", "Vuelo de primera clase. Excelente atención, comodidad y servicio.", 1300, "Montevideo", "remus", "Uruguay");
-                
+                //S4
                 ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/moody - Euro-Car-1 1.png");
                 ICP.ingresarImagenServicio("");
                 ICP.ingresarImagenServicio("");
@@ -133,7 +140,7 @@ public class CargaInicial {
                 ICP.ingresarCategoriaServicio("Chevrolet");
                 ICP.ingresarDestinoServicio("Valencia");
                 ICP.altaServicio("Euro-Car-1", "Euro-Car. Autos de buena calidad y comodidad. Versión Económica.", 300, "Madrid", "moody", "España");
-                
+                //S5
                 ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/moody - Euro-Car-2 1.png" );
                 ICP.ingresarImagenServicio("");
                 ICP.ingresarImagenServicio("");
@@ -142,7 +149,7 @@ public class CargaInicial {
                 ICP.ingresarCategoriaServicio("Chevrolet");
                 ICP.ingresarDestinoServicio("Valencia");
                 ICP.altaServicio("Euro-Car-2", "Euro-Car. Autos de buena calidad y comodidad. Versión Standard.", 300, "Madrid", "moody", "España");
-                
+                //S6
                 ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/moody - Euro-Car-3 1.png" );
                 ICP.ingresarImagenServicio("");
                 ICP.ingresarImagenServicio("");
@@ -150,7 +157,7 @@ public class CargaInicial {
                 ICP.ingresarCategoriaServicio("Chevrolet");
                 ICP.ingresarCategoriaServicio("Camioneta");
                 ICP.altaServicio("Euro-Car-3", "Euro-Car. Autos de buena calidad y comodidad. Una camioneta para toda la familia.", 300, "Valencia", "moody", "España");
-                
+                //S7
                 ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/mHooch - Casa para p4 BsAs 1.png" );
                 ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/mHooch - Casa para p4 BsAs 2.png" );
                 ICP.ingresarImagenServicio("");
@@ -159,8 +166,171 @@ public class CargaInicial {
                 ICP.altaServicio("Casa para p4 BsAs", "Esta hermosa casa, se encuentra ubicada en el corazón de Buenos Aires y ofrece una capacidad\n" +
 "para cuatro personas. La propiedad cuenta con un dormitorio con dos camas simples, que pueden\n" +
 "transformarse en una matrimonial y dos baños completos, que incluyen toallas.", 80, "Buenos Aires", "mHooch", "Argentina");
-                
-            //PROMOCIONES
+                //S8
+                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/mHooch - Floripa G. House 1.png" );
+                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/mHooch - Floripa G. House 2.png" );
+                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/mHooch - Floripa G. House 3.png");
+                ICP.ingresarCategoriaServicio("Casa");
+                ICP.ingresarCategoriaServicio("2 dormitorios");
+                ICP.altaServicio("Floripa G. House", "Estamos a sólo unos pasos de un supermercado, restaurantes, cajero automático, gasolinera,\n" +
+"farmacia, gimnasio, etc. Lagoa da Conceição es 7 km de nuestra casa de huéspedes y tarda sólo 10-\n" +
+"15 minutos en el transporte público. Allí se encuentra una buena vida nocturna con bares y música\n" +
+"en vivo", 190, "Florianópolis", "mHooch", "Brasil");
+                //S9
+                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/tCook - Air-France-FC 1.png" );
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarCategoriaServicio("Air France");
+                ICP.ingresarCategoriaServicio("First Class");
+                ICP.ingresarDestinoServicio("Berlín");
+                ICP.altaServicio("Air-France-FC", "¡Un vuelo de primera! Excelencia y experiencia en mejorar sus viajes.", 100, "París", "tCook", "Francia");
+                //S10
+                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/adippet - TAM-FC 1.png" );
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarCategoriaServicio("TAM");
+                ICP.ingresarCategoriaServicio("First Class");
+                ICP.ingresarDestinoServicio("Pekín");
+                ICP.altaServicio("TAM-FC", "¡Un vuelo de primera! Excelencia y experiencia.", 150, "Florianópolis", "adippet", "Brasil");
+                //S11
+                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/mHooch - Luxury south beach corner apartment 1.png" );
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarCategoriaServicio("Hotel");
+                ICP.ingresarCategoriaServicio("Playa");
+                ICP.ingresarCategoriaServicio("2 dormitorios");
+                ICP.altaServicio("Luxury south beach corner apartment", "Beautiful large 2 bedrooms 2 bathrooms apartment CORNER UNIT. Marble floor throughout,\n" +
+"beautiful open kitchen, granite counter top, spacious dining room area and living room area.\n" +
+"Spectacular views of Miami from all windows and balcony", 300, "Miami", "mHooch", "EEUU");
+                //S12
+                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/mHooch - Coche-Miami 1.png" );
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarImagenServicio("");
+                ICP.ingresarCategoriaServicio("Económico");
+                ICP.ingresarCategoriaServicio("Auto");
+                ICP.ingresarCategoriaServicio("Chevrolet");
+                ICP.altaServicio("Coche-Miami", "A useful car to travel around Miami", 360, "Miami", "mHooch", "EEUU");
+      
+            //PROMOCIONES nomProveedor, ser, nombre, descuento)
+            List<String> ser = new ArrayList<>(); 
+            //P1
+            ser.add("Euro-Car-1");
+            ser.add("Euro-Car-2");
+            ICP.altaPromocion("moody", ser, "Euro-Cars-E-S", 30);
+            ser.clear();
+            //P2
+            ser.add("Euro-Car-1");
+            ser.add("Euro-Car-3");
+            ICP.altaPromocion("moody", ser, "Euro-Cars-E-F", 30);
+            ser.clear();
+            //P3
+            ser.add("Euro-Car-2");
+            ser.add("Euro-Car-3");
+            ICP.altaPromocion("moody", ser, "Euro-Cars-S-F", 30);
+            ser.clear();
+            //P4
+            ser.add("Euro-Vuelo-S");
+            ser.add("Euro-Vuelo-LC");
+            ICP.altaPromocion("remus", ser, "Euro-Vuelos-S-LC", 40);
+            ser.clear();
+            //P5
+            ser.add("Euro-Vuelo-S");
+            ser.add("Euro-Vuelo-FC");
+            ICP.altaPromocion("remus", ser, "Euro-Vuelos-S-FC", 40);
+            ser.clear();
+            //P6
+            ser.add("Euro-Vuelo-LC");
+            ser.add("Euro-Vuelo-FC");
+            ICP.altaPromocion("remus", ser, "Euro-Vuelos-LC-FC", 40);
+            ser.clear();
+            //P7
+            ser.add("Casa para p4 BsAs");
+            ser.add("Floripa G. House");
+            ICP.altaPromocion("mHooch", ser, "Sudamerica-Casas", 50);
+            ser.clear();
+            //P8
+            ser.add("Luxury south beach corner apartment");
+            ser.add("Coche-Miami");
+            ICP.altaPromocion("mHooch", ser, "Miami-Viaj", 30);
+            ser.clear();
+            //RESERVAS proveedor,cliente,servicio, promocion, fechas 
+            Map<Integer, String> servicio = new HashMap();
+            Map<Integer, String> promocion = new HashMap();
+            Map<String,DataExpira> fechass = new HashMap();
+            Map<String,DataExpira> fechasp = new HashMap();
+            //R1
+            servicio.put(1, "Euro-Vuelo-S");
+            DataExpira f = new DataExpira(toDate("1/1/2015"),toDate("1/1/2015"));
+            fechass.put("Euro-Vuelo-S",f);
+            ICC.realizarReserva("remus","oWood",servicio,promocion,fechass,fechasp,toDate("1/1/2015"));    
+            ICC.actualizarEstadoReserva(1, "oWood", Estado.facturada);
+            servicio.clear();
+            promocion.clear();
+            fechass.clear();
+            fechasp.clear();
+            //R2
+//            servicio.put(2, "Euro-Vuelo-S");
+//            servicio.put(1, "Euro-Vuelo-LC");
+//            f = new DataExpira(toDate("1/1/2015"),toDate("1/1/2015"));
+//            fechass.put("Euro-Vuelo-S",f);
+//            f = new DataExpira(toDate("1/1/2015"),toDate("1/1/2015"));
+//            fechass.put("Euro-Vuelo-LC",f);
+//            //ICC.realizarReserva("remus","oWood",servicio,promocion,fechass,fechasp,toDate("1/1/2015"));    
+//            ICC.actualizarEstadoReserva(1, "oWood", Estado.facturada);
+//            servicio.clear();
+//            promocion.clear();
+//            fechass.clear();
+//            fechasp.clear();
+//            //R3
+//            servicio.put(1, "Euro-Vuelo-S ");
+//            f = new DataExpira(toDate("5/3/2015"),toDate("2/4/2015"));
+//            fechasp.put("",f);
+//            //ICC.realizarReserva("remus","oWood",servicio,promocion,fechass,fechasp,toDate("1/1/2015"));    
+//            ICC.actualizarEstadoReserva(1, "oWood", Estado.facturada);
+//            servicio.clear();
+//            promocion.clear();
+//            fechass.clear();
+//            fechasp.clear();
+//            //R4
+//            servicio.put(1, "Euro-Vuelo-S ");
+//            f = new DataExpira(toDate("1/1/2015"),toDate("1/1/2015"));
+//            fechass.put("",f);
+//            //ICC.realizarReserva("remus","oWood",servicio,promocion,fechass,fechasp,toDate("1/1/2015"));    
+//            ICC.actualizarEstadoReserva(1, "oWood", Estado.facturada);
+//            servicio.clear();
+//            promocion.clear();
+//            fechass.clear();
+//            fechasp.clear();
+//            //R5
+//            servicio.put(1, "Euro-Vuelo-S ");
+//            f = new DataExpira(toDate("1/1/2015"),toDate("1/1/2015"));
+//            fechass.put("",f);
+//            //ICC.realizarReserva("remus","oWood",servicio,promocion,fechass,fechasp,toDate("1/1/2015"));    
+//            ICC.actualizarEstadoReserva(1, "oWood", Estado.facturada);
+//            servicio.clear();
+//            promocion.clear();
+//            fechass.clear();
+//            fechasp.clear();
+//            //R6
+//            servicio.put(1, "Euro-Vuelo-S ");
+//            f = new DataExpira(toDate("1/1/2015"),toDate("1/1/2015"));
+//            fechass.put("",f);
+//            //ICC.realizarReserva("remus","oWood",servicio,promocion,fechass,fechasp,toDate("1/1/2015"));    
+//            ICC.actualizarEstadoReserva(1, "oWood", Estado.facturada);
+//            servicio.clear();
+//            promocion.clear();
+//            fechass.clear();
+//            fechasp.clear();
+//            //R7
+//            servicio.put(1, "Euro-Vuelo-S ");
+//            f = new DataExpira(toDate("1/1/2015"),toDate("1/1/2015"));
+//            fechass.put("",f);
+//            //ICC.realizarReserva("remus","oWood",servicio,promocion,fechass,fechasp,toDate("1/1/2015"));    
+//            ICC.actualizarEstadoReserva(1, "oWood", Estado.facturada);
+//            servicio.clear();
+//            promocion.clear();
+//            fechass.clear();
+//            fechasp.clear();
                 
         } catch (Exception ex) {
             Logger.getLogger(CargaInicial.class.getName()).log(Level.SEVERE, null, ex);
