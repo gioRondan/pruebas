@@ -208,13 +208,6 @@ public class ControladorProveedor implements IControladorProveedor{
         if (!descripcionServicio.isEmpty()){
             ser.setDesc(descripcionServicio);
         }
-        for(String im : imagenServicio){
-            try {
-                ser.agregarImagen(im);//revisar
-            } catch (Exception ex) {
-                Logger.getLogger(ControladorProveedor.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
         if (precioServicio != 0){
             ser.setPrecio(precioServicio);
         }
@@ -225,15 +218,16 @@ public class ControladorProveedor implements IControladorProveedor{
         }
         if (!destinoServicio.isEmpty()){
             ManejadorCiudad mCi = ManejadorCiudad.getInstance();
-            altaCiudad(origenServicio,"pais");//para probar
+            altaCiudad(destinoServicio,"pais");//para probar
             ser.asociarDestino(mCi.getCiudad(destinoServicio));
         }
-        for(String im : imagenServicio){
-            try {
-                ser.agregarImagen(im);//revisar
+        for(int i=0;i<ControladorProveedor.tope;++i){
+            try {            
+                ser.agregarImagen(ControladorProveedor.imagenServicio[i]);
             } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, ex.toString());
                 Logger.getLogger(ControladorProveedor.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            }           
         }
         for(String cats : categoriasServicio){
             ManejadorCategoria mCa = ManejadorCategoria.getInstance();
