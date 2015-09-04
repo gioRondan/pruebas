@@ -911,7 +911,7 @@ public class CiudadTest {
      * Test of listarReservasSistema method, of class ControladorCliente.
      */
     @Test
-    public void testListarReservasSistema() throws Exception {
+    public void testListarReservasSistema() {
         System.out.println("listarReservasSistema");
         ControladorCliente instance = new ControladorCliente();
         ControladorProveedor instancepr = new ControladorProveedor();
@@ -947,7 +947,7 @@ public class CiudadTest {
         Map<Integer, String> serv = new HashMap();
         serv.put(2, "hola1");
         ManejadorCliente mcl = ManejadorCliente.getInstance();
-        int id = 111;
+        int id = mcl.testGetId();
         Map<String, DataExpira> es = new HashMap();
         es.put("hola1", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
         es.put("hola1", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
@@ -958,9 +958,11 @@ public class CiudadTest {
             //instance.realizarReserva(proveedor1, "cli1234", serv, new HashMap(), new Date(1,2,2013), new Date(1,3,213));
         }
         List<DataReserva> result = instance.listarReservasSistema();
-        for(DataReserva it : result){
+        int aux = id;
+        
+        for(int j= aux;j<(aux +10); ++j){
             id++;
-            assertEquals(id, it.getId());
+            assertEquals(id, result.get(j).getId());
         }
         
     }
