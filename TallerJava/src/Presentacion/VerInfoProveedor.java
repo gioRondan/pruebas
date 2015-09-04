@@ -332,7 +332,7 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
             model2.addElement(n);
           }
           jList2.setModel(model2);
-                     
+          verinfoServicos.setEnabled(false);           
     }//GEN-LAST:event_jList1MouseClicked
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked

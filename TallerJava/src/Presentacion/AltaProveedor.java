@@ -7,9 +7,9 @@ package Presentacion;
 
 
 
-import static Presentacion.AltaCliente.clienteImagen;
-import static Presentacion.AltaCliente.clienteNick;
+
 import java.io.IOException;
+import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -324,19 +324,16 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
         //Para copiar el archivo seleccionado
         if (!imagen.isEmpty()){
             Path FROM = Paths.get(proveedorImagen.getText());
-            //muestro la ruta local de la imagen (teteo)
-            //JOptionPane.showMessageDialog(null,"ruta local de la imagen: "+proveedorImagen.getText());
             urlImagen = PantallaPrincipal.RutaImagenes+"Usuarios/"+nickname+".png";
             Path TO = Paths.get(urlImagen);
-                  //  JOptionPane.showMessageDialog(null, "ruta donde se copia la imagen: "+TO);
                      //sobreescribir el fichero de destino, si existe, y copiar
                     // los atributos, incluyendo los permisos rwx
-                    //CopyOption[] options = new CopyOption[]{
-                     //StandardCopyOption.REPLACE_EXISTING,
-                    //StandardCopyOption.COPY_ATTRIBUTES
-                    //}; 
+                    CopyOption[] options = new CopyOption[]{
+                     StandardCopyOption.REPLACE_EXISTING,
+                     StandardCopyOption.COPY_ATTRIBUTES
+                    }; 
             try {
-                Files.copy(FROM,TO, StandardCopyOption.REPLACE_EXISTING);               
+                Files.copy(FROM,TO, options);               
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "Error al copiar la imagen");
                 Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
