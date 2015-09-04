@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>cancelarReserva.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TallerJava&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Presentacion</a> &gt; <span class="el_source">cancelarReserva.java</span></div><h1>cancelarReserva.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>cancelarReserva.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TallerJava&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Presentacion</a> &gt; <span class="el_source">cancelarReserva.java</span></div><h1>cancelarReserva.java</h1><pre class="source lang-java linenums">/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -114,21 +114,23 @@ public class cancelarReserva extends javax.swing.JInternalFrame {
 
     private void ListClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListClientesMouseClicked
         
-<span class="nc" id="L117">        List&lt;DataReserva&gt; dtRes = Pantallaprin.ICC.listarReservasXCliente(modeloClientes.elementAt(ListClientes.getAnchorSelectionIndex()).toString());</span>
-<span class="nc bnc" id="L118" title="All 2 branches missed.">        for(DataReserva dtR : dtRes){</span>
-<span class="nc" id="L119">            modeloReservas.addElement(dtR);</span>
-<span class="nc" id="L120">        }    </span>
-<span class="nc" id="L121">        ListReservas.setModel(modeloReservas);</span>
-<span class="nc" id="L122">    }//GEN-LAST:event_ListClientesMouseClicked</span>
+        
+<span class="nc" id="L118">        List&lt;DataReserva&gt; dtRes = Pantallaprin.ICC.listarReservasXCliente(modeloClientes.elementAt(ListClientes.getAnchorSelectionIndex()).toString());</span>
+<span class="nc" id="L119">        modeloReservas.removeAllElements();</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">        for(DataReserva dtR : dtRes){</span>
+<span class="nc" id="L121">            modeloReservas.addElement(dtR.getId());</span>
+<span class="nc" id="L122">        }    </span>
+<span class="nc" id="L123">        ListReservas.setModel(modeloReservas);</span>
+<span class="nc" id="L124">    }//GEN-LAST:event_ListClientesMouseClicked</span>
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-<span class="nc" id="L125">        String id = modeloReservas.elementAt(ListReservas.getAnchorSelectionIndex()).toString();</span>
-<span class="nc" id="L126">        Pantallaprin.ICC.cancelarReserva(modeloClientes.elementAt(ListClientes.getAnchorSelectionIndex()).toString(), Integer.parseInt(id));</span>
-<span class="nc" id="L127">    }//GEN-LAST:event_btnEliminarActionPerformed</span>
+<span class="nc" id="L127">        String id = modeloReservas.elementAt(ListReservas.getAnchorSelectionIndex()).toString();</span>
+<span class="nc" id="L128">        Pantallaprin.ICC.cancelarReserva(modeloClientes.elementAt(ListClientes.getAnchorSelectionIndex()).toString(), Integer.parseInt(id));</span>
+<span class="nc" id="L129">    }//GEN-LAST:event_btnEliminarActionPerformed</span>
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-<span class="nc" id="L130">        this.dispose();</span>
-<span class="nc" id="L131">    }//GEN-LAST:event_btnCancelarActionPerformed</span>
+<span class="nc" id="L132">        this.dispose();</span>
+<span class="nc" id="L133">    }//GEN-LAST:event_btnCancelarActionPerformed</span>
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

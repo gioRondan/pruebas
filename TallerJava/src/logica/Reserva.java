@@ -8,6 +8,7 @@ package logica;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -76,10 +77,13 @@ public class Reserva {
     public DataReserva getDataReserva(){
         return new DataReserva(id, fechaCreacion, fechaInicio, fechaFin, precio, estado);
     }
-    public void darDeBaja(){
-        for(ItemReserva it : item){
-            item.remove(it);
-        }
+    public void darDeBaja(){ 
+        item.removeAll(item);
+        /*Iterator<ItemReserva> it = item.iterator();
+        while(it.hasNext()){
+            ItemReserva o = it.next();
+            it.remove();
+        }*/
     }
     public Set<DataItemReserva> getDataItemsReserva(){
         Set<DataItemReserva> dts = new HashSet();
