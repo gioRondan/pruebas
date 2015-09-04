@@ -6,6 +6,13 @@
 
 package Presentacion;
 
+import java.util.List;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeModel;
+import logica.DataCategoria;
+import logica.DataProveedor;
+
 /**
  *
  * @author juan.carriquiry
@@ -14,9 +21,37 @@ public class AgregarCategoria extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form AgregarCategoria
+     * 
+     * 
+     * 
+     * 
      */
+    
+    PantallaPrincipal Pantallaprin = PantallaPrincipal.getInstancia();
+    public Object seleccionado;
+   
+
+    public void armarArbol(DefaultMutableTreeNode raiz, List<DataCategoria> dtps) {
+        for (DataCategoria dtcategoria : dtps) {
+            DefaultMutableTreeNode cate = new DefaultMutableTreeNode();
+            cate.setUserObject(dtcategoria);
+            raiz.add(cate);
+            armarArbol(cate, dtcategoria.getHijos());
+        }
+    }
+
+      
     public AgregarCategoria() {
         initComponents();
+        int precioin = 0;
+        TreeModel jmodel;
+        DefaultMutableTreeNode raiz = new DefaultMutableTreeNode("Categorías");
+        List<DataCategoria> dtps = Pantallaprin.ICP.listarCategorias();
+        armarArbol(raiz, dtps);
+        DefaultTreeModel modeloArbol = new DefaultTreeModel(raiz);
+        jTree1.setModel(modeloArbol);
+        jTree1.setSelectionRow(0); //Selecciono la raiz
+        
     }
 
     /**
@@ -28,15 +63,26 @@ public class AgregarCategoria extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
+
+        jScrollPane1.setViewportView(jTree1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(346, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -44,5 +90,7 @@ public class AgregarCategoria extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTree jTree1;
     // End of variables declaration//GEN-END:variables
 }
