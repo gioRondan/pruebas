@@ -55,8 +55,15 @@ public class ControladorProveedor implements IControladorProveedor{
         return mCi.getDataCiudades();
     }
     @Override
-    public void ingresarCategoriaServicio( String categoria){
-       ControladorProveedor.categoriasServicio.add(categoria);
+    public void ingresarCategoriaServicio( String categoria) throws Exception{
+        ManejadorCategoria mCat = ManejadorCategoria.getInstance();
+        Categoria cat = mCat.getCategoria(categoria);
+        if(cat !=null && cat.esHoja()){
+            ControladorProveedor.categoriasServicio.add(categoria);
+        }
+        else{
+            throw new Exception("Debe seleccionar una subcategoría.");
+        }
     }
     public void vaciarCategoriasServicio(){
         ControladorProveedor.categoriasServicio.clear();
