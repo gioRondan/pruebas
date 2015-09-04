@@ -40,11 +40,9 @@ public class ControladorCliente implements IControladorCliente{
         
         for(Map.Entry<Integer, String> entries : servicio.entrySet()){
             aux_cliente.reservarServicio(clave1, prov.getServicio(entries.getValue()),entries.getKey(),fechas.get(entries.getValue()).getFechai(),fechas.get(entries.getValue()).getFechaf());
-        
         }
         for(Map.Entry<Integer, String> entries : promocion.entrySet()){
             aux_cliente.reservarPromocion(clave1, prov.getPromocion(entries.getValue()),entries.getKey(),fechas.get(entries.getValue()).getFechai(),fechas.get(entries.getValue()).getFechaf());
-        
         }
     }
     
