@@ -21,6 +21,7 @@ import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 import logica.DataCliente;
 import logica.DataExpira;
+import logica.DataInfoPromocion;
 import logica.DataPromocion;
 import logica.DataProveedor;
 import logica.DataServicio;
@@ -297,6 +298,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null,jList2.getSelectedValue().toString());
         pp.ICC.realizarReserva(proveeElegido,jList2.getSelectedValue().toString(),serviciosCant,promocionesCant, fechas,fechasPromos,null);
         JOptionPane.showMessageDialog(null,"la reserva se realizo correctamente");
+        //hay que vacial los mapps
     }   catch (Exception ex){
             JOptionPane.showMessageDialog(null,"Error al ingresar reserva" + ex.getMessage());
         }
@@ -307,28 +309,40 @@ public class realizarReserva extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         TreePath[] seleccionados = jTree1.getSelectionPaths();
         String proveedor="";
+        String es="";
         String proveedorAnt="";
         for (TreePath x : seleccionados){
             String path = x.toString();
-            String servicio = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]")); 
+            String servicioopromo = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]")); 
             proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
-            proveedor = proveedor.substring(0,proveedor.indexOf(",") );
-            JOptionPane.showMessageDialog(null, "selecciono el proveedor"+proveedor );
-            JOptionPane.showMessageDialog(null, "selecciono el servicio"+servicio );
+            es = proveedor.substring(proveedor.indexOf(",")+2,proveedor.length() );
+            proveedor = proveedor.substring(0,proveedor.indexOf(",") );            
             if(!proveedorAnt.isEmpty()){
                 if (!proveedorAnt.equals(proveedor)){
-                    JOptionPane.showMessageDialog(null,"Deve seleccionar servicios del mismo proveedor");
+                    JOptionPane.showMessageDialog(null, "Selecione servicios o promociones de un mismo proveedor");
                     return;
                 }
             }
             proveedorAnt = proveedor;
-            DataServicio serinfo =  pp.ICP.informacionServicio(proveedor,servicio);
             Date fecha1   = jDateChooser1.getDate();
             Date fecha2   = jDateChooser2.getDate();
-            DataExpira dtx= new DataExpira(fecha1,fecha2);
-            fechas.put(serinfo.getNombre(),dtx);
-            serviciosCant.put(Integer.parseInt(cant.getValue().toString()),serinfo.getNombre()); 
-            float total = Float.parseFloat(precioTotal.getText())+serinfo.getPrecio();
+            JOptionPane.showMessageDialog(null, "que es :"+es);
+             float total;
+            if (es.equals("Servicios")){ 
+                DataServicio serinfo =  pp.ICP.informacionServicio(proveedor,servicioopromo);
+                DataExpira dtx= new DataExpira(fecha1,fecha2);
+                fechas.put(serinfo.getNombre(),dtx);
+                serviciosCant.put(Integer.parseInt(cant.getValue().toString()),serinfo.getNombre());
+                total = Float.parseFloat(precioTotal.getText())+serinfo.getPrecio();
+            }else{
+                DataInfoPromocion proinfo =  pp.ICP.verInfoPromocion(proveedor, servicioopromo) ;
+                DataExpira dtx= new DataExpira(fecha1,fecha2);
+                fechasPromos.put(proinfo.getNombre(),dtx);
+                promocionesCant.put(Integer.parseInt(cant.getValue().toString()),proinfo.getNombre());
+                total = Float.parseFloat(precioTotal.getText())+proinfo.getPrecioTotal();
+            
+            }    
+            
             proveeElegido=proveedor;
             precioTotal.setText( Float.toString(total) );
         
