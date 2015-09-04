@@ -306,7 +306,6 @@ public class CargaInicial {
             fechasp.clear();
             //R5
             servicio.put("Air-France-FC",2);
-            promocion.put("Miami-Viaje",1);
             f = new DataExpira(toDate("7/8/2015"),toDate("10/8/2015"));
             fechass.put("Air-France-FC",f);
             ICC.realizarReserva("tCook","oWood",servicio,promocion,fechass,fechasp,toDate("7/8/2015"));    
@@ -316,25 +315,28 @@ public class CargaInicial {
             fechass.clear();
             fechasp.clear();
             //R6
-            servicio.put("Euro-Vuelo-S",1);
-            f = new DataExpira(toDate("1/1/2015"),toDate("1/1/2015"));
-            fechass.put("",f);
-            //ICC.realizarReserva("remus","oWood",servicio,promocion,fechass,fechasp,toDate("1/1/2015"));    
-            ICC.actualizarEstadoReserva(1, "oWood", Estado.facturada);
+            servicio.put("Casa para p4 BsAs",1);
+            promocion.put("Miami-Viaje",1);
+            f = new DataExpira(toDate("14/8/2015"),toDate("21/8/2015"));
+            fechass.put("Casa para p4 BsAs",f);
+            f = new DataExpira(toDate("7/8/2015"),toDate("14/8/2015"));
+            fechasp.put("Miami-Viaje",f);
+            ICC.realizarReserva("mHooch","eWaston",servicio,promocion,fechass,fechasp,toDate("7/8/2015"));    
+            ICC.actualizarEstadoReserva(6, "eWaston", Estado.registrada);
             servicio.clear();
             promocion.clear();
             fechass.clear();
             fechasp.clear();
-//            //R7
-//            servicio.put(1, "Euro-Vuelo-S ");
-//            f = new DataExpira(toDate("1/1/2015"),toDate("1/1/2015"));
-//            fechass.put("",f);
-//            //ICC.realizarReserva("remus","oWood",servicio,promocion,fechass,fechasp,toDate("1/1/2015"));    
-//            ICC.actualizarEstadoReserva(1, "oWood", Estado.facturada);
-//            servicio.clear();
-//            promocion.clear();
-//            fechass.clear();
-//            fechasp.clear();
+            //R7
+            servicio.put("Euro-Vuelo-LC",2);
+            f = new DataExpira(toDate("7/8/2015"),toDate("7/8/2015"));
+            fechass.put("Euro-Vuelo-LC",f);
+            ICC.realizarReserva("remus","BruceS",servicio,promocion,fechass,fechasp,toDate("7/8/2015"));    
+            ICC.actualizarEstadoReserva(1, "BruceS", Estado.facturada);
+            servicio.clear();
+            promocion.clear();
+            fechass.clear();
+            fechasp.clear();
                 
         } catch (Exception ex) {
             Logger.getLogger(CargaInicial.class.getName()).log(Level.SEVERE, null, ex);
