@@ -228,18 +228,6 @@ public class ControladorProveedor implements IControladorProveedor{
         ManejadorEmpresa mEmp = ManejadorEmpresa.getInstance();
         return mEmp.getDataEmpresas();
     }
-    /*public List<DataEmpresa> listarEmpresas(){
-      //NO ESTA ECHA ES UNA PROEBA NADA MAS 
-        List<DataEmpresa> dts ; 
-        dts = new ArrayList<>();        
-        DataEmpresa dte = new DataEmpresa("Antel","www.antel.com.uy");
-        Boolean ok = dts.add(dte);
-       
-        dte = new DataEmpresa("Coonaprole", "www.coonaprole.com.uy");
-        dts.add(dte);
-       
-        return dts;
-    }*/
     
     @Override
     public void altaProveedor( String nick, String nombre, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp, String linkEmp) throws Exception{
