@@ -88,4 +88,8 @@ public class Categoria {
         }
         return null;
     }
+    public void eliminarServicio(Servicio servicio){
+        if(servicios.contains(servicio))
+            this.servicios.remove(servicio);
+    }
 }

@@ -24,6 +24,8 @@ public class ControladorProveedor implements IControladorProveedor{
     private static String nomCategoria = "";
     private static String nomPadre = "";
     private static String imagenProveedor="";
+    private static Set<String> categoriaBorrar = new HashSet();
+    private static Set<String> imagenBorrar = new HashSet();
     
     private void liberarMemoria(){
         imagenServicio = new String[3];
@@ -39,6 +41,17 @@ public class ControladorProveedor implements IControladorProveedor{
         nomCategoria = "";
         nomPadre = "";
         imagenProveedor="";
+        categoriaBorrar = new HashSet();
+        imagenBorrar = new HashSet();
+    }
+    
+    @Override
+    public void ingresarImagenBorrarServicio(String imagen){
+        ControladorProveedor.imagenBorrar.add(imagen);
+    }
+    @Override
+    public void ingresarCategoriaBorrarServicio(String categoria){
+        ControladorProveedor.categoriaBorrar.add(categoria);
     }
     @Override
     public void ingresarImagenServicio(String imagen){
@@ -181,7 +194,7 @@ public class ControladorProveedor implements IControladorProveedor{
         ControladorProveedor.origenServicio = origen;
     }
     @Override
-    public void modificarServicio(){
+    public void modificarServicio()throws Exception{
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(proveedor);
         Servicio ser = prov.getServicio(servicio);
@@ -217,9 +230,18 @@ public class ControladorProveedor implements IControladorProveedor{
         }
         for(String cats : categoriasServicio){
             ManejadorCategoria mCa = ManejadorCategoria.getInstance();
-            Categoria cat = mCa.getCategoria(cats);//hay que eliminar las categorias anteriores?
+            Categoria cat = mCa.getCategoria(cats);
             cat.setServicio(ser);
             ser.agregarCategoria(cat);
+        }
+        for(String it1 : categoriaBorrar){
+            ser.eliminarCategoria(it1);
+            ManejadorCategoria mCa = ManejadorCategoria.getInstance();
+            Categoria cat = mCa.getCategoria(it1);
+            cat.eliminarServicio(ser);
+        }
+        for(String it2 : imagenBorrar){
+            ser.eliminarImagen(it2);
         }
         liberarMemoria();
     }
