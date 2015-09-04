@@ -138,6 +138,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
        al.setLocation(a ,b);
        al.show();
     }
+    public void abrirAgregarCategoria() {
+       AgregarCategoria al = new AgregarCategoria();
+       Escritorio.add(al);
+       int a = (Escritorio.getWidth() - al.getWidth())/2;
+       int b = (Escritorio.getHeight() - al.getHeight()) /2;
+       al.setLocation(a ,b);
+       al.show();
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
