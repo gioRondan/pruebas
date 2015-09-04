@@ -309,6 +309,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenu7.add(jMenuItem7);
 
         jMenuItem16.setText("Actualizar servicio");
+        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem16ActionPerformed(evt);
+            }
+        });
         jMenu7.add(jMenuItem16);
 
         jMenuBar1.add(jMenu7);
@@ -914,6 +919,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         al.setLocation(a ,b);
         al.show();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
+        // TODO add your handling code here:
+        ActualizarServicio al = new ActualizarServicio();
+        Escritorio.add(al);
+        //cuentas para centrar
+        int a = (Escritorio.getWidth() - al.getWidth())/2;
+        int b = (Escritorio.getHeight() - al.getHeight()) /2;
+        al.setLocation(a ,b);
+        al.show();
+        
+    }//GEN-LAST:event_jMenuItem16ActionPerformed
 
     /**
      * @param args the command line arguments
