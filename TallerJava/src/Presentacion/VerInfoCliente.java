@@ -85,7 +85,7 @@ public class VerInfoCliente extends javax.swing.JInternalFrame {
         jPopupMenu1.add(jMenuItem1);
 
         setClosable(true);
-        setTitle("Ver informacion de clientes");
+        setTitle("Informacion de cliente");
 
         jLabel4.setText("Fecha de Nacimiento:");
 

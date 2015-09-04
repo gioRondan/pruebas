@@ -22,7 +22,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="closable" type="boolean" value="true"/>
-    <Property name="title" type="java.lang.String" value="Ver Informacion de promocion"/>
+    <Property name="title" type="java.lang.String" value="Informacion de promocion"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -163,6 +163,9 @@
               <ComponentRef name="jPopupMenu1"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="promocionServiciosMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

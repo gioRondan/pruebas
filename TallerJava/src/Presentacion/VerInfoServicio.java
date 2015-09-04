@@ -59,7 +59,9 @@ public class VerInfoServicio extends javax.swing.JInternalFrame {
             mostrar = Pantallaprin.ICP.verInfoServicio(nombre, proveedor);
         }
         if (quien.equals("VerInfoPromocion")){
-        
+            String nombre = VerInfoPromocion.Servicioseleccionado;
+            String proveedor = VerInfoPromocion.Proveedorseleccionado;
+            mostrar = Pantallaprin.ICP.verInfoServicio(nombre, proveedor);
         }
         
         if (mostrar != null){
@@ -134,7 +136,7 @@ public class VerInfoServicio extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Precio:");
 
-        jPanel1.setBorder(new javax.swing.border.MatteBorder(null));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel1MouseClicked(evt);
@@ -180,6 +182,7 @@ public class VerInfoServicio extends javax.swing.JInternalFrame {
 
         edt_descripcion.setEditable(false);
         edt_descripcion.setColumns(20);
+        edt_descripcion.setLineWrap(true);
         edt_descripcion.setRows(5);
         jScrollPane1.setViewportView(edt_descripcion);
 
@@ -197,6 +200,7 @@ public class VerInfoServicio extends javax.swing.JInternalFrame {
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        ListServicios.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         ListServicios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ListServiciosMouseClicked(evt);

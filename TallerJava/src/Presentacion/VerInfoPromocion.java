@@ -24,6 +24,8 @@ import logica.DataServicio;
  * @author Juan
  */
 public class VerInfoPromocion extends javax.swing.JInternalFrame {
+    public static String Servicioseleccionado = "";
+    public static String Proveedorseleccionado = "";
     PantallaPrincipal pp =PantallaPrincipal.getInstancia();
     /**
      * Creates new form VerInfoPromocion
@@ -90,7 +92,7 @@ public class VerInfoPromocion extends javax.swing.JInternalFrame {
         jPopupMenu1.add(jMenuItem1);
 
         setClosable(true);
-        setTitle("Ver Informacion de promocion");
+        setTitle("Informacion de promocion");
 
         jTree1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -107,6 +109,11 @@ public class VerInfoPromocion extends javax.swing.JInternalFrame {
 
         promocionServicios.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         promocionServicios.setComponentPopupMenu(jPopupMenu1);
+        promocionServicios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                promocionServiciosMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(promocionServicios);
 
         promocionDescuento.setEditable(false);
@@ -189,11 +196,12 @@ public class VerInfoPromocion extends javax.swing.JInternalFrame {
 DefaultListModel model2 = new DefaultListModel();//modelo para los servicos
     private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
         // TODO add your handling code here:
-        
+        jMenuItem1.setEnabled(false);
         TreePath seleccionado = jTree1.getSelectionPath();
         String path = seleccionado.toString();
         String promocion = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]")); 
         String proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
+        Proveedorseleccionado = proveedor;
         DataInfoPromocion dtip = pp.ICP.verInfoPromocion(proveedor, promocion);
         promocionNombre.setText(dtip.getNombre());
         promocionDescuento.setText(Integer.toString(dtip.getDescuento()));
@@ -219,6 +227,13 @@ DefaultListModel model2 = new DefaultListModel();//modelo para los servicos
         // TODO add your handling code here:
         pp.abrirVerInfoServicio("VerInfoPromocion");
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void promocionServiciosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_promocionServiciosMouseClicked
+        // TODO add your handling code here:
+        jMenuItem1.setEnabled(true);
+        VerInfoPromocion.Servicioseleccionado = promocionServicios.getSelectedValue().toString();
+        
+    }//GEN-LAST:event_promocionServiciosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
