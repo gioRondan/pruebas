@@ -79,11 +79,6 @@ public class Reserva {
     }
     public void darDeBaja(){ 
         item.removeAll(item);
-        /*Iterator<ItemReserva> it = item.iterator();
-        while(it.hasNext()){
-            ItemReserva o = it.next();
-            it.remove();
-        }*/
     }
     public Set<DataItemReserva> getDataItemsReserva(){
         Set<DataItemReserva> dts = new HashSet();
