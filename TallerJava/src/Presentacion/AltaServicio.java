@@ -46,6 +46,21 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         }
     }
 
+    public void categoriasServicio(){
+        Pantallaprin.ICP.vaciarCategoriasServicio();//Vacio las categorias del aterior click
+        TreePath[] equis  = jTree1.getSelectionPaths();
+        for (TreePath x : equis){
+            String padreSelec = x.toString();
+            padreSelec = padreSelec.substring(padreSelec.lastIndexOf(",") + 2, padreSelec.lastIndexOf("]"));
+            try {
+                //JOptionPane.showMessageDialog(null,"El padre seleccionado es "+padreSelec);
+                Pantallaprin.ICP.ingresarCategoriaServicio(padreSelec);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null,ex.getMessage());
+            }
+        }
+    }
+    
     public AltaServicio() {
         initComponents();
         //Se agregan todas las categorias al arblol
@@ -66,6 +81,10 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         }
         jTree1.setSelectionRow(0); //Selecciono la raiz
         nombre.requestFocus();
+    }
+    
+    public static boolean esNumerico(String str){
+        return str.matches("\\d+(\\.\\d+)?");  //matchea numeros con decimales
     }
     
     public String letraCapital(String texto){
@@ -174,6 +193,11 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         precio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 precioActionPerformed(evt);
+            }
+        });
+        precio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                precioKeyPressed(evt);
             }
         });
 
@@ -470,7 +494,19 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         if(proveedores.getItemCount() < 1){
             JOptionPane.showMessageDialog(null, "No hay proveedores ingresados al sistema");
             return;
+        }   
+        if(!esNumerico(precio.getText())){
+            JOptionPane.showMessageDialog(null, "Ingrese un precio válido");
+            precio.requestFocus();
+            return;
         }        
+        try{
+            categoriasServicio(); //chequeo que los servicios seleccionados sean hojas        
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            return;
+        }
         
         String nombreServicio  = letraCapital(nombre.getText());
         String descServicio    = descripcion.getText();
@@ -588,7 +624,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_paisActionPerformed
 
     private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
-        Pantallaprin.ICP.vaciarCategoriasServicio();//Vacio las categorias del aterior click
+        /*Pantallaprin.ICP.vaciarCategoriasServicio();//Vacio las categorias del aterior click
         TreePath[] equis  = jTree1.getSelectionPaths();
         for (TreePath x : equis){
             String padreSelec = x.toString();
@@ -599,8 +635,12 @@ public class AltaServicio extends javax.swing.JInternalFrame {
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null,ex.getMessage());
             }
-        }
+        }*/
     }//GEN-LAST:event_jTree1MouseClicked
+
+    private void precioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_precioKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
