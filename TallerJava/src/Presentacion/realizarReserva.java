@@ -40,7 +40,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
     private Map<Integer,String> promocionesCant;
     private Map<String,DataExpira> fechas;
     private String proveeElegido;
-    
+    private Map<String,DataExpira> fechasPromos;
     
             
 
@@ -52,6 +52,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
         serviciosCant = new HashMap();
         promocionesCant = new HashMap();
         fechas = new HashMap();
+        fechasPromos = new HashMap();
        
         
         DefaultListModel<String> mol = new DefaultListModel<>(); 
@@ -294,7 +295,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             
     try{
         JOptionPane.showMessageDialog(null,jList2.getSelectedValue().toString());
-        pp.ICC.realizarReserva(proveeElegido,jList2.getSelectedValue().toString(),serviciosCant,promocionesCant, fechas);
+        pp.ICC.realizarReserva(proveeElegido,jList2.getSelectedValue().toString(),serviciosCant,promocionesCant, fechas,fechasPromos,null);
         JOptionPane.showMessageDialog(null,"la reserva se realizo correctamente");
     }   catch (Exception ex){
             JOptionPane.showMessageDialog(null,"Error al ingresar reserva" + ex.getMessage());
