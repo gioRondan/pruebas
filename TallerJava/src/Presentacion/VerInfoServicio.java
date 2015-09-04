@@ -52,6 +52,43 @@ public class VerInfoServicio extends javax.swing.JInternalFrame {
         Arbol.setModel(modeloArbol);
         edt_destino.setVisible(false);
         jLabel5.setVisible(false);
+        DataInfoServicio mostrar =null;
+        if (quien.equals("VerInfoProveedor")){
+            String nombre = VerInfoProveedor.Servicioseleccionado;
+            String proveedor = VerInfoProveedor.proveedorSeleccionado;
+            mostrar = Pantallaprin.ICP.verInfoServicio(nombre, proveedor);
+        }
+        if (quien.equals("VerInfoPromocion")){
+        
+        }
+        
+        if (mostrar != null){
+            edt_nombre.setText(mostrar.getNombre());
+            edt_descripcion.setText(mostrar.getDescripcion());
+
+            if (!(mostrar.getDestino()==null)){
+               edt_destino.setText(mostrar.getDestino().getNombre());
+               edt_destino.setVisible(true);
+               jLabel5.setVisible(true);
+            }else{
+               edt_destino.setVisible(false);
+               jLabel5.setVisible(false);
+            }
+
+            edt_origen.setText(mostrar.getOrigen().getNombre());
+            edt_precio.setText(Float.toString(mostrar.getPrecio()));
+            edt_proveedor.setText(mostrar.getProveedor().getNickname());
+            rutaImagen = mostrar.getImagen();
+            if (jPanel1.getComponentCount() == 0){//si no tiene ninguan imagen 
+                Imagen im = new Imagen(jPanel1, rutaImagen[imagenSelecc]);
+                jPanel1.add(im).repaint();        
+            }else{ // si tiene borro y agrego la nueva 
+                 jPanel1.removeAll();
+                 Imagen im2 = new Imagen(jPanel1, rutaImagen[imagenSelecc]);
+                 jPanel1.add(im2).repaint(); 
+            }
+        
+        }
     }
 
     /**

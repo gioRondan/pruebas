@@ -5,15 +5,17 @@
  */
 package Presentacion;
 
-import java.awt.image.ImageProducer;
+
+import java.beans.PropertyChangeListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
+
 //import javafx.scene.image.Image;
 import javax.swing.DefaultListModel;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import logica.DataInfoProveedor;
@@ -28,6 +30,8 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
      PantallaPrincipal pp = PantallaPrincipal.getInstancia();
      List<DataProveedor> info = pp.ICP.listarProveedores();
      String rutaImagen;
+     public static String Servicioseleccionado="";
+     public  static  String proveedorSeleccionado ="";
     /**
      * Creates new form VerInfoProveedor
      */
@@ -43,6 +47,7 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
         }
             jList1.setModel(model);
             this.rutaImagen ="/Imagenes/noImagen.png";
+            
     }
 
     /**
@@ -80,6 +85,7 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
 
         verinfoServicos.setText("Ver informacion del servicio");
+        verinfoServicos.setEnabled(false);
         verinfoServicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verinfoServicosActionPerformed(evt);
@@ -294,6 +300,7 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
           
           int cant = jList1.getAnchorSelectionIndex();
           String nick =  model.elementAt(cant).toString();
+          VerInfoProveedor.proveedorSeleccionado = nick;
           DataInfoProveedor dtinfoprv = pp.ICP.verInfoProveedor( nick);
           Date fechaNac = dtinfoprv.getFechaNac();
           DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");		
@@ -335,6 +342,8 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
 
     private void jList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList2MouseClicked
         // TODO add your handling code here:
+        verinfoServicos.setEnabled(true);
+        VerInfoProveedor.Servicioseleccionado = jList2.getSelectedValue().toString();
     }//GEN-LAST:event_jList2MouseClicked
 
     private void verinfoServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verinfoServicosActionPerformed
