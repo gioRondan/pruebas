@@ -30,7 +30,7 @@ public class VerInfoServicio extends javax.swing.JInternalFrame {
     public String padre;
     PantallaPrincipal Pantallaprin = PantallaPrincipal.getInstancia();
     DefaultListModel modeloServicios = new DefaultListModel();
-    String[] rutaImagen;
+    String[] rutaImagen = new String[3];
     int imagenSelecc = 0;
     
     public void armarArbol(DefaultMutableTreeNode raiz, List<DataCategoria> dtps){
@@ -81,15 +81,7 @@ public class VerInfoServicio extends javax.swing.JInternalFrame {
             edt_precio.setText(Float.toString(mostrar.getPrecio()));
             edt_proveedor.setText(mostrar.getProveedor().getNickname());
             rutaImagen = mostrar.getImagen();
-            if (jPanel1.getComponentCount() == 0){//si no tiene ninguan imagen 
-                Imagen im = new Imagen(jPanel1, rutaImagen[imagenSelecc]);
-                jPanel1.add(im).repaint();        
-            }else{ // si tiene borro y agrego la nueva 
-                 jPanel1.removeAll();
-                 Imagen im2 = new Imagen(jPanel1, rutaImagen[imagenSelecc]);
-                 jPanel1.add(im2).repaint(); 
-            }
-        
+            pintar ();
         }
     }
 
@@ -129,6 +121,23 @@ public class VerInfoServicio extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Informacion de servicio");
         setToolTipText("");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
+            }
+        });
 
         jLabel1.setText("Nombre:");
 
@@ -425,6 +434,15 @@ public class VerInfoServicio extends javax.swing.JInternalFrame {
         Pantallaprin.abrirImagen(rutaImagen[imagenSelecc]);
     }//GEN-LAST:event_jPanel1MouseClicked
 
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_formInternalFrameOpened
+private void pintar (){
+    
+         Imagen im2 = new Imagen(jPanel1, rutaImagen[0]);
+         jPanel1.add(im2).repaint(); 
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTree Arbol;
