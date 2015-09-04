@@ -28,7 +28,7 @@ public class ControladorCliente implements IControladorCliente{
     }
     
     @Override
-    public void realizarReserva(String proveedor,String cliente,Map<Integer, String> servicio, Map<Integer, String> promocion,Map<String,DataExpira> fechas,Map<String,DataExpira> fechaspromos,Date fecha_creacion ){
+    public void realizarReserva(String proveedor,String cliente,Map<String, Integer> servicio, Map<String,Integer> promocion,Map<String,DataExpira> fechas,Map<String,DataExpira> fechaspromos,Date fecha_creacion ){
         ManejadorCliente mcli = ManejadorCliente.getInstance();
         Cliente aux_cliente = mcli.getCliente(cliente);
         int clave1 = mcli.getUltimoid();
@@ -37,11 +37,11 @@ public class ControladorCliente implements IControladorCliente{
         aux_cliente.addReserva(res.getId(),res);
         Proveedor prov = mpr.getProveedor(proveedor);
         
-        for(Map.Entry<Integer, String> entries : servicio.entrySet()){
-            aux_cliente.reservarServicio(clave1, prov.getServicio(entries.getValue()),entries.getKey(),fechas.get(entries.getValue()).getFechai(),fechas.get(entries.getValue()).getFechaf());
+        for(Map.Entry<String, Integer> entries : servicio.entrySet()){
+            aux_cliente.reservarServicio(clave1, prov.getServicio(entries.getKey()),entries.getValue(),fechas.get(entries.getKey()).getFechai(),fechas.get(entries.getKey()).getFechaf());
         }
-        for(Map.Entry<Integer, String> entries : promocion.entrySet()){
-            aux_cliente.reservarPromocion(clave1, prov.getPromocion(entries.getValue()),entries.getKey(),fechaspromos.get(entries.getValue()).getFechai(),fechaspromos.get(entries.getValue()).getFechaf());
+        for(Map.Entry<String, Integer> entries : promocion.entrySet()){
+            aux_cliente.reservarPromocion(clave1, prov.getPromocion(entries.getKey()),entries.getValue(),fechaspromos.get(entries.getKey()).getFechai(),fechaspromos.get(entries.getKey()).getFechaf());
         }
     }
     

@@ -22,5 +22,5 @@ public interface IControladorCliente {
     public List<DataReserva> listarReservasSistema();
     public DataInfoReserva verInfoReserva(String nomCliente, int id);
     public DataInfoCliente verInfoCliente(String nomCliente);
-    public void realizarReserva(String proveedor,String cliente,Map<Integer, String> servicio, Map<Integer, String> promocion,Map<String,DataExpira> fechas,Map<String,DataExpira> fechaspromos,Date fecha_creacion );
+    public void realizarReserva(String proveedor,String cliente,Map<String,Integer> servicio, Map<String,Integer> promocion,Map<String,DataExpira> fechas,Map<String,DataExpira> fechaspromos,Date fecha_creacion );
 }

@@ -37,8 +37,8 @@ public class realizarReserva extends javax.swing.JInternalFrame {
      */
     
     PantallaPrincipal pp = PantallaPrincipal.getInstancia();
-    private Map<Integer,String> serviciosCant;
-    private Map<Integer,String> promocionesCant;
+    private Map<String, Integer> serviciosCant;
+    private Map<String, Integer> promocionesCant;
     private Map<String,DataExpira> fechas;
     private String proveeElegido;
     private Map<String,DataExpira> fechasPromos;
@@ -332,13 +332,13 @@ public class realizarReserva extends javax.swing.JInternalFrame {
                 DataServicio serinfo =  pp.ICP.informacionServicio(proveedor,servicioopromo);
                 DataExpira dtx= new DataExpira(fecha1,fecha2);
                 fechas.put(serinfo.getNombre(),dtx);
-                serviciosCant.put(Integer.parseInt(cant.getValue().toString()),serinfo.getNombre());
+                serviciosCant.put(serinfo.getNombre(),Integer.parseInt(cant.getValue().toString()));
                 total = Float.parseFloat(precioTotal.getText())+serinfo.getPrecio();
             }else{
                 DataInfoPromocion proinfo =  pp.ICP.verInfoPromocion(proveedor, servicioopromo) ;
                 DataExpira dtx= new DataExpira(fecha1,fecha2);
                 fechasPromos.put(proinfo.getNombre(),dtx);
-                promocionesCant.put(Integer.parseInt(cant.getValue().toString()),proinfo.getNombre());
+                promocionesCant.put(proinfo.getNombre(),Integer.parseInt(cant.getValue().toString()));
                 total = Float.parseFloat(precioTotal.getText())+proinfo.getPrecioTotal();
             
             }    
