@@ -230,6 +230,7 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
             ser.add(servicio);
         }
         pp.ICP.altaPromocion(proveedor, ser, promocionNombre.getText(), Integer.parseInt(promocionDescuento.getValue().toString()));
+        JOptionPane.showMessageDialog(null, "se dio de alta la promocion");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
