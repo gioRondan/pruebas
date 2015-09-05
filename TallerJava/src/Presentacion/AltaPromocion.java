@@ -53,7 +53,6 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
     
     public void limpiarCampos(){
         promocionNombre.setText("");
-        promocionDescuento.setValue("0");        
         promocionNombre.requestFocus();
     }
     
@@ -269,12 +268,13 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
         try{
             pp.ICP.altaPromocion(proveedor, ser, nombre, descuento);
             JOptionPane.showMessageDialog(null, "La promoción se ingresó correctamente");
-            limpiarCampos();            
         }
         catch(Exception ex){
-            JOptionPane.showMessageDialog(null, ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex.getMessage());            
         }        
-        
+        finally{
+            limpiarCampos();            
+        }        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
