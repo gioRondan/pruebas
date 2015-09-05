@@ -181,10 +181,10 @@ public class ControladorProveedor implements IControladorProveedor{
         Iterator<String> itera = ser.iterator();
         int totalPrecio = 0;
         Promocion p = new Promocion(nombreProm, descuento, totalPrecio, prov);
-        prov.asociarPromocion(p);
+        prov.asociarPromocion(p);   
         while (itera.hasNext()) {
             //recorro los servicos a agregar y voy calculando el precio de la promocion sin el descuento
-            Servicio s = prov.getServicio(itera.next()); 
+            Servicio s = prov.getServicio(itera.next());          
             totalPrecio += s.getPrecio();
             p.agregarServicio(s);
         }
