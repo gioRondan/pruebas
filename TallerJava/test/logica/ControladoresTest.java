@@ -547,6 +547,13 @@ public class ControladoresTest {
         catch(Exception ex){
             System.out.println("throw alta categoria en listar servicios por categoria");
         }
+        
+        testIngresarNombreCategoria2("catmodificada");
+        try{
+            instance.altaCategoria();}
+        catch(Exception ex){
+            System.out.println("throw alta categoria en listar servicios por categoria");
+        }
         try{
         instance.ingresarCategoriaServicio("transporte2222");
         }catch(Exception ex){}

@@ -53,8 +53,8 @@ import javax.swing.JOptionPane;
 <span class="fc" id="L53">    }</span>
     @Override
     public void ingresarCategoriaBorrarServicio(String categoria){
-<span class="nc" id="L56">        ControladorProveedor.categoriaBorrar.add(categoria);</span>
-<span class="nc" id="L57">    }</span>
+<span class="fc" id="L56">        ControladorProveedor.categoriaBorrar.add(categoria);</span>
+<span class="fc" id="L57">    }</span>
     @Override
     public void ingresarImagenServicio(String imagen){
 <span class="fc" id="L60">        ControladorProveedor.imagenServicio[ControladorProveedor.tope]=imagen;</span>
@@ -196,7 +196,7 @@ import javax.swing.JOptionPane;
 <span class="fc" id="L196">        ControladorProveedor.descripcionServicio = desc;</span>
 <span class="fc" id="L197">    }</span>
     @Override
-    public void ingresarPrecioServicio(int precio){
+    public void ingresarPrecioServicio(float precio){
 <span class="fc" id="L200">        ControladorProveedor.precioServicio = precio;</span>
 <span class="fc" id="L201">    }</span>
     @Override
@@ -232,18 +232,18 @@ import javax.swing.JOptionPane;
 <span class="nc" id="L232">                Logger.getLogger(ControladorProveedor.class.getName()).log(Level.SEVERE, null, ex);</span>
 <span class="fc" id="L233">            }           </span>
         }
-<span class="pc bpc" id="L235" title="1 of 2 branches missed.">        for(String cats : categoriasServicio){</span>
-<span class="nc" id="L236">            ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
-<span class="nc" id="L237">            Categoria cat = mCa.getCategoria(cats);</span>
-<span class="nc" id="L238">            cat.setServicio(ser);</span>
-<span class="nc" id="L239">            ser.agregarCategoria(cat);</span>
-<span class="nc" id="L240">        }</span>
-<span class="pc bpc" id="L241" title="1 of 2 branches missed.">        for(String it1 : categoriaBorrar){</span>
-<span class="nc" id="L242">            ser.eliminarCategoria(it1);</span>
-<span class="nc" id="L243">            ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
-<span class="nc" id="L244">            Categoria cat = mCa.getCategoria(it1);</span>
-<span class="nc" id="L245">            cat.eliminarServicio(ser);</span>
-<span class="nc" id="L246">        }</span>
+<span class="fc bfc" id="L235" title="All 2 branches covered.">        for(String cats : categoriasServicio){</span>
+<span class="fc" id="L236">            ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
+<span class="fc" id="L237">            Categoria cat = mCa.getCategoria(cats);</span>
+<span class="fc" id="L238">            cat.setServicio(ser);</span>
+<span class="fc" id="L239">            ser.agregarCategoria(cat);</span>
+<span class="fc" id="L240">        }</span>
+<span class="fc bfc" id="L241" title="All 2 branches covered.">        for(String it1 : categoriaBorrar){</span>
+<span class="fc" id="L242">            ser.eliminarCategoria(it1);</span>
+<span class="fc" id="L243">            ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
+<span class="fc" id="L244">            Categoria cat = mCa.getCategoria(it1);</span>
+<span class="fc" id="L245">            cat.eliminarServicio(ser);</span>
+<span class="fc" id="L246">        }</span>
 <span class="fc bfc" id="L247" title="All 2 branches covered.">        for(String it2 : imagenBorrar){</span>
 <span class="fc" id="L248">            ser.eliminarImagen(it2);</span>
 <span class="fc" id="L249">        }</span>
