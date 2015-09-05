@@ -389,6 +389,7 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Pantallaprin.ICP.ingresarDescripcionServicio(Descripcion.getText());
+        showMessageDialog(null, Descripcion.getText());
         Pantallaprin.ICP.ingresarDestinoServicio(destino.getText());
         Pantallaprin.ICP.ingresarOrigenServicio(origen.getText());
         Pantallaprin.ICP.ingresarPrecioServicio(Integer.parseInt(precio.getText()));
