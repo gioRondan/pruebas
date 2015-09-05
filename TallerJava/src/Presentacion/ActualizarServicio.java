@@ -413,7 +413,6 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
         Pantallaprin.ICP.ingresarDescripcionServicio(Descripcion.getText());
         Pantallaprin.ICP.ingresarDestinoServicio(Combo_Destino.getSelectedItem().toString());
         Pantallaprin.ICP.ingresarOrigenServicio(Combo_Origen.getSelectedItem().toString());
-//        Pantallaprin.ICP.ingresarPrecioServicio(Integer.parseInt(precio.getText()));
         Pantallaprin.ICP.ingresarPrecioServicio(Float.parseFloat(precio.getText()));  
         try {
             Pantallaprin.ICP.modificarServicio();
