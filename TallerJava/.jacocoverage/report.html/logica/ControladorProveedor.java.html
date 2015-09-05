@@ -73,11 +73,11 @@ import javax.swing.JOptionPane;
     public void ingresarCategoriaServicio( String categoria) throws Exception{
 <span class="fc" id="L74">        ManejadorCategoria mCat = ManejadorCategoria.getInstance();</span>
 <span class="fc" id="L75">        Categoria cat = mCat.getCategoria(categoria);</span>
-<span class="pc bpc" id="L76" title="1 of 4 branches missed.">        if(cat !=null &amp;&amp; cat.esHoja()){</span>
+<span class="pc bpc" id="L76" title="2 of 4 branches missed.">        if(cat !=null &amp;&amp; cat.esHoja()){</span>
 <span class="fc" id="L77">            ControladorProveedor.categoriasServicio.add(categoria);</span>
         }
         else{
-<span class="fc" id="L80">            throw new Exception(&quot;Debe seleccionar una subcategoría.&quot;);</span>
+<span class="nc" id="L80">            throw new Exception(&quot;Debe seleccionar una subcategoría.&quot;);</span>
         }
 <span class="fc" id="L82">    }</span>
     public void vaciarCategoriasServicio(){
