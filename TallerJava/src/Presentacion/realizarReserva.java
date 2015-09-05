@@ -67,7 +67,8 @@ public class realizarReserva extends javax.swing.JInternalFrame {
 
         jList2.setModel(mol);
         // ahi quedo la lista
-        TreeModel jmodel;
+       
+        
         javax.swing.tree.DefaultMutableTreeNode raiz = new javax.swing.tree.DefaultMutableTreeNode("Proveedores");
         
         List<DataProveedor> dtproveedores = pp.ICP.listarProveedores();
