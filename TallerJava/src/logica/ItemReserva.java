@@ -39,6 +39,11 @@ public class ItemReserva {
         this.cantidad = cantidad;
     }
     public DataItemReserva getDataItem(){
-        return null;
+        if (servicio==null){
+            return new DataItemReserva(cantidad, inicio, fin, promocion.getNombre(),false);
+        }else{
+            return new DataItemReserva(cantidad, inicio, fin, servicio.getNombre(),true);
+        }
+            
     }
 }

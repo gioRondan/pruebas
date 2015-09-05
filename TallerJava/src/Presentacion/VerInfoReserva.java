@@ -288,13 +288,13 @@ public class VerInfoReserva extends javax.swing.JInternalFrame {
         String pat = jTree1.getSelectionPath().toString();
         String nickC = pat.substring(pat.indexOf(",")+2, pat.lastIndexOf(",")); ;
         String reservaid = pat.substring(pat.lastIndexOf(",")+2, pat.lastIndexOf("]"));
-        JOptionPane.showMessageDialog(null, reservaid);
+        
         DataInfoReserva inf = pp.ICC.verInfoReserva(nickC, Integer.parseInt(reservaid));
         
         Id.setText(reservaid);
+        JOptionPane.showMessageDialog(null, inf.getPrecio());
         Precio.setText(Float.toString(inf.getPrecio()));
         Estado.setText(inf.getEstado().toString());
-        
         Fechacreacion.setText(inf.getFechaCreacion().toString());
 //        List<DataProveedor> dtproveedores = pp.ICC..listarProveedores();
 //        for (DataProveedor dtprv: dtproveedores){

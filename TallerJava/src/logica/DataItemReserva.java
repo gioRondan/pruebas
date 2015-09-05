@@ -24,7 +24,7 @@ public class DataItemReserva {
         this.cantidad      = 0; 
         this.fechaInicio   = new Date();
         this.fechaFin      = new Date();
-        this.nombre        = nombre;     
+        this.nombre        = "";     
     }
     
     public DataItemReserva(int cantidad, Date fechaInicio, Date fechaFin, String nombre,boolean es){

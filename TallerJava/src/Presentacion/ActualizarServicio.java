@@ -373,6 +373,7 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
         servicio = servicio.substring(0,servicio.lastIndexOf("-")-1);
 //        JOptionPane.showMessageDialog(null, "y hola  "+servicio);
         DataInfoServicio info = Pantallaprin.ICP.verInfoServicio(servicio,Combo_Proveedores.getSelectedItem().toString());
+        
         precio.setText(Float.toString(info.getPrecio()));
         Combo_Origen.setSelectedItem(info.getOrigen().getNombre());
         if (info.getDestino() == null){
@@ -391,6 +392,7 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
             modeloCategorias.addElement(x);
         }
         List_Categorias.setModel(modeloCategorias);
+        modeloCategoriasnuevas.clear();
         List_CategoriasNuevas.setModel(modeloCategoriasnuevas);
         Pantallaprin.ICP.seleccionarServicio(servicio);
     }//GEN-LAST:event_List_ServiciosMouseClicked
@@ -409,10 +411,9 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Pantallaprin.ICP.ingresarDescripcionServicio(Descripcion.getText());
-        showMessageDialog(null, Descripcion.getText());
         Pantallaprin.ICP.ingresarDestinoServicio(Combo_Destino.getSelectedItem().toString());
         Pantallaprin.ICP.ingresarOrigenServicio(Combo_Origen.getSelectedItem().toString());
-        Pantallaprin.ICP.ingresarPrecioServicio(Integer.parseInt(precio.getText()));
+        Pantallaprin.ICP.ingresarPrecioServicio(Float.parseFloat(precio.getText()));  
         try {
             Pantallaprin.ICP.modificarServicio();
         } catch (Exception ex) {

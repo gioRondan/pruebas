@@ -124,8 +124,11 @@ public class cancelarReserva extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_ListClientesMouseClicked
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        String id = modeloReservas.elementAt(ListReservas.getAnchorSelectionIndex()).toString();
+        String id = ListReservas.getSelectedValue().toString();
         Pantallaprin.ICC.cancelarReserva(modeloClientes.elementAt(ListClientes.getAnchorSelectionIndex()).toString(), Integer.parseInt(id));
+        modeloReservas.remove(ListReservas.getSelectedIndex());
+        ListReservas.removeAll();
+        ListReservas.setModel(modeloReservas);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
