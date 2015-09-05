@@ -103,9 +103,35 @@ public class CargaInicial {
                     ICP.ingresarNombreCategoria("Caribe");ICP.seleccionarPadre("Cruceros");ICP.altaCategoria();
                     ICP.ingresarNombreCategoria("Nilo");ICP.seleccionarPadre("Cruceros");ICP.altaCategoria();
                     ICP.ingresarNombreCategoria("Alaska");ICP.seleccionarPadre("Cruceros");ICP.altaCategoria();
-                                    
+             //PAISES                       
+                    ICP.altaPais("Uruguay");
+                    ICP.altaPais("Argentina");
+                    ICP.altaPais("Colombia");
+                    ICP.altaPais("EEUU");
+                    ICP.altaPais("España");
+                    ICP.altaPais("Francia");
+                    ICP.altaPais("Alemania");
+                    ICP.altaPais("Suiza");
+                    ICP.altaPais("Australia");
+                    ICP.altaPais("Brasil");    
+                    ICP.altaPais("China");    
+                                   
+             //CIUDADES String nomCiudad, String nomPais)
+                    ICP.altaCiudad("Montevideo", "Uruguay");
+                    ICP.altaCiudad("Buenos Aires", "Argentina");
+                    ICP.altaCiudad("Bogotá","Colombia");
+                    ICP.altaCiudad("Miami","EEUU");
+                    ICP.altaCiudad("Valencia","España");
+                    ICP.altaCiudad("Madrid", "España");
+                    ICP.altaCiudad("París","Francia");
+                    ICP.altaCiudad("Berlín","Alemania");
+                    ICP.altaCiudad("Ginebra","Suiza");
+                    ICP.altaCiudad("Sidney","Australia");
+                    ICP.altaCiudad("Pekín","China");
+                    ICP.altaCiudad("Cantón", "China");
+                    ICP.altaCiudad("Florianópolis", "Brasil");
+                    ICP.altaCiudad("Bariloche","Argentina");
                     
-                
             //SERVICIOS nombre, descripcion,precio,origen,proveedor,pais
                 //S1
                 ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+"Servicios/remus - Euro-Vuelo-S 1.png");
@@ -251,7 +277,7 @@ public class CargaInicial {
             //P8
             ser.add("Luxury south beach corner apartment");
             ser.add("Coche-Miami");
-            ICP.altaPromocion("mHooch", ser, "Miami-Viaj", 30);
+            ICP.altaPromocion("mHooch", ser, "Miami-Viaje", 30);
             ser.clear();
             //RESERVAS proveedor,cliente,servicio, promocion, fechas 
             Map<String, Integer> servicio = new HashMap();

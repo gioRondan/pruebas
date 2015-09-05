@@ -47,5 +47,5 @@ public interface IControladorProveedor {
     public Set<String> infoPaises();
     public List<DataCiudad> ciudadesXpais( String pa);
     public void altaPais(String pa)throws Exception;
-    public void altaCiudad(String pa,String nombre);
+    public void altaCiudad(String nomCiudad, String nomPais);
 }

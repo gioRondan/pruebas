@@ -12,6 +12,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -21,6 +22,7 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 import logica.DataCategoria;
+import logica.DataCiudad;
 import logica.DataProveedor;
 import logica.DataServicio;
 
@@ -79,6 +81,14 @@ public class AltaServicio extends javax.swing.JInternalFrame {
             String n = dts.getNickname();
             proveedores.addItem(n);
         }
+        //Se agregan todos los paies en el conbobox
+        Set<String> paises = Pantallaprin.ICP.infoPaises();
+        Iterator<String> it2 = paises.iterator();
+        while (it2.hasNext()) {
+            String dts = it2.next();
+            paisesorigen.addItem (dts);
+            paiesesdestino.addItem(dts);
+        }
         jTree1.setSelectionRow(0); //Selecciono la raiz
         nombre.requestFocus();
     }
@@ -107,9 +117,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         servicioImagen2.setText("");
         servicioImagen3.setText("");
         precio.setText("");
-        pais.setText("");
-        ciudad1.setText("");
-        ciudad2.setText("");
+        
         jTree1.setSelectionRow(0); //Selecciono la raiz
         nombre.requestFocus();
     }
@@ -138,9 +146,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         jLabel28 = new javax.swing.JLabel();
         precio = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
-        ciudad1 = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
-        ciudad2 = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
@@ -153,7 +159,11 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         servicioImagen3 = new javax.swing.JTextField();
         jButton17 = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
-        pais = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        paisesorigen = new javax.swing.JComboBox();
+        paiesesdestino = new javax.swing.JComboBox();
+        ciundadDestino = new javax.swing.JComboBox();
+        ciudadaOrigen = new javax.swing.JComboBox();
 
         setClosable(true);
         setTitle("Nuevo servicio");
@@ -171,6 +181,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
 
         jLabel25.setText("Proveedor:");
 
+        proveedores.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--------" }));
         proveedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 proveedoresActionPerformed(evt);
@@ -203,19 +214,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
 
         jLabel29.setText("Ciudad origen:");
 
-        ciudad1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ciudad1ActionPerformed(evt);
-            }
-        });
-
         jLabel30.setText("Ciudad destino:");
-
-        ciudad2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ciudad2ActionPerformed(evt);
-            }
-        });
 
         jLabel31.setText("Categorias:");
 
@@ -263,73 +262,93 @@ public class AltaServicio extends javax.swing.JInternalFrame {
 
         jLabel32.setText("Pais:");
 
-        pais.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paisActionPerformed(evt);
+        jLabel33.setText("Pais:");
+
+        paisesorigen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--------" }));
+        paisesorigen.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                paisesorigenMouseClicked(evt);
             }
         });
+        paisesorigen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paisesorigenActionPerformed(evt);
+            }
+        });
+
+        paiesesdestino.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--------" }));
+        paiesesdestino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paiesesdestinoActionPerformed(evt);
+            }
+        });
+
+        ciundadDestino.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--------" }));
+
+        ciudadaOrigen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--------" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel27)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel26)
+                        .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabel28)
+                    .addComponent(jLabel32)
+                    .addComponent(jLabel29))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(434, 434, 434)
+                        .addComponent(jButton14)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton15)
+                        .addGap(46, 46, 46))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(ciudadaOrigen, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(paisesorigen, 0, 176, Short.MAX_VALUE))
+                        .addGap(72, 72, 72)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel27)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel26)
-                                .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(jLabel28)
-                            .addComponent(jLabel32)
-                            .addComponent(jLabel29))
+                            .addComponent(jLabel30)
+                            .addComponent(jLabel33))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(paiesesdestino, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ciundadDestino, 0, 179, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(nombre, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel25)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(proveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel31)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(servicioImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(servicioImagen3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(servicioImagen2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGap(434, 434, 434)
-                                    .addComponent(jButton14)
-                                    .addGap(55, 55, 55)
-                                    .addComponent(jButton15)
-                                    .addGap(9, 9, 9))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(ciudad1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(69, 69, 69)
-                                    .addComponent(jLabel30)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(ciudad2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(nombre, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE))
-                                .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel25)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(proveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel31)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(servicioImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(servicioImagen3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(servicioImagen2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton16)
-                                    .addComponent(jButton13)
-                                    .addComponent(jButton17)))
-                            .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pais, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jButton16)
+                            .addComponent(jButton13)
+                            .addComponent(jButton17)))
+                    .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,24 +372,26 @@ public class AltaServicio extends javax.swing.JInternalFrame {
                                 .addGap(94, 94, 94)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel28))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel28)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(55, 55, 55)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(paisesorigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(paiesesdestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(ciudad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel29))
+                                .addComponent(jLabel29)
+                                .addComponent(ciudadaOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(ciudad2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(29, 29, 29)
+                                    .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                                    .addComponent(ciundadDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(32, 32, 32)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jButton15)
                                     .addComponent(jButton14)))))
@@ -453,9 +474,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-
-        //Pantallaprin.ICP.altaProveedor(proveedorNick.getText() ,proveedorNombre.getText(), proveedorApellido.getText(), proveedorEmail.getText() ,selectedDate , proveedorImagen.getText(), proveedorEmpresaNombre.getText(),proveedorEmpresaLink.getText());
-        this.dispose();
+          this.dispose();
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -481,14 +500,6 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_precioActionPerformed
 
-    private void ciudad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ciudad1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ciudad1ActionPerformed
-
-    private void ciudad2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ciudad2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ciudad2ActionPerformed
-
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         
         if(proveedores.getItemCount() < 1){
@@ -511,9 +522,9 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         String nombreServicio  = letraCapital(nombre.getText());
         String descServicio    = descripcion.getText();
         String proveedor       = proveedores.getSelectedItem().toString();
-        String ciudadOrigen    = letraCapital(ciudad1.getText());
-        String ciudadDestino   = letraCapital(ciudad2.getText());
-        String paisServicio    = letraCapital(pais.getText());
+        String ciudadOrigen    = letraCapital(ciudadaOrigen.getSelectedItem().toString());
+        String ciudadDestino   = letraCapital(ciundadDestino.getSelectedItem().toString());
+        String paisServicio    = letraCapital(paisesorigen.getSelectedItem().toString());
         int precioServicio     = Integer.parseInt(precio.getText());            
         
         if(nombreServicio.isEmpty()){
@@ -526,16 +537,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
             descripcion.requestFocus();
             return;
         }
-        else if(paisServicio.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Ingrese un país válido.");
-            pais.requestFocus();
-            return;
-        }
-        else if(ciudadOrigen.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Ingrese la ciudad de orígen válida.");
-            ciudad1.requestFocus();
-            return;
-        }
+    
         else if(precioServicio <= 0){
             JOptionPane.showMessageDialog(null, "Ingrese un precio válido.");
             precio.requestFocus();
@@ -619,12 +621,8 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         Pantallaprin.abrirSelectorImagen("AltaServicio3");
     }//GEN-LAST:event_jButton17ActionPerformed
 
-    private void paisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paisActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_paisActionPerformed
-
     private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
-        /*Pantallaprin.ICP.vaciarCategoriasServicio();//Vacio las categorias del aterior click
+        Pantallaprin.ICP.vaciarCategoriasServicio();//Vacio las categorias del aterior click
         TreePath[] equis  = jTree1.getSelectionPaths();
         for (TreePath x : equis){
             String padreSelec = x.toString();
@@ -633,19 +631,46 @@ public class AltaServicio extends javax.swing.JInternalFrame {
                 //JOptionPane.showMessageDialog(null,"El padre seleccionado es "+padreSelec);
                 Pantallaprin.ICP.ingresarCategoriaServicio(padreSelec);
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null,ex.getMessage());
+               // JOptionPane.showMessageDialog(null,ex.getMessage());
             }
-        }*/
+        }
     }//GEN-LAST:event_jTree1MouseClicked
 
     private void precioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_precioKeyPressed
 
+    private void paisesorigenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paisesorigenMouseClicked
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_paisesorigenMouseClicked
+
+    private void paisesorigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paisesorigenActionPerformed
+        // TODO add your handling code here:
+        ciudadaOrigen.removeAllItems();
+         List<DataCiudad> dat = Pantallaprin.ICP.ciudadesXpais(paisesorigen.getSelectedItem().toString());
+        //JOptionPane.showMessageDialog(null,paisesorigen.getSelectedItem().toString());
+        for (DataCiudad d : dat ){
+            
+            ciudadaOrigen.addItem(d.getNombre());
+        }
+    }//GEN-LAST:event_paisesorigenActionPerformed
+
+    private void paiesesdestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paiesesdestinoActionPerformed
+        // TODO add your handling code here:
+         ciundadDestino.removeAllItems();
+         List<DataCiudad> dat = Pantallaprin.ICP.ciudadesXpais(paiesesdestino.getSelectedItem().toString());
+        //JOptionPane.showMessageDialog(null,paisesorigen.getSelectedItem().toString());
+        for (DataCiudad d : dat ){
+            
+            ciundadDestino.addItem(d.getNombre());
+        }
+    }//GEN-LAST:event_paiesesdestinoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JTextField ciudad1;
-    public static javax.swing.JTextField ciudad2;
+    private javax.swing.JComboBox ciudadaOrigen;
+    private javax.swing.JComboBox ciundadDestino;
     private javax.swing.JTextArea descripcion;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
@@ -662,11 +687,13 @@ public class AltaServicio extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTree jTree1;
     public static javax.swing.JTextField nombre;
-    public static javax.swing.JTextField pais;
+    private javax.swing.JComboBox paiesesdestino;
+    private javax.swing.JComboBox paisesorigen;
     public static javax.swing.JTextField precio;
     private javax.swing.JComboBox proveedores;
     public static javax.swing.JTextField servicioImagen1;
