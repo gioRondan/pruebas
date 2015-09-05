@@ -67,8 +67,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
 
         jList2.setModel(mol);
         // ahi quedo la lista
-       
-        
+
         javax.swing.tree.DefaultMutableTreeNode raiz = new javax.swing.tree.DefaultMutableTreeNode("Proveedores");
         
         List<DataProveedor> dtproveedores = pp.ICP.listarProveedores();
@@ -95,11 +94,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             
             
         }   // agregamos todos los proveedores al jtree {matias heredia}
-        /*for(int i=1;i<=500;i++){
-            javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("nabo");
-            treeNode1.add(treeNode2);
-        }*/
-        
+                
         precioTotal.setText("0");
         DefaultTreeModel modeloArbol = new DefaultTreeModel(raiz);
         jTree1.setModel(modeloArbol);
