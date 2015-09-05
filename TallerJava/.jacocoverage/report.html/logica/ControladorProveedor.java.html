@@ -131,9 +131,9 @@ import javax.swing.JOptionPane;
 <span class="nc" id="L131">        this.categoria = categoria;</span>
 <span class="nc" id="L132">    }</span>
     @Override
-    public List&lt;DataServicio&gt; listarServiciosXCategoria( String nomCategoria){
+    public List&lt;DataServicio&gt; listarServiciosXCategoria( String nom2Categoria){
 <span class="fc" id="L135">        ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
-<span class="fc" id="L136">        Categoria cat = mCa.getCategoria(nomCategoria);</span>
+<span class="fc" id="L136">        Categoria cat = mCa.getCategoria(nom2Categoria);</span>
 <span class="fc" id="L137">        return cat.getDataServicios();</span>
     }
     @Override

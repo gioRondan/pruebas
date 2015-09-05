@@ -1124,20 +1124,25 @@ public class ControladoresTest {
         String descripcion = "servicio de promocion";
         int precio = 10;
         String origen = "zimbawe";
-        testIngresarNombreCategoria2("transporte2222");
+        testIngresarNombreCategoria2("transporte123");
         try{
         instancepr.altaCategoria();}
         catch(Exception ex){
             System.out.println("throw alta categoria en listar servicios por categoria");
         }
-        testIngresarCategoriaServicio2("transporte2222");
+        testIngresarCategoriaServicio2("transporte123");
         instancepr.altaServicio("hola", descripcion, precio, origen, nickProveedor,"0");
+        List<String> serProm = new ArrayList<>();
+        serProm.add("hola");
+        try{
+        instancepr.altaPromocion(nickProveedor, serProm, "promoprueba", 10);
+        }catch(Exception ex){}
         Map<String, Integer> serv = new HashMap();
-        serv.put("hola",2 );
+        serv.put("promoprueba",2 );
         Map<String, DataExpira> es = new HashMap();
         Map<String, DataExpira> es2 = new HashMap();
-        es.put("hola", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
-        es.put("hola", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
+        es.put("promoprueba", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
+        es.put("promoprueba", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
         instance.realizarReserva(nickProveedor, nickCliente, new HashMap(), serv, es2, es, new Date(1,2,2013));
         ManejadorCliente mcl = ManejadorCliente.getInstance();
         int id = mcl.testGetId();
