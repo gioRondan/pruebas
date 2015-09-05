@@ -19,6 +19,8 @@ public class DataInfoServicio {
     private DataCiudad destino;
     private List<DataCategoria> categorias;
     private DataProveedor proveedor;
+    
+    
     public DataInfoServicio(String nombre, String descripcion, String [] imagen, float precio, DataCiudad origen, DataCiudad destino, List<DataCategoria> categorias, DataProveedor proveedor){
         this.nombre = nombre;
         this.descripcion = descripcion;
