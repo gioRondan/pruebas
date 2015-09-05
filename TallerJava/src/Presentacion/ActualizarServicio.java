@@ -5,10 +5,12 @@
  */
 package Presentacion;
 
+import java.awt.Panel;
 import java.util.Iterator;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showInputDialog;
 
 import logica.DataCategoria;
 import logica.DataInfoServicio;
@@ -129,6 +131,11 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
         jLabel7.setText("Categorías nuevas:");
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cross5.png"))); // NOI18N
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Guardar");
 
@@ -345,6 +352,14 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        String categoria = List_Categorias.getSelectedValue().toString();
+        modeloCategorias.remove(List_Categorias.getSelectedIndex());
+        List_Categorias.removeAll();
+        List_Categorias.setModel(modeloCategorias);
+        Pantallaprin.ICP.ingresarCategoriaBorrarServicio(categoria);
+    }//GEN-LAST:event_jButton8ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
