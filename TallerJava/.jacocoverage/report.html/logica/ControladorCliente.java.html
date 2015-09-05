@@ -22,10 +22,10 @@ import java.util.Set;
     
     @Override
     public void actualizarEstadoReserva(int id, String nomCliente, Estado estado){
-<span class="nc" id="L25">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="nc" id="L26">        Cliente cli = mCl.getCliente(nomCliente);</span>
-<span class="nc" id="L27">        cli.modificarEstadoReserva(id, estado);</span>
-<span class="nc" id="L28">    }</span>
+<span class="fc" id="L25">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L26">        Cliente cli = mCl.getCliente(nomCliente);</span>
+<span class="fc" id="L27">        cli.modificarEstadoReserva(id, estado);</span>
+<span class="fc" id="L28">    }</span>
     
     @Override
     public void realizarReserva(String proveedor,String cliente,Map&lt;String, Integer&gt; servicio, Map&lt;String,Integer&gt; promocion,Map&lt;String,DataExpira&gt; fechas,Map&lt;String,DataExpira&gt; fechaspromos,Date fecha_creacion ){
@@ -40,9 +40,9 @@ import java.util.Set;
 <span class="fc bfc" id="L40" title="All 2 branches covered.">        for(Map.Entry&lt;String, Integer&gt; entries : servicio.entrySet()){</span>
 <span class="fc" id="L41">            aux_cliente.reservarServicio(clave1, prov.getServicio(entries.getKey()),entries.getValue(),fechas.get(entries.getKey()).getFechai(),fechas.get(entries.getKey()).getFechaf());</span>
 <span class="fc" id="L42">        }</span>
-<span class="pc bpc" id="L43" title="1 of 2 branches missed.">        for(Map.Entry&lt;String, Integer&gt; entries : promocion.entrySet()){</span>
-<span class="nc" id="L44">            aux_cliente.reservarPromocion(clave1, prov.getPromocion(entries.getKey()),entries.getValue(),fechaspromos.get(entries.getKey()).getFechai(),fechaspromos.get(entries.getKey()).getFechaf());</span>
-<span class="nc" id="L45">        }</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        for(Map.Entry&lt;String, Integer&gt; entries : promocion.entrySet()){</span>
+<span class="fc" id="L44">            aux_cliente.reservarPromocion(clave1, prov.getPromocion(entries.getKey()),entries.getValue(),fechaspromos.get(entries.getKey()).getFechai(),fechaspromos.get(entries.getKey()).getFechaf());</span>
+<span class="fc" id="L45">        }</span>
 <span class="fc" id="L46">    }</span>
     
     @Override

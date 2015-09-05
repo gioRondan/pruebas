@@ -16,6 +16,7 @@ public class DataItemReserva {
     private int cantidad; //cantidad de promociones o servicios reservados
     private Date fechaInicio;
     private Date fechaFin;
+    private boolean esServico;
     private String nombre; //nombre del servicio o promocion reservada
     
     //Constructores
@@ -26,11 +27,12 @@ public class DataItemReserva {
         this.nombre        = nombre;     
     }
     
-    public DataItemReserva(int cantidad, Date fechaInicio, Date fechaFin, String nombre){
+    public DataItemReserva(int cantidad, Date fechaInicio, Date fechaFin, String nombre,boolean es){
         this.cantidad      = cantidad;
         this.fechaInicio   = fechaInicio;
         this.fechaFin      = fechaFin;
         this.nombre        = nombre;
+        esServico = es;
     }    
     
     //Getters
@@ -50,5 +52,7 @@ public class DataItemReserva {
         return nombre;
     }
     
-    
+    public boolean getesServico(){
+        return esServico;
+    }
 }

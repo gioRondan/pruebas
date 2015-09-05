@@ -196,7 +196,7 @@ public class ControladorProveedor implements IControladorProveedor{
         ControladorProveedor.descripcionServicio = desc;
     }
     @Override
-    public void ingresarPrecioServicio(int precio){
+    public void ingresarPrecioServicio(float precio){
         ControladorProveedor.precioServicio = precio;
     }
     @Override
