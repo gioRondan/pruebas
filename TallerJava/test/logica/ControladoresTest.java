@@ -24,9 +24,9 @@ import org.junit.Test;
  *
  * @author giovani.rondan
  */
-public class TestControladores {
+public class ControladoresTest {
     
-    public TestControladores() {
+    public ControladoresTest() {
     }
     
     @BeforeClass
