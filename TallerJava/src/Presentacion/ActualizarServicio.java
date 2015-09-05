@@ -424,14 +424,17 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         Pantallaprin.ICP.ingresarImagenBorrarServicio(imagen1.getText());
+        imagen1.setText("");
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Pantallaprin.ICP.ingresarImagenBorrarServicio(imagen2.getText());
+        imagen2.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Pantallaprin.ICP.ingresarImagenBorrarServicio(imagen3.getText());
+        imagen3.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void Combo_OrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combo_OrigenActionPerformed
