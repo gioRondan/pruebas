@@ -7,9 +7,13 @@
 package Presentacion;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
+import javax.swing.tree.TreePath;
 import logica.DataCategoria;
 import logica.DataProveedor;
 
@@ -120,6 +124,21 @@ public class AgregarCategoria extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
+   
+        TreePath[] seleccionados = jTree1.getSelectionPaths();
+        
+        for (TreePath x : seleccionados){
+            String path = x.toString();
+            String categoria = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]")); 
+            try {
+                Pantallaprin.ICP.ingresarCategoriaServicio(categoria);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null,"Error: " + ex.getMessage());
+                Logger.getLogger(AgregarCategoria.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            ActualizarServicio.modeloCategorias.addElement(categoria);
+        }
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
