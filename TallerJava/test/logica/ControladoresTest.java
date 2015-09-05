@@ -482,9 +482,10 @@ public class ControladoresTest {
         String nombre = "promo1";
         int descuento = 10;
         ControladorProveedor instance = new ControladorProveedor();
+        try{
         for(int j = 0; j <10;j++){
             instance.altaPromocion(nomProveedor, ser, Integer.toString(j+1), descuento);
-        }
+        }}catch(Exception ex){}
         
     }
 
@@ -616,10 +617,11 @@ public class ControladoresTest {
             instance.altaServicio(Integer.toString(n), descripcion, precio, origen, proveedor,"0");
             serv.add(Integer.toString(n));
         }
+        try{
         for(int k = 70; k<81;++k){
             instance.altaPromocion(proveedor, serv, Integer.toString(k), 10);
         }
-        
+        }catch(Exception ex){}
         List<DataPromocion> result = instance.listarPromocionesXProveedor(proveedor);
         for(int j = 0; j <11;j++){
             assertEquals(Integer.toString(j+70), result.get(j).getNombre());
@@ -714,8 +716,9 @@ public class ControladoresTest {
             instance.altaServicio(Integer.toString(n), descripcion, precio, origen, proveedor,"0");
             serv.add(Integer.toString(n));
         }
-        
-        instance.altaPromocion(proveedor, serv, "promo", 10);
+        try{
+            instance.altaPromocion(proveedor, serv, "promo", 10);
+        }catch(Exception ex){}
         DataInfoPromocion result = instance.verInfoPromocion("nickname13", "promo");
         assertEquals("promo", result.getNombre());
         assertEquals(10, result.getDescuento());
@@ -1065,5 +1068,20 @@ public class ControladoresTest {
         ManejadorCliente mcl = ManejadorCliente.getInstance();
         int id = mcl.testGetId();
         instance.cancelarReserva("cli12345678", id);
+    }
+    /**
+     * Test of paises.
+     */
+    @Test
+    public void testPaises(){
+        ControladorProveedor cpr = new ControladorProveedor();
+        try{
+            cpr.altaPais("zambia");
+        }catch(Exception ex){}
+        Set <String> paises = cpr.infoPaises();
+        if(paises.contains("zambia")){
+            cpr.altaCiudad(null, null);
+        }
+        
     }
 }

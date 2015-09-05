@@ -39,12 +39,12 @@ public class ManejadorCategoria {
 <span class="nc" id="L39">        categorias.remove(nombre);</span>
 <span class="nc" id="L40">    }</span>
     public List&lt;DataCategoria&gt; getDataCategorias(){
-<span class="fc" id="L42">        List&lt;DataCategoria&gt; dts = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (Categoria value : categorias.values()) {</span>
-<span class="fc bfc" id="L44" title="All 2 branches covered.">            if(value.esRaiz())</span>
-<span class="fc" id="L45">            dts.add(value.getDataCategoria());</span>
-<span class="fc" id="L46">        }</span>
-<span class="fc" id="L47">        return dts;</span>
+<span class="nc" id="L42">        List&lt;DataCategoria&gt; dts = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        for (Categoria value : categorias.values()) {</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">            if(value.esRaiz())</span>
+<span class="nc" id="L45">            dts.add(value.getDataCategoria());</span>
+<span class="nc" id="L46">        }</span>
+<span class="nc" id="L47">        return dts;</span>
     }/*
     public void crearCategoria(String nomCategoria, String nomPadre){
         Categoria nueva = new Categoria(nomCategoria);

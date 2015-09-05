@@ -67,6 +67,13 @@ public class ManejadorProveedor {
 <span class="fc" id="L67">        }</span>
 <span class="fc" id="L68">    }</span>
     
+    void unicidadPromocion(String nickProveedor, String nomPromocion) throws Exception{
+<span class="fc" id="L71">        Proveedor prov = proveedores.get(nickProveedor);</span>
+<span class="fc" id="L72">        Promocion prom = prov.getPromocion(nomPromocion);</span>
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">        if(prom != null){            </span>
+<span class="nc" id="L74">                throw new Exception(&quot;El proveedor seleccionado ya tiene una promoción con ese nombre&quot;);            </span>
+        }
+<span class="fc" id="L76">    }    </span>
   
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

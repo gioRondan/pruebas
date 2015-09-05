@@ -136,7 +136,7 @@ public class AgregarCategoria extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null,"Error: " + ex.getMessage());
                 Logger.getLogger(AgregarCategoria.class.getName()).log(Level.SEVERE, null, ex);
             }
-            ActualizarServicio.modeloCategorias.addElement(categoria);
+            ActualizarServicio.modeloCategoriasnuevas.addElement(categoria);
         }
        
     }//GEN-LAST:event_jButton1ActionPerformed
