@@ -8,10 +8,12 @@ package Presentacion;
 import java.util.Iterator;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
 import logica.DataCliente;
+import logica.DataInfoReserva;
 import logica.DataPromocion;
 import logica.DataProveedor;
 import logica.DataReserva;
@@ -33,7 +35,7 @@ public class VerInfoReserva extends javax.swing.JInternalFrame {
     public VerInfoReserva() {
         initComponents();
         TreeModel jmodel;
-        DefaultMutableTreeNode raiz = new DefaultMutableTreeNode("Proveedores");
+        DefaultMutableTreeNode raiz = new DefaultMutableTreeNode("Clientes");
           List<DataCliente> info = pp.ICC.listarClientes();
         for (DataCliente dtinfoc: info){
             DefaultMutableTreeNode cli = new DefaultMutableTreeNode();
@@ -50,7 +52,12 @@ public class VerInfoReserva extends javax.swing.JInternalFrame {
         DefaultTreeModel modeloArbol = new DefaultTreeModel(raiz);
         jTree1.setModel(modeloArbol);
        
-        
+        DefaultMutableTreeNode raiz2 = new DefaultMutableTreeNode("");
+     
+        raiz2.add(new DefaultMutableTreeNode("Servicios"));
+        raiz2.add(new DefaultMutableTreeNode("Promociones"));
+        DefaultTreeModel modeloArbol2 = new DefaultTreeModel(raiz2);
+        jTree2.setModel(modeloArbol2);
     }
 
     /**
@@ -236,9 +243,9 @@ public class VerInfoReserva extends javax.swing.JInternalFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2)
+                            .addComponent(jScrollPane1)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -272,10 +279,23 @@ public class VerInfoReserva extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_IdActionPerformed
 
     private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
-       TreeModel jmodel;
-        //javax.swing.tree.DefaultMutableTreeNode raiz = new javax.swing.tree.DefaultMutableTreeNode("Proveedores");
+      
+        javax.swing.tree.DefaultMutableTreeNode raiz2 = new javax.swing.tree.DefaultMutableTreeNode("");
         DefaultMutableTreeNode sss = new DefaultMutableTreeNode("Servicios");
         DefaultMutableTreeNode ppp = new DefaultMutableTreeNode("Promociones");
+        raiz2.add(sss);
+        raiz2.add(ppp);
+        String pat = jTree1.getSelectionPath().toString();
+        String nickC = pat.substring(pat.indexOf(",")+2, pat.lastIndexOf(",")); ;
+        String reservaid = pat.substring(pat.lastIndexOf(",")+2, pat.lastIndexOf("]"));
+        JOptionPane.showMessageDialog(null, reservaid);
+        DataInfoReserva inf = pp.ICC.verInfoReserva(nickC, Integer.parseInt(reservaid));
+        
+        Id.setText(reservaid);
+        Precio.setText(Float.toString(inf.getPrecio()));
+        Estado.setText(inf.getEstado().toString());
+        
+        Fechacreacion.setText(inf.getFechaCreacion().toString());
 //        List<DataProveedor> dtproveedores = pp.ICC..listarProveedores();
 //        for (DataProveedor dtprv: dtproveedores){
 //            DefaultMutableTreeNode prv = new DefaultMutableTreeNode();
@@ -296,7 +316,8 @@ public class VerInfoReserva extends javax.swing.JInternalFrame {
 //                np.setUserObject(dtpp.getNombre());
 //                ppp.add(np);
 //        }
-       
+        DefaultTreeModel modeloArbol2 = new DefaultTreeModel(raiz2);
+        jTree2.setModel(modeloArbol2);
     }//GEN-LAST:event_jTree1MouseClicked
 
 
