@@ -5,6 +5,8 @@
  */
 package Presentacion;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -295,7 +297,8 @@ public class VerInfoReserva extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null, inf.getPrecio());
         Precio.setText(Float.toString(inf.getPrecio()));
         Estado.setText(inf.getEstado().toString());
-        Fechacreacion.setText(inf.getFechaCreacion().toString());
+     DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");	
+        Fechacreacion.setText(formatoFecha.format(inf.getFechaCreacion()));
 //        List<DataProveedor> dtproveedores = pp.ICC..listarProveedores();
 //        for (DataProveedor dtprv: dtproveedores){
 //            DefaultMutableTreeNode prv = new DefaultMutableTreeNode();
