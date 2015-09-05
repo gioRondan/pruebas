@@ -67,5 +67,12 @@ public class ManejadorProveedor {
         }
     }
     
+    void unicidadPromocion(String nickProveedor, String nomPromocion) throws Exception{
+        Proveedor prov = proveedores.get(nickProveedor);
+        Promocion prom = prov.getPromocion(nomPromocion);
+        if(prom != null){            
+                throw new Exception("El proveedor seleccionado ya tiene una promoción con ese nombre");            
+        }
+    }    
   
 }

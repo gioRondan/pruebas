@@ -172,12 +172,13 @@ public class ControladorProveedor implements IControladorProveedor{
         ControladorProveedor.servicio = nomServicio;
     }
     @Override
-    public void altaPromocion( String nomProveedor,List<String> ser, String nombre, int descuento){
+    public void altaPromocion( String nickProveedor,List<String> ser, String nombreProm, int descuento) throws Exception{
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
-        Proveedor prov = mPr.getProveedor(nomProveedor);//nickname
+        Proveedor prov = mPr.getProveedor(nickProveedor);//nickname
+        mPr.unicidadPromocion(nickProveedor, nombreProm);//controlo unicidad de la promocion apra ese proveedor
         Iterator<String> itera = ser.iterator();
-        int totalPrecio=0;
-        Promocion p = new Promocion(nombre, descuento, totalPrecio,prov );
+        int totalPrecio = 0;
+        Promocion p = new Promocion(nombreProm, descuento, totalPrecio, prov);
         prov.asociarPromocion(p);
         while (itera.hasNext()) {
             //recorro los servicos a agregar y voy calculando el precio de la promocion sin el descuento

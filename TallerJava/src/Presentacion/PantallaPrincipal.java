@@ -912,9 +912,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Se inicia la carga");
         CargaInicial c = new CargaInicial();
-        c.cargar();
+        try{
+            c.cargar();
+            JOptionPane.showMessageDialog(null, "Los datos iniciales se cargaron correctamente.");
+        }
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }        
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed

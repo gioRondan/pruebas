@@ -50,6 +50,29 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
         DefaultTreeModel modeloArbol = new DefaultTreeModel(raiz);
         jTree1.setModel(modeloArbol);
     }
+    
+    public void limpiarCampos(){
+        promocionNombre.setText("");
+        promocionNombre.requestFocus();
+    }
+    
+    public String letraCapital(String texto){
+    //Convierte la primera letra de una texto a mayuscula, el resto a minusculas
+        String resultado = "";
+        if(!texto.isEmpty()){
+            texto = texto.toLowerCase(); //pasamos a minuscula
+            String[] palabras = texto.split("\\s"); //partimos si tiene mas de una palabra
+            for(String palabra : palabras) {
+                resultado += palabra.substring(0, 1).toUpperCase() + palabra.substring(1)+ " ";
+            }
+        }
+        return resultado;
+    }
+    
+    public static boolean esNumerico(String str){
+        return str.matches("\\d+(\\.\\d+)?");  //matchea numeros con decimales
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -219,18 +242,39 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:        
         List<String> ser = new ArrayList<>();
         TreePath[] seleccionados = jTree1.getSelectionPaths();
-        String proveedor="";
+        String proveedor="";        
+        if(promocionNombre.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Debe ingresar un nombre para la promoción");
+            promocionNombre.requestFocus();
+            return;
+        }
+        else if(promocionDescuento.getValue().toString().isEmpty() || 
+                !esNumerico(promocionDescuento.getValue().toString())){
+            JOptionPane.showMessageDialog(null, "Ingrese un descuento válido");
+            promocionDescuento.requestFocus();
+            return;
+        }
+        String nombre = letraCapital(promocionNombre.getText());
+        int descuento = Integer.parseInt(promocionDescuento.getValue().toString());        
         for (TreePath x : seleccionados){
             String path = x.toString();
             String servicio = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]")); 
             proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
             ser.add(servicio);
         }
-        pp.ICP.altaPromocion(proveedor, ser, promocionNombre.getText(), Integer.parseInt(promocionDescuento.getValue().toString()));
-        JOptionPane.showMessageDialog(null, "se dio de alta la promocion");
+        try{
+            pp.ICP.altaPromocion(proveedor, ser, nombre, descuento);
+            JOptionPane.showMessageDialog(null, "La promoción se ingresó correctamente");
+        }
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage());            
+        }        
+        finally{
+            limpiarCampos();            
+        }        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
@@ -244,7 +288,7 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
             proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
             if(!proveedorAnt.isEmpty()){
                 if (!proveedorAnt.equals(proveedor)){
-                    JOptionPane.showMessageDialog(null,"Deve seleccionar servicios del mismo proveedor");
+                    JOptionPane.showMessageDialog(null,"Debe seleccionar servicios del mismo proveedor");
                     return;
                 }
             }
