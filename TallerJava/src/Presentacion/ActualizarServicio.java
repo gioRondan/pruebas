@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showInputDialog;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 import logica.DataCategoria;
 import logica.DataInfoServicio;
@@ -391,6 +392,7 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
         try {
             Pantallaprin.ICP.modificarServicio();
         } catch (Exception ex) {
+            showMessageDialog(null, ex);
             Logger.getLogger(ActualizarServicio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
