@@ -575,6 +575,7 @@ public class ControladoresTest {
         assertEquals("modificada", result.getImagen()[0]);
         assertEquals("origenmodificado", result.getOrigen().getNombre());
         assertEquals("4", result.getDestino().getNombre());
+        assertEquals("catmodificada", result.getCategorias().get(0).getNombre());
     }
 
     /**
