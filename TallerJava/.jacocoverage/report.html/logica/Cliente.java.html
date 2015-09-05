@@ -52,17 +52,17 @@ public class Cliente extends Usuario{
         
 <span class="fc" id="L53">    }</span>
     public void modificarEstadoReserva(int id, Estado estado){
-<span class="nc" id="L55">        Reserva res = reservas.get(id);</span>
-<span class="nc bnc" id="L56" title="All 2 branches missed.">        if (res.getEstado() == Estado.registrada){</span>
-<span class="nc" id="L57">            res.setEstado(estado);</span>
+<span class="fc" id="L55">        Reserva res = reservas.get(id);</span>
+<span class="pc bpc" id="L56" title="1 of 2 branches missed.">        if (res.getEstado() == Estado.registrada){</span>
+<span class="fc" id="L57">            res.setEstado(estado);</span>
         }
-<span class="nc" id="L59">    }</span>
+<span class="fc" id="L59">    }</span>
     public void reservarPromocion(int clave,Promocion prom,int cantidad,Date fechaIni,Date fechaFin){
-<span class="nc" id="L61">        Reserva res = reservas.get(clave);</span>
-<span class="nc" id="L62">            ItemReserva item = new ItemReserva(cantidad,prom, fechaIni, fechaFin);</span>
-<span class="nc" id="L63">            res.agregarItem(item);</span>
+<span class="fc" id="L61">        Reserva res = reservas.get(clave);</span>
+<span class="fc" id="L62">            ItemReserva item = new ItemReserva(cantidad,prom, fechaIni, fechaFin);</span>
+<span class="fc" id="L63">            res.agregarItem(item);</span>
         
-<span class="nc" id="L65">    }</span>
+<span class="fc" id="L65">    }</span>
     public void cancelarReserva(int id){
 <span class="fc" id="L67">        Reserva res = reservas.get(id);</span>
 <span class="fc" id="L68">        res.darDeBaja();</span>

@@ -181,10 +181,10 @@ import javax.swing.JOptionPane;
 <span class="fc" id="L181">        Iterator&lt;String&gt; itera = ser.iterator();</span>
 <span class="fc" id="L182">        int totalPrecio = 0;</span>
 <span class="fc" id="L183">        Promocion p = new Promocion(nombreProm, descuento, totalPrecio, prov);</span>
-<span class="fc" id="L184">        prov.asociarPromocion(p);</span>
+<span class="fc" id="L184">        prov.asociarPromocion(p);   </span>
 <span class="fc bfc" id="L185" title="All 2 branches covered.">        while (itera.hasNext()) {</span>
             //recorro los servicos a agregar y voy calculando el precio de la promocion sin el descuento
-<span class="fc" id="L187">            Servicio s = prov.getServicio(itera.next()); </span>
+<span class="fc" id="L187">            Servicio s = prov.getServicio(itera.next());          </span>
 <span class="fc" id="L188">            totalPrecio += s.getPrecio();</span>
 <span class="fc" id="L189">            p.agregarServicio(s);</span>
 <span class="fc" id="L190">        }</span>

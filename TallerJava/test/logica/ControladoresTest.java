@@ -1085,4 +1085,51 @@ public class ControladoresTest {
         List<DataCiudad> result = cpr.ciudadesXpais("zambia");
         assertEquals("lusaka", result.get(0).getNombre());
     }
+    /*
+    * Test of actualizar reserva
+    */
+    @Test
+    public void testActualizarReserva(){
+        ControladorCliente instance = new ControladorCliente();
+        ControladorProveedor instancepr = new ControladorProveedor();
+        String nickCliente = "actualizar";
+        String nickProveedor = "actprov";
+        try{
+            instance.altaCliente(nickCliente, "gio", "rondan", nickCliente, new Date(4, 4, 2015), "im1");
+        }catch (Exception ex){
+            System.out.println("throw alta cliente");
+        }
+        try{
+            instancepr.altaProveedor(nickProveedor, "nombre", "apellido", nickProveedor, new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        }catch(Exception ex){
+            System.out.println("throw alta proveedor en modificar servicio");
+        }
+        String nombre = "servPromo";
+        String descripcion = "servicio de promocion";
+        int precio = 10;
+        String origen = "zimbawe";
+        testIngresarNombreCategoria2("transporte2222");
+        try{
+        instancepr.altaCategoria();}
+        catch(Exception ex){
+            System.out.println("throw alta categoria en listar servicios por categoria");
+        }
+        testIngresarCategoriaServicio2("transporte2222");
+        instancepr.altaServicio("hola", descripcion, precio, origen, nickProveedor,"0");
+        Map<String, Integer> serv = new HashMap();
+        serv.put("hola",2 );
+        Map<String, DataExpira> es = new HashMap();
+        Map<String, DataExpira> es2 = new HashMap();
+        es.put("hola", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
+        es.put("hola", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
+        instance.realizarReserva(nickProveedor, nickCliente, new HashMap(), serv, es2, es, new Date(1,2,2013));
+        ManejadorCliente mcl = ManejadorCliente.getInstance();
+        int id = mcl.testGetId();
+        instance.actualizarEstadoReserva(id, nickCliente, Estado.pagada);
+        DataInfoReserva result = instance.verInfoReserva(nickCliente, id);
+        assertEquals(Estado.pagada, result.getEstado());
+        assertEquals(id, result.getId());
+        assertEquals(new Date(1,2,2013),result.getFechaCreacion());
+        //assertEquals(new Date(2,3,2013),result.getFechaFin());
+    }
 }
