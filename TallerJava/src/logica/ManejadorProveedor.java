@@ -71,8 +71,8 @@ public class ManejadorProveedor {
         Proveedor prov = proveedores.get(nickProveedor);
         Promocion prom = prov.getPromocion(nomPromocion);
         if(prom != null){            
-                throw new Exception("El proveedor seleccionado ya tiene una promoción con ese nombre");            
+            throw new Exception("El proveedor seleccionado ya tiene una promoción con ese nombre");            
         }
     }    
-  
+
 }

@@ -49,6 +49,8 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
         precioTotal.setText("0");
         DefaultTreeModel modeloArbol = new DefaultTreeModel(raiz);
         jTree1.setModel(modeloArbol);
+        jTree1.setSelectionRow(0); //Selecciono la raiz
+        promocionNombre.requestFocus();        
     }
     
     public void limpiarCampos(){
@@ -257,11 +259,12 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
             promocionDescuento.requestFocus();
             return;
         }
+
         String nombre = letraCapital(promocionNombre.getText());
         int descuento = Integer.parseInt(promocionDescuento.getValue().toString());        
         for (TreePath x : seleccionados){
             String path = x.toString();
-            String servicio = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]")); 
+            String servicio = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]"));            
             proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
             ser.add(servicio);
         }
