@@ -62,19 +62,32 @@ public class FlujoTest {
         String imProveedor = "improveedor";
         String nomProveedor = "nomprov";
         String apProveedor = "approv";
+        String nomServicio = "serv1";
+        String descServicio = "el mejor servicio";
+        int precioServicio = 100;
+        String origenServicio = "bsas";
+        String destinoServicio = "newyork";
+        String paisServicio = "uruguay";
+        String im1Servicio = "im1ser";
+        String im2Servicio = "im2ser";
+        String im3Servicio = "im3ser";
+        String cat2Hoja = "otracat"; 
         String nomEmpresa = "nomempprov";
         String urlEmpresa = "url";
         String catPadre = "viajes";
         String catHoja = "tren";
+        List<DataCliente> clientes = new ArrayList<>();
+        List<DataProveedor> proveedores= new ArrayList<>();
         List<DataEmpresa> empresas = new ArrayList<>();
         List<DataCategoria> categorias = new ArrayList<>();
-        String nomServicio = "";
+        
         try{
             ccl.altaCliente(nickCliente, nomCliente, apCliente, emailCliente, fechaNacCliente, imCliente);
         }catch(Exception ex){
             //algo
         }
         try{
+            empresas = cpr.listarEmpresas();
             cpr.altaProveedor(nickProveedor, nomProveedor, apProveedor, emailProveedor, fechaNacProveedor, imProveedor, nomEmpresa, urlEmpresa);
         }catch(Exception ex){
             //algo
@@ -85,11 +98,24 @@ public class FlujoTest {
             cpr.seleccionarPadre(catPadre);
             cpr.ingresarNombreCategoria(catHoja);
             cpr.altaCategoria();
-            cpr.ingresarNombreCategoria("otra");
+            cpr.ingresarNombreCategoria(cat2Hoja);
             cpr.altaCategoria();
         }catch(Exception ex){
             
         }
+        try{
+            cpr.ingresarCategoriaServicio(catHoja);
+            cpr.ingresarCategoriaServicio(cat2Hoja);
+        }catch(Exception ex){}
+        cpr.ingresarImagenServicio(im1Servicio);
+        cpr.ingresarImagenServicio(im2Servicio);
+        cpr.ingresarImagenServicio(im3Servicio);
+        proveedores = cpr.listarProveedores();
+        cpr.altaServicio(nomServicio, descServicio, precioServicio, origenServicio, nickProveedor, paisServicio);
+        
+        
+        clientes = ccl.listarClientes();
+        
         
     }
     /**

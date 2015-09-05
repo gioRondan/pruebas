@@ -47,7 +47,9 @@ public class ControladorProveedor implements IControladorProveedor{
     
     @Override
     public void ingresarImagenBorrarServicio(String imagen){
-        ControladorProveedor.imagenBorrar.add(imagen);
+        if(!imagen.isEmpty()){
+            ControladorProveedor.imagenBorrar.add(imagen);
+        }
     }
     @Override
     public void ingresarCategoriaBorrarServicio(String categoria){
