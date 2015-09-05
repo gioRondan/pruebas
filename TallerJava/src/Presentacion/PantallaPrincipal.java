@@ -57,7 +57,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         ICP = fabrica.getIControladorProveedor();
         ICC = fabrica.getIControladorCliente();
    
-       PantallaPrincipal.RutaImagenes= JOptionPane.showInputDialog("Selecciones una ruta para las imagenes");
+       PantallaPrincipal.RutaImagenes= JOptionPane.showInputDialog("Seleccione una ruta para las imagenes");
             if (PantallaPrincipal.RutaImagenes==null){
                 
                 PantallaPrincipal.RutaImagenes = "C:\\Imagenes\\";
