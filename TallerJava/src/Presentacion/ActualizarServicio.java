@@ -332,7 +332,9 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
 
     private void Combo_ProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combo_ProveedoresActionPerformed
         modeloServicios.removeAllElements();
-        List<DataServicio> servi = Pantallaprin.ICP.listarServiciosXProveedor(Combo_Proveedores.getSelectedItem().toString());
+        String proveedor = Combo_Proveedores.getSelectedItem().toString();
+        List<DataServicio> servi = Pantallaprin.ICP.listarServiciosXProveedor(proveedor);
+        Pantallaprin.ICP.seleccionarProveedor(proveedor);
         for (DataServicio it: servi){
             modeloServicios.addElement(it);
         }
@@ -370,6 +372,7 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
         }
         List_Categorias.setModel(modeloCategorias);
         List_CategoriasNuevas.setModel(modeloCategoriasnuevas);
+        Pantallaprin.ICP.seleccionarServicio(servicio);
     }//GEN-LAST:event_List_ServiciosMouseClicked
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
