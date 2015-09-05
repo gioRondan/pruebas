@@ -41,7 +41,7 @@ public class Servicio {
         this.nombre = nom;
     }
     public void setDesc(String des){
-        this.descripcion= des;
+        this.descripcion = des;
     }
     public void agregarImagen(String img)throws Exception{
         if (contImagen < 3){
