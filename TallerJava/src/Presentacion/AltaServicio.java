@@ -181,7 +181,6 @@ public class AltaServicio extends javax.swing.JInternalFrame {
 
         jLabel25.setText("Proveedor:");
 
-        proveedores.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--------" }));
         proveedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 proveedoresActionPerformed(evt);
@@ -264,7 +263,6 @@ public class AltaServicio extends javax.swing.JInternalFrame {
 
         jLabel33.setText("Pais:");
 
-        paisesorigen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--------" }));
         paisesorigen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 paisesorigenMouseClicked(evt);
@@ -276,16 +274,16 @@ public class AltaServicio extends javax.swing.JInternalFrame {
             }
         });
 
-        paiesesdestino.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--------" }));
+        paiesesdestino.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "" }));
+        paiesesdestino.setToolTipText("");
         paiesesdestino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 paiesesdestinoActionPerformed(evt);
             }
         });
 
-        ciundadDestino.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--------" }));
-
-        ciudadaOrigen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--------" }));
+        ciundadDestino.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "" }));
+        ciundadDestino.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -314,8 +312,8 @@ public class AltaServicio extends javax.swing.JInternalFrame {
                         .addGap(46, 46, 46))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(ciudadaOrigen, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(paisesorigen, 0, 176, Short.MAX_VALUE))
+                            .addComponent(ciudadaOrigen, 0, 176, Short.MAX_VALUE)
+                            .addComponent(paisesorigen, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(72, 72, 72)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel30)
@@ -545,7 +543,9 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         }        
         
         try{
-            Pantallaprin.ICP.ingresarDestinoServicio(ciudadDestino);
+            
+                Pantallaprin.ICP.ingresarDestinoServicio(ciudadDestino);
+            
         }
         catch(Exception ex){
             JOptionPane.showMessageDialog(null, ex.getMessage());            
@@ -659,6 +659,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
     private void paiesesdestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paiesesdestinoActionPerformed
         // TODO add your handling code here:
          ciundadDestino.removeAllItems();
+          ciundadDestino.addItem("");
          List<DataCiudad> dat = Pantallaprin.ICP.ciudadesXpais(paiesesdestino.getSelectedItem().toString());
         //JOptionPane.showMessageDialog(null,paisesorigen.getSelectedItem().toString());
         for (DataCiudad d : dat ){
