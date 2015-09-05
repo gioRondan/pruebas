@@ -342,8 +342,8 @@ public class ControladorProveedor implements IControladorProveedor{
         }
     }
 
-        
-    void seleccionarProveedor(String proveedor) {
+    
+    public void seleccionarProveedor(String proveedor) {
         ControladorProveedor.proveedor = proveedor;
     }
     public Set<String> infoPaises(){

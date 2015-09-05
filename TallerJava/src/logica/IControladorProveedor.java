@@ -16,6 +16,8 @@ import javax.swing.JTextField;
  * @author Juan
  */
 public interface IControladorProveedor {
+    public void seleccionarProveedor(String proveedor);
+    public void seleccionarServicio(String nomServicio);
     public void ingresarImagenBorrarServicio(String imagen);
     public void ingresarCategoriaBorrarServicio(String categoria);
     public void ingresarImagen(String imagen);

@@ -13,8 +13,10 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showInputDialog;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 import logica.DataCategoria;
+import logica.DataCiudad;
 import logica.DataInfoServicio;
 import logica.DataProveedor;
 import logica.DataServicio;
@@ -43,6 +45,15 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
             String n = dts.getNickname();
             Combo_Proveedores.addItem(n);
         }
+        List<DataCiudad> ciudades = Pantallaprin.ICP.listarCiudades();
+        Iterator<DataCiudad> iter = ciudades.iterator();
+        while (iter.hasNext()) {
+            DataCiudad dts = iter.next();
+            String n = dts.getNombre();
+            Combo_Destino.addItem(n);
+            Combo_Origen.addItem(n);
+        }
+        
     }
 
     /**
@@ -65,10 +76,8 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         imagen1 = new javax.swing.JTextField();
         imagen3 = new javax.swing.JTextField();
-        destino = new javax.swing.JTextField();
         imagen2 = new javax.swing.JTextField();
         precio = new javax.swing.JTextField();
-        origen = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -87,6 +96,8 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         List_CategoriasNuevas = new javax.swing.JList();
         jLabel8 = new javax.swing.JLabel();
+        Combo_Origen = new javax.swing.JComboBox();
+        Combo_Destino = new javax.swing.JComboBox();
 
         setClosable(true);
         setTitle("Modificar servicio");
@@ -184,6 +195,18 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
 
         jLabel8.setText("Categorías actuales:");
 
+        Combo_Origen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Combo_OrigenActionPerformed(evt);
+            }
+        });
+
+        Combo_Destino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Combo_DestinoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -207,9 +230,9 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel5))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(destino, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
                                     .addComponent(precio, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
-                                    .addComponent(origen, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)))
+                                    .addComponent(Combo_Origen, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Combo_Destino, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(23, 23, 23)
                                 .addComponent(jLabel6)
@@ -277,11 +300,11 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel4)
-                                    .addComponent(origen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Combo_Origen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel5)
-                                    .addComponent(destino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Combo_Destino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -306,7 +329,7 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel2)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 25, Short.MAX_VALUE)
+                                .addGap(0, 29, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8)
                                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -331,7 +354,9 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
 
     private void Combo_ProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combo_ProveedoresActionPerformed
         modeloServicios.removeAllElements();
-        List<DataServicio> servi = Pantallaprin.ICP.listarServiciosXProveedor(Combo_Proveedores.getSelectedItem().toString());
+        String proveedor = Combo_Proveedores.getSelectedItem().toString();
+        List<DataServicio> servi = Pantallaprin.ICP.listarServiciosXProveedor(proveedor);
+        Pantallaprin.ICP.seleccionarProveedor(proveedor);
         for (DataServicio it: servi){
             modeloServicios.addElement(it);
         }
@@ -349,14 +374,12 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
 //        JOptionPane.showMessageDialog(null, "y hola  "+servicio);
         DataInfoServicio info = Pantallaprin.ICP.verInfoServicio(servicio,Combo_Proveedores.getSelectedItem().toString());
         precio.setText(Float.toString(info.getPrecio()));
-        origen.setText(info.getOrigen().getNombre());
+        Combo_Origen.setSelectedItem(info.getOrigen().getNombre());
         if (info.getDestino() == null){
-            jLabel5.setVisible(false);
-             destino.setVisible(false);
+            Combo_Destino.setVisible(false);
         }else{
-            jLabel5.setVisible(true);
-            destino.setVisible(true);
-            destino.setText(info.getDestino().getNombre());
+            Combo_Destino.setVisible(true);
+            Combo_Destino.setSelectedItem(info.getDestino().getNombre());
         }
         imagen1.setText(info.getImagen()[0]);
         imagen2.setText(info.getImagen()[1]);
@@ -369,6 +392,7 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
         }
         List_Categorias.setModel(modeloCategorias);
         List_CategoriasNuevas.setModel(modeloCategoriasnuevas);
+        Pantallaprin.ICP.seleccionarServicio(servicio);
     }//GEN-LAST:event_List_ServiciosMouseClicked
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -385,12 +409,14 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Pantallaprin.ICP.ingresarDescripcionServicio(Descripcion.getText());
-        Pantallaprin.ICP.ingresarDestinoServicio(destino.getText());
-        Pantallaprin.ICP.ingresarOrigenServicio(origen.getText());
+        showMessageDialog(null, Descripcion.getText());
+        Pantallaprin.ICP.ingresarDestinoServicio(Combo_Destino.getSelectedItem().toString());
+        Pantallaprin.ICP.ingresarOrigenServicio(Combo_Origen.getSelectedItem().toString());
         Pantallaprin.ICP.ingresarPrecioServicio(Integer.parseInt(precio.getText()));
         try {
             Pantallaprin.ICP.modificarServicio();
         } catch (Exception ex) {
+            showMessageDialog(null, ex);
             Logger.getLogger(ActualizarServicio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -407,14 +433,23 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
         Pantallaprin.ICP.ingresarImagenBorrarServicio(imagen3.getText());
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void Combo_OrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combo_OrigenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Combo_OrigenActionPerformed
+
+    private void Combo_DestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combo_DestinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Combo_DestinoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox Combo_Destino;
+    private javax.swing.JComboBox Combo_Origen;
     private javax.swing.JComboBox Combo_Proveedores;
     private javax.swing.JTextArea Descripcion;
     public static javax.swing.JList List_Categorias;
     public static javax.swing.JList List_CategoriasNuevas;
     private javax.swing.JList List_Servicios;
-    private javax.swing.JTextField destino;
     public static javax.swing.JTextField imagen1;
     public static javax.swing.JTextField imagen2;
     public static javax.swing.JTextField imagen3;
@@ -440,7 +475,6 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextField origen;
     private javax.swing.JTextField precio;
     // End of variables declaration//GEN-END:variables
 }
