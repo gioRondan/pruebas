@@ -5,6 +5,7 @@
  */
 package Presentacion;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -44,12 +45,6 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
                 ser.setUserObject(dtser.getNombre());
                 prv.add(ser);
             }  
-//            DefaultMutableTreeNode ser = new DefaultMutableTreeNode();
-//                ser.setUserObject("servicio1");
-//                prv.add(ser);
-//                 ser = new DefaultMutableTreeNode();
-//                ser.setUserObject("servicio2");
-//                prv.add(ser);
         }
         precioTotal.setText("0");
         DefaultTreeModel modeloArbol = new DefaultTreeModel(raiz);
@@ -225,7 +220,7 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Set<String> ser = new HashSet();
+        List<String> ser = new ArrayList<>();
         TreePath[] seleccionados = jTree1.getSelectionPaths();
         String proveedor="";
         for (TreePath x : seleccionados){
@@ -234,7 +229,7 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
             proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
             ser.add(servicio);
         }
-        //pp.ICP.altaPromocion(proveedor, ser, promocionNombre.getText(), Integer.parseInt(promocionDescuento.getValue().toString()));
+        pp.ICP.altaPromocion(proveedor, ser, promocionNombre.getText(), Integer.parseInt(promocionDescuento.getValue().toString()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
