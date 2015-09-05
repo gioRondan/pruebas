@@ -383,7 +383,7 @@ public class ControladoresTest {
         System.out.println("listarServiciosXCategoria");
         ControladorProveedor instance = new ControladorProveedor();
         try{
-        instance.altaProveedor("nickname11", "nombre", "apellido", "email", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        instance.altaProveedor("nicknamesercat", "nombre", "apellido", "emailsercat", new Date(2,2,2000), "imagen", "nomemp","linkemp");
         }catch(Exception ex){
             System.out.println("throw alta proveedor en listar servicios por categoria");
         }
@@ -391,7 +391,7 @@ public class ControladoresTest {
         String descripcion = "cardona-montevideo en 5 minutos";
         int precio = 10;
         String origen = "cardona";
-        String proveedor = "nickname11";
+        String proveedor = "nicknamesercat";
         testIngresarNombreCategoria2("transporte2");
         try{
         instance.altaCategoria();}
@@ -400,14 +400,14 @@ public class ControladoresTest {
         }
         testIngresarCategoriaServicio2("transporte2");
         for(int i = 1; i<=10; i++){
-            int n = i;
+            int n = i+100;
             testIngresarCategoriaServicio2("transporte2");
             instance.altaServicio(Integer.toString(n), descripcion, precio, origen, proveedor,"0");
         }
         List<DataServicio> result = instance.listarServiciosXCategoria("transporte2");
         System.out.println(result.size());
         for(int j = 0; j <10;j++){
-            assertEquals(Integer.toString(j+1), result.get(j).getNombre());
+            assertEquals(Integer.toString(j+100), result.get(j).getNombre());
         }
     }
 
@@ -543,6 +543,13 @@ public class ControladoresTest {
         testIngresarNombreCategoria2("transporte2222");
         try{
             instance.altaCiudad("4","prueba");
+            instance.altaCategoria();}
+        catch(Exception ex){
+            System.out.println("throw alta categoria en listar servicios por categoria");
+        }
+        
+        testIngresarNombreCategoria2("catmodificada");
+        try{
             instance.altaCategoria();}
         catch(Exception ex){
             System.out.println("throw alta categoria en listar servicios por categoria");

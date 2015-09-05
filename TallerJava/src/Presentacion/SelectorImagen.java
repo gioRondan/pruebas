@@ -93,7 +93,19 @@ public class SelectorImagen extends javax.swing.JInternalFrame {
             if (this.padre.equals("AltaServicio3")){
               AltaServicio.servicioImagen3.setText(archivoSeleccionado.getAbsolutePath());
             }
-             if (this.padre.equals(""/*nombre clase*/)){
+            if (this.padre.equals("ActualizarServicio1")){
+                // Accion para la clase.
+               ActualizarServicio.imagen1.setText(archivoSeleccionado.getAbsolutePath());
+            }
+            if (this.padre.equals("ActualizarServicio2")){
+                // Accion para la clase.
+                ActualizarServicio.imagen2.setText(archivoSeleccionado.getAbsolutePath());
+            }
+            if (this.padre.equals("ActualizarServicio3")){
+                // Accion para la clase.
+                ActualizarServicio.imagen3.setText(archivoSeleccionado.getAbsolutePath());
+            }
+            if (this.padre.equals(""/*nombre clase*/)){
                 // Accion para la clase.
             }
             this.dispose();

@@ -16,40 +16,44 @@ public class DataItemReserva {
     private int cantidad; //cantidad de promociones o servicios reservados
     private Date fechaInicio;
     private Date fechaFin;
+    private boolean esServico;
     private String nombre; //nombre del servicio o promocion reservada
     
     //Constructores
-<span class="nc" id="L22">    public DataItemReserva(){</span>
-<span class="nc" id="L23">        this.cantidad      = 0; </span>
-<span class="nc" id="L24">        this.fechaInicio   = new Date();</span>
-<span class="nc" id="L25">        this.fechaFin      = new Date();</span>
-<span class="nc" id="L26">        this.nombre        = nombre;     </span>
-<span class="nc" id="L27">    }</span>
+<span class="nc" id="L23">    public DataItemReserva(){</span>
+<span class="nc" id="L24">        this.cantidad      = 0; </span>
+<span class="nc" id="L25">        this.fechaInicio   = new Date();</span>
+<span class="nc" id="L26">        this.fechaFin      = new Date();</span>
+<span class="nc" id="L27">        this.nombre        = nombre;     </span>
+<span class="nc" id="L28">    }</span>
     
-<span class="nc" id="L29">    public DataItemReserva(int cantidad, Date fechaInicio, Date fechaFin, String nombre){</span>
-<span class="nc" id="L30">        this.cantidad      = cantidad;</span>
-<span class="nc" id="L31">        this.fechaInicio   = fechaInicio;</span>
-<span class="nc" id="L32">        this.fechaFin      = fechaFin;</span>
-<span class="nc" id="L33">        this.nombre        = nombre;</span>
-<span class="nc" id="L34">    }    </span>
+<span class="nc" id="L30">    public DataItemReserva(int cantidad, Date fechaInicio, Date fechaFin, String nombre,boolean es){</span>
+<span class="nc" id="L31">        this.cantidad      = cantidad;</span>
+<span class="nc" id="L32">        this.fechaInicio   = fechaInicio;</span>
+<span class="nc" id="L33">        this.fechaFin      = fechaFin;</span>
+<span class="nc" id="L34">        this.nombre        = nombre;</span>
+<span class="nc" id="L35">        esServico = es;</span>
+<span class="nc" id="L36">    }    </span>
     
     //Getters
     public int getCantidad(){
-<span class="nc" id="L38">        return cantidad;</span>
+<span class="nc" id="L40">        return cantidad;</span>
     }
         
     public Date getFechaInicio(){
-<span class="nc" id="L42">        return fechaInicio;</span>
+<span class="nc" id="L44">        return fechaInicio;</span>
     }
     
     public Date getFechaFin(){
-<span class="nc" id="L46">        return fechaFin;</span>
+<span class="nc" id="L48">        return fechaFin;</span>
     }
             
     public String getNombre(){
-<span class="nc" id="L50">        return nombre;</span>
+<span class="nc" id="L52">        return nombre;</span>
     }
     
-    
+    public boolean getesServico(){
+<span class="nc" id="L56">        return esServico;</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
