@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ControladorProveedor.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TallerJava&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">logica</a> &gt; <span class="el_source">ControladorProveedor.java</span></div><h1>ControladorProveedor.java</h1><pre class="source lang-java linenums">package logica;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ControladorProveedor.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TallerJava&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">logica</a> &gt; <span class="el_source">ControladorProveedor.java</span></div><h1>ControladorProveedor.java</h1><pre class="source lang-java linenums">package logica;
 
 import java.util.*;
 import java.util.logging.Level;
@@ -47,12 +47,12 @@ import javax.swing.JOptionPane;
     
     @Override
     public void ingresarImagenBorrarServicio(String imagen){
-<span class="fc" id="L50">        ControladorProveedor.imagenBorrar.add(imagen);</span>
-<span class="fc" id="L51">    }</span>
+<span class="nc" id="L50">        ControladorProveedor.imagenBorrar.add(imagen);</span>
+<span class="nc" id="L51">    }</span>
     @Override
     public void ingresarCategoriaBorrarServicio(String categoria){
-<span class="fc" id="L54">        ControladorProveedor.categoriaBorrar.add(categoria);</span>
-<span class="fc" id="L55">    }</span>
+<span class="nc" id="L54">        ControladorProveedor.categoriaBorrar.add(categoria);</span>
+<span class="nc" id="L55">    }</span>
     @Override
     public void ingresarImagenServicio(String imagen){
 <span class="fc" id="L58">        ControladorProveedor.imagenServicio[ControladorProveedor.tope]=imagen;</span>
@@ -71,11 +71,11 @@ import javax.swing.JOptionPane;
     public void ingresarCategoriaServicio( String categoria) throws Exception{
 <span class="fc" id="L72">        ManejadorCategoria mCat = ManejadorCategoria.getInstance();</span>
 <span class="fc" id="L73">        Categoria cat = mCat.getCategoria(categoria);</span>
-<span class="pc bpc" id="L74" title="2 of 4 branches missed.">        if(cat !=null &amp;&amp; cat.esHoja()){</span>
+<span class="pc bpc" id="L74" title="1 of 4 branches missed.">        if(cat !=null &amp;&amp; cat.esHoja()){</span>
 <span class="fc" id="L75">            ControladorProveedor.categoriasServicio.add(categoria);</span>
         }
         else{
-<span class="nc" id="L78">            throw new Exception(&quot;Debe seleccionar una subcategoría.&quot;);</span>
+<span class="fc" id="L78">            throw new Exception(&quot;Debe seleccionar una subcategoría.&quot;);</span>
         }
 <span class="fc" id="L80">    }</span>
     public void vaciarCategoriasServicio(){
@@ -84,8 +84,8 @@ import javax.swing.JOptionPane;
 <span class="nc" id="L84">    }</span>
     @Override
     public List&lt;DataCategoria&gt; listarCategorias(){
-<span class="nc" id="L87">        ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
-<span class="nc" id="L88">        return mCa.getDataCategorias();</span>
+<span class="fc" id="L87">        ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
+<span class="fc" id="L88">        return mCa.getDataCategorias();</span>
     }
     @Override
     public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor, String pais){
@@ -140,10 +140,10 @@ import javax.swing.JOptionPane;
 <span class="fc" id="L140">    }</span>
     @Override
     public void seleccionarPadre(String nombre){
-<span class="nc bnc" id="L143" title="All 2 branches missed.">        if (!nombre.equals(&quot;Categorías&quot;)){</span>
-<span class="nc" id="L144">            ControladorProveedor.nomPadre = nombre;</span>
+<span class="pc bpc" id="L143" title="1 of 2 branches missed.">        if (!nombre.equals(&quot;Categorías&quot;)){</span>
+<span class="fc" id="L144">            ControladorProveedor.nomPadre = nombre;</span>
         }
-<span class="nc" id="L146">    }    </span>
+<span class="fc" id="L146">    }    </span>
     @Override
     public void altaCategoria() throws Exception{
 <span class="fc" id="L149">        ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
@@ -151,12 +151,12 @@ import javax.swing.JOptionPane;
 <span class="fc" id="L151">            throw new Exception(&quot;Ya existe una categoría con ese nombre.&quot;);</span>
         }
         Categoria cat;
-<span class="pc bpc" id="L154" title="1 of 2 branches missed.">        if(nomPadre.equals(&quot;&quot;)){</span>
+<span class="fc bfc" id="L154" title="All 2 branches covered.">        if(nomPadre.equals(&quot;&quot;)){</span>
 <span class="fc" id="L155">            cat = new Categoria(nomCategoria, false);</span>
         }else{
-<span class="nc" id="L157">            cat = new Categoria(nomCategoria, true);</span>
-<span class="nc" id="L158">            Categoria pa = mCa.getCategoria(nomPadre);</span>
-<span class="nc" id="L159">            pa.setHijo(cat);</span>
+<span class="fc" id="L157">            cat = new Categoria(nomCategoria, true);</span>
+<span class="fc" id="L158">            Categoria pa = mCa.getCategoria(nomPadre);</span>
+<span class="fc" id="L159">            pa.setHijo(cat);</span>
         }
 <span class="fc" id="L161">        mCa.addCategoria(cat);</span>
 <span class="fc" id="L162">        liberarMemoria();</span>
@@ -229,21 +229,21 @@ import javax.swing.JOptionPane;
 <span class="nc" id="L229">                Logger.getLogger(ControladorProveedor.class.getName()).log(Level.SEVERE, null, ex);</span>
 <span class="fc" id="L230">            }           </span>
         }
-<span class="fc bfc" id="L232" title="All 2 branches covered.">        for(String cats : categoriasServicio){</span>
-<span class="fc" id="L233">            ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
-<span class="fc" id="L234">            Categoria cat = mCa.getCategoria(cats);</span>
-<span class="fc" id="L235">            cat.setServicio(ser);</span>
-<span class="fc" id="L236">            ser.agregarCategoria(cat);</span>
-<span class="fc" id="L237">        }</span>
-<span class="fc bfc" id="L238" title="All 2 branches covered.">        for(String it1 : categoriaBorrar){</span>
-<span class="fc" id="L239">            ser.eliminarCategoria(it1);</span>
-<span class="fc" id="L240">            ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
-<span class="fc" id="L241">            Categoria cat = mCa.getCategoria(it1);</span>
-<span class="fc" id="L242">            cat.eliminarServicio(ser);</span>
-<span class="fc" id="L243">        }</span>
-<span class="fc bfc" id="L244" title="All 2 branches covered.">        for(String it2 : imagenBorrar){</span>
-<span class="fc" id="L245">            ser.eliminarImagen(it2);</span>
-<span class="fc" id="L246">        }</span>
+<span class="pc bpc" id="L232" title="1 of 2 branches missed.">        for(String cats : categoriasServicio){</span>
+<span class="nc" id="L233">            ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
+<span class="nc" id="L234">            Categoria cat = mCa.getCategoria(cats);</span>
+<span class="nc" id="L235">            cat.setServicio(ser);</span>
+<span class="nc" id="L236">            ser.agregarCategoria(cat);</span>
+<span class="nc" id="L237">        }</span>
+<span class="pc bpc" id="L238" title="1 of 2 branches missed.">        for(String it1 : categoriaBorrar){</span>
+<span class="nc" id="L239">            ser.eliminarCategoria(it1);</span>
+<span class="nc" id="L240">            ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
+<span class="nc" id="L241">            Categoria cat = mCa.getCategoria(it1);</span>
+<span class="nc" id="L242">            cat.eliminarServicio(ser);</span>
+<span class="nc" id="L243">        }</span>
+<span class="pc bpc" id="L244" title="1 of 2 branches missed.">        for(String it2 : imagenBorrar){</span>
+<span class="nc" id="L245">            ser.eliminarImagen(it2);</span>
+<span class="nc" id="L246">        }</span>
 <span class="fc" id="L247">        liberarMemoria();</span>
 <span class="fc" id="L248">    }</span>
     @Override
@@ -316,23 +316,44 @@ import javax.swing.JOptionPane;
         
 <span class="fc" id="L317">        return promo.getDataInfoPromocion();</span>
     }
-
+    public void altaPais(String nomPais) throws Exception {
+<span class="nc" id="L320">        ManejadorPais mPa = ManejadorPais.getInstance();</span>
+<span class="nc bnc" id="L321" title="All 2 branches missed.">         if(mPa.getPais(nomPais) == null){</span>
+<span class="nc" id="L322">                    mPa.addPais(new Pais(nomPais));</span>
+         }else{
+<span class="nc" id="L324">             throw new Exception(&quot;Ya Exuiste ese&quot;);</span>
+         }
+             
+<span class="nc" id="L327">    }</span>
     public void altaCiudad(String nomCiudad, String nomPais) {
-<span class="fc" id="L321">        ManejadorCiudad mCi = ManejadorCiudad.getInstance();</span>
-<span class="fc" id="L322">        ManejadorPais mPa = ManejadorPais.getInstance();</span>
-<span class="pc bpc" id="L323" title="1 of 2 branches missed.">        if(!nomCiudad.isEmpty()){</span>
-<span class="fc bfc" id="L324" title="All 2 branches covered.">            if(mCi.getCiudad(nomCiudad) == null){</span>
-<span class="fc bfc" id="L325" title="All 2 branches covered.">                if(mPa.getPais(nomPais) == null){</span>
-<span class="fc" id="L326">                    mPa.addPais(new Pais(nomPais));</span>
+<span class="fc" id="L329">        ManejadorCiudad mCi = ManejadorCiudad.getInstance();</span>
+<span class="fc" id="L330">        ManejadorPais mPa = ManejadorPais.getInstance();</span>
+<span class="pc bpc" id="L331" title="1 of 2 branches missed.">        if(!nomCiudad.isEmpty()){</span>
+<span class="fc bfc" id="L332" title="All 2 branches covered.">            if(mCi.getCiudad(nomCiudad) == null){</span>
+<span class="fc bfc" id="L333" title="All 2 branches covered.">                if(mPa.getPais(nomPais) == null){</span>
+<span class="fc" id="L334">                    mPa.addPais(new Pais(nomPais));</span>
                 }
-<span class="fc" id="L328">                mCi.addCiudad(new Ciudad(nomCiudad, mPa.getPais(nomPais)));</span>
+<span class="fc" id="L336">                mCi.addCiudad(new Ciudad(nomCiudad, mPa.getPais(nomPais)));</span>
+                
             }
         }
-<span class="fc" id="L331">    }</span>
+<span class="fc" id="L340">    }</span>
 
+        
     void seleccionarProveedor(String proveedor) {
-<span class="fc" id="L334">        ControladorProveedor.proveedor = proveedor;</span>
-<span class="fc" id="L335">    }</span>
+<span class="fc" id="L344">        ControladorProveedor.proveedor = proveedor;</span>
+<span class="fc" id="L345">    }</span>
+    public Set&lt;String&gt; infoPaises(){
+<span class="nc" id="L347">       ManejadorPais mPa = ManejadorPais.getInstance();</span>
+<span class="nc" id="L348">       return mPa.getNombresPaises();</span>
+    }
+     public List&lt;DataCiudad&gt; ciudadesXpais( String pa){
+<span class="nc" id="L351">       ManejadorCiudad mCi = ManejadorCiudad.getInstance();</span>
+<span class="nc" id="L352">        ManejadorPais mPa = ManejadorPais.getInstance();</span>
+<span class="nc" id="L353">        Pais p = mPa.getPais(pa);</span>
+<span class="nc" id="L354">       return mCi.getDataCiudadesXpais(p);</span>
+    }
+    
 
 }
 

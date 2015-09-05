@@ -232,7 +232,6 @@ public class ControladoresTest {
     public void recorrerCategorias(List<DataCategoria> categorias, int i, int j){
         DataCategoria cat = categorias.get(i);
         assertEquals(Integer.toString(j), cat.getNombre());
-        System.out.println(j);
         i++;
         j++;
         if((!cat.getHijos().isEmpty())){
