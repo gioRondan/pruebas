@@ -332,82 +332,86 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
 
     private void Combo_ProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combo_ProveedoresActionPerformed
 <span class="nc" id="L334">        modeloServicios.removeAllElements();</span>
-<span class="nc" id="L335">        List&lt;DataServicio&gt; servi = Pantallaprin.ICP.listarServiciosXProveedor(Combo_Proveedores.getSelectedItem().toString());</span>
-<span class="nc bnc" id="L336" title="All 2 branches missed.">        for (DataServicio it: servi){</span>
-<span class="nc" id="L337">            modeloServicios.addElement(it);</span>
-<span class="nc" id="L338">        }</span>
-<span class="nc" id="L339">        List_Servicios.setModel(modeloServicios);</span>
-<span class="nc" id="L340">    }//GEN-LAST:event_Combo_ProveedoresActionPerformed</span>
+<span class="nc" id="L335">        String proveedor = Combo_Proveedores.getSelectedItem().toString();</span>
+<span class="nc" id="L336">        List&lt;DataServicio&gt; servi = Pantallaprin.ICP.listarServiciosXProveedor(proveedor);</span>
+<span class="nc" id="L337">        Pantallaprin.ICP.seleccionarProveedor(proveedor);</span>
+<span class="nc bnc" id="L338" title="All 2 branches missed.">        for (DataServicio it: servi){</span>
+<span class="nc" id="L339">            modeloServicios.addElement(it);</span>
+<span class="nc" id="L340">        }</span>
+<span class="nc" id="L341">        List_Servicios.setModel(modeloServicios);</span>
+<span class="nc" id="L342">    }//GEN-LAST:event_Combo_ProveedoresActionPerformed</span>
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-<span class="nc" id="L343">        Pantallaprin.abrirAgregarCategoria();</span>
-<span class="nc" id="L344">    }//GEN-LAST:event_jButton10ActionPerformed</span>
+<span class="nc" id="L345">        Pantallaprin.abrirAgregarCategoria();</span>
+<span class="nc" id="L346">    }//GEN-LAST:event_jButton10ActionPerformed</span>
 
     private void List_ServiciosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_List_ServiciosMouseClicked
 //        JOptionPane.showMessageDialog(null, &quot;HOla &quot;+ Combo_Proveedores.getSelectedItem().toString() );
-<span class="nc" id="L348">        String servicio = List_Servicios.getSelectedValue().toString();</span>
-<span class="nc" id="L349">        servicio = servicio.substring(0,servicio.lastIndexOf(&quot;-&quot;)-1);</span>
+<span class="nc" id="L350">        String servicio = List_Servicios.getSelectedValue().toString();</span>
+<span class="nc" id="L351">        servicio = servicio.substring(0,servicio.lastIndexOf(&quot;-&quot;)-1);</span>
 //        JOptionPane.showMessageDialog(null, &quot;y hola  &quot;+servicio);
-<span class="nc" id="L351">        DataInfoServicio info = Pantallaprin.ICP.verInfoServicio(servicio,Combo_Proveedores.getSelectedItem().toString());</span>
-<span class="nc" id="L352">        precio.setText(Float.toString(info.getPrecio()));</span>
-<span class="nc" id="L353">        origen.setText(info.getOrigen().getNombre());</span>
-<span class="nc bnc" id="L354" title="All 2 branches missed.">        if (info.getDestino() == null){</span>
-<span class="nc" id="L355">            jLabel5.setVisible(false);</span>
-<span class="nc" id="L356">             destino.setVisible(false);</span>
+<span class="nc" id="L353">        DataInfoServicio info = Pantallaprin.ICP.verInfoServicio(servicio,Combo_Proveedores.getSelectedItem().toString());</span>
+<span class="nc" id="L354">        precio.setText(Float.toString(info.getPrecio()));</span>
+<span class="nc" id="L355">        origen.setText(info.getOrigen().getNombre());</span>
+<span class="nc bnc" id="L356" title="All 2 branches missed.">        if (info.getDestino() == null){</span>
+<span class="nc" id="L357">            jLabel5.setVisible(false);</span>
+<span class="nc" id="L358">             destino.setVisible(false);</span>
         }else{
-<span class="nc" id="L358">            jLabel5.setVisible(true);</span>
-<span class="nc" id="L359">            destino.setVisible(true);</span>
-<span class="nc" id="L360">            destino.setText(info.getDestino().getNombre());</span>
+<span class="nc" id="L360">            jLabel5.setVisible(true);</span>
+<span class="nc" id="L361">            destino.setVisible(true);</span>
+<span class="nc" id="L362">            destino.setText(info.getDestino().getNombre());</span>
         }
-<span class="nc" id="L362">        imagen1.setText(info.getImagen()[0]);</span>
-<span class="nc" id="L363">        imagen2.setText(info.getImagen()[1]);</span>
-<span class="nc" id="L364">        imagen3.setText(info.getImagen()[2]);</span>
-<span class="nc" id="L365">        Descripcion.setText(info.getDescripcion());</span>
-<span class="nc" id="L366">        modeloCategorias.removeAllElements();</span>
-<span class="nc" id="L367">        List&lt;DataCategoria&gt; xx = info.getCategorias();</span>
-<span class="nc bnc" id="L368" title="All 2 branches missed.">        for (DataCategoria x : xx){</span>
-<span class="nc" id="L369">            modeloCategorias.addElement(x);</span>
-<span class="nc" id="L370">        }</span>
-<span class="nc" id="L371">        List_Categorias.setModel(modeloCategorias);</span>
-<span class="nc" id="L372">        List_CategoriasNuevas.setModel(modeloCategoriasnuevas);</span>
-<span class="nc" id="L373">    }//GEN-LAST:event_List_ServiciosMouseClicked</span>
+<span class="nc" id="L364">        imagen1.setText(info.getImagen()[0]);</span>
+<span class="nc" id="L365">        imagen2.setText(info.getImagen()[1]);</span>
+<span class="nc" id="L366">        imagen3.setText(info.getImagen()[2]);</span>
+<span class="nc" id="L367">        Descripcion.setText(info.getDescripcion());</span>
+<span class="nc" id="L368">        modeloCategorias.removeAllElements();</span>
+<span class="nc" id="L369">        List&lt;DataCategoria&gt; xx = info.getCategorias();</span>
+<span class="nc bnc" id="L370" title="All 2 branches missed.">        for (DataCategoria x : xx){</span>
+<span class="nc" id="L371">            modeloCategorias.addElement(x);</span>
+<span class="nc" id="L372">        }</span>
+<span class="nc" id="L373">        List_Categorias.setModel(modeloCategorias);</span>
+<span class="nc" id="L374">        List_CategoriasNuevas.setModel(modeloCategoriasnuevas);</span>
+<span class="nc" id="L375">        Pantallaprin.ICP.seleccionarServicio(servicio);</span>
+<span class="nc" id="L376">    }//GEN-LAST:event_List_ServiciosMouseClicked</span>
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-<span class="nc" id="L376">        this.dispose();</span>
-<span class="nc" id="L377">    }//GEN-LAST:event_jButton9ActionPerformed</span>
+<span class="nc" id="L379">        this.dispose();</span>
+<span class="nc" id="L380">    }//GEN-LAST:event_jButton9ActionPerformed</span>
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-<span class="nc" id="L380">        String categoria = List_Categorias.getSelectedValue().toString();</span>
-<span class="nc" id="L381">        modeloCategorias.remove(List_Categorias.getSelectedIndex());</span>
-<span class="nc" id="L382">        List_Categorias.removeAll();</span>
-<span class="nc" id="L383">        List_Categorias.setModel(modeloCategorias);</span>
-<span class="nc" id="L384">        Pantallaprin.ICP.ingresarCategoriaBorrarServicio(categoria);</span>
-<span class="nc" id="L385">    }//GEN-LAST:event_jButton8ActionPerformed</span>
+<span class="nc" id="L383">        String categoria = List_Categorias.getSelectedValue().toString();</span>
+<span class="nc" id="L384">        modeloCategorias.remove(List_Categorias.getSelectedIndex());</span>
+<span class="nc" id="L385">        List_Categorias.removeAll();</span>
+<span class="nc" id="L386">        List_Categorias.setModel(modeloCategorias);</span>
+<span class="nc" id="L387">        Pantallaprin.ICP.ingresarCategoriaBorrarServicio(categoria);</span>
+<span class="nc" id="L388">    }//GEN-LAST:event_jButton8ActionPerformed</span>
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-<span class="nc" id="L388">        Pantallaprin.ICP.ingresarDescripcionServicio(Descripcion.getText());</span>
-<span class="nc" id="L389">        Pantallaprin.ICP.ingresarDestinoServicio(destino.getText());</span>
-<span class="nc" id="L390">        Pantallaprin.ICP.ingresarOrigenServicio(origen.getText());</span>
-<span class="nc" id="L391">        Pantallaprin.ICP.ingresarPrecioServicio(Integer.parseInt(precio.getText()));</span>
+<span class="nc" id="L391">        Pantallaprin.ICP.ingresarDescripcionServicio(Descripcion.getText());</span>
+<span class="nc" id="L392">        showMessageDialog(null, Descripcion.getText());</span>
+<span class="nc" id="L393">        Pantallaprin.ICP.ingresarDestinoServicio(destino.getText());</span>
+<span class="nc" id="L394">        Pantallaprin.ICP.ingresarOrigenServicio(origen.getText());</span>
+<span class="nc" id="L395">        Pantallaprin.ICP.ingresarPrecioServicio(Integer.parseInt(precio.getText()));</span>
         try {
-<span class="nc" id="L393">            Pantallaprin.ICP.modificarServicio();</span>
-<span class="nc" id="L394">        } catch (Exception ex) {</span>
-<span class="nc" id="L395">            showMessageDialog(null, ex);</span>
-<span class="nc" id="L396">            Logger.getLogger(ActualizarServicio.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L397">        }</span>
-<span class="nc" id="L398">    }//GEN-LAST:event_jButton1ActionPerformed</span>
+<span class="nc" id="L397">            Pantallaprin.ICP.modificarServicio();</span>
+<span class="nc" id="L398">        } catch (Exception ex) {</span>
+<span class="nc" id="L399">            showMessageDialog(null, ex);</span>
+<span class="nc" id="L400">            Logger.getLogger(ActualizarServicio.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L401">        }</span>
+<span class="nc" id="L402">    }//GEN-LAST:event_jButton1ActionPerformed</span>
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-<span class="nc" id="L401">        Pantallaprin.ICP.ingresarImagenBorrarServicio(imagen1.getText());</span>
-<span class="nc" id="L402">    }//GEN-LAST:event_jButton7ActionPerformed</span>
+<span class="nc" id="L405">        Pantallaprin.ICP.ingresarImagenBorrarServicio(imagen1.getText());</span>
+<span class="nc" id="L406">    }//GEN-LAST:event_jButton7ActionPerformed</span>
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-<span class="nc" id="L405">        Pantallaprin.ICP.ingresarImagenBorrarServicio(imagen2.getText());</span>
-<span class="nc" id="L406">    }//GEN-LAST:event_jButton2ActionPerformed</span>
+<span class="nc" id="L409">        Pantallaprin.ICP.ingresarImagenBorrarServicio(imagen2.getText());</span>
+<span class="nc" id="L410">    }//GEN-LAST:event_jButton2ActionPerformed</span>
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-<span class="nc" id="L409">        Pantallaprin.ICP.ingresarImagenBorrarServicio(imagen3.getText());</span>
-<span class="nc" id="L410">    }//GEN-LAST:event_jButton3ActionPerformed</span>
+<span class="nc" id="L413">        Pantallaprin.ICP.ingresarImagenBorrarServicio(imagen3.getText());</span>
+<span class="nc" id="L414">    }//GEN-LAST:event_jButton3ActionPerformed</span>
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

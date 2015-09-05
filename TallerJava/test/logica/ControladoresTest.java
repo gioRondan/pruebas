@@ -528,7 +528,8 @@ public class ControladoresTest {
     @Test
     public void testModificarServicio() {
         System.out.println("modificarServicio");
-        ControladorProveedor instance = new ControladorProveedor();
+        Fabrica fabrica = Fabrica.getInstance();
+        IControladorProveedor instance = fabrica.getIControladorProveedor();
         try{
         instance.altaProveedor("nickname11111", "nombre", "apellido", "email11111", new Date(2,2,2000), "imagen", "nomemp","linkemp");
         }catch(Exception ex){
@@ -541,7 +542,8 @@ public class ControladoresTest {
         String proveedor = "nickname11111";
         testIngresarNombreCategoria2("transporte2222");
         try{
-        instance.altaCategoria();}
+            instance.altaCiudad("4","prueba");
+            instance.altaCategoria();}
         catch(Exception ex){
             System.out.println("throw alta categoria en listar servicios por categoria");
         }
@@ -553,20 +555,26 @@ public class ControladoresTest {
         DataInfoServicio result2 = instance.verInfoServicio("amodificar", proveedor);
         testSeleccionarServicio("amodificar");
         testIngresarDescripcionServicio("modificado");
+        instance.ingresarImagenBorrarServicio("imser");
         testIngresarImagenServicio("modificada");
         testIngresarPrecioServicio(9999);
-        testIngresarOrigenServicio("modificado");
+        testIngresarOrigenServicio("origenmodificado");
+        
         testIngresarDestinoServicio("4");
         instance.seleccionarProveedor(proveedor);
+        instance.ingresarCategoriaBorrarServicio("transporte2222");
+        try{
+            instance.ingresarCategoriaServicio("catmodificada");
+        }catch(Exception ex){}
         try{
         instance.modificarServicio();
         }catch(Exception ex){}
         DataInfoServicio result = instance.verInfoServicio("amodificar", proveedor);
         assertEquals("modificado", result.getDescripcion());
-        //assertEquals(9999, result.getPrecio());
-        //assertEquals("modificada", result.getImagen());
-        assertEquals("modificado", result.getOrigen().getNombre());
-//        assertEquals("4", result.getDestino().getNombre());
+        assertEquals(9999, result.getPrecio(), 0);
+        assertEquals("modificada", result.getImagen()[0]);
+        assertEquals("origenmodificado", result.getOrigen().getNombre());
+        assertEquals("4", result.getDestino().getNombre());
     }
 
     /**

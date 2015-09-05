@@ -33,7 +33,7 @@ public interface IControladorProveedor {
     public void altaPromocion( String nomProveedor,List<String> ser, String nombre, int descuento) throws Exception;
     public void ingresarDescripcionServicio(String desc);
     public void ingresarImagenServicio(String imagen);
-    public void ingresarPrecioServicio(int precio);
+    public void ingresarPrecioServicio(float precio);
     public void ingresarOrigenServicio(String origen);
     public void ingresarDestinoServicio(String destino);
     public void vaciarCategoriasServicio();
