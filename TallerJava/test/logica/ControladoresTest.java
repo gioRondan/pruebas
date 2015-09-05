@@ -1080,8 +1080,9 @@ public class ControladoresTest {
         }catch(Exception ex){}
         Set <String> paises = cpr.infoPaises();
         if(paises.contains("zambia")){
-            cpr.altaCiudad(null, null);
+            cpr.altaCiudad("lusaka", "zambia");
         }
-        
+        List<DataCiudad> result = cpr.ciudadesXpais("zambia");
+        assertEquals("lusaka", result.get(0).getNombre());
     }
 }
