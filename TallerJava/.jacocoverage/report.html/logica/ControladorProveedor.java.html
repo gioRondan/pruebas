@@ -306,10 +306,10 @@ import javax.swing.JOptionPane;
 <span class="nc" id="L306">    }</span>
 
     public DataServicio informacionServicio(String prv,String ser){
-<span class="nc" id="L309">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
-<span class="nc" id="L310">        Proveedor prov = mPr.getProveedor(prv);</span>
-<span class="nc" id="L311">        Servicio servi = prov.getServicio(ser);</span>
-<span class="nc" id="L312">        return servi.getDataServicio();</span>
+<span class="fc" id="L309">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
+<span class="fc" id="L310">        Proveedor prov = mPr.getProveedor(prv);</span>
+<span class="fc" id="L311">        Servicio servi = prov.getServicio(ser);</span>
+<span class="fc" id="L312">        return servi.getDataServicio();</span>
     }
     @Override
     public DataInfoPromocion verInfoPromocion(String nickproveedor, String nomPromocion) {

@@ -1154,4 +1154,38 @@ public class ControladoresTest {
         assertEquals(new Date(1,2,2013),result.getFechaCreacion());
         //assertEquals(new Date(2,3,2013),result.getFechaFin());
     }
+    /*
+    * Test of informacion servicio
+    */
+    @Test
+    public void testInformacionServicio(){
+        ControladorProveedor instancepr = new ControladorProveedor();
+        try{
+        instancepr.altaProveedor("nick78", "nombre", "apellido", "e78", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        }catch(Exception ex){
+            System.out.println("throw alta proveedor en modificar servicio");
+        }
+        String nombre = "vuelo567";
+        String descripcion = "cardona-montevideo en 5 minutos";
+        int precio = 10;
+        String origen = "fing";
+        String proveedor = "nick78";
+        testIngresarNombreCategoria2("transporte567");
+        try{
+        instancepr.altaCategoria();}
+        catch(Exception ex){
+            System.out.println("throw alta categoria en listar servicios por categoria");
+        }
+        testIngresarCategoriaServicio2("transporte567");
+        instancepr.ingresarImagenServicio("imagenser");
+        instancepr.altaServicio(nombre, descripcion, precio, origen, proveedor,"0");
+        DataServicio result = instancepr.informacionServicio(proveedor, nombre);
+        assertEquals(descripcion,result.getDescripcion());
+        assertEquals("imagenser",result.getImagen()[0]);
+        assertEquals(nombre,result.getNombre());
+        assertEquals(precio,result.getPrecio(),0);
+        assertEquals(proveedor,result.getProveedor());
+        assertEquals(nombre + " - " + proveedor,result.toString());
+    }
+    
 }
