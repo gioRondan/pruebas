@@ -8,6 +8,8 @@ package Presentacion;
 import java.awt.Panel;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showInputDialog;
@@ -115,8 +117,18 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
         jLabel6.setText("Imagen:");
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cross5.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cross5.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("...");
 
@@ -125,6 +137,11 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
         jButton6.setText("...");
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cross5.png"))); // NOI18N
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jScrollPane3.setViewportView(List_Categorias);
 
@@ -138,6 +155,11 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
         });
 
         jButton1.setText("Guardar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton9.setText("Salir");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -360,6 +382,30 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
         List_Categorias.setModel(modeloCategorias);
         Pantallaprin.ICP.ingresarCategoriaBorrarServicio(categoria);
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Pantallaprin.ICP.ingresarDescripcionServicio(Descripcion.getText());
+        Pantallaprin.ICP.ingresarDestinoServicio(destino.getText());
+        Pantallaprin.ICP.ingresarOrigenServicio(origen.getText());
+        Pantallaprin.ICP.ingresarPrecioServicio(Integer.parseInt(precio.getText()));
+        try {
+            Pantallaprin.ICP.modificarServicio();
+        } catch (Exception ex) {
+            Logger.getLogger(ActualizarServicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        Pantallaprin.ICP.ingresarImagenBorrarServicio(imagen1.getText());
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Pantallaprin.ICP.ingresarImagenBorrarServicio(imagen2.getText());
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Pantallaprin.ICP.ingresarImagenBorrarServicio(imagen3.getText());
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
