@@ -94,13 +94,14 @@ public class AltaProveedor extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Nuevo proveedor");
         setToolTipText("");
+        setFrameIcon(new javax.swing.ImageIcon("/ens/home01/r/rodrigo.linares/Desktop/iconoH4T3.png")); // NOI18N
         addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 formAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
