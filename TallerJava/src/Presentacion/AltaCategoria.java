@@ -87,6 +87,7 @@ public class AltaCategoria extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Alta Categoría");
+        setFrameIcon(new javax.swing.ImageIcon("/ens/home01/r/rodrigo.linares/Desktop/iconoH4T3.png")); // NOI18N
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
                 formInternalFrameOpened(evt);

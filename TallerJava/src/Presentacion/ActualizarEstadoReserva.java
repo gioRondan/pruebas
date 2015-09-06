@@ -79,6 +79,7 @@ public class ActualizarEstadoReserva extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Cambiar estado reserva");
+        setFrameIcon(new javax.swing.ImageIcon("/ens/home01/r/rodrigo.linares/Desktop/iconoH4T3.png")); // NOI18N
 
         Fechacreacion.setEnabled(false);
 

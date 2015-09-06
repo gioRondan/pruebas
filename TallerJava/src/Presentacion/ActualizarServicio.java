@@ -107,6 +107,7 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Modificar servicio");
+        setFrameIcon(new javax.swing.ImageIcon("/ens/home01/r/rodrigo.linares/Desktop/iconoH4T3.png")); // NOI18N
 
         Combo_Proveedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
