@@ -19,6 +19,7 @@ public interface IControladorProveedor {
     public void seleccionarProveedor(String proveedor);
     public void seleccionarServicio(String nomServicio);
     public void ingresarImagenBorrarServicio(String imagen);
+    public void ingresarModificarImagenServicio(String imagen);
     public void ingresarCategoriaBorrarServicio(String categoria);
     public List<DataCiudad> listarCiudades();
     public List<DataCategoria> listarCategorias();

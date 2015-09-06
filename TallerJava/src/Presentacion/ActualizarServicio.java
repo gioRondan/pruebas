@@ -5,14 +5,20 @@
  */
 package Presentacion;
 
-import java.awt.Panel;
+
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import static javax.swing.JOptionPane.showInputDialog;
+
 import static javax.swing.JOptionPane.showMessageDialog;
 
 import logica.DataCategoria;
@@ -35,7 +41,7 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
     PantallaPrincipal Pantallaprin = PantallaPrincipal.getInstancia();
     public static DefaultListModel modeloCategorias = new DefaultListModel();
     public static DefaultListModel modeloCategoriasnuevas = new DefaultListModel();
-  
+    public  String nombreservicioseleccionado ="";
     public ActualizarServicio() {
         initComponents();
         List<DataProveedor> p = Pantallaprin.ICP.listarProveedores();
@@ -142,10 +148,25 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
         });
 
         jButton4.setText("...");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("...");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("...");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cross5.png"))); // NOI18N
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -368,12 +389,12 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void List_ServiciosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_List_ServiciosMouseClicked
-//        JOptionPane.showMessageDialog(null, "HOla "+ Combo_Proveedores.getSelectedItem().toString() );
+
         String servicio = List_Servicios.getSelectedValue().toString();
         servicio = servicio.substring(0,servicio.lastIndexOf("-")-1);
-//        JOptionPane.showMessageDialog(null, "y hola  "+servicio);
+
         DataInfoServicio info = Pantallaprin.ICP.verInfoServicio(servicio,Combo_Proveedores.getSelectedItem().toString());
-        
+        nombreservicioseleccionado = info.getNombre();
         precio.setText(Float.toString(info.getPrecio()));
         Combo_Origen.setSelectedItem(info.getOrigen().getNombre());
         if (info.getDestino() == null){
@@ -410,17 +431,69 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        String proveedor = Combo_Proveedores.getSelectedItem().toString();
         Pantallaprin.ICP.ingresarDescripcionServicio(Descripcion.getText());
-        Pantallaprin.ICP.seleccionarProveedor(Combo_Proveedores.getSelectedItem().toString());
+        Pantallaprin.ICP.seleccionarProveedor(proveedor);
         Pantallaprin.ICP.seleccionarServicio(List_Servicios.getSelectedValue().toString().substring(0,List_Servicios.getSelectedValue().toString().lastIndexOf("-")-1));
         Pantallaprin.ICP.ingresarDestinoServicio(Combo_Destino.getSelectedItem().toString());
         Pantallaprin.ICP.ingresarOrigenServicio(Combo_Origen.getSelectedItem().toString());
-        Pantallaprin.ICP.ingresarPrecioServicio(Float.parseFloat(precio.getText()));  
+        Pantallaprin.ICP.ingresarPrecioServicio(Float.parseFloat(precio.getText())); 
+        
+        if (!imagen1.getText().isEmpty()) {
+            Path FROM = Paths.get(imagen1.getText());
+            //armo la ruta destino
+            String urlImagenDestino = PantallaPrincipal.RutaImagenes + "Servicios/" + proveedor + " - " + nombreservicioseleccionado + " 1.png";
+            Path TO = Paths.get(urlImagenDestino);
+            try {
+                Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);
+                Pantallaprin.ICP.ingresarModificarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Error al copiar la imagen 1");
+                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+        } else {
+            Pantallaprin.ICP.ingresarModificarImagenServicio("");//siempre se carga una ruta aunque sea vacia
+        }
+        if (!imagen2.getText().isEmpty()) {
+            Path FROM = Paths.get(imagen2.getText());
+            //armo la ruta destino
+            String urlImagenDestino = PantallaPrincipal.RutaImagenes + "Servicios/" + proveedor + " - " + nombreservicioseleccionado + " 2.png";
+            Path TO = Paths.get(urlImagenDestino);
+            try {
+                Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);
+                Pantallaprin.ICP.ingresarModificarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Error al copiar la imagen 2");
+                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
+            }
+          
+        } else {
+            Pantallaprin.ICP.ingresarModificarImagenServicio("");//siempre se carga una ruta aun que sea vacia
+        }
+        if (!imagen3.getText().isEmpty()) {
+            Path FROM = Paths.get(imagen3.getText());
+            //armo la ruta destino
+            String urlImagenDestino = PantallaPrincipal.RutaImagenes + "Servicios/" + proveedor + " - " + nombreservicioseleccionado + " 3.png";
+            Path TO = Paths.get(urlImagenDestino);
+            try {
+                Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);
+                Pantallaprin.ICP.ingresarModificarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Error al copiar la imagen 3");
+                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+        } else {
+            Pantallaprin.ICP.ingresarModificarImagenServicio("");//siempre se carga una ruta aun que sea vacia
+        }
+        
+        
+        
         try {
             Pantallaprin.ICP.modificarServicio();
         } catch (Exception ex) {
-            showMessageDialog(null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage());
             Logger.getLogger(ActualizarServicio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -447,6 +520,18 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
     private void Combo_DestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combo_DestinoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Combo_DestinoActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        Pantallaprin.abrirSelectorImagen("ActualizarServicio1");
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+       Pantallaprin.abrirSelectorImagen("ActualizarServicio2");
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        Pantallaprin.abrirSelectorImagen("ActualizarServicio3");
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

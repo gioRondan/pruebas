@@ -543,9 +543,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
         }        
         
         try{
-            
                 Pantallaprin.ICP.ingresarDestinoServicio(ciudadDestino);
-            
         }
         catch(Exception ex){
             JOptionPane.showMessageDialog(null, ex.getMessage());            
