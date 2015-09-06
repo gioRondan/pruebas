@@ -42,6 +42,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
     private Map<String, Integer> serviciosCant;
     private Map<String, Integer> promocionesCant;
     private Map<String,DataExpira> fechas;
+    private float tot;
    
     private Map<String,DataExpira> fechasPromos;
    private String proveedorselecionado=""; 
@@ -364,12 +365,14 @@ public class realizarReserva extends javax.swing.JInternalFrame {
                 fechas.put(serinfo.getNombre(),dtx);
                 serviciosCant.put(serinfo.getNombre(),Integer.parseInt(cant.getValue().toString()));
                 total = Float.parseFloat(precioTotal.getText())+serinfo.getPrecio();
+                tot=total;
             }else{
                 DataInfoPromocion proinfo =  pp.ICP.verInfoPromocion(proveedor, servicioopromo) ;
                 DataExpira dtx= new DataExpira(fecha1,fecha2);
                 fechasPromos.put(proinfo.getNombre(),dtx);
                 promocionesCant.put(proinfo.getNombre(),Integer.parseInt(cant.getValue().toString()));
                 total = Float.parseFloat(precioTotal.getText())+proinfo.getPrecioTotal();
+                tot=total;
             
             }    
             
@@ -381,7 +384,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-       pp.abrirMostrarDatosReservaParcial(serviciosCant,promocionesCant,fechas,fechasPromos,proveedorselecionado,0,jList2.getSelectedValue().toString());
+       pp.abrirMostrarDatosReservaParcial(serviciosCant,promocionesCant,fechas,fechasPromos,proveedorselecionado,tot,jList2.getSelectedValue().toString());
         
     }//GEN-LAST:event_jButton4ActionPerformed
 
