@@ -452,15 +452,12 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
             Path TO = Paths.get(urlImagenDestino);
             try {
                 Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);
-                Pantallaprin.ICP.ingresarModificarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "Error al copiar la imagen 1");
                 Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
             }
         
-        } else {
-            Pantallaprin.ICP.ingresarModificarImagenServicio("");//siempre se carga una ruta aunque sea vacia
-        }
+        } 
         if (!imagen2.getText().isEmpty()) {
             Path FROM = Paths.get(imagen2.getText());
             //armo la ruta destino
@@ -468,14 +465,11 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
             Path TO = Paths.get(urlImagenDestino);
             try {
                 Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);
-                Pantallaprin.ICP.ingresarModificarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "Error al copiar la imagen 2");
                 Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
             }
           
-        } else {
-            Pantallaprin.ICP.ingresarModificarImagenServicio("");//siempre se carga una ruta aun que sea vacia
         }
         if (!imagen3.getText().isEmpty()) {
             Path FROM = Paths.get(imagen3.getText());
@@ -484,13 +478,10 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
             Path TO = Paths.get(urlImagenDestino);
             try {
                 Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);
-                Pantallaprin.ICP.ingresarModificarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "Error al copiar la imagen 3");
                 Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else {
-            Pantallaprin.ICP.ingresarModificarImagenServicio("");//siempre se carga una ruta aun que sea vacia
         }
         
         try {
@@ -526,14 +517,23 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         Pantallaprin.abrirSelectorImagen("ActualizarServicio1");
+        //armo la ruta destino
+        String urlImagenDestino = PantallaPrincipal.RutaImagenes + "Servicios/" + Combo_Proveedores.getSelectedItem().toString() + " - " + nombreservicioseleccionado + " 1.png";
+        Pantallaprin.ICP.ingresarModificarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
        Pantallaprin.abrirSelectorImagen("ActualizarServicio2");
+       //armo la ruta destino
+        String urlImagenDestino = PantallaPrincipal.RutaImagenes + "Servicios/" + Combo_Proveedores.getSelectedItem().toString() + " - " + nombreservicioseleccionado + " 2.png";
+        Pantallaprin.ICP.ingresarModificarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         Pantallaprin.abrirSelectorImagen("ActualizarServicio3");
+        //armo la ruta destino
+        String urlImagenDestino = PantallaPrincipal.RutaImagenes + "Servicios/" + Combo_Proveedores.getSelectedItem().toString() + " - " + nombreservicioseleccionado + " 3.png";
+        Pantallaprin.ICP.ingresarModificarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria
     }//GEN-LAST:event_jButton4ActionPerformed
 
 
