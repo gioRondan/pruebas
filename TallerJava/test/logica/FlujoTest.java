@@ -80,7 +80,7 @@ public class FlujoTest {
         List<DataProveedor> proveedores= new ArrayList<>();
         List<DataEmpresa> empresas = new ArrayList<>();
         List<DataCategoria> categorias = new ArrayList<>();
-        
+        List<DataCiudad> ciudades = new ArrayList<>();
         try{
             ccl.altaCliente(nickCliente, nomCliente, apCliente, emailCliente, fechaNacCliente, imCliente);
         }catch(Exception ex){
@@ -92,7 +92,7 @@ public class FlujoTest {
         }catch(Exception ex){
             //algo
         }
-        try{
+       try{
             cpr.ingresarNombreCategoria(catPadre);
             cpr.altaCategoria();
             cpr.seleccionarPadre(catPadre);
@@ -110,12 +110,27 @@ public class FlujoTest {
         cpr.ingresarImagenServicio(im1Servicio);
         cpr.ingresarImagenServicio(im2Servicio);
         cpr.ingresarImagenServicio(im3Servicio);
-        proveedores = cpr.listarProveedores();
         cpr.altaServicio(nomServicio, descServicio, precioServicio, origenServicio, nickProveedor, paisServicio);
         
+        ciudades = cpr.listarCiudades();
         
+        proveedores = cpr.listarProveedores();
+        assertEquals(nickProveedor ,proveedores.get(0).getNickname());
+        assertEquals(nomProveedor ,proveedores.get(0).getNombre());
+        assertEquals(apProveedor ,proveedores.get(0).getApellido());
+        assertEquals(emailProveedor ,proveedores.get(0).getEmail());
+        assertEquals(fechaNacProveedor ,proveedores.get(0).getFechaNac());
+        assertEquals(imProveedor ,proveedores.get(0).getImagen());
+        assertEquals(nomEmpresa ,proveedores.get(0).getnombreEmpresa());
+        assertEquals(urlEmpresa ,proveedores.get(0).getUrlEmpresa());
+        categorias = cpr.listarCategorias();
         clientes = ccl.listarClientes();
-        
+        assertEquals(nickCliente, clientes.get(0).getNickname());
+        assertEquals(nomCliente, clientes.get(0).getNombre());
+        assertEquals(apCliente, clientes.get(0).getApellido());
+        assertEquals(emailCliente, clientes.get(0).getEmail());
+        assertEquals(fechaNacCliente, clientes.get(0).getFechaNac());
+        assertEquals(imCliente, clientes.get(0).getImagen());
         
     }
     /**
