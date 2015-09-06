@@ -1038,9 +1038,9 @@ public class ControladoresTest {
         
         DataInfoReserva result = instance.verInfoReserva("cli123456", id);
         assertEquals(Estado.registrada, result.getEstado());
-        //assertEquals(10, result.getPrecio());
+        assertEquals(10, result.getPrecio(),0);
         assertEquals(id, result.getId());
-        //assertEquals(new Date(1,2,2013), result.getFechaInicio());
+        assertEquals(new Date(1,2,2013), result.getFechaCreacion());
         //assertEquals(new Date(1,3,213), result.getFechaFin());
         /*assertEquals(, result);
         assertEquals(, result);*/
@@ -1152,7 +1152,6 @@ public class ControladoresTest {
         assertEquals(Estado.pagada, result.getEstado());
         assertEquals(id, result.getId());
         assertEquals(new Date(1,2,2013),result.getFechaCreacion());
-        //assertEquals(new Date(2,3,2013),result.getFechaFin());
     }
     /*
     * Test of informacion servicio
