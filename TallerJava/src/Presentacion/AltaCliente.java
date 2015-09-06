@@ -87,7 +87,7 @@ public class AltaCliente extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Nuevo cliente");
         setToolTipText("");
-        setFrameIcon(new javax.swing.ImageIcon("/ens/home01/r/rodrigo.linares/Desktop/iconoH4T3.png")); // NOI18N
+        setFrameIcon(new javax.swing.ImageIcon("/ens/home01/r/rodrigo.linares/NetBeansProjects/tpgr07/TallerJava/src/Imagenes/iconoH4T.png")); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Cliente");
