@@ -11,6 +11,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
@@ -336,8 +338,15 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             Date fecha2   = jDateChooser2.getDate();
            // JOptionPane.showMessageDialog(null, "que es :"+es);
              float total;
-            if (es.equals("Servicios")){ 
-                DataServicio serinfo =  pp.ICP.informacionServicio(proveedor,servicioopromo);
+            if (es.equals("Servicios")){
+                
+                DataServicio serinfo=null;
+                try {
+                    serinfo = pp.ICP.informacionServicio(proveedor,servicioopromo);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null,ex.getMessage());
+                }
+                
                 DataExpira dtx= new DataExpira(fecha1,fecha2);
                 fechas.put(serinfo.getNombre(),dtx);
                 serviciosCant.put(serinfo.getNombre(),Integer.parseInt(cant.getValue().toString()));

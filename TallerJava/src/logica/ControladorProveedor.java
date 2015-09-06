@@ -295,10 +295,13 @@ public class ControladorProveedor implements IControladorProveedor{
         return prov.getDataPromociones();
     }
     @Override
-    public DataInfoServicio verInfoServicio(String nomServicio, String nomProveedor){
+    public DataInfoServicio verInfoServicio(String nomServicio, String nomProveedor)throws Exception{
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(nomProveedor);
-        Servicio ser = prov.getServicio(nomServicio);
+        
+            Servicio ser = prov.getServicio(nomServicio);
+        
+    
         return ser.getDataInfoServicio();
     }
     @Override
@@ -308,7 +311,7 @@ public class ControladorProveedor implements IControladorProveedor{
         return prov.getDataInfoProveedor();
     }
 
-    public DataServicio informacionServicio(String prv,String ser){
+    public DataServicio informacionServicio(String prv,String ser) throws Exception{
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(prv);
         Servicio servi = prov.getServicio(ser);

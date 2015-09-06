@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTree;
@@ -84,13 +86,21 @@ public class VerInfoServicio extends javax.swing.JInternalFrame {
         if (quien.equals("VerInfoProveedor")){
             nombre = VerInfoProveedor.Servicioseleccionado;
             proveedor = VerInfoProveedor.proveedorSeleccionado;
-            mostrar = Pantallaprin.ICP.verInfoServicio(nombre, proveedor);
+            try {
+                mostrar = Pantallaprin.ICP.verInfoServicio(nombre, proveedor);
+            } catch (Exception ex) {
+               JOptionPane.showMessageDialog(null,ex.getMessage());
+            }
                        
         }
         if (quien.equals("VerInfoPromocion")){
             nombre = VerInfoPromocion.Servicioseleccionado;
             proveedor = VerInfoPromocion.Proveedorseleccionado;
-            mostrar = Pantallaprin.ICP.verInfoServicio(nombre, proveedor);
+            try {
+                mostrar = Pantallaprin.ICP.verInfoServicio(nombre, proveedor);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null,"Error al ingresar reserva" + ex.getMessage());
+            }
         }
         
         
@@ -393,7 +403,12 @@ public class VerInfoServicio extends javax.swing.JInternalFrame {
        String selecc = modeloServicios.elementAt(ListServicios.getAnchorSelectionIndex()).toString();
         String nombre = selecc.substring(0, selecc.lastIndexOf("-")-1);
         String proveedor = selecc.substring(selecc.lastIndexOf("-")+2,selecc.length());
-        DataInfoServicio mostrar = Pantallaprin.ICP.verInfoServicio(nombre, proveedor);
+        DataInfoServicio mostrar=null;
+        try {
+            mostrar = Pantallaprin.ICP.verInfoServicio(nombre, proveedor);
+        } catch (Exception ex) {
+           JOptionPane.showMessageDialog(null,ex.getMessage());
+        }
         edt_nombre.setText(mostrar.getNombre());
         edt_descripcion.setText(mostrar.getDescripcion());
         

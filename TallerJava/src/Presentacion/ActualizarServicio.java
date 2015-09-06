@@ -394,7 +394,12 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
         String servicio = List_Servicios.getSelectedValue().toString();
         servicio = servicio.substring(0,servicio.lastIndexOf("-")-1);
 
-        DataInfoServicio info = Pantallaprin.ICP.verInfoServicio(servicio,Combo_Proveedores.getSelectedItem().toString());
+        DataInfoServicio info=null;
+        try {
+            info = Pantallaprin.ICP.verInfoServicio(servicio,Combo_Proveedores.getSelectedItem().toString());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage());
+        }
         nombreservicioseleccionado = info.getNombre();
         precio.setText(Float.toString(info.getPrecio()));
         Combo_Origen.setSelectedItem(info.getOrigen().getNombre());

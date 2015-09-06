@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -299,7 +301,12 @@ public class AltaPromocion extends javax.swing.JInternalFrame {
             nomser.setText(servicio);
             
             proveedorAnt = proveedor;
-            DataServicio serinfo =  pp.ICP.informacionServicio(proveedor,servicio);
+            DataServicio serinfo=null;
+            try {
+                serinfo = pp.ICP.informacionServicio(proveedor,servicio);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null,ex.getMessage());
+            }
             descser.setText(serinfo.getDescripcion());
             preser.setText(Float.toString(serinfo.getPrecio()));
             float total = Float.parseFloat(precioTotal.getText())+serinfo.getPrecio();
