@@ -692,16 +692,7 @@ public class ControladoresTest {
         
     }
 
-    /**
-     * Test of ingresarImagen method, of class ControladorProveedor.
-     */
-    public void testIngresarImagen() {
-        System.out.println("ingresarImagen");
-        String imagen = "im";
-        ControladorProveedor instance = new ControladorProveedor();
-        instance.ingresarImagen(imagen);
-    }
-
+    
     /**
      * Test of verInfoPromocion method, of class ControladorProveedor.
      * 

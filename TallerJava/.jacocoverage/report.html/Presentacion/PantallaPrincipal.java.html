@@ -146,820 +146,823 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 <span class="nc" id="L146">       al.setLocation(a ,b);</span>
 <span class="nc" id="L147">       al.show();</span>
 <span class="nc" id="L148">    }</span>
+    public void abrirVerInfoReserva(String quine){
+<span class="nc" id="L150">        VerInfoReserva al = new VerInfoReserva(quine);</span>
+<span class="nc" id="L151">        Escritorio.add(al);</span>
+        //cuentas para centrar
+<span class="nc" id="L153">        int a = (Escritorio.getWidth() - al.getWidth())/2;</span>
+<span class="nc" id="L154">        int b = (Escritorio.getHeight() - al.getHeight()) /2;</span>
+<span class="nc" id="L155">        al.setLocation(a ,b);</span>
+<span class="nc" id="L156">        al.show();</span>
+<span class="nc" id="L157">    }</span>
     @SuppressWarnings(&quot;unchecked&quot;)
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<span class="nc" id="L153">        Escritorio = new javax.swing.JDesktopPane();</span>
-<span class="nc" id="L154">        jMenuBar1 = new javax.swing.JMenuBar();</span>
-<span class="nc" id="L155">        jMenu8 = new javax.swing.JMenu();</span>
-<span class="nc" id="L156">        jMenu9 = new javax.swing.JMenu();</span>
-<span class="nc" id="L157">        jMenuItem14 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L158">        jMenuItem5 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L159">        jMenu10 = new javax.swing.JMenu();</span>
-<span class="nc" id="L160">        jMenuItem1 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L161">        jMenuItem6 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L162">        jMenu3 = new javax.swing.JMenu();</span>
-<span class="nc" id="L163">        jMenuItem10 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L164">        jMenuItem11 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L165">        jMenuItem12 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L166">        jMenuItem9 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L167">        jMenu7 = new javax.swing.JMenu();</span>
-<span class="nc" id="L168">        jMenuItem4 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L169">        jMenuItem8 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L170">        Servicios = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L171">        jMenuItem7 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L172">        jMenuItem16 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L173">        jMenu6 = new javax.swing.JMenu();</span>
-<span class="nc" id="L174">        jMenuItem3 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L175">        jMenuItem2 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L176">        jMenuItem15 = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L177">        jMenu5 = new javax.swing.JMenu();</span>
-<span class="nc" id="L178">        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="nc" id="L179">        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="nc" id="L180">        jRadioButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="nc" id="L181">        jRadioButtonMenuItem4 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="nc" id="L182">        jRadioButtonMenuItem5 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="nc" id="L183">        jRadioButtonMenuItem6 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="nc" id="L184">        jRadioButtonMenuItem7 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="nc" id="L185">        jRadioButtonMenuItem8 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="nc" id="L186">        jRadioButtonMenuItem9 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="nc" id="L187">        jRadioButtonMenuItem10 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="nc" id="L188">        jRadioButtonMenuItem11 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="nc" id="L189">        jRadioButtonMenuItem12 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="nc" id="L190">        jRadioButtonMenuItem13 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L162">        Escritorio = new javax.swing.JDesktopPane();</span>
+<span class="nc" id="L163">        jMenuBar1 = new javax.swing.JMenuBar();</span>
+<span class="nc" id="L164">        jMenu8 = new javax.swing.JMenu();</span>
+<span class="nc" id="L165">        jMenu9 = new javax.swing.JMenu();</span>
+<span class="nc" id="L166">        jMenuItem14 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L167">        jMenuItem5 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L168">        jMenu10 = new javax.swing.JMenu();</span>
+<span class="nc" id="L169">        jMenuItem1 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L170">        jMenuItem6 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L171">        jMenu3 = new javax.swing.JMenu();</span>
+<span class="nc" id="L172">        jMenuItem10 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L173">        jMenuItem11 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L174">        jMenuItem12 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L175">        jMenuItem9 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L176">        jMenu7 = new javax.swing.JMenu();</span>
+<span class="nc" id="L177">        jMenuItem4 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L178">        jMenuItem8 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L179">        Servicios = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L180">        jMenuItem7 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L181">        jMenuItem16 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L182">        jMenu6 = new javax.swing.JMenu();</span>
+<span class="nc" id="L183">        jMenuItem3 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L184">        jMenuItem2 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L185">        jMenuItem15 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L186">        jMenu5 = new javax.swing.JMenu();</span>
+<span class="nc" id="L187">        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L188">        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L189">        jRadioButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L190">        jRadioButtonMenuItem4 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L191">        jRadioButtonMenuItem5 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L192">        jRadioButtonMenuItem6 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L193">        jRadioButtonMenuItem7 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L194">        jRadioButtonMenuItem8 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L195">        jRadioButtonMenuItem9 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L196">        jRadioButtonMenuItem10 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L197">        jRadioButtonMenuItem11 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L198">        jRadioButtonMenuItem12 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L199">        jRadioButtonMenuItem13 = new javax.swing.JRadioButtonMenuItem();</span>
 
-<span class="nc" id="L192">        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);</span>
-<span class="nc" id="L193">        setTitle(&quot;Principal H4T&quot;);</span>
+<span class="nc" id="L201">        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);</span>
+<span class="nc" id="L202">        setTitle(&quot;Principal H4T&quot;);</span>
 
-<span class="nc" id="L195">        Escritorio.setAutoscrolls(true);</span>
+<span class="nc" id="L204">        Escritorio.setAutoscrolls(true);</span>
 
-<span class="nc" id="L197">        javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);</span>
-<span class="nc" id="L198">        Escritorio.setLayout(EscritorioLayout);</span>
-<span class="nc" id="L199">        EscritorioLayout.setHorizontalGroup(</span>
-<span class="nc" id="L200">            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L201">            .addGap(0, 975, Short.MAX_VALUE)</span>
+<span class="nc" id="L206">        javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);</span>
+<span class="nc" id="L207">        Escritorio.setLayout(EscritorioLayout);</span>
+<span class="nc" id="L208">        EscritorioLayout.setHorizontalGroup(</span>
+<span class="nc" id="L209">            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L210">            .addGap(0, 975, Short.MAX_VALUE)</span>
         );
-<span class="nc" id="L203">        EscritorioLayout.setVerticalGroup(</span>
-<span class="nc" id="L204">            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L205">            .addGap(0, 683, Short.MAX_VALUE)</span>
-        );
-
-<span class="nc" id="L208">        jMenuBar1.setToolTipText(&quot;&quot;);</span>
-
-<span class="nc" id="L210">        jMenu8.setText(&quot;Usuarios&quot;);</span>
-
-<span class="nc" id="L212">        jMenu9.setText(&quot;Clientes&quot;);</span>
-
-<span class="nc" id="L214">        jMenuItem14.setText(&quot;Alta cliente&quot;);</span>
-<span class="nc" id="L215">        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L217">                jMenuItem14ActionPerformed(evt);</span>
-<span class="nc" id="L218">            }</span>
-        });
-<span class="nc" id="L220">        jMenu9.add(jMenuItem14);</span>
-
-<span class="nc" id="L222">        jMenuItem5.setText(&quot;Ver informacion clientes&quot;);</span>
-<span class="nc" id="L223">        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L225">                jMenuItem5ActionPerformed(evt);</span>
-<span class="nc" id="L226">            }</span>
-        });
-<span class="nc" id="L228">        jMenu9.add(jMenuItem5);</span>
-
-<span class="nc" id="L230">        jMenu8.add(jMenu9);</span>
-
-<span class="nc" id="L232">        jMenu10.setText(&quot;Proveedores&quot;);</span>
-
-<span class="nc" id="L234">        jMenuItem1.setText(&quot;Alta proveedor&quot;);</span>
-<span class="nc" id="L235">        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L237">                jMenuItem1ActionPerformed(evt);</span>
-<span class="nc" id="L238">            }</span>
-        });
-<span class="nc" id="L240">        jMenu10.add(jMenuItem1);</span>
-
-<span class="nc" id="L242">        jMenuItem6.setText(&quot;Ver informacion proveedor&quot;);</span>
-<span class="nc" id="L243">        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L245">                jMenuItem6ActionPerformed(evt);</span>
-<span class="nc" id="L246">            }</span>
-        });
-<span class="nc" id="L248">        jMenu10.add(jMenuItem6);</span>
-
-<span class="nc" id="L250">        jMenu8.add(jMenu10);</span>
-
-<span class="nc" id="L252">        jMenuBar1.add(jMenu8);</span>
-
-<span class="nc" id="L254">        jMenu3.setText(&quot;Reservas&quot;);</span>
-<span class="nc" id="L255">        jMenu3.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L257">                jMenu3ActionPerformed(evt);</span>
-<span class="nc" id="L258">            }</span>
-        });
-
-<span class="nc" id="L261">        jMenuItem10.setText(&quot;Realizar reserva&quot;);</span>
-<span class="nc" id="L262">        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L264">                jMenuItem10ActionPerformed(evt);</span>
-<span class="nc" id="L265">            }</span>
-        });
-<span class="nc" id="L267">        jMenu3.add(jMenuItem10);</span>
-
-<span class="nc" id="L269">        jMenuItem11.setText(&quot;Actualizar estado&quot;);</span>
-<span class="nc" id="L270">        jMenu3.add(jMenuItem11);</span>
-
-<span class="nc" id="L272">        jMenuItem12.setText(&quot;Cancelar reserva&quot;);</span>
-<span class="nc" id="L273">        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L275">                jMenuItem12ActionPerformed(evt);</span>
-<span class="nc" id="L276">            }</span>
-        });
-<span class="nc" id="L278">        jMenu3.add(jMenuItem12);</span>
-
-<span class="nc" id="L280">        jMenuItem9.setText(&quot;Ver informacion Reserva&quot;);</span>
-<span class="nc" id="L281">        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L283">                jMenuItem9ActionPerformed(evt);</span>
-<span class="nc" id="L284">            }</span>
-        });
-<span class="nc" id="L286">        jMenu3.add(jMenuItem9);</span>
-
-<span class="nc" id="L288">        jMenuBar1.add(jMenu3);</span>
-
-<span class="nc" id="L290">        jMenu7.setText(&quot;Servicos y promociones&quot;);</span>
-
-<span class="nc" id="L292">        jMenuItem4.setText(&quot;Alta promocion&quot;);</span>
-<span class="nc" id="L293">        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L295">                jMenuItem4ActionPerformed(evt);</span>
-<span class="nc" id="L296">            }</span>
-        });
-<span class="nc" id="L298">        jMenu7.add(jMenuItem4);</span>
-
-<span class="nc" id="L300">        jMenuItem8.setText(&quot;Ver informacion promociones&quot;);</span>
-<span class="nc" id="L301">        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L303">                jMenuItem8ActionPerformed(evt);</span>
-<span class="nc" id="L304">            }</span>
-        });
-<span class="nc" id="L306">        jMenu7.add(jMenuItem8);</span>
-
-<span class="nc" id="L308">        Servicios.setText(&quot;Alta servicio&quot;);</span>
-<span class="nc" id="L309">        Servicios.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L311">                ServiciosActionPerformed(evt);</span>
-<span class="nc" id="L312">            }</span>
-        });
-<span class="nc" id="L314">        jMenu7.add(Servicios);</span>
-
-<span class="nc" id="L316">        jMenuItem7.setText(&quot;Ver informacion servicio&quot;);</span>
-<span class="nc" id="L317">        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L319">                jMenuItem7ActionPerformed(evt);</span>
-<span class="nc" id="L320">            }</span>
-        });
-<span class="nc" id="L322">        jMenu7.add(jMenuItem7);</span>
-
-<span class="nc" id="L324">        jMenuItem16.setText(&quot;Actualizar servicio&quot;);</span>
-<span class="nc" id="L325">        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L327">                jMenuItem16ActionPerformed(evt);</span>
-<span class="nc" id="L328">            }</span>
-        });
-<span class="nc" id="L330">        jMenu7.add(jMenuItem16);</span>
-
-<span class="nc" id="L332">        jMenuBar1.add(jMenu7);</span>
-
-<span class="nc" id="L334">        jMenu6.setText(&quot;Configuracion&quot;);</span>
-
-<span class="nc" id="L336">        jMenuItem3.setText(&quot;Carga inicial&quot;);</span>
-<span class="nc" id="L337">        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L339">                jMenuItem3ActionPerformed(evt);</span>
-<span class="nc" id="L340">            }</span>
-        });
-<span class="nc" id="L342">        jMenu6.add(jMenuItem3);</span>
-
-<span class="nc" id="L344">        jMenuItem2.setText(&quot;Añadir categoria&quot;);</span>
-<span class="nc" id="L345">        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L347">                jMenuItem2ActionPerformed(evt);</span>
-<span class="nc" id="L348">            }</span>
-        });
-<span class="nc" id="L350">        jMenu6.add(jMenuItem2);</span>
-
-<span class="nc" id="L352">        jMenuItem15.setText(&quot;Opciones&quot;);</span>
-<span class="nc" id="L353">        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L355">                jMenuItem15ActionPerformed(evt);</span>
-<span class="nc" id="L356">            }</span>
-        });
-<span class="nc" id="L358">        jMenu6.add(jMenuItem15);</span>
-
-<span class="nc" id="L360">        jMenu5.setText(&quot;Thema&quot;);</span>
-
-<span class="nc" id="L362">        jRadioButtonMenuItem1.setSelected(true);</span>
-<span class="nc" id="L363">        jRadioButtonMenuItem1.setText(&quot;BlackEye&quot;);</span>
-<span class="nc" id="L364">        jRadioButtonMenuItem1.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L366">                jRadioButtonMenuItem1ActionPerformed(evt);</span>
-<span class="nc" id="L367">            }</span>
-        });
-<span class="nc" id="L369">        jMenu5.add(jRadioButtonMenuItem1);</span>
-
-<span class="nc" id="L371">        jRadioButtonMenuItem2.setText(&quot;BlueMoon&quot;);</span>
-<span class="nc" id="L372">        jRadioButtonMenuItem2.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L374">                jRadioButtonMenuItem2ActionPerformed(evt);</span>
-<span class="nc" id="L375">            }</span>
-        });
-<span class="nc" id="L377">        jMenu5.add(jRadioButtonMenuItem2);</span>
-
-<span class="nc" id="L379">        jRadioButtonMenuItem3.setText(&quot;BlackMoon&quot;);</span>
-<span class="nc" id="L380">        jRadioButtonMenuItem3.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L382">                jRadioButtonMenuItem3ActionPerformed(evt);</span>
-<span class="nc" id="L383">            }</span>
-        });
-<span class="nc" id="L385">        jMenu5.add(jRadioButtonMenuItem3);</span>
-
-<span class="nc" id="L387">        jRadioButtonMenuItem4.setText(&quot;BlueIce&quot;);</span>
-<span class="nc" id="L388">        jRadioButtonMenuItem4.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L390">                jRadioButtonMenuItem4ActionPerformed(evt);</span>
-<span class="nc" id="L391">            }</span>
-        });
-<span class="nc" id="L393">        jMenu5.add(jRadioButtonMenuItem4);</span>
-
-<span class="nc" id="L395">        jRadioButtonMenuItem5.setText(&quot;BlueSteel&quot;);</span>
-<span class="nc" id="L396">        jRadioButtonMenuItem5.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L398">                jRadioButtonMenuItem5ActionPerformed(evt);</span>
-<span class="nc" id="L399">            }</span>
-        });
-<span class="nc" id="L401">        jMenu5.add(jRadioButtonMenuItem5);</span>
-
-<span class="nc" id="L403">        jRadioButtonMenuItem6.setText(&quot;Classy&quot;);</span>
-<span class="nc" id="L404">        jRadioButtonMenuItem6.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L406">                jRadioButtonMenuItem6ActionPerformed(evt);</span>
-<span class="nc" id="L407">            }</span>
-        });
-<span class="nc" id="L409">        jMenu5.add(jRadioButtonMenuItem6);</span>
-
-<span class="nc" id="L411">        jRadioButtonMenuItem7.setText(&quot;GreenDream&quot;);</span>
-<span class="nc" id="L412">        jRadioButtonMenuItem7.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L414">                jRadioButtonMenuItem7ActionPerformed(evt);</span>
-<span class="nc" id="L415">            }</span>
-        });
-<span class="nc" id="L417">        jMenu5.add(jRadioButtonMenuItem7);</span>
-
-<span class="nc" id="L419">        jRadioButtonMenuItem8.setText(&quot;MauveMetallic&quot;);</span>
-<span class="nc" id="L420">        jRadioButtonMenuItem8.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L422">                jRadioButtonMenuItem8ActionPerformed(evt);</span>
-<span class="nc" id="L423">            }</span>
-        });
-<span class="nc" id="L425">        jMenu5.add(jRadioButtonMenuItem8);</span>
-
-<span class="nc" id="L427">        jRadioButtonMenuItem9.setText(&quot;OrangeMetallic&quot;);</span>
-<span class="nc" id="L428">        jRadioButtonMenuItem9.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L430">                jRadioButtonMenuItem9ActionPerformed(evt);</span>
-<span class="nc" id="L431">            }</span>
-        });
-<span class="nc" id="L433">        jMenu5.add(jRadioButtonMenuItem9);</span>
-
-<span class="nc" id="L435">        jRadioButtonMenuItem10.setText(&quot;SilverMoon&quot;);</span>
-<span class="nc" id="L436">        jRadioButtonMenuItem10.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L438">                jRadioButtonMenuItem10ActionPerformed(evt);</span>
-<span class="nc" id="L439">            }</span>
-        });
-<span class="nc" id="L441">        jMenu5.add(jRadioButtonMenuItem10);</span>
-
-<span class="nc" id="L443">        jRadioButtonMenuItem11.setText(&quot;Simple2D&quot;);</span>
-<span class="nc" id="L444">        jRadioButtonMenuItem11.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L446">                jRadioButtonMenuItem11ActionPerformed(evt);</span>
-<span class="nc" id="L447">            }</span>
-        });
-<span class="nc" id="L449">        jMenu5.add(jRadioButtonMenuItem11);</span>
-
-<span class="nc" id="L451">        jRadioButtonMenuItem12.setText(&quot;SkyMetallic&quot;);</span>
-<span class="nc" id="L452">        jRadioButtonMenuItem12.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L454">                jRadioButtonMenuItem12ActionPerformed(evt);</span>
-<span class="nc" id="L455">            }</span>
-        });
-<span class="nc" id="L457">        jMenu5.add(jRadioButtonMenuItem12);</span>
-
-<span class="nc" id="L459">        jRadioButtonMenuItem13.setText(&quot;jRadioButtonMenuItem13&quot;);</span>
-<span class="nc" id="L460">        jRadioButtonMenuItem13.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L462">                jRadioButtonMenuItem13ActionPerformed(evt);</span>
-<span class="nc" id="L463">            }</span>
-        });
-<span class="nc" id="L465">        jMenu5.add(jRadioButtonMenuItem13);</span>
-
-<span class="nc" id="L467">        jMenu6.add(jMenu5);</span>
-
-<span class="nc" id="L469">        jMenuBar1.add(jMenu6);</span>
-
-<span class="nc" id="L471">        setJMenuBar(jMenuBar1);</span>
-
-<span class="nc" id="L473">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="nc" id="L474">        getContentPane().setLayout(layout);</span>
-<span class="nc" id="L475">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L476">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L477">            .addComponent(Escritorio)</span>
-        );
-<span class="nc" id="L479">        layout.setVerticalGroup(</span>
-<span class="nc" id="L480">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L481">            .addComponent(Escritorio, javax.swing.GroupLayout.Alignment.TRAILING)</span>
+<span class="nc" id="L212">        EscritorioLayout.setVerticalGroup(</span>
+<span class="nc" id="L213">            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L214">            .addGap(0, 683, Short.MAX_VALUE)</span>
         );
 
-<span class="nc" id="L484">        pack();</span>
-<span class="nc" id="L485">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L217">        jMenuBar1.setToolTipText(&quot;&quot;);</span>
+
+<span class="nc" id="L219">        jMenu8.setText(&quot;Usuarios&quot;);</span>
+
+<span class="nc" id="L221">        jMenu9.setText(&quot;Clientes&quot;);</span>
+
+<span class="nc" id="L223">        jMenuItem14.setText(&quot;Alta cliente&quot;);</span>
+<span class="nc" id="L224">        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L226">                jMenuItem14ActionPerformed(evt);</span>
+<span class="nc" id="L227">            }</span>
+        });
+<span class="nc" id="L229">        jMenu9.add(jMenuItem14);</span>
+
+<span class="nc" id="L231">        jMenuItem5.setText(&quot;Ver informacion clientes&quot;);</span>
+<span class="nc" id="L232">        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L234">                jMenuItem5ActionPerformed(evt);</span>
+<span class="nc" id="L235">            }</span>
+        });
+<span class="nc" id="L237">        jMenu9.add(jMenuItem5);</span>
+
+<span class="nc" id="L239">        jMenu8.add(jMenu9);</span>
+
+<span class="nc" id="L241">        jMenu10.setText(&quot;Proveedores&quot;);</span>
+
+<span class="nc" id="L243">        jMenuItem1.setText(&quot;Alta proveedor&quot;);</span>
+<span class="nc" id="L244">        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L246">                jMenuItem1ActionPerformed(evt);</span>
+<span class="nc" id="L247">            }</span>
+        });
+<span class="nc" id="L249">        jMenu10.add(jMenuItem1);</span>
+
+<span class="nc" id="L251">        jMenuItem6.setText(&quot;Ver informacion proveedor&quot;);</span>
+<span class="nc" id="L252">        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L254">                jMenuItem6ActionPerformed(evt);</span>
+<span class="nc" id="L255">            }</span>
+        });
+<span class="nc" id="L257">        jMenu10.add(jMenuItem6);</span>
+
+<span class="nc" id="L259">        jMenu8.add(jMenu10);</span>
+
+<span class="nc" id="L261">        jMenuBar1.add(jMenu8);</span>
+
+<span class="nc" id="L263">        jMenu3.setText(&quot;Reservas&quot;);</span>
+<span class="nc" id="L264">        jMenu3.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L266">                jMenu3ActionPerformed(evt);</span>
+<span class="nc" id="L267">            }</span>
+        });
+
+<span class="nc" id="L270">        jMenuItem10.setText(&quot;Realizar reserva&quot;);</span>
+<span class="nc" id="L271">        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L273">                jMenuItem10ActionPerformed(evt);</span>
+<span class="nc" id="L274">            }</span>
+        });
+<span class="nc" id="L276">        jMenu3.add(jMenuItem10);</span>
+
+<span class="nc" id="L278">        jMenuItem11.setText(&quot;Actualizar estado&quot;);</span>
+<span class="nc" id="L279">        jMenu3.add(jMenuItem11);</span>
+
+<span class="nc" id="L281">        jMenuItem12.setText(&quot;Cancelar reserva&quot;);</span>
+<span class="nc" id="L282">        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L284">                jMenuItem12ActionPerformed(evt);</span>
+<span class="nc" id="L285">            }</span>
+        });
+<span class="nc" id="L287">        jMenu3.add(jMenuItem12);</span>
+
+<span class="nc" id="L289">        jMenuItem9.setText(&quot;Ver informacion Reserva&quot;);</span>
+<span class="nc" id="L290">        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L292">                jMenuItem9ActionPerformed(evt);</span>
+<span class="nc" id="L293">            }</span>
+        });
+<span class="nc" id="L295">        jMenu3.add(jMenuItem9);</span>
+
+<span class="nc" id="L297">        jMenuBar1.add(jMenu3);</span>
+
+<span class="nc" id="L299">        jMenu7.setText(&quot;Servicos y promociones&quot;);</span>
+
+<span class="nc" id="L301">        jMenuItem4.setText(&quot;Alta promocion&quot;);</span>
+<span class="nc" id="L302">        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L304">                jMenuItem4ActionPerformed(evt);</span>
+<span class="nc" id="L305">            }</span>
+        });
+<span class="nc" id="L307">        jMenu7.add(jMenuItem4);</span>
+
+<span class="nc" id="L309">        jMenuItem8.setText(&quot;Ver informacion promociones&quot;);</span>
+<span class="nc" id="L310">        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L312">                jMenuItem8ActionPerformed(evt);</span>
+<span class="nc" id="L313">            }</span>
+        });
+<span class="nc" id="L315">        jMenu7.add(jMenuItem8);</span>
+
+<span class="nc" id="L317">        Servicios.setText(&quot;Alta servicio&quot;);</span>
+<span class="nc" id="L318">        Servicios.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L320">                ServiciosActionPerformed(evt);</span>
+<span class="nc" id="L321">            }</span>
+        });
+<span class="nc" id="L323">        jMenu7.add(Servicios);</span>
+
+<span class="nc" id="L325">        jMenuItem7.setText(&quot;Ver informacion servicio&quot;);</span>
+<span class="nc" id="L326">        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L328">                jMenuItem7ActionPerformed(evt);</span>
+<span class="nc" id="L329">            }</span>
+        });
+<span class="nc" id="L331">        jMenu7.add(jMenuItem7);</span>
+
+<span class="nc" id="L333">        jMenuItem16.setText(&quot;Actualizar servicio&quot;);</span>
+<span class="nc" id="L334">        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L336">                jMenuItem16ActionPerformed(evt);</span>
+<span class="nc" id="L337">            }</span>
+        });
+<span class="nc" id="L339">        jMenu7.add(jMenuItem16);</span>
+
+<span class="nc" id="L341">        jMenuBar1.add(jMenu7);</span>
+
+<span class="nc" id="L343">        jMenu6.setText(&quot;Configuracion&quot;);</span>
+
+<span class="nc" id="L345">        jMenuItem3.setText(&quot;Carga inicial&quot;);</span>
+<span class="nc" id="L346">        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L348">                jMenuItem3ActionPerformed(evt);</span>
+<span class="nc" id="L349">            }</span>
+        });
+<span class="nc" id="L351">        jMenu6.add(jMenuItem3);</span>
+
+<span class="nc" id="L353">        jMenuItem2.setText(&quot;Añadir categoria&quot;);</span>
+<span class="nc" id="L354">        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L356">                jMenuItem2ActionPerformed(evt);</span>
+<span class="nc" id="L357">            }</span>
+        });
+<span class="nc" id="L359">        jMenu6.add(jMenuItem2);</span>
+
+<span class="nc" id="L361">        jMenuItem15.setText(&quot;Opciones&quot;);</span>
+<span class="nc" id="L362">        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L364">                jMenuItem15ActionPerformed(evt);</span>
+<span class="nc" id="L365">            }</span>
+        });
+<span class="nc" id="L367">        jMenu6.add(jMenuItem15);</span>
+
+<span class="nc" id="L369">        jMenu5.setText(&quot;Thema&quot;);</span>
+
+<span class="nc" id="L371">        jRadioButtonMenuItem1.setSelected(true);</span>
+<span class="nc" id="L372">        jRadioButtonMenuItem1.setText(&quot;BlackEye&quot;);</span>
+<span class="nc" id="L373">        jRadioButtonMenuItem1.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L375">                jRadioButtonMenuItem1ActionPerformed(evt);</span>
+<span class="nc" id="L376">            }</span>
+        });
+<span class="nc" id="L378">        jMenu5.add(jRadioButtonMenuItem1);</span>
+
+<span class="nc" id="L380">        jRadioButtonMenuItem2.setText(&quot;BlueMoon&quot;);</span>
+<span class="nc" id="L381">        jRadioButtonMenuItem2.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L383">                jRadioButtonMenuItem2ActionPerformed(evt);</span>
+<span class="nc" id="L384">            }</span>
+        });
+<span class="nc" id="L386">        jMenu5.add(jRadioButtonMenuItem2);</span>
+
+<span class="nc" id="L388">        jRadioButtonMenuItem3.setText(&quot;BlackMoon&quot;);</span>
+<span class="nc" id="L389">        jRadioButtonMenuItem3.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L391">                jRadioButtonMenuItem3ActionPerformed(evt);</span>
+<span class="nc" id="L392">            }</span>
+        });
+<span class="nc" id="L394">        jMenu5.add(jRadioButtonMenuItem3);</span>
+
+<span class="nc" id="L396">        jRadioButtonMenuItem4.setText(&quot;BlueIce&quot;);</span>
+<span class="nc" id="L397">        jRadioButtonMenuItem4.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L399">                jRadioButtonMenuItem4ActionPerformed(evt);</span>
+<span class="nc" id="L400">            }</span>
+        });
+<span class="nc" id="L402">        jMenu5.add(jRadioButtonMenuItem4);</span>
+
+<span class="nc" id="L404">        jRadioButtonMenuItem5.setText(&quot;BlueSteel&quot;);</span>
+<span class="nc" id="L405">        jRadioButtonMenuItem5.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L407">                jRadioButtonMenuItem5ActionPerformed(evt);</span>
+<span class="nc" id="L408">            }</span>
+        });
+<span class="nc" id="L410">        jMenu5.add(jRadioButtonMenuItem5);</span>
+
+<span class="nc" id="L412">        jRadioButtonMenuItem6.setText(&quot;Classy&quot;);</span>
+<span class="nc" id="L413">        jRadioButtonMenuItem6.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L415">                jRadioButtonMenuItem6ActionPerformed(evt);</span>
+<span class="nc" id="L416">            }</span>
+        });
+<span class="nc" id="L418">        jMenu5.add(jRadioButtonMenuItem6);</span>
+
+<span class="nc" id="L420">        jRadioButtonMenuItem7.setText(&quot;GreenDream&quot;);</span>
+<span class="nc" id="L421">        jRadioButtonMenuItem7.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L423">                jRadioButtonMenuItem7ActionPerformed(evt);</span>
+<span class="nc" id="L424">            }</span>
+        });
+<span class="nc" id="L426">        jMenu5.add(jRadioButtonMenuItem7);</span>
+
+<span class="nc" id="L428">        jRadioButtonMenuItem8.setText(&quot;MauveMetallic&quot;);</span>
+<span class="nc" id="L429">        jRadioButtonMenuItem8.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L431">                jRadioButtonMenuItem8ActionPerformed(evt);</span>
+<span class="nc" id="L432">            }</span>
+        });
+<span class="nc" id="L434">        jMenu5.add(jRadioButtonMenuItem8);</span>
+
+<span class="nc" id="L436">        jRadioButtonMenuItem9.setText(&quot;OrangeMetallic&quot;);</span>
+<span class="nc" id="L437">        jRadioButtonMenuItem9.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L439">                jRadioButtonMenuItem9ActionPerformed(evt);</span>
+<span class="nc" id="L440">            }</span>
+        });
+<span class="nc" id="L442">        jMenu5.add(jRadioButtonMenuItem9);</span>
+
+<span class="nc" id="L444">        jRadioButtonMenuItem10.setText(&quot;SilverMoon&quot;);</span>
+<span class="nc" id="L445">        jRadioButtonMenuItem10.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L447">                jRadioButtonMenuItem10ActionPerformed(evt);</span>
+<span class="nc" id="L448">            }</span>
+        });
+<span class="nc" id="L450">        jMenu5.add(jRadioButtonMenuItem10);</span>
+
+<span class="nc" id="L452">        jRadioButtonMenuItem11.setText(&quot;Simple2D&quot;);</span>
+<span class="nc" id="L453">        jRadioButtonMenuItem11.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L455">                jRadioButtonMenuItem11ActionPerformed(evt);</span>
+<span class="nc" id="L456">            }</span>
+        });
+<span class="nc" id="L458">        jMenu5.add(jRadioButtonMenuItem11);</span>
+
+<span class="nc" id="L460">        jRadioButtonMenuItem12.setText(&quot;SkyMetallic&quot;);</span>
+<span class="nc" id="L461">        jRadioButtonMenuItem12.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L463">                jRadioButtonMenuItem12ActionPerformed(evt);</span>
+<span class="nc" id="L464">            }</span>
+        });
+<span class="nc" id="L466">        jMenu5.add(jRadioButtonMenuItem12);</span>
+
+<span class="nc" id="L468">        jRadioButtonMenuItem13.setText(&quot;jRadioButtonMenuItem13&quot;);</span>
+<span class="nc" id="L469">        jRadioButtonMenuItem13.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L471">                jRadioButtonMenuItem13ActionPerformed(evt);</span>
+<span class="nc" id="L472">            }</span>
+        });
+<span class="nc" id="L474">        jMenu5.add(jRadioButtonMenuItem13);</span>
+
+<span class="nc" id="L476">        jMenu6.add(jMenu5);</span>
+
+<span class="nc" id="L478">        jMenuBar1.add(jMenu6);</span>
+
+<span class="nc" id="L480">        setJMenuBar(jMenuBar1);</span>
+
+<span class="nc" id="L482">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L483">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L484">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L485">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L486">            .addComponent(Escritorio)</span>
+        );
+<span class="nc" id="L488">        layout.setVerticalGroup(</span>
+<span class="nc" id="L489">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L490">            .addComponent(Escritorio, javax.swing.GroupLayout.Alignment.TRAILING)</span>
+        );
+
+<span class="nc" id="L493">        pack();</span>
+<span class="nc" id="L494">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
  
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L489">        abrirVerInfoServicio(&quot;&quot;);</span>
-<span class="nc" id="L490">    }//GEN-LAST:event_jMenuItem7ActionPerformed</span>
+<span class="nc" id="L498">        abrirVerInfoServicio(&quot;&quot;);</span>
+<span class="nc" id="L499">    }//GEN-LAST:event_jMenuItem7ActionPerformed</span>
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L494">        this.abrirRealizarReserva();</span>
-<span class="nc" id="L495">    }//GEN-LAST:event_jMenuItem10ActionPerformed</span>
+<span class="nc" id="L503">        this.abrirRealizarReserva();</span>
+<span class="nc" id="L504">    }//GEN-LAST:event_jMenuItem10ActionPerformed</span>
 
     private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L499">        this.abrirAltacliente();</span>
-<span class="nc" id="L500">    }//GEN-LAST:event_jMenuItem14ActionPerformed</span>
+<span class="nc" id="L508">        this.abrirAltacliente();</span>
+<span class="nc" id="L509">    }//GEN-LAST:event_jMenuItem14ActionPerformed</span>
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-<span class="nc" id="L503">        AltaCategoria altaCat = new AltaCategoria();</span>
-<span class="nc" id="L504">        Escritorio.add(altaCat);</span>
-<span class="nc" id="L505">         int a = (Escritorio.getWidth() - altaCat.getWidth())/2;</span>
-<span class="nc" id="L506">        int b = (Escritorio.getHeight() - altaCat.getHeight()) /2;</span>
-<span class="nc" id="L507">        altaCat.setLocation(a ,b);</span>
-<span class="nc" id="L508">        altaCat.show();</span>
-<span class="nc" id="L509">    }//GEN-LAST:event_jMenuItem2ActionPerformed</span>
+<span class="nc" id="L512">        AltaCategoria altaCat = new AltaCategoria();</span>
+<span class="nc" id="L513">        Escritorio.add(altaCat);</span>
+<span class="nc" id="L514">         int a = (Escritorio.getWidth() - altaCat.getWidth())/2;</span>
+<span class="nc" id="L515">        int b = (Escritorio.getHeight() - altaCat.getHeight()) /2;</span>
+<span class="nc" id="L516">        altaCat.setLocation(a ,b);</span>
+<span class="nc" id="L517">        altaCat.show();</span>
+<span class="nc" id="L518">    }//GEN-LAST:event_jMenuItem2ActionPerformed</span>
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L513">        VerInfoProveedor altaCat = new VerInfoProveedor();</span>
-<span class="nc" id="L514">        Escritorio.add(altaCat);</span>
-<span class="nc" id="L515">         int a = (Escritorio.getWidth() - altaCat.getWidth())/2;</span>
-<span class="nc" id="L516">        int b = (Escritorio.getHeight() - altaCat.getHeight()) /2;</span>
-<span class="nc" id="L517">        altaCat.setLocation(a ,b);</span>
-<span class="nc" id="L518">        altaCat.show();</span>
-<span class="nc" id="L519">    }//GEN-LAST:event_jMenuItem6ActionPerformed</span>
+<span class="nc" id="L522">        VerInfoProveedor altaCat = new VerInfoProveedor();</span>
+<span class="nc" id="L523">        Escritorio.add(altaCat);</span>
+<span class="nc" id="L524">         int a = (Escritorio.getWidth() - altaCat.getWidth())/2;</span>
+<span class="nc" id="L525">        int b = (Escritorio.getHeight() - altaCat.getHeight()) /2;</span>
+<span class="nc" id="L526">        altaCat.setLocation(a ,b);</span>
+<span class="nc" id="L527">        altaCat.show();</span>
+<span class="nc" id="L528">    }//GEN-LAST:event_jMenuItem6ActionPerformed</span>
 
     private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L523">        Opciones op = new Opciones();</span>
-<span class="nc" id="L524">        Escritorio.add(op);</span>
-<span class="nc" id="L525">         int a = (Escritorio.getWidth() - op.getWidth())/2;</span>
-<span class="nc" id="L526">        int b = (Escritorio.getHeight() - op.getHeight()) /2;</span>
-<span class="nc" id="L527">        op.setLocation(a ,b);</span>
-<span class="nc" id="L528">        op.show();</span>
-<span class="nc" id="L529">    }//GEN-LAST:event_jMenuItem15ActionPerformed</span>
+<span class="nc" id="L532">        Opciones op = new Opciones();</span>
+<span class="nc" id="L533">        Escritorio.add(op);</span>
+<span class="nc" id="L534">         int a = (Escritorio.getWidth() - op.getWidth())/2;</span>
+<span class="nc" id="L535">        int b = (Escritorio.getHeight() - op.getHeight()) /2;</span>
+<span class="nc" id="L536">        op.setLocation(a ,b);</span>
+<span class="nc" id="L537">        op.show();</span>
+<span class="nc" id="L538">    }//GEN-LAST:event_jMenuItem15ActionPerformed</span>
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
         
-<span class="nc" id="L534">        VerInfoCliente al = new VerInfoCliente();</span>
-<span class="nc" id="L535">        Escritorio.add(al);</span>
-<span class="nc" id="L536">        int a = (Escritorio.getWidth() - al.getWidth())/2;</span>
-<span class="nc" id="L537">        int b = (Escritorio.getHeight() - al.getHeight()) /2;</span>
-<span class="nc" id="L538">        al.setLocation(a ,b);</span>
-<span class="nc" id="L539">        al.show();</span>
+<span class="nc" id="L543">        VerInfoCliente al = new VerInfoCliente();</span>
+<span class="nc" id="L544">        Escritorio.add(al);</span>
+<span class="nc" id="L545">        int a = (Escritorio.getWidth() - al.getWidth())/2;</span>
+<span class="nc" id="L546">        int b = (Escritorio.getHeight() - al.getHeight()) /2;</span>
+<span class="nc" id="L547">        al.setLocation(a ,b);</span>
+<span class="nc" id="L548">        al.show();</span>
     
-<span class="nc" id="L541">    }//GEN-LAST:event_jMenuItem5ActionPerformed</span>
+<span class="nc" id="L550">    }//GEN-LAST:event_jMenuItem5ActionPerformed</span>
 
     private void ServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ServiciosActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L545">        AltaServicio al = new AltaServicio();</span>
-<span class="nc" id="L546">        Escritorio.add(al);</span>
-<span class="nc" id="L547">        int a = (Escritorio.getWidth() - al.getWidth())/2;</span>
-<span class="nc" id="L548">        int b = (Escritorio.getHeight() - al.getHeight()) /2;</span>
-<span class="nc" id="L549">        al.setLocation(a ,b);</span>
-<span class="nc" id="L550">        al.show();</span>
-<span class="nc" id="L551">    }//GEN-LAST:event_ServiciosActionPerformed</span>
+<span class="nc" id="L554">        AltaServicio al = new AltaServicio();</span>
+<span class="nc" id="L555">        Escritorio.add(al);</span>
+<span class="nc" id="L556">        int a = (Escritorio.getWidth() - al.getWidth())/2;</span>
+<span class="nc" id="L557">        int b = (Escritorio.getHeight() - al.getHeight()) /2;</span>
+<span class="nc" id="L558">        al.setLocation(a ,b);</span>
+<span class="nc" id="L559">        al.show();</span>
+<span class="nc" id="L560">    }//GEN-LAST:event_ServiciosActionPerformed</span>
 
     private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
-<span class="nc" id="L554">        cancelarReserva CancelReserva = new cancelarReserva();</span>
-<span class="nc" id="L555">        Escritorio.add(CancelReserva);</span>
-<span class="nc" id="L556">         int a = (Escritorio.getWidth() - CancelReserva.getWidth())/2;</span>
-<span class="nc" id="L557">        int b = (Escritorio.getHeight() - CancelReserva.getHeight()) /2;</span>
-<span class="nc" id="L558">        CancelReserva.setLocation(a ,b);</span>
-<span class="nc" id="L559">        CancelReserva.show();</span>
-<span class="nc" id="L560">    }//GEN-LAST:event_jMenu3ActionPerformed</span>
-
-    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
 <span class="nc" id="L563">        cancelarReserva CancelReserva = new cancelarReserva();</span>
 <span class="nc" id="L564">        Escritorio.add(CancelReserva);</span>
 <span class="nc" id="L565">         int a = (Escritorio.getWidth() - CancelReserva.getWidth())/2;</span>
 <span class="nc" id="L566">        int b = (Escritorio.getHeight() - CancelReserva.getHeight()) /2;</span>
 <span class="nc" id="L567">        CancelReserva.setLocation(a ,b);</span>
 <span class="nc" id="L568">        CancelReserva.show();</span>
-<span class="nc" id="L569">    }//GEN-LAST:event_jMenuItem12ActionPerformed</span>
+<span class="nc" id="L569">    }//GEN-LAST:event_jMenu3ActionPerformed</span>
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+<span class="nc" id="L572">        cancelarReserva CancelReserva = new cancelarReserva();</span>
+<span class="nc" id="L573">        Escritorio.add(CancelReserva);</span>
+<span class="nc" id="L574">         int a = (Escritorio.getWidth() - CancelReserva.getWidth())/2;</span>
+<span class="nc" id="L575">        int b = (Escritorio.getHeight() - CancelReserva.getHeight()) /2;</span>
+<span class="nc" id="L576">        CancelReserva.setLocation(a ,b);</span>
+<span class="nc" id="L577">        CancelReserva.show();</span>
+<span class="nc" id="L578">    }//GEN-LAST:event_jMenuItem12ActionPerformed</span>
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L573">        AltaPromocion ap = new AltaPromocion();</span>
-<span class="nc" id="L574">        Escritorio.add(ap);</span>
-<span class="nc" id="L575">        int a = (Escritorio.getWidth() - ap.getWidth())/2;</span>
-<span class="nc" id="L576">        int b = (Escritorio.getHeight() - ap.getHeight()) /2;</span>
-<span class="nc" id="L577">        ap.setLocation(a ,b);</span>
-<span class="nc" id="L578">        ap.show();</span>
-<span class="nc" id="L579">    }//GEN-LAST:event_jMenuItem4ActionPerformed</span>
-
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-<span class="nc" id="L582">        VerInfoPromocion ap = new VerInfoPromocion();</span>
+<span class="nc" id="L582">        AltaPromocion ap = new AltaPromocion();</span>
 <span class="nc" id="L583">        Escritorio.add(ap);</span>
 <span class="nc" id="L584">        int a = (Escritorio.getWidth() - ap.getWidth())/2;</span>
 <span class="nc" id="L585">        int b = (Escritorio.getHeight() - ap.getHeight()) /2;</span>
 <span class="nc" id="L586">        ap.setLocation(a ,b);</span>
 <span class="nc" id="L587">        ap.show();</span>
-<span class="nc" id="L588">    }//GEN-LAST:event_jMenuItem8ActionPerformed</span>
+<span class="nc" id="L588">    }//GEN-LAST:event_jMenuItem4ActionPerformed</span>
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+<span class="nc" id="L591">        VerInfoPromocion ap = new VerInfoPromocion();</span>
+<span class="nc" id="L592">        Escritorio.add(ap);</span>
+<span class="nc" id="L593">        int a = (Escritorio.getWidth() - ap.getWidth())/2;</span>
+<span class="nc" id="L594">        int b = (Escritorio.getHeight() - ap.getHeight()) /2;</span>
+<span class="nc" id="L595">        ap.setLocation(a ,b);</span>
+<span class="nc" id="L596">        ap.show();</span>
+<span class="nc" id="L597">    }//GEN-LAST:event_jMenuItem8ActionPerformed</span>
 
     private void jRadioButtonMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem2ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L592">        jRadioButtonMenuItem1.setSelected(false);</span>
-<span class="nc" id="L593">        jRadioButtonMenuItem2.setSelected(true);</span>
-<span class="nc" id="L594">        jRadioButtonMenuItem3.setSelected(false);</span>
-<span class="nc" id="L595">        jRadioButtonMenuItem4.setSelected(false);</span>
-<span class="nc" id="L596">        jRadioButtonMenuItem5.setSelected(false);</span>
-<span class="nc" id="L597">        jRadioButtonMenuItem6.setSelected(false);</span>
-<span class="nc" id="L598">        jRadioButtonMenuItem7.setSelected(false);</span>
-<span class="nc" id="L599">        jRadioButtonMenuItem8.setSelected(false);</span>
-<span class="nc" id="L600">        jRadioButtonMenuItem9.setSelected(false);</span>
-<span class="nc" id="L601">        jRadioButtonMenuItem10.setSelected(false);</span>
-<span class="nc" id="L602">        jRadioButtonMenuItem11.setSelected(false);</span>
-<span class="nc" id="L603">        jRadioButtonMenuItem12.setSelected(false);</span>
-<span class="nc" id="L604">         jRadioButtonMenuItem13.setSelected(false);</span>
+<span class="nc" id="L601">        jRadioButtonMenuItem1.setSelected(false);</span>
+<span class="nc" id="L602">        jRadioButtonMenuItem2.setSelected(true);</span>
+<span class="nc" id="L603">        jRadioButtonMenuItem3.setSelected(false);</span>
+<span class="nc" id="L604">        jRadioButtonMenuItem4.setSelected(false);</span>
+<span class="nc" id="L605">        jRadioButtonMenuItem5.setSelected(false);</span>
+<span class="nc" id="L606">        jRadioButtonMenuItem6.setSelected(false);</span>
+<span class="nc" id="L607">        jRadioButtonMenuItem7.setSelected(false);</span>
+<span class="nc" id="L608">        jRadioButtonMenuItem8.setSelected(false);</span>
+<span class="nc" id="L609">        jRadioButtonMenuItem9.setSelected(false);</span>
+<span class="nc" id="L610">        jRadioButtonMenuItem10.setSelected(false);</span>
+<span class="nc" id="L611">        jRadioButtonMenuItem11.setSelected(false);</span>
+<span class="nc" id="L612">        jRadioButtonMenuItem12.setSelected(false);</span>
+<span class="nc" id="L613">         jRadioButtonMenuItem13.setSelected(false);</span>
         try {
-<span class="nc" id="L606">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
-<span class="nc" id="L607">            UIManager.setLookAndFeel(new SyntheticaBlueMoonLookAndFeel());</span>
-<span class="nc" id="L608">        } catch (ParseException ex) {</span>
-<span class="nc" id="L609">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L610">        } catch (UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L611">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L612">        }</span>
+<span class="nc" id="L615">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
+<span class="nc" id="L616">            UIManager.setLookAndFeel(new SyntheticaBlueMoonLookAndFeel());</span>
+<span class="nc" id="L617">        } catch (ParseException ex) {</span>
+<span class="nc" id="L618">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L619">        } catch (UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L620">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L621">        }</span>
       
-<span class="nc" id="L614">    }//GEN-LAST:event_jRadioButtonMenuItem2ActionPerformed</span>
+<span class="nc" id="L623">    }//GEN-LAST:event_jRadioButtonMenuItem2ActionPerformed</span>
 
     private void jRadioButtonMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem3ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L618">        jRadioButtonMenuItem1.setSelected(false);</span>
-<span class="nc" id="L619">        jRadioButtonMenuItem2.setSelected(false);</span>
-<span class="nc" id="L620">        jRadioButtonMenuItem3.setSelected(true);</span>
-<span class="nc" id="L621">        jRadioButtonMenuItem4.setSelected(false);</span>
-<span class="nc" id="L622">        jRadioButtonMenuItem5.setSelected(false);</span>
-<span class="nc" id="L623">        jRadioButtonMenuItem6.setSelected(false);</span>
-<span class="nc" id="L624">        jRadioButtonMenuItem7.setSelected(false);</span>
-<span class="nc" id="L625">        jRadioButtonMenuItem8.setSelected(false);</span>
-<span class="nc" id="L626">        jRadioButtonMenuItem9.setSelected(false);</span>
-<span class="nc" id="L627">        jRadioButtonMenuItem10.setSelected(false);</span>
-<span class="nc" id="L628">        jRadioButtonMenuItem11.setSelected(false);</span>
-<span class="nc" id="L629">        jRadioButtonMenuItem12.setSelected(false);</span>
-<span class="nc" id="L630">         jRadioButtonMenuItem13.setSelected(false);</span>
+<span class="nc" id="L627">        jRadioButtonMenuItem1.setSelected(false);</span>
+<span class="nc" id="L628">        jRadioButtonMenuItem2.setSelected(false);</span>
+<span class="nc" id="L629">        jRadioButtonMenuItem3.setSelected(true);</span>
+<span class="nc" id="L630">        jRadioButtonMenuItem4.setSelected(false);</span>
+<span class="nc" id="L631">        jRadioButtonMenuItem5.setSelected(false);</span>
+<span class="nc" id="L632">        jRadioButtonMenuItem6.setSelected(false);</span>
+<span class="nc" id="L633">        jRadioButtonMenuItem7.setSelected(false);</span>
+<span class="nc" id="L634">        jRadioButtonMenuItem8.setSelected(false);</span>
+<span class="nc" id="L635">        jRadioButtonMenuItem9.setSelected(false);</span>
+<span class="nc" id="L636">        jRadioButtonMenuItem10.setSelected(false);</span>
+<span class="nc" id="L637">        jRadioButtonMenuItem11.setSelected(false);</span>
+<span class="nc" id="L638">        jRadioButtonMenuItem12.setSelected(false);</span>
+<span class="nc" id="L639">         jRadioButtonMenuItem13.setSelected(false);</span>
         try {
-<span class="nc" id="L632">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
-<span class="nc" id="L633">            UIManager.setLookAndFeel(new SyntheticaBlackMoonLookAndFeel());</span>
-<span class="nc" id="L634">        } catch (ParseException ex) {</span>
-<span class="nc" id="L635">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L636">        } catch (UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L637">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L638">        }</span>
-<span class="nc" id="L639">    }//GEN-LAST:event_jRadioButtonMenuItem3ActionPerformed</span>
+<span class="nc" id="L641">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
+<span class="nc" id="L642">            UIManager.setLookAndFeel(new SyntheticaBlackMoonLookAndFeel());</span>
+<span class="nc" id="L643">        } catch (ParseException ex) {</span>
+<span class="nc" id="L644">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L645">        } catch (UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L646">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L647">        }</span>
+<span class="nc" id="L648">    }//GEN-LAST:event_jRadioButtonMenuItem3ActionPerformed</span>
 
     private void jRadioButtonMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem1ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L643">        jRadioButtonMenuItem1.setSelected(true);</span>
-<span class="nc" id="L644">        jRadioButtonMenuItem2.setSelected(false);</span>
-<span class="nc" id="L645">        jRadioButtonMenuItem3.setSelected(false);</span>
-<span class="nc" id="L646">        jRadioButtonMenuItem4.setSelected(false);</span>
-<span class="nc" id="L647">        jRadioButtonMenuItem5.setSelected(false);</span>
-<span class="nc" id="L648">        jRadioButtonMenuItem6.setSelected(false);</span>
-<span class="nc" id="L649">        jRadioButtonMenuItem7.setSelected(false);</span>
-<span class="nc" id="L650">        jRadioButtonMenuItem8.setSelected(false);</span>
-<span class="nc" id="L651">        jRadioButtonMenuItem9.setSelected(false);</span>
-<span class="nc" id="L652">        jRadioButtonMenuItem10.setSelected(false);</span>
-<span class="nc" id="L653">        jRadioButtonMenuItem11.setSelected(false);</span>
-<span class="nc" id="L654">        jRadioButtonMenuItem12.setSelected(false);</span>
-<span class="nc" id="L655">         jRadioButtonMenuItem13.setSelected(false);</span>
+<span class="nc" id="L652">        jRadioButtonMenuItem1.setSelected(true);</span>
+<span class="nc" id="L653">        jRadioButtonMenuItem2.setSelected(false);</span>
+<span class="nc" id="L654">        jRadioButtonMenuItem3.setSelected(false);</span>
+<span class="nc" id="L655">        jRadioButtonMenuItem4.setSelected(false);</span>
+<span class="nc" id="L656">        jRadioButtonMenuItem5.setSelected(false);</span>
+<span class="nc" id="L657">        jRadioButtonMenuItem6.setSelected(false);</span>
+<span class="nc" id="L658">        jRadioButtonMenuItem7.setSelected(false);</span>
+<span class="nc" id="L659">        jRadioButtonMenuItem8.setSelected(false);</span>
+<span class="nc" id="L660">        jRadioButtonMenuItem9.setSelected(false);</span>
+<span class="nc" id="L661">        jRadioButtonMenuItem10.setSelected(false);</span>
+<span class="nc" id="L662">        jRadioButtonMenuItem11.setSelected(false);</span>
+<span class="nc" id="L663">        jRadioButtonMenuItem12.setSelected(false);</span>
+<span class="nc" id="L664">         jRadioButtonMenuItem13.setSelected(false);</span>
         
         
         try {
-<span class="nc" id="L659">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
-<span class="nc" id="L660">            UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());</span>
-<span class="nc" id="L661">        } catch (ParseException ex) {</span>
-<span class="nc" id="L662">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L663">        } catch (UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L664">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L665">        }</span>
-<span class="nc" id="L666">    }//GEN-LAST:event_jRadioButtonMenuItem1ActionPerformed</span>
+<span class="nc" id="L668">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
+<span class="nc" id="L669">            UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());</span>
+<span class="nc" id="L670">        } catch (ParseException ex) {</span>
+<span class="nc" id="L671">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L672">        } catch (UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L673">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L674">        }</span>
+<span class="nc" id="L675">    }//GEN-LAST:event_jRadioButtonMenuItem1ActionPerformed</span>
 
     private void jRadioButtonMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem12ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L670">        jRadioButtonMenuItem1.setSelected(false);</span>
-<span class="nc" id="L671">        jRadioButtonMenuItem2.setSelected(false);</span>
-<span class="nc" id="L672">        jRadioButtonMenuItem3.setSelected(false);</span>
-<span class="nc" id="L673">        jRadioButtonMenuItem4.setSelected(false);</span>
-<span class="nc" id="L674">        jRadioButtonMenuItem5.setSelected(false);</span>
-<span class="nc" id="L675">        jRadioButtonMenuItem6.setSelected(false);</span>
-<span class="nc" id="L676">        jRadioButtonMenuItem7.setSelected(false);</span>
-<span class="nc" id="L677">        jRadioButtonMenuItem8.setSelected(false);</span>
-<span class="nc" id="L678">        jRadioButtonMenuItem9.setSelected(false);</span>
-<span class="nc" id="L679">        jRadioButtonMenuItem10.setSelected(false);</span>
-<span class="nc" id="L680">        jRadioButtonMenuItem11.setSelected(false);</span>
-<span class="nc" id="L681">        jRadioButtonMenuItem12.setSelected(true);</span>
-<span class="nc" id="L682">         jRadioButtonMenuItem13.setSelected(false);</span>
+<span class="nc" id="L679">        jRadioButtonMenuItem1.setSelected(false);</span>
+<span class="nc" id="L680">        jRadioButtonMenuItem2.setSelected(false);</span>
+<span class="nc" id="L681">        jRadioButtonMenuItem3.setSelected(false);</span>
+<span class="nc" id="L682">        jRadioButtonMenuItem4.setSelected(false);</span>
+<span class="nc" id="L683">        jRadioButtonMenuItem5.setSelected(false);</span>
+<span class="nc" id="L684">        jRadioButtonMenuItem6.setSelected(false);</span>
+<span class="nc" id="L685">        jRadioButtonMenuItem7.setSelected(false);</span>
+<span class="nc" id="L686">        jRadioButtonMenuItem8.setSelected(false);</span>
+<span class="nc" id="L687">        jRadioButtonMenuItem9.setSelected(false);</span>
+<span class="nc" id="L688">        jRadioButtonMenuItem10.setSelected(false);</span>
+<span class="nc" id="L689">        jRadioButtonMenuItem11.setSelected(false);</span>
+<span class="nc" id="L690">        jRadioButtonMenuItem12.setSelected(true);</span>
+<span class="nc" id="L691">         jRadioButtonMenuItem13.setSelected(false);</span>
          try {
-<span class="nc" id="L684">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
-<span class="nc" id="L685">            UIManager.setLookAndFeel(new SyntheticaSkyMetallicLookAndFeel());</span>
-<span class="nc" id="L686">        } catch (ParseException ex) {</span>
-<span class="nc" id="L687">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L688">        } catch (UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L689">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L690">        }</span>
-<span class="nc" id="L691">    }//GEN-LAST:event_jRadioButtonMenuItem12ActionPerformed</span>
+<span class="nc" id="L693">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
+<span class="nc" id="L694">            UIManager.setLookAndFeel(new SyntheticaSkyMetallicLookAndFeel());</span>
+<span class="nc" id="L695">        } catch (ParseException ex) {</span>
+<span class="nc" id="L696">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L697">        } catch (UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L698">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L699">        }</span>
+<span class="nc" id="L700">    }//GEN-LAST:event_jRadioButtonMenuItem12ActionPerformed</span>
 
     private void jRadioButtonMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem4ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L695">        jRadioButtonMenuItem1.setSelected(false);</span>
-<span class="nc" id="L696">        jRadioButtonMenuItem2.setSelected(false);</span>
-<span class="nc" id="L697">        jRadioButtonMenuItem3.setSelected(false);</span>
-<span class="nc" id="L698">        jRadioButtonMenuItem4.setSelected(true);</span>
-<span class="nc" id="L699">        jRadioButtonMenuItem5.setSelected(false);</span>
-<span class="nc" id="L700">        jRadioButtonMenuItem6.setSelected(false);</span>
-<span class="nc" id="L701">        jRadioButtonMenuItem7.setSelected(false);</span>
-<span class="nc" id="L702">        jRadioButtonMenuItem8.setSelected(false);</span>
-<span class="nc" id="L703">        jRadioButtonMenuItem9.setSelected(false);</span>
-<span class="nc" id="L704">        jRadioButtonMenuItem10.setSelected(false);</span>
-<span class="nc" id="L705">        jRadioButtonMenuItem11.setSelected(false);</span>
-<span class="nc" id="L706">        jRadioButtonMenuItem12.setSelected(false);</span>
-<span class="nc" id="L707">         jRadioButtonMenuItem13.setSelected(false);</span>
+<span class="nc" id="L704">        jRadioButtonMenuItem1.setSelected(false);</span>
+<span class="nc" id="L705">        jRadioButtonMenuItem2.setSelected(false);</span>
+<span class="nc" id="L706">        jRadioButtonMenuItem3.setSelected(false);</span>
+<span class="nc" id="L707">        jRadioButtonMenuItem4.setSelected(true);</span>
+<span class="nc" id="L708">        jRadioButtonMenuItem5.setSelected(false);</span>
+<span class="nc" id="L709">        jRadioButtonMenuItem6.setSelected(false);</span>
+<span class="nc" id="L710">        jRadioButtonMenuItem7.setSelected(false);</span>
+<span class="nc" id="L711">        jRadioButtonMenuItem8.setSelected(false);</span>
+<span class="nc" id="L712">        jRadioButtonMenuItem9.setSelected(false);</span>
+<span class="nc" id="L713">        jRadioButtonMenuItem10.setSelected(false);</span>
+<span class="nc" id="L714">        jRadioButtonMenuItem11.setSelected(false);</span>
+<span class="nc" id="L715">        jRadioButtonMenuItem12.setSelected(false);</span>
+<span class="nc" id="L716">         jRadioButtonMenuItem13.setSelected(false);</span>
          try {
-<span class="nc" id="L709">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
-<span class="nc" id="L710">            UIManager.setLookAndFeel(new SyntheticaBlueIceLookAndFeel());</span>
-<span class="nc" id="L711">        } catch (ParseException ex) {</span>
-<span class="nc" id="L712">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L713">        } catch (UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L714">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L715">        }</span>
-<span class="nc" id="L716">    }//GEN-LAST:event_jRadioButtonMenuItem4ActionPerformed</span>
+<span class="nc" id="L718">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
+<span class="nc" id="L719">            UIManager.setLookAndFeel(new SyntheticaBlueIceLookAndFeel());</span>
+<span class="nc" id="L720">        } catch (ParseException ex) {</span>
+<span class="nc" id="L721">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L722">        } catch (UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L723">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L724">        }</span>
+<span class="nc" id="L725">    }//GEN-LAST:event_jRadioButtonMenuItem4ActionPerformed</span>
 
     private void jRadioButtonMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem5ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L720">         jRadioButtonMenuItem1.setSelected(false);</span>
-<span class="nc" id="L721">        jRadioButtonMenuItem2.setSelected(false);</span>
-<span class="nc" id="L722">        jRadioButtonMenuItem3.setSelected(false);</span>
-<span class="nc" id="L723">        jRadioButtonMenuItem4.setSelected(false);</span>
-<span class="nc" id="L724">        jRadioButtonMenuItem5.setSelected(true);</span>
-<span class="nc" id="L725">        jRadioButtonMenuItem6.setSelected(false);</span>
-<span class="nc" id="L726">        jRadioButtonMenuItem7.setSelected(false);</span>
-<span class="nc" id="L727">        jRadioButtonMenuItem8.setSelected(false);</span>
-<span class="nc" id="L728">        jRadioButtonMenuItem9.setSelected(false);</span>
-<span class="nc" id="L729">        jRadioButtonMenuItem10.setSelected(false);</span>
-<span class="nc" id="L730">        jRadioButtonMenuItem11.setSelected(false);</span>
-<span class="nc" id="L731">        jRadioButtonMenuItem12.setSelected(false);</span>
+<span class="nc" id="L729">         jRadioButtonMenuItem1.setSelected(false);</span>
+<span class="nc" id="L730">        jRadioButtonMenuItem2.setSelected(false);</span>
+<span class="nc" id="L731">        jRadioButtonMenuItem3.setSelected(false);</span>
+<span class="nc" id="L732">        jRadioButtonMenuItem4.setSelected(false);</span>
+<span class="nc" id="L733">        jRadioButtonMenuItem5.setSelected(true);</span>
+<span class="nc" id="L734">        jRadioButtonMenuItem6.setSelected(false);</span>
+<span class="nc" id="L735">        jRadioButtonMenuItem7.setSelected(false);</span>
+<span class="nc" id="L736">        jRadioButtonMenuItem8.setSelected(false);</span>
+<span class="nc" id="L737">        jRadioButtonMenuItem9.setSelected(false);</span>
+<span class="nc" id="L738">        jRadioButtonMenuItem10.setSelected(false);</span>
+<span class="nc" id="L739">        jRadioButtonMenuItem11.setSelected(false);</span>
+<span class="nc" id="L740">        jRadioButtonMenuItem12.setSelected(false);</span>
          try {
-<span class="nc" id="L733">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
-<span class="nc" id="L734">            UIManager.setLookAndFeel(new SyntheticaBlueSteelLookAndFeel());</span>
-<span class="nc" id="L735">        } catch (ParseException ex) {</span>
-<span class="nc" id="L736">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L737">        } catch (UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L738">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L739">        }</span>
-<span class="nc" id="L740">    }//GEN-LAST:event_jRadioButtonMenuItem5ActionPerformed</span>
+<span class="nc" id="L742">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
+<span class="nc" id="L743">            UIManager.setLookAndFeel(new SyntheticaBlueSteelLookAndFeel());</span>
+<span class="nc" id="L744">        } catch (ParseException ex) {</span>
+<span class="nc" id="L745">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L746">        } catch (UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L747">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L748">        }</span>
+<span class="nc" id="L749">    }//GEN-LAST:event_jRadioButtonMenuItem5ActionPerformed</span>
 
     private void jRadioButtonMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem6ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L744">        jRadioButtonMenuItem1.setSelected(false);</span>
-<span class="nc" id="L745">        jRadioButtonMenuItem2.setSelected(false);</span>
-<span class="nc" id="L746">        jRadioButtonMenuItem3.setSelected(false);</span>
-<span class="nc" id="L747">        jRadioButtonMenuItem4.setSelected(false);</span>
-<span class="nc" id="L748">        jRadioButtonMenuItem5.setSelected(false);</span>
-<span class="nc" id="L749">        jRadioButtonMenuItem6.setSelected(true);</span>
-<span class="nc" id="L750">        jRadioButtonMenuItem7.setSelected(false);</span>
-<span class="nc" id="L751">        jRadioButtonMenuItem8.setSelected(false);</span>
-<span class="nc" id="L752">        jRadioButtonMenuItem9.setSelected(false);</span>
-<span class="nc" id="L753">        jRadioButtonMenuItem10.setSelected(false);</span>
-<span class="nc" id="L754">        jRadioButtonMenuItem11.setSelected(false);</span>
-<span class="nc" id="L755">        jRadioButtonMenuItem12.setSelected(false);</span>
-<span class="nc" id="L756">         jRadioButtonMenuItem13.setSelected(false);</span>
+<span class="nc" id="L753">        jRadioButtonMenuItem1.setSelected(false);</span>
+<span class="nc" id="L754">        jRadioButtonMenuItem2.setSelected(false);</span>
+<span class="nc" id="L755">        jRadioButtonMenuItem3.setSelected(false);</span>
+<span class="nc" id="L756">        jRadioButtonMenuItem4.setSelected(false);</span>
+<span class="nc" id="L757">        jRadioButtonMenuItem5.setSelected(false);</span>
+<span class="nc" id="L758">        jRadioButtonMenuItem6.setSelected(true);</span>
+<span class="nc" id="L759">        jRadioButtonMenuItem7.setSelected(false);</span>
+<span class="nc" id="L760">        jRadioButtonMenuItem8.setSelected(false);</span>
+<span class="nc" id="L761">        jRadioButtonMenuItem9.setSelected(false);</span>
+<span class="nc" id="L762">        jRadioButtonMenuItem10.setSelected(false);</span>
+<span class="nc" id="L763">        jRadioButtonMenuItem11.setSelected(false);</span>
+<span class="nc" id="L764">        jRadioButtonMenuItem12.setSelected(false);</span>
+<span class="nc" id="L765">         jRadioButtonMenuItem13.setSelected(false);</span>
          try {
-<span class="nc" id="L758">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
-<span class="nc" id="L759">            UIManager.setLookAndFeel(new SyntheticaClassyLookAndFeel());</span>
-<span class="nc" id="L760">        } catch (ParseException ex) {</span>
-<span class="nc" id="L761">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L762">        } catch (UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L763">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L764">        }</span>
-<span class="nc" id="L765">    }//GEN-LAST:event_jRadioButtonMenuItem6ActionPerformed</span>
+<span class="nc" id="L767">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
+<span class="nc" id="L768">            UIManager.setLookAndFeel(new SyntheticaClassyLookAndFeel());</span>
+<span class="nc" id="L769">        } catch (ParseException ex) {</span>
+<span class="nc" id="L770">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L771">        } catch (UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L772">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L773">        }</span>
+<span class="nc" id="L774">    }//GEN-LAST:event_jRadioButtonMenuItem6ActionPerformed</span>
 
     private void jRadioButtonMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem7ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L769">        jRadioButtonMenuItem1.setSelected(false);</span>
-<span class="nc" id="L770">        jRadioButtonMenuItem2.setSelected(false);</span>
-<span class="nc" id="L771">        jRadioButtonMenuItem3.setSelected(false);</span>
-<span class="nc" id="L772">        jRadioButtonMenuItem4.setSelected(false);</span>
-<span class="nc" id="L773">        jRadioButtonMenuItem5.setSelected(false);</span>
-<span class="nc" id="L774">        jRadioButtonMenuItem6.setSelected(false);</span>
-<span class="nc" id="L775">        jRadioButtonMenuItem7.setSelected(true);</span>
-<span class="nc" id="L776">        jRadioButtonMenuItem8.setSelected(false);</span>
-<span class="nc" id="L777">        jRadioButtonMenuItem9.setSelected(false);</span>
-<span class="nc" id="L778">        jRadioButtonMenuItem10.setSelected(false);</span>
-<span class="nc" id="L779">        jRadioButtonMenuItem11.setSelected(false);</span>
-<span class="nc" id="L780">        jRadioButtonMenuItem12.setSelected(false);</span>
-<span class="nc" id="L781">         jRadioButtonMenuItem13.setSelected(false);</span>
+<span class="nc" id="L778">        jRadioButtonMenuItem1.setSelected(false);</span>
+<span class="nc" id="L779">        jRadioButtonMenuItem2.setSelected(false);</span>
+<span class="nc" id="L780">        jRadioButtonMenuItem3.setSelected(false);</span>
+<span class="nc" id="L781">        jRadioButtonMenuItem4.setSelected(false);</span>
+<span class="nc" id="L782">        jRadioButtonMenuItem5.setSelected(false);</span>
+<span class="nc" id="L783">        jRadioButtonMenuItem6.setSelected(false);</span>
+<span class="nc" id="L784">        jRadioButtonMenuItem7.setSelected(true);</span>
+<span class="nc" id="L785">        jRadioButtonMenuItem8.setSelected(false);</span>
+<span class="nc" id="L786">        jRadioButtonMenuItem9.setSelected(false);</span>
+<span class="nc" id="L787">        jRadioButtonMenuItem10.setSelected(false);</span>
+<span class="nc" id="L788">        jRadioButtonMenuItem11.setSelected(false);</span>
+<span class="nc" id="L789">        jRadioButtonMenuItem12.setSelected(false);</span>
+<span class="nc" id="L790">         jRadioButtonMenuItem13.setSelected(false);</span>
          try {
-<span class="nc" id="L783">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
-<span class="nc" id="L784">            UIManager.setLookAndFeel(new SyntheticaGreenDreamLookAndFeel());</span>
-<span class="nc" id="L785">        } catch (ParseException ex) {</span>
-<span class="nc" id="L786">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L787">        } catch (UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L788">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L789">        }</span>
-<span class="nc" id="L790">    }//GEN-LAST:event_jRadioButtonMenuItem7ActionPerformed</span>
+<span class="nc" id="L792">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
+<span class="nc" id="L793">            UIManager.setLookAndFeel(new SyntheticaGreenDreamLookAndFeel());</span>
+<span class="nc" id="L794">        } catch (ParseException ex) {</span>
+<span class="nc" id="L795">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L796">        } catch (UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L797">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L798">        }</span>
+<span class="nc" id="L799">    }//GEN-LAST:event_jRadioButtonMenuItem7ActionPerformed</span>
 
     private void jRadioButtonMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem8ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L794">        jRadioButtonMenuItem1.setSelected(false);</span>
-<span class="nc" id="L795">        jRadioButtonMenuItem2.setSelected(false);</span>
-<span class="nc" id="L796">        jRadioButtonMenuItem3.setSelected(false);</span>
-<span class="nc" id="L797">        jRadioButtonMenuItem4.setSelected(false);</span>
-<span class="nc" id="L798">        jRadioButtonMenuItem5.setSelected(false);</span>
-<span class="nc" id="L799">        jRadioButtonMenuItem6.setSelected(false);</span>
-<span class="nc" id="L800">        jRadioButtonMenuItem7.setSelected(false);</span>
-<span class="nc" id="L801">        jRadioButtonMenuItem8.setSelected(true);</span>
-<span class="nc" id="L802">        jRadioButtonMenuItem9.setSelected(false);</span>
-<span class="nc" id="L803">        jRadioButtonMenuItem10.setSelected(false);</span>
-<span class="nc" id="L804">        jRadioButtonMenuItem11.setSelected(false);</span>
-<span class="nc" id="L805">        jRadioButtonMenuItem12.setSelected(false);</span>
-<span class="nc" id="L806">         jRadioButtonMenuItem13.setSelected(false);</span>
+<span class="nc" id="L803">        jRadioButtonMenuItem1.setSelected(false);</span>
+<span class="nc" id="L804">        jRadioButtonMenuItem2.setSelected(false);</span>
+<span class="nc" id="L805">        jRadioButtonMenuItem3.setSelected(false);</span>
+<span class="nc" id="L806">        jRadioButtonMenuItem4.setSelected(false);</span>
+<span class="nc" id="L807">        jRadioButtonMenuItem5.setSelected(false);</span>
+<span class="nc" id="L808">        jRadioButtonMenuItem6.setSelected(false);</span>
+<span class="nc" id="L809">        jRadioButtonMenuItem7.setSelected(false);</span>
+<span class="nc" id="L810">        jRadioButtonMenuItem8.setSelected(true);</span>
+<span class="nc" id="L811">        jRadioButtonMenuItem9.setSelected(false);</span>
+<span class="nc" id="L812">        jRadioButtonMenuItem10.setSelected(false);</span>
+<span class="nc" id="L813">        jRadioButtonMenuItem11.setSelected(false);</span>
+<span class="nc" id="L814">        jRadioButtonMenuItem12.setSelected(false);</span>
+<span class="nc" id="L815">         jRadioButtonMenuItem13.setSelected(false);</span>
          try {
-<span class="nc" id="L808">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
-<span class="nc" id="L809">            UIManager.setLookAndFeel(new SyntheticaMauveMetallicLookAndFeel());</span>
-<span class="nc" id="L810">        } catch (ParseException ex) {</span>
-<span class="nc" id="L811">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L812">        } catch (UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L813">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L814">        }</span>
-<span class="nc" id="L815">    }//GEN-LAST:event_jRadioButtonMenuItem8ActionPerformed</span>
+<span class="nc" id="L817">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
+<span class="nc" id="L818">            UIManager.setLookAndFeel(new SyntheticaMauveMetallicLookAndFeel());</span>
+<span class="nc" id="L819">        } catch (ParseException ex) {</span>
+<span class="nc" id="L820">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L821">        } catch (UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L822">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L823">        }</span>
+<span class="nc" id="L824">    }//GEN-LAST:event_jRadioButtonMenuItem8ActionPerformed</span>
 
     private void jRadioButtonMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem9ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L819">        jRadioButtonMenuItem1.setSelected(false);</span>
-<span class="nc" id="L820">        jRadioButtonMenuItem2.setSelected(false);</span>
-<span class="nc" id="L821">        jRadioButtonMenuItem3.setSelected(false);</span>
-<span class="nc" id="L822">        jRadioButtonMenuItem4.setSelected(false);</span>
-<span class="nc" id="L823">        jRadioButtonMenuItem5.setSelected(false);</span>
-<span class="nc" id="L824">        jRadioButtonMenuItem6.setSelected(false);</span>
-<span class="nc" id="L825">        jRadioButtonMenuItem7.setSelected(false);</span>
-<span class="nc" id="L826">        jRadioButtonMenuItem8.setSelected(false);</span>
-<span class="nc" id="L827">        jRadioButtonMenuItem9.setSelected(true);</span>
-<span class="nc" id="L828">        jRadioButtonMenuItem10.setSelected(false);</span>
-<span class="nc" id="L829">        jRadioButtonMenuItem11.setSelected(false);</span>
-<span class="nc" id="L830">        jRadioButtonMenuItem12.setSelected(false);</span>
-<span class="nc" id="L831">         jRadioButtonMenuItem13.setSelected(false);</span>
+<span class="nc" id="L828">        jRadioButtonMenuItem1.setSelected(false);</span>
+<span class="nc" id="L829">        jRadioButtonMenuItem2.setSelected(false);</span>
+<span class="nc" id="L830">        jRadioButtonMenuItem3.setSelected(false);</span>
+<span class="nc" id="L831">        jRadioButtonMenuItem4.setSelected(false);</span>
+<span class="nc" id="L832">        jRadioButtonMenuItem5.setSelected(false);</span>
+<span class="nc" id="L833">        jRadioButtonMenuItem6.setSelected(false);</span>
+<span class="nc" id="L834">        jRadioButtonMenuItem7.setSelected(false);</span>
+<span class="nc" id="L835">        jRadioButtonMenuItem8.setSelected(false);</span>
+<span class="nc" id="L836">        jRadioButtonMenuItem9.setSelected(true);</span>
+<span class="nc" id="L837">        jRadioButtonMenuItem10.setSelected(false);</span>
+<span class="nc" id="L838">        jRadioButtonMenuItem11.setSelected(false);</span>
+<span class="nc" id="L839">        jRadioButtonMenuItem12.setSelected(false);</span>
+<span class="nc" id="L840">         jRadioButtonMenuItem13.setSelected(false);</span>
          try {
-<span class="nc" id="L833">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
-<span class="nc" id="L834">            UIManager.setLookAndFeel(new SyntheticaOrangeMetallicLookAndFeel());</span>
-<span class="nc" id="L835">        } catch (ParseException ex) {</span>
-<span class="nc" id="L836">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L837">        } catch (UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L838">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L839">        }</span>
-<span class="nc" id="L840">    }//GEN-LAST:event_jRadioButtonMenuItem9ActionPerformed</span>
+<span class="nc" id="L842">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
+<span class="nc" id="L843">            UIManager.setLookAndFeel(new SyntheticaOrangeMetallicLookAndFeel());</span>
+<span class="nc" id="L844">        } catch (ParseException ex) {</span>
+<span class="nc" id="L845">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L846">        } catch (UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L847">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L848">        }</span>
+<span class="nc" id="L849">    }//GEN-LAST:event_jRadioButtonMenuItem9ActionPerformed</span>
 
     private void jRadioButtonMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem10ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L844">        jRadioButtonMenuItem1.setSelected(false);</span>
-<span class="nc" id="L845">        jRadioButtonMenuItem2.setSelected(false);</span>
-<span class="nc" id="L846">        jRadioButtonMenuItem3.setSelected(false);</span>
-<span class="nc" id="L847">        jRadioButtonMenuItem4.setSelected(false);</span>
-<span class="nc" id="L848">        jRadioButtonMenuItem5.setSelected(false);</span>
-<span class="nc" id="L849">        jRadioButtonMenuItem6.setSelected(false);</span>
-<span class="nc" id="L850">        jRadioButtonMenuItem7.setSelected(false);</span>
-<span class="nc" id="L851">        jRadioButtonMenuItem8.setSelected(false);</span>
-<span class="nc" id="L852">        jRadioButtonMenuItem9.setSelected(false);</span>
-<span class="nc" id="L853">        jRadioButtonMenuItem10.setSelected(true);</span>
-<span class="nc" id="L854">        jRadioButtonMenuItem11.setSelected(false);</span>
-<span class="nc" id="L855">        jRadioButtonMenuItem12.setSelected(false);</span>
-<span class="nc" id="L856">         jRadioButtonMenuItem13.setSelected(false);</span>
+<span class="nc" id="L853">        jRadioButtonMenuItem1.setSelected(false);</span>
+<span class="nc" id="L854">        jRadioButtonMenuItem2.setSelected(false);</span>
+<span class="nc" id="L855">        jRadioButtonMenuItem3.setSelected(false);</span>
+<span class="nc" id="L856">        jRadioButtonMenuItem4.setSelected(false);</span>
+<span class="nc" id="L857">        jRadioButtonMenuItem5.setSelected(false);</span>
+<span class="nc" id="L858">        jRadioButtonMenuItem6.setSelected(false);</span>
+<span class="nc" id="L859">        jRadioButtonMenuItem7.setSelected(false);</span>
+<span class="nc" id="L860">        jRadioButtonMenuItem8.setSelected(false);</span>
+<span class="nc" id="L861">        jRadioButtonMenuItem9.setSelected(false);</span>
+<span class="nc" id="L862">        jRadioButtonMenuItem10.setSelected(true);</span>
+<span class="nc" id="L863">        jRadioButtonMenuItem11.setSelected(false);</span>
+<span class="nc" id="L864">        jRadioButtonMenuItem12.setSelected(false);</span>
+<span class="nc" id="L865">         jRadioButtonMenuItem13.setSelected(false);</span>
          try {
-<span class="nc" id="L858">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
-<span class="nc" id="L859">            UIManager.setLookAndFeel(new SyntheticaSilverMoonLookAndFeel());</span>
-<span class="nc" id="L860">        } catch (ParseException ex) {</span>
-<span class="nc" id="L861">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L862">        } catch (UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L863">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L864">        }</span>
-<span class="nc" id="L865">    }//GEN-LAST:event_jRadioButtonMenuItem10ActionPerformed</span>
+<span class="nc" id="L867">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
+<span class="nc" id="L868">            UIManager.setLookAndFeel(new SyntheticaSilverMoonLookAndFeel());</span>
+<span class="nc" id="L869">        } catch (ParseException ex) {</span>
+<span class="nc" id="L870">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L871">        } catch (UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L872">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L873">        }</span>
+<span class="nc" id="L874">    }//GEN-LAST:event_jRadioButtonMenuItem10ActionPerformed</span>
 
     private void jRadioButtonMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem11ActionPerformed
         // TODO add your handling code here:.
-<span class="nc" id="L869">        jRadioButtonMenuItem1.setSelected(false);</span>
-<span class="nc" id="L870">        jRadioButtonMenuItem2.setSelected(false);</span>
-<span class="nc" id="L871">        jRadioButtonMenuItem3.setSelected(false);</span>
-<span class="nc" id="L872">        jRadioButtonMenuItem4.setSelected(false);</span>
-<span class="nc" id="L873">        jRadioButtonMenuItem5.setSelected(false);</span>
-<span class="nc" id="L874">        jRadioButtonMenuItem6.setSelected(false);</span>
-<span class="nc" id="L875">        jRadioButtonMenuItem7.setSelected(false);</span>
-<span class="nc" id="L876">        jRadioButtonMenuItem8.setSelected(false);</span>
-<span class="nc" id="L877">        jRadioButtonMenuItem9.setSelected(false);</span>
-<span class="nc" id="L878">        jRadioButtonMenuItem10.setSelected(false);</span>
-<span class="nc" id="L879">        jRadioButtonMenuItem11.setSelected(true);</span>
-<span class="nc" id="L880">        jRadioButtonMenuItem12.setSelected(false);</span>
-<span class="nc" id="L881">         jRadioButtonMenuItem13.setSelected(false);</span>
+<span class="nc" id="L878">        jRadioButtonMenuItem1.setSelected(false);</span>
+<span class="nc" id="L879">        jRadioButtonMenuItem2.setSelected(false);</span>
+<span class="nc" id="L880">        jRadioButtonMenuItem3.setSelected(false);</span>
+<span class="nc" id="L881">        jRadioButtonMenuItem4.setSelected(false);</span>
+<span class="nc" id="L882">        jRadioButtonMenuItem5.setSelected(false);</span>
+<span class="nc" id="L883">        jRadioButtonMenuItem6.setSelected(false);</span>
+<span class="nc" id="L884">        jRadioButtonMenuItem7.setSelected(false);</span>
+<span class="nc" id="L885">        jRadioButtonMenuItem8.setSelected(false);</span>
+<span class="nc" id="L886">        jRadioButtonMenuItem9.setSelected(false);</span>
+<span class="nc" id="L887">        jRadioButtonMenuItem10.setSelected(false);</span>
+<span class="nc" id="L888">        jRadioButtonMenuItem11.setSelected(true);</span>
+<span class="nc" id="L889">        jRadioButtonMenuItem12.setSelected(false);</span>
+<span class="nc" id="L890">         jRadioButtonMenuItem13.setSelected(false);</span>
          try {
-<span class="nc" id="L883">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
-<span class="nc" id="L884">            UIManager.setLookAndFeel(new SyntheticaSimple2DLookAndFeel());</span>
-<span class="nc" id="L885">        } catch (ParseException ex) {</span>
-<span class="nc" id="L886">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L887">        } catch (UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L888">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L889">        }</span>
-<span class="nc" id="L890">    }//GEN-LAST:event_jRadioButtonMenuItem11ActionPerformed</span>
+<span class="nc" id="L892">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
+<span class="nc" id="L893">            UIManager.setLookAndFeel(new SyntheticaSimple2DLookAndFeel());</span>
+<span class="nc" id="L894">        } catch (ParseException ex) {</span>
+<span class="nc" id="L895">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L896">        } catch (UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L897">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L898">        }</span>
+<span class="nc" id="L899">    }//GEN-LAST:event_jRadioButtonMenuItem11ActionPerformed</span>
 
     private void jRadioButtonMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem13ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L894">        jRadioButtonMenuItem1.setSelected(false);</span>
-<span class="nc" id="L895">        jRadioButtonMenuItem2.setSelected(false);</span>
-<span class="nc" id="L896">        jRadioButtonMenuItem3.setSelected(false);</span>
-<span class="nc" id="L897">        jRadioButtonMenuItem4.setSelected(false);</span>
-<span class="nc" id="L898">        jRadioButtonMenuItem5.setSelected(false);</span>
-<span class="nc" id="L899">        jRadioButtonMenuItem6.setSelected(false);</span>
-<span class="nc" id="L900">        jRadioButtonMenuItem7.setSelected(false);</span>
-<span class="nc" id="L901">        jRadioButtonMenuItem8.setSelected(false);</span>
-<span class="nc" id="L902">        jRadioButtonMenuItem9.setSelected(false);</span>
-<span class="nc" id="L903">        jRadioButtonMenuItem10.setSelected(false);</span>
-<span class="nc" id="L904">        jRadioButtonMenuItem11.setSelected(false);</span>
-<span class="nc" id="L905">        jRadioButtonMenuItem12.setSelected(false);</span>
-<span class="nc" id="L906">        jRadioButtonMenuItem13.setSelected(true);</span>
-<span class="nc" id="L907">        jRadioButtonMenuItem13.setSelected(false);</span>
+<span class="nc" id="L903">        jRadioButtonMenuItem1.setSelected(false);</span>
+<span class="nc" id="L904">        jRadioButtonMenuItem2.setSelected(false);</span>
+<span class="nc" id="L905">        jRadioButtonMenuItem3.setSelected(false);</span>
+<span class="nc" id="L906">        jRadioButtonMenuItem4.setSelected(false);</span>
+<span class="nc" id="L907">        jRadioButtonMenuItem5.setSelected(false);</span>
+<span class="nc" id="L908">        jRadioButtonMenuItem6.setSelected(false);</span>
+<span class="nc" id="L909">        jRadioButtonMenuItem7.setSelected(false);</span>
+<span class="nc" id="L910">        jRadioButtonMenuItem8.setSelected(false);</span>
+<span class="nc" id="L911">        jRadioButtonMenuItem9.setSelected(false);</span>
+<span class="nc" id="L912">        jRadioButtonMenuItem10.setSelected(false);</span>
+<span class="nc" id="L913">        jRadioButtonMenuItem11.setSelected(false);</span>
+<span class="nc" id="L914">        jRadioButtonMenuItem12.setSelected(false);</span>
+<span class="nc" id="L915">        jRadioButtonMenuItem13.setSelected(true);</span>
+<span class="nc" id="L916">        jRadioButtonMenuItem13.setSelected(false);</span>
          try {
-<span class="nc" id="L909">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
-<span class="nc" id="L910">            UIManager.setLookAndFeel(new SyntheticaWhiteVisionLookAndFeel());</span>
-<span class="nc" id="L911">        } catch (ParseException ex) {</span>
-<span class="nc" id="L912">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L913">        } catch (UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L914">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L915">        }</span>
-<span class="nc" id="L916">    }//GEN-LAST:event_jRadioButtonMenuItem13ActionPerformed</span>
+<span class="nc" id="L918">            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());</span>
+<span class="nc" id="L919">            UIManager.setLookAndFeel(new SyntheticaWhiteVisionLookAndFeel());</span>
+<span class="nc" id="L920">        } catch (ParseException ex) {</span>
+<span class="nc" id="L921">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L922">        } catch (UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L923">            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L924">        }</span>
+<span class="nc" id="L925">    }//GEN-LAST:event_jRadioButtonMenuItem13ActionPerformed</span>
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L920">        CargaInicial c = new CargaInicial();</span>
+<span class="nc" id="L929">        CargaInicial c = new CargaInicial();</span>
         try{
-<span class="nc" id="L922">            c.cargar();</span>
-<span class="nc" id="L923">            JOptionPane.showMessageDialog(null, &quot;Los datos iniciales se cargaron correctamente.&quot;);</span>
+<span class="nc" id="L931">            c.cargar();</span>
+<span class="nc" id="L932">            JOptionPane.showMessageDialog(null, &quot;Los datos iniciales se cargaron correctamente.&quot;);</span>
         }
-<span class="nc" id="L925">        catch(Exception ex){</span>
-<span class="nc" id="L926">            JOptionPane.showMessageDialog(null, ex.getMessage());</span>
-<span class="nc" id="L927">        }        </span>
-<span class="nc" id="L928">    }//GEN-LAST:event_jMenuItem3ActionPerformed</span>
+<span class="nc" id="L934">        catch(Exception ex){</span>
+<span class="nc" id="L935">            JOptionPane.showMessageDialog(null, ex.getMessage());</span>
+<span class="nc" id="L936">        }        </span>
+<span class="nc" id="L937">    }//GEN-LAST:event_jMenuItem3ActionPerformed</span>
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L932">        AltaProveedor al = new AltaProveedor();</span>
-<span class="nc" id="L933">        Escritorio.add(al);</span>
+<span class="nc" id="L941">        AltaProveedor al = new AltaProveedor();</span>
+<span class="nc" id="L942">        Escritorio.add(al);</span>
         //cuentas para centrar
-<span class="nc" id="L935">        int a = (Escritorio.getWidth() - al.getWidth())/2;</span>
-<span class="nc" id="L936">        int b = (Escritorio.getHeight() - al.getHeight()) /2;</span>
-<span class="nc" id="L937">        al.setLocation(a ,b);</span>
-<span class="nc" id="L938">        al.show();</span>
-<span class="nc" id="L939">    }//GEN-LAST:event_jMenuItem1ActionPerformed</span>
+<span class="nc" id="L944">        int a = (Escritorio.getWidth() - al.getWidth())/2;</span>
+<span class="nc" id="L945">        int b = (Escritorio.getHeight() - al.getHeight()) /2;</span>
+<span class="nc" id="L946">        al.setLocation(a ,b);</span>
+<span class="nc" id="L947">        al.show();</span>
+<span class="nc" id="L948">    }//GEN-LAST:event_jMenuItem1ActionPerformed</span>
 
     private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L943">        ActualizarServicio al = new ActualizarServicio();</span>
-<span class="nc" id="L944">        Escritorio.add(al);</span>
+<span class="nc" id="L952">        ActualizarServicio al = new ActualizarServicio();</span>
+<span class="nc" id="L953">        Escritorio.add(al);</span>
         //cuentas para centrar
-<span class="nc" id="L946">        int a = (Escritorio.getWidth() - al.getWidth())/2;</span>
-<span class="nc" id="L947">        int b = (Escritorio.getHeight() - al.getHeight()) /2;</span>
-<span class="nc" id="L948">        al.setLocation(a ,b);</span>
-<span class="nc" id="L949">        al.show();</span>
+<span class="nc" id="L955">        int a = (Escritorio.getWidth() - al.getWidth())/2;</span>
+<span class="nc" id="L956">        int b = (Escritorio.getHeight() - al.getHeight()) /2;</span>
+<span class="nc" id="L957">        al.setLocation(a ,b);</span>
+<span class="nc" id="L958">        al.show();</span>
         
-<span class="nc" id="L951">    }//GEN-LAST:event_jMenuItem16ActionPerformed</span>
+<span class="nc" id="L960">    }//GEN-LAST:event_jMenuItem16ActionPerformed</span>
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L955">        VerInfoReserva al = new VerInfoReserva();</span>
-<span class="nc" id="L956">        Escritorio.add(al);</span>
-        //cuentas para centrar
-<span class="nc" id="L958">        int a = (Escritorio.getWidth() - al.getWidth())/2;</span>
-<span class="nc" id="L959">        int b = (Escritorio.getHeight() - al.getHeight()) /2;</span>
-<span class="nc" id="L960">        al.setLocation(a ,b);</span>
-<span class="nc" id="L961">        al.show();</span>
-<span class="nc" id="L962">    }//GEN-LAST:event_jMenuItem9ActionPerformed</span>
+<span class="nc" id="L964">        abrirVerInfoReserva(&quot;&quot;);</span>
+<span class="nc" id="L965">    }//GEN-LAST:event_jMenuItem9ActionPerformed</span>
 
     /**
      * @param args the command line arguments
@@ -973,40 +976,40 @@ public class PantallaPrincipal extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-<span class="nc bnc" id="L976" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
-<span class="nc bnc" id="L977" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
-<span class="nc" id="L978">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
-<span class="nc" id="L979">                    break;</span>
+<span class="nc bnc" id="L979" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L980" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L981">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L982">                    break;</span>
                 }
             }
-<span class="nc" id="L982">        } catch (ClassNotFoundException ex) {</span>
-<span class="nc" id="L983">            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L984">        } catch (InstantiationException ex) {</span>
-<span class="nc" id="L985">            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L986">        } catch (IllegalAccessException ex) {</span>
-<span class="nc" id="L987">            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L988">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L989">            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L990">        }</span>
+<span class="nc" id="L985">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L986">            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L987">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L988">            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L989">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L990">            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L991">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L992">            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L993">        }</span>
         //&lt;/editor-fold&gt;
 
         /* Create and display the form */
-<span class="nc" id="L994">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+<span class="nc" id="L997">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
             public void run() {
                 try {
-<span class="nc" id="L997">                    UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());</span>
-<span class="nc" id="L998">                } catch (ParseException | UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L999">                    Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L1000">                }</span>
+<span class="nc" id="L1000">                    UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());</span>
+<span class="nc" id="L1001">                } catch (ParseException | UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L1002">                    Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L1003">                }</span>
             
-<span class="nc" id="L1002">                PantallaPrincipal x = new PantallaPrincipal();</span>
+<span class="nc" id="L1005">                PantallaPrincipal x = new PantallaPrincipal();</span>
                 //Pantalla Principal maximisada
-<span class="nc" id="L1004">                x.setExtendedState(MAXIMIZED_BOTH);</span>
-<span class="nc" id="L1005">                x.setVisible(true);</span>
+<span class="nc" id="L1007">                x.setExtendedState(MAXIMIZED_BOTH);</span>
+<span class="nc" id="L1008">                x.setVisible(true);</span>
                 
-<span class="nc" id="L1007">            }</span>
+<span class="nc" id="L1010">            }</span>
         });
-<span class="nc" id="L1009">    }</span>
+<span class="nc" id="L1012">    }</span>
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDesktopPane Escritorio;
