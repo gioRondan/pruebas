@@ -107,7 +107,7 @@ public class Servicio {
         if(it>contImagen)
             throw new Exception("la imagen seleccionada no pertenece al servicio");
         else{
-            //Files.delete(Paths.get(this.imagen[it]));
+            Files.delete(Paths.get(this.imagen[it]));
             this.imagen[it] = this.imagen[contImagen-1];
             this.imagen[contImagen-1] = "";
             contImagen--;
