@@ -43,6 +43,7 @@ public class DataProveedor {
         this.fechaNac       = fechaNac;
         this.imagen         = imagen;
         this.nombreEmpresa  = nombreEmpresa;
+        this.urlEmpresa = urlEmpresa;
     }
 
     //Getters

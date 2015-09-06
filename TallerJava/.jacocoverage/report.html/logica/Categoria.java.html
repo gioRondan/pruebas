@@ -58,9 +58,9 @@ public class Categoria {
     }
     public List&lt;DataCategoria&gt; getDataHijos(){
 <span class="fc" id="L60">        List&lt;DataCategoria&gt; dts = new ArrayList&lt;&gt;();</span>
-<span class="pc bpc" id="L61" title="1 of 2 branches missed.">        for(Categoria c : hijos){</span>
-<span class="nc" id="L62">            dts.add(c.getDataCategoria());</span>
-<span class="nc" id="L63">        }</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">        for(Categoria c : hijos){</span>
+<span class="fc" id="L62">            dts.add(c.getDataCategoria());</span>
+<span class="fc" id="L63">        }</span>
 <span class="fc" id="L64">        return dts;</span>
     }
     public DataCategoria getDataCategoria(){
@@ -78,7 +78,7 @@ public class Categoria {
 <span class="nc" id="L78">        return nombre;</span>
     }
     public boolean esRaiz() {
-<span class="nc bnc" id="L81" title="All 2 branches missed.">        return (!(tienePadre));</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">        return (!(tienePadre));</span>
     }
 
     Servicio getServicio(String nomServicio) {

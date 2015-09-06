@@ -1178,6 +1178,7 @@ public class ControladoresTest {
         }
         testIngresarCategoriaServicio2("transporte567");
         instancepr.ingresarImagenServicio("imagenser");
+        instancepr.ingresarDestinoServicio("destinoser");
         instancepr.altaServicio(nombre, descripcion, precio, origen, proveedor,"0");
         DataServicio result = instancepr.informacionServicio(proveedor, nombre);
         assertEquals(descripcion,result.getDescripcion());

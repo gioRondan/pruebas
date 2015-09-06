@@ -66,8 +66,8 @@ import javax.swing.JOptionPane;
 <span class="fc" id="L66">    }</span>
     @Override
     public List&lt;DataCiudad&gt; listarCiudades(){
-<span class="nc" id="L69">        ManejadorCiudad mCi = ManejadorCiudad.getInstance();</span>
-<span class="nc" id="L70">        return mCi.getDataCiudades();</span>
+<span class="fc" id="L69">        ManejadorCiudad mCi = ManejadorCiudad.getInstance();</span>
+<span class="fc" id="L70">        return mCi.getDataCiudades();</span>
     }
     @Override
     public void ingresarCategoriaServicio( String categoria) throws Exception{
@@ -86,8 +86,8 @@ import javax.swing.JOptionPane;
 <span class="nc" id="L86">    }</span>
     @Override
     public List&lt;DataCategoria&gt; listarCategorias(){
-<span class="nc" id="L89">        ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
-<span class="nc" id="L90">        return mCa.getDataCategorias();</span>
+<span class="fc" id="L89">        ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
+<span class="fc" id="L90">        return mCa.getDataCategorias();</span>
     }
     @Override
     public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor, String pais){
@@ -116,9 +116,9 @@ import javax.swing.JOptionPane;
 <span class="fc" id="L116">        ManejadorCiudad mCi = ManejadorCiudad.getInstance();</span>
 <span class="fc" id="L117">        altaCiudad(origen, pais);</span>
 <span class="fc" id="L118">        ser.asociarOrigen(mCi.getCiudad(origen));</span>
-<span class="pc bpc" id="L119" title="1 of 2 branches missed.">        if (!destinoServicio.isEmpty()){</span>
-<span class="nc" id="L120">            altaCiudad(destinoServicio, pais);//no habria que chequear que no exista ya ????</span>
-<span class="nc" id="L121">            ser.asociarDestino(mCi.getCiudad(destinoServicio));</span>
+<span class="fc bfc" id="L119" title="All 2 branches covered.">        if (!destinoServicio.isEmpty()){</span>
+<span class="fc" id="L120">            altaCiudad(destinoServicio, pais);//no habria que chequear que no exista ya ????</span>
+<span class="fc" id="L121">            ser.asociarDestino(mCi.getCiudad(destinoServicio));</span>
         }
 <span class="fc" id="L123">        liberarMemoria();</span>
 <span class="fc" id="L124">    }</span>
