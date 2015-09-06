@@ -31,6 +31,8 @@ public class MostrarDatosReservaParcial extends javax.swing.JInternalFrame  {
     
     private Map<String,DataExpira> fechas1;
     private Map<String,DataExpira> fechas2;
+    private Map<String, Integer> serv;
+    private Map<String, Integer> prom;
     
     public MostrarDatosReservaParcial(Map<String, Integer> serviciosCant,Map<String, Integer> promocionesCant,
     Map<String,DataExpira> fechas,Map<String,DataExpira> fechasPromos,String proveedorselecionado,float total,String cliente) {
@@ -56,6 +58,8 @@ public class MostrarDatosReservaParcial extends javax.swing.JInternalFrame  {
         listaPromos.setModel(mol2);
         fechas1=fechas;
         fechas2=fechasPromos;
+        serv=serviciosCant;
+        prom=promocionesCant;
         
         
     }
@@ -101,12 +105,24 @@ public class MostrarDatosReservaParcial extends javax.swing.JInternalFrame  {
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
+        listaPromos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        listaPromos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listaPromosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(listaPromos);
 
         listaServicos.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
+        });
+        listaServicos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        listaServicos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listaServicosMouseClicked(evt);
+            }
         });
         jScrollPane2.setViewportView(listaServicos);
 
@@ -239,6 +255,21 @@ public class MostrarDatosReservaParcial extends javax.swing.JInternalFrame  {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void listaServicosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaServicosMouseClicked
+        // TODO add your handling code here:
+        
+        fechainicio.setText(fechas1.get(listaServicos.getSelectedValue().toString()).getFechai().toString());
+        fechainicio.setText(fechas1.get(listaServicos.getSelectedValue().toString()).getFechaf().toString());
+        cant.setText(Integer.toString(serv.get(listaServicos.getSelectedValue().toString())));
+    }//GEN-LAST:event_listaServicosMouseClicked
+
+    private void listaPromosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaPromosMouseClicked
+        // TODO add your handling code here:
+        fechainicio.setText(fechas2.get(listaPromos.getSelectedValue().toString()).getFechai().toString());
+        fechafin.setText(fechas2.get(listaPromos.getSelectedValue().toString()).getFechaf().toString());
+        cant.setText(Integer.toString(serv.get(listaPromos.getSelectedValue().toString())));
+    }//GEN-LAST:event_listaPromosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
