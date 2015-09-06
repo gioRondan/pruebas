@@ -57,7 +57,7 @@ public class ListarEmpresas extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Listar Empresas");
-        setFrameIcon(new javax.swing.ImageIcon("/ens/home01/r/rodrigo.linares/Desktop/iconoH4T3.png")); // NOI18N
+        setFrameIcon(new javax.swing.ImageIcon("/ens/home01/r/rodrigo.linares/NetBeansProjects/tpgr07/TallerJava/src/Imagenes/iconoH4T.png")); // NOI18N
 
         jList2.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item1" };
