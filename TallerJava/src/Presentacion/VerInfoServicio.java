@@ -167,7 +167,7 @@ public class VerInfoServicio extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Informacion de servicio");
         setToolTipText("");
-        setFrameIcon(new javax.swing.ImageIcon("/ens/home01/r/rodrigo.linares/NetBeansProjects/tpgr07/TallerJava/src/Imagenes/iconoH4T.png")); // NOI18N
+        setFrameIcon(null);
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
                 formInternalFrameOpened(evt);
@@ -238,6 +238,7 @@ public class VerInfoServicio extends javax.swing.JInternalFrame {
 
         edt_descripcion.setEditable(false);
         edt_descripcion.setColumns(20);
+        edt_descripcion.setLineWrap(true);
         edt_descripcion.setRows(5);
         jScrollPane1.setViewportView(edt_descripcion);
 
@@ -306,8 +307,8 @@ public class VerInfoServicio extends javax.swing.JInternalFrame {
                                     .addComponent(edt_origen, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(edt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(edt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(123, 123, 123)))
                         .addGap(38, 38, 38))
                     .addGroup(layout.createSequentialGroup()
