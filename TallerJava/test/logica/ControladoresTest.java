@@ -565,7 +565,10 @@ public class ControladoresTest {
         try{
         instance.modificarServicio();
         }catch(Exception ex){}
-        DataInfoServicio result = instance.verInfoServicio("amodificar", proveedor);
+        DataInfoServicio result = null;
+        try{
+         result = instance.verInfoServicio("amodificar", proveedor);
+        }catch(Exception ex){}
         assertEquals("modificado", result.getDescripcion());
         assertEquals(9999, result.getPrecio(), 0);
         assertEquals("modificada", result.getImagen()[0]);
@@ -900,9 +903,9 @@ public class ControladoresTest {
         es.put("hola", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
         es.put("hola", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
         for(int i = 1; i < 11; ++i){
-            
+            try{
             instance.realizarReserva(proveedor, "cli12", serv, new HashMap(), es, es2, new Date(1,2,2013));
-            
+            }catch(Exception ex){}
         }
         List<DataReserva> result = instance.listarReservasXCliente("cli12");
         for(int j=0;j<10;++j){
@@ -957,7 +960,9 @@ public class ControladoresTest {
         es.put("hola1", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
         es.put("hola1", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
         for(int i = 1; i < 11; ++i){
+            try{
             instance.realizarReserva(proveedor1, "cli123", serv, new HashMap(), es, es2, new Date(1,2,2013));    
+            }catch(Exception ex){}
         }
         List<DataReserva> result = instance.listarReservasSistema();
         int aux = id;
@@ -1052,7 +1057,9 @@ public class ControladoresTest {
         Map<String, DataExpira> es2 = new HashMap();
         es.put("hola", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
         es.put("hola", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
+        try{
         instance.realizarReserva(proveedor, "cli12345678", serv, new HashMap(), es, es2, new Date(1,2,2013));
+        }catch(Exception ex){}
         ManejadorCliente mcl = ManejadorCliente.getInstance();
         int id = mcl.testGetId();
         boolean dioalta = false;
@@ -1136,7 +1143,9 @@ public class ControladoresTest {
         Map<String, DataExpira> es2 = new HashMap();
         es.put("promoprueba", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
         es.put("promoprueba", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
+        try{
         instance.realizarReserva(nickProveedor, nickCliente, new HashMap(), serv, es2, es, new Date(1,2,2013));
+        }catch(Exception ex){}
         ManejadorCliente mcl = ManejadorCliente.getInstance();
         int id = mcl.testGetId();
         instance.actualizarEstadoReserva(id, nickCliente, Estado.pagada);
@@ -1171,7 +1180,10 @@ public class ControladoresTest {
         instancepr.ingresarImagenServicio("imagenser");
         instancepr.ingresarDestinoServicio("destinoser");
         instancepr.altaServicio(nombre, descripcion, precio, origen, proveedor,"0");
-        DataServicio result = instancepr.informacionServicio(proveedor, nombre);
+        DataServicio result = null;
+        try{
+            result = instancepr.informacionServicio(proveedor, nombre);
+        }catch(Exception ex){}
         assertEquals(descripcion,result.getDescripcion());
         assertEquals("imagenser",result.getImagen()[0]);
         assertEquals(nombre,result.getNombre());
