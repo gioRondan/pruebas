@@ -549,11 +549,11 @@ public class ControladoresTest {
         }catch(Exception ex){}
         instance.ingresarImagenServicio("imser");
         instance.altaServicio("amodificar", descripcion, precio, origen, proveedor,"0");
-        DataInfoServicio result2 = instance.verInfoServicio("amodificar", proveedor);
+        //DataInfoServicio result2 = instance.verInfoServicio("amodificar", proveedor);
         testSeleccionarServicio("amodificar");
         testIngresarDescripcionServicio("modificado");
         instance.ingresarImagenBorrarServicio("imser");
-        testIngresarImagenServicio("modificada");
+        instance.ingresarModificarImagenServicio("modificada");
         testIngresarPrecioServicio(9999);
         testIngresarOrigenServicio("origenmodificado");
         testIngresarDestinoServicio("4");

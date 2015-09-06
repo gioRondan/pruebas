@@ -31,7 +31,7 @@ public class ControladorProveedor implements IControladorProveedor{
         imagenServicio = new String[3];
         tope=0;
         imagenModificarServicio = new String[3];
-        tope=0;
+        tope2=0;
         destinoServicio = "";
         origenServicio = "";
         categoriasServicio = new HashSet();
@@ -60,8 +60,9 @@ public class ControladorProveedor implements IControladorProveedor{
         ControladorProveedor.imagenServicio[ControladorProveedor.tope]=imagen;
         ControladorProveedor.tope = ControladorProveedor.tope+1;
     }
+    @Override
     public void ingresarModificarImagenServicio(String imagen){
-        ControladorProveedor.imagenServicio[ControladorProveedor.tope2]=imagen;
+        ControladorProveedor.imagenModificarServicio[ControladorProveedor.tope2]=imagen;
         ControladorProveedor.tope2 = ControladorProveedor.tope2+1;
     }
     @Override
@@ -84,6 +85,7 @@ public class ControladorProveedor implements IControladorProveedor{
             throw new Exception("Debe seleccionar una subcategoría.");
         }
     }
+    @Override
     public void vaciarCategoriasServicio(){
         ControladorProveedor.categoriasServicio.clear();
         ControladorProveedor.categoriasServicio = new HashSet();
