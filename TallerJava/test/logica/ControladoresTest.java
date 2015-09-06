@@ -531,6 +531,7 @@ public class ControladoresTest {
         String proveedor = "nickname11111";
         testIngresarNombreCategoria2("transporte2222");
         try{
+            instance.altaCiudad("origenmodificado","prueba");
             instance.altaCiudad("4","prueba");
             instance.altaCategoria();}
         catch(Exception ex){
@@ -555,7 +556,6 @@ public class ControladoresTest {
         testIngresarImagenServicio("modificada");
         testIngresarPrecioServicio(9999);
         testIngresarOrigenServicio("origenmodificado");
-        
         testIngresarDestinoServicio("4");
         instance.seleccionarProveedor(proveedor);
         instance.ingresarCategoriaBorrarServicio("transporte2222");
