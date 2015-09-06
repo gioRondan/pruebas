@@ -146,6 +146,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
        al.setLocation(a ,b);
        al.show();
     }
+    public void abrirVerInfoReserva(String quine){
+        VerInfoReserva al = new VerInfoReserva(quine);
+        Escritorio.add(al);
+        //cuentas para centrar
+        int a = (Escritorio.getWidth() - al.getWidth())/2;
+        int b = (Escritorio.getHeight() - al.getHeight()) /2;
+        al.setLocation(a ,b);
+        al.show();
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -952,13 +961,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
-        VerInfoReserva al = new VerInfoReserva();
-        Escritorio.add(al);
-        //cuentas para centrar
-        int a = (Escritorio.getWidth() - al.getWidth())/2;
-        int b = (Escritorio.getHeight() - al.getHeight()) /2;
-        al.setLocation(a ,b);
-        al.show();
+        abrirVerInfoReserva("");
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     /**
