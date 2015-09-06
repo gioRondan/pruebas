@@ -365,17 +365,6 @@ public class ControladoresTest {
 
 
     /**
-     * Test of seleccionarCategoria method, of class ControladorProveedor.
-     * @param categoria
-     */
-   
-    public void testSeleccionarCategoria(String categoria) {
-        System.out.println("seleccionarCategoria");
-        ControladorProveedor instance = new ControladorProveedor();
-        instance.seleccionarCategoria(categoria);
-    }
-
-    /**
      * Test of listarServiciosXCategoria method, of class ControladorProveedor.
      */
     @Test
@@ -406,7 +395,6 @@ public class ControladoresTest {
             instance.altaServicio(Integer.toString(n), descripcion, precio, origen, proveedor,"uruguay");
         }
         List<DataServicio> result = instance.listarServiciosXCategoria(nomcat);
-        System.out.println(result.size());
         for(int j = 0; j <10;j++){
             assertEquals(Integer.toString(j+1), result.get(j).getNombre());
         }
