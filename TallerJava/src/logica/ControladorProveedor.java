@@ -13,6 +13,8 @@ import javax.swing.JOptionPane;
 public class ControladorProveedor implements IControladorProveedor{
     private static String[] imagenServicio = new String[3];
     private static int tope=0;
+     private static String[] imagenModificarServicio = new String[3];
+    private static int tope2=0;
     private static String destinoServicio = "";
     private static String origenServicio = "";
     private static Set<String> categoriasServicio = new HashSet();
@@ -27,6 +29,8 @@ public class ControladorProveedor implements IControladorProveedor{
     
     private void liberarMemoria(){
         imagenServicio = new String[3];
+        tope=0;
+        imagenModificarServicio = new String[3];
         tope=0;
         destinoServicio = "";
         origenServicio = "";
@@ -53,6 +57,10 @@ public class ControladorProveedor implements IControladorProveedor{
     }
     @Override
     public void ingresarImagenServicio(String imagen){
+        ControladorProveedor.imagenServicio[ControladorProveedor.tope]=imagen;
+        ControladorProveedor.tope = ControladorProveedor.tope+1;
+    }
+    public void ingresarModificarImagenServicio(String imagen){
         ControladorProveedor.imagenServicio[ControladorProveedor.tope]=imagen;
         ControladorProveedor.tope = ControladorProveedor.tope+1;
     }
@@ -209,17 +217,15 @@ public class ControladorProveedor implements IControladorProveedor{
         }
         if (!origenServicio.isEmpty()){
             ManejadorCiudad mCi = ManejadorCiudad.getInstance();
-            altaCiudad(origenServicio,"pais");//para probar
             ser.asociarOrigen(mCi.getCiudad(origenServicio));
         }
         if (!destinoServicio.isEmpty()){
             ManejadorCiudad mCi = ManejadorCiudad.getInstance();
-            altaCiudad(destinoServicio,"pais");//para probar
             ser.asociarDestino(mCi.getCiudad(destinoServicio));
         }
-        for(int i=0;i<ControladorProveedor.tope;++i){
+        for(int i=0;i<ControladorProveedor.tope2;++i){
             try {            
-                ser.agregarImagen(ControladorProveedor.imagenServicio[i]);
+                ser.agregarImagen(ControladorProveedor.imagenModificarServicio[i]);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex.toString());
                 Logger.getLogger(ControladorProveedor.class.getName()).log(Level.SEVERE, null, ex);
