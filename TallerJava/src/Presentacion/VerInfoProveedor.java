@@ -95,6 +95,7 @@ public class VerInfoProveedor extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Informacion de proveedor");
+        setFrameIcon(new javax.swing.ImageIcon("/ens/home01/r/rodrigo.linares/Desktop/iconoH4T3.png")); // NOI18N
 
         jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jList1.addMouseListener(new java.awt.event.MouseAdapter() {
