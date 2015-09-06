@@ -71,6 +71,7 @@ public class FlujoTest {
         String im1Servicio = "im1ser";
         String im2Servicio = "im2ser";
         String im3Servicio = "im3ser";
+        String imModServicio = "immodser";
         String cat2Hoja = "otracat"; 
         String nomEmpresa = "nomempprov";
         String urlEmpresa = "url";
@@ -83,15 +84,11 @@ public class FlujoTest {
         List<DataCiudad> ciudades = new ArrayList<>();
         try{
             ccl.altaCliente(nickCliente, nomCliente, apCliente, emailCliente, fechaNacCliente, imCliente);
-        }catch(Exception ex){
-            //algo
-        }
+        }catch(Exception ex){}
         try{
             empresas = cpr.listarEmpresas();
             cpr.altaProveedor(nickProveedor, nomProveedor, apProveedor, emailProveedor, fechaNacProveedor, imProveedor, nomEmpresa, urlEmpresa);
-        }catch(Exception ex){
-            //algo
-        }
+        }catch(Exception ex){}
        try{
             cpr.ingresarNombreCategoria(catPadre);
             cpr.altaCategoria();
@@ -100,9 +97,7 @@ public class FlujoTest {
             cpr.altaCategoria();
             cpr.ingresarNombreCategoria(cat2Hoja);
             cpr.altaCategoria();
-        }catch(Exception ex){
-            
-        }
+        }catch(Exception ex){}
         try{
             cpr.ingresarCategoriaServicio(catHoja);
             cpr.ingresarCategoriaServicio(cat2Hoja);
@@ -111,6 +106,26 @@ public class FlujoTest {
         cpr.ingresarImagenServicio(im2Servicio);
         cpr.ingresarImagenServicio(im3Servicio);
         cpr.altaServicio(nomServicio, descServicio, precioServicio, origenServicio, nickProveedor, paisServicio);
+        DataInfoServicio ser = null;
+        try{
+            ser = cpr.verInfoServicio(nomServicio, nickProveedor);
+        }catch(Exception ex){}
+        assertEquals(im1Servicio, ser.getImagen()[0]);
+        assertEquals(im2Servicio, ser.getImagen()[1]);
+        assertEquals(im3Servicio, ser.getImagen()[2]);
+        cpr.ingresarImagenBorrarServicio(im2Servicio);
+        cpr.ingresarImagenBorrarServicio(im1Servicio);
+        cpr.seleccionarProveedor(nickProveedor);
+        cpr.seleccionarServicio(nomServicio);
+        cpr.ingresarModificarImagenServicio(imModServicio);
+        try{
+            cpr.modificarServicio(); //im3 pasa a pos [0] imMod se inserta en [1]
+        }catch(Exception ex){}
+        try{
+            ser = cpr.verInfoServicio(nomServicio, nickProveedor);
+        }catch(Exception ex){}
+        assertEquals(im3Servicio, ser.getImagen()[0]);
+        assertEquals(imModServicio, ser.getImagen()[1]);
         
         ciudades = cpr.listarCiudades();
         

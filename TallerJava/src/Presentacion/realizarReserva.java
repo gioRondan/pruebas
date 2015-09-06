@@ -42,6 +42,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
     private Map<String, Integer> serviciosCant;
     private Map<String, Integer> promocionesCant;
     private Map<String,DataExpira> fechas;
+    private float tot;
    
     private Map<String,DataExpira> fechasPromos;
    private String proveedorselecionado=""; 
@@ -132,6 +133,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
 
         jScrollPane3.setViewportView(jTextPane1);
 
@@ -200,6 +202,13 @@ public class realizarReserva extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Seleccione fecha de inicio:");
 
+        jButton4.setText("Mostrar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -213,6 +222,8 @@ public class realizarReserva extends javax.swing.JInternalFrame {
                         .addComponent(precioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(76, 76, 76))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton4)
+                        .addGap(54, 54, 54)
                         .addComponent(jButton2)
                         .addGap(18, 18, 18)
                         .addComponent(jButton1)
@@ -277,7 +288,8 @@ public class realizarReserva extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4))
                 .addContainerGap())
         );
 
@@ -353,12 +365,14 @@ public class realizarReserva extends javax.swing.JInternalFrame {
                 fechas.put(serinfo.getNombre(),dtx);
                 serviciosCant.put(serinfo.getNombre(),Integer.parseInt(cant.getValue().toString()));
                 total = Float.parseFloat(precioTotal.getText())+serinfo.getPrecio();
+                tot=total;
             }else{
                 DataInfoPromocion proinfo =  pp.ICP.verInfoPromocion(proveedor, servicioopromo) ;
                 DataExpira dtx= new DataExpira(fecha1,fecha2);
                 fechasPromos.put(proinfo.getNombre(),dtx);
                 promocionesCant.put(proinfo.getNombre(),Integer.parseInt(cant.getValue().toString()));
                 total = Float.parseFloat(precioTotal.getText())+proinfo.getPrecioTotal();
+                tot=total;
             
             }    
             
@@ -368,12 +382,19 @@ public class realizarReserva extends javax.swing.JInternalFrame {
         }   
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+       pp.abrirMostrarDatosReservaParcial(serviciosCant,promocionesCant,fechas,fechasPromos,proveedorselecionado,tot,jList2.getSelectedValue().toString());
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner cant;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
