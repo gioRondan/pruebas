@@ -20,10 +20,8 @@ public class ControladorProveedor implements IControladorProveedor{
     private static String proveedor = "";
     private static String descripcionServicio = "";
     private static float precioServicio = 0;
-    private static String categoria = "";
     private static String nomCategoria = "";
     private static String nomPadre = "";
-    private static String imagenProveedor="";
     private static Set<String> categoriaBorrar = new HashSet();
     private static Set<String> imagenBorrar = new HashSet();
     
@@ -37,10 +35,8 @@ public class ControladorProveedor implements IControladorProveedor{
         proveedor = "";
         descripcionServicio = "";
         precioServicio = 0;
-        categoria = "";
         nomCategoria = "";
         nomPadre = "";
-        imagenProveedor="";
         categoriaBorrar = new HashSet();
         imagenBorrar = new HashSet();
     }
@@ -126,9 +122,6 @@ public class ControladorProveedor implements IControladorProveedor{
     public List<DataProveedor> listarProveedores(){
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         return mPr.getDataProveedores();
-    }
-    public void seleccionarCategoria(String categoria){
-        this.categoria = categoria;
     }
     @Override
     public List<DataServicio> listarServiciosXCategoria( String nom2Categoria){
@@ -299,10 +292,6 @@ public class ControladorProveedor implements IControladorProveedor{
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(nomProveedor);
         return prov.getDataInfoProveedor();
-    }
-    @Override
-    public void ingresarImagen(String imagen) {
-        ControladorProveedor.imagenProveedor = imagen;
     }
 
     public DataServicio informacionServicio(String prv,String ser){

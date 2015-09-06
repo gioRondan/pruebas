@@ -356,7 +356,7 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
         modeloServicios.removeAllElements();
         String proveedor = Combo_Proveedores.getSelectedItem().toString();
         List<DataServicio> servi = Pantallaprin.ICP.listarServiciosXProveedor(proveedor);
-        Pantallaprin.ICP.seleccionarProveedor(proveedor);
+        //Pantallaprin.ICP.seleccionarProveedor(proveedor);
         for (DataServicio it: servi){
             modeloServicios.addElement(it);
         }
@@ -394,7 +394,7 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
         List_Categorias.setModel(modeloCategorias);
         modeloCategoriasnuevas.clear();
         List_CategoriasNuevas.setModel(modeloCategoriasnuevas);
-        Pantallaprin.ICP.seleccionarServicio(servicio);
+        //Pantallaprin.ICP.seleccionarServicio(servicio);
     }//GEN-LAST:event_List_ServiciosMouseClicked
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -410,7 +410,10 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
         Pantallaprin.ICP.ingresarDescripcionServicio(Descripcion.getText());
+        Pantallaprin.ICP.seleccionarProveedor(Combo_Proveedores.getSelectedItem().toString());
+        Pantallaprin.ICP.seleccionarServicio(List_Servicios.getSelectedValue().toString().substring(0,List_Servicios.getSelectedValue().toString().lastIndexOf("-")-1));
         Pantallaprin.ICP.ingresarDestinoServicio(Combo_Destino.getSelectedItem().toString());
         Pantallaprin.ICP.ingresarOrigenServicio(Combo_Origen.getSelectedItem().toString());
         Pantallaprin.ICP.ingresarPrecioServicio(Float.parseFloat(precio.getText()));  

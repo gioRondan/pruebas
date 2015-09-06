@@ -38,14 +38,7 @@ public class ManejadorProveedor {
     public void removeProveedor(String nickname){
         proveedores.remove(nickname);
     }
-    public Set<DataProveedor> listarPromocionesSistemas(){
-        Set<DataProveedor> dts = new HashSet();
-        for (Proveedor value : proveedores.values()){
-            dts.add(value.getDataProveedor());
-        } 
-        return dts;
-    }
-    
+   
     public List<DataProveedor> getDataProveedores(){
         List<DataProveedor> dts =  new ArrayList<>();
         for (Proveedor value : proveedores.values()){
