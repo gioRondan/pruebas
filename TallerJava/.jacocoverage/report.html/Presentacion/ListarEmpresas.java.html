@@ -57,92 +57,93 @@ public class ListarEmpresas extends javax.swing.JInternalFrame {
 
 <span class="nc" id="L58">        setClosable(true);</span>
 <span class="nc" id="L59">        setTitle(&quot;Listar Empresas&quot;);</span>
+<span class="nc" id="L60">        setFrameIcon(new javax.swing.ImageIcon(&quot;/ens/home01/r/rodrigo.linares/NetBeansProjects/tpgr07/TallerJava/src/Imagenes/iconoH4T.png&quot;)); // NOI18N</span>
 
-<span class="nc" id="L61">        jList2.setModel(new javax.swing.AbstractListModel() {</span>
-<span class="nc" id="L62">            String[] strings = { &quot;Item1&quot; };</span>
-<span class="nc" id="L63">            public int getSize() { return strings.length; }</span>
-<span class="nc" id="L64">            public Object getElementAt(int i) { return strings[i]; }</span>
+<span class="nc" id="L62">        jList2.setModel(new javax.swing.AbstractListModel() {</span>
+<span class="nc" id="L63">            String[] strings = { &quot;Item1&quot; };</span>
+<span class="nc" id="L64">            public int getSize() { return strings.length; }</span>
+<span class="nc" id="L65">            public Object getElementAt(int i) { return strings[i]; }</span>
         });
-<span class="nc" id="L66">        jScrollPane2.setViewportView(jList2);</span>
+<span class="nc" id="L67">        jScrollPane2.setViewportView(jList2);</span>
 
-<span class="nc" id="L68">        jButton9.setText(&quot;Aceptar&quot;);</span>
-<span class="nc" id="L69">        jButton9.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L69">        jButton9.setText(&quot;Aceptar&quot;);</span>
+<span class="nc" id="L70">        jButton9.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L71">                jButton9ActionPerformed(evt);</span>
-<span class="nc" id="L72">            }</span>
+<span class="nc" id="L72">                jButton9ActionPerformed(evt);</span>
+<span class="nc" id="L73">            }</span>
         });
 
-<span class="nc" id="L75">        jButton10.setText(&quot;Cancelar&quot;);</span>
-<span class="nc" id="L76">        jButton10.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L76">        jButton10.setText(&quot;Cancelar&quot;);</span>
+<span class="nc" id="L77">        jButton10.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L78">                jButton10ActionPerformed(evt);</span>
-<span class="nc" id="L79">            }</span>
+<span class="nc" id="L79">                jButton10ActionPerformed(evt);</span>
+<span class="nc" id="L80">            }</span>
         });
 
-<span class="nc" id="L82">        jLabel11.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L83">        jLabel11.setText(&quot;Empresas&quot;);</span>
+<span class="nc" id="L83">        jLabel11.setFont(new java.awt.Font(&quot;Tahoma&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L84">        jLabel11.setText(&quot;Empresas&quot;);</span>
 
-<span class="nc" id="L85">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="nc" id="L86">        getContentPane().setLayout(layout);</span>
-<span class="nc" id="L87">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L88">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L89">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
-<span class="nc" id="L90">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
-<span class="nc" id="L91">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L92">                        .addGap(52, 52, 52)</span>
-<span class="nc" id="L93">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L94">                            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L95">                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L96">                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE))</span>
-<span class="nc" id="L97">                            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L98">                                .addGap(0, 0, Short.MAX_VALUE)</span>
-<span class="nc" id="L99">                                .addComponent(jButton9)</span>
-<span class="nc" id="L100">                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L101">                                .addComponent(jButton10))))</span>
-<span class="nc" id="L102">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L103">                        .addGap(21, 21, 21)</span>
-<span class="nc" id="L104">                        .addComponent(jLabel11)</span>
-<span class="nc" id="L105">                        .addGap(0, 0, Short.MAX_VALUE)))</span>
-<span class="nc" id="L106">                .addGap(29, 29, 29))</span>
+<span class="nc" id="L86">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L87">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L88">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L89">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L90">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="nc" id="L91">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
+<span class="nc" id="L92">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L93">                        .addGap(52, 52, 52)</span>
+<span class="nc" id="L94">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L95">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L96">                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L97">                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE))</span>
+<span class="nc" id="L98">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L99">                                .addGap(0, 0, Short.MAX_VALUE)</span>
+<span class="nc" id="L100">                                .addComponent(jButton9)</span>
+<span class="nc" id="L101">                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L102">                                .addComponent(jButton10))))</span>
+<span class="nc" id="L103">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L104">                        .addGap(21, 21, 21)</span>
+<span class="nc" id="L105">                        .addComponent(jLabel11)</span>
+<span class="nc" id="L106">                        .addGap(0, 0, Short.MAX_VALUE)))</span>
+<span class="nc" id="L107">                .addGap(29, 29, 29))</span>
         );
-<span class="nc" id="L108">        layout.setVerticalGroup(</span>
-<span class="nc" id="L109">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L110">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L111">                .addContainerGap()</span>
-<span class="nc" id="L112">                .addComponent(jLabel11)</span>
-<span class="nc" id="L113">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L114">                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L115">                .addGap(18, 18, 18)</span>
-<span class="nc" id="L116">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L117">                    .addComponent(jButton10)</span>
-<span class="nc" id="L118">                    .addComponent(jButton9))</span>
-<span class="nc" id="L119">                .addContainerGap(30, Short.MAX_VALUE))</span>
+<span class="nc" id="L109">        layout.setVerticalGroup(</span>
+<span class="nc" id="L110">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L111">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L112">                .addContainerGap()</span>
+<span class="nc" id="L113">                .addComponent(jLabel11)</span>
+<span class="nc" id="L114">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L115">                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L116">                .addGap(18, 18, 18)</span>
+<span class="nc" id="L117">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L118">                    .addComponent(jButton10)</span>
+<span class="nc" id="L119">                    .addComponent(jButton9))</span>
+<span class="nc" id="L120">                .addContainerGap(30, Short.MAX_VALUE))</span>
         );
 
-<span class="nc" id="L122">        pack();</span>
-<span class="nc" id="L123">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L123">        pack();</span>
+<span class="nc" id="L124">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L127">      this.dispose();</span>
-<span class="nc" id="L128">    }//GEN-LAST:event_jButton10ActionPerformed</span>
+<span class="nc" id="L128">      this.dispose();</span>
+<span class="nc" id="L129">    }//GEN-LAST:event_jButton10ActionPerformed</span>
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-<span class="nc bnc" id="L132" title="All 2 branches missed.">        if ( jList2.getSelectedIndex()== -1) {</span>
-<span class="nc" id="L133">             int ret = JOptionPane.showConfirmDialog(null,&quot;Seguro que no desea selecionar una empresa ?&quot;);</span>
-<span class="nc bnc" id="L134" title="All 2 branches missed.">             if (ret == 0){</span>
-<span class="nc" id="L135">                 this.dispose();</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">        if ( jList2.getSelectedIndex()== -1) {</span>
+<span class="nc" id="L134">             int ret = JOptionPane.showConfirmDialog(null,&quot;Seguro que no desea selecionar una empresa ?&quot;);</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">             if (ret == 0){</span>
+<span class="nc" id="L136">                 this.dispose();</span>
              }
-<span class="nc" id="L137">        }</span>
+<span class="nc" id="L138">        }</span>
         else{
-<span class="nc" id="L139">        DataEmpresa dte = dts.get( jList2.getSelectedIndex());</span>
-<span class="nc" id="L140">            AltaProveedor.proveedorEmpresaNombre.setText(dte.getNombre()); </span>
-<span class="nc" id="L141">            AltaProveedor.proveedorEmpresaLink.setText(dte.getUrl());</span>
-<span class="nc" id="L142">            this.dispose();</span>
+<span class="nc" id="L140">        DataEmpresa dte = dts.get( jList2.getSelectedIndex());</span>
+<span class="nc" id="L141">            AltaProveedor.proveedorEmpresaNombre.setText(dte.getNombre()); </span>
+<span class="nc" id="L142">            AltaProveedor.proveedorEmpresaLink.setText(dte.getUrl());</span>
+<span class="nc" id="L143">            this.dispose();</span>
         }
            
-<span class="nc" id="L145">    }//GEN-LAST:event_jButton9ActionPerformed</span>
+<span class="nc" id="L146">    }//GEN-LAST:event_jButton9ActionPerformed</span>
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

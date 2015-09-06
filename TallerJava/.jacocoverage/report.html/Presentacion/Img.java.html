@@ -36,79 +36,80 @@ public class Img extends javax.swing.JInternalFrame {
 <span class="nc" id="L36">        jPanel1 = new javax.swing.JPanel();</span>
 
 <span class="nc" id="L38">        setClosable(true);</span>
-<span class="nc" id="L39">        addHierarchyBoundsListener(new java.awt.event.HierarchyBoundsListener() {</span>
+<span class="nc" id="L39">        setFrameIcon(new javax.swing.ImageIcon(&quot;/ens/home01/r/rodrigo.linares/NetBeansProjects/tpgr07/TallerJava/src/Imagenes/iconoH4T.png&quot;)); // NOI18N</span>
+<span class="nc" id="L40">        addHierarchyBoundsListener(new java.awt.event.HierarchyBoundsListener() {</span>
             public void ancestorMoved(java.awt.event.HierarchyEvent evt) {
-<span class="nc" id="L41">            }</span>
+<span class="nc" id="L42">            }</span>
             public void ancestorResized(java.awt.event.HierarchyEvent evt) {
-<span class="nc" id="L43">                formAncestorResized(evt);</span>
-<span class="nc" id="L44">            }</span>
+<span class="nc" id="L44">                formAncestorResized(evt);</span>
+<span class="nc" id="L45">            }</span>
         });
-<span class="nc" id="L46">        addComponentListener(new java.awt.event.ComponentAdapter() {</span>
+<span class="nc" id="L47">        addComponentListener(new java.awt.event.ComponentAdapter() {</span>
             public void componentResized(java.awt.event.ComponentEvent evt) {
-<span class="nc" id="L48">                formComponentResized(evt);</span>
-<span class="nc" id="L49">            }</span>
+<span class="nc" id="L49">                formComponentResized(evt);</span>
+<span class="nc" id="L50">            }</span>
         });
-<span class="nc" id="L51">        addPropertyChangeListener(new java.beans.PropertyChangeListener() {</span>
+<span class="nc" id="L52">        addPropertyChangeListener(new java.beans.PropertyChangeListener() {</span>
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-<span class="nc" id="L53">                formPropertyChange(evt);</span>
-<span class="nc" id="L54">            }</span>
+<span class="nc" id="L54">                formPropertyChange(evt);</span>
+<span class="nc" id="L55">            }</span>
         });
 
-<span class="nc" id="L57">        jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {</span>
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-<span class="nc" id="L59">            }</span>
+<span class="nc" id="L58">        jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {</span>
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-<span class="nc" id="L61">                jPanel1AncestorAdded(evt);</span>
-<span class="nc" id="L62">            }</span>
+<span class="nc" id="L60">                jPanel1AncestorAdded(evt);</span>
+<span class="nc" id="L61">            }</span>
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-<span class="nc" id="L64">            }</span>
+<span class="nc" id="L63">            }</span>
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+<span class="nc" id="L65">            }</span>
         });
 
-<span class="nc" id="L67">        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);</span>
-<span class="nc" id="L68">        jPanel1.setLayout(jPanel1Layout);</span>
-<span class="nc" id="L69">        jPanel1Layout.setHorizontalGroup(</span>
-<span class="nc" id="L70">            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L71">            .addGap(0, 699, Short.MAX_VALUE)</span>
+<span class="nc" id="L68">        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);</span>
+<span class="nc" id="L69">        jPanel1.setLayout(jPanel1Layout);</span>
+<span class="nc" id="L70">        jPanel1Layout.setHorizontalGroup(</span>
+<span class="nc" id="L71">            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L72">            .addGap(0, 699, Short.MAX_VALUE)</span>
         );
-<span class="nc" id="L73">        jPanel1Layout.setVerticalGroup(</span>
-<span class="nc" id="L74">            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L75">            .addGap(0, 473, Short.MAX_VALUE)</span>
-        );
-
-<span class="nc" id="L78">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="nc" id="L79">        getContentPane().setLayout(layout);</span>
-<span class="nc" id="L80">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L81">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L82">            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-        );
-<span class="nc" id="L84">        layout.setVerticalGroup(</span>
-<span class="nc" id="L85">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L86">            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L74">        jPanel1Layout.setVerticalGroup(</span>
+<span class="nc" id="L75">            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L76">            .addGap(0, 473, Short.MAX_VALUE)</span>
         );
 
-<span class="nc" id="L89">        pack();</span>
-<span class="nc" id="L90">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L79">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L80">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L81">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L82">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L83">            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L85">        layout.setVerticalGroup(</span>
+<span class="nc" id="L86">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L87">            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+        );
+
+<span class="nc" id="L90">        pack();</span>
+<span class="nc" id="L91">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void jPanel1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel1AncestorAdded
         // TODO add your handling code here:
-<span class="nc" id="L94">            Imagen im = new Imagen(jPanel1,this.nom);</span>
-<span class="nc" id="L95">            jPanel1.add(im).repaint();</span>
+<span class="nc" id="L95">            Imagen im = new Imagen(jPanel1,this.nom);</span>
+<span class="nc" id="L96">            jPanel1.add(im).repaint();</span>
             
-<span class="nc" id="L97">    }//GEN-LAST:event_jPanel1AncestorAdded</span>
+<span class="nc" id="L98">    }//GEN-LAST:event_jPanel1AncestorAdded</span>
 
     private void formAncestorResized(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_formAncestorResized
         
        
-<span class="nc" id="L102">    }//GEN-LAST:event_formAncestorResized</span>
+<span class="nc" id="L103">    }//GEN-LAST:event_formAncestorResized</span>
 
     private void formPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_formPropertyChange
         // TODO add your handling code here:
-<span class="nc" id="L106">    }//GEN-LAST:event_formPropertyChange</span>
+<span class="nc" id="L107">    }//GEN-LAST:event_formPropertyChange</span>
 
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
-<span class="nc" id="L109">        Imagen im = new Imagen(jPanel1,this.nom);</span>
-<span class="nc" id="L110">       jPanel1.add(im).repaint();</span>
-<span class="nc" id="L111">    }//GEN-LAST:event_formComponentResized</span>
+<span class="nc" id="L110">        Imagen im = new Imagen(jPanel1,this.nom);</span>
+<span class="nc" id="L111">       jPanel1.add(im).repaint();</span>
+<span class="nc" id="L112">    }//GEN-LAST:event_formComponentResized</span>
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

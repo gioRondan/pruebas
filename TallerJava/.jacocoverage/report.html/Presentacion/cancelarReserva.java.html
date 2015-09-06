@@ -49,91 +49,92 @@ public class cancelarReserva extends javax.swing.JInternalFrame {
 <span class="nc" id="L49">        btnCancelar = new javax.swing.JButton();</span>
 
 <span class="nc" id="L51">        setTitle(&quot;Cancelar Reserva&quot;);</span>
+<span class="nc" id="L52">        setFrameIcon(new javax.swing.ImageIcon(&quot;/ens/home01/r/rodrigo.linares/NetBeansProjects/tpgr07/TallerJava/src/Imagenes/iconoH4T.png&quot;)); // NOI18N</span>
 
-<span class="nc" id="L53">        ListClientes.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+<span class="nc" id="L54">        ListClientes.addMouseListener(new java.awt.event.MouseAdapter() {</span>
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L55">                ListClientesMouseClicked(evt);</span>
-<span class="nc" id="L56">            }</span>
+<span class="nc" id="L56">                ListClientesMouseClicked(evt);</span>
+<span class="nc" id="L57">            }</span>
         });
-<span class="nc" id="L58">        jScrollPane1.setViewportView(ListClientes);</span>
+<span class="nc" id="L59">        jScrollPane1.setViewportView(ListClientes);</span>
 
-<span class="nc" id="L60">        jScrollPane2.setViewportView(ListReservas);</span>
+<span class="nc" id="L61">        jScrollPane2.setViewportView(ListReservas);</span>
 
-<span class="nc" id="L62">        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);</span>
+<span class="nc" id="L63">        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);</span>
 
-<span class="nc" id="L64">        btnEliminar.setText(&quot;Eliminar&quot;);</span>
-<span class="nc" id="L65">        btnEliminar.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L65">        btnEliminar.setText(&quot;Eliminar&quot;);</span>
+<span class="nc" id="L66">        btnEliminar.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L67">                btnEliminarActionPerformed(evt);</span>
-<span class="nc" id="L68">            }</span>
+<span class="nc" id="L68">                btnEliminarActionPerformed(evt);</span>
+<span class="nc" id="L69">            }</span>
         });
 
-<span class="nc" id="L71">        btnCancelar.setText(&quot;Cancelar&quot;);</span>
-<span class="nc" id="L72">        btnCancelar.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L72">        btnCancelar.setText(&quot;Cancelar&quot;);</span>
+<span class="nc" id="L73">        btnCancelar.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L74">                btnCancelarActionPerformed(evt);</span>
-<span class="nc" id="L75">            }</span>
+<span class="nc" id="L75">                btnCancelarActionPerformed(evt);</span>
+<span class="nc" id="L76">            }</span>
         });
 
-<span class="nc" id="L78">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="nc" id="L79">        getContentPane().setLayout(layout);</span>
-<span class="nc" id="L80">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L81">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L82">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
-<span class="nc" id="L83">                .addContainerGap()</span>
-<span class="nc" id="L84">                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)</span>
-<span class="nc" id="L85">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L86">                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L87">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L88">                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)</span>
-<span class="nc" id="L89">                .addGap(26, 26, 26)</span>
-<span class="nc" id="L90">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
-<span class="nc" id="L91">                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="nc" id="L92">                    .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
-<span class="nc" id="L93">                .addGap(21, 21, 21))</span>
+<span class="nc" id="L79">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L80">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L81">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L82">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L83">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="nc" id="L84">                .addContainerGap()</span>
+<span class="nc" id="L85">                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)</span>
+<span class="nc" id="L86">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L87">                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L88">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L89">                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)</span>
+<span class="nc" id="L90">                .addGap(26, 26, 26)</span>
+<span class="nc" id="L91">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
+<span class="nc" id="L92">                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L93">                    .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
+<span class="nc" id="L94">                .addGap(21, 21, 21))</span>
         );
-<span class="nc" id="L95">        layout.setVerticalGroup(</span>
-<span class="nc" id="L96">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L97">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L98">                .addContainerGap()</span>
-<span class="nc" id="L99">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L100">                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)</span>
-<span class="nc" id="L101">                    .addComponent(jScrollPane2)</span>
-<span class="nc" id="L102">                    .addComponent(jSeparator1))</span>
-<span class="nc" id="L103">                .addContainerGap())</span>
-<span class="nc" id="L104">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L105">                .addGap(27, 27, 27)</span>
-<span class="nc" id="L106">                .addComponent(btnEliminar)</span>
-<span class="nc" id="L107">                .addGap(18, 18, 18)</span>
-<span class="nc" id="L108">                .addComponent(btnCancelar)</span>
-<span class="nc" id="L109">                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
+<span class="nc" id="L96">        layout.setVerticalGroup(</span>
+<span class="nc" id="L97">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L98">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L99">                .addContainerGap()</span>
+<span class="nc" id="L100">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L101">                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)</span>
+<span class="nc" id="L102">                    .addComponent(jScrollPane2)</span>
+<span class="nc" id="L103">                    .addComponent(jSeparator1))</span>
+<span class="nc" id="L104">                .addContainerGap())</span>
+<span class="nc" id="L105">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L106">                .addGap(27, 27, 27)</span>
+<span class="nc" id="L107">                .addComponent(btnEliminar)</span>
+<span class="nc" id="L108">                .addGap(18, 18, 18)</span>
+<span class="nc" id="L109">                .addComponent(btnCancelar)</span>
+<span class="nc" id="L110">                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
         );
 
-<span class="nc" id="L112">        pack();</span>
-<span class="nc" id="L113">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L113">        pack();</span>
+<span class="nc" id="L114">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void ListClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListClientesMouseClicked
         
         
-<span class="nc" id="L118">        List&lt;DataReserva&gt; dtRes = Pantallaprin.ICC.listarReservasXCliente(modeloClientes.elementAt(ListClientes.getAnchorSelectionIndex()).toString());</span>
-<span class="nc" id="L119">        modeloReservas.removeAllElements();</span>
-<span class="nc bnc" id="L120" title="All 2 branches missed.">        for(DataReserva dtR : dtRes){</span>
-<span class="nc" id="L121">            modeloReservas.addElement(dtR.getId());</span>
-<span class="nc" id="L122">        }    </span>
-<span class="nc" id="L123">        ListReservas.setModel(modeloReservas);</span>
-<span class="nc" id="L124">    }//GEN-LAST:event_ListClientesMouseClicked</span>
+<span class="nc" id="L119">        List&lt;DataReserva&gt; dtRes = Pantallaprin.ICC.listarReservasXCliente(modeloClientes.elementAt(ListClientes.getAnchorSelectionIndex()).toString());</span>
+<span class="nc" id="L120">        modeloReservas.removeAllElements();</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">        for(DataReserva dtR : dtRes){</span>
+<span class="nc" id="L122">            modeloReservas.addElement(dtR.getId());</span>
+<span class="nc" id="L123">        }    </span>
+<span class="nc" id="L124">        ListReservas.setModel(modeloReservas);</span>
+<span class="nc" id="L125">    }//GEN-LAST:event_ListClientesMouseClicked</span>
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-<span class="nc" id="L127">        String id = ListReservas.getSelectedValue().toString();</span>
-<span class="nc" id="L128">        Pantallaprin.ICC.cancelarReserva(modeloClientes.elementAt(ListClientes.getAnchorSelectionIndex()).toString(), Integer.parseInt(id));</span>
-<span class="nc" id="L129">        modeloReservas.remove(ListReservas.getSelectedIndex());</span>
-<span class="nc" id="L130">        ListReservas.removeAll();</span>
-<span class="nc" id="L131">        ListReservas.setModel(modeloReservas);</span>
-<span class="nc" id="L132">    }//GEN-LAST:event_btnEliminarActionPerformed</span>
+<span class="nc" id="L128">        String id = ListReservas.getSelectedValue().toString();</span>
+<span class="nc" id="L129">        Pantallaprin.ICC.cancelarReserva(modeloClientes.elementAt(ListClientes.getAnchorSelectionIndex()).toString(), Integer.parseInt(id));</span>
+<span class="nc" id="L130">        modeloReservas.remove(ListReservas.getSelectedIndex());</span>
+<span class="nc" id="L131">        ListReservas.removeAll();</span>
+<span class="nc" id="L132">        ListReservas.setModel(modeloReservas);</span>
+<span class="nc" id="L133">    }//GEN-LAST:event_btnEliminarActionPerformed</span>
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-<span class="nc" id="L135">        this.dispose();</span>
-<span class="nc" id="L136">    }//GEN-LAST:event_btnCancelarActionPerformed</span>
+<span class="nc" id="L136">        this.dispose();</span>
+<span class="nc" id="L137">    }//GEN-LAST:event_btnCancelarActionPerformed</span>
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -225,13 +225,12 @@ public class ControladorProveedor implements IControladorProveedor{
             ManejadorCiudad mCi = ManejadorCiudad.getInstance();
             ser.asociarDestino(mCi.getCiudad(destinoServicio));
         }
-        for(int i=0;i<ControladorProveedor.tope2;++i){
-            try {            
-                ser.agregarImagen(ControladorProveedor.imagenModificarServicio[i]);
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, ex.toString());
-                Logger.getLogger(ControladorProveedor.class.getName()).log(Level.SEVERE, null, ex);
-            }           
+        
+        for(String it1 : categoriaBorrar){
+            ser.eliminarCategoria(it1);
+            ManejadorCategoria mCa = ManejadorCategoria.getInstance();
+            Categoria cat = mCa.getCategoria(it1);
+            cat.eliminarServicio(ser);
         }
         for(String cats : categoriasServicio){
             ManejadorCategoria mCa = ManejadorCategoria.getInstance();
@@ -239,14 +238,17 @@ public class ControladorProveedor implements IControladorProveedor{
             cat.setServicio(ser);
             ser.agregarCategoria(cat);
         }
-        for(String it1 : categoriaBorrar){
-            ser.eliminarCategoria(it1);
-            ManejadorCategoria mCa = ManejadorCategoria.getInstance();
-            Categoria cat = mCa.getCategoria(it1);
-            cat.eliminarServicio(ser);
-        }
         for(String it2 : imagenBorrar){
             ser.eliminarImagen(it2);
+        }
+        
+        for(int i=0;i<ControladorProveedor.tope2;++i){
+            try {            
+                ser.agregarImagen(ControladorProveedor.imagenModificarServicio[i]);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, ex.toString());
+                Logger.getLogger(ControladorProveedor.class.getName()).log(Level.SEVERE, null, ex);
+            }           
         }
         liberarMemoria();
     }
