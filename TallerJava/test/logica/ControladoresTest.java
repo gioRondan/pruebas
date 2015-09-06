@@ -1049,7 +1049,7 @@ public class ControladoresTest {
      * Test of cancelarReserva method, of class ControladorCliente.
      */
     @Test
-    public void testCancelarReserva2() {
+    public void testCancelarReserva() {
         ControladorCliente instance = new ControladorCliente();
         ControladorProveedor instancepr = new ControladorProveedor();
         try{
@@ -1084,7 +1084,28 @@ public class ControladoresTest {
         instance.realizarReserva(proveedor, "cli12345678", serv, new HashMap(), es, es2, new Date(1,2,2013));
         ManejadorCliente mcl = ManejadorCliente.getInstance();
         int id = mcl.testGetId();
-        instance.cancelarReserva("cli12345678", id);
+        boolean dioalta = false;
+        boolean cancelo = true;
+        for(DataReserva it : instance.listarReservasXCliente("cli12345678")){
+            if(it.getId()==id){
+                dioalta = true;
+            }
+        }
+        if(dioalta){
+            instance.cancelarReserva("cli12345678", id);
+            for(DataReserva it : instance.listarReservasXCliente("cli12345678")){
+                if(it.getId()==id){
+                    cancelo = false;
+                }
+            }
+            if(cancelo)
+                assertEquals("1","1");//cancelo correctamente
+            else
+                assertEquals("1","2");//agrego pero no cancelo
+                
+        }else
+            assertEquals("1","3");//no agrego reserva
+        
     }
     /**
      * Test of paises.
