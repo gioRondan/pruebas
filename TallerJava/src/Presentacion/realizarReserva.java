@@ -304,7 +304,9 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             
     try{
         JOptionPane.showMessageDialog(null,jList2.getSelectedValue().toString());
-        pp.ICC.realizarReserva(proveedorselecionado,jList2.getSelectedValue().toString(),serviciosCant,promocionesCant, fechas,fechasPromos,null);
+        Date actual= new Date();
+        
+        pp.ICC.realizarReserva(proveedorselecionado,jList2.getSelectedValue().toString(),serviciosCant,promocionesCant, fechas,fechasPromos,actual);
         JOptionPane.showMessageDialog(null,"la reserva se realizo correctamente");
         //hay que vacial los mapps
     }   catch (Exception ex){
