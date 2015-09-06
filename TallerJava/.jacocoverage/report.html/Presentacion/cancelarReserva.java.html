@@ -124,13 +124,16 @@ public class cancelarReserva extends javax.swing.JInternalFrame {
 <span class="nc" id="L124">    }//GEN-LAST:event_ListClientesMouseClicked</span>
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-<span class="nc" id="L127">        String id = modeloReservas.elementAt(ListReservas.getAnchorSelectionIndex()).toString();</span>
+<span class="nc" id="L127">        String id = ListReservas.getSelectedValue().toString();</span>
 <span class="nc" id="L128">        Pantallaprin.ICC.cancelarReserva(modeloClientes.elementAt(ListClientes.getAnchorSelectionIndex()).toString(), Integer.parseInt(id));</span>
-<span class="nc" id="L129">    }//GEN-LAST:event_btnEliminarActionPerformed</span>
+<span class="nc" id="L129">        modeloReservas.remove(ListReservas.getSelectedIndex());</span>
+<span class="nc" id="L130">        ListReservas.removeAll();</span>
+<span class="nc" id="L131">        ListReservas.setModel(modeloReservas);</span>
+<span class="nc" id="L132">    }//GEN-LAST:event_btnEliminarActionPerformed</span>
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-<span class="nc" id="L132">        this.dispose();</span>
-<span class="nc" id="L133">    }//GEN-LAST:event_btnCancelarActionPerformed</span>
+<span class="nc" id="L135">        this.dispose();</span>
+<span class="nc" id="L136">    }//GEN-LAST:event_btnCancelarActionPerformed</span>
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
