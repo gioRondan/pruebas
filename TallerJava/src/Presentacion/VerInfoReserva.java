@@ -33,9 +33,8 @@ import logica.DataServicio;
  * @author Juan
  */
 public class VerInfoReserva extends javax.swing.JInternalFrame {
- PantallaPrincipal pp = PantallaPrincipal.getInstancia();
-   
-     String rutaImagen;
+    PantallaPrincipal pp = PantallaPrincipal.getInstancia();
+    String rutaImagen;
     public static int reservaseleccionada =0;
     DefaultListModel model = new DefaultListModel();
     Set<DataItemReserva> dtIR= new HashSet(); 
@@ -44,7 +43,7 @@ public class VerInfoReserva extends javax.swing.JInternalFrame {
      */
     public VerInfoReserva(String quien) {
         initComponents();
-        TreeModel jmodel;
+        
         DefaultMutableTreeNode raiz = new DefaultMutableTreeNode("Clientes");
           List<DataCliente> info = pp.ICC.listarClientes();
         for (DataCliente dtinfoc: info){
