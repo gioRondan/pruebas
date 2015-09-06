@@ -49,6 +49,7 @@ public class cancelarReserva extends javax.swing.JInternalFrame {
         btnCancelar = new javax.swing.JButton();
 
         setTitle("Cancelar Reserva");
+        setFrameIcon(new javax.swing.ImageIcon("/ens/home01/r/rodrigo.linares/Desktop/iconoH4T3.png")); // NOI18N
 
         ListClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
