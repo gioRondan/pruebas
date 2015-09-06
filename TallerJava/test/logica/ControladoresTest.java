@@ -510,8 +510,6 @@ public class ControladoresTest {
     }
 
     /**
-     * 
-     * 
      * Test of verInfoProveedor method, of class ControladorProveedor.
      */
     @Test
