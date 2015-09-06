@@ -57,13 +57,17 @@ public class ControladorProveedor implements IControladorProveedor{
     }
     @Override
     public void ingresarImagenServicio(String imagen){
-        ControladorProveedor.imagenServicio[ControladorProveedor.tope]=imagen;
-        ControladorProveedor.tope = ControladorProveedor.tope+1;
+        if(!imagen.isEmpty()){
+            ControladorProveedor.imagenServicio[ControladorProveedor.tope]=imagen;
+            ControladorProveedor.tope = ControladorProveedor.tope+1;
+        }
     }
     @Override
     public void ingresarModificarImagenServicio(String imagen){
-        ControladorProveedor.imagenModificarServicio[ControladorProveedor.tope2]=imagen;
-        ControladorProveedor.tope2 = ControladorProveedor.tope2+1;
+        if(!imagen.isEmpty()){
+            ControladorProveedor.imagenModificarServicio[ControladorProveedor.tope2]=imagen;
+            ControladorProveedor.tope2 = ControladorProveedor.tope2+1;
+        }
     }
     @Override
     public void ingresarDestinoServicio(String  destino ){
@@ -291,10 +295,13 @@ public class ControladorProveedor implements IControladorProveedor{
         return prov.getDataPromociones();
     }
     @Override
-    public DataInfoServicio verInfoServicio(String nomServicio, String nomProveedor){
+    public DataInfoServicio verInfoServicio(String nomServicio, String nomProveedor)throws Exception{
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(nomProveedor);
-        Servicio ser = prov.getServicio(nomServicio);
+        
+            Servicio ser = prov.getServicio(nomServicio);
+        
+    
         return ser.getDataInfoServicio();
     }
     @Override
@@ -304,7 +311,7 @@ public class ControladorProveedor implements IControladorProveedor{
         return prov.getDataInfoProveedor();
     }
 
-    public DataServicio informacionServicio(String prv,String ser){
+    public DataServicio informacionServicio(String prv,String ser) throws Exception{
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         Proveedor prov = mPr.getProveedor(prv);
         Servicio servi = prov.getServicio(ser);

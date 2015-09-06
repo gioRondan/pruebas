@@ -62,8 +62,13 @@ public class Proveedor extends Usuario{
     public void asociarPromocion(Promocion prom){
         this.promociones.put(prom.getNombre(), prom);
     }
-    public Servicio getServicio(String nombre){
-        return servicios.get(nombre);
+    public Servicio getServicio(String nombre)throws Exception{
+        if (servicios.containsKey(nombre))
+            return servicios.get(nombre);
+        else
+            throw new Exception("Los servicios deben ser de un mismo proveedor");
+    
+        
     }
     public void asociarEmpresa(Empresa empresa){
         this.empresa = empresa;

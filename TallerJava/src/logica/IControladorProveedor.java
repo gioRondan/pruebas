@@ -43,9 +43,9 @@ public interface IControladorProveedor {
     public void altaProveedor(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmp, String LinkEmpres) throws Exception;
     public List<DataPromocion> listarPromocionesXProveedor(String nomProveedor);
     public DataInfoPromocion verInfoPromocion(String nickproveedor, String nomPromocion);
-    public DataInfoServicio verInfoServicio(String nomServicio, String nomProveedor);
+    public DataInfoServicio verInfoServicio(String nomServicio, String nomProveedor)throws Exception;
     public DataInfoProveedor verInfoProveedor(String nomProveedor);
-    public DataServicio informacionServicio(String prv,String ser);
+    public DataServicio informacionServicio(String prv,String ser) throws Exception;
     public Set<String> infoPaises();
     public List<DataCiudad> ciudadesXpais( String pa);
     public void altaPais(String pa)throws Exception;
