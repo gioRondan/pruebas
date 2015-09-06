@@ -24,12 +24,14 @@ import de.javasoft.plaf.synthetica.SyntheticaWhiteVisionLookAndFeel;
 import java.beans.PropertyVetoException;
 import java.io.File;
 import java.text.ParseException;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import logica.DataExpira;
 import logica.Fabrica;
 import logica.IControladorCliente;
 import logica.IControladorProveedor;
@@ -113,6 +115,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
      public void abrirAltacliente(){
         AltaCliente al = new AltaCliente();
+        Escritorio.add(al);
+        int a = (Escritorio.getWidth() - al.getWidth())/2;
+        int b = (Escritorio.getHeight() - al.getHeight()) /2;
+        al.setLocation(a ,b);
+        al.show();
+     }
+     public void abrirMostrarDatosReservaParcial(Map<String, Integer> serviciosCant,Map<String, Integer> promocionesCant,
+    Map<String,DataExpira> fechas,Map<String,DataExpira> fechasPromos,String proveedorselecionado,float total,String cliente){
+        MostrarDatosReservaParcial al = new MostrarDatosReservaParcial(serviciosCant, promocionesCant,fechas,fechasPromos,proveedorselecionado,total,cliente);
         Escritorio.add(al);
         int a = (Escritorio.getWidth() - al.getWidth())/2;
         int b = (Escritorio.getHeight() - al.getHeight()) /2;
