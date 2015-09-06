@@ -61,8 +61,8 @@ public class ControladorProveedor implements IControladorProveedor{
         ControladorProveedor.tope = ControladorProveedor.tope+1;
     }
     public void ingresarModificarImagenServicio(String imagen){
-        ControladorProveedor.imagenServicio[ControladorProveedor.tope]=imagen;
-        ControladorProveedor.tope = ControladorProveedor.tope+1;
+        ControladorProveedor.imagenServicio[ControladorProveedor.tope2]=imagen;
+        ControladorProveedor.tope2 = ControladorProveedor.tope2+1;
     }
     @Override
     public void ingresarDestinoServicio(String  destino ){
