@@ -58,12 +58,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         ICC = fabrica.getIControladorCliente();
    
        PantallaPrincipal.RutaImagenes= JOptionPane.showInputDialog("Seleccione una ruta para las imagenes");
-            if (PantallaPrincipal.RutaImagenes==null){
-                
-                PantallaPrincipal.RutaImagenes = "C:\\Imagenes\\";
+            if (PantallaPrincipal.RutaImagenes==null){  
+                PantallaPrincipal.RutaImagenes = "/ens/home01/r/rodrigo.linares/Imagenes/";
             }
             else if (PantallaPrincipal.RutaImagenes.isEmpty()){
-                PantallaPrincipal.RutaImagenes = "C:\\Imagenes\\";
+                PantallaPrincipal.RutaImagenes = "/ens/home01/r/rodrigo.linares/Imagenes/";
             }
             File usuarios=new File(PantallaPrincipal.RutaImagenes+"Usuarios"); 
             usuarios.mkdir();

@@ -85,14 +85,14 @@ public class VerInfoReserva extends javax.swing.JInternalFrame {
             expandAll(jTree1, jTree1.getSelectionPath(), true);
          
             String cate = "";
-            JOptionPane.showMessageDialog(null, "Voy a comparar"+cate+" con "+reserva );
+            //JOptionPane.showMessageDialog(null, "Voy a comparar"+cate+" con "+reserva );
             while ( ( !(  s.equals(cate)) ) ){//busco una reserva en el arbol
-                JOptionPane.showMessageDialog(null, "Voy "+i);
+               // JOptionPane.showMessageDialog(null, "Voy "+i);
                 i++;
                 jTree1.setSelectionRow(i);
                 cate = jTree1.getSelectionPath().toString();
                 cate = cate.substring(cate.lastIndexOf(",")+2, cate.lastIndexOf("]"));
-                JOptionPane.showMessageDialog(null, "Voy a comparar "+s+" con "+cate);
+                //JOptionPane.showMessageDialog(null, "Voy a comparar "+s+" con "+cate);
                 
             }
             jTree1MouseClicked(null);//ejecuto el evento click para que se carge la data

@@ -40,9 +40,9 @@ public class realizarReserva extends javax.swing.JInternalFrame {
     private Map<String, Integer> serviciosCant;
     private Map<String, Integer> promocionesCant;
     private Map<String,DataExpira> fechas;
-    private String proveeElegido;
+   
     private Map<String,DataExpira> fechasPromos;
-    
+   private String proveedorselecionado=""; 
             
 
     public realizarReserva() {
@@ -302,7 +302,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             
     try{
         JOptionPane.showMessageDialog(null,jList2.getSelectedValue().toString());
-        pp.ICC.realizarReserva(proveeElegido,jList2.getSelectedValue().toString(),serviciosCant,promocionesCant, fechas,fechasPromos,null);
+        pp.ICC.realizarReserva(proveedorselecionado,jList2.getSelectedValue().toString(),serviciosCant,promocionesCant, fechas,fechasPromos,null);
         JOptionPane.showMessageDialog(null,"la reserva se realizo correctamente");
         //hay que vacial los mapps
     }   catch (Exception ex){
@@ -316,23 +316,25 @@ public class realizarReserva extends javax.swing.JInternalFrame {
         TreePath[] seleccionados = jTree1.getSelectionPaths();
         String proveedor="";
         String es="";
-        String proveedorAnt="";
+        
+    
         for (TreePath x : seleccionados){
             String path = x.toString();
             String servicioopromo = path.substring(path.lastIndexOf(",")+2, path.lastIndexOf("]")); 
             proveedor = path.substring(path.indexOf(",")+2,path.lastIndexOf(","));
             es = proveedor.substring(proveedor.indexOf(",")+2,proveedor.length() );
-            proveedor = proveedor.substring(0,proveedor.indexOf(",") );            
-            if(!proveedorAnt.isEmpty()){
-                if (!proveedorAnt.equals(proveedor)){
-                    JOptionPane.showMessageDialog(null, "Selecione servicios o promociones de un mismo proveedor");
-                    return;
-                }
+            proveedor = proveedor.substring(0,proveedor.indexOf(",") );  
+            if (proveedorselecionado.isEmpty()){
+                proveedorselecionado=proveedor;
             }
-            proveedorAnt = proveedor;
+            if (!proveedorselecionado.equals(proveedor)){
+                JOptionPane.showMessageDialog(null, "Selecione servicios o promociones de un mismo proveedor");
+                return;
+            }
+           
             Date fecha1   = jDateChooser1.getDate();
             Date fecha2   = jDateChooser2.getDate();
-            JOptionPane.showMessageDialog(null, "que es :"+es);
+           // JOptionPane.showMessageDialog(null, "que es :"+es);
              float total;
             if (es.equals("Servicios")){ 
                 DataServicio serinfo =  pp.ICP.informacionServicio(proveedor,servicioopromo);
@@ -349,7 +351,7 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             
             }    
             
-            proveeElegido=proveedor;
+            
             precioTotal.setText( Float.toString(total) );
         
         }   
