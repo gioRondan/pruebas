@@ -960,7 +960,6 @@ public class ControladoresTest {
         int precio = 10;
         String origen = "cardona";
         String proveedor1 = "nickname34";
-        
         testIngresarNombreCategoria2("transporte12345");
         try{
         instancepr.altaCategoria();}
@@ -969,7 +968,6 @@ public class ControladoresTest {
         }
         testIngresarCategoriaServicio2("transporte12345");
         instancepr.altaServicio("hola1", descripcion, precio, origen, proveedor1,"0");
-        
         //instancepr.altaServicio("hola2", descripcion, precio, origen, proveedor2,"0");
         Map<String, Integer> serv = new HashMap();
         serv.put("hola1",2 );
@@ -980,14 +978,10 @@ public class ControladoresTest {
         es.put("hola1", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
         es.put("hola1", new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
         for(int i = 1; i < 11; ++i){
-            
-            instance.realizarReserva(proveedor1, "cli123", serv, new HashMap(), es, es2, new Date(1,2,2013));
-            
-            //instance.realizarReserva(proveedor1, "cli1234", serv, new HashMap(), new Date(1,2,2013), new Date(1,3,213));
+            instance.realizarReserva(proveedor1, "cli123", serv, new HashMap(), es, es2, new Date(1,2,2013));    
         }
         List<DataReserva> result = instance.listarReservasSistema();
         int aux = id;
-        
         for(int j= aux;j<(aux +10); ++j){
             id++;
             assertEquals(id, result.get(j).getId());
@@ -1041,9 +1035,7 @@ public class ControladoresTest {
         assertEquals(10, result.getPrecio(),0);
         assertEquals(id, result.getId());
         assertEquals(new Date(1,2,2013), result.getFechaCreacion());
-        //assertEquals(new Date(1,3,213), result.getFechaFin());
-        /*assertEquals(, result);
-        assertEquals(, result);*/
+        
     }
     /**
      * Test of cancelarReserva method, of class ControladorCliente.
