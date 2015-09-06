@@ -484,12 +484,9 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Error al copiar la imagen 3");
                 Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);
             }
-        
         } else {
             Pantallaprin.ICP.ingresarModificarImagenServicio("");//siempre se carga una ruta aun que sea vacia
         }
-        
-        
         
         try {
             Pantallaprin.ICP.modificarServicio();
