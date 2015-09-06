@@ -57,13 +57,17 @@ public class ControladorProveedor implements IControladorProveedor{
     }
     @Override
     public void ingresarImagenServicio(String imagen){
-        ControladorProveedor.imagenServicio[ControladorProveedor.tope]=imagen;
-        ControladorProveedor.tope = ControladorProveedor.tope+1;
+        if(!imagen.isEmpty()){
+            ControladorProveedor.imagenServicio[ControladorProveedor.tope]=imagen;
+            ControladorProveedor.tope = ControladorProveedor.tope+1;
+        }
     }
     @Override
     public void ingresarModificarImagenServicio(String imagen){
-        ControladorProveedor.imagenModificarServicio[ControladorProveedor.tope2]=imagen;
-        ControladorProveedor.tope2 = ControladorProveedor.tope2+1;
+        if(!imagen.isEmpty()){
+            ControladorProveedor.imagenModificarServicio[ControladorProveedor.tope2]=imagen;
+            ControladorProveedor.tope2 = ControladorProveedor.tope2+1;
+        }
     }
     @Override
     public void ingresarDestinoServicio(String  destino ){
