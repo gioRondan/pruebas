@@ -7,15 +7,19 @@ package Presentacion;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
+import javax.swing.tree.TreeNode;
+import javax.swing.tree.TreePath;
 import logica.DataCliente;
 import logica.DataInfoReserva;
 import logica.DataItemReserva;
@@ -66,8 +70,52 @@ public class VerInfoReserva extends javax.swing.JInternalFrame {
         jTree2.setModel(modeloArbol2);
         panelseropromo.setVisible(false);
         tituloseropromo.setText("");
-    }
+        
 
+        
+        int reserva=0; 
+        if (quien.equals("VerInfoCliente")){
+        
+            reserva = VerInfoCliente.reservaseleccionada;
+        }
+        
+         if (reserva > 0){
+            String s= Integer.toString(reserva);
+            int i = 0;
+            jTree1.setSelectionRow(i);
+            expandAll(jTree1, jTree1.getSelectionPath(), true);
+         
+            String cate = "";
+            JOptionPane.showMessageDialog(null, "Voy a comparar"+cate+" con "+reserva );
+            while ( ( !(  s.equals(cate)) ) ){//busco una reserva en el arbol
+                JOptionPane.showMessageDialog(null, "Voy "+i);
+                i++;
+                jTree1.setSelectionRow(i);
+                cate = jTree1.getSelectionPath().toString();
+                cate = cate.substring(cate.lastIndexOf(",")+2, cate.lastIndexOf("]"));
+                JOptionPane.showMessageDialog(null, "Voy a comparar "+s+" con "+cate);
+                
+            }
+            jTree1MouseClicked(null);//ejecuto el evento click para que se carge la data
+        }
+    }
+    static private void expandAll(JTree tree, TreePath parent, boolean expand) {
+        TreeNode node = (TreeNode) parent.getLastPathComponent();
+        if (node.getChildCount() >= 0) {
+            for (@SuppressWarnings("unchecked")
+            Enumeration<TreeNode> e = node.children(); e.hasMoreElements();) {
+                TreeNode treeNode = (TreeNode) e.nextElement();
+                TreePath path = parent.pathByAddingChild(treeNode);
+                expandAll(tree, path, expand);
+            }
+        }   
+        // Expansion or collapse must be done bottom-up
+        if (expand) {
+            tree.expandPath(parent);
+        } else {
+            tree.collapsePath(parent);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

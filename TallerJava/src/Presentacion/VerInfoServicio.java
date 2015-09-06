@@ -52,36 +52,21 @@ public class VerInfoServicio extends javax.swing.JInternalFrame {
         }
     }
     static private void expandAll(JTree tree, TreePath parent, boolean expand) {
-
         TreeNode node = (TreeNode) parent.getLastPathComponent();
-
         if (node.getChildCount() >= 0) {
-
             for (@SuppressWarnings("unchecked")
-
             Enumeration<TreeNode> e = node.children(); e.hasMoreElements();) {
-
                 TreeNode treeNode = (TreeNode) e.nextElement();
-
                 TreePath path = parent.pathByAddingChild(treeNode);
-
                 expandAll(tree, path, expand);
-
             }
-
         }   
         // Expansion or collapse must be done bottom-up
-
         if (expand) {
-
             tree.expandPath(parent);
-
         } else {
-
-        tree.collapsePath(parent);
-
+            tree.collapsePath(parent);
         }
-
     }
     public VerInfoServicio(String quien) {
         initComponents();
