@@ -167,6 +167,7 @@ public class AltaServicio extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Nuevo servicio");
+        setFrameIcon(new javax.swing.ImageIcon("/ens/home01/r/rodrigo.linares/Desktop/iconoH4T3.png")); // NOI18N
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel23.setText("Servicio");
