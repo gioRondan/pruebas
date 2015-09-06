@@ -83,15 +83,11 @@ public class FlujoTest {
         List<DataCiudad> ciudades = new ArrayList<>();
         try{
             ccl.altaCliente(nickCliente, nomCliente, apCliente, emailCliente, fechaNacCliente, imCliente);
-        }catch(Exception ex){
-            //algo
-        }
+        }catch(Exception ex){}
         try{
             empresas = cpr.listarEmpresas();
             cpr.altaProveedor(nickProveedor, nomProveedor, apProveedor, emailProveedor, fechaNacProveedor, imProveedor, nomEmpresa, urlEmpresa);
-        }catch(Exception ex){
-            //algo
-        }
+        }catch(Exception ex){}
        try{
             cpr.ingresarNombreCategoria(catPadre);
             cpr.altaCategoria();
@@ -100,9 +96,7 @@ public class FlujoTest {
             cpr.altaCategoria();
             cpr.ingresarNombreCategoria(cat2Hoja);
             cpr.altaCategoria();
-        }catch(Exception ex){
-            
-        }
+        }catch(Exception ex){}
         try{
             cpr.ingresarCategoriaServicio(catHoja);
             cpr.ingresarCategoriaServicio(cat2Hoja);
