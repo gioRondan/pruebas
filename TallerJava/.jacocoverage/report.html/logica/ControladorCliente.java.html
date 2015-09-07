@@ -40,14 +40,14 @@ import java.util.Set;
 <span class="fc bfc" id="L40" title="All 2 branches covered.">        for(Map.Entry&lt;String, Integer&gt; entries : servicio.entrySet()){</span>
            
 <span class="fc" id="L42">            aux_cliente.reservarServicio(clave1, prov.getServicio(entries.getKey()),entries.getValue(),fechas.get(entries.getKey()).getFechai(),fechas.get(entries.getKey()).getFechaf());</span>
-<span class="fc" id="L43">            preciototal+= prov.getServicio(entries.getKey()).getPrecio();</span>
+<span class="fc" id="L43">            preciototal+= preciototal + prov.getServicio(entries.getKey()).getPrecio()*entries.getValue();</span>
 <span class="fc" id="L44">        }</span>
         
         
 <span class="fc bfc" id="L47" title="All 2 branches covered.">        for(Map.Entry&lt;String, Integer&gt; entries : promocion.entrySet()){</span>
 <span class="fc" id="L48">            aux_cliente.reservarPromocion(clave1, prov.getPromocion(entries.getKey()),entries.getValue(),fechaspromos.get(entries.getKey()).getFechai(),fechaspromos.get(entries.getKey()).getFechaf());</span>
             
-<span class="fc" id="L50">            preciototal+= prov.getPromocion(entries.getKey()).getPrecioTotal();</span>
+<span class="fc" id="L50">            preciototal= preciototal + prov.getPromocion(entries.getKey()).getPrecioTotal()*entries.getValue();</span>
 <span class="fc" id="L51">        }</span>
 <span class="fc" id="L52">        res.setPrecio(preciototal);</span>
 <span class="fc" id="L53">    }</span>

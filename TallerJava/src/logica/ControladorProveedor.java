@@ -100,15 +100,11 @@ public class ControladorProveedor implements IControladorProveedor{
         return mCa.getDataCategorias();
     }
     @Override
-    public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor, String pais){
+    public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor, String pais)throws Exception{
         Servicio ser = new Servicio(nombre, descripcion, precio);
-        for(int i=0;i<ControladorProveedor.tope;++i){
-            try {            
+        for(int i=0;i<ControladorProveedor.tope;++i){            
                 ser.agregarImagen(ControladorProveedor.imagenServicio[i]);
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, ex.toString());
-                Logger.getLogger(ControladorProveedor.class.getName()).log(Level.SEVERE, null, ex);
-            }           
+                       
         }
         ControladorProveedor.tope=0;
         
@@ -247,12 +243,8 @@ public class ControladorProveedor implements IControladorProveedor{
         }
         
         for(int i=0;i<ControladorProveedor.tope2;++i){
-            try {            
                 ser.agregarImagen(ControladorProveedor.imagenModificarServicio[i]);
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, ex.toString());
-                Logger.getLogger(ControladorProveedor.class.getName()).log(Level.SEVERE, null, ex);
-            }           
+                       
         }
         liberarMemoria();
     }

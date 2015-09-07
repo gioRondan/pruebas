@@ -452,88 +452,88 @@ public class ActualizarServicio extends javax.swing.JInternalFrame {
 <span class="nc" id="L452">            Path TO = Paths.get(urlImagenDestino);</span>
             try {
 <span class="nc" id="L454">                Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);</span>
-<span class="nc" id="L455">                Pantallaprin.ICP.ingresarModificarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria</span>
-<span class="nc" id="L456">            } catch (IOException ex) {</span>
-<span class="nc" id="L457">                JOptionPane.showMessageDialog(null, &quot;Error al copiar la imagen 1&quot;);</span>
-<span class="nc" id="L458">                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L459">            }</span>
+<span class="nc" id="L455">            } catch (IOException ex) {</span>
+<span class="nc" id="L456">                JOptionPane.showMessageDialog(null, &quot;Error al copiar la imagen 1&quot;);</span>
+<span class="nc" id="L457">                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L458">            }</span>
         
-<span class="nc" id="L461">        } else {</span>
-<span class="nc" id="L462">            Pantallaprin.ICP.ingresarModificarImagenServicio(&quot;&quot;);//siempre se carga una ruta aunque sea vacia</span>
-        }
-<span class="nc bnc" id="L464" title="All 2 branches missed.">        if (!imagen2.getText().isEmpty()) {</span>
-<span class="nc" id="L465">            Path FROM = Paths.get(imagen2.getText());</span>
+        } 
+<span class="nc bnc" id="L461" title="All 2 branches missed.">        if (!imagen2.getText().isEmpty()) {</span>
+<span class="nc" id="L462">            Path FROM = Paths.get(imagen2.getText());</span>
             //armo la ruta destino
-<span class="nc" id="L467">            String urlImagenDestino = PantallaPrincipal.RutaImagenes + &quot;Servicios/&quot; + proveedor + &quot; - &quot; + nombreservicioseleccionado + &quot; 2.png&quot;;</span>
-<span class="nc" id="L468">            Path TO = Paths.get(urlImagenDestino);</span>
+<span class="nc" id="L464">            String urlImagenDestino = PantallaPrincipal.RutaImagenes + &quot;Servicios/&quot; + proveedor + &quot; - &quot; + nombreservicioseleccionado + &quot; 2.png&quot;;</span>
+<span class="nc" id="L465">            Path TO = Paths.get(urlImagenDestino);</span>
             try {
-<span class="nc" id="L470">                Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);</span>
-<span class="nc" id="L471">                Pantallaprin.ICP.ingresarModificarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria</span>
-<span class="nc" id="L472">            } catch (IOException ex) {</span>
-<span class="nc" id="L473">                JOptionPane.showMessageDialog(null, &quot;Error al copiar la imagen 2&quot;);</span>
-<span class="nc" id="L474">                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L475">            }</span>
+<span class="nc" id="L467">                Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);</span>
+<span class="nc" id="L468">            } catch (IOException ex) {</span>
+<span class="nc" id="L469">                JOptionPane.showMessageDialog(null, &quot;Error al copiar la imagen 2&quot;);</span>
+<span class="nc" id="L470">                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L471">            }</span>
           
-<span class="nc" id="L477">        } else {</span>
-<span class="nc" id="L478">            Pantallaprin.ICP.ingresarModificarImagenServicio(&quot;&quot;);//siempre se carga una ruta aun que sea vacia</span>
         }
-<span class="nc bnc" id="L480" title="All 2 branches missed.">        if (!imagen3.getText().isEmpty()) {</span>
-<span class="nc" id="L481">            Path FROM = Paths.get(imagen3.getText());</span>
+<span class="nc bnc" id="L474" title="All 2 branches missed.">        if (!imagen3.getText().isEmpty()) {</span>
+<span class="nc" id="L475">            Path FROM = Paths.get(imagen3.getText());</span>
             //armo la ruta destino
-<span class="nc" id="L483">            String urlImagenDestino = PantallaPrincipal.RutaImagenes + &quot;Servicios/&quot; + proveedor + &quot; - &quot; + nombreservicioseleccionado + &quot; 3.png&quot;;</span>
-<span class="nc" id="L484">            Path TO = Paths.get(urlImagenDestino);</span>
+<span class="nc" id="L477">            String urlImagenDestino = PantallaPrincipal.RutaImagenes + &quot;Servicios/&quot; + proveedor + &quot; - &quot; + nombreservicioseleccionado + &quot; 3.png&quot;;</span>
+<span class="nc" id="L478">            Path TO = Paths.get(urlImagenDestino);</span>
             try {
-<span class="nc" id="L486">                Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);</span>
-<span class="nc" id="L487">                Pantallaprin.ICP.ingresarModificarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria</span>
-<span class="nc" id="L488">            } catch (IOException ex) {</span>
-<span class="nc" id="L489">                JOptionPane.showMessageDialog(null, &quot;Error al copiar la imagen 3&quot;);</span>
-<span class="nc" id="L490">                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L491">            }</span>
-<span class="nc" id="L492">        } else {</span>
-<span class="nc" id="L493">            Pantallaprin.ICP.ingresarModificarImagenServicio(&quot;&quot;);//siempre se carga una ruta aun que sea vacia</span>
+<span class="nc" id="L480">                Files.copy(FROM, TO, StandardCopyOption.REPLACE_EXISTING);</span>
+<span class="nc" id="L481">            } catch (IOException ex) {</span>
+<span class="nc" id="L482">                JOptionPane.showMessageDialog(null, &quot;Error al copiar la imagen 3&quot;);</span>
+<span class="nc" id="L483">                Logger.getLogger(SelectorImagen.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L484">            }</span>
         }
         
         try {
-<span class="nc" id="L497">            Pantallaprin.ICP.modificarServicio();</span>
-<span class="nc" id="L498">        } catch (Exception ex) {</span>
-<span class="nc" id="L499">            JOptionPane.showMessageDialog(null, ex.getMessage());</span>
-<span class="nc" id="L500">            Logger.getLogger(ActualizarServicio.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L501">        }</span>
-<span class="nc" id="L502">    }//GEN-LAST:event_jButton1ActionPerformed</span>
+<span class="nc" id="L488">            Pantallaprin.ICP.modificarServicio();</span>
+<span class="nc" id="L489">        } catch (Exception ex) {</span>
+<span class="nc" id="L490">            JOptionPane.showMessageDialog(null, ex.getMessage());</span>
+<span class="nc" id="L491">            Logger.getLogger(ActualizarServicio.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L492">        }</span>
+<span class="nc" id="L493">    }//GEN-LAST:event_jButton1ActionPerformed</span>
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-<span class="nc" id="L505">        Pantallaprin.ICP.ingresarImagenBorrarServicio(imagen1.getText());</span>
-<span class="nc" id="L506">        imagen1.setText(&quot;&quot;);</span>
-<span class="nc" id="L507">    }//GEN-LAST:event_jButton7ActionPerformed</span>
+<span class="nc" id="L496">        Pantallaprin.ICP.ingresarImagenBorrarServicio(imagen1.getText());</span>
+<span class="nc" id="L497">        imagen1.setText(&quot;&quot;);</span>
+<span class="nc" id="L498">    }//GEN-LAST:event_jButton7ActionPerformed</span>
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-<span class="nc" id="L510">        Pantallaprin.ICP.ingresarImagenBorrarServicio(imagen2.getText());</span>
-<span class="nc" id="L511">        imagen2.setText(&quot;&quot;);</span>
-<span class="nc" id="L512">    }//GEN-LAST:event_jButton2ActionPerformed</span>
+<span class="nc" id="L501">        Pantallaprin.ICP.ingresarImagenBorrarServicio(imagen2.getText());</span>
+<span class="nc" id="L502">        imagen2.setText(&quot;&quot;);</span>
+<span class="nc" id="L503">    }//GEN-LAST:event_jButton2ActionPerformed</span>
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-<span class="nc" id="L515">        Pantallaprin.ICP.ingresarImagenBorrarServicio(imagen3.getText());</span>
-<span class="nc" id="L516">        imagen3.setText(&quot;&quot;);</span>
-<span class="nc" id="L517">    }//GEN-LAST:event_jButton3ActionPerformed</span>
+<span class="nc" id="L506">        Pantallaprin.ICP.ingresarImagenBorrarServicio(imagen3.getText());</span>
+<span class="nc" id="L507">        imagen3.setText(&quot;&quot;);</span>
+<span class="nc" id="L508">    }//GEN-LAST:event_jButton3ActionPerformed</span>
 
     private void Combo_OrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combo_OrigenActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L521">    }//GEN-LAST:event_Combo_OrigenActionPerformed</span>
+<span class="nc" id="L512">    }//GEN-LAST:event_Combo_OrigenActionPerformed</span>
 
     private void Combo_DestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combo_DestinoActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L525">    }//GEN-LAST:event_Combo_DestinoActionPerformed</span>
+<span class="nc" id="L516">    }//GEN-LAST:event_Combo_DestinoActionPerformed</span>
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-<span class="nc" id="L528">        Pantallaprin.abrirSelectorImagen(&quot;ActualizarServicio1&quot;);</span>
-<span class="nc" id="L529">    }//GEN-LAST:event_jButton6ActionPerformed</span>
+<span class="nc" id="L519">        Pantallaprin.abrirSelectorImagen(&quot;ActualizarServicio1&quot;);</span>
+        //armo la ruta destino
+<span class="nc" id="L521">        String urlImagenDestino = PantallaPrincipal.RutaImagenes + &quot;Servicios/&quot; + Combo_Proveedores.getSelectedItem().toString() + &quot; - &quot; + nombreservicioseleccionado + &quot; 1.png&quot;;</span>
+<span class="nc" id="L522">        Pantallaprin.ICP.ingresarModificarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria</span>
+<span class="nc" id="L523">    }//GEN-LAST:event_jButton6ActionPerformed</span>
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-<span class="nc" id="L532">       Pantallaprin.abrirSelectorImagen(&quot;ActualizarServicio2&quot;);</span>
-<span class="nc" id="L533">    }//GEN-LAST:event_jButton5ActionPerformed</span>
+<span class="nc" id="L526">       Pantallaprin.abrirSelectorImagen(&quot;ActualizarServicio2&quot;);</span>
+       //armo la ruta destino
+<span class="nc" id="L528">        String urlImagenDestino = PantallaPrincipal.RutaImagenes + &quot;Servicios/&quot; + Combo_Proveedores.getSelectedItem().toString() + &quot; - &quot; + nombreservicioseleccionado + &quot; 2.png&quot;;</span>
+<span class="nc" id="L529">        Pantallaprin.ICP.ingresarModificarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria</span>
+<span class="nc" id="L530">    }//GEN-LAST:event_jButton5ActionPerformed</span>
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-<span class="nc" id="L536">        Pantallaprin.abrirSelectorImagen(&quot;ActualizarServicio3&quot;);</span>
+<span class="nc" id="L533">        Pantallaprin.abrirSelectorImagen(&quot;ActualizarServicio3&quot;);</span>
+        //armo la ruta destino
+<span class="nc" id="L535">        String urlImagenDestino = PantallaPrincipal.RutaImagenes + &quot;Servicios/&quot; + Combo_Proveedores.getSelectedItem().toString() + &quot; - &quot; + nombreservicioseleccionado + &quot; 3.png&quot;;</span>
+<span class="nc" id="L536">        Pantallaprin.ICP.ingresarModificarImagenServicio(urlImagenDestino);//luego del alta el servicio deve quedar en memoria</span>
 <span class="nc" id="L537">    }//GEN-LAST:event_jButton4ActionPerformed</span>
 
 
