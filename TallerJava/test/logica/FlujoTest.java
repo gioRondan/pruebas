@@ -7,6 +7,7 @@ package logica;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.After;
@@ -40,13 +41,12 @@ public class FlujoTest {
     @After
     public void tearDown() {
     }
-    // ########################### operaciones auxiliares #############################3
-    
     /**
-     * Test de flujo 1.
+     * Test de flujo .
      */
     @Test
-    public void testFlujo1(){
+    public void testFlujo(){
+//########################  variables   #######################################################
         Fabrica fabrica = Fabrica.getInstance();
         IControladorProveedor cpr = fabrica.getIControladorProveedor();
         IControladorCliente ccl = fabrica.getIControladorCliente();
@@ -82,13 +82,19 @@ public class FlujoTest {
         List<DataEmpresa> empresas = new ArrayList<>();
         List<DataCategoria> categorias = new ArrayList<>();
         List<DataCiudad> ciudades = new ArrayList<>();
+        List<DataReserva> reservas = new ArrayList<>();
+        boolean creoOrigen;
+        int id;
+//################################  altacliente     ##################################################
         try{
             ccl.altaCliente(nickCliente, nomCliente, apCliente, emailCliente, fechaNacCliente, imCliente);
         }catch(Exception ex){}
+//################################  altaproveedor   ##################################################
         try{
             empresas = cpr.listarEmpresas();
             cpr.altaProveedor(nickProveedor, nomProveedor, apProveedor, emailProveedor, fechaNacProveedor, imProveedor, nomEmpresa, urlEmpresa);
         }catch(Exception ex){}
+//###############################   altacategoria   ##################################################
        try{
             cpr.ingresarNombreCategoria(catPadre);
             cpr.altaCategoria();
@@ -98,6 +104,7 @@ public class FlujoTest {
             cpr.ingresarNombreCategoria(cat2Hoja);
             cpr.altaCategoria();
         }catch(Exception ex){}
+//##############################    altaservicio    ###################################################
         try{
             cpr.ingresarCategoriaServicio(catHoja);
             cpr.ingresarCategoriaServicio(cat2Hoja);
@@ -108,6 +115,28 @@ public class FlujoTest {
         try{
         cpr.altaServicio(nomServicio, descServicio, precioServicio, origenServicio, nickProveedor, paisServicio);
         }catch(Exception ex){}
+//############################      altaReserva     #####################################################
+        Map<String, Integer> serv = new HashMap();
+        serv.put(nomServicio,2 );
+        ManejadorCliente mcl = ManejadorCliente.getInstance();
+        Map<String, DataExpira> es = new HashMap();
+        Map<String, DataExpira> es2 = new HashMap();
+        es.put(nomServicio, new DataExpira(new Date(1,1,2013), new Date(2,3,2013)));
+        try{
+            ccl.realizarReserva(nickProveedor, nickCliente, serv, new HashMap(), es, es2, new Date(1,2,2013));
+        }catch(Exception ex){}
+        id = mcl.testGetId();
+//###########################   chequeo de alta reserva     ###################################################
+        reservas = ccl.listarReservasSistema();
+        assertEquals(id,reservas.get(0).getId());
+        assertEquals(precioServicio*2, reservas.get(0).getPrecio(),0);//la reserva tiene 2 servicios
+        assertEquals(Estado.registrada, reservas.get(0).getEstado());
+//###########################   modificar estado reserva    ###################################################
+        ccl.actualizarEstadoReserva(id, nickCliente, Estado.pagada);
+//###########################   chequeo estado reserva      ###################################################
+        reservas = ccl.listarReservasSistema();
+        assertEquals(Estado.pagada, reservas.get(0).getEstado());
+//###########################   chequeo de alta servicio    ###################################################
         DataInfoServicio ser = null;
         try{
             ser = cpr.verInfoServicio(nomServicio, nickProveedor);
@@ -115,6 +144,7 @@ public class FlujoTest {
         assertEquals(im1Servicio, ser.getImagen()[0]);
         assertEquals(im2Servicio, ser.getImagen()[1]);
         assertEquals(im3Servicio, ser.getImagen()[2]);
+//############################  modificarservicio   ##############################################################
         cpr.ingresarImagenBorrarServicio(im2Servicio);
         cpr.ingresarImagenBorrarServicio(im1Servicio);
         cpr.seleccionarProveedor(nickProveedor);
@@ -123,15 +153,25 @@ public class FlujoTest {
         try{
             cpr.modificarServicio(); //im3 pasa a pos [0] imMod se inserta en [1]
         }catch(Exception ex){}
+//###########################   chequeo de modificar servicio   ################################################
         try{
             ser = cpr.verInfoServicio(nomServicio, nickProveedor);
         }catch(Exception ex){}
         assertEquals(im3Servicio, ser.getImagen()[0]);
         assertEquals(imModServicio, ser.getImagen()[1]);
-        
+//############################  chequeo de la ciudad origen del servicio    ####################################
         ciudades = cpr.listarCiudades();
-        
+        creoOrigen = false;
+        for(DataCiudad it : ciudades){
+            if(it.getNombre() == origenServicio){
+                creoOrigen = true;
+            }
+        }
+        if(!(creoOrigen )){ //si no creo origen falla test
+            assertEquals("falloaltaciudad", "boom");
+        }
         proveedores = cpr.listarProveedores();
+//############################  chequeo del proveedor   ########################################################
         assertEquals(nickProveedor ,proveedores.get(0).getNickname());
         assertEquals(nomProveedor ,proveedores.get(0).getNombre());
         assertEquals(apProveedor ,proveedores.get(0).getApellido());
@@ -140,8 +180,12 @@ public class FlujoTest {
         assertEquals(imProveedor ,proveedores.get(0).getImagen());
         assertEquals(nomEmpresa ,proveedores.get(0).getnombreEmpresa());
         assertEquals(urlEmpresa ,proveedores.get(0).getUrlEmpresa());
-        categorias = cpr.listarCategorias();
-        
+//############################  chequeo de las categorias   ####################################################
+        categorias = cpr.listarCategorias();//la primer categoria ingresada es catPadre, catPadre tiene un solo hijo catHoja, cat2Hoja es el segundo elemento de categorias
+        assertEquals(catPadre,categorias.get(0).getNombre());
+        assertEquals(cat2Hoja,categorias.get(1).getNombre());
+        assertEquals(catHoja,categorias.get(0).getHijos().get(0).getNombre());
+//############################  chequeo del cliente     #########################################################
         clientes = ccl.listarClientes();
         assertEquals(nickCliente, clientes.get(0).getNickname());
         assertEquals(nomCliente, clientes.get(0).getNombre());
