@@ -167,7 +167,7 @@ public class VerInfoServicio extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Informacion de servicio");
         setToolTipText("");
-        setFrameIcon(null);
+        setFrameIcon(new javax.swing.ImageIcon("/ens/home01/r/rodrigo.linares/NetBeansProjects/tpgr07/TallerJava/src/Imagenes/iconoH4T.png")); // NOI18N
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
                 formInternalFrameOpened(evt);
