@@ -196,6 +196,8 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             }
         });
 
+        cant.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+
         jLabel3.setText("Cantidad:");
 
         jLabel5.setText("Seleccione fecha de fin:");
