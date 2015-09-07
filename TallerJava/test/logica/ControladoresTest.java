@@ -758,7 +758,7 @@ public class ControladoresTest {
         
         DataInfoReserva result = instance.verInfoReserva("cli123456", id);
         assertEquals(Estado.registrada, result.getEstado());
-        assertEquals(10, result.getPrecio(),0);
+        assertEquals(20, result.getPrecio(),0);
         assertEquals(id, result.getId());
         assertEquals(new Date(1,2,2013), result.getFechaCreacion());
         
