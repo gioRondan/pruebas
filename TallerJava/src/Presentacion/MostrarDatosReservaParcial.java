@@ -97,6 +97,8 @@ public class MostrarDatosReservaParcial extends javax.swing.JInternalFrame  {
         Precio1 = new javax.swing.JTextField();
         jToggleButton1 = new javax.swing.JToggleButton();
 
+        setFrameIcon(new javax.swing.ImageIcon("/ens/home01/r/rodrigo.linares/NetBeansProjects/tpgr07/TallerJava/src/Imagenes/iconoH4T.png")); // NOI18N
+
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel7.setText("Reserva");
 
@@ -180,9 +182,7 @@ public class MostrarDatosReservaParcial extends javax.swing.JInternalFrame  {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jLabel3)
                                         .addComponent(jLabel8))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel6)))
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(prov, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
