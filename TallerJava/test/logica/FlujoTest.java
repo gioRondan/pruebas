@@ -139,6 +139,7 @@ public class FlujoTest {
         assertEquals(nomEmpresa ,proveedores.get(0).getnombreEmpresa());
         assertEquals(urlEmpresa ,proveedores.get(0).getUrlEmpresa());
         categorias = cpr.listarCategorias();
+        
         clientes = ccl.listarClientes();
         assertEquals(nickCliente, clientes.get(0).getNickname());
         assertEquals(nomCliente, clientes.get(0).getNombre());

@@ -80,7 +80,7 @@ public class Servicio {
     }
     public DataInfoServicio getDataInfoServicio (){
 <span class="fc" id="L82">        DataCiudad des = null;</span>
-<span class="pc bpc" id="L83" title="1 of 2 branches missed.">        if (destino!= null){</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">        if (destino!= null){</span>
 <span class="fc" id="L84">            des = destino.getDataCiudad();</span>
         }
 <span class="fc" id="L86">        return new DataInfoServicio(nombre, descripcion, imagen, precio, origen.getDataCiudad(), des, getDataCategorias(), proveedor.getDataProveedor());</span>
@@ -102,8 +102,8 @@ public class Servicio {
 <span class="nc" id="L102">    }</span>
     public void eliminarImagen(String imagen) throws Exception{
 <span class="fc" id="L104">        int it = 0;</span>
-<span class="pc bpc" id="L105" title="2 of 4 branches missed.">        while((it &lt; contImagen)&amp;&amp;(!this.imagen[it].equals(imagen)))</span>
-<span class="nc" id="L106">            ++it;</span>
+<span class="pc bpc" id="L105" title="1 of 4 branches missed.">        while((it &lt; contImagen)&amp;&amp;(!this.imagen[it].equals(imagen)))</span>
+<span class="fc" id="L106">            ++it;</span>
 <span class="pc bpc" id="L107" title="1 of 2 branches missed.">        if(it==contImagen)</span>
 <span class="nc" id="L108">            throw new Exception(&quot;la imagen seleccionada no pertenece al servicio&quot;);</span>
         else{
