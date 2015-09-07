@@ -653,7 +653,9 @@ public class ControladoresTest {
             assertEquals(id, result.get(j).getId());
             
         }
-        
+        DataReserva dtr = result.get(0);
+        assertEquals(Estado.registrada, dtr.getEstado());
+        assertEquals(20, dtr.getPrecio(),0);
     }
 
     /**
