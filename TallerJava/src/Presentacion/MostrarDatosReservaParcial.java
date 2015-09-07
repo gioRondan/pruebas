@@ -5,6 +5,8 @@
  */
 package Presentacion;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -51,7 +53,8 @@ public class MostrarDatosReservaParcial extends javax.swing.JInternalFrame  {
             
         }
         
-        prov.setText(Float.toString(total));
+        Precio1.setText(Float.toString(total));
+        
         Cliente.setText(cliente);
         prov.setText(proveedorselecionado);
         listaServicos.setModel(mol);
@@ -272,22 +275,23 @@ public class MostrarDatosReservaParcial extends javax.swing.JInternalFrame  {
 
     private void listaServicosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaServicosMouseClicked
         // TODO add your handling code here:
-        
-        fechainicio.setText(fechas1.get(listaServicos.getSelectedValue().toString()).getFechai().toString());
-        fechainicio.setText(fechas1.get(listaServicos.getSelectedValue().toString()).getFechaf().toString());
+        DateFormat f = new SimpleDateFormat("dd/MM/yyyy");
+        fechainicio.setText(f.format(fechas1.get(listaServicos.getSelectedValue().toString()).getFechai()));
+        fechafin.setText(f.format(fechas1.get(listaServicos.getSelectedValue().toString()).getFechaf()));
         cant.setText(Integer.toString(serv.get(listaServicos.getSelectedValue().toString())));
     }//GEN-LAST:event_listaServicosMouseClicked
 
     private void listaPromosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaPromosMouseClicked
         // TODO add your handling code here:
-        fechainicio.setText(fechas2.get(listaPromos.getSelectedValue().toString()).getFechai().toString());
-        fechafin.setText(fechas2.get(listaPromos.getSelectedValue().toString()).getFechaf().toString());
-        cant.setText(Integer.toString(serv.get(listaPromos.getSelectedValue().toString())));
+        DateFormat f = new SimpleDateFormat("dd/MM/yyyy");
+        fechainicio.setText(f.format(fechas2.get(listaPromos.getSelectedValue().toString()).getFechai()));
+        fechafin.setText(f.format(fechas2.get(listaPromos.getSelectedValue().toString()).getFechaf()));
+        cant.setText(Integer.toString(prom.get(listaPromos.getSelectedValue().toString())));
     }//GEN-LAST:event_listaPromosMouseClicked
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
-        this.disable();
+        this.dispose();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
 
