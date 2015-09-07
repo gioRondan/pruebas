@@ -505,8 +505,12 @@ public class ControladoresTest {
         List<DataPromocion> result = instance.listarPromocionesXProveedor(proveedor);
         for(int j = 0; j <11;j++){
             assertEquals(Integer.toString(j+70), result.get(j).getNombre());
-            //mas chequeos faltan
+            assertEquals(99, result.get(j).getPrecioTotal(),0);//preciototal = 10*11-(10*11/10)
         }
+        DataInfoPromocion infprom = instance.verInfoPromocion(proveedor, "71");
+        assertEquals("71", infprom.getNombre());
+        assertEquals(99, infprom.getPrecioTotal());//preciototal = 10*11-(10*11/10)
+        assertEquals(10, infprom.getDescuento());
     }
 
     /**
