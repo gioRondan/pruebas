@@ -196,6 +196,8 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             }
         });
 
+        cant.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+
         jLabel3.setText("Cantidad:");
 
         jLabel5.setText("Seleccione fecha de fin:");
@@ -315,13 +317,13 @@ public class realizarReserva extends javax.swing.JInternalFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
             
     try{
-        JOptionPane.showMessageDialog(null,jList2.getSelectedValue().toString());
+        //JOptionPane.showMessageDialog(null,jList2.getSelectedValue().toString());
         Date actual= new Date();
         
         pp.ICC.realizarReserva(proveedorselecionado,jList2.getSelectedValue().toString(),serviciosCant,promocionesCant, fechas,fechasPromos,actual);
         JOptionPane.showMessageDialog(null,"la reserva se realizo correctamente");
         //hay que vacial los mapps
-    }   catch (Exception ex){
+        }catch (Exception ex){
             JOptionPane.showMessageDialog(null,"Error al ingresar reserva" + ex.getMessage());
         }
 

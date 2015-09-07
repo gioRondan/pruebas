@@ -149,8 +149,8 @@ public class VerInfoReserva extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
 
         setClosable(true);
-        setTitle("Informacion de resrva");
-        setFrameIcon(new javax.swing.ImageIcon("/ens/home01/r/rodrigo.linares/NetBeansProjects/tpgr07/TallerJava/src/Imagenes/iconoH4T.png")); // NOI18N
+        setTitle("Informacion de reserva");
+        setFrameIcon(null);
         setPreferredSize(new java.awt.Dimension(815, 460));
         setVisible(true);
 

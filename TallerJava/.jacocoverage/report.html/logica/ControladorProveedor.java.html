@@ -215,17 +215,17 @@ import javax.swing.JOptionPane;
 <span class="fc" id="L215">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
 <span class="fc" id="L216">        Proveedor prov = mPr.getProveedor(proveedor);</span>
 <span class="fc" id="L217">        Servicio ser = prov.getServicio(servicio);</span>
-<span class="pc bpc" id="L218" title="1 of 2 branches missed.">        if (!descripcionServicio.isEmpty()){</span>
+<span class="fc bfc" id="L218" title="All 2 branches covered.">        if (!descripcionServicio.isEmpty()){</span>
 <span class="fc" id="L219">            ser.setDesc(descripcionServicio);</span>
         }
-<span class="pc bpc" id="L221" title="1 of 2 branches missed.">        if (precioServicio != 0){</span>
+<span class="fc bfc" id="L221" title="All 2 branches covered.">        if (precioServicio != 0){</span>
 <span class="fc" id="L222">            ser.setPrecio(precioServicio);</span>
         }
-<span class="pc bpc" id="L224" title="1 of 2 branches missed.">        if (!origenServicio.isEmpty()){</span>
+<span class="fc bfc" id="L224" title="All 2 branches covered.">        if (!origenServicio.isEmpty()){</span>
 <span class="fc" id="L225">            ManejadorCiudad mCi = ManejadorCiudad.getInstance();</span>
 <span class="fc" id="L226">            ser.asociarOrigen(mCi.getCiudad(origenServicio));</span>
         }
-<span class="pc bpc" id="L228" title="1 of 2 branches missed.">        if (!destinoServicio.isEmpty()){</span>
+<span class="fc bfc" id="L228" title="All 2 branches covered.">        if (!destinoServicio.isEmpty()){</span>
 <span class="fc" id="L229">            ManejadorCiudad mCi = ManejadorCiudad.getInstance();</span>
 <span class="fc" id="L230">            ser.asociarDestino(mCi.getCiudad(destinoServicio));</span>
         }
