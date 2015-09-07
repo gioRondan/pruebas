@@ -653,7 +653,9 @@ public class ControladoresTest {
             assertEquals(id, result.get(j).getId());
             
         }
-        
+        DataReserva dtr = result.get(0);
+        assertEquals(Estado.registrada, dtr.getEstado());
+        assertEquals(20, dtr.getPrecio(),0);
     }
 
     /**
@@ -756,7 +758,7 @@ public class ControladoresTest {
         
         DataInfoReserva result = instance.verInfoReserva("cli123456", id);
         assertEquals(Estado.registrada, result.getEstado());
-        assertEquals(10, result.getPrecio(),0);
+        assertEquals(20, result.getPrecio(),0);
         assertEquals(id, result.getId());
         assertEquals(new Date(1,2,2013), result.getFechaCreacion());
         

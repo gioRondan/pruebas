@@ -40,14 +40,14 @@ public class ControladorCliente implements IControladorCliente{
         for(Map.Entry<String, Integer> entries : servicio.entrySet()){
            
             aux_cliente.reservarServicio(clave1, prov.getServicio(entries.getKey()),entries.getValue(),fechas.get(entries.getKey()).getFechai(),fechas.get(entries.getKey()).getFechaf());
-            preciototal+= prov.getServicio(entries.getKey()).getPrecio();
+            preciototal+= preciototal + prov.getServicio(entries.getKey()).getPrecio()*entries.getValue();
         }
         
         
         for(Map.Entry<String, Integer> entries : promocion.entrySet()){
             aux_cliente.reservarPromocion(clave1, prov.getPromocion(entries.getKey()),entries.getValue(),fechaspromos.get(entries.getKey()).getFechai(),fechaspromos.get(entries.getKey()).getFechaf());
             
-            preciototal+= prov.getPromocion(entries.getKey()).getPrecioTotal();
+            preciototal= preciototal + prov.getPromocion(entries.getKey()).getPrecioTotal()*entries.getValue();
         }
         res.setPrecio(preciototal);
     }
