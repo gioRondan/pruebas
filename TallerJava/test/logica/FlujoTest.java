@@ -105,7 +105,9 @@ public class FlujoTest {
         cpr.ingresarImagenServicio(im1Servicio);
         cpr.ingresarImagenServicio(im2Servicio);
         cpr.ingresarImagenServicio(im3Servicio);
+        try{
         cpr.altaServicio(nomServicio, descServicio, precioServicio, origenServicio, nickProveedor, paisServicio);
+        }catch(Exception ex){}
         DataInfoServicio ser = null;
         try{
             ser = cpr.verInfoServicio(nomServicio, nickProveedor);
@@ -147,61 +149,6 @@ public class FlujoTest {
         assertEquals(emailCliente, clientes.get(0).getEmail());
         assertEquals(fechaNacCliente, clientes.get(0).getFechaNac());
         assertEquals(imCliente, clientes.get(0).getImagen());
-        
-    }
-    /**
-     * Test de flujo 2.
-     */
-    @Test
-    public void testFlujo2(){
-        Fabrica fabrica = Fabrica.getInstance();
-        IControladorProveedor cpr = fabrica.getIControladorProveedor();
-        IControladorCliente ccl = fabrica.getIControladorCliente();
-        
-        String esperado = "algo";
-        String resultado = "algo";
-        assertEquals(esperado, resultado);
-    }
-    /**
-     * Test de flujo 3.
-     */
-    @Test
-    public void testFlujo3(){
-        Fabrica fabrica = Fabrica.getInstance();
-        IControladorProveedor cpr = fabrica.getIControladorProveedor();
-        IControladorCliente ccl = fabrica.getIControladorCliente();
-        
-        String esperado = "algo";
-        String resultado = "algo";
-        assertEquals(esperado, resultado);
-        
-    }
-    /**
-     * Test de flujo 4.
-     */
-    @Test
-    public void testFlujo4(){
-        Fabrica fabrica = Fabrica.getInstance();
-        IControladorProveedor cpr = fabrica.getIControladorProveedor();
-        IControladorCliente ccl = fabrica.getIControladorCliente();
-        
-        String esperado = "algo";
-        String resultado = "algo";
-        assertEquals(esperado, resultado);
-        
-    }
-    /**
-     * Test de flujo 5.
-     */
-    @Test
-    public void testFlujo5(){
-        Fabrica fabrica = Fabrica.getInstance();
-        IControladorProveedor cpr = fabrica.getIControladorProveedor();
-        IControladorCliente ccl = fabrica.getIControladorCliente();
-        
-        String esperado = "algo";
-        String resultado = "algo";
-        assertEquals(esperado, resultado);
         
     }
 }

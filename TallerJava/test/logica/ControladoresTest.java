@@ -264,7 +264,9 @@ public class ControladoresTest {
         for(int i = 1; i<=10; i++){
             int n = i;
             testIngresarCategoriaServicio2(nomcat);
+            try{
             instance.altaServicio(Integer.toString(n), descripcion, precio, origen, proveedor,"uruguay");
+            }catch(Exception ex){}
         }
         List<DataServicio> result = instance.listarServiciosXCategoria(nomcat);
         for(int j = 0; j <10;j++){
@@ -305,7 +307,9 @@ public class ControladoresTest {
         for(int i = 11; i<=20; ++i){
             int n = i;
             testIngresarCategoriaServicio2("transporte");
+            try{
             instance.altaServicio(Integer.toString(n), descripcion, precio, origen, proveedor,"0");
+            }catch(Exception ex){}
         }
         List<DataServicio> result = instance.listarServiciosXProveedor("nickname111");
         System.out.println(result.size());
@@ -420,8 +424,10 @@ public class ControladoresTest {
         instance.ingresarCategoriaServicio("transporte2222");
         }catch(Exception ex){}
         instance.ingresarImagenServicio("imser");
+        try{
         instance.altaServicio("amodificar", descripcion, precio, origen, proveedor,"0");
-        //DataInfoServicio result2 = instance.verInfoServicio("amodificar", proveedor);
+        }catch(Exception ex){}
+//DataInfoServicio result2 = instance.verInfoServicio("amodificar", proveedor);
         testSeleccionarServicio("amodificar");
         testIngresarDescripcionServicio("modificado");
         instance.ingresarImagenBorrarServicio("imser");
@@ -494,7 +500,9 @@ public class ControladoresTest {
         for(int i = 50; i<=60; i++){
             int n = i;
             testIngresarCategoriaServicio2("transporte2222222");
+            try{
             instance.altaServicio(Integer.toString(n), descripcion, precio, origen, proveedor,"0");
+            }catch(Exception ex){}
             serv.add(Integer.toString(n));
         }
         try{
@@ -565,7 +573,9 @@ public class ControladoresTest {
         for(int i = 50; i<=60; i++){
             int n = i;
             testIngresarCategoriaServicio2("transporte13");
+            try{
             instance.altaServicio(Integer.toString(n), descripcion, precio, origen, proveedor,"0");
+            }catch(Exception ex){}
             serv.add(Integer.toString(n));
         }
         try{
@@ -633,7 +643,9 @@ public class ControladoresTest {
             System.out.println("throw alta categoria en listar servicios por categoria");
         }
         testIngresarCategoriaServicio2("transporte23456");
+        try{
         instancepr.altaServicio("hola", descripcion, precio, origen, proveedor,"0");
+        }catch(Exception ex){}
         Map<String, Integer> serv = new HashMap();
         serv.put("hola",2 );
         ManejadorCliente mcl = ManejadorCliente.getInstance();
@@ -691,8 +703,9 @@ public class ControladoresTest {
             System.out.println("throw alta categoria en listar servicios por categoria");
         }
         testIngresarCategoriaServicio2("transporte12345");
+        try{
         instancepr.altaServicio("hola1", descripcion, precio, origen, proveedor1,"0");
-        //instancepr.altaServicio("hola2", descripcion, precio, origen, proveedor2,"0");
+        }catch(Exception ex){}
         Map<String, Integer> serv = new HashMap();
         serv.put("hola1",2 );
         ManejadorCliente mcl = ManejadorCliente.getInstance();
@@ -792,7 +805,9 @@ public class ControladoresTest {
             System.out.println("throw alta categoria en listar servicios por categoria");
         }
         testIngresarCategoriaServicio2("transporte2222");
+        try{
         instancepr.altaServicio("hola", descripcion, precio, origen, proveedor,"0");
+        }catch(Exception ex){}
         Map<String, Integer> serv = new HashMap();
         serv.put("hola",2 );
         Map<String, DataExpira> es = new HashMap();
@@ -873,7 +888,9 @@ public class ControladoresTest {
             System.out.println("throw alta categoria en listar servicios por categoria");
         }
         testIngresarCategoriaServicio2("transporte123");
+        try{
         instancepr.altaServicio("hola", descripcion, precio, origen, nickProveedor,"0");
+        }catch(Exception ex){}
         List<String> serProm = new ArrayList<>();
         serProm.add("hola");
         try{
@@ -921,7 +938,9 @@ public class ControladoresTest {
         testIngresarCategoriaServicio2("transporte567");
         instancepr.ingresarImagenServicio("imagenser");
         instancepr.ingresarDestinoServicio("destinoser");
+        try{
         instancepr.altaServicio(nombre, descripcion, precio, origen, proveedor,"0");
+        }catch(Exception ex){}
         DataServicio result = null;
         try{
             result = instancepr.informacionServicio(proveedor, nombre);
