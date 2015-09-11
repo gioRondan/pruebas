@@ -29,6 +29,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import logica.DataExpira;
@@ -480,7 +481,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         });
         jMenu5.add(jRadioButtonMenuItem12);
 
-        jRadioButtonMenuItem13.setText("jRadioButtonMenuItem13");
+        jRadioButtonMenuItem13.setText("WhiteVision");
         jRadioButtonMenuItem13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonMenuItem13ActionPerformed(evt);
@@ -629,6 +630,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         try {
             UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
             UIManager.setLookAndFeel(new SyntheticaBlueMoonLookAndFeel());
+            SwingUtilities.updateComponentTreeUI(this);
+
         } catch (ParseException ex) {
             Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
@@ -655,6 +658,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         try {
             UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
             UIManager.setLookAndFeel(new SyntheticaBlackMoonLookAndFeel());
+            SwingUtilities.updateComponentTreeUI(this);
+
         } catch (ParseException ex) {
             Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
@@ -682,6 +687,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         try {
             UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
             UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
+            SwingUtilities.updateComponentTreeUI(this);
+
         } catch (ParseException ex) {
             Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
@@ -707,6 +714,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
          try {
             UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
             UIManager.setLookAndFeel(new SyntheticaSkyMetallicLookAndFeel());
+            SwingUtilities.updateComponentTreeUI(this);
+
         } catch (ParseException ex) {
             Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
@@ -732,6 +741,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
          try {
             UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
             UIManager.setLookAndFeel(new SyntheticaBlueIceLookAndFeel());
+            SwingUtilities.updateComponentTreeUI(this);
+
         } catch (ParseException ex) {
             Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
@@ -756,6 +767,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
          try {
             UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
             UIManager.setLookAndFeel(new SyntheticaBlueSteelLookAndFeel());
+            SwingUtilities.updateComponentTreeUI(this);
+
         } catch (ParseException ex) {
             Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
@@ -781,6 +794,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
          try {
             UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
             UIManager.setLookAndFeel(new SyntheticaClassyLookAndFeel());
+            SwingUtilities.updateComponentTreeUI(this);
+
         } catch (ParseException ex) {
             Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
@@ -806,6 +821,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
          try {
             UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
             UIManager.setLookAndFeel(new SyntheticaGreenDreamLookAndFeel());
+            SwingUtilities.updateComponentTreeUI(this);
+
         } catch (ParseException ex) {
             Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
@@ -831,6 +848,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
          try {
             UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
             UIManager.setLookAndFeel(new SyntheticaMauveMetallicLookAndFeel());
+            SwingUtilities.updateComponentTreeUI(this);
+
         } catch (ParseException ex) {
             Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
@@ -856,6 +875,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
          try {
             UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
             UIManager.setLookAndFeel(new SyntheticaOrangeMetallicLookAndFeel());
+            SwingUtilities.updateComponentTreeUI(this);
+
         } catch (ParseException ex) {
             Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
@@ -881,6 +902,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
          try {
             UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
             UIManager.setLookAndFeel(new SyntheticaSilverMoonLookAndFeel());
+            SwingUtilities.updateComponentTreeUI(this);
+
         } catch (ParseException ex) {
             Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
@@ -906,6 +929,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
          try {
             UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
             UIManager.setLookAndFeel(new SyntheticaSimple2DLookAndFeel());
+            SwingUtilities.updateComponentTreeUI(this);
         } catch (ParseException ex) {
             Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
@@ -932,6 +956,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
          try {
             UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
             UIManager.setLookAndFeel(new SyntheticaWhiteVisionLookAndFeel());
+            SwingUtilities.updateComponentTreeUI(this);
+
         } catch (ParseException ex) {
             Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
