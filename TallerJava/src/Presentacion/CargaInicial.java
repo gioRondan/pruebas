@@ -358,7 +358,7 @@ public class CargaInicial {
             f = new DataExpira(toDate("7/8/2015"),toDate("7/8/2015"));
             fechass.put("Euro-Vuelo-LC",f);
             ICC.realizarReserva("remus","BruceS",servicio,promocion,fechass,fechasp,toDate("7/8/2015"));    
-            ICC.actualizarEstadoReserva(7, "BruceS", Estado.facturada);
+            ICC.actualizarEstadoReserva(7, "BruceS", Estado.registrada);
             servicio.clear();
             promocion.clear();
             fechass.clear();

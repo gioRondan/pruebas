@@ -40,7 +40,8 @@ public class ControladorCliente implements IControladorCliente{
         for(Map.Entry<String, Integer> entries : servicio.entrySet()){
            
             aux_cliente.reservarServicio(clave1, prov.getServicio(entries.getKey()),entries.getValue(),fechas.get(entries.getKey()).getFechai(),fechas.get(entries.getKey()).getFechaf());
-            preciototal+= preciototal + prov.getServicio(entries.getKey()).getPrecio()*entries.getValue();
+           
+            preciototal= preciototal + prov.getServicio(entries.getKey()).getPrecio()*entries.getValue();
         }
         
         
