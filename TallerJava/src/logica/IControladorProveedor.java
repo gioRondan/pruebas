@@ -40,7 +40,7 @@ public interface IControladorProveedor {
     public void ingresarCategoriaServicio(String categoria)throws Exception;
     public void modificarServicio()throws Exception;
     public List<DataEmpresa> listarEmpresas();
-    public void altaProveedor(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmp, String LinkEmpres) throws Exception;
+    public void altaProveedor(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmp, String LinkEmpres, String password) throws Exception;
     public List<DataPromocion> listarPromocionesXProveedor(String nomProveedor);
     public DataInfoPromocion verInfoPromocion(String nickproveedor, String nomPromocion);
     public DataInfoServicio verInfoServicio(String nomServicio, String nomProveedor)throws Exception;

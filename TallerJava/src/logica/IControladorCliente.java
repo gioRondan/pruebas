@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public interface IControladorCliente {
     public void actualizarEstadoReserva(int id, String nomCliente, Estado estado);
-    public void altaCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen)throws Exception;
+    public void altaCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, String password)throws Exception;
     public List<DataCliente> listarClientes();
     public void cancelarReserva(String nomCliente, int id);
     public List<DataReserva> listarReservasXCliente(String nomCliente);

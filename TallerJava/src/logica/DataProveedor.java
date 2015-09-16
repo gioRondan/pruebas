@@ -21,6 +21,7 @@ public class DataProveedor {
     private String imagen;
     private String nombreEmpresa;
     private String urlEmpresa;
+    protected String password;
     
     
     //Constructores
@@ -33,9 +34,10 @@ public class DataProveedor {
         this.imagen       = "";
         this.nombreEmpresa= "";
         this.urlEmpresa   = "";
+        this.password = "";
     }
     
-    public DataProveedor(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmpresa, String urlEmpresa){
+    public DataProveedor(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmpresa, String urlEmpresa, String password){
         this.nickname       = nickname;
         this.nombre         = nombre;
         this.apellido       = apellido;
@@ -44,6 +46,7 @@ public class DataProveedor {
         this.imagen         = imagen;
         this.nombreEmpresa  = nombreEmpresa;
         this.urlEmpresa = urlEmpresa;
+        this.password = password;
     }
 
     //Getters
@@ -77,6 +80,10 @@ public class DataProveedor {
     
     public String getUrlEmpresa(){
         return urlEmpresa;
+    }
+
+    public String getPassword() {
+        return password;
     }
     
 }

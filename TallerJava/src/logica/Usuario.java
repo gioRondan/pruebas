@@ -18,14 +18,16 @@ public class Usuario {
     protected String email  ;
     protected Date fechaNac;
     protected String imagen;
+    protected String password;
 
-    public Usuario(String nickname,String nombre, String apellido, String email, Date fechaNac, String imagen) {
+    public Usuario(String nickname,String nombre, String apellido, String email, Date fechaNac, String imagen, String password) {
         this.nombre = nombre;
         this.nickname = nickname;
         this.apellido = apellido;
         this.email = email;
         this.fechaNac = fechaNac;
         this.imagen = imagen;
+        this.password = password;
     }    
      
     public String getNombre() {
@@ -74,6 +76,14 @@ public class Usuario {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
    

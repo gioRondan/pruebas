@@ -28,12 +28,12 @@ public class Cliente extends Usuario{
     
     
     
-    public Cliente(String nickname, String nombre, String apellido,String email, Date fechaNac, String url){
-        super(nickname,nombre,apellido,email,fechaNac,url);
+    public Cliente(String nickname, String nombre, String apellido,String email, Date fechaNac, String url, String password){
+        super(nickname,nombre,apellido,email,fechaNac,url, password);
         this.reservas = new LinkedHashMap();
     }
     public DataCliente getDataCliente(){
-        return new DataCliente( nickname, nombre, apellido, email, fechaNac, imagen);
+        return new DataCliente( nickname, nombre, apellido, email, fechaNac, imagen, password);
     }
     public List<DataReserva> getDataReservas(){
         List<DataReserva> dts = new ArrayList<>();
@@ -69,7 +69,7 @@ public class Cliente extends Usuario{
         reservas.remove(id);
     }
     public DataInfoCliente getDataInfoCliente(){
-        return new DataInfoCliente(nickname, nombre, apellido, email, fechaNac, imagen, getDataReservas());
+        return new DataInfoCliente(nickname, nombre, apellido, email, fechaNac, imagen, getDataReservas(), password);
     }
     public Reserva getReserva(int id) {
         return reservas.get(id);

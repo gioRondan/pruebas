@@ -77,6 +77,8 @@ public class FlujoTest {
         String urlEmpresa = "url";
         String catPadre = "viajes";
         String catHoja = "tren";
+        String pass1 = "Pepito";
+        String pass2 = "Anabela";
         List<DataCliente> clientes = new ArrayList<>();
         List<DataProveedor> proveedores= new ArrayList<>();
         List<DataEmpresa> empresas = new ArrayList<>();
@@ -87,12 +89,12 @@ public class FlujoTest {
         int id;
 //################################  altacliente     ##################################################
         try{
-            ccl.altaCliente(nickCliente, nomCliente, apCliente, emailCliente, fechaNacCliente, imCliente);
+            ccl.altaCliente(nickCliente, nomCliente, apCliente, emailCliente, fechaNacCliente, imCliente,pass1);
         }catch(Exception ex){}
 //################################  altaproveedor   ##################################################
         try{
             empresas = cpr.listarEmpresas();
-            cpr.altaProveedor(nickProveedor, nomProveedor, apProveedor, emailProveedor, fechaNacProveedor, imProveedor, nomEmpresa, urlEmpresa);
+            cpr.altaProveedor(nickProveedor, nomProveedor, apProveedor, emailProveedor, fechaNacProveedor, imProveedor, nomEmpresa, urlEmpresa, pass2);
         }catch(Exception ex){}
 //###############################   altacategoria   ##################################################
        try{
@@ -180,6 +182,7 @@ public class FlujoTest {
         assertEquals(imProveedor ,proveedores.get(0).getImagen());
         assertEquals(nomEmpresa ,proveedores.get(0).getnombreEmpresa());
         assertEquals(urlEmpresa ,proveedores.get(0).getUrlEmpresa());
+        assertEquals(pass1 ,proveedores.get(0).getPassword());
 //############################  chequeo de las categorias   ####################################################
         categorias = cpr.listarCategorias();//la primer categoria ingresada es catPadre, catPadre tiene un solo hijo catHoja, cat2Hoja es el segundo elemento de categorias
         assertEquals(catPadre,categorias.get(0).getNombre());
@@ -193,6 +196,7 @@ public class FlujoTest {
         assertEquals(emailCliente, clientes.get(0).getEmail());
         assertEquals(fechaNacCliente, clientes.get(0).getFechaNac());
         assertEquals(imCliente, clientes.get(0).getImagen());
+        assertEquals(pass2, clientes.get(0).getPassword());
         
     }
 }

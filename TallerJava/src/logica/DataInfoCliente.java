@@ -21,6 +21,7 @@ public class DataInfoCliente {
     private final Date fechaNac;
     private final String imagen;    
     private List<DataReserva> reservas;
+    protected final String password;
     
     //Constructores
     public DataInfoCliente(){
@@ -31,15 +32,17 @@ public class DataInfoCliente {
         this.fechaNac   = null;
         this.imagen     = "";
         this.reservas   = null;
+        this.password = "";
     }    
      
-    public DataInfoCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, List<DataReserva> reservas){
+    public DataInfoCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, List<DataReserva> reservas, String password){
         this.nombre     = nombre;
         this.nickname   = nickname;
         this.apellido   = apellido;
         this.email      = email;
         this.fechaNac   = fechaNac;
         this.imagen     = imagen;
+        this.password = password;
     }         
 
     //Getters
@@ -69,6 +72,9 @@ public class DataInfoCliente {
     
     public List<DataReserva> getReservas(){
         return reservas;
+    }
+    public String getPassword() {
+        return password;
     }
     
 }

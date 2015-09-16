@@ -18,7 +18,8 @@ public class DataCliente {
     private String apellido;
     private String email;
     private Date fechaNac;
-    private String imagen;    
+    private String imagen;   
+    protected String password;
     
     //Constructores
     public DataCliente(){
@@ -28,15 +29,17 @@ public class DataCliente {
         this.email      = "";
         this.fechaNac   = null;
         this.imagen     = "";
+        this.password = "";
     }    
      
-    public DataCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen){
+    public DataCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, String password){
         this.nombre     = nombre;
         this.nickname   = nickname;
         this.apellido   = apellido;
         this.email      = email;
         this.fechaNac   = fechaNac;
         this.imagen     = imagen;
+        this.password = password;
     }         
 
     //Getters
@@ -67,6 +70,9 @@ public class DataCliente {
     @Override
     public String toString() {
         return nickname;
+    }
+    public String getPassword() {
+        return password;
     }
     
 }

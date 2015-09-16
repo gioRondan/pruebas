@@ -54,7 +54,7 @@ public class ControladorCliente implements IControladorCliente{
     }
     
     @Override
-    public void altaCliente(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen) throws Exception{
+    public void altaCliente(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String password) throws Exception{
         
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
         ManejadorCliente mCl   = ManejadorCliente.getInstance();
@@ -68,7 +68,7 @@ public class ControladorCliente implements IControladorCliente{
         if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty())){
             throw new Exception("Los datos ingresados no son correctos");
         }else{
-            Cliente cliente = new Cliente(nick, nombre, apellido, email, fechaNac, imagen);
+            Cliente cliente = new Cliente(nick, nombre, apellido, email, fechaNac, imagen, password);
             mCl.addCliente(cliente);        
         }
         

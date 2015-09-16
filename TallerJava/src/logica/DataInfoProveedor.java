@@ -26,6 +26,7 @@ public class DataInfoProveedor {
     private final String imagen;   
     private final DataEmpresa empresa;
     private final List<DataServicio> servicios;
+    protected final String password;
     
     
     //Constructores
@@ -38,9 +39,10 @@ public class DataInfoProveedor {
         this.imagen         = "";
         this.empresa        = new DataEmpresa();
         this.servicios      = new ArrayList<>();
+        this.password = "";
     }
     
-    public DataInfoProveedor(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, DataEmpresa empresa, List<DataServicio> servicios){
+    public DataInfoProveedor(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, DataEmpresa empresa, List<DataServicio> servicios, String password){
         this.nickname      = nickname;
         this.nombre        = nombre;
         this.apellido      = apellido;
@@ -49,6 +51,7 @@ public class DataInfoProveedor {
         this.imagen        = imagen;
         this.empresa       = empresa;
         this.servicios     = servicios;
+        this.password = password;
     }
 
     //Getters
@@ -82,5 +85,8 @@ public class DataInfoProveedor {
     
     public List<DataServicio> getServicios(){
         return servicios;
+    }
+    public String getPassword() {
+        return password;
     }
 }

@@ -25,15 +25,15 @@ public class Proveedor extends Usuario{
     private Map<String, Promocion> promociones;
     private Map<String, Servicio> servicios;
     
-    public Proveedor(String nickname, String nombre, String apellido,String email, Date fechaNac, String imagen){
-        super(nickname,nombre,apellido,email,fechaNac,imagen);
+    public Proveedor(String nickname, String nombre, String apellido,String email, Date fechaNac, String imagen, String pasword){
+        super(nickname,nombre,apellido,email,fechaNac,imagen, pasword);
        promociones =  new LinkedHashMap();
        servicios =  new LinkedHashMap();
     }
 
      
     public DataProveedor getDataProveedor(){
-        return new DataProveedor(this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),this.getImagen() , this.empresa.getNombre(),this.empresa.getUrl());
+        return new DataProveedor(this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),this.getImagen() , this.empresa.getNombre(),this.empresa.getUrl(), this.getPassword());
     }
 
     public Empresa getEmpresa() {
@@ -75,7 +75,7 @@ public class Proveedor extends Usuario{
     }
 
     public DataInfoProveedor getDataInfoProveedor() {
-        return new DataInfoProveedor(nickname,  nombre,  apellido, email, fechaNac,  imagen,  empresa.getDataEmpresa(), getDataServicios());
+        return new DataInfoProveedor(nickname,  nombre,  apellido, email, fechaNac,  imagen,  empresa.getDataEmpresa(), getDataServicios(), this.getPassword());
     }
 }
 
