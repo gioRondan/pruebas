@@ -55,7 +55,7 @@ public class ControladoresTest {
         try{
             for (int i=1; i<=10; ++i){
                 int n = i;
-                cp.altaProveedor(Integer.toString(n), "giovani", "rondan", Integer.toString(n), new Date(i, i, 2015), "imagen","url","link");
+                cp.altaProveedor(Integer.toString(n), "giovani", "rondan", Integer.toString(n), new Date(i, i, 2015), "imagen","url","link","hola");
             }
         }catch (Exception ex){
         System.out.println("throw alta proveedor");
@@ -173,7 +173,7 @@ public class ControladoresTest {
         System.out.println("listarServiciosXCategoria");
         ControladorProveedor instance = new ControladorProveedor();
         try{
-        instance.altaProveedor("nicknamesercat", "nombre", "apellido", "emailsercat", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        instance.altaProveedor("nicknamesercat", "nombre", "apellido", "emailsercat", new Date(2,2,2000), "imagen", "nomemp","linkemp","hola");
         }catch(Exception ex){
             System.out.println("throw alta proveedor en listar servicios por categoria");
         }
@@ -212,12 +212,12 @@ public class ControladoresTest {
         
         ControladorProveedor instance = new ControladorProveedor();
         try{
-        instance.altaProveedor("nickname111", "nombre", "apellido", "email111", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        instance.altaProveedor("nickname111", "nombre", "apellido", "email111", new Date(2,2,2000), "imagen", "nomemp","linkemp","hola");
         }catch(Exception ex){
             System.out.println("throw alta proveedor en listar servicios por proveedor");
         }
         try{
-        instance.altaProveedor("nickname1111", "nombre", "apellido", "email1111", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        instance.altaProveedor("nickname1111", "nombre", "apellido", "email1111", new Date(2,2,2000), "imagen", "nomemp","linkemp","hola");
         }catch(Exception ex){
             System.out.println("throw alta proveedor en listar servicios por categoria");
         }
@@ -325,7 +325,7 @@ public class ControladoresTest {
         Fabrica fabrica = Fabrica.getInstance();
         IControladorProveedor instance = fabrica.getIControladorProveedor();
         try{
-        instance.altaProveedor("nickname11111", "nombre", "apellido", "email11111", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        instance.altaProveedor("nickname11111", "nombre", "apellido", "email11111", new Date(2,2,2000), "imagen", "nomemp","linkemp","hola");
         }catch(Exception ex){
             System.out.println("throw alta proveedor en modificar servicio");
         }
@@ -392,7 +392,7 @@ public class ControladoresTest {
         System.out.println("listarEmpresas");
         ControladorProveedor instance = new ControladorProveedor();
         try{
-            instance.altaProveedor("nickname6", "nombre", "apellido", "email6", new Date(2,2,2000), "imagen","url","link");
+            instance.altaProveedor("nickname6", "nombre", "apellido", "email6", new Date(2,2,2000), "imagen","url","link","hola");
         }catch(Exception ex){}
         
         String expResult = "url";
@@ -410,7 +410,7 @@ public class ControladoresTest {
         System.out.println("listarPromocionesXProveedor");
         ControladorProveedor instance = new ControladorProveedor();
         try{
-        instance.altaProveedor("nickname111111", "nombre", "apellido", "email111111", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        instance.altaProveedor("nickname111111", "nombre", "apellido", "email111111", new Date(2,2,2000), "imagen", "nomemp","linkemp","hola");
         }catch(Exception ex){
             System.out.println("throw alta proveedor en listar promociones por proveedor");
         }
@@ -459,7 +459,7 @@ public class ControladoresTest {
         String nomProveedor = "";
         ControladorProveedor instance = new ControladorProveedor();
         try{
-        instance.altaProveedor("nickname11111111", "nombre", "apellido", "email11111111", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        instance.altaProveedor("nickname11111111", "nombre", "apellido", "email11111111", new Date(2,2,2000), "imagen", "nomemp","linkemp","hola");
         }catch(Exception ex){
             System.out.println("throw alta proveedor en listar promociones por proveedor");
         }
@@ -483,7 +483,7 @@ public class ControladoresTest {
         System.out.println("verInfoPromocion");
         ControladorProveedor instance = new ControladorProveedor();
         try{
-        instance.altaProveedor("nickname13", "nombre", "apellido", "email13", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        instance.altaProveedor("nickname13", "nombre", "apellido", "email13", new Date(2,2,2000), "imagen", "nomemp","linkemp","hola");
         }catch(Exception ex){
             System.out.println("throw alta proveedor en listar promociones por proveedor");
         }
@@ -529,7 +529,7 @@ public class ControladoresTest {
         try{
             
                 
-                instance.altaCliente("infocliente", "giovani2", "rondan2", "infocliente", new Date(4, 4, 2015), "im2");
+                instance.altaCliente("infocliente", "giovani2", "rondan2", "infocliente", new Date(4, 4, 2015), "im2","hola");
             
         }catch (Exception ex){
             System.out.println("throw alta cliente");
@@ -551,12 +551,12 @@ public class ControladoresTest {
         ControladorCliente instance = new ControladorCliente();
         ControladorProveedor instancepr = new ControladorProveedor();
         try{
-            instance.altaCliente("cli12", "giovani2", "rondan2", "cli12", new Date(4, 4, 2015), "im2");
+            instance.altaCliente("cli12", "giovani2", "rondan2", "cli12", new Date(4, 4, 2015), "im2","hola");
         }catch (Exception ex){
             System.out.println("throw alta cliente");
         }
         try{
-        instancepr.altaProveedor("nickname23", "nombre", "apellido", "email23", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        instancepr.altaProveedor("nickname23", "nombre", "apellido", "email23", new Date(2,2,2000), "imagen", "nomemp","linkemp","hola");
         }catch(Exception ex){
             System.out.println("throw alta proveedor en modificar servicio");
         }
@@ -608,15 +608,15 @@ public class ControladoresTest {
         ControladorCliente instance = new ControladorCliente();
         ControladorProveedor instancepr = new ControladorProveedor();
         try{
-            instance.altaCliente("cli123", "giovani2", "rondan2", "cli123", new Date(4, 4, 2015), "im2");
-            instance.altaCliente("cli1234", "giovani2", "rondan2", "cli1234", new Date(4, 4, 2015), "im2");
+            instance.altaCliente("cli123", "giovani2", "rondan2", "cli123", new Date(4, 4, 2015), "im2","hola");
+            instance.altaCliente("cli1234", "giovani2", "rondan2", "cli1234", new Date(4, 4, 2015), "im2","hola");
         
         }catch (Exception ex){
             System.out.println("throw alta cliente");
         }
         try{
-        instancepr.altaProveedor("nickname34", "nombre", "apellido", "email34", new Date(2,2,2000), "imagen", "nomemp","linkemp");
-        instancepr.altaProveedor("nickname45", "nombre", "apellido", "email45", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        instancepr.altaProveedor("nickname34", "nombre", "apellido", "email34", new Date(2,2,2000), "imagen", "nomemp","linkemp","hola");
+        instancepr.altaProveedor("nickname45", "nombre", "apellido", "email45", new Date(2,2,2000), "imagen", "nomemp","linkemp","hola");
         }catch(Exception ex){
             System.out.println("throw alta proveedor en modificar servicio");
         }
@@ -666,12 +666,12 @@ public class ControladoresTest {
         ControladorCliente instance = new ControladorCliente();
         ControladorProveedor instancepr = new ControladorProveedor();
         try{
-            instance.altaCliente("cli123456", "giovani2", "rondan2", "cli123456", new Date(4, 4, 2015), "im2");
+            instance.altaCliente("cli123456", "giovani2", "rondan2", "cli123456", new Date(4, 4, 2015), "im2","hola");
         }catch (Exception ex){
             System.out.println("throw alta cliente");
         }
         try{
-        instancepr.altaProveedor("nickname78", "nombre", "apellido", "email78", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        instancepr.altaProveedor("nickname78", "nombre", "apellido", "email78", new Date(2,2,2000), "imagen", "nomemp","linkemp","hola");
         }catch(Exception ex){
             System.out.println("throw alta proveedor en modificar servicio");
         }
@@ -713,12 +713,12 @@ public class ControladoresTest {
         ControladorCliente instance = new ControladorCliente();
         ControladorProveedor instancepr = new ControladorProveedor();
         try{
-            instance.altaCliente("cli12345678", "giovani2", "rondan2", "cli12345678", new Date(4, 4, 2015), "im2");
+            instance.altaCliente("cli12345678", "giovani2", "rondan2", "cli12345678", new Date(4, 4, 2015), "im2","hola");
         }catch (Exception ex){
             System.out.println("throw alta cliente");
         }
         try{
-        instancepr.altaProveedor("nickname89", "nombre", "apellido", "email89", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        instancepr.altaProveedor("nickname89", "nombre", "apellido", "email89", new Date(2,2,2000), "imagen", "nomemp","linkemp","hola");
         }catch(Exception ex){
             System.out.println("throw alta proveedor en modificar servicio");
         }
@@ -797,12 +797,12 @@ public class ControladoresTest {
         String nickCliente = "actualizar";
         String nickProveedor = "actprov";
         try{
-            instance.altaCliente(nickCliente, "gio", "rondan", nickCliente, new Date(4, 4, 2015), "im1");
+            instance.altaCliente(nickCliente, "gio", "rondan", nickCliente, new Date(4, 4, 2015), "im1","hola");
         }catch (Exception ex){
             System.out.println("throw alta cliente");
         }
         try{
-            instancepr.altaProveedor(nickProveedor, "nombre", "apellido", nickProveedor, new Date(2,2,2000), "imagen", "nomemp","linkemp");
+            instancepr.altaProveedor(nickProveedor, "nombre", "apellido", nickProveedor, new Date(2,2,2000), "imagen", "nomemp","linkemp","hola");
         }catch(Exception ex){
             System.out.println("throw alta proveedor en modificar servicio");
         }
@@ -849,7 +849,7 @@ public class ControladoresTest {
     public void testInformacionServicio(){
         ControladorProveedor instancepr = new ControladorProveedor();
         try{
-        instancepr.altaProveedor("nick78", "nombre", "apellido", "e78", new Date(2,2,2000), "imagen", "nomemp","linkemp");
+        instancepr.altaProveedor("nick78", "nombre", "apellido", "e78", new Date(2,2,2000), "imagen", "nomemp","linkemp","hola");
         }catch(Exception ex){
             System.out.println("throw alta proveedor en modificar servicio");
         }
