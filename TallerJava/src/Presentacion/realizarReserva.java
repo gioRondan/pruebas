@@ -344,11 +344,11 @@ public class realizarReserva extends javax.swing.JInternalFrame {
             proveedor = proveedor.substring(0,proveedor.indexOf(",") );  
             if (proveedorselecionado.isEmpty()){
                 proveedorselecionado=proveedor;
-            }
+            }/*
             if (!proveedorselecionado.equals(proveedor)){
                 JOptionPane.showMessageDialog(null, "Selecione servicios o promociones de un mismo proveedor");
                 return;
-            }
+            }*/
            
             Date fecha1   = jDateChooser1.getDate();
             Date fecha2   = jDateChooser2.getDate();
