@@ -7,6 +7,7 @@
 package logica;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -20,5 +21,7 @@ public interface IControladorWeb {
     //hay que listar, capaz que usamos el listar de otro controlador
     public void agregarServicioCarrito(String nickProveedor, String nomServicio, Integer cantidad, Date fechaInicio, Date fechaFin)throws Exception;
     public void agregarPromocionCarrito(String nickProveedor, String nomPromocion, Integer cantidad, Date fechaInicio, Date fechaFin);
+    public List<DataServicio> serviciosCarrito();
+    public List<DataPromocion> promocionesCarrito();
     public void confirmarReserva();
 }

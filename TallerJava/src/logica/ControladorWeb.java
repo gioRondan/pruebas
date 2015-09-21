@@ -6,8 +6,10 @@
 
 package logica;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -118,6 +120,24 @@ public class ControladorWeb implements IControladorWeb {
         promociones = new HashMap();
         fechasServicios = new HashMap();
         fechasPromociones = new HashMap();
+    }
+
+    @Override
+    public List<DataServicio> serviciosCarrito() {
+        List<DataServicio> dts = new ArrayList<>();
+        for(Map.Entry<String, Servicio> entries : servicios.entrySet()){
+            dts.add(entries.getValue().getDataServicio());
+        }
+        return dts;
+    }
+
+    @Override
+    public List<DataPromocion> promocionesCarrito() {
+        List<DataPromocion> dts = new ArrayList<>();
+        for(Map.Entry<String, Promocion> entries : promociones.entrySet()){
+            dts.add(entries.getValue().getDataPromocion());
+        }
+        return dts;
     }
     
 }
