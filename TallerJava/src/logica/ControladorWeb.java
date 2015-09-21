@@ -7,6 +7,7 @@
 package logica;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -16,6 +17,8 @@ import java.util.Map;
 public class ControladorWeb implements IControladorWeb {
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%      MEMORIA     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     private Cliente cliente;
+    private String nickname;
+    private String email;
     private Map<String, Integer> cantServicios;
     private Map<String, Servicio> servicios;
     private Map<String, Integer> cantPromociones;
@@ -24,36 +27,60 @@ public class ControladorWeb implements IControladorWeb {
     private Map<String, DataExpira> fechasPromociones;
     
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
+    public ControladorWeb(){
+        cliente = null;
+        /*nickname ;
+        email;*/
+        cantServicios = new HashMap();
+        servicios = new HashMap();
+        cantPromociones = new HashMap();
+        promociones = new HashMap();
+        fechasServicios = new HashMap();
+        fechasPromociones = new HashMap();
+    }
+        
     
     @Override
     public void iniciarSesion(String nickname, String password) throws Exception {
+        ManejadorCliente mcl = ManejadorCliente.getInstance();
+        Cliente aux = mcl.getCliente(nickname);
+        aux.verificarPassword(password);
+        cliente = aux;
+    }
+/*
+    @Override
+    public void ingresarNickEmail(String nickname, String email)throws Exception {
+        ManejadorCliente mcl = ManejadorCliente.getInstance();
+        mcl.unicidadEmail(email);
+        mcl.unicidadNick(nickname);
+        this.nickname = nickname;
+        this.email = email;
+    }
+
+    @Override
+    public void registrarCliente(String nombre, String apellido, Date fechaNac, String password) {
         
-    }
-
-    @Override
-    public boolean ingresarNickEmail(String nickname, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void registrarCliente(String nombre, String apellido, Date fechaNac, String password, String passwordVVerif) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    }*/
 
     @Override
     public void cerrarSesion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        cliente = null;
+        cantServicios = new HashMap();
+        servicios = new HashMap();
+        cantPromociones = new HashMap();
+        promociones = new HashMap();
+        fechasServicios = new HashMap();
+        fechasPromociones = new HashMap();
     }
 
     @Override
     public void agregarServicioCarrito(String nickProveedor, String nomServicio) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void agregarPromocionCarrito(String nickProveedor, String nomPromocion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
 }

@@ -13,9 +13,9 @@ import java.util.Date;
  * @author giovani.rondan
  */
 public interface IControladorWeb {
-    public void iniciarSesion(String nickname, String password) throws Exception;
-    public boolean ingresarNickEmail(String nickname, String password);
-    public void registrarCliente(String nombre, String apellido, Date fechaNac, String password, String passwordVVerif);
+    public void iniciarSesion(String nickname, String password) throws Exception;/*
+    public void ingresarNickEmail(String nickname, String email)throws Exception;
+    public void registrarCliente(String nombre, String apellido, Date fechaNac, String password, String passwordVVerif);*/
     public void cerrarSesion();
     //hay que listar, capaz que usamos el listar de otro controlador
     public void agregarServicioCarrito(String nickProveedor, String nomServicio);

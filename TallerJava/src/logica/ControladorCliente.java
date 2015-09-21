@@ -63,8 +63,9 @@ public class ControladorCliente implements IControladorCliente{
         mPr.unicidadNick(nick);
         mPr.unicidadEmail(email);
         mCl.unicidadNick(nick);
-        mCl.unicidadEmail(email);
-        
+        mCl.unicidadEmail(email);/*
+        if(!password.equals(passwordVerif))
+            throw new Exception("Las contraseñas ingresadas no coinciden");*/
         if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty())){
             throw new Exception("Los datos ingresados no son correctos");
         }else{
