@@ -44,6 +44,9 @@ public class ControladorWeb implements IControladorWeb {
     public void iniciarSesion(String nickname, String password) throws Exception {
         ManejadorCliente mcl = ManejadorCliente.getInstance();
         Cliente aux = mcl.getCliente(nickname);
+        if (aux == null){
+            throw new Exception ("El nickname ingresado no es correcto");
+        }
         aux.verificarPassword(password);
         cliente = aux;
     }

@@ -28,7 +28,7 @@ public class ControladorCliente implements IControladorCliente{
     }
     
     @Override
-    public void realizarReserva(String proveedor,String cliente,Map<String, Integer> servicio, Map<String,Integer> promocion,Map<String,DataExpira> fechas,Map<String,DataExpira> fechaspromos,Date fecha_creacion )throws Exception{
+    public void realizarReserva(String proveedor, String cliente,Map<String, Integer> servicio, Map<String,Integer> promocion,Map<String,DataExpira> fechas,Map<String,DataExpira> fechaspromos,Date fecha_creacion )throws Exception{
         ManejadorCliente mcli = ManejadorCliente.getInstance();
         Cliente aux_cliente = mcli.getCliente(cliente);
         int clave1 = mcli.getUltimoid();
