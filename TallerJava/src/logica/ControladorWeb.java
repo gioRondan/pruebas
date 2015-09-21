@@ -19,12 +19,12 @@ public class ControladorWeb implements IControladorWeb {
     private Cliente cliente;
     private String nickname;
     private String email;
-    private Map<String, Integer> cantServicios;
-    private Map<String, Servicio> servicios;
-    private Map<String, Integer> cantPromociones;
-    private Map<String, Promocion> promociones;
-    private Map<String, DataExpira> fechasServicios;
-    private Map<String, DataExpira> fechasPromociones;
+    private Map<String, Integer> cantServicios;     //servicio-cantidad
+    private Map<String, Servicio> servicios;        //proveedor-servicio
+    private Map<String, Integer> cantPromociones;   //promocion-cantidad
+    private Map<String, Promocion> promociones;     //servicio-cantidad
+    private Map<String, DataExpira> fechasServicios;    //servicio-fechas
+    private Map<String, DataExpira> fechasPromociones;      //promocion-fechas
     
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     public ControladorWeb(){
@@ -77,13 +77,47 @@ public class ControladorWeb implements IControladorWeb {
     }
 
     @Override
-    public void agregarServicioCarrito(String nickProveedor, String nomServicio) {
-        
+    public void agregarServicioCarrito(String nickProveedor, String nomServicio, Integer cantidad, Date fechaInicio, Date fechaFin) throws Exception{
+        ManejadorProveedor mpr = ManejadorProveedor.getInstance();
+        Proveedor proveedor = mpr.getProveedor(nickProveedor);
+        Servicio servicio = proveedor.getServicio(nomServicio);
+        cantServicios.put(nomServicio, cantidad);
+        servicios.put(nickProveedor, servicio);
+        fechasServicios.put(nomServicio, new DataExpira(fechaInicio, fechaFin));
     }
 
     @Override
-    public void agregarPromocionCarrito(String nickProveedor, String nomPromocion) {
-        
+    public void agregarPromocionCarrito(String nickProveedor, String nomPromocion, Integer cantidad, Date fechaInicio, Date fechaFin) {
+        ManejadorProveedor mpr = ManejadorProveedor.getInstance();
+        Proveedor proveedor = mpr.getProveedor(nickProveedor);
+        Promocion promocion = proveedor.getPromocion(nomPromocion);
+        cantPromociones.put(nomPromocion, cantidad);
+        promociones.put(nickProveedor, promocion);
+        fechasPromociones.put(nomPromocion, new DataExpira(fechaInicio, fechaFin));
+    }
+    
+    @Override
+    public void confirmarReserva(){
+        ManejadorCliente mcli = ManejadorCliente.getInstance();
+        int clave1 = mcli.getUltimoid();
+        Reserva res = new Reserva(clave1,new Date(), new Date(), new Date(),0,Estado.registrada);
+        cliente.addReserva(res.getId(),res);
+        float preciototal=0;
+        for(Map.Entry<String, Servicio> entries : servicios.entrySet()){
+            cliente.reservarServicio(clave1, entries.getValue(),cantServicios.get(entries.getKey()), fechasServicios.get(entries.getKey()).getFechai(), fechasServicios.get(entries.getKey()).getFechaf());
+            preciototal= preciototal + entries.getValue().getPrecio()*cantServicios.get(entries.getKey());
+        }
+        for(Map.Entry<String, Promocion> entries : promociones.entrySet()){
+            cliente.reservarPromocion(clave1, entries.getValue(),cantPromociones.get(entries.getKey()), fechasPromociones.get(entries.getKey()).getFechai(), fechasPromociones.get(entries.getKey()).getFechaf());
+            preciototal= preciototal + entries.getValue().getPrecioTotal()*cantPromociones.get(entries.getKey());
+        }
+        res.setPrecio(preciototal);
+        cantServicios = new HashMap();
+        servicios = new HashMap();
+        cantPromociones = new HashMap();
+        promociones = new HashMap();
+        fechasServicios = new HashMap();
+        fechasPromociones = new HashMap();
     }
     
 }

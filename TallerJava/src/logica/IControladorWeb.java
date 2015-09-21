@@ -18,6 +18,7 @@ public interface IControladorWeb {
     public void registrarCliente(String nombre, String apellido, Date fechaNac, String password, String passwordVVerif);*/
     public void cerrarSesion();
     //hay que listar, capaz que usamos el listar de otro controlador
-    public void agregarServicioCarrito(String nickProveedor, String nomServicio);
-    public void agregarPromocionCarrito(String nickProveedor, String nomPromocion);
+    public void agregarServicioCarrito(String nickProveedor, String nomServicio, Integer cantidad, Date fechaInicio, Date fechaFin)throws Exception;
+    public void agregarPromocionCarrito(String nickProveedor, String nomPromocion, Integer cantidad, Date fechaInicio, Date fechaFin);
+    public void confirmarReserva();
 }

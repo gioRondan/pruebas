@@ -66,7 +66,7 @@ public class Proveedor extends Usuario{
         if (servicios.containsKey(nombre))
             return servicios.get(nombre);
         else
-            throw new Exception("Los servicios deben ser de un mismo proveedor");
+            throw new Exception("El servicio seleccionado no pertenece al proveedor");
     
         
     }
