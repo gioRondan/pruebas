@@ -8,7 +8,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ejemplo de Bootstrap 3</title>
+  <title>Help4traveling</title>
   <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
   <link href="./media/styles/estilo.css" rel="stylesheet">
   <script src="./resources/js/jquery-1.11.3.min.js"></script>
@@ -18,8 +18,7 @@
 <div id="head">
     <div class="container" style="padding-top: 1em;">
     <nav class="navbar navbar-default" role="navigation">
-    <!-- El logotipo y el icono que despliega el menú se agrupan
-         para mostrarlos mejor en los dispositivos móviles -->
+    
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
         <span class="sr-only">Desplegar navegación</span>
@@ -27,7 +26,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Logotipo</a>
+      <a class="navbar-brand" href="#">Help4traveling</a>
     </div>
   
     <!-- Agrupar los enlaces de navegación, los formularios y cualquier
@@ -56,7 +55,7 @@
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Promociones y/o servicios">
         </div>
-        <button type="submit" class="btn btn-default">Enviar</button>
+        <button type="submit" class="btn btn-default">Buscar</button>
       </form>
   
       <ul class="nav navbar-nav navbar-right">

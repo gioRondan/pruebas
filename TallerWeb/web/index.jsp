@@ -11,6 +11,6 @@
 	<body>
             <jsp:include page="/WEB-INF/template/header.jsp"/>
             
-            <h1> hola </h1>
+            
 	</body>
 </html>
