@@ -90,6 +90,8 @@ public class Usuario {
         if(!this.password.equals(password))
             throw new Exception ("la password introducida no es correcta");
     }
-   
+   public boolean verificarPassword(String password) {
+        return this.password.equals(password);
+    }
     
 }
