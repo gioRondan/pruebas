@@ -114,5 +114,13 @@ public class ControladorCliente implements IControladorCliente{
         ManejadorCliente mCl = ManejadorCliente.getInstance();
         return mCl.getCliente(nomCliente).getDataInfoCliente();
     }
-
+    @Override
+    public DataInfoCliente iniciarSesion(String nickCliente, String password) {
+        ManejadorCliente mcl = ManejadorCliente.getInstance();
+        Cliente aux = mcl.getCliente(nickCliente);
+        if ((aux !=null) &&( !aux.verificarPassword(password))){
+            aux =null;
+        }
+        return aux.getDataInfoCliente();
+    }
 }
