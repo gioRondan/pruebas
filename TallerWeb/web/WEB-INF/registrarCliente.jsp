@@ -14,13 +14,17 @@
     <body>        
         <div id="regCliente" >
             <%="registrarCliente"%>
-            <%
-                
-
-            %>
             <form action="controller1" method="POST">
-                <input type="submit" value="Cerrar Sesion"/>
-                <% request.getSession().setAttribute("clave", "cerrarSesion");%>
+                <!--chequear con ajax disponibilidad de nick y email-->
+                <input name="nickRegistrar" type="text" />
+                <input name="emailCliente" type="text"  />
+                <input name="nombreCliente" type="text"  />
+                <input name="apellidoCliente" type="text"  />
+                <input name="fechaNacCliente" type="text"  />
+                <input name="passRegistrar" type="password"  />
+                <input name="passVerificar" type="password"  />
+                <input type="submit" value="Registrar"/>
+                <% request.getSession().setAttribute("clave", "altaCliente");%>
 
             </form>
         </div>
