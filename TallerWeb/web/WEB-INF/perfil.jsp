@@ -15,7 +15,7 @@
         <title>Ses :: H4Travel</title>
     </head>
     <body>        
-        <div id="listar" >
+        <div id="infoPerfil" >
             <%="perfil"%>
             <%
                 DataInfoCliente cliente = (DataInfoCliente) request.getSession().getAttribute("dataCliente");

@@ -65,7 +65,10 @@ public class Servlet1 extends HttpServlet {
                 request.getSession().setAttribute("pass", "");
                 // vaciar carrito
                 request.getRequestDispatcher("/index.jsp").forward(request, response);
-            } 
+//#############################     registrarCliente   #################################################
+            }else if(clave.equals("registrarCliente")){
+                
+            }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

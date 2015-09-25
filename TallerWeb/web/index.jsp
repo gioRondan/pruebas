@@ -20,5 +20,11 @@
                   <% request.getSession().setAttribute("clave", "inicioSesion");%>
                   
               </form>
+                  <br>
+              <form action="controller1" method="POST">
+                  <input type="submit" value="Registrarse"/>
+                  <% request.getSession().setAttribute("clave", "registrarCliente");%>
+                  
+              </form>    
 	</body>
 </html>
