@@ -13,9 +13,9 @@
 		
 	</head>
 	<body>
-              <form action="iniciarSesion" method="POST">
-                  <input name="txtnick" type="text" />
-                  <input name="txtpass" type="password"  />
+              <form action="controller1" method="POST">
+                  <input name="nick" type="text" />
+                  <input name="pass" type="password"  />
                   <input type="submit" value="Entrar"/>
                   <% request.getSession().setAttribute("clave", "inicioSesion");%>
                   

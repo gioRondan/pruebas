@@ -40,11 +40,12 @@ public class Servlet1 extends HttpServlet {
             IControladorCliente ICC = fab.getIControladorCliente();
             String password = (String)request.getSession().getAttribute("txtpass");
             String clave = (String) request.getSession().getAttribute("clave");
+//#############################     iniciarSesion   #################################################
             if(clave.equals("inicioSesion")){
-                String nick = (String) request.getParameter("txtnick");
-                String pass = (String) request.getParameter("txtpass");
-            try {
+                String nick = (String) request.getParameter("nick");
+                String pass = (String) request.getParameter("pass");
 //#############################     prueba      #####################################################
+            try {
                 ICC.altaCliente(nick, nick, nick, nick, null, nick, pass);
             } catch (Exception ex) {
                 Logger.getLogger(Servlet1.class.getName()).log(Level.SEVERE, null, ex);
@@ -58,8 +59,13 @@ public class Servlet1 extends HttpServlet {
                 }else{
                     request.getRequestDispatcher("/index.jsp").forward(request, response);
                 }
-                
-            }
+//#############################     cerrarSesion   #################################################                
+            }else if(clave.equals("cerrarSesion")){
+                request.getSession().setAttribute("nick", "");
+                request.getSession().setAttribute("pass", "");
+                // vaciar carrito
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
+            } 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

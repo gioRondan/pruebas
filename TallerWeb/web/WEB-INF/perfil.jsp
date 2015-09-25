@@ -19,10 +19,15 @@
             <%="perfil"%>
             <%
                 DataInfoCliente cliente = (DataInfoCliente) request.getSession().getAttribute("dataCliente");
-                
+
             %>
-            <%= cliente.getNickname() %>
-            <%= cliente.getPassword() %>
+            <%= cliente.getNickname()%>
+            <%= cliente.getPassword()%>
+            <form action="controller1" method="POST">
+                <input type="submit" value="Cerrar Sesion"/>
+                <% request.getSession().setAttribute("clave", "cerrarSesion");%>
+
+            </form>
         </div>
     </body>
 </html>
