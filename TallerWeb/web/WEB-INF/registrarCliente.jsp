@@ -15,7 +15,7 @@
         <div id="regCliente" >
             <%="registrarCliente"%>
             <form action="controller1" method="POST">
-                <!--chequear con ajax disponibilidad de nick y email-->
+                <!--chequear con ajax disponibilidad de nick y email, verificar password, agregarimagen y arreglar fecha-->
                 =Nickname: 
                 <input name="nickRegistrar" label= "nick"type="text" />
                 <br>
