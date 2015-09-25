@@ -16,13 +16,27 @@
             <%="registrarCliente"%>
             <form action="controller1" method="POST">
                 <!--chequear con ajax disponibilidad de nick y email-->
-                <input name="nickRegistrar" type="text" />
-                <input name="emailCliente" type="text"  />
-                <input name="nombreCliente" type="text"  />
-                <input name="apellidoCliente" type="text"  />
-                <input name="fechaNacCliente" type="text"  />
-                <input name="passRegistrar" type="password"  />
-                <input name="passVerificar" type="password"  />
+                =Nickname: 
+                <input name="nickRegistrar" label= "nick"type="text" />
+                <br>
+                =Email: 
+                <input name="emailCliente" label= "email" type="text"  />
+                <br>
+                =Nombre: 
+                <input name="nombreCliente" label= "nombre" type="text"  />
+                <br>
+                =Apellido: 
+                <input name="apellidoCliente" label= "apellido" type="text"  />
+                <br>
+                =Fecha Nacimiento: 
+                <input name="fechaNacCliente" label= "fecha nacimiento" type="text"  />
+                <br>
+                =Password: 
+                <input name="passRegistrar" label= "password" type="password"  />
+                <br>
+                =Verificar Password: 
+                <input name="passVerificar" label= "verificar password" type="password"  />
+                <br>
                 <input type="submit" value="Registrar"/>
                 <% request.getSession().setAttribute("clave", "altaCliente");%>
 
