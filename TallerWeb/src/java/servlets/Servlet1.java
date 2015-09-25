@@ -44,14 +44,14 @@ public class Servlet1 extends HttpServlet {
             if(clave.equals("inicioSesion")){
                 String nick = (String) request.getParameter("nick");
                 String pass = (String) request.getParameter("pass");
-//#############################     prueba      #####################################################
-            try {
-                ICC.altaCliente(nick, nick, nick, nick, null, nick, pass);
-            } catch (Exception ex) {
-                Logger.getLogger(Servlet1.class.getName()).log(Level.SEVERE, null, ex);
-            }
-                
-//##################################################################################################
+////#############################     prueba      #####################################################
+//            try {
+//                ICC.altaCliente(nick, nick, nick, nick, null, nick, pass);
+//            } catch (Exception ex) {
+//                Logger.getLogger(Servlet1.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//                
+////##################################################################################################
                 DataInfoCliente cliente = ICC.iniciarSesion(nick, pass);
                 if(cliente != null){
                     request.getSession().setAttribute("dataCliente", cliente);

@@ -23,7 +23,7 @@
                   <br>
               <form action="controller1" method="POST">
                   <input type="submit" value="Registrarse"/>
-                  <% if (!request.getSession().getAttribute("clave").equals("inicioSesion"))//parche para ver si anda, tiene que haber otra forma{
+                  <% if (request.getSession().getAttribute("pass").equals("")){
                       request.getSession().setAttribute("clave", "registrarCliente");
                   }
                           %>
