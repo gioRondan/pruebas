@@ -18,6 +18,12 @@
         <servlet-name>Servlet1</servlet-name>
         <url-pattern>/controller1</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletProveedor</servlet-name>
+        <url-pattern>/controller2</url-pattern>
+    </servlet-mapping>Z
+    
+    
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>

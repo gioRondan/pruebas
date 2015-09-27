@@ -46,14 +46,6 @@ public class Servlet1 extends HttpServlet {
             if(clave.equals("inicioSesion")){
                 String nick = (String) request.getParameter("nick");
                 String pass = (String) request.getParameter("pass");
-////#############################     prueba      #####################################################
-//            try {
-//                ICC.altaCliente(nick, nick, nick, nick, null, nick, pass);
-//            } catch (Exception ex) {
-//                Logger.getLogger(Servlet1.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//                
-////##################################################################################################
                 DataInfoCliente cliente = ICC.iniciarSesion(nick, pass);
                 if(cliente != null){
                     request.getSession().setAttribute("dataCliente", cliente);
@@ -81,10 +73,11 @@ public class Servlet1 extends HttpServlet {
                 request.getSession().setAttribute("dataCliente", cliente);
                 request.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(request, response);
             }
+//#############################     verIformacionReserva existente   ###############################################
             else if(clave.equals("verInfoReserva")){
                 request.getRequestDispatcher("/WEB-INF/verInfoReserva.jsp").forward(request, response);
             }
-            else if(clave.equals("verInfoProveedor")){
+            else if(clave.equals("verInfoServicio")){
                 
             }
     }

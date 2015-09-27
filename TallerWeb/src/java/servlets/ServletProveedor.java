@@ -42,14 +42,14 @@ public class ServletProveedor extends HttpServlet {
         String clave = (String) request.getSession().getAttribute("clave");
         //String clave = (String) request.getParameter("clave");
         if(clave.equals("verInfoProveedor")){
-            DataInfoProveedor proveedor = (DataInfoProveedor) ICP.verInfoProveedor(request.getParameter("nickProveedor"));
-            request.getSession().setAttribute("proveedor", proveedor);
+            //DataInfoProveedor proveedor = (DataInfoProveedor) ICP.verInfoProveedor(request.getParameter("nickProveedor"));
+            request.getSession().setAttribute("proveedor", "proveedor");
             request.getRequestDispatcher("/WEB-INF/verInfoProveedor.jsp").forward(request, response);
         }
 //######################################    verinfoServicio     #########################################################
         else if(clave.equals("listarCategorias")){
             request.getSession().setAttribute("categorias", ICP.listarCategorias());
-            
+                
         }
         else if(clave.equals("verInfoServicio")){
             try {
@@ -57,7 +57,7 @@ public class ServletProveedor extends HttpServlet {
             } catch (Exception ex) {
                 Logger.getLogger(ServletProveedor.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+            request.getRequestDispatcher("/WEB-INF/verInfoServicio.jsp").forward(request, response);
         }
     }
 

@@ -34,5 +34,13 @@ t   : inicioSesion
                           
                   
               </form>    
+              <!--<form action="controller2"  method="POST">-->
+                  <%//request.getSession().setAttribute("clave", "verInfoProveedor");%>
+<!--                  <input  type="submit" value="infoProveedor"/>
+                   
+                  
+                          
+                  
+              </form>-->
 	</body>
 </html>
