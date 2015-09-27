@@ -1,5 +1,7 @@
 <%-- 
-    Document   : inicioSesion
+    Documen/* global request */
+
+t   : inicioSesion
     Created on : Sep 23, 2015, 6:57:16 PM
     Author     : giovani.rondan
 --%>
@@ -13,20 +15,20 @@
 		
 	</head>
 	<body>
-            <%String clave = "clave";
-            String inicioSesion = "inicioSesion";
-            String registrarCliente = "registrarCliente";%>
               <form action="controller1" method="POST">
+                  iniciar sesion:(fuera de servicio momentaneamente)
                   <input name="nick" type="text" />
                   <input name="pass" type="password"  />
-                  <%request.getSession().setAttribute(clave, inicioSesion);%>
-                  <input  type="submit" value="Entrar"/>
+                  
+                  <%//request.getSession().setAttribute("clave", "inicioSesion");%>
+<!--                  <input  type="submit" value="Entrar"/>
+                  -->
                   
               </form>
                   <br>
-              <form action="controller1" method="POST">
-                  <%request.getSession().setAttribute(clave, registrarCliente);%>
-                  <input type="submit" value="Registrarse"/>
+              <form action="controller1"  method="POST">
+                  <%request.getSession().setAttribute("clave", "registrarCliente");%>
+                  <input  type="submit" value="Registrarse"/>
                    
                   
                           

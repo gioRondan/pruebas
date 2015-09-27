@@ -38,8 +38,9 @@ public class Servlet1 extends HttpServlet {
             throws ServletException, IOException {
         Fabrica fab = Fabrica.getInstance();
             IControladorCliente ICC = fab.getIControladorCliente();
-            String password = (String)request.getSession().getAttribute("txtpass");
+            //String password = (String)request.getSession().getAttribute("txtpass");
             String clave = (String) request.getSession().getAttribute("clave");
+            //String clave = (String) request.getParameter("clave");
 //#############################     iniciarSesion   #################################################
             if(clave.equals("inicioSesion")){
                 String nick = (String) request.getParameter("nick");
