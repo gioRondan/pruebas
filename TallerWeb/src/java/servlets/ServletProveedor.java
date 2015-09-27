@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logica.DataInfoProveedor;
 import logica.Fabrica;
-import logica.IControladorCliente;
 import logica.IControladorProveedor;
 
 /**
