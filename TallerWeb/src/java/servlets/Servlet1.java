@@ -84,6 +84,9 @@ public class Servlet1 extends HttpServlet {
             else if(clave.equals("verInfoReserva")){
                 request.getRequestDispatcher("/WEB-INF/verInfoReserva.jsp").forward(request, response);
             }
+            else if(clave.equals("verInfoProveedor")){
+                
+            }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
