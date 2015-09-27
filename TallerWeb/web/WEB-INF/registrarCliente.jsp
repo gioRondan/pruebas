@@ -16,25 +16,25 @@
             <%="registrarCliente"%>
             <form action="controller1" method="POST">
                 <!--chequear con ajax disponibilidad de nick y email, verificar password, agregarimagen y arreglar fecha-->
-                =Nickname: 
+                Nickname: 
                 <input name="nickRegistrar" label= "nick"type="text" />
                 <br>
-                =Email: 
+                Email: 
                 <input name="emailCliente" label= "email" type="text"  />
                 <br>
-                =Nombre: 
+                Nombre: 
                 <input name="nombreCliente" label= "nombre" type="text"  />
                 <br>
-                =Apellido: 
+                Apellido: 
                 <input name="apellidoCliente" label= "apellido" type="text"  />
                 <br>
-                =Fecha Nacimiento: 
+                Fecha Nacimiento: 
                 <input name="fechaNacCliente" label= "fecha nacimiento" type="text"  />
                 <br>
-                =Password: 
+                Password: 
                 <input name="passRegistrar" label= "password" type="password"  />
                 <br>
-                =Verificar Password: 
+                Verificar Password: 
                 <input name="passVerificar" label= "verificar password" type="password"  />
                 <br>
                 <input type="submit" value="Registrar"/>
