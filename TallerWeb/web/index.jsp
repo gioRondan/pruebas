@@ -13,20 +13,23 @@
 		
 	</head>
 	<body>
+            <%String clave = "clave";
+            String inicioSesion = "inicioSesion";
+            String registrarCliente = "registrarCliente";%>
               <form action="controller1" method="POST">
                   <input name="nick" type="text" />
                   <input name="pass" type="password"  />
-                  <input type="submit" value="Entrar"/>
-                  <% request.getSession().setAttribute("clave", "inicioSesion");%>
+                  <%request.getSession().setAttribute(clave, inicioSesion);%>
+                  <input  type="submit" value="Entrar"/>
                   
               </form>
                   <br>
               <form action="controller1" method="POST">
+                  <%request.getSession().setAttribute(clave, registrarCliente);%>
                   <input type="submit" value="Registrarse"/>
-                  <% 
-                      request.getSession().setAttribute("clave", "registrarCliente");
+                   
                   
-                          %>
+                          
                   
               </form>    
 	</body>
