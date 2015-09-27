@@ -20,9 +20,9 @@ t   : inicioSesion
                   <input name="nick" type="text" />
                   <input name="pass" type="password"  />
                   
-                  <%//request.getSession().setAttribute("clave", "inicioSesion");%>
-<!--                  <input  type="submit" value="Entrar"/>
-                  -->
+                  <%request.getSession().setAttribute("clave", "inicioSesion");%>
+                  <input  type="submit" value="Entrar"/>
+                 
                   
               </form>
                   <br>

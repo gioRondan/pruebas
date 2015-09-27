@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logica.DataInfoCliente;
+import logica.DataInfoReserva;
 import logica.Fabrica;
 import logica.IControladorCliente;
 
@@ -79,6 +80,9 @@ public class Servlet1 extends HttpServlet {
                 DataInfoCliente cliente = ICC.iniciarSesion(request.getParameter("nickRegistrar"), request.getParameter("passRegistrar"));
                 request.getSession().setAttribute("dataCliente", cliente);
                 request.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(request, response);
+            }
+            else if(clave.equals("verInfoReserva")){
+                request.getRequestDispatcher("/WEB-INF/verInfoReserva.jsp").forward(request, response);
             }
     }
 
