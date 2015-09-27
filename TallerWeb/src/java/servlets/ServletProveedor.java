@@ -7,6 +7,8 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,7 +46,17 @@ public class ServletProveedor extends HttpServlet {
             request.getSession().setAttribute("proveedor", proveedor);
             request.getRequestDispatcher("/WEB-INF/verInfoProveedor.jsp").forward(request, response);
         }
-        else if(clave.equals("asdf")){
+//######################################    verinfoServicio     #########################################################
+        else if(clave.equals("listarCategorias")){
+            request.getSession().setAttribute("categorias", ICP.listarCategorias());
+            
+        }
+        else if(clave.equals("verInfoServicio")){
+            try {
+                request.getSession().setAttribute("infoServicio", ICP.verInfoServicio(request.getParameter("nickProveedor"), request.getParameter("nomServicio")));
+            } catch (Exception ex) {
+                Logger.getLogger(ServletProveedor.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
         }
     }
