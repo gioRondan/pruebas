@@ -35,55 +35,54 @@ public class Servlet1 extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Fabrica fab = Fabrica.getInstance();
             IControladorCliente ICC = fab.getIControladorCliente();
             //String password = (String)request.getSession().getAttribute("txtpass");
-            String clave = (String) request.getSession().getAttribute("clave");            
+            String clave = ""; //(String) request.getSession().getAttribute("clave");            
             //String boton = (String) request.getParameter("submit");
             //String act = request.getParameter("entrar");
 
             //if (request.getParameter("entrar") != null){
     //#############################     iniciarSesion   #################################################
                 //if(clave.equals("inicioSesion")){
-            if(request.getParameter("entrar") != null){
-               String nick = (String) request.getParameter("nick");
-               String pass = (String) request.getParameter("pass");
-               DataInfoCliente cliente = ICC.iniciarSesion(nick, pass);
-               if(cliente != null){
-                   request.getSession().setAttribute("dataCliente", cliente);
-                   request.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(request, response);
-               }else{
-                   request.getRequestDispatcher("/index.jsp").forward(request, response);
-               }
-//#############################     cerrarSesion   #################################################                
-           }else if(clave.equals("cerrarSesion")){
-               request.getSession().setAttribute("nick", "");
-               request.getSession().setAttribute("pass", "");
-               // vaciar carrito
-               request.getRequestDispatcher("/index.jsp").forward(request, response);
-//#############################     registrarCliente   #################################################
-           }else if(request.getParameter("registrar") != null){
-               request.getRequestDispatcher("/WEB-INF/registrarCliente.jsp").forward(request, response);
-           }else if(clave.equals("altaCliente")){
-           try {
-               ICC.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), null, "imagen", request.getParameter("passRegistrar"));
-           } catch (Exception ex) {
-               Logger.getLogger(Servlet1.class.getName()).log(Level.SEVERE, null, ex);
-
-           }
-               DataInfoCliente cliente = ICC.iniciarSesion(request.getParameter("nickRegistrar"), request.getParameter("passRegistrar"));
+        if(request.getParameter("entrar") != null){
+           String nick = (String) request.getParameter("nick");
+           String pass = (String) request.getParameter("pass");
+           DataInfoCliente cliente = ICC.iniciarSesion(nick, pass);
+           if(cliente != null){
                request.getSession().setAttribute("dataCliente", cliente);
                request.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(request, response);
+           }else{
+               request.getRequestDispatcher("/index.jsp").forward(request, response);
            }
-//#############################     verIformacionReserva existente   ###############################################
-           else if(clave.equals("verInfoReserva")){
-               request.getRequestDispatcher("/WEB-INF/verInfoReserva.jsp").forward(request, response);
-           }
-           else if(clave.equals("verInfoServicio")){
+//#############################     cerrarSesion   #################################################                
+        }else if(clave.equals("cerrarSesion")){
+            request.getSession().setAttribute("nick", "");
+            request.getSession().setAttribute("pass", "");
+            // vaciar carrito
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+//#############################     registrarCliente   #################################################
+        }else if(request.getParameter("registrar") != null){
+            request.getRequestDispatcher("/WEB-INF/registrarCliente.jsp").forward(request, response);
+        }else if(clave.equals("altaCliente")){
+            try {
+                ICC.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), null, "imagen", request.getParameter("passRegistrar"));
+            } catch (Exception ex) {
+                Logger.getLogger(Servlet1.class.getName()).log(Level.SEVERE, null, ex);
 
-           }
+            }
+                DataInfoCliente cliente = ICC.iniciarSesion(request.getParameter("nickRegistrar"), request.getParameter("passRegistrar"));
+                request.getSession().setAttribute("dataCliente", cliente);
+                request.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(request, response);
+            }
+//#############################     verIformacionReserva existente   ###############################################
+        else if(clave.equals("verInfoReserva")){
+            request.getRequestDispatcher("/WEB-INF/verInfoReserva.jsp").forward(request, response);
+        }
+        else if(clave.equals("verInfoServicio")){
+
+        }
             
             
 

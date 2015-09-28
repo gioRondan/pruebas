@@ -10,14 +10,44 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+      
+         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+     <script type="text/javascript">
+            jQuery(function() {
+                jQuery("#username").change(function() {
+// ajax                 
+console.log(jQuery("#username").val());
+                    jQuery.ajax({
+                        type: "POST",
+                        url: "./ajax.jsp",
+                        data: {username: jQuery("#username").val()},
+                        success:function(data) {
+                            //console.log(data); 
+                            alert(data.toString());  
+                        }
+                    })
+                    /*.done(function(String msg) {
+                        console.log(msg);
+                        
+                        if(msg == "SI"){
+                            alert("El nombre (" + jQuery("#username").val() + ") ya existe.");
+                        }
+                        else{
+                            alert("gio");
+                        }
+                    });*/
+                });
+            });
+        </script>
     </head>
+  
     <body>        
         <div id="regCliente" >
             <%="registrarCliente"%>
             <form action="controller1" method="POST">
                 <!--chequear con ajax disponibilidad de nick y email, verificar password, agregarimagen y arreglar fecha-->
                 Nickname: 
-                <input name="nickRegistrar" label= "nick"type="text" />
+                <input name="nickRegistrar" label="nick" type="text" name="username" id="username" />
                 <br>
                 Email: 
                 <input name="emailCliente" label= "email" type="text"  />
@@ -29,7 +59,7 @@
                 <input name="apellidoCliente" label= "apellido" type="text"  />
                 <br>
                 Fecha Nacimiento: 
-                <input name="fechaNacCliente" label= "fecha nacimiento" type="text"  />
+                <input type="text" id="datepicker" />
                 <br>
                 Password: 
                 <input name="passRegistrar" label= "password" type="password"  />
@@ -38,9 +68,9 @@
                 <input name="passVerificar" label= "verificar password" type="password"  />
                 <br>
                 <input type="submit" value="Registrar"/>
-                <% request.getSession().setAttribute("clave", "altaCliente");%>
-
+                <% //request.getSession().setAttribute("clave", "altaCliente");%>
             </form>
         </div>
     </body>
+   
 </html>
