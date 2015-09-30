@@ -10,61 +10,8 @@ t   : inicioSesion
 <!DOCTYPE html>
 <html>
     <head>
-        <style>
-            .centerbox {
-                margin: auto;
-                width: 40%;
-                border:3px solid #8AC007;
-                padding: 10px;
-                //background-color: #8AC007;
-            }
-
-            .img-circle {
-                border-radius: 50%;
-            }
-            .center{
-                text-align:center;
-                position: center;
-            }
-            p{
-                text-align: center;
-                alignment-adjust: center;
-            }
-            div.horizontal {
-                width: 100%;
-                height: 30px;
-                background-color: #98bf21;
-            }
-            ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-            }
-
-            li {
-                float: left;
-            }
-
-            a {
-                display: block;
-                width: 60px;
-                background-color: #dddddd;
-            }
-            div.horizontal a:link, div.horizontal a:visited {
-                font-weight: bold;
-                color: #FFFFFF;
-                background-color: #98bf21;
-                text-align: center;
-                padding: 4px;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-            div.horizontal a {
-                display: block;
-                width: 120px;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="Style.css">
+        
         <title>h4travel</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
@@ -76,12 +23,13 @@ t   : inicioSesion
                 <li><a href="#contact">Promociones</a></li>
                 <li><a href="#about">Proveedores</a></li>
                 <li><a href="#about">Reservas</a></li>
+                <li><img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" label="Usuario" float="right" style="width:35px;height:35px;"></li>
             </ul>
         </div><br>
         <div class="centerbox" style="text-align:center">
             <form action="controller1" method="POST">
                 <img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" style="width:150px;height:150px;">
-                <p>iniciar sesion:</p><br>
+                <h3>Iniciar sesión:</h3><br>
                 <input class="center" name="nick" type="text" /><br><br>
                 <input class="center" name="pass" type="password" /><br><br>                  
                 <%//request.getSession().setAttribute("clave", "inicioSesion");%>
