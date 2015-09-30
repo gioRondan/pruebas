@@ -18,6 +18,10 @@ t   : inicioSesion
                 padding: 10px;
                 //background-color: #8AC007;
             }
+
+            .img-circle {
+                border-radius: 50%;
+            }
             .center{
                 text-align:center;
                 position: center;
@@ -76,6 +80,7 @@ t   : inicioSesion
         </div><br>
         <div class="centerbox" style="text-align:center">
             <form action="controller1" method="POST">
+                <img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" style="width:150px;height:150px;">
                 <p>iniciar sesion:</p><br>
                 <input class="center" name="nick" type="text" /><br><br>
                 <input class="center" name="pass" type="password" /><br><br>                  
