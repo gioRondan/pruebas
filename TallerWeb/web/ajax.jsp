@@ -4,12 +4,21 @@
     Author     : diego.roman
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%><%
-    String usuario = "";
+
+    String verificarUsuario(String username)
+    {
+        if (username == "pepe")
+            return "si";
+        else
+            return "no";
+    }
+    
+  /*  String usuario = "";
     usuario = request.getParameter("username");
     
     if (usuario.equals("pepe")) {
         out.print("El usuario ya existe");
-    }/* else {
+    } else {
         out.print("");
     }*/
 %>
