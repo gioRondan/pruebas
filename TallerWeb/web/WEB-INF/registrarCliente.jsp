@@ -10,38 +10,65 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-      
-         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-     <script type="text/javascript">
-            jQuery(function() {
-                jQuery("#username").change(function() {
-// ajax                 
-console.log(jQuery("#username").val());
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script type="text/javascript">
+            jQuery(function () {
+                jQuery("#username").change(function () {
+   // ajax                 
+                    console.log(jQuery("#username").val());
                     jQuery.ajax({
                         type: "POST",
                         url: "./ajax.jsp",
                         data: {username: jQuery("#username").val()},
-                        success:function(data) {
+                        success: function (data) {
                             //console.log(data); 
-                            alert(data.toString());  
+                            alert(data.toString());
                         }
                     })
                     /*.done(function(String msg) {
-                        console.log(msg);
-                        
-                        if(msg == "SI"){
-                            alert("El nombre (" + jQuery("#username").val() + ") ya existe.");
-                        }
-                        else{
-                            alert("gio");
-                        }
-                    });*/
+                     console.log(msg);
+                  
+                     if(msg == "SI"){
+                     alert("El nombre (" + jQuery("#username").val() + ") ya existe.");
+                     }
+                     else{
+                     alert("gio");
+                     }
+                     });*/
                 });
             });
         </script>
     </head>
-  
-    <body>        
+
+    <body> 
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">WebSiteName</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Page 1-1</a></li>
+                                <li><a href="#">Page 1-2</a></li>
+                                <li><a href="#">Page 1-3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Page 2</a></li>
+                        <li><a href="#">Page 3</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <div id="regCliente" >
             <%="registrarCliente"%>
             <form action="controller1" method="POST">
@@ -72,5 +99,5 @@ console.log(jQuery("#username").val());
             </form>
         </div>
     </body>
-   
+
 </html>
