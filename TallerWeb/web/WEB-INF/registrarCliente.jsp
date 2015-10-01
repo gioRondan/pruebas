@@ -21,11 +21,14 @@
                     console.log(jQuery("#username").val());
                     jQuery.ajax({
                         type: "POST",
-                        url: "./ajax.jsp",
+                        url: "./ajax/verificarUsuario.jsp",
                         data: {username: jQuery("#username").val()},
                         success: function (data) {
-                            //console.log(data); 
-                            alert(data.toString());
+                            if (data == "si")
+                                alert("Existe");
+                            else
+                                alert(data);
+                                alert("No existe");
                         }
                     })
                     /*.done(function(String msg) {
