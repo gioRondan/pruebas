@@ -1,9 +1,13 @@
+/*body{
+    background-color: #393939;
+}*/
 .centerbox {
     margin: auto;
     width: 40%;
     border:3px solid #8AC007;
-    padding: 10px;
-    //background-color: #8AC007;
+    padding: 20px;//
+    background-color: #8AC007;
+    background-color: gainsboro;
 }
 
 .img-circle {
