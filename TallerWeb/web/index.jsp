@@ -16,6 +16,27 @@ t   : inicioSesion
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>
+            $(function () {
+
+                $('.nav li a').on('click', function (e) {
+
+                    e.preventDefault(); // prevent link click if necessary?
+
+                    var $thisLi = $(this).parent('li');
+                    var $ul = $thisLi.parent('ul');
+
+                    if (!$thisLi.hasClass('active'))
+                    {
+                        $ul.find('li.active').removeClass('active');
+                        $thisLi.addClass('active');
+                    }
+
+                })
+
+            })
+        </script>
         <style>
             body{
                 background-color: #393939;
@@ -23,7 +44,7 @@ t   : inicioSesion
         </style>
 
     </head>
-    <body background-color="#393939">
+    <body>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -74,28 +95,22 @@ t   : inicioSesion
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-1" for="email">Email:</label>
+                        <label class="control-label col-sm-1" for="nick">Nick:</label>
                         <div class="col-sm-4">
-                            <input type="email" class="form-control" id="email" placeholder="Enter email">
+                            <input class="form-control" id="nick" placeholder="Introduzca su nick">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-1" for="pwd">Password:</label>
                         <div class="col-sm-4">          
-                            <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                            <input type="password" class="form-control" id="pwd" placeholder="Introduzca su password">
                         </div>
                     </div>
                     <div class="form-group">        
-                        <div class="col-sm-4">
-                            <div class="checkbox">
-                                <label><input type="checkbox"> Remember me</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">        
-                        <div class="col-sm-4">
-                            <input class="center"  type="submit" name="entrar" value="Entrar"/> 
-                            <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-log-in"></span> Entrar</button>
+                        <div class="col-sm-5">
+                            <!--<input class="center"  type="submit" name="entrar" value="Entrar"/>--> 
+                            <%request.getSession().setAttribute("clave", "inicioSesion");%>
+                            <button type="submit" name="entrar" class="btn btn-success"><span class="glyphicon glyphicon-log-in"></span> Entrar</button>
                         </div>
                     </div>
                 </form>
@@ -110,7 +125,7 @@ t   : inicioSesion
             <input class="center"  type="submit" name="entrar" value="Entrar"/>              
         </form>-->
         </div><br>    
-        
+
         <div class="container">
             <div class="jumbotron">
                 <form action="controller1"  method="POST">
