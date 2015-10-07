@@ -97,13 +97,13 @@ t   : inicioSesion
                     <div class="form-group">
                         <label class="control-label col-sm-1" for="nick">Nick:</label>
                         <div class="col-sm-4">
-                            <input class="form-control" id="nick" placeholder="Introduzca su nick">
+                            <input class="form-control" id="nick" name="nick"placeholder="Introduzca su nick">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-1" for="pwd">Password:</label>
                         <div class="col-sm-4">          
-                            <input type="password" class="form-control" id="pwd" placeholder="Introduzca su password">
+                            <input type="password" class="form-control" id="pwd" name="pass"placeholder="Introduzca su password">
                         </div>
                     </div>
                     <div class="form-group">        
