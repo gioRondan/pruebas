@@ -59,7 +59,7 @@ t   : inicioSesion
                                 <li><a href="#">Promociones</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Proveedores</a></li>
+                        <li><a href="#">Proveedores</a></li>  
                         <li><a href="#">Reservas</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
