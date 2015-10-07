@@ -57,7 +57,7 @@ public class Servlet1 extends HttpServlet {
                request.getRequestDispatcher("/index.jsp").forward(request, response);
            }
 //#############################     cerrarSesion   #################################################                
-        }else if(clave.equals("cerrarSesion")){
+        }else if(request.getParameter("cerrarSesion") != null){
             request.getSession().setAttribute("nick", "");
             request.getSession().setAttribute("pass", "");
             // vaciar carrito
@@ -65,7 +65,7 @@ public class Servlet1 extends HttpServlet {
 //#############################     registrarCliente   #################################################
         }else if(request.getParameter("registrar") != null){
             request.getRequestDispatcher("/WEB-INF/registrarCliente.jsp").forward(request, response);
-        }else if(clave.equals("altaCliente")){
+        }else if(request.getParameter("altaCliente") != null){
             try {
                 ICC.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), null, "imagen", request.getParameter("passRegistrar"));
             } catch (Exception ex) {
@@ -77,7 +77,7 @@ public class Servlet1 extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(request, response);
             }
 //#############################     verIformacionReserva existente   ###############################################
-        else if(clave.equals("verInfoReserva")){
+        else if(request.getParameter("verInfoReserva")!= null){
             request.getRequestDispatcher("/WEB-INF/verInfoReserva.jsp").forward(request, response);
         }
         else if(clave.equals("verInfoServicio")){
