@@ -361,6 +361,10 @@ public class ControladorProveedor implements IControladorProveedor{
         return mpr.obtenerServiciosBuscados(aBuscar);
     }
     
+    public List<DataPromocion> buscarPromociones(String aBuscar) {
+        ManejadorProveedor mpr = ManejadorProveedor.getInstance();
+        return mpr.obtenerPromocionesBuscados(aBuscar);
+    }
 
 }
 

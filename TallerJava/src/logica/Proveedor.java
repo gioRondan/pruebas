@@ -88,5 +88,15 @@ public class Proveedor extends Usuario{
         }
         return result;
     }
+
+    List<DataPromocion> getPromocionesBuscados(String aBuscar) {
+        List result = new ArrayList<>();
+        for(Promocion value : promociones.values()){
+            if(value.buscado(aBuscar)){
+                result.add(value);
+            }
+        }
+        return result;
+    }
 }
 

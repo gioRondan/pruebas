@@ -67,4 +67,8 @@ public class Promocion {
         }
         return new DataInfoPromocion(this.getNombre(),this.getDescuento(),this.getPrecioTotal(),dts);
     }
+
+    boolean buscado(String aBuscar) {
+        return(this.nombre.equals(aBuscar) );
+    }
 }

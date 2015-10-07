@@ -74,6 +74,14 @@ public class ManejadorProveedor {
         }
         return result;
     }
+
+    List<DataPromocion> obtenerPromocionesBuscados(String aBuscar) {
+         List<DataPromocion> result = new ArrayList<>();
+        for(Proveedor it : proveedores.values()){
+            result.addAll(it.getPromocionesBuscados(aBuscar));
+        }
+        return result;
+    }
    
 
 }
