@@ -354,6 +354,12 @@ public class ControladorProveedor implements IControladorProveedor{
         Pais p = mPa.getPais(pa);
        return mCi.getDataCiudadesXpais(p);
     }
+
+    @Override
+    public List<DataServicio> buscarServicios(String aBuscar) {
+        ManejadorProveedor mpr = ManejadorProveedor.getInstance();
+        return mpr.obtenerServiciosBuscados(aBuscar);
+    }
     
 
 }

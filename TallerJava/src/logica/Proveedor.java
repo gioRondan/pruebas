@@ -6,6 +6,7 @@
 
 package logica;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import static java.util.Collections.emptyMap;
 import java.util.Date;
@@ -76,6 +77,16 @@ public class Proveedor extends Usuario{
 
     public DataInfoProveedor getDataInfoProveedor() {
         return new DataInfoProveedor(nickname,  nombre,  apellido, email, fechaNac,  imagen,  empresa.getDataEmpresa(), getDataServicios(), this.getPassword());
+    }
+
+    List<DataServicio> getServiciosBuscados(String aBuscar) {
+        List result = new ArrayList<>();
+        for(Servicio value : servicios.values()){
+            if(value.buscado(aBuscar)){
+                result.add(value);
+            }
+        }
+        return result;
     }
 }
 

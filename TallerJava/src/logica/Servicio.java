@@ -121,4 +121,8 @@ public class Servicio {
             throw new Exception("la categoria no pertenece al servicio"); 
         }
     }
+
+    boolean buscado(String aBuscar) {
+        return(this.nombre.equals(aBuscar) ||this.categorias.containsKey(aBuscar) || this.descripcion.contains(aBuscar));
+    }
 }

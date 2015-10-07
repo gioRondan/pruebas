@@ -50,4 +50,6 @@ public interface IControladorProveedor {
     public List<DataCiudad> ciudadesXpais( String pa);
     public void altaPais(String pa)throws Exception;
     public void altaCiudad(String nomCiudad, String nomPais);
+//################################      operaciones tarea 2 ####################################################################################
+    public List<DataServicio> buscarServicios(String aBuscar); 
 }

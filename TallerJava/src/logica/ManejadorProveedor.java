@@ -66,6 +66,14 @@ public class ManejadorProveedor {
         if(prom != null){            
             throw new Exception("El proveedor seleccionado ya tiene una promoción con ese nombre");            
         }
-    }    
+    }
+    List<DataServicio> obtenerServiciosBuscados(String aBuscar){
+        List<DataServicio> result = new ArrayList<>();
+        for(Proveedor it : proveedores.values()){
+            result.addAll(it.getServiciosBuscados(aBuscar));
+        }
+        return result;
+    }
+   
 
 }
