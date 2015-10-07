@@ -109,7 +109,6 @@ t   : inicioSesion
                     <div class="form-group">        
                         <div class="col-sm-5">
                             <!--<input class="center"  type="submit" name="entrar" value="Entrar"/>--> 
-                            <%request.getSession().setAttribute("clave", "inicioSesion");%>
                             <button type="submit" name="entrar" class="btn btn-success"><span class="glyphicon glyphicon-log-in"></span> Entrar</button>
                         </div>
                     </div>
@@ -133,8 +132,7 @@ t   : inicioSesion
                     <input  type="submit" name="registrar" value="Registrarse"/>
                 </form>    
                 <form action="controller2"  method="POST">
-                    <%//request.getSession().setAttribute("clave", "verInfoProveedor");%>
-                    <input  type="submit" name="infoproveedor" value="infoProveedor"/>                 
+                    <input  type="submit" name="infoProveedor" value="infoProveedor"/>                 
                 </form>
             </div>    
         </div>

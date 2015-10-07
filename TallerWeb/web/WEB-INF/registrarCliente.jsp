@@ -97,7 +97,6 @@
                 <input name="passVerificar" label= "verificar password" type="password"  />
                 <br>
                 <input type="submit" name="altaCliente" value="Registrar"/>
-                <% //request.getSession().setAttribute("clave", "altaCliente");%>
             </form>
         </div>
     </body>

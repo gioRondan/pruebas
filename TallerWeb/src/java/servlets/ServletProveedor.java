@@ -39,19 +39,18 @@ public class ServletProveedor extends HttpServlet {
         Fabrica fab = Fabrica.getInstance();
         IControladorProveedor ICP = fab.getIControladorProveedor();
         //String password = (String)request.getSession().getAttribute("txtpass");
-        String clave = (String) request.getSession().getAttribute("clave");
         //String clave = (String) request.getParameter("clave");
-        if(clave.equals("verInfoProveedor")){
+        if(request.getParameter("infoProveedor")!= null){
             //DataInfoProveedor proveedor = (DataInfoProveedor) ICP.verInfoProveedor(request.getParameter("nickProveedor"));
-            request.getSession().setAttribute("proveedor", "proveedor");
+            //request.getSession().setAttribute("proveedor", proveedor);
             request.getRequestDispatcher("/WEB-INF/verInfoProveedor.jsp").forward(request, response);
         }
 //######################################    verinfoServicio     #########################################################
-        else if(clave.equals("listarCategorias")){
+        else if(request.getParameter("listarCategorias") != null){
             request.getSession().setAttribute("categorias", ICP.listarCategorias());
                 
         }
-        else if(clave.equals("verInfoServicio")){
+        else if(request.getParameter("verInfoServicio") != null){
             try {
                 request.getSession().setAttribute("infoServicio", ICP.verInfoServicio(request.getParameter("nickProveedor"), request.getParameter("nomServicio")));
             } catch (Exception ex) {

@@ -37,7 +37,7 @@
             reservas = (falta hacer, la que selecciona llama a verinforeserva)
             <form action="controller1" method="POST">
                 <input type="submit" name="verInfoReserva" value="ver Info Reserva(sin terminar)"/>
-                <% request.getSession().setAttribute("clave", "verInfoReserva");
+                <% 
                    request.getSession().setAttribute("reserva", "datainfo de reservaElegida");
                 %>
 
@@ -45,7 +45,6 @@
             <br>
             <form action="controller1" method="POST">
                 <input type="submit" name="cerrarSesion"value="Cerrar Sesion"/>
-                <% //request.getSession().setAttribute("clave", "cerrarSesion");%>
                 
             </form>
         </div>

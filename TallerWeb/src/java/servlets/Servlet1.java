@@ -39,7 +39,6 @@ public class Servlet1 extends HttpServlet {
         Fabrica fab = Fabrica.getInstance();
             IControladorCliente ICC = fab.getIControladorCliente();
             //String password = (String)request.getSession().getAttribute("txtpass");
-            String clave = ""; //(String) request.getSession().getAttribute("clave");            
             //String boton = (String) request.getParameter("submit");
             //String act = request.getParameter("entrar");
 
@@ -79,9 +78,6 @@ public class Servlet1 extends HttpServlet {
 //#############################     verIformacionReserva existente   ###############################################
         else if(request.getParameter("verInfoReserva")!= null){
             request.getRequestDispatcher("/WEB-INF/verInfoReserva.jsp").forward(request, response);
-        }
-        else if(clave.equals("verInfoServicio")){
-
         }
             
             
