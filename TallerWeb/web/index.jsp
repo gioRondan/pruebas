@@ -45,7 +45,8 @@ t   : inicioSesion
     
     <body>
         <div id="pageheader">
-            <jsp:include page="Template.jsp" />
+            <%--<jsp:include page="Template.jsp" /> hacen lo mismo --%> 
+            <%@ include file="Template.jsp" %>
         </div>
         <!--        <nav class="navbar navbar-inverse">
                     <div class="container-fluid">
