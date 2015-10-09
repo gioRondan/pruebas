@@ -7,11 +7,15 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import logica.Fabrica;
+import logica.IControladorProveedor;
 
 /**
  *
@@ -31,21 +35,19 @@ public class verInfoServicio extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet verInfoServicio</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet verInfoServicio at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
+        Fabrica fab = Fabrica.getInstance();
+        IControladorProveedor ICP = fab.getIControladorProveedor();
+        if(request.getParameter("listarCategorias") != null){
+            request.getSession().setAttribute("categorias", ICP.listarCategorias());
+                
+        }
+        else if(request.getParameter("verInfoServicio") != null){
+            try {
+                request.getSession().setAttribute("infoServicio", ICP.verInfoServicio(request.getParameter("nickProveedor"), request.getParameter("nomServicio")));
+            } catch (Exception ex) {
+                Logger.getLogger(ServletProveedor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            request.getRequestDispatcher("/WEB-INF/verInfoServicio.jsp").forward(request, response);
         }
     }
 

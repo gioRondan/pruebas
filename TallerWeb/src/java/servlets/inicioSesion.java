@@ -12,6 +12,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import logica.DataInfoCliente;
+import logica.Fabrica;
+import logica.IControladorCliente;
 
 /**
  *
@@ -31,21 +34,18 @@ public class inicioSesion extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet inicioSesion</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet inicioSesion at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
+        Fabrica fab = Fabrica.getInstance();
+        IControladorCliente ICC = fab.getIControladorCliente();
+        if(request.getParameter("entrar") != null){
+           String nick = (String) request.getParameter("nick");
+           String pass = (String) request.getParameter("pass");
+           DataInfoCliente cliente = ICC.iniciarSesion(nick, pass);
+           if(cliente != null){
+               request.getSession().setAttribute("dataCliente", cliente);
+               request.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(request, response);
+           }else{
+               request.getRequestDispatcher("/index.jsp").forward(request, response);
+           }
         }
     }
 

@@ -31,21 +31,11 @@ public class verInfoProveedor extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet verInfoProveedor</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet verInfoProveedor at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
+        if(request.getParameter("infoProveedor")!= null){
+            //DataInfoProveedor proveedor = (DataInfoProveedor) ICP.verInfoProveedor(request.getParameter("nickProveedor"));
+            //request.getSession().setAttribute("proveedor", proveedor);
+            request.getRequestDispatcher("/WEB-INF/verInfoProveedor.jsp").forward(request, response);
+        
         }
     }
 
