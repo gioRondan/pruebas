@@ -9,7 +9,7 @@ t   : inicioSesion
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
+    
         <link rel="stylesheet" type="text/css" href="Style.css">
         <title>h4travel</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -42,33 +42,35 @@ t   : inicioSesion
                 background-color: #393939;
             }
         </style>
-
-    </head>
+    
     <body>
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Help4Travelling.com</a>
-                </div>
-                <div>
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Servicios / Promociones <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Servicios</a></li>
-                                <li><a href="#">Promociones</a></li>
+        <div id="pageheader">
+            <jsp:include page="Template.jsp" />
+        </div>
+        <!--        <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="#">Help4Travelling.com</a>
+                        </div>
+                        <div>
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="#">Home</a></li>
+                                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Servicios / Promociones <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Servicios</a></li>
+                                        <li><a href="#">Promociones</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Proveedores</a></li>  
+                                <li><a href="#">Reservas</a></li>
                             </ul>
-                        </li>
-                        <li><a href="#">Proveedores</a></li>  
-                        <li><a href="#">Reservas</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="#"><img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" label="Usuario" float="right" style="width:35px;height:35px;"> Login</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                                <li style="height: 50px;"><a href="#" style="padding-top:9px; height: 50px"><img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" label="Usuario" float="right" style="width:35px;height:35px;"> Login</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>-->
         <!--        <div class="horizontal">
                     <ul>
                         <li><a href="#home">Home <span class="badge">5</span></a></li>
