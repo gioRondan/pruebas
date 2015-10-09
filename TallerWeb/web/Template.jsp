@@ -61,6 +61,12 @@
                         </li>
                         <li><a href="#">Proveedores</a></li>  
                         <li><a href="#">Reservas</a></li>
+                        <form class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Promociones y/o servicios">
+                            </div>
+                            <button type="submit" class="btn btn-default">Buscar</button>
+                        </form>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
