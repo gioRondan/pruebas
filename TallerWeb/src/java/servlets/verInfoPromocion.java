@@ -7,11 +7,22 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import logica.CargaInicial;
+import logica.DataCategoria;
+import logica.DataPromocion;
+import logica.DataProveedor;
+import logica.DataServicio;
+import logica.Fabrica;
+import logica.IControladorProveedor;
+
 
 /**
  *
@@ -31,22 +42,36 @@ public class verInfoPromocion extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet verInfoPromocion</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet verInfoPromocion at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
-        }
+        
+        
+        Fabrica fab = Fabrica.getInstance();
+            IControladorProveedor ICP = fab.getIControladorProveedor();
+           
+                    CargaInicial x2 = new CargaInicial();
+                    x2.cargar();
+                    List<DataServicio> servicos = new ArrayList<DataServicio>();
+                    List<DataPromocion> promos = new ArrayList<DataPromocion>();
+                    if (request.getParameter("categoria") != null){
+                        String categoria = (String) request.getParameter("categoria");
+                        servicos = ICP.listarServiciosXCategoria(categoria);
+                    }else{
+                       List<DataProveedor> cate = ICP.listarProveedores();
+                       for (DataProveedor una : cate){
+                          servicos.addAll(ICP.listarServiciosXProveedor(una.getNickname()));
+                          promos.addAll(ICP.listarPromocionesXProveedor(una.getNickname()));
+                       }
+                    }   
+                request.setAttribute("dataServicos", servicos);
+                request.setAttribute("dataPromociones", promos);
+                //request.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(request, response);
+                //request.getRequestDispatcher("/index.jsp").forward(request, response);
+      
+                  //request.getRequestDispatcher("/index.jsp").forward(request, response);
+                
+                request.getRequestDispatcher("/WEB-INF/listar.jsp").forward(request, response);
+            
+            
+           
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

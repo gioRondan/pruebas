@@ -47,30 +47,10 @@
     </head>
 
     <body> 
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Help4Travelling.com</a>
-                </div>
-                <div>
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Servicios / Promociones <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Servicios</a></li>
-                                <li><a href="#">Promociones</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Proveedores</a></li>
-                        <li><a href="#">Reservas</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="#"><img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" label="Usuario" float="right" style="width:35px;height:35px;"> Login</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <div id="pageheader">
+            <%--<jsp:include page="Template.jsp" /> hacen lo mismo --%> 
+            <%@ include file="Template.jsp" %>
+        </div>
         <div id="regCliente" >
             <%="registrarCliente"%>
             <form action="controller1" method="POST">

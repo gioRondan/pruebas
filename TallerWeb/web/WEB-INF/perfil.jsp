@@ -14,8 +14,12 @@
     <head>
         <title>Ses :: H4Travel</title>
     </head>
-    <body>        
-        <div id="infoPerfil" >
+    <body>       
+         <div id="pageheader">
+            <%--<jsp:include page="Template.jsp" /> hacen lo mismo --%> 
+            <%@ include file="Template.jsp" %>
+        </div>
+        <div id="infoPerfil" class="">
             <%="perfil"%>
             <%
                 DataInfoCliente cliente = (DataInfoCliente) request.getSession().getAttribute("dataCliente");

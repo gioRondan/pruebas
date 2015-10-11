@@ -63,7 +63,7 @@ public class Servlet1 extends HttpServlet {
             request.getRequestDispatcher("/index.jsp").forward(request, response);
 //#############################     registrarCliente   #################################################
         }else if(request.getParameter("registrar") != null){
-            request.getRequestDispatcher("/WEB-INF/registrarCliente.jsp").forward(request, response);
+           request.getRequestDispatcher("/WEB-INF/registrarCliente.jsp").forward(request, response);
         }else if(request.getParameter("altaCliente") != null){
             try {
                 ICC.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), null, "imagen", request.getParameter("passRegistrar"));
