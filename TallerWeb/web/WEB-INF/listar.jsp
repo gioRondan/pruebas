@@ -32,6 +32,9 @@
              <div id="jtree" style="float:left">
    
             </div>
+            <div id="seleccionado" style="color: red ">
+                    HOla
+            </div>
             <div id="pestanas"style="float:right" > 
                 <ul id=lista>
                     <li id="pestana1"><a href='javascript:cambiarPestanna(pestanas,pestana1);'>Servicos</a></li>
@@ -91,7 +94,15 @@
                 <div id="jstree_demo_div"></div>
                 <script src="dist/libs/jquery.js"></script>
                 <script src="dist/jstree.min.js"></script>
-                <script>$(function () { $('#jtree').jstree( <%= request.getAttribute("dataCategorias") %> });</script>
+                <script>$(function () { $('#jtree')                            // listen for event
+                                                .on('changed.jstree', function (e, data) {
+                                                    var i, j, r = [];
+                                                    for(i = 0, j = data.selected.length; i < j; i++) {
+                                                      r.push(data.instance.get_node(data.selected[i]).text);
+                                                    }
+                                                    $('#seleccionado').html('Selected: ' + r.join(', '));
+                                                  })
+                                                .jstree( <%= request.getAttribute("dataCategorias") %> });</script>
             
        
     </body>
