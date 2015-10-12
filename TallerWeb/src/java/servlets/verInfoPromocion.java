@@ -5,6 +5,7 @@
  */
 package servlets;
 
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
@@ -40,6 +41,18 @@ public class verInfoPromocion extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+
+    static String prueba = " { 'core' : {'data' : [";
+    int i =0;
+    
+    public void armarArbol(String padre, List<DataCategoria> dtps) {
+        
+        for (DataCategoria dtcategoria : dtps) {
+           i++;
+           prueba = prueba+"{"+"'id'"+" : "+ "'ajson"+i+"', "+ "'parent' : "+padre+", 'text' : '"+dtcategoria.getNombre()+"'},";
+           armarArbol("'ajson"+i+"'", dtcategoria.getHijos() );
+       }
+    }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
@@ -49,6 +62,16 @@ public class verInfoPromocion extends HttpServlet {
            
                     CargaInicial x2 = new CargaInicial();
                     x2.cargar();
+                    
+                    List<DataCategoria> dtps = ICP.listarCategorias();
+                    prueba = " { 'core' : {'data' : [";
+                     i =0;
+                    armarArbol("'#'", dtps);
+                   prueba=prueba+"] } });";
+                    
+                  
+                    request.setAttribute("dataCategorias", prueba);
+                    
                     List<DataServicio> servicos = new ArrayList<DataServicio>();
                     List<DataPromocion> promos = new ArrayList<DataPromocion>();
                     if (request.getParameter("categoria") != null){
@@ -60,7 +83,8 @@ public class verInfoPromocion extends HttpServlet {
                           servicos.addAll(ICP.listarServiciosXProveedor(una.getNickname()));
                           promos.addAll(ICP.listarPromocionesXProveedor(una.getNickname()));
                        }
-                    }   
+                    }
+                    
                 request.setAttribute("dataServicos", servicos);
                 request.setAttribute("dataPromociones", promos);
                 //request.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(request, response);

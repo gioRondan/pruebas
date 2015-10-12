@@ -7,7 +7,7 @@ body {
     margin: auto;
     background: black;
     color: bisque;
-    padding: 20px 15px 50px 50px;
+    padding: 10px 15px 50px 50px;
     border-radius: 10px;
     box-shadow: 0 10px 10px 0px rgba(0, 0, 0, 0.8);
 }
@@ -48,11 +48,12 @@ body {
 }
 
 #contenidopestanas{
-    clear: both;  
+    clear: both;
     background: dimgray;
-    padding: 20px 0px 20px 20px;
+    padding: 20px 5px 20px 20px;
     border-radius: 5px;
     border-top-left-radius: 0px;
     border: 2px solid #8AC007;
     width: 1025px;
+    float: right;
 }

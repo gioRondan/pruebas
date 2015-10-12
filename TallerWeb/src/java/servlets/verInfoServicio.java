@@ -43,12 +43,20 @@ public class verInfoServicio extends HttpServlet {
         }
         else if(request.getParameter("verInfoServicio") != null){
             try {
-                request.getSession().setAttribute("infoServicio", ICP.verInfoServicio(request.getParameter("nickProveedor"), request.getParameter("nomServicio")));
+               // request.getSession().setAttribute("infoServicio", ICP.verInfoServicio(request.getParameter("nickProveedor"), request.getParameter("nomServicio")));
             } catch (Exception ex) {
                 Logger.getLogger(ServletProveedor.class.getName()).log(Level.SEVERE, null, ex);
             }
-            request.getRequestDispatcher("/WEB-INF/verInfoServicio.jsp").forward(request, response);
+            
         }
+        try {
+            String s = request.getParameter("nickProveedor");
+            String s2 = request.getParameter("nomServicio");
+            request.setAttribute("infoServicio", ICP.verInfoServicio(s,s2) );
+        } catch (Exception ex) {
+            Logger.getLogger(verInfoServicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        request.getRequestDispatcher("/WEB-INF/verInfoServicio.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -1,5 +1,6 @@
 
 
+<%@page import="logica.DataCategoria"%>
 <%@page import="logica.DataPromocion"%>
 <%@page import="logica.DataServicio"%>
 <%@page import="logica.DataServicio"%>
@@ -7,11 +8,11 @@
 <%@page import="java.util.List"%>
 
 
-<%@page import="java.util.Collection"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page errorPage="/WEB-INF/errorPages/500.jsp" %>
+
 <!doctype html>
-!DOCTYPE html>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,35 +26,39 @@
         <title></title>
     </head>
     <body>
-        <div class="contenedor">
+        
+        <div class="contenedor" >
             <div class="titulo">Servicos y promociones por Categorias</div>
-            <div id="pestanas">
+             <div id="jtree" style="float:left">
+   
+            </div>
+            <div id="pestanas"style="float:right" > 
                 <ul id=lista>
                     <li id="pestana1"><a href='javascript:cambiarPestanna(pestanas,pestana1);'>Servicos</a></li>
                     <li id="pestana2"><a href='javascript:cambiarPestanna(pestanas,pestana2);'>Promociones</a></li>
+                    <li id="pestana3"><a href='javascript:cambiarPestanna(pestanas,pestana3);'>Categorias</a></li>
                 </ul>
             </div>
             
             <body onload="javascript:cambiarPestanna(pestanas,pestana1);">
        
-            <div id="contenidopestanas">
+                <div id="contenidopestanas" style="float:right">
                 <div id="cpestana1">
                     
                     <% 
                         List<DataServicio> servicios = (List<DataServicio>)
                                             request.getAttribute("dataServicos");
-
                         for(DataServicio servcio : servicios){
                     %>
-                        
-                            
-                                    <%="         Tipo: SERVICO"%><br>
-                                    <%="         Nombre: "+servcio.getNombre() %><br>
-                                    <%="         Precio: " +servcio.getPrecio() %><br>
-                                    <%="         Proveedor: "+servcio.getProveedor()%><br>
-                                    <%="         Descripcion: "+servcio.getDescripcion()%><br>
+                    
+                    <form action="verinfoservicio">
+                    <%="Tipo: SERVICO"%><input type="submit" value="verInfoServicio" name="Ver mas info" style="color: black" onclick="<%request.setAttribute("nickProveedor",servcio.getProveedor()); request.setAttribute("nomServicio",servcio.getNombre()); request.setAttribute("verInfoServicio","hola");%>" /><br>
+                    <%="Nombre: "+servcio.getNombre() %><img src="carro.gif" alt="foto3"/><br>
+                                    <%="Precio: " +servcio.getPrecio() %><br>
+                                    <%="Proveedor: "+servcio.getProveedor()%><br>
+                                    <%="Descripcion: "+servcio.getDescripcion()%><br>
                                     <%="---------------------------------------------------------"%><br>
-                        		
+                    </form>  		
                     <% } %>
                 </div>
                 <div id="cpestana2">
@@ -63,16 +68,31 @@
                         for(DataPromocion promocion : promociones){
                     %>
                         
-                                    <%="         Tipo: PROMOCION"%><br>
-                                    <%="         Nombre: "+promocion.getNombre() %><br>
+                                    <%="         Tipo: PROMOCION"%><img src="carro.gif" alt="foto3"/><br>
+                                    <lk href=""><%="         Nombre: "+promocion.getNombre() %><br></lk>
                                     <%="         Precio: " +promocion.getPrecioTotal()  %><br>
                                     <%="         Descuento: "+promocion.getDescuento()%><br>
                                     <%="-------------------------------------------------------------"%><br>
                         
                     <% } %>
                 </div>
-
+               <div id="cpestana3">
+                    <%= request.getAttribute("dataCategorias") %>
+               
+                </div>
             </div>
-        </div>
+       </div>
+                  
+    <!-- in this example the tree is populated from inline HTML -->
+    
+  
+            
+                <link rel="stylesheet" href="dist/themes/default/style.min.css" />
+                <div id="jstree_demo_div"></div>
+                <script src="dist/libs/jquery.js"></script>
+                <script src="dist/jstree.min.js"></script>
+                <script>$(function () { $('#jtree').jstree( <%= request.getAttribute("dataCategorias") %> });</script>
+            
+       
     </body>
 </html>

@@ -4,6 +4,7 @@
     Author     : giovani
 --%>
 
+<%@page import="logica.DataInfoServicio"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,5 +14,9 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        hola
+        <% DataInfoServicio servicios = (DataInfoServicio)
+                request.getAttribute("infoServicio");%>
+                <%=servicios.getNombre()%>
     </body>
 </html>
