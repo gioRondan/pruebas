@@ -55,7 +55,7 @@
                     %>
                     
                     <form action="verinfoservicio">
-                    <%="Tipo: SERVICO"%><input type="submit" value="verInfoServicio" name="Ver mas info" style="color: black" onclick="<%request.setAttribute("nickProveedor",servcio.getProveedor()); request.setAttribute("nomServicio",servcio.getNombre()); request.setAttribute("verInfoServicio","hola");%>" /><br>
+                    <%="Tipo: SERVICO"%><input type="submit" value="verInfoServicio" name="Vermasinfo" style="color: black" onclick="<%request.setAttribute("nickProveedor",servcio.getProveedor()); request.setAttribute("nomServicio",servcio.getNombre()); request.setAttribute("verInfoServicio","hola");%>" /><br>
                     <%="Nombre: "+servcio.getNombre() %><img src="carro.gif" alt="foto3"/><br>
                                     <%="Precio: " +servcio.getPrecio() %><br>
                                     <%="Proveedor: "+servcio.getProveedor()%><br>

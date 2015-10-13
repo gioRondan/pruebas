@@ -93,8 +93,7 @@ public class verInfoPromocion extends HttpServlet {
                   //request.getRequestDispatcher("/index.jsp").forward(request, response);
                 
                 request.getRequestDispatcher("/WEB-INF/listar.jsp").forward(request, response);
-            
-            
+                     
            
     }
 

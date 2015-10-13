@@ -59,3 +59,7 @@ div.horizontal a {
     display: block;
     width: 120px;
 }*/
+.navbar navbar-inverse {
+    background-color: #ffffff;
+        border-color: #ffffff;
+}
