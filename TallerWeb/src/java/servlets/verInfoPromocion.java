@@ -42,57 +42,10 @@ public class verInfoPromocion extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
 
-    static String prueba = " { 'core' : {'data' : [";
-    int i =0;
     
-    public void armarArbol(String padre, List<DataCategoria> dtps) {
-        
-        for (DataCategoria dtcategoria : dtps) {
-           i++;
-           prueba = prueba+"{"+"'id'"+" : "+ "'ajson"+i+"', "+ "'parent' : "+padre+", 'text' : '"+dtcategoria.getNombre()+"'},";
-           armarArbol("'ajson"+i+"'", dtcategoria.getHijos() );
-       }
-    }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
-        Fabrica fab = Fabrica.getInstance();
-            IControladorProveedor ICP = fab.getIControladorProveedor();
-           
-                    CargaInicial x2 = new CargaInicial();
-                    x2.cargar();
-                    
-                    List<DataCategoria> dtps = ICP.listarCategorias();
-                    prueba = " { 'core' : {'data' : [";
-                     i =0;
-                    armarArbol("'#'", dtps);
-                   prueba=prueba+"] } });";
-                    
-                  
-                    request.setAttribute("dataCategorias", prueba);
-                    
-                    List<DataServicio> servicos = new ArrayList<DataServicio>();
-                    List<DataPromocion> promos = new ArrayList<DataPromocion>();
-                    if (request.getParameter("categoria") != null){
-                        String categoria = (String) request.getParameter("categoria");
-                        servicos = ICP.listarServiciosXCategoria(categoria);
-                    }else{
-                       List<DataProveedor> cate = ICP.listarProveedores();
-                       for (DataProveedor una : cate){
-                          servicos.addAll(ICP.listarServiciosXProveedor(una.getNickname()));
-                          promos.addAll(ICP.listarPromocionesXProveedor(una.getNickname()));
-                       }
-                    }
-                    
-                request.setAttribute("dataServicos", servicos);
-                request.setAttribute("dataPromociones", promos);
-                //request.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(request, response);
-                //request.getRequestDispatcher("/index.jsp").forward(request, response);
-      
-                  //request.getRequestDispatcher("/index.jsp").forward(request, response);
-                
-                request.getRequestDispatcher("/WEB-INF/Servicios/listar.jsp").forward(request, response);
+       
                      
            
     }

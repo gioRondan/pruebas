@@ -15,5 +15,5 @@
   
 </html>
 <script>
-    window.location ='verinfopromocion'
+    window.location ="home";
 </script>
