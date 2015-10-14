@@ -16,9 +16,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="/media/styles/estilopestanias.css"/>
-        <script type="text/javascript" src="js/cambiarPestanna.js"></script>
-        <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="./media/styles/estilopestanias.css"/>
+        <script type="text/javascript" src="./js/cambiarPestanna.js"></script>
+        <script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>
         <div id="pageheader">
             <%--<jsp:include page="Template.jsp" /> hacen lo mismo --%> 
            <%@ include file="\WEB-INF\Template\Template.jsp" %>
@@ -30,7 +30,7 @@
         <div class="contenedor" >
             <div class="titulo">Servicos y promociones por Categorias</div>
              <div id="jtree" style="float:left">
-   
+                 Estoy a qui
             </div>
             <div id="seleccionado" style="color: red ">
                     HOla
@@ -90,10 +90,10 @@
     
   
             
-                <link rel="stylesheet" href="dist/themes/default/style.min.css" />
+                <link rel="stylesheet" href="./dist/themes/default/style.min.css" />
                 <div id="jstree_demo_div"></div>
-                <script src="dist/libs/jquery.js"></script>
-                <script src="dist/jstree.min.js"></script>
+                <script src="./dist/libs/jquery.js"></script>
+                <script src="./dist/jstree.min.js"></script>
                 <script>$(function () { $('#jtree')                            // listen for event
                                                 .on('changed.jstree', function (e, data) {
                                                     var i, j, r = [];
