@@ -102,7 +102,7 @@
                                                     }
                                                     $('#seleccionado').html('Selected: ' + r.join(', '));
                                                   })
-                                                .jstree( <%= request.getAttribute("dataCategorias") %> };);
+                                                .jstree( <%= request.getAttribute("dataCategorias") %> });
                 </script>
             
        
