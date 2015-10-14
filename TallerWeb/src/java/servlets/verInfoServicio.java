@@ -43,15 +43,15 @@ public class verInfoServicio extends HttpServlet {
         }
         else if(request.getParameter("verInfoServicio") != null){
             try {
-               // request.getSession().setAttribute("infoServicio", ICP.verInfoServicio(request.getParameter("nickProveedor"), request.getParameter("nomServicio")));
+               request.getSession().setAttribute("infoServicio", ICP.verInfoServicio(request.getParameter("proveedorServico"), request.getParameter("nombreServico")));
             } catch (Exception ex) {
                 Logger.getLogger(ServletProveedor.class.getName()).log(Level.SEVERE, null, ex);
             }
             
         }
         try {
-            String s = request.getParameter("nickProveedor");
-            String s2 = request.getParameter("nomServicio");
+            String s = request.getParameter("proveedorServico");
+            String s2 = request.getParameter("nombreServico");
             request.setAttribute("infoServicio", ICP.verInfoServicio(s,s2) );
         } catch (Exception ex) {
             Logger.getLogger(verInfoServicio.class.getName()).log(Level.SEVERE, null, ex);
