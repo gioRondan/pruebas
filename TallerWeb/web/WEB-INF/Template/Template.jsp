@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="Style.css">
+        <link rel="stylesheet" type="text/css" href="/media/styles/Style.css">
         <title>h4travel</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -69,8 +69,8 @@
                         </form>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a onClick="window.open('/WEB-INF/carro.jsp');"> </span> Carrito</a>
-                        <li><a onClick="window.open('/WEB-INF/inicioSesion.jsp');"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a onClick="window.location = 'vercarrito';"> </span> Carrito</a>
+                        <li><a onClick="window.location = 'vercarrito';"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                        
                         <li style="height: 50px;"><a onClick="window.open('/WEB-INF/inicioSesion.jsp');" style="padding-top:9px; height: 50px"><img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" label="Usuario" float="right" style="width:35px;height:35px;"> Login</a></li>
                     </ul>

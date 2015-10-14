@@ -16,7 +16,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/estilopestanias.css"/>
+        <link rel="stylesheet" type="text/css" href="/media/styles/estilopestanias.css"/>
         <script type="text/javascript" src="js/cambiarPestanna.js"></script>
         <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
         <div id="pageheader">
@@ -102,7 +102,8 @@
                                                     }
                                                     $('#seleccionado').html('Selected: ' + r.join(', '));
                                                   })
-                                                .jstree( <%= request.getAttribute("dataCategorias") %> });</script>
+                                                .jstree( <%= request.getAttribute("dataCategorias") %> };);
+                </script>
             
        
     </body>
