@@ -21,7 +21,7 @@
         <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
         <div id="pageheader">
             <%--<jsp:include page="Template.jsp" /> hacen lo mismo --%> 
-           <%@ include file="/Template.jsp" %>
+           <%@ include file="\WEB-INF\Template\Template.jsp" %>
         </div>
         <title></title>
     </head>

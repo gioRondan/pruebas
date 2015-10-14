@@ -49,7 +49,7 @@
     <body> 
         <div id="pageheader">
             <%--<jsp:include page="Template.jsp" /> hacen lo mismo --%> 
-            <%@ include file="Template.jsp" %>
+            <%@ include file="\WEB-INF\Template\Template.jsp" %>
         </div>
         <div id="regCliente" >
             <%="registrarCliente"%>

@@ -9,27 +9,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Carro de compras</title>
+        <title>Carrito</title>
+        <link rel="stylesheet" type="text/css" href="Style.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     </head>
      <body>
-         <div id="pageheader">
-            <%@ include file="Template.jsp" %>
-             
+        <div id="pageheader">
+            <%@ include file="\WEB-INF\Template\Template.jsp" %>
         </div>
             
-        <div class="centerbox" style="text-align:center">
-            <div class="container">
-                <form class="form-horizontal" role="form">
-                    <div class="form-group">
-                        <div class="col-sm-5">
-                            <h3 class="bg-success">Servicos y promociones:</h3><br>
-                        </div>
-                    </div>
-                   
-                    <a href="verinfopromocion">Iniciar</a>
-                    
-                </form>
-            </div>
-         </div> 
+        
+        
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
      </body>
 </html>

@@ -28,13 +28,14 @@ div.horizontal {
     padding: 0;
     overflow: hidden;
 }
-
+*/
 li {
     float: left;
     alignment-adjust: middle;
     vertical-align: bottom;
+    height: 400px;
 }
-
+/*
 a {
     display: block;
     width: 60px;
