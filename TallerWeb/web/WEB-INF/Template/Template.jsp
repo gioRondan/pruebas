@@ -4,6 +4,7 @@
     Author     : Rodrigo
 --%>
 
+<%@page import="logica.DataInfoCliente"%>
 <%@page import="org.apache.catalina.connector.Request"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -54,14 +55,14 @@
                 <div>
                     <ul class="nav navbar-nav">
                         <li class="active"><a onClick="window.location = 'home';">Home</a></li>
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Servicios / Promociones <span class="caret"></span></a>
+<!--                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Servicios / Promociones <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Servicios</a></li>
                                 <li><a href="#">Promociones</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Proveedores</a></li>  
-                        <li><a href="#">Reservas</a></li>
+                        <li><a href="#">Reservas</a></li>-->
                         <form class="navbar-form navbar-left" role="search">
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Promociones y/o servicios">
@@ -71,8 +72,13 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a onClick="window.location = 'vercarrito';">  Carrito</a></li>                      
-                        <li><a onClick="window.location = 'iniciosesion';"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li style="height: 50px;"><a onClick="window.location = './WEB-INF/inicioSesion.jsp'" style="padding-top:9px; height: 50px"><img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" label="Usuario" float="right" style="width:35px;height:35px;"> Login</a></li>
+                        
+                        <%  if ((request.getSession().getAttribute("Login") == "Logeado")){ %>
+                            <li style="height: 50px;"><a onClick="window.location = 'iniciosesion'" style="padding-top:9px; height: 50px"><img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" label="Usuario" float="right" style="width:35px;height:35px;"> <% DataInfoCliente cliente = (DataInfoCliente) request.getSession().getAttribute("dataCliente");%><%=cliente.getNickname()%></a></li>
+                        <%}else{%>
+                            <li><a onClick="window.location = 'iniciosesion';"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                            
+                        <% } %>
                     </ul>
                 </div>
             </div>

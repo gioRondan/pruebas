@@ -49,6 +49,7 @@ public class registrarCliente extends HttpServlet {
             }
             DataInfoCliente cliente = ICC.iniciarSesion(request.getParameter("nickRegistrar"), request.getParameter("passRegistrar"));
             request.getSession().setAttribute("dataCliente", cliente);
+            request.getSession().setAttribute("Login", "Logeado");
             request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);
         }
 

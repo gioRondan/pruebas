@@ -64,7 +64,7 @@
 
                                 <form action="verinfoservicio">
                                 <%="Tipo: SERVICO"%><input type="submit" value="verInfoServicio" name="Vermasinfo" style="color: black" onclick="<%request.setAttribute("nickProveedor",servcio.getProveedor()); request.setAttribute("nomServicio",servcio.getNombre()); request.setAttribute("verInfoServicio","hola");%>" /><br>
-                                <%="Nombre: "+servcio.getNombre() %><img src="./media/imagenes/carro.gif" alt="foto3"/><br>
+                                <%="Nombre: "+servcio.getNombre() %><%  if ((request.getSession().getAttribute("Login") == "Logeado")){ %> <img src="./media/imagenes/carro.gif" alt="foto3" style="float: right; text-align: center"/> <br><% };%>
                                                 <%="Precio: " +servcio.getPrecio() %><br>
                                                 <%="Proveedor: "+servcio.getProveedor()%><br>
                                                 <%="Descripcion: "+servcio.getDescripcion()%><br>
@@ -79,8 +79,8 @@
                                     for(DataPromocion promocion : promociones){
                                 %>
 
-                                <%="         Tipo: PROMOCION"%><img src="./media/imagenes/carro.gif" alt="foto3" style="float: right; text-align: center"/><br><br>
-                                <a href="verinfopromocion"><%="         Nombre: "+promocion.getNombre() %><br></a>
+                                <%="         Tipo: PROMOCION"%> <%  if ((request.getSession().getAttribute("Login") == "Logeado")){ %><img src="./media/imagenes/carro.gif" alt="foto3" style="float: right; text-align: center"/><br> <% };%><br>
+                                      Nombre:  <a href="verinfopromocion"><%=promocion.getNombre() %><br></a>
                                                 <%="         Precio: " +promocion.getPrecioTotal()  %><br>
                                                 <%="         Descuento: "+promocion.getDescuento()%><br>
                                                 <%="-------------------------------------------------------------"%><br>
