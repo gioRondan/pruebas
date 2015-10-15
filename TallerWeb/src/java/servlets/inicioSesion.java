@@ -43,8 +43,9 @@ public class inicioSesion extends HttpServlet {
            if(cliente != null){
                request.getSession().setAttribute("dataCliente", cliente);
                request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);
+               request.setAttribute("Login", "Logeado");
            }else{
-               request.getRequestDispatcher("/index.jsp").forward(request, response);
+               request.getSession().setAttribute("Login", "Datosincorrectos");
            }
         }else{
         

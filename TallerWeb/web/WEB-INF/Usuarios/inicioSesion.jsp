@@ -117,15 +117,6 @@ t   : inicioSesion
                     </div>
                 </form>
             </div>
-            <!--            <form action="controller1" method="POST">
-                            <img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" style="width:150px;height:150px;">
-                            <h3 class="bg-success">Iniciar sesión:</h3><br>
-                            <input class="center" name="nick" type="text" /><br><br>
-                            <input class="center" name="pass" type="password" /><br><br>                  
-            <%//request.getSession().setAttribute("clave", "inicioSesion");%>
-            <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-log-in"></span> Entrar</button>
-            <input class="center"  type="submit" name="entrar" value="Entrar"/>              
-        </form>-->
         </div><br>    
 
         <div class="container">
