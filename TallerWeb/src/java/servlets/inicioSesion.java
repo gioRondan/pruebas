@@ -42,10 +42,13 @@ public class inicioSesion extends HttpServlet {
            DataInfoCliente cliente = ICC.iniciarSesion(nick, pass);
            if(cliente != null){
                request.getSession().setAttribute("dataCliente", cliente);
-               request.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(request, response);
+               request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);
            }else{
                request.getRequestDispatcher("/index.jsp").forward(request, response);
            }
+        }else{
+        
+          request.getRequestDispatcher("/WEB-INF/Usuarios/inicioSesion.jsp").forward(request, response);  
         }
     }
 
