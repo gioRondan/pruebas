@@ -26,15 +26,17 @@
         <title></title>
     </head>
     <body>
-       <div class="centerbox" style="text-align:center; margin:auto; width:1200px" > 
-        <div class="contenedor" >
-            <div >Servicos y promociones por Categorias</div>
-             <div id="jtree" >
+      
+       <div class="centerbox" style="text-align:left; margin:auto; width:1600px " > 
+        <div class="container" >
+            <div id="jtree" style="float: left; text-align:left">
                  
             </div>
             <div id="seleccionado" style="color: red ">
                     
             </div>
+            <h1 >Servicos y promociones por Categorias</h1>
+             
             <div id="pestanas"  > 
                 <ul id=lista>
                     <li id="pestana1"><a href='javascript:cambiarPestanna(pestanas,pestana1);'>Servicos</a></li>
@@ -42,10 +44,10 @@
                 </ul>
             </div>
             
-            <body onload="javascript:cambiarPestanna(pestanas,pestana1);">
+            <body onload="javascript:cambiarPestanna(pestanas,pestana1);"\>
        
-                <div id="contenidopestanas" >
-                <div id="cpestana1">
+                <div id="contenidopestanas"  style="float: right">
+                    <div id="cpestana1" style="float: right" >
                     
                     <% 
                         List<DataServicio> servicios = (List<DataServicio>)
@@ -55,7 +57,7 @@
                     
                     <form action="verinfoservicio">
                     <%="Tipo: SERVICO"%><input type="submit" value="verInfoServicio" name="Vermasinfo" style="color: black" onclick="<%request.setAttribute("nickProveedor",servcio.getProveedor()); request.setAttribute("nomServicio",servcio.getNombre()); request.setAttribute("verInfoServicio","hola");%>" /><br>
-                    <%="Nombre: "+servcio.getNombre() %><img src="./media/carro.gif" alt="foto3"/><br>
+                    <%="Nombre: "+servcio.getNombre() %><img src="./media/imagenes/carro.gif" alt="foto3"/><br>
                                     <%="Precio: " +servcio.getPrecio() %><br>
                                     <%="Proveedor: "+servcio.getProveedor()%><br>
                                     <%="Descripcion: "+servcio.getDescripcion()%><br>
@@ -70,7 +72,7 @@
                         for(DataPromocion promocion : promociones){
                     %>
                         
-                                    <%="         Tipo: PROMOCION"%><img src="carro.gif" alt="foto3"/><br>
+                    <%="         Tipo: PROMOCION"%><img src="./media/imagenes/carro.gif" alt="foto3" style="float: right; text-align: center"/><br><br>
                                     <lk href=""><%="         Nombre: "+promocion.getNombre() %><br></lk>
                                     <%="         Precio: " +promocion.getPrecioTotal()  %><br>
                                     <%="         Descuento: "+promocion.getDescuento()%><br>
