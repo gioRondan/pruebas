@@ -5,6 +5,12 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="logica.DataCategoria"%>
+<%@page import="logica.DataPromocion"%>
+<%@page import="logica.DataServicio"%>
+<%@page import="logica.DataServicio"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,8 +24,13 @@
 			<h2 style="margin:auto; width:200px"><img src="./media/imagenes/carro.gif" alt="foto"/>  Carrito </h2>			
 			<br/>
                         
+        
+                        
 			
-			<div style="margin:auto; width:1200px">
+			
+                                  
+                                    
+                                  <div style="margin:auto; width:1200px">
 				<table class="table table-striped table-hover carrito">
 					<tr>
 						<td>Nombre</td>
@@ -31,13 +42,27 @@
 					</tr>
 					<tr>
 						<td>Vuelo a madrid</td>
-						<td > <img src="./media/imagenes/carro.gif" alt="foto"/> </td>
+						<td > <img src="./media/imagenes/moody - Euro-Car-1 1.png" alt="foto"/> </td>
 						<td id="precio1"> 200$ </td>
                                                 <td> Un vuelo con mucha diversion a madrid, con todos los gastos pagos</td>
 						<td> Servicio </td>
                                                 <td id="cant1"> 2 </td>
 					</tr>
-			
+                                <% 
+                        List<DataServicio> servicios = (List<DataServicio>)
+                                            request.getAttribute("dataServicos");
+                        if (servicios != null)
+                            for(DataServicio servicio : servicios){
+                        %>                        
+                                        <tr>
+						<td>Vuelo a madrid</td>
+						<td > <img src="./media/imagenes/moody - Euro-Car-1 1.png" alt="foto"/> </td>
+						<td id="precio1"> <% servicio.getPrecio(); %> </td>
+                                                <td> <% servicio.getDescripcion(); %> </td>
+						<td> Servicio </td>
+                                                <td id="cant1"> 2 </td>
+					</tr>
+			<% }; %> 
 					<tr>
 						<td>Total</td>
 						<td id="total">$400</td>
