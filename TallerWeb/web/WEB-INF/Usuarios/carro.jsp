@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="/media/styles/stylo.css">
+        <link rel="stylesheet" type="text/css" href="./media/styles/stylo.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Carrito</title>
          <%@ include file="\WEB-INF\Template\Template.jsp" %>
@@ -24,6 +24,7 @@
 		<div class="hero-unit">
 			<h2 style="margin:auto; width:200px"><img src="./media/imagenes/carro.gif" alt="foto"/>  Carrito </h2>			
 			<br/>
+                        
 			
 			<div style="margin:auto; width:1200px">
 				<table class="table table-striped table-hover carrito">
@@ -52,10 +53,8 @@
 			</div>
 			
 			
-			
-		</div>
-        
-        
+		
+        <button style="margin:calc; width:200px" type="button" class="btn btn-success pull-left">Comprar</button>
         
         
         
