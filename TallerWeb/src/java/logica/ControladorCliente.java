@@ -121,6 +121,11 @@ public class ControladorCliente implements IControladorCliente{
         if ((aux !=null) &&( !aux.verificarPassword(password))){
             aux =null;
         }
-        return aux.getDataInfoCliente();
+        if (aux == null){
+            return null ;
+        }else{
+            return aux.getDataInfoCliente();
+        }
+            
     }
 }

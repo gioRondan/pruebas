@@ -81,7 +81,7 @@
 		
         <button style="margin:calc; width:200px" type="button" class="btn btn-success pull-left">Comprar</button>
         
-        
+       </div> 
         
         
         

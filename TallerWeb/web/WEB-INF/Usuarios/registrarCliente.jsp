@@ -51,34 +51,77 @@
             <%--<jsp:include page="Template.jsp" /> hacen lo mismo --%> 
             <%@ include file="\WEB-INF\Template\Template.jsp" %>
         </div>
-        <div id="regCliente" >
-            <%="registrarCliente"%>
-            <form action="controller1" method="POST">
-                <!--chequear con ajax disponibilidad de nick y email, verificar password, agregarimagen y arreglar fecha-->
-                Nickname: 
-                <input name="nickRegistrar" label="nick" type="text" name="username" id="username" />
-                <br>
-                Email: 
-                <input name="emailCliente" label= "email" type="text"  />
-                <br>
-                Nombre: 
-                <input name="nombreCliente" label= "nombre" type="text"  />
-                <br>
-                Apellido: 
-                <input name="apellidoCliente" label= "apellido" type="text"  />
-                <br>
-                Fecha Nacimiento: 
-                <input type="text" id="datepicker" />
-                <br>
-                Password: 
-                <input name="passRegistrar" label= "password" type="password"  />
-                <br>
-                Verificar Password: 
-                <input name="passVerificar" label= "verificar password" type="password"  />
-                <br>
-                <input type="submit" name="altaCliente" value="Registrar"/>
-            </form>
-        </div>
+        
+        <div class="centerbox" style="text-align:center">
+            <div class="container">
+                <form class="form-horizontal" role="form"  action="registrarcliente"  method="POST">
+                    
+                    
+                    
+                    
+                    <div class="form-group">
+                        <div class="col-sm-5">
+                            <h3 class="bg-success">Registrarse</h3><br>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-1" for="nick">Nickname:</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" label="nick" id="username" name="nickRegistrar" placeholder="Introduzca su nick">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-1" for="nick">Email:</label>
+                        <div class="col-sm-4">
+
+                            <input class="form-control" label= "email" type="text" name="emailCliente" placeholder="Introduzca su nick">
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label class="control-label col-sm-1" for="nick"> Nombre:</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" label= "nombre" type="text"  name="nombreCliente" placeholder="Introduzca su nick">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-1" for="nick"> Apellido: </label>
+                        <div class="col-sm-4">
+                            <input class="form-control" label= "apellido" type="text"  name="apellidoCliente" placeholder="Introduzca su nick">
+                        </div>
+                    </div>
+                <div class="form-group">
+                        <label class="control-label col-sm-1" for="nick"> Fecha Nacimiento: </label>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" id="datepicker"  placeholder="Introduzca su nick">
+                        </div>
+                    </div>
+                <div class="form-group">
+                        <label class="control-label col-sm-1" for="nick"> Password: </label>
+                        <div class="col-sm-4">
+                            <input class="form-control" label= "password" type="password"  name="passRegistrar" placeholder="Introduzca su nick">
+                        </div>
+                    </div>
+                <div class="form-group">
+                        <label class="control-label col-sm-1" for="nick"> Verificar Password: </label>
+                        <div class="col-sm-4">
+                            <input class="form-control" label= "verificar password" type="password"  name="passVerificar" placeholder="Introduzca su nick">
+                        </div>
+                    </div>
+                    <div class="form-group container">        
+                        <div class="col-sm-5 jumbotron" >
+                            <button type="submit" name="altaCliente" class="btn btn-success"><span class="glyphicon glyphicon-log-in"></span> Registrar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+        </div><br>    
+
+      
+        
+        
+        
+        
     </body>
 
 </html>

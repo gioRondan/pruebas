@@ -55,8 +55,8 @@ public class Home extends HttpServlet {
             throws ServletException, IOException {
         
         
-        Fabrica fab = Fabrica.getInstance();
-            IControladorProveedor ICP = fab.getIControladorProveedor();
+                    Fabrica fab = Fabrica.getInstance();
+                    IControladorProveedor ICP = fab.getIControladorProveedor();
            
                     CargaInicial x2 = new CargaInicial();
                     x2.cargar();
@@ -82,13 +82,13 @@ public class Home extends HttpServlet {
                           promos.addAll(ICP.listarPromocionesXProveedor(una.getNickname()));
                        }
                     }
-                    
+                
                 request.setAttribute("dataServicos", servicos);
                 request.setAttribute("dataPromociones", promos);
                 //request.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(request, response);
                 //request.getRequestDispatcher("/index.jsp").forward(request, response);
       
-                  //request.getRequestDispatcher("/index.jsp").forward(request, response);
+                //request.getRequestDispatcher("/index.jsp").forward(request, response);
                 
                 request.getRequestDispatcher("/WEB-INF/Servicios/listar.jsp").forward(request, response);
     }
