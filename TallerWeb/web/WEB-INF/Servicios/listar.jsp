@@ -30,10 +30,10 @@
         <div class="contenedor" >
             <div class="titulo">Servicos y promociones por Categorias</div>
              <div id="jtree" style="float:left">
-                 Estoy a qui
+                 
             </div>
             <div id="seleccionado" style="color: red ">
-                    HOla
+                    
             </div>
             <div id="pestanas"style="float:right" > 
                 <ul id=lista>
@@ -102,7 +102,7 @@
                                                     }
                                                     $('#seleccionado').html('Selected: ' + r.join(', '));
                                                   })
-                                                .jstree( <%= request.getAttribute("dataCategorias") %> };);
+                                                .jstree( <%= request.getAttribute("dataCategorias") %> });
                 </script>
             
        

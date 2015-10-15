@@ -4,6 +4,7 @@
     Author     : Rodrigo
 --%>
 
+<%@page import="org.apache.catalina.connector.Request"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -69,10 +70,11 @@
                         </form>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a onClick="window.location = 'vercarrito';"> </span> Carrito</a>
-                        <li><a onClick="window.location = 'vercarrito';"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a onClick="window.location = 'vercarrito';">  Carrito</a></li>
+                        
+                        <li><a onClick=" window.location = 'iniciosesion';"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                        
-                        <li style="height: 50px;"><a onClick="window.open('/WEB-INF/inicioSesion.jsp');" style="padding-top:9px; height: 50px"><img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" label="Usuario" float="right" style="width:35px;height:35px;"> Login</a></li>
+                        <li style="height: 50px;"><a onClick="window.location = './WEB-INF/inicioSesion.jsp'" style="padding-top:9px; height: 50px"><img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" label="Usuario" float="right" style="width:35px;height:35px;"> Login</a></li>
                     </ul>
                 </div>
             </div>

@@ -14,13 +14,6 @@
          <%@ include file="\WEB-INF\Template\Template.jsp" %>
     </head>
     <body>
-        
-       
-        
-        
-        
-       
-	
 		<div class="hero-unit">
 			<h2 style="margin:auto; width:200px"><img src="./media/imagenes/carro.gif" alt="foto"/>  Carrito </h2>			
 			<br/>
