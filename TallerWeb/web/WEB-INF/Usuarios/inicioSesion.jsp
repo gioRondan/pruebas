@@ -36,6 +36,7 @@ t   : inicioSesion
                 })
 
             })
+            
         </script>
         <style>
             body{
@@ -52,7 +53,8 @@ t   : inicioSesion
         <div class="container">
             <div class="alert alert-success">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>Success!</strong> This alert box could indicate a successful or positive action.
+                <strong id="estado" ><%= request.getSession().getAttribute("Login") %></strong> 
+                
             </div>
         </div><br>
         <div class="centerbox" style="text-align:center">

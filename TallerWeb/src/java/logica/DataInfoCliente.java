@@ -43,6 +43,7 @@ public class DataInfoCliente {
         this.fechaNac   = fechaNac;
         this.imagen     = imagen;
         this.password = password;
+        this.reservas = reservas;
     }         
 
     //Getters

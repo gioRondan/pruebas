@@ -34,22 +34,29 @@ public class inicioSesion extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         Fabrica fab = Fabrica.getInstance();
         IControladorCliente ICC = fab.getIControladorCliente();
-        if(request.getParameter("entrar") != null){
-           String nick = (String) request.getParameter("nick");
-           String pass = (String) request.getParameter("pass");
-           DataInfoCliente cliente = ICC.iniciarSesion(nick, pass);
-           if(cliente != null){
-               request.getSession().setAttribute("dataCliente", cliente);
-               request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);
-               request.setAttribute("Login", "Logeado");
-           }else{
-               request.getSession().setAttribute("Login", "Datosincorrectos");
-           }
-        }else{
-        
-          request.getRequestDispatcher("/WEB-INF/Usuarios/inicioSesion.jsp").forward(request, response);  
+        if ((request.getParameter("Login") != null) && (request.getParameter("Login").toString().equals("Logeado")) ){
+             request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);
+        }
+        else{
+            if(request.getParameter("entrar") != null){
+               String nick = (String) request.getParameter("nick");
+               String pass = (String) request.getParameter("pass");
+               DataInfoCliente cliente = ICC.iniciarSesion(nick, pass);
+               if(cliente != null){
+                   request.getSession().setAttribute("dataCliente", cliente);
+                   request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);
+                   request.getSession().setAttribute("Login", "Logeado");
+               }else{
+                   request.getSession().setAttribute("Login", "Datosincorrectos");
+                   request.getRequestDispatcher("/WEB-INF/Usuarios/inicioSesion.jsp").forward(request, response); 
+               }
+            }else{
+
+              request.getRequestDispatcher("/WEB-INF/Usuarios/inicioSesion.jsp").forward(request, response);  
+            }
         }
     }
 

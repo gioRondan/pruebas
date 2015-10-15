@@ -17,17 +17,17 @@
     </head>
     <body>        
         <div id="infoReserva" >
-            <%="infoReserva"%>
+            <hi>infoReserva</hi>
             <%
-               // DataInfoReserva reserva = (DataInfoReserva) request.getSession().getAttribute("dataInfoReserva");
+                DataInfoReserva reserva = (DataInfoReserva) request.getAttribute("dataInfoReserva");
 
             %>
             <br>
-            id= <%//= reserva.getId()%>
+            id= <%= reserva.getId()%>
             <br>
-            precio= <%//= reserva.getPrecio()%>
+            precio= <%= reserva.getPrecio()%>
             <br>
-            estado= <%//= reserva.getEstado()%>
+            estado= <%= reserva.getEstado()%>
             <br>
             falta servicios y promociones
             

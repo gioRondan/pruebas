@@ -12,6 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import logica.Fabrica;
+import logica.IControladorCliente;
 
 /**
  *
@@ -33,7 +35,11 @@ public class verInfoReserva extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         if(request.getParameter("verInfoReserva")!= null){
-            request.getRequestDispatcher("/WEB-INF/verInfoReserva.jsp").forward(request, response);
+             Fabrica fab = Fabrica.getInstance();
+        IControladorCliente ICC = fab.getIControladorCliente();
+        
+            request.setAttribute("dataInfoReserva",ICC.verInfoReserva(request.getParameter("nickCliente") , Integer.parseInt(request.getParameter("verInfoReserva"))) );
+            request.getRequestDispatcher("./WEB-INF/Servicios/verInfoReserva.jsp").forward(request, response);
         }
         
     }

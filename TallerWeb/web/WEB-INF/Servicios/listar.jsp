@@ -27,7 +27,7 @@
     </head>
     <body>
       
-       <div class="centerbox" style="text-align:left; margin:auto; width:1600px " > 
+       <div class="centerbox" style="text-align:left; margin:auto; width:85% " > 
         <div class="container" >
             <table>
                 <tr>
@@ -40,7 +40,7 @@
                             <div id="plugins"></div>
                         </div>
                         <div id="seleccionado" style="color: red ">
-                                HOLAS
+                    
                         </div>
                     </td>   
                     <td>
@@ -80,7 +80,7 @@
                                 %>
 
                                 <%="         Tipo: PROMOCION"%><img src="./media/imagenes/carro.gif" alt="foto3" style="float: right; text-align: center"/><br><br>
-                                                <lk href=""><%="         Nombre: "+promocion.getNombre() %><br></lk>
+                                <a href="verinfopromocion"><%="         Nombre: "+promocion.getNombre() %><br></a>
                                                 <%="         Precio: " +promocion.getPrecioTotal()  %><br>
                                                 <%="         Descuento: "+promocion.getDescuento()%><br>
                                                 <%="-------------------------------------------------------------"%><br>
