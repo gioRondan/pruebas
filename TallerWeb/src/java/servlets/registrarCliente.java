@@ -39,7 +39,7 @@ public class registrarCliente extends HttpServlet {
         Fabrica fab = Fabrica.getInstance();
         IControladorCliente ICC = fab.getIControladorCliente();
         if (request.getParameter("registrar") != null) {
-            request.getRequestDispatcher("/WEB-INF/registrarCliente.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/Usuarios/registrarCliente.jsp").forward(request, response);
         } else if (request.getParameter("altaCliente") != null) {
             try {
                 ICC.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), null, "imagen", request.getParameter("passRegistrar"));
@@ -49,7 +49,7 @@ public class registrarCliente extends HttpServlet {
             }
             DataInfoCliente cliente = ICC.iniciarSesion(request.getParameter("nickRegistrar"), request.getParameter("passRegistrar"));
             request.getSession().setAttribute("dataCliente", cliente);
-            request.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);
         }
 
     }

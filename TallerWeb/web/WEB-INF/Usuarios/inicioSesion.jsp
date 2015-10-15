@@ -90,7 +90,7 @@ t   : inicioSesion
         </div><br>
         <div class="centerbox" style="text-align:center">
             <div class="container">
-                <form class="form-horizontal" role="form">
+                <form class="form-horizontal" role="form" >
                     <div class="form-group">
                         <div class="col-sm-5">
                             <img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" style="width:150px;height:150px;">
@@ -130,8 +130,7 @@ t   : inicioSesion
 
         <div class="container">
             <div class="jumbotron" style="text-align:center">
-                <form action="controller1"  method="POST">
-                    <%//request.getSession().setAttribute("clave", "registrarCliente");%>
+                <form action="registrarcliente"  method="POST">
                     <input  type="submit" name="registrar" value="Registrarse"/>
                 </form>    
                 <form action="controller2"  method="POST">
