@@ -4,6 +4,8 @@
     Author     : Mati
 --%>
 
+<%@page import="logica.Fabrica"%>
+<%@page import="logica.IControladorProveedor"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="logica.DataCategoria"%>
 <%@page import="logica.DataPromocion"%>
@@ -20,7 +22,7 @@
          <%@ include file="\WEB-INF\Template\Template.jsp" %>
     </head>
     <body>
-		<div class="hero-unit">
+		
 			<h2 style="margin:auto; width:200px"><img src="./media/imagenes/carro.gif" alt="foto"/>  Carrito </h2>			
 			<br/>
                         
@@ -49,23 +51,28 @@
                                                 <td id="cant1"> 2 </td>
 					</tr>
                                 <% 
-                        List<DataServicio> servicios = (List<DataServicio>)
-                                            request.getAttribute("dataServicos");
+                        List<DataServicio> servicios1 = (List<DataServicio>) request.getAttribute("dataServicos");
+                        Fabrica fab = Fabrica.getInstance();
+                        IControladorProveedor ICP = fab.getIControladorProveedor();
+                        List<DataServicio> servicios = ICP.listarServiciosXCategoria("Playa");
+                        float p = 0;
+                        float auxp;
+                        float auxc;
                         if (servicios != null)
                             for(DataServicio servicio : servicios){
                         %>                        
                                         <tr>
-						<td>Vuelo a madrid</td>
-						<td > <img src="./media/imagenes/moody - Euro-Car-1 1.png" alt="foto"/> </td>
-						<td id="precio1"> <% servicio.getPrecio(); %> </td>
-                                                <td> <% servicio.getDescripcion(); %> </td>
+						<td> <%= servicio.getNombre() %> </td>
+						<td > <img src="<%=servicio.getImagen()%>" alt="foto"/> </td>
+                                                <td>  <%=servicio.getPrecio() %>$ </td> 
+                                                <td> <%=servicio.getDescripcion() %> </td>
 						<td> Servicio </td>
-                                                <td id="cant1"> 2 </td>
+                                                <td id="cant1"> 2 </td>         <% p += servicio.getPrecio() * 2; // hay q agregar el cant%> 
 					</tr>
 			<% }; %> 
 					<tr>
 						<td>Total</td>
-						<td id="total">$400</td>
+						<td id="total"><%= Float.toString(p)%></td>
 					</tr>
 				</table>
 			</div>
