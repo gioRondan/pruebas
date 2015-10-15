@@ -22,7 +22,7 @@
        
 	
 		<div class="hero-unit">
-			<h2>Carrito</h2>			
+			<h2 style="margin:auto; width:200px"><img src="./media/imagenes/carro.gif" alt="foto"/>  Carrito </h2>			
 			<br/>
 			
 			<div style="margin:auto; width:1200px">
@@ -38,10 +38,10 @@
 					<tr>
 						<td>Vuelo a madrid</td>
 						<td > <img src="./media/imagenes/carro.gif" alt="foto"/> </td>
-						<td> 200$ </td>
+						<td id="precio1"> 200$ </td>
                                                 <td> Un vuelo con mucha diversion a madrid, con todos los gastos pagos</td>
 						<td> Servicio </td>
-                                                <td> 2 </td>
+                                                <td id="cant1"> 2 </td>
 					</tr>
 			
 					<tr>
