@@ -37,7 +37,7 @@ public class inicioSesion extends HttpServlet {
         
         Fabrica fab = Fabrica.getInstance();
         IControladorCliente ICC = fab.getIControladorCliente();
-        if ((request.getParameter("Login") != null) && (request.getParameter("Login").toString().equals("Logeado")) ){
+        if ((request.getSession().getAttribute("Login") == "Logeado")){
              request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);
         }
         else{

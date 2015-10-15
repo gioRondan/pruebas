@@ -85,6 +85,7 @@ public class Home extends HttpServlet {
                 if  (request.getSession().getAttribute("Login") == null){
                      request.getSession().setAttribute("Login", "NoLogeado");
                 }
+                
                 request.setAttribute("dataServicos", servicos);
                 request.setAttribute("dataPromociones", promos);
                 //request.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(request, response);

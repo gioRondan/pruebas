@@ -25,4 +25,5 @@ public interface IControladorCliente {
     public void realizarReserva(String proveedor,String cliente,Map<String,Integer> servicio, Map<String,Integer> promocion,Map<String,DataExpira> fechas,Map<String,DataExpira> fechaspromos,Date fecha_creacion )throws Exception;
 //###################################   Operaciones Tarea2      #########################################################################
     public DataInfoCliente iniciarSesion(String nickCliente, String password);
+    public Date toDate(String fecha);
 }

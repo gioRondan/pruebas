@@ -36,13 +36,13 @@ public class registrarCliente extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Fabrica fab = Fabrica.getInstance();
+         Fabrica fab = Fabrica.getInstance();
         IControladorCliente ICC = fab.getIControladorCliente();
         if (request.getParameter("registrar") != null) {
             request.getRequestDispatcher("/WEB-INF/Usuarios/registrarCliente.jsp").forward(request, response);
         } else if (request.getParameter("altaCliente") != null) {
             try {
-                ICC.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), null, "imagen", request.getParameter("passRegistrar"));
+                ICC.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), ICC.toDate(request.getParameter("fechaCliente")), "imagen", request.getParameter("passRegistrar"));
             } catch (Exception ex) {
                 Logger.getLogger(Servlet1.class.getName()).log(Level.SEVERE, null, ex);
 

@@ -5,6 +5,8 @@
  */
 package logica;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -127,5 +129,15 @@ public class ControladorCliente implements IControladorCliente{
             return aux.getDataInfoCliente();
         }
             
+    }
+     public Date toDate(String fecha) {
+        SimpleDateFormat formatoDelTexto = new SimpleDateFormat("dd/MM/yyyy");
+        Date date =new Date();
+        try {
+            date = formatoDelTexto.parse(fecha);
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+        return date;
     }
 }

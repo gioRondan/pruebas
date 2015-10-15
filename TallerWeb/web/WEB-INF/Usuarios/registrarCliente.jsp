@@ -71,28 +71,28 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-1" for="nick">Email:</label>
+                        <label class="control-label col-sm-1" for="email">Email:</label>
                         <div class="col-sm-4">
 
                             <input class="form-control" label= "email" type="text" name="emailCliente" placeholder="Introduzca su nick">
                         </div>
                     </div>
                      <div class="form-group">
-                        <label class="control-label col-sm-1" for="nick"> Nombre:</label>
+                        <label class="control-label col-sm-1" for="nombre"> Nombre:</label>
                         <div class="col-sm-4">
                             <input class="form-control" label= "nombre" type="text"  name="nombreCliente" placeholder="Introduzca su nick">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-1" for="nick"> Apellido: </label>
+                        <label class="control-label col-sm-1" for="apellido"> Apellido: </label>
                         <div class="col-sm-4">
                             <input class="form-control" label= "apellido" type="text"  name="apellidoCliente" placeholder="Introduzca su nick">
                         </div>
                     </div>
                 <div class="form-group">
-                        <label class="control-label col-sm-1" for="nick"> Fecha Nacimiento: </label>
+                        <label class="control-label col-sm-1" for="Fecha"> Fecha Nacimiento: </label>
                         <div class="col-sm-4">
-                            <input class="form-control" type="text" id="datepicker"  placeholder="Introduzca su nick">
+                            <input class="form-control" type="text" id="datepicker"  name="fechaCliente" placeholder="Introduzca su nick">
                         </div>
                     </div>
                 <div class="form-group">
@@ -109,7 +109,7 @@
                     </div>
                     <div class="form-group container">        
                         <div class="col-sm-5 jumbotron" >
-                            <button type="submit" name="altaCliente" class="btn btn-success"><span class="glyphicon glyphicon-log-in"></span> Registrar</button>
+                            <button type="submit" name="altaCliente" value="altaCliente" class="btn btn-success"><span class="glyphicon glyphicon-log-in"></span> Registrar</button>
                         </div>
                     </div>
                 </form>

@@ -35,6 +35,7 @@ public class cierreSesion extends HttpServlet {
             request.getSession().setAttribute("nick", "");
             request.getSession().setAttribute("pass", "");
             // vaciar carrito
+            request.getSession().setAttribute("Login", "NoLogeado");
             request.getRequestDispatcher("/index.jsp").forward(request, response);
         }
     }

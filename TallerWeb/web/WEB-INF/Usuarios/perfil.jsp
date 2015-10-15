@@ -42,7 +42,9 @@
                         <br>
                         apellido= <%= cliente.getApellido()%>
                         <br>
+                        <% if (cliente.getFechaNac() !=null){%>
                         fecha de nacimiento = <%= formatoFecha.format(cliente.getFechaNac()) %>
+                        <%}%>
                         <br>
                     </td>
                     <td>

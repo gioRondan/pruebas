@@ -50,15 +50,15 @@ t   : inicioSesion
            <%@ include file="\WEB-INF\Template\Template.jsp" %>
         </div>
       
-        <div class="container">
+        <div class="container" >
             <div class="alert alert-success">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <strong id="estado" ><%= request.getSession().getAttribute("Login") %></strong> 
                 
             </div>
         </div><br>
-        <div class="centerbox" style="text-align:center">
-            <div class="container">
+        <div class="centerbox" >
+            <div class="container" >
                 <form class="form-horizontal" role="form" >
                     <div class="form-group">
                         <div class="col-sm-5">
@@ -85,19 +85,13 @@ t   : inicioSesion
                         </div>
                     </div>
                 </form>
+                <form action="registrarcliente"  method="POST">
+                    <input  type="submit" name="registrar" value="Registrarse"/>
+                </form>  
             </div>
         </div><br>    
 
-        <div class="container">
-            <div class="jumbotron" style="text-align:center">
-                <form action="registrarcliente"  method="POST">
-                    <input  type="submit" name="registrar" value="Registrarse"/>
-                </form>    
-                <form action="controller2"  method="POST">
-                    <input  type="submit" name="infoProveedor" value="infoProveedor"/>                 
-                </form>
-            </div>    
-        </div>
+       
 
     </body>
 </html>
