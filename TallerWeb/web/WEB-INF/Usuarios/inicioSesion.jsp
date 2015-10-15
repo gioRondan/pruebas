@@ -10,7 +10,7 @@ t   : inicioSesion
 <!DOCTYPE html>
 <html>
     
-    <link rel="stylesheet" type="text/css" href="./media/styles/Style.css">
+        <link rel="stylesheet" type="text/css" href="./media/styles/Style.css">
         <title>h4travel</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -48,40 +48,7 @@ t   : inicioSesion
             <%--<jsp:include page="Template.jsp" /> hacen lo mismo --%> 
            <%@ include file="\WEB-INF\Template\Template.jsp" %>
         </div>
-        <!--        <nav class="navbar navbar-inverse">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="#">Help4Travelling.com</a>
-                        </div>
-                        <div>
-                            <ul class="nav navbar-nav">
-                                <li class="active"><a href="#">Home</a></li>
-                                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Servicios / Promociones <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Servicios</a></li>
-                                        <li><a href="#">Promociones</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Proveedores</a></li>  
-                                <li><a href="#">Reservas</a></li>
-                            </ul>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                                <li style="height: 50px;"><a href="#" style="padding-top:9px; height: 50px"><img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" label="Usuario" float="right" style="width:35px;height:35px;"> Login</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>-->
-        <!--        <div class="horizontal">
-                    <ul>
-                        <li><a href="#home">Home <span class="badge">5</span></a></li>
-                        <li><a href="#news">Servicios</a></li>
-                        <li><a href="#contact">Promociones</a></li>
-                        <li><a href="#about">Proveedores</a></li>
-                        <li><a href="#about">Reservas</a></li>
-                        <li id="image"><img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" label="Usuario" float="right" style="width:35px;height:35px;"></li>
-                    </ul>
-                </div><br>-->
+      
         <div class="container">
             <div class="alert alert-success">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
