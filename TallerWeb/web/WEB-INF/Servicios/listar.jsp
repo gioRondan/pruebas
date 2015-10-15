@@ -56,7 +56,7 @@
                     
                     <form action="verinfoservicio">
                     <%="Tipo: SERVICO"%><input type="submit" value="verInfoServicio" name="Vermasinfo" style="color: black" onclick="<%request.setAttribute("nickProveedor",servcio.getProveedor()); request.setAttribute("nomServicio",servcio.getNombre()); request.setAttribute("verInfoServicio","hola");%>" /><br>
-                    <%="Nombre: "+servcio.getNombre() %><img src="carro.gif" alt="foto3"/><br>
+                    <%="Nombre: "+servcio.getNombre() %><img src="./media/carro.gif" alt="foto3"/><br>
                                     <%="Precio: " +servcio.getPrecio() %><br>
                                     <%="Proveedor: "+servcio.getProveedor()%><br>
                                     <%="Descripcion: "+servcio.getDescripcion()%><br>
@@ -81,7 +81,6 @@
                 </div>
                <div id="cpestana3">
                     <%= request.getAttribute("dataCategorias") %>
-               
                 </div>
             </div>
        </div>
@@ -94,17 +93,16 @@
                 <div id="jstree_demo_div"></div>
                 <script src="./dist/libs/jquery.js"></script>
                 <script src="./dist/jstree.min.js"></script>
-                <script>$(function () { $('#jtree')                            // listen for event
-                                                .on('changed.jstree', function (e, data) {
-                                                    var i, j, r = [];
-                                                    for(i = 0, j = data.selected.length; i < j; i++) {
-                                                      r.push(data.instance.get_node(data.selected[i]).text);
-                                                    }
-                                                    $('#seleccionado').html('Selected: ' + r.join(', '));
-                                                  })
-                                                .jstree( <%= request.getAttribute("dataCategorias") %> });
+                <script>
+                    $(function () { $('#jtree')                            // listen for event
+                        .on('changed.jstree', function (e, data) {
+                            var i, j, r = [];
+                            for(i = 0, j = data.selected.length; i < j; i++) {
+                              r.push(data.instance.get_node(data.selected[i]).text);
+                            }
+                            $('#seleccionado').html('Selected: ' + r.join(', '));
+                          })
+                        .jstree( <%= request.getAttribute("dataCategorias") %> });
                 </script>
-            
-       
     </body>
 </html>
