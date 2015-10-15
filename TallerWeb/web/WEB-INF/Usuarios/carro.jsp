@@ -26,7 +26,7 @@
 			<br/>
 			
 			<div style="margin:auto; width:1200px">
-				<table class="table table-striped carrito">
+				<table class="table table-striped table-hover carrito">
 					<tr>
 						<td>Nombre</td>
 						<td>Imagen</td>
@@ -37,7 +37,7 @@
 					</tr>
 					<tr>
 						<td>Vuelo a madrid</td>
-						<td > Imagen </td>
+						<td > <img src="./media/imagenes/carro.gif" alt="foto"/> </td>
 						<td> 200$ </td>
                                                 <td> Un vuelo con mucha diversion a madrid, con todos los gastos pagos</td>
 						<td> Servicio </td>
