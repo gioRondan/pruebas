@@ -29,58 +29,68 @@
       
        <div class="centerbox" style="text-align:left; margin:auto; width:1600px " > 
         <div class="container" >
-            <div id="jtree" style="float: left; text-align:left">
-                 
-            </div>
-            <div id="seleccionado" style="color: red ">
+            <table>
+                <tr>
+                    <td><h1>Categorias</h1></td>
+                    <td><h1 style="text-align: center">Servicos y promociones</h1></td>
+                </tr>
+                <tr>
+                    <td VALIGN="TOP">
+                        <div id="jtree">
+                            <div id="plugins"></div>
+                        </div>
+                        <div id="seleccionado" style="color: red ">
                     
-            </div>
-            <h1 >Servicos y promociones por Categorias</h1>
-             
-            <div id="pestanas"  > 
-                <ul id=lista>
-                    <li id="pestana1"><a href='javascript:cambiarPestanna(pestanas,pestana1);'>Servicos</a></li>
-                    <li id="pestana2"><a href='javascript:cambiarPestanna(pestanas,pestana2);'>Promociones</a></li>
-                </ul>
-            </div>
-            
-            <body onload="javascript:cambiarPestanna(pestanas,pestana1);"\>
-       
-                <div id="contenidopestanas"  style="float: right">
-                    <div id="cpestana1" style="float: right" >
-                    
-                    <% 
-                        List<DataServicio> servicios = (List<DataServicio>)
-                                            request.getAttribute("dataServicos");
-                        for(DataServicio servcio : servicios){
-                    %>
-                    
-                    <form action="verinfoservicio">
-                    <%="Tipo: SERVICO"%><input type="submit" value="verInfoServicio" name="Vermasinfo" style="color: black" onclick="<%request.setAttribute("nickProveedor",servcio.getProveedor()); request.setAttribute("nomServicio",servcio.getNombre()); request.setAttribute("verInfoServicio","hola");%>" /><br>
-                    <%="Nombre: "+servcio.getNombre() %><img src="./media/imagenes/carro.gif" alt="foto3"/><br>
-                                    <%="Precio: " +servcio.getPrecio() %><br>
-                                    <%="Proveedor: "+servcio.getProveedor()%><br>
-                                    <%="Descripcion: "+servcio.getDescripcion()%><br>
-                                    <%="---------------------------------------------------------"%><br>
-                    </form>  		
-                    <% } %>
-                </div>
-                <div id="cpestana2">
-                    <% 
-                        List<DataPromocion> promociones = (List<DataPromocion>)
-                                        request.getAttribute("dataPromociones");
-                        for(DataPromocion promocion : promociones){
-                    %>
-                        
-                    <%="         Tipo: PROMOCION"%><img src="./media/imagenes/carro.gif" alt="foto3" style="float: right; text-align: center"/><br><br>
-                                    <lk href=""><%="         Nombre: "+promocion.getNombre() %><br></lk>
-                                    <%="         Precio: " +promocion.getPrecioTotal()  %><br>
-                                    <%="         Descuento: "+promocion.getDescuento()%><br>
-                                    <%="-------------------------------------------------------------"%><br>
-                        
-                    <% } %>
-                </div>
-            </div>
+                        </div>
+                    </td>   
+                    <td>
+                        <div id="pestanas"  > 
+                            <ul id=lista>
+                                <li id="pestana1"><a href='javascript:cambiarPestanna(pestanas,pestana1);'>Servicos</a></li>
+                                <li id="pestana2"><a href='javascript:cambiarPestanna(pestanas,pestana2);'>Promociones</a></li>
+                            </ul>
+                        </div>
+
+                        <body onload="javascript:cambiarPestanna(pestanas,pestana1);"\>
+
+                            <div id="contenidopestanas" >
+                                <div id="cpestana1" >
+
+                                <% 
+                                    List<DataServicio> servicios = (List<DataServicio>)
+                                                        request.getAttribute("dataServicos");
+                                    for(DataServicio servcio : servicios){
+                                %>
+
+                                <form action="verinfoservicio">
+                                <%="Tipo: SERVICO"%><input type="submit" value="verInfoServicio" name="Vermasinfo" style="color: black" onclick="<%request.setAttribute("nickProveedor",servcio.getProveedor()); request.setAttribute("nomServicio",servcio.getNombre()); request.setAttribute("verInfoServicio","hola");%>" /><br>
+                                <%="Nombre: "+servcio.getNombre() %><img src="./media/imagenes/carro.gif" alt="foto3"/><br>
+                                                <%="Precio: " +servcio.getPrecio() %><br>
+                                                <%="Proveedor: "+servcio.getProveedor()%><br>
+                                                <%="Descripcion: "+servcio.getDescripcion()%><br>
+                                                <%="---------------------------------------------------------"%><br>
+                                </form>  		
+                                <% } %>
+                            </div>
+                            <div id="cpestana2">
+                                <% 
+                                    List<DataPromocion> promociones = (List<DataPromocion>)
+                                                    request.getAttribute("dataPromociones");
+                                    for(DataPromocion promocion : promociones){
+                                %>
+
+                                <%="         Tipo: PROMOCION"%><img src="./media/imagenes/carro.gif" alt="foto3" style="float: right; text-align: center"/><br><br>
+                                                <lk href=""><%="         Nombre: "+promocion.getNombre() %><br></lk>
+                                                <%="         Precio: " +promocion.getPrecioTotal()  %><br>
+                                                <%="         Descuento: "+promocion.getDescuento()%><br>
+                                                <%="-------------------------------------------------------------"%><br>
+
+                                <% } %>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
        </div>
      </div>              
     <link rel="stylesheet" href="./dist/themes/default/style.min.css" />
@@ -96,7 +106,20 @@
                 }
                 $('#seleccionado').html('Selected: ' + r.join(', '));
               })
-            .jstree( <%= request.getAttribute("dataCategorias") %> });
+            .jstree( <%= request.getAttribute("dataCategorias")  %>
+        
+        
+        
+            });
+             (function () {
+         $("#plugins").jstree({
+             "checkbox" : {
+                "keep_selected_style" : false
+             },
+            "plugins" : [ "checkbox" ]
+         });
+});
+        
     </script>
     </body>
 </html>
