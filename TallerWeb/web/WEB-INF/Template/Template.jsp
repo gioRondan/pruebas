@@ -53,7 +53,7 @@
                 </div>
                 <div>
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
+                        <li class="active"><a onClick="window.location = 'home';">Home</a></li>
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Servicios / Promociones <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Servicios</a></li>
