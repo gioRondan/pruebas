@@ -40,7 +40,7 @@
                             <div id="plugins"></div>
                         </div>
                         <div id="seleccionado" style="color: red ">
-                    
+                                HOLAS
                         </div>
                     </td>   
                     <td>
