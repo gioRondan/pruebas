@@ -26,7 +26,7 @@
     <body>        
         <div class="centerbox" style="text-align:left; margin:auto; width:85% " > 
             <div class="container" >
-                <hi>Informacion General de la Reserva </hi>
+                <h1>Informacion General de la Reserva </h1>
                 <%
                     DataInfoReserva reserva = (DataInfoReserva) request.getAttribute("dataInfoReserva");
 

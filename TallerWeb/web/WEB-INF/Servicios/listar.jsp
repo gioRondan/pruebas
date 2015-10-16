@@ -40,7 +40,10 @@
                             <div id="plugins"></div>
                         </div>
                         <div id="seleccionado" style="color: red ">
-                    
+                            <form action="home">
+                                
+                                <input id="filtro" type="submit" value="Filtar por :" name="categoria" /><br>
+                            </form> 
                         </div>
                     </td>   
                     <td>
@@ -63,12 +66,12 @@
                                 %>
 
                                 <form action="verinfoservicio">
-                                <%="Tipo: SERVICO"%><input type="submit" value="verInfoServicio" name="Vermasinfo" style="color: black" onclick="<%request.setAttribute("nickProveedor",servcio.getProveedor()); request.setAttribute("nomServicio",servcio.getNombre()); request.setAttribute("verInfoServicio","hola");%>" /><br>
-                                <%="Nombre: "+servcio.getNombre() %><%  if ((request.getSession().getAttribute("Login") == "Logeado")){ %> <img src="./media/imagenes/carro.gif" alt="foto3" style="float: right; text-align: center"/> <br><% };%>
-                                                <%="Precio: " +servcio.getPrecio() %><br>
-                                                <%="Proveedor: "+servcio.getProveedor()%><br>
-                                                <%="Descripcion: "+servcio.getDescripcion()%><br>
-                                                <%="---------------------------------------------------------"%><br>
+                                    <%="Tipo: SERVICO"%><input type="submit" value="verInfoServicio" name="Vermasinfo" style="color: black" onclick="<%request.setAttribute("nickProveedor",servcio.getProveedor()); request.setAttribute("nomServicio",servcio.getNombre()); request.setAttribute("verInfoServicio","hola");%>" /><br>
+                                    <%="Nombre: "+servcio.getNombre() %><%  if ((request.getSession().getAttribute("Login") == "Logeado")){ %> <img src="./media/imagenes/carro.gif" alt="foto3" style="float: right; text-align: center"/> <br><% };%>
+                                    <%="Precio: " +servcio.getPrecio() %><br>
+                                    <%="Proveedor: "+servcio.getProveedor()%><br>
+                                    <%="Descripcion: "+servcio.getDescripcion()%><br>
+                                    <%="---------------------------------------------------------"%><br>
                                 </form>  		
                                 <% } %>
                             </div>
@@ -102,23 +105,19 @@
             .on('changed.jstree', function (e, data) {
                 var i, j, r = [];
                 for(i = 0, j = data.selected.length; i < j; i++) {
+        
                   r.push(data.instance.get_node(data.selected[i]).text);
                 }
-                $('#seleccionado').html('Selected: ' + r.join(', '));
+              
+                $('#filtro').attr("value",r.join(', ')+', ');
+              
               })
             .jstree( <%= request.getAttribute("dataCategorias")  %>
         
         
         
             });
-             (function () {
-         $("#plugins").jstree({
-             "checkbox" : {
-                "keep_selected_style" : false
-             },
-            "plugins" : [ "checkbox" ]
-         });
-});
+            
         
     </script>
     </body>

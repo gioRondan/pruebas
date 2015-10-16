@@ -57,9 +57,12 @@ public class Home extends HttpServlet {
         
                     Fabrica fab = Fabrica.getInstance();
                     IControladorProveedor ICP = fab.getIControladorProveedor();
-           
+            if  (request.getSession().getAttribute("Login") == null){
+                    request.getSession().setAttribute("Login", "NoLogeado");
                     CargaInicial x2 = new CargaInicial();
                     x2.cargar();
+                }
+                   
                     
                     List<DataCategoria> dtps = ICP.listarCategorias();
                     prueba = " { 'core' : {'data' : [";
@@ -71,10 +74,21 @@ public class Home extends HttpServlet {
                     request.setAttribute("dataCategorias", prueba);
                     
                     List<DataServicio> servicos = new ArrayList<DataServicio>();
+                    
                     List<DataPromocion> promos = new ArrayList<DataPromocion>();
                     if (request.getParameter("categoria") != null){
                         String categoria = (String) request.getParameter("categoria");
-                        servicos = ICP.listarServiciosXCategoria(categoria);
+                        //categoria = categoria.substring( categoria.indexOf(":")+2 , categoria.length() );
+                        String c ="";
+                        while (  (categoria.indexOf(",")!=-1) ){
+                            c = categoria.substring(0, categoria.indexOf(","));
+                            categoria = categoria.substring( categoria.indexOf(",")+2 , categoria.length() );
+                            servicos.addAll(ICP.listarServiciosXCategoria(c));
+                        }
+                        List<DataProveedor> prove = ICP.listarProveedores();
+                       for (DataProveedor una : prove){ 
+                          promos.addAll(ICP.listarPromocionesXProveedor(una.getNickname()));
+                       }
                     }else{
                        List<DataProveedor> cate = ICP.listarProveedores();
                        for (DataProveedor una : cate){
@@ -82,9 +96,7 @@ public class Home extends HttpServlet {
                           promos.addAll(ICP.listarPromocionesXProveedor(una.getNickname()));
                        }
                     }
-                if  (request.getSession().getAttribute("Login") == null){
-                     request.getSession().setAttribute("Login", "NoLogeado");
-                }
+               
                 
                 request.setAttribute("dataServicos", servicos);
                 request.setAttribute("dataPromociones", promos);
