@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logica.CargaInicial;
 import logica.DataCategoria;
+import logica.DataItemReserva;
 import logica.DataPromocion;
 import logica.DataProveedor;
 import logica.DataServicio;
@@ -59,8 +60,10 @@ public class Home extends HttpServlet {
         
                     Fabrica fab = Fabrica.getInstance();
                     IControladorProveedor ICP = fab.getIControladorProveedor();
-            if  (request.getSession().getAttribute("Login") == null){
+                if  (request.getSession().getAttribute("Login") == null){
                     request.getSession().setAttribute("Login", "NoLogeado");
+                    List<DataItemReserva> ir = new ArrayList<DataItemReserva>();
+                    request.getSession().setAttribute("ItemsReservaActual",ir );
                     CargaInicial x2 = new CargaInicial();
                     x2.cargar();
                 }
@@ -78,8 +81,9 @@ public class Home extends HttpServlet {
                     List<DataServicio> servicos = new ArrayList<DataServicio>();
                     
                     List<DataPromocion> promos = new ArrayList<DataPromocion>();
-                    if (request.getParameter("categoria") != null){
+                    if ( (request.getParameter("categoria") != null) && (!(request.getParameter("categoria").equals(" "))) ){
                         String categoria = (String) request.getParameter("categoria");
+                        request.getSession().setAttribute("categoria", categoria);//seteo para mantener el filtro en el jsp
                         //categoria = categoria.substring( categoria.indexOf(":")+2 , categoria.length() );
                         String c ="";
                         while (  (categoria.indexOf(",")!=-1) ){

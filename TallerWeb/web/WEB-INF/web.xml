@@ -19,7 +19,7 @@
 
     <servlet-mapping>
         <servlet-name>agregarSerPromCarrito</servlet-name>
-        <url-pattern>/agregaracarrito</url-pattern>
+        <url-pattern>/agregaraacarrito</url-pattern>
     </servlet-mapping>
     
     <servlet-mapping>

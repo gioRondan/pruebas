@@ -43,7 +43,7 @@
                         </div>
                         <div id="seleccionado" style="color: red ">
                             <form action="home">
-                                <input id="filtro" type="text" value="" name="categoria" hidden="true"/>
+                                <input id="filtro" type="text" value=" " name="categoria" hidden="true"/>
                                 <input id="botnfiltro" type="submit" value="Filtrar" name="botonfiltro" /><br>
                             </form>
                             <form action="home">
@@ -54,6 +54,8 @@
                                     <option value="4">Nombre proveedor</option>
                                     <input id="ord" type="submit" value="Ordenar" name="ordenar" /><br>
                                 </select>
+                                
+                                <input id="filtro" type="text" value="<%=request.getSession().getAttribute("categoria")%>" name="categoria" hidden="true"/>
                             </form>
                         </div>
                     </td>   
@@ -102,7 +104,7 @@
                                                 </td>
                                                 <%  if ((request.getSession().getAttribute("Login") == "Logeado")){ %>
                                                 <td style="width: 45%">
-                                                   <form action="vercarrito">
+                                                   <form action="agregaraacarrito">
                                                         <input type="text" label="nomServico" id="nombresri" name="nomServicio" value="<%=servcio.getNombre()%>" hidden="true">
                                                         <table border="0" cellspacing="1" >
                                                             <thead>
@@ -125,8 +127,8 @@
                                                                     <td><input style="width: 170px; " class="form-control" type="date" label="Fecha Fin:" id="Cantidad3" name="fechafinItemReserva"></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th></th>
-                                                                    <td><input type="submit" value="Agregar al carrito" name="Vermasinfo"/></td>
+                                                                    <th><input type="text" label="Tipo" id="Cantidad4" value="true" name="esservicio" hidden="true"></th>
+                                                                    <td><input type="submit" value="Agregar al carrito" name="agergaracarrito"/></td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
