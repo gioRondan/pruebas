@@ -56,7 +56,7 @@ public class verInfoServicio extends HttpServlet {
         } catch (Exception ex) {
             Logger.getLogger(verInfoServicio.class.getName()).log(Level.SEVERE, null, ex);
         }
-        request.getRequestDispatcher("/WEB-INF/verInfoServicio.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/Servicios/verInfoServicio.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
