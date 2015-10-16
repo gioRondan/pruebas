@@ -8,6 +8,8 @@ package servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -84,6 +86,7 @@ public class Home extends HttpServlet {
                             c = categoria.substring(0, categoria.indexOf(","));
                             categoria = categoria.substring( categoria.indexOf(",")+2 , categoria.length() );
                             servicos.addAll(ICP.listarServiciosXCategoria(c));
+                            
                         }
                         List<DataProveedor> prove = ICP.listarProveedores();
                        for (DataProveedor una : prove){ 
@@ -96,7 +99,17 @@ public class Home extends HttpServlet {
                           promos.addAll(ICP.listarPromocionesXProveedor(una.getNickname()));
                        }
                     }
-               
+                                Collections.sort(servicos, new Comparator() {
+
+                                    @Override
+                                    public int compare(Object o1, Object o2) {
+                                        DataServicio s1 = (DataServicio) o1;
+                                        DataServicio s2 = (DataServicio) o2;
+                                        return new Integer( (int)s1.getPrecio() ).compareTo( (int) s2.getPrecio() );
+                                      
+                                    }
+                                       
+                                    });
                 
                 request.setAttribute("dataServicos", servicos);
                 request.setAttribute("dataPromociones", promos);

@@ -1,5 +1,7 @@
 
 
+<%@page import="java.util.Comparator"%>
+<%@page import="java.util.Collections"%>
 <%@page import="logica.DataCategoria"%>
 <%@page import="logica.DataPromocion"%>
 <%@page import="logica.DataServicio"%>
@@ -60,8 +62,11 @@
                                 <div id="cpestana1" >
 
                                 <% 
+                                    
+                                    
                                     List<DataServicio> servicios = (List<DataServicio>)
                                                         request.getAttribute("dataServicos");
+                                    
                                     for(DataServicio servcio : servicios){
                                 %>
 
