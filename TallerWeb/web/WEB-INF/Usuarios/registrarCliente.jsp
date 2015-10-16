@@ -74,7 +74,7 @@
                         <label class="control-label col-sm-1" for="email">Email:</label>
                         <div class="col-sm-4">
 
-                            <input class="form-control" label= "email" type="text" name="emailCliente" placeholder="Introduzca su nick">
+                            <input class="form-control" label= "email" type="email" name="emailCliente" placeholder="Introduzca su nick">
                         </div>
                     </div>
                      <div class="form-group">
@@ -92,7 +92,7 @@
                 <div class="form-group">
                         <label class="control-label col-sm-1" for="Fecha"> Fecha Nacimiento: </label>
                         <div class="col-sm-4">
-                            <input class="form-control" type="text" id="datepicker"  name="fechaCliente" placeholder="Introduzca su nick">
+                            <input class="form-control" type="date" id="datepicker"  name="fechaCliente" placeholder="Introduzca su nick">
                         </div>
                     </div>
                 <div class="form-group">

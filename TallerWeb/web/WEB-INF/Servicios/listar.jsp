@@ -62,22 +62,35 @@
                                 <div id="cpestana1" >
 
                                 <% 
-                                    
-                                    
                                     List<DataServicio> servicios = (List<DataServicio>)
                                                         request.getAttribute("dataServicos");
-                                    
                                     for(DataServicio servcio : servicios){
                                 %>
 
                                 <form action="verinfoservicio">
-                                    <%="Tipo: SERVICO"%><input type="submit" value="verInfoServicio" name="Vermasinfo" style="color: black" onclick="<%request.setAttribute("nickProveedor",servcio.getProveedor()); request.setAttribute("nomServicio",servcio.getNombre()); request.setAttribute("verInfoServicio","hola");%>" /><br>
-                                    <%="Nombre: "+servcio.getNombre() %><%  if ((request.getSession().getAttribute("Login") == "Logeado")){ %> <img src="./media/imagenes/carro.gif" alt="foto3" style="float: right; text-align: center"/> <br><% };%>
+                                    <input type="submit" value="Mas Info" name="Vermasinfo" style="color: black"  /><br>
+                                    <input type="text" label="nomServico" id="nombresri" name="nomServicio" value="<%=servcio.getNombre()%>" hidden="true"> 
+                                    <input type="text" label="nomProveedor" id="nombrerprv" name="nomProveedor" value="<%=servcio.getProveedor()%>" hidden="true">
+                                </form>     
+                                    <%="Nombre: "+servcio.getNombre() %>
+                                    <%  if ((request.getSession().getAttribute("Login") == "Logeado")){ %> 
+                                            
+                                            <img src="./media/imagenes/carro.gif" alt="foto3" style="float: right; text-align: center"/> <br>
+                                            <form action="verinfoservicio">
+                                                <input type="submit" value="Mas Info" name="Vermasinfo" style="color: black"  /><br>
+                                                <input type="text" label="nomServico" id="nombresri" name="nomServicio" value="<%=servcio.getNombre()%>" hidden="true"> 
+                                                Cantidad: <input class="form-control" type="number" label="Cantidad" id="Cantidad" name="cantItemReserva" placeholder="Introduzca Cantidad"> 
+                                                Fecha inicio: <input class="form-control" type="date" label="Cantidad" id="Cantidad2" name="fechainiItemReserva" placeholder="Introduzca Cantidad"> 
+                                                Fecha Fin: <input class="form-control" type="date" label="Cantidad" id="Cantidad3" name="fechafinItemReserva" placeholder="Introduzca Cantidad"> 
+                                            </form> 
+                                           
+                                    <% };%>
                                     <%="Precio: " +servcio.getPrecio() %><br>
+                                    
                                     <%="Proveedor: "+servcio.getProveedor()%><br>
                                     <%="Descripcion: "+servcio.getDescripcion()%><br>
                                     <%="---------------------------------------------------------"%><br>
-                                </form>  		
+                                  		
                                 <% } %>
                             </div>
                             <div id="cpestana2">
