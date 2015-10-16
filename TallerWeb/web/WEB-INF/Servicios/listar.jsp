@@ -97,7 +97,6 @@
        </div>
      </div>              
     <link rel="stylesheet" href="./dist/themes/default/style.min.css" />
-    <div id="jstree_demo_div"></div>
     <script src="./dist/libs/jquery.js"></script>
     <script src="./dist/jstree.min.js"></script>
     <script>
@@ -113,9 +112,6 @@
               
               })
             .jstree( <%= request.getAttribute("dataCategorias")  %>
-        
-        
-        
             });
             
         
