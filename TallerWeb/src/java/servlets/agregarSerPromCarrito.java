@@ -49,8 +49,9 @@ public class agregarSerPromCarrito extends HttpServlet {
                 DataItemReserva x = new DataItemReserva(cant,fini ,ffin ,nom,esser);               
                 List<DataItemReserva> ir2 = (List<DataItemReserva>)request.getSession().getAttribute("ItemsReservaActual");
                 ir2.add(x);
-                request.getSession().setAttribute("ItemsReservaActual",ir2 );
+                request.getSession().setAttribute("ItemsReservaActual",ir2);
             }
+            request.getRequestDispatcher("/WEB-INF/Usuarios/carro.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

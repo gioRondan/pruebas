@@ -55,7 +55,7 @@
                                     <input id="ord" type="submit" value="Ordenar" name="ordenar" /><br>
                                 </select>
                                 
-                                <input id="filtro" type="text" value="<%=request.getSession().getAttribute("categoria")%>" name="categoria" hidden="true"/>
+                                <input id="filtro" type="text" value="<%= request.getSession().getAttribute("categoria")%>" name="categoria" hidden="true"/>
                             </form>
                         </div>
                     </td>   

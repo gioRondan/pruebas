@@ -96,6 +96,7 @@ public class Home extends HttpServlet {
                            promos.addAll(ICP.listarPromocionesXProveedor(una.getNickname()));
                         }
                     }else{
+                       request.getSession().setAttribute("categoria", " ");//seteo para mantener el filtro en el jsp
                        List<DataProveedor> cate = ICP.listarProveedores();
                        for (DataProveedor una : cate){
                           servicos.addAll(ICP.listarServiciosXProveedor(una.getNickname()));
