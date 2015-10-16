@@ -45,8 +45,16 @@
                             <form action="home">
                                 <input id="filtro" type="text" value="" name="categoria" hidden="true"/>
                                 <input id="botnfiltro" type="submit" value="Filtrar" name="botonfiltro" /><br>
-                            </form> 
-                            
+                            </form>
+                            <form action="home">
+                                <select name="orden">
+                                    <option value="1">Precio asendente</option>
+                                    <option value="2">Precio decendente</option>
+                                    <option value="3">Nombre</option>
+                                    <option value="4">Nombre proveedor</option>
+                                    <input id="ord" type="submit" value="Ordenar" name="ordenar" /><br>
+                                </select>
+                            </form>
                         </div>
                     </td>   
                     <td>

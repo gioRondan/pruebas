@@ -85,13 +85,12 @@ public class Home extends HttpServlet {
                         while (  (categoria.indexOf(",")!=-1) ){
                             c = categoria.substring(0, categoria.indexOf(","));
                             categoria = categoria.substring( categoria.indexOf(",")+2 , categoria.length() );
-                            servicos.addAll(ICP.listarServiciosXCategoria(c));
-                            
+                            servicos.addAll(ICP.listarServiciosXCategoria(c));   
                         }
                         List<DataProveedor> prove = ICP.listarProveedores();
-                       for (DataProveedor una : prove){ 
-                          promos.addAll(ICP.listarPromocionesXProveedor(una.getNickname()));
-                       }
+                        for (DataProveedor una : prove){ 
+                           promos.addAll(ICP.listarPromocionesXProveedor(una.getNickname()));
+                        }
                     }else{
                        List<DataProveedor> cate = ICP.listarProveedores();
                        for (DataProveedor una : cate){
@@ -99,17 +98,79 @@ public class Home extends HttpServlet {
                           promos.addAll(ICP.listarPromocionesXProveedor(una.getNickname()));
                        }
                     }
-                                Collections.sort(servicos, new Comparator() {
-
-                                    @Override
-                                    public int compare(Object o1, Object o2) {
-                                        DataServicio s1 = (DataServicio) o1;
-                                        DataServicio s2 = (DataServicio) o2;
-                                        return new Integer( (int)s1.getPrecio() ).compareTo( (int) s2.getPrecio() );
-                                      
-                                    }
-                                       
-                                    });
+                     
+                    
+                    if  ( request.getParameter("orden") != null ){
+                        int ord = Integer.parseInt(request.getParameter("orden"));
+                      switch   ( ord ){
+                          case 1://Precio Acendentes
+                            Collections.sort(servicos, new Comparator() {
+                                @Override
+                                public int compare(Object o1, Object o2) {
+                                    DataServicio s1 = (DataServicio) o1;
+                                    DataServicio s2 = (DataServicio) o2;
+                                    return new Integer( (int)s1.getPrecio() ).compareTo( (int) s2.getPrecio() );
+                                }   
+                            });
+                            Collections.sort(promos, new Comparator() {
+                                @Override
+                                public int compare(Object o1, Object o2) {
+                                    DataPromocion p1 = (DataPromocion) o1;
+                                    DataPromocion p2 = (DataPromocion) o2;
+                                    return new Integer( (int)p1.getPrecioTotal()).compareTo( (int) p2.getPrecioTotal());
+                                }   
+                            });
+                          break;
+                          case 2://Precio Decendente
+                            Collections.sort(servicos, new Comparator() {
+                                @Override
+                                public int compare(Object o1, Object o2) {
+                                    DataServicio s1 = (DataServicio) o1;
+                                    DataServicio s2 = (DataServicio) o2;
+                                    return new Integer( (int)s2.getPrecio() ).compareTo( (int) s1.getPrecio() );
+                                }   
+                            });
+                             Collections.sort(promos, new Comparator() {
+                                @Override
+                                public int compare(Object o1, Object o2) {
+                                    DataPromocion p1 = (DataPromocion) o1;
+                                    DataPromocion p2 = (DataPromocion) o2;
+                                    return new Integer( (int)p2.getPrecioTotal()).compareTo( (int) p1.getPrecioTotal());
+                                }   
+                            });
+                          break;
+                          case 3://Precio Nombre
+                            Collections.sort(servicos, new Comparator() {
+                                @Override
+                                public int compare(Object o1, Object o2) {
+                                    DataServicio s1 = (DataServicio) o1;
+                                    DataServicio s2 = (DataServicio) o2;
+                                    return (s1.getNombre() ).compareTo(s2.getNombre());
+                                }   
+                            });
+                             Collections.sort(promos, new Comparator() {
+                                @Override
+                                public int compare(Object o1, Object o2) {
+                                    DataPromocion p1 = (DataPromocion) o1;
+                                    DataPromocion p2 = (DataPromocion) o2;
+                                    return p1.getNombre().compareTo( p2.getNombre());
+                                }   
+                            });
+                          break;
+                          case 4://Nombre Proveedor (Solo Servicio)
+                            Collections.sort(servicos, new Comparator() {
+                                @Override
+                                public int compare(Object o1, Object o2) {
+                                    DataServicio s1 = (DataServicio) o1;
+                                    DataServicio s2 = (DataServicio) o2;
+                                    return (s1.getProveedor()).compareTo(s2.getProveedor());
+                                }   
+                            });
+                             
+                          break;  
+                      }
+                      
+                    }
                 
                 request.setAttribute("dataServicos", servicos);
                 request.setAttribute("dataPromociones", promos);
