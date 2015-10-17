@@ -50,9 +50,9 @@ public class verInfoServicio extends HttpServlet {
             
         }
         try {
-            String s = request.getParameter("proveedorServico");
-            String s2 = request.getParameter("nombreServico");
-            request.setAttribute("infoServicio", ICP.verInfoServicio(s,s2) );
+            String nombreproveedor = request.getParameter("proveedorServico");
+            String nombreservicio = request.getParameter("nombreServico");
+            request.setAttribute("infoServicio", ICP.verInfoServicio(nombreproveedor,nombreservicio) );
         } catch (Exception ex) {
             Logger.getLogger(verInfoServicio.class.getName()).log(Level.SEVERE, null, ex);
         }

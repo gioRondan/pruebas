@@ -17,7 +17,7 @@ import java.util.Set;
  * @author giovani
  */
 public class Reserva {
-    private int id; 
+    private int identificador; 
     private Date fechaCreacion;
     private Date fechaInicio;
     private Date fechaFin;
@@ -25,8 +25,8 @@ public class Reserva {
     private Estado estado;
     private List<ItemReserva> item;
     
-    public Reserva(int id,Date fechaCreacion, Date fechaInicio, Date fechaFin, float precio, Estado estado){
-        this.id=id;
+    public Reserva(int identificador,Date fechaCreacion, Date fechaInicio, Date fechaFin, float precio, Estado estado){
+        this.identificador=identificador;
         this.fechaCreacion = fechaCreacion;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
@@ -36,7 +36,7 @@ public class Reserva {
     }
     
     public int getId(){
-        return id;
+        return identificador;
     }
     public Date getFechaCreacion(){
         return fechaCreacion;
@@ -53,8 +53,8 @@ public class Reserva {
     public Estado getEstado(){
         return estado;
     }
-    public void setId(int id){
-        this.id = id;
+    public void setId(int identificador){
+        this.identificador = identificador;
     }
     public void setFechaCreacion(Date fechaCreacion){
         this.fechaCreacion = fechaCreacion;
@@ -75,7 +75,7 @@ public class Reserva {
         this.item.add(ite);
     }
     public DataReserva getDataReserva(){
-        return new DataReserva(id, fechaCreacion, fechaInicio, fechaFin, precio, estado);
+        return new DataReserva(identificador, fechaCreacion, fechaInicio, fechaFin, precio, estado);
     }
     public void darDeBaja(){ 
         item.removeAll(item);
@@ -89,6 +89,6 @@ public class Reserva {
     }
     public DataInfoReserva getDataInfoReserva() {
      
-        return new DataInfoReserva( id,  fechaCreacion,  fechaInicio,  fechaFin,  precio,  estado, getDataItemsReserva());
+        return new DataInfoReserva( identificador,  fechaCreacion,  fechaInicio,  fechaFin,  precio,  estado, getDataItemsReserva());
     }
 }

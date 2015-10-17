@@ -105,15 +105,15 @@ public class Servicio {
         }
     }
     public void eliminarImagen(String imagen) throws Exception{
-        int it = 0;
-        while((it < contImagen)&&(!this.imagen[it].equals(imagen)))
-            ++it;
-        if(it==contImagen)
+        int itera = 0;
+        while((itera < contImagen)&&(!this.imagen[itera].equals(imagen)))
+            ++itera;
+        if(itera==contImagen)
             throw new Exception("la imagen seleccionada no pertenece al servicio");
         else{
-            Files.deleteIfExists(Paths.get(this.imagen[it]));
+            Files.deleteIfExists(Paths.get(this.imagen[itera]));
             //Files.delete(Paths.get(this.imagen[it]));
-            this.imagen[it] = this.imagen[contImagen-1];
+            this.imagen[itera] = this.imagen[contImagen-1];
             this.imagen[contImagen-1] = "";
             contImagen--;
         }

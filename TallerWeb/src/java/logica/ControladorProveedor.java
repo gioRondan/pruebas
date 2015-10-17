@@ -155,15 +155,15 @@ public class ControladorProveedor implements IControladorProveedor{
         if(mCa.getCategoria(nomCategoria) != null){
             throw new Exception("Ya existe una categoría con ese nombre.");
         }
-        Categoria cat;
+        Categoria categoria;
         if(nomPadre.equals("")){
-            cat = new Categoria(nomCategoria, false);
+            categoria = new Categoria(nomCategoria, false);
         }else{
-            cat = new Categoria(nomCategoria, true);
-            Categoria pa = mCa.getCategoria(nomPadre);
-            pa.setHijo(cat);
+            categoria = new Categoria(nomCategoria, true);
+            Categoria padre = mCa.getCategoria(nomPadre);
+            padre.setHijo(categoria);
         }
-        mCa.addCategoria(cat);
+        mCa.addCategoria(categoria);
         liberarMemoria();
     }
     @Override
@@ -183,16 +183,16 @@ public class ControladorProveedor implements IControladorProveedor{
         mPr.unicidadPromocion(nickProveedor, nombreProm);//controlo unicidad de la promocion apra ese proveedor
         Iterator<String> itera = ser.iterator();
         int totalPrecio = 0;
-        Promocion p = new Promocion(nombreProm, descuento, totalPrecio, prov);
-        prov.asociarPromocion(p);   
+        Promocion promo = new Promocion(nombreProm, descuento, totalPrecio, prov);
+        prov.asociarPromocion(promo);   
         while (itera.hasNext()) {
             //recorro los servicos a agregar y voy calculando el precio de la promocion sin el descuento
-            Servicio s = prov.getServicio(itera.next());          
-            totalPrecio += s.getPrecio();
-            p.agregarServicio(s);
+            Servicio servicio = prov.getServicio(itera.next());          
+            totalPrecio += servicio.getPrecio();
+            promo.agregarServicio(servicio);
         }
         totalPrecio=(int)(totalPrecio - (totalPrecio * (0.01*descuento)));//aplico el descuento
-        p.setPrecioTotal(totalPrecio);//Seteo el precio total con el descuento aplicado 
+        promo.setPrecioTotal(totalPrecio);//Seteo el precio total con el descuento aplicado 
     }
     @Override
     public void ingresarDescripcionServicio( String desc){
@@ -311,10 +311,7 @@ public class ControladorProveedor implements IControladorProveedor{
     }
     @Override
     public DataInfoPromocion verInfoPromocion(String nickproveedor, String nomPromocion) {
-        ManejadorProveedor m = ManejadorProveedor.getInstance();
-        Proveedor p = m.getProveedor(nickproveedor);
-        Promocion promo = p.getPromocion(nomPromocion);
-        
+        Promocion promo = ManejadorProveedor.getInstance().getProveedor(nickproveedor).getPromocion(nomPromocion);
         return promo.getDataInfoPromocion();
     }
     public void altaPais(String nomPais) throws Exception {
@@ -348,11 +345,11 @@ public class ControladorProveedor implements IControladorProveedor{
        ManejadorPais mPa = ManejadorPais.getInstance();
        return mPa.getNombresPaises();
     }
-     public List<DataCiudad> ciudadesXpais( String pa){
+     public List<DataCiudad> ciudadesXpais( String nombrepais){
        ManejadorCiudad mCi = ManejadorCiudad.getInstance();
         ManejadorPais mPa = ManejadorPais.getInstance();
-        Pais p = mPa.getPais(pa);
-       return mCi.getDataCiudadesXpais(p);
+        Pais pais = mPa.getPais(nombrepais);
+       return mCi.getDataCiudadesXpais(pais);
     }
 
     @Override

@@ -21,10 +21,10 @@ import java.util.Set;
  */
 public class ManejadorCliente {
      private Map<String,Cliente> clientes;
-     private  int id;
+     private  int identificador;
     private static ManejadorCliente instance = null;
     private ManejadorCliente(){
-        id=0;
+        identificador=0;
         clientes = new LinkedHashMap();
     }
     
@@ -58,7 +58,7 @@ public class ManejadorCliente {
         List<DataReserva> dts;
         dts = new ArrayList<DataReserva>();
         for( Cliente value: clientes.values()) {
-             boolean ni = dts.addAll(value.getDataReservas());
+             dts.addAll(value.getDataReservas());
          }
         return dts;
         
@@ -74,12 +74,12 @@ public class ManejadorCliente {
     }
 
     public int getUltimoid() {
-        id++;
-        return id;
+        identificador++;
+        return identificador;
     }
     //solo para el test
     public int testGetId(){
-        return id;
+        return identificador;
     }
     
 }

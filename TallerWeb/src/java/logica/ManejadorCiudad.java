@@ -34,16 +34,16 @@ public class ManejadorCiudad {
         }
         return dts;
    }
-    public Ciudad getCiudad(String a){
-        return ciudades.get(a);
+    public Ciudad getCiudad(String ciudad){
+        return ciudades.get(ciudad);
     }
     public void addCiudad(Ciudad ciudad){
         ciudades.put(ciudad.getNombre(), ciudad);
     }
-    public List<DataCiudad> getDataCiudadesXpais(Pais p){
+    public List<DataCiudad> getDataCiudadesXpais(Pais pais){
        List<DataCiudad> dts =  new ArrayList<DataCiudad>();
         for (Ciudad value : ciudades.values()){
-            if (value.getPais().getNombre().equals(p.getNombre())){
+            if (value.getPais().getNombre().equals(pais.getNombre())){
                 dts.add(value.getDataCiudad());
             }
         }

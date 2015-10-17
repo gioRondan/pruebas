@@ -44,14 +44,14 @@ public class Home extends HttpServlet {
      */
     
     static String prueba = " { 'core' : {'data' : [";
-    int i =0;
+    int indice =0;
     
     public void armarArbol(String padre, List<DataCategoria> dtps) {
         
         for (DataCategoria dtcategoria : dtps) {
-           i++;
-           prueba = prueba+"{"+"'id'"+" : "+ "'ajson"+i+"', "+ "'parent' : "+padre+", 'text' : '"+dtcategoria.getNombre()+"'},";
-           armarArbol("'ajson"+i+"'", dtcategoria.getHijos() );
+           indice++;
+           prueba = prueba+"{"+"'id'"+" : "+ "'ajson"+indice+"', "+ "'parent' : "+padre+", 'text' : '"+dtcategoria.getNombre()+"'},";
+           armarArbol("'ajson"+indice+"'", dtcategoria.getHijos() );
        }
     }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -62,18 +62,17 @@ public class Home extends HttpServlet {
                     IControladorProveedor ICP = fab.getIControladorProveedor();
                 if  (request.getSession().getAttribute("Login") == null){
                     request.getSession().setAttribute("Login", "NoLogeado");
-                    List<DataItemReserva> ir = new ArrayList<DataItemReserva>();
-                    request.getSession().setAttribute("ItemsReservaActual",ir );
-                    CargaInicial x2 = new CargaInicial();
-                    x2.cargar();
+                    List<DataItemReserva> itemsreservascarro = new ArrayList<DataItemReserva>();
+                    request.getSession().setAttribute("ItemsReservaActual",itemsreservascarro );
+                    new CargaInicial().cargar();
                 }
                    
                     
                     List<DataCategoria> dtps = ICP.listarCategorias();
                     prueba = " { 'core' : {'data' : [";
-                     i =0;
+                    indice =0;
                     armarArbol("'#'", dtps);
-                   prueba=prueba+"] } });";
+                    prueba=prueba+"] } });";
                     
                   
                     request.setAttribute("dataCategorias", prueba);
@@ -85,11 +84,11 @@ public class Home extends HttpServlet {
                         String categoria = (String) request.getParameter("categoria");
                         request.getSession().setAttribute("categoria", categoria);//seteo para mantener el filtro en el jsp
                         //categoria = categoria.substring( categoria.indexOf(":")+2 , categoria.length() );
-                        String c ="";
-                        while (  (categoria.indexOf(",")!=-1) ){
-                            c = categoria.substring(0, categoria.indexOf(","));
+                        String comas ="";
+                        while (  categoria.indexOf(",")!=-1 ){
+                            comas = categoria.substring(0, categoria.indexOf(","));
                             categoria = categoria.substring( categoria.indexOf(",")+2 , categoria.length() );
-                            servicos.addAll(ICP.listarServiciosXCategoria(c));   
+                            servicos.addAll(ICP.listarServiciosXCategoria(comas));   
                         }
                         List<DataProveedor> prove = ICP.listarProveedores();
                         for (DataProveedor una : prove){ 
@@ -111,64 +110,64 @@ public class Home extends HttpServlet {
                           case 1://Precio Acendentes
                             Collections.sort(servicos, new Comparator() {
                                 @Override
-                                public int compare(Object o1, Object o2) {
-                                    DataServicio s1 = (DataServicio) o1;
-                                    DataServicio s2 = (DataServicio) o2;
-                                    return new Integer( (int)s1.getPrecio() ).compareTo( (int) s2.getPrecio() );
+                                public int compare(Object objeto1, Object objeto2) {
+                                    DataServicio sercivio1 = (DataServicio) objeto1;
+                                    DataServicio sercivio2 = (DataServicio) objeto2;
+                                    return new Integer( (int)sercivio1.getPrecio() ).compareTo( (int) sercivio2.getPrecio() );
                                 }   
                             });
                             Collections.sort(promos, new Comparator() {
                                 @Override
-                                public int compare(Object o1, Object o2) {
-                                    DataPromocion p1 = (DataPromocion) o1;
-                                    DataPromocion p2 = (DataPromocion) o2;
-                                    return new Integer( (int)p1.getPrecioTotal()).compareTo( (int) p2.getPrecioTotal());
+                                public int compare(Object objeto1, Object objeto2) {
+                                    DataPromocion promo1 = (DataPromocion) objeto1;
+                                    DataPromocion promo2 = (DataPromocion) objeto2;
+                                    return new Integer( (int)promo1.getPrecioTotal()).compareTo( (int) promo2.getPrecioTotal());
                                 }   
                             });
                           break;
                           case 2://Precio Decendente
                             Collections.sort(servicos, new Comparator() {
                                 @Override
-                                public int compare(Object o1, Object o2) {
-                                    DataServicio s1 = (DataServicio) o1;
-                                    DataServicio s2 = (DataServicio) o2;
-                                    return new Integer( (int)s2.getPrecio() ).compareTo( (int) s1.getPrecio() );
+                                public int compare(Object objeto1, Object objeto2) {
+                                    DataServicio sercivio1 = (DataServicio) objeto1;
+                                    DataServicio sercivio2 = (DataServicio) objeto2;
+                                    return new Integer( (int)sercivio2.getPrecio() ).compareTo( (int) sercivio1.getPrecio() );
                                 }   
                             });
                              Collections.sort(promos, new Comparator() {
                                 @Override
-                                public int compare(Object o1, Object o2) {
-                                    DataPromocion p1 = (DataPromocion) o1;
-                                    DataPromocion p2 = (DataPromocion) o2;
-                                    return new Integer( (int)p2.getPrecioTotal()).compareTo( (int) p1.getPrecioTotal());
+                                public int compare(Object objeto1, Object objeto2) {
+                                    DataPromocion promo1 = (DataPromocion) objeto1;
+                                    DataPromocion promo2 = (DataPromocion) objeto2;
+                                    return new Integer( (int)promo2.getPrecioTotal()).compareTo( (int) promo1.getPrecioTotal());
                                 }   
                             });
                           break;
                           case 3://Precio Nombre
                             Collections.sort(servicos, new Comparator() {
                                 @Override
-                                public int compare(Object o1, Object o2) {
-                                    DataServicio s1 = (DataServicio) o1;
-                                    DataServicio s2 = (DataServicio) o2;
-                                    return (s1.getNombre() ).compareTo(s2.getNombre());
+                                public int compare(Object objeto1, Object objeto2) {
+                                    DataServicio sercivio1 = (DataServicio) objeto1;
+                                    DataServicio sercivio2 = (DataServicio) objeto2;
+                                    return (sercivio1.getNombre() ).compareTo(sercivio2.getNombre());
                                 }   
                             });
                              Collections.sort(promos, new Comparator() {
                                 @Override
-                                public int compare(Object o1, Object o2) {
-                                    DataPromocion p1 = (DataPromocion) o1;
-                                    DataPromocion p2 = (DataPromocion) o2;
-                                    return p1.getNombre().compareTo( p2.getNombre());
+                                 public int compare(Object objeto1, Object objeto2) {
+                                    DataPromocion promo1 = (DataPromocion) objeto1;
+                                    DataPromocion promo2 = (DataPromocion) objeto2;
+                                    return promo1.getNombre().compareTo( promo2.getNombre());
                                 }   
                             });
                           break;
                           case 4://Nombre Proveedor (Solo Servicio)
                             Collections.sort(servicos, new Comparator() {
                                 @Override
-                                public int compare(Object o1, Object o2) {
-                                    DataServicio s1 = (DataServicio) o1;
-                                    DataServicio s2 = (DataServicio) o2;
-                                    return (s1.getProveedor()).compareTo(s2.getProveedor());
+                                public int compare(Object objeto1, Object objeto2) {
+                                    DataServicio sercivio1 = (DataServicio) objeto1;
+                                    DataServicio sercivio2 = (DataServicio) objeto2;
+                                    return (sercivio1.getProveedor()).compareTo(sercivio2.getProveedor());
                                 }   
                             });
                              

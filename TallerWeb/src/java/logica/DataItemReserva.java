@@ -29,12 +29,12 @@ public class DataItemReserva {
         this.nombreproveedor = "";
     }
     
-    public DataItemReserva(int cantidad, Date fechaInicio, Date fechaFin, String nombre, String nombreproveedor,boolean es){
+    public DataItemReserva(int cantidad, Date fechaInicio, Date fechaFin, String nombre, String nombreproveedor,boolean esservi){
         this.cantidad      = cantidad;
         this.fechaInicio   = fechaInicio;
         this.fechaFin      = fechaFin;
         this.nombre        = nombre;
-        esServico = es;
+        esServico = esservi;
         this.nombreproveedor = nombreproveedor;
     }    
 

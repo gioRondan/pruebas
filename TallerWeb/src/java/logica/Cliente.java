@@ -42,8 +42,8 @@ public class Cliente extends Usuario{
         }
         return dts;
     }
-    public void reservarServicio(int id,Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
-        Reserva res = reservas.get(id);
+    public void reservarServicio(int identificador,Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
+        Reserva res = reservas.get(identificador);
         
             ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin);    
             res.agregarItem(item);
@@ -51,8 +51,8 @@ public class Cliente extends Usuario{
         
         
     }
-    public void modificarEstadoReserva(int id, Estado estado){
-        Reserva res = reservas.get(id);
+    public void modificarEstadoReserva(int identificador, Estado estado){
+        Reserva res = reservas.get(identificador);
         if (res.getEstado() == Estado.registrada){
             res.setEstado(estado);
         }
@@ -63,18 +63,18 @@ public class Cliente extends Usuario{
             res.agregarItem(item);
         
     }
-    public void cancelarReserva(int id){
-        Reserva res = reservas.get(id);
+    public void cancelarReserva(int identificador){
+        Reserva res = reservas.get(identificador);
         res.darDeBaja();
-        reservas.remove(id);
+        reservas.remove(identificador);
     }
     public DataInfoCliente getDataInfoCliente(){
         return new DataInfoCliente(nickname, nombre, apellido, email, fechaNac, imagen, getDataReservas(), password);
     }
-    public Reserva getReserva(int id) {
-        return reservas.get(id);
+    public Reserva getReserva(int identificador) {
+        return reservas.get(identificador);
     }
-    public void addReserva(int id, Reserva res){
-        reservas.put(id, res);
+    public void addReserva(int identificador, Reserva res){
+        reservas.put(identificador, res);
     }
 }

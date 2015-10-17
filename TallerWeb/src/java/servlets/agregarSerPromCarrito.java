@@ -39,17 +39,16 @@ public class agregarSerPromCarrito extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             if (request.getParameter("agergaracarrito") != null){
-                Fabrica f = Fabrica.getInstance();
-                IControladorCliente ICC = f.getIControladorCliente();
+         
                 int cant =  Integer.parseInt(request.getParameter("cantItemReserva"));
-                Date fini = ICC.toDate(request.getParameter("fechainiItemReserva"));
-                Date ffin = ICC.toDate(request.getParameter("fechafinItemReserva"));
+                Date fini = Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechainiItemReserva"));
+                Date ffin = Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechafinItemReserva"));
                 String nom = request.getParameter("nomServicio");
-                String pv = request.getParameter("nomProveedor");
+                String pvr = request.getParameter("nomProveedor");
                 boolean esser = Boolean.parseBoolean(request.getParameter("esservicio"));
-                DataItemReserva x = new DataItemReserva(cant,fini ,ffin ,nom,pv,esser);               
+                              
                 List<DataItemReserva> ir2 = (List<DataItemReserva>)request.getSession().getAttribute("ItemsReservaActual");
-                ir2.add(x);
+                ir2.add(new DataItemReserva(cant,fini ,ffin ,nom,pvr,esser));
                 request.getSession().setAttribute("ItemsReservaActual",ir2);
             }
             request.getRequestDispatcher("/WEB-INF/Usuarios/carro.jsp").forward(request, response);

@@ -7,13 +7,10 @@ package logica;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+
 
 
 /**
@@ -23,10 +20,8 @@ import java.util.Set;
 public class ControladorCliente implements IControladorCliente{
     
     @Override
-    public void actualizarEstadoReserva(int id, String nomCliente, Estado estado){
-        ManejadorCliente mCl = ManejadorCliente.getInstance();
-        Cliente cli = mCl.getCliente(nomCliente);
-        cli.modificarEstadoReserva(id, estado);
+    public void actualizarEstadoReserva(final int identificador, final String nomCliente,final Estado estado){
+        ManejadorCliente.getInstance().getCliente(nomCliente).modificarEstadoReserva(identificador, estado);
     }
     
     @Override
@@ -84,10 +79,10 @@ public class ControladorCliente implements IControladorCliente{
     }
     
     @Override
-    public void cancelarReserva(String nomCliente, int id){
+    public void cancelarReserva(String nomCliente, int identificador){
         ManejadorCliente mCl = ManejadorCliente.getInstance();
         Cliente cli = mCl.getCliente(nomCliente);
-        cli.cancelarReserva(id);
+        cli.cancelarReserva(identificador);
     }
     
     @Override
@@ -104,10 +99,10 @@ public class ControladorCliente implements IControladorCliente{
     }
     
     @Override
-    public DataInfoReserva verInfoReserva(String nomCliente, int id){
+    public DataInfoReserva verInfoReserva(String nomCliente, int identificador){
         ManejadorCliente mCl = ManejadorCliente.getInstance();
         Cliente cliente = mCl.getCliente(nomCliente);
-        Reserva reserva = cliente.getReserva(id);
+        Reserva reserva = cliente.getReserva(identificador);
         return reserva.getDataInfoReserva();
     }
     

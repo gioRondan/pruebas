@@ -19,8 +19,6 @@ import java.util.Map;
 public class ControladorWeb implements IControladorWeb {
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%      MEMORIA     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     private Cliente cliente;
-    private String nickname;
-    private String email;
     private Map<String, Integer> cantServicios;     //servicio-cantidad
     private Map<String, Servicio> servicios;        //proveedor-servicio
     private Map<String, Integer> cantPromociones;   //promocion-cantidad
@@ -31,8 +29,6 @@ public class ControladorWeb implements IControladorWeb {
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     public ControladorWeb(){
         cliente = null;
-        /*nickname ;
-        email;*/
         cantServicios = new HashMap();
         servicios = new HashMap();
         cantPromociones = new HashMap();
