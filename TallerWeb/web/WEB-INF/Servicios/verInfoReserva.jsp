@@ -56,7 +56,7 @@
                        for(DataItemReserva item : items){
                            if (item.getesServico()){
                                tipo ="Servicio";
-                               servlet="verinfoservico";
+                               servlet="verinfoservicio";
                                
                            }else{
                                tipo="Promocion";
