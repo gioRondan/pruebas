@@ -1,4 +1,5 @@
 
+<%@page import="logica.DataItemReserva"%>
 <%@page import="logica.IControladorProveedor"%>
 <%@page import="logica.Fabrica"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -41,21 +42,19 @@
                         <td id="cant1"> 2 </td>
                     </tr>
                     <% 
-                        List<DataServicio> servicios1 = (List<DataServicio>) request.getAttribute("dataServicos");
-                        Fabrica fab = Fabrica.getInstance();
-                        IControladorProveedor ICP = fab.getIControladorProveedor();
-                        List<DataServicio> servicios = ICP.listarServiciosXCategoria("Playa");
+                        List<DataItemReserva> servicios = (List<DataItemReserva>) request.getAttribute("ItemsReservaActual");
+                        
                         float p = 0;
                         float auxp;
                         float auxc;
                         if (servicios != null)
-                            for(DataServicio servicio : servicios){
+                            for(DataItemReserva servicio : servicios){
                     %>                        
                                 <tr>
                                     <td> <%= servicio.getNombre() %> </td>
-                                    <td > <img src="<%=servicio.getImagen()%>" alt="foto"/> </td>
-                                    <td>  <%=servicio.getPrecio() %>$ </td> 
-                                    <td> <%=servicio.getDescripcion() %> </td>
+                                    <td > <img src="<%//servicio.getImagen()%>" alt="foto"/> </td>
+                                    <td>  <%//=servicio. %>$ </td> 
+                                    <td> <%//=servicio.getDescripcion() %> </td>
                                     <td> Servicio </td>
                                     <td id="cant1"> 2 </td>         <% p += servicio.getPrecio() * 2; // hay q agregar el cant%> 
                                 </tr>

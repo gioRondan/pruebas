@@ -42,9 +42,7 @@ public class DataItemReserva {
         return nombreproveedor;
     }
 
-    public void setNombreproveedor(String nombreproveedor) {
-        this.nombreproveedor = nombreproveedor;
-    }
+    
      
     //Getters
     public int getCantidad(){
