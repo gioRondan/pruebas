@@ -56,7 +56,7 @@
                                     <td>  <%//=servicio. %>$ </td> 
                                     <td> <%//=servicio.getDescripcion() %> </td>
                                     <td> Servicio </td>
-                                    <td id="cant1"> 2 </td>         <% p += servicio.getPrecio() * 2; // hay q agregar el cant%> 
+                                    <td id="cant1"> 2 </td>         <% p += 2; // hay q agregar el cant%> 
                                 </tr>
                     <% 
                             }; 
