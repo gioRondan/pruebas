@@ -52,10 +52,7 @@
                     %>                        
                                 <tr>
                                     <td> <%= servicio.getNombre() %> </td>
-                                    <td > <img src="<%//servicio.getImagen()%>" alt="foto"/> </td>
-                                    <td>  <%//=servicio. %>$ </td> 
-                                    <td> <%//=servicio.getDescripcion() %> </td>
-                                    <td> Servicio </td>
+                                    <td><%= servicio.getesServico() %></td>
                                     <td id="cant1"> <%= servicio.getCantidad() %></td>
                                      <% p += 2; %> 
                                 </tr>
