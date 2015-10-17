@@ -35,24 +35,11 @@ public class verInfoServicio extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Fabrica fab = Fabrica.getInstance();
-        IControladorProveedor ICP = fab.getIControladorProveedor();
-        if(request.getParameter("listarCategorias") != null){
-            request.getSession().setAttribute("categorias", ICP.listarCategorias());
-                
-        }
-        else if(request.getParameter("verInfoServicio") != null){
-            try {
-               request.getSession().setAttribute("infoServicio", ICP.verInfoServicio(request.getParameter("proveedorServico"), request.getParameter("nombreServico")));
-            } catch (Exception ex) {
-                Logger.getLogger(ServletProveedor.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-        }
+        
         try {
-            String nombreproveedor = request.getParameter("proveedorServico");
-            String nombreservicio = request.getParameter("nombreServico");
-            request.setAttribute("infoServicio", ICP.verInfoServicio(nombreproveedor,nombreservicio) );
+            String nombreproveedor = request.getParameter("nomProveedor");
+            String nombreservicio = request.getParameter("nomServicio");
+            request.setAttribute("dataInfoServicio", Fabrica.getInstance().getIControladorProveedor().verInfoServicio(nombreproveedor,nombreservicio) );
         } catch (Exception ex) {
             Logger.getLogger(verInfoServicio.class.getName()).log(Level.SEVERE, null, ex);
         }

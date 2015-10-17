@@ -14,19 +14,21 @@ public class DataPromocion {
     private String nombre;
     private int descuento;
     private int precioTotal;
-    
+    private String nickProveedor;
     //Constructores
     public DataPromocion(){
         nombre      = "";
         descuento   = 0;
         precioTotal = 0;
+        nickProveedor ="";
     }
     
-    public DataPromocion(String nombre, int descuento, int precioTotal){
+    public DataPromocion(String nombre, int descuento, int precioTotal, String nickProveedor){
     
         this.nombre      = nombre;
         this.descuento   = descuento;
         this.precioTotal = precioTotal;
+        this.nickProveedor = nickProveedor;
     }
 
     
@@ -37,7 +39,9 @@ public class DataPromocion {
     public String getNombre(){
         return nombre;
     }
-    
+    public String getnickProveedro(){
+        return  nickProveedor;
+    }
 
     public int getDescuento(){
         return descuento;

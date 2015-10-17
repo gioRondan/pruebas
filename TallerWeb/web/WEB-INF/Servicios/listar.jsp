@@ -1,5 +1,6 @@
 
 
+<%@page import="logica.DataProveedor"%>
 <%@page import="java.util.Comparator"%>
 <%@page import="java.util.Collections"%>
 <%@page import="logica.DataCategoria"%>
@@ -64,24 +65,19 @@
                             <ul id=lista>
                                 <li id="pestana1"><a href='javascript:cambiarPestanna(pestanas,pestana1);'>Servicos</a></li>
                                 <li id="pestana2"><a href='javascript:cambiarPestanna(pestanas,pestana2);'>Promociones</a></li>
+                                <li id="pestana3"><a href='javascript:cambiarPestanna(pestanas,pestana3);'>Proveedores</a></li>
                             </ul>
                         </div>
 
-                        <body onload="javascript:cambiarPestanna(pestanas,pestana1);"\>
-
+                <body onload="javascript:cambiarPestanna(pestanas,pestana1);"></body>
+                       
                             <div id="contenidopestanas" >
                                 <div id="cpestana1"  >
-                                    
-
                                 <% 
                                     List<DataServicio> servicios = (List<DataServicio>)
                                                         request.getAttribute("dataServicos");
                                     for(DataServicio servcio : servicios){
                                 %>
-
-                                    
-                                    
-                                    
                                 <table border="1" cellspacing="10"  style="width: 95%">
                                         <thead>
                                             <tr>
@@ -135,27 +131,113 @@
                                                             </tbody>
                                                         </table>
                                                     </form> 
-                                               
                                                 </td>
+                                        
                                                  <% };%>  
-                                            </tr>
+                                            </tr><br/>
                                         </tbody>
                                     </table>                               		
                                 <% };//CIERRA FOR SERVICOS %>
                             </div>
                             <div id="cpestana2">
-                                <% 
-                                    List<DataPromocion> promociones = (List<DataPromocion>)
+                                
+                                  <% 
+                                     List<DataPromocion> promociones = (List<DataPromocion>)
                                                     request.getAttribute("dataPromociones");
                                     for(DataPromocion promocion : promociones){
                                 %>
-
-                                <%="         Tipo: PROMOCION"%> <%  if ((request.getSession().getAttribute("Login") == "Logeado")){ %><img src="./media/imagenes/carro.gif" alt="foto3" style="float: right; text-align: center"/><br> <% };%><br>
-                                      Nombre:  <a href="verinfopromocion"><%=promocion.getNombre() %><br></a>
-                                                <%="         Precio: " +promocion.getPrecioTotal()  %><br>
-                                                <%="         Descuento: "+promocion.getDescuento()%><br>
-                                                <%="-------------------------------------------------------------"%><br>
-                                <% } %>
+                                <table border="1" cellspacing="10"  style="width: 95%">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td >
+                                                    <%="Nombre: "+promocion.getNombre() %><br>
+                                                    <%="Precio: " +promocion.getPrecioTotal() %><br>
+                                                    <%="Proveedor: "+promocion.getnickProveedro() %><br>
+                                                   
+                                                    <form action="verinfopromocion" style="float: left">
+                                                        <input type="submit" value="Mas Info" name="Vermasinfo" style="color: black"  /><br>
+                                                        <input type="text" label="nomServico" id="nombresri" name="nomServicio" value="<%=promocion.getNombre()%>" hidden="true"> 
+                                                        <input type="text" label="nomProveedor" id="nombrerprv" name="nomProveedor" value="<%=promocion.getnickProveedro()%>" hidden="true">
+                                                    </form> 
+                                                </td>
+                                                <%  if ((request.getSession().getAttribute("Login") == "Logeado")){ %>
+                                                <td style="width: 45%">
+                                                   <form action="agregaraacarrito">
+                                                        <input type="text" label="nomPromocion" id="nombresri" name="nomPromocion" value="<%=promocion.getNombre()%>" hidden="true">
+                                                        <input type="text" label="nomProveedor" id="nombrerprv" name="nomProveedorPromo" value="<%=promocion.getnickProveedro()%>" hidden="true">
+                                                        <input type="text" label="Tipo" id="Cantidad4" value="false" name="esservicio" hidden="true">
+                                                        <table border="0" cellspacing="1" >
+                                                            <thead>
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th>Cantidad: </th>
+                                                                    <td><input style="width: 75px; " min="0" class="form-control" type="number" label="Cantidad" id="Cantidad4" name="cantItemReservaPromo" placeholder="Introduzca Cantidad"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Fecha inicio: </th>
+                                                                    <td><input style="width: 170px; " class="form-control" type="date" label="Fecha inicio:" id="Cantidad5" name="fechainiItemReservaPromo" ></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Fecha Fin: </th>
+                                                                    <td><input style="width: 170px; " class="form-control" type="date" label="Fecha Fin:" id="Cantidad6" name="fechafinItemReservaPromo"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <td><input type="submit" value="Agregar al carrito" name="agergaracarritopromo"/></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </form> 
+                                               
+                                                </td>
+                                                 <% };%>  
+                                            </tr><br/>
+                                        </tbody>
+                                    </table>                               		
+                                <% };//CIERRA FOR PROMOCIONES %>
+                            </div>
+                             
+                             <div id="cpestana3"  >
+                                <% 
+                                    List<DataProveedor> proveeedor = (List<DataProveedor>)
+                                                        request.getAttribute("dataProveedor");
+                                    for(DataProveedor proveedor : proveeedor){
+                                %>
+                                <table border="1" cellspacing="10"  style="width: 95%">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <%="Nickname: "+proveedor.getNickname() %><br>
+                                                    <%="Nombre: " +proveedor.getNombre() %><br>
+                                                    <%="Apellido: "+proveedor.getApellido() %><br>
+                                                    <%="Descripcion: "+proveedor.getEmail() %><br>
+                                                    <a  href="<%=proveedor.getUrlEmpresa()%>"><%=proveedor.getUrlEmpresa()%></a>
+                                                    <form action="verinfoproveedor" style="float: left">
+                                                        <input type="submit" value="Mas Info" name="Vermasinfo" style="color: black"  /><br>
+                                                        <input type="text" label="nomProveedor" id="nombrerprv" name="nomProveedor" value="<%=proveedor.getNickname()%>" hidden="true">
+                                                    </form> 
+                                                </td>
+                                            </tr><br/>
+                                        </tbody>
+                                    </table>                               		
+                                <% };//CIERRA FOR PROVEEDOR %>
                             </div>
                         </div>
                     </td>

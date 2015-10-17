@@ -31,7 +31,7 @@ public class Promocion {
         this.proveedor = prov;
     }
     public DataPromocion getDataPromocion(){
-        return new DataPromocion(nombre, descuento, precioTotal);
+        return new DataPromocion(nombre, descuento, precioTotal,proveedor.getNickname());
     }
     public String getNombre(){
         return nombre;

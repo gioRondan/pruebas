@@ -6,7 +6,6 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -32,7 +31,6 @@ import logica.IControladorProveedor;
  */
 @WebServlet(name = "Home", urlPatterns = {"/home"})
 public class Home extends HttpServlet {
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -42,10 +40,8 @@ public class Home extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-    static String prueba = " { 'core' : {'data' : [";
+    private static String prueba = " { 'core' : {'data' : [";
     int indice =0;
-    
     public void armarArbol(String padre, List<DataCategoria> dtps) {
         
         for (DataCategoria dtcategoria : dtps) {
@@ -78,7 +74,7 @@ public class Home extends HttpServlet {
                     request.setAttribute("dataCategorias", prueba);
                     
                     List<DataServicio> servicos = new ArrayList<DataServicio>();
-                    
+                    List<DataProveedor> prove = ICP.listarProveedores();
                     List<DataPromocion> promos = new ArrayList<DataPromocion>();
                     if ( (request.getParameter("categoria") != null) && (!(request.getParameter("categoria").equals(" "))) ){
                         String categoria = (String) request.getParameter("categoria");
@@ -90,7 +86,7 @@ public class Home extends HttpServlet {
                             categoria = categoria.substring( categoria.indexOf(",")+2 , categoria.length() );
                             servicos.addAll(ICP.listarServiciosXCategoria(comas));   
                         }
-                        List<DataProveedor> prove = ICP.listarProveedores();
+                        
                         for (DataProveedor una : prove){ 
                            promos.addAll(ICP.listarPromocionesXProveedor(una.getNickname()));
                         }
@@ -175,7 +171,7 @@ public class Home extends HttpServlet {
                       }
                       
                     }
-                
+                request.setAttribute("dataProveedor", prove);
                 request.setAttribute("dataServicos", servicos);
                 request.setAttribute("dataPromociones", promos);
                 //request.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(request, response);
