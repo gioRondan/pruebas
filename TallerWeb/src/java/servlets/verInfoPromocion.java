@@ -7,11 +7,15 @@ package servlets;
 
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import logica.DataInfoPromocion;
+import logica.Fabrica;
 
 
 
@@ -36,7 +40,16 @@ public class verInfoPromocion extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        
-                     
+         
+        try {
+            String nombreproveedor = request.getParameter("nomProveedorPromocion");
+            String nombrePromocion = request.getParameter("nomPromocion");
+            DataInfoPromocion datainfos = Fabrica.getInstance().getIControladorProveedor().verInfoPromocion(nombreproveedor,nombrePromocion);
+            request.setAttribute("dataInfoPromocion", datainfos );
+        } catch (Exception ex) {
+            Logger.getLogger(verInfoServicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        request.getRequestDispatcher("/WEB-INF/Servicios/verInfoPromocion.jsp").forward(request, response);             
            
     }
 
