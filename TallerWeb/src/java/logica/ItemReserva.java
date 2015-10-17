@@ -40,9 +40,10 @@ public class ItemReserva {
     }
     public DataItemReserva getDataItem(){
         if (servicio==null){
-            return new DataItemReserva(cantidad, inicio, fin, promocion.getNombre(),false);
+            
+            return new DataItemReserva(cantidad, inicio, fin, promocion.getNombre(), promocion.getProveedor().getNickname(),false);
         }else{
-            return new DataItemReserva(cantidad, inicio, fin, servicio.getNombre(),true);
+            return new DataItemReserva(cantidad, inicio, fin, servicio.getNombre(),servicio.getProveedor().getNickname(),true);
         }
             
     }

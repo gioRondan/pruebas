@@ -53,6 +53,10 @@ public class Servicio {
     public void setPrecio(float precio){
          this.precio = precio;
     }
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
     
     public String getNombre(){
         return this.nombre;

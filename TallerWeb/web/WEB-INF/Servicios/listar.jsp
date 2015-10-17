@@ -106,6 +106,8 @@
                                                 <td style="width: 45%">
                                                    <form action="agregaraacarrito">
                                                         <input type="text" label="nomServico" id="nombresri" name="nomServicio" value="<%=servcio.getNombre()%>" hidden="true">
+                                                        <input type="text" label="nomProveedor" id="nombrerprv" name="nomProveedor" value="<%=servcio.getProveedor()%>" hidden="true">
+                                                        <input type="text" label="Tipo" id="Cantidad4" value="true" name="esservicio" hidden="true">
                                                         <table border="0" cellspacing="1" >
                                                             <thead>
                                                                 <tr>
@@ -127,7 +129,7 @@
                                                                     <td><input style="width: 170px; " class="form-control" type="date" label="Fecha Fin:" id="Cantidad3" name="fechafinItemReserva"></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th><input type="text" label="Tipo" id="Cantidad4" value="true" name="esservicio" hidden="true"></th>
+                                                                    <th></th>
                                                                     <td><input type="submit" value="Agregar al carrito" name="agergaracarrito"/></td>
                                                                 </tr>
                                                             </tbody>

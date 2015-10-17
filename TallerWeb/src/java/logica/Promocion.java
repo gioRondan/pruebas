@@ -59,7 +59,9 @@ public class Promocion {
             throw new Exception("Las promociones deben ser de un mismo proveedor");
         }
     }
-
+    public Proveedor getProveedor(){
+        return proveedor;
+    }
     DataInfoPromocion getDataInfoPromocion() {       
         Set<DataServicio> dts =  new HashSet();
         for (Servicio value : servicios.values()){

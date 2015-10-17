@@ -45,8 +45,9 @@ public class agregarSerPromCarrito extends HttpServlet {
                 Date fini = ICC.toDate(request.getParameter("fechainiItemReserva"));
                 Date ffin = ICC.toDate(request.getParameter("fechafinItemReserva"));
                 String nom = request.getParameter("nomServicio");
+                String pv = request.getParameter("nomProveedor");
                 boolean esser = Boolean.parseBoolean(request.getParameter("esservicio"));
-                DataItemReserva x = new DataItemReserva(cant,fini ,ffin ,nom,esser);               
+                DataItemReserva x = new DataItemReserva(cant,fini ,ffin ,nom,pv,esser);               
                 List<DataItemReserva> ir2 = (List<DataItemReserva>)request.getSession().getAttribute("ItemsReservaActual");
                 ir2.add(x);
                 request.getSession().setAttribute("ItemsReservaActual",ir2);
