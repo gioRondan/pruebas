@@ -38,10 +38,10 @@ public class agregarSerPromCarrito extends HttpServlet {
             throws ServletException, IOException {
             
          
-                int cant = 0;
+                int cant;
                 
-                String nom = "";
-                String pvr = "";
+                String nom;
+                String pvr;
                 boolean esser = Boolean.parseBoolean(request.getParameter("esservicio"));
                 List<DataItemReserva> ir2 = (List<DataItemReserva>)request.getSession().getAttribute("ItemsReservaActual");
                 if (esser){

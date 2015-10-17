@@ -32,7 +32,6 @@
                 <%  if ((request.getSession().getAttribute("Login") == "Logeado")){ %>
                     <td style="width: 45%">
                        <form action="agregaraacarrito">
-<!--                            <input type="text" id="esser" name="esservicio" value="false" hidden="true">-->
                             <input type="text" label="nomPromocion" id="nombresri" name="nomPromocion" value="<%=promo.getNombre()%>" hidden="true">
                             <input type="text" label="nomProveedorPromocion" id="nombrerprv" name="nomProveedorPromocion" value="<%= servicios.iterator().next().getProveedor()%>" hidden="true">
                             <input type="text" label="Tipo" id="Cantidad4" value="false" name="esservicio" hidden="true">
@@ -58,7 +57,7 @@
                                     </tr>
                                     <tr>
                                         <th></th>
-                                        <td><input type="submit" value="Agregar al carrito" name="agergaracarritopromo"/></td>
+                                        <td><input type="submit" value="Agregar al carrito" name="agregaraacarrito"/></td>
                                     </tr>
                                 </tbody>
                             </table>
