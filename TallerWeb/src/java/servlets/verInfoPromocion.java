@@ -7,22 +7,12 @@ package servlets;
 
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import static java.lang.System.out;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.CargaInicial;
-import logica.DataCategoria;
-import logica.DataPromocion;
-import logica.DataProveedor;
-import logica.DataServicio;
-import logica.Fabrica;
-import logica.IControladorProveedor;
+
 
 
 /**

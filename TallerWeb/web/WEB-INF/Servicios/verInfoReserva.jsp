@@ -51,11 +51,13 @@
                     DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
                        String servlet ="";
                        String tipo = "";
+                       
                        Set<DataItemReserva> items = reserva.getItems();
                        for(DataItemReserva item : items){
                            if (item.getesServico()){
                                tipo ="Servicio";
                                servlet="verinfoservico";
+                               
                            }else{
                                tipo="Promocion";
                                servlet="verinfopromocion";
@@ -65,7 +67,8 @@
                         <td>
                             <form action="<%=servlet%>" method="POST">
                                 <!--Se nesesita el proveedor--> 
-                                <input type="text" name="nickCliente" value="<%=item.getNombre()%>"  hidden="true" />
+                                <input type="text" name="nomProveedor<%=tipo%>" value="<%=item.getNombreproveedor()%>" hidden="true"/>
+                                <input type="text" name="nom<%=tipo%>" value="<%=item.getNombre()%>"  hidden="true" />
                                 <input type="submit" name="<%=servlet%>" value="<%=item.getNombre()%>"/>
                             </form>
                         </td>

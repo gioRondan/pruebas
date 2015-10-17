@@ -38,7 +38,7 @@ public class verInfoServicio extends HttpServlet {
             throws ServletException, IOException {
         
         try {
-            String nombreproveedor = request.getParameter("nomProveedor");
+            String nombreproveedor = request.getParameter("nomProveedorServicio");
             String nombreservicio = request.getParameter("nomServicio");
             DataInfoServicio datainfos = Fabrica.getInstance().getIControladorProveedor().verInfoServicio(nombreservicio,nombreproveedor);
             request.setAttribute("dataInfoServicio", datainfos );

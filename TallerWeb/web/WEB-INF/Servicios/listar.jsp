@@ -95,7 +95,7 @@
                                                     <form action="verinfoservicio" style="float: left">
                                                         <input type="submit" value="Mas Info" name="Vermasinfo" style="color: black"  /><br>
                                                         <input type="text" label="nomServico" id="nombresri" name="nomServicio" value="<%=servcio.getNombre()%>" hidden="true"> 
-                                                        <input type="text" label="nomProveedor" id="nombrerprv" name="nomProveedor" value="<%=servcio.getProveedor()%>" hidden="true">
+                                                        <input type="text" label="nomProveedorServicio" id="nombrerprv" name="nomProveedorServicio" value="<%=servcio.getProveedor()%>" hidden="true">
                                                     </form> 
                                                 </td>
                                                 <%  if ((request.getSession().getAttribute("Login") == "Logeado")){ %>
@@ -162,15 +162,15 @@
                                                    
                                                     <form action="verinfopromocion" style="float: left">
                                                         <input type="submit" value="Mas Info" name="Vermasinfo" style="color: black"  /><br>
-                                                        <input type="text" label="nomServico" id="nombresri" name="nomServicio" value="<%=promocion.getNombre()%>" hidden="true"> 
-                                                        <input type="text" label="nomProveedor" id="nombrerprv" name="nomProveedor" value="<%=promocion.getnickProveedro()%>" hidden="true">
+                                                        <input type="text" label="nomPromocion" id="nombresri" name="nomPromocion" value="<%=promocion.getNombre()%>" hidden="true"> 
+                                                        <input type="text" label="nomProveedorPromocion" id="nombrerprv" name="nomProveedorPromocion" value="<%=promocion.getnickProveedro()%>" hidden="true">
                                                     </form> 
                                                 </td>
                                                 <%  if ((request.getSession().getAttribute("Login") == "Logeado")){ %>
                                                 <td style="width: 45%">
                                                    <form action="agregaraacarrito">
                                                         <input type="text" label="nomPromocion" id="nombresri" name="nomPromocion" value="<%=promocion.getNombre()%>" hidden="true">
-                                                        <input type="text" label="nomProveedor" id="nombrerprv" name="nomProveedorPromo" value="<%=promocion.getnickProveedro()%>" hidden="true">
+                                                        <input type="text" label="nomProveedorPromocion" id="nombrerprv" name="nomProveedorPromocion" value="<%=promocion.getnickProveedro()%>" hidden="true">
                                                         <input type="text" label="Tipo" id="Cantidad4" value="false" name="esservicio" hidden="true">
                                                         <table border="0" cellspacing="1" >
                                                             <thead>

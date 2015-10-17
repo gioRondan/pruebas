@@ -32,7 +32,43 @@
                 Precio: <%= servicio.getPrecio() %>
                 <br>
                 Proveedor: <%= servicio.getProveedor().getNickname() %>
-                <br>        
+                <br> 
+                <%  if ((request.getSession().getAttribute("Login") == "Logeado")){ %>
+                                                <td style="width: 45%">
+                                                   <form action="agregaraacarrito">
+                                                        <input type="text" label="nomServicio" id="nombresri" name="nomServicio" value="<%=servicio.getNombre()%>" hidden="true">
+                                                        <input type="text" label="nomProveedor" id="nombrerprv" name="nomProveedor" value="<%=servicio.getProveedor().getNickname() %>" hidden="true">
+                                                        <input type="text" label="Tipo" id="Cantidad4" value="false" name="esservicio" hidden="true"> 
+                                                        <table border="0" cellspacing="1" >
+                                                            <thead>
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th>Cantidad: </th>
+                                                                    <td><input style="width: 75px; " min="0" class="form-control" type="number" label="Cantidad" id="Cantidad4" name="cantItemReservaPromo" placeholder="Introduzca Cantidad"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Fecha inicio: </th>
+                                                                    <td><input style="width: 170px; " class="form-control" type="date" label="Fecha inicio:" id="Cantidad5" name="fechainiItemReservaPromo" ></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Fecha Fin: </th>
+                                                                    <td><input style="width: 170px; " class="form-control" type="date" label="Fecha Fin:" id="Cantidad6" name="fechafinItemReservaPromo"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <td><input type="submit" value="Agregar al carrito" name="agergaracarritopromo"/></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </form> 
+                                               
+                                                </td>
+                                                 <% };%>  
                 <h1>Categorias</h1>
                     <% 
                    
