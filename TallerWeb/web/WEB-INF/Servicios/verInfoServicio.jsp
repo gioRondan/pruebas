@@ -28,6 +28,11 @@
                 Destino: <%= servicio.getDestino().getPais()+", "+servicio.getDestino().getNombre()%> 
                 <br>
                 Origen: <%= servicio.getOrigen().getPais()+", "+servicio.getOrigen().getNombre()%> 
+                <br>
+                Precio: <%= servicio.getPrecio() %>
+                <br>
+                Proveedor: <%= servicio.getProveedor().getNickname() %>
+                <br>        
                 <h1>Categorias</h1>
                     <% 
                    
