@@ -33,35 +33,45 @@
                         <td>Tipo</td>
                         <td>Cantidad</td>
                     </tr>
-                    <tr>
-                        <td>Vuelo a madrid</td>
-                        <td > <img src="./media/imagenes/moody - Euro-Car-1 1.png" alt="foto"/> </td>
-                        <td id="precio1"> 200$ </td>
-                        <td> Un vuelo con mucha diversion a madrid, con todos los gastos pagos</td>
-                        <td> Servicio </td>
-                        <td id="cant1"> 2 </td>
-                    </tr>
+                  
                     <% 
-                        List<DataItemReserva> servicios = (List<DataItemReserva>) request.getAttribute("ItemsReservaActual");
+                        List<DataItemReserva> items = (List<DataItemReserva>) request.getSession().getAttribute("ItemsReservaActual");
                         
                         float p = 0;
                         float auxp;
                         float auxc;
-                        if (servicios != null)
-                            for(DataItemReserva servicio : servicios){
-                    %>                        
+                        if (items != null){
+                            for(DataItemReserva item : items){
+                                if (item.getesServico()){
+                    %>        
+                    
                                 <tr>
-                                    <td> <%= servicio.getNombre() %> </td>
-                                    <td><%= servicio.getesServico() %></td>
-                                    <td id="cant1"> <%= servicio.getCantidad() %></td>
-                                     <% p += 2; %> 
+                                    <td><%=item.getServicio().getNombre()%></td>
+                                    <td > <img src="./media/imagenes/moody - Euro-Car-1 1.png" alt="foto"/> </td>
+                                    <td id="precio1"> <%=item.getServicio().getPrecio() %> </td>
+                                    <td> <%=item.getServicio().getDescripcion() %></td>
+                                    <td> Servicio </td>
+                                    <td id="cant1"> <%=item.getCantidad() %> </td>
                                 </tr>
-                    <% 
-                            }; 
+                                <% p +=item.getCantidad() * item.getServicio().getPrecio(); %>
+                                <%}else{%>
+                                    <tr>
+                                        <td><%=item.getPromocion().getNombre()%></td>
+                                        <td > Sin imagen </td>
+                                        <td id="precio1"> <%=item.getPromocion().getPrecioTotal()%> </td>
+                                        <td> Sin Descripocion </td>
+                                        <td> Promocion </td>
+                                        <td id="cant1"> <%=item.getCantidad() %> </td>
+                                    </tr>
+                                    <% p +=item.getCantidad() * item.getPromocion().getPrecioTotal();%>
+                                
+                    <%          }//CIERRA IF ES SERVICIO
+                            }//CIERRA FOR 
+                        }//CIERRA IF NULL 
                     %> 
                     <tr>
                         <td>Total</td>
-                        <td id="total"><%= Float.toString(p)%></td>
+                        <td id="total"><%= p%></td>
                     </tr>
                 </table>
                  <button style="margin:calc; width:200px" type="button" class="btn btn-success pull-left">Comprar</button>
