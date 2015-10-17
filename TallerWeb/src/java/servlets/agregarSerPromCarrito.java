@@ -16,8 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logica.DataItemReserva;
 import logica.Fabrica;
-import logica.IControladorCliente;
-import logica.ItemReserva;
+
 
 /**
  *
@@ -39,9 +38,8 @@ public class agregarSerPromCarrito extends HttpServlet {
             throws ServletException, IOException {
             
          
-                int cant =  Integer.parseInt(request.getParameter("cantItemReserva"));
-                Date fini = Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechainiItemReserva"));
-                Date ffin = Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechafinItemReserva"));
+                int cant = 0;
+                
                 String nom = "";
                 String pvr = "";
                 boolean esser = Boolean.parseBoolean(request.getParameter("esservicio"));
@@ -49,6 +47,9 @@ public class agregarSerPromCarrito extends HttpServlet {
                 if (esser){
                     nom = request.getParameter("nomServicio");
                     pvr = request.getParameter("nomProveedorServicio");
+                    cant = Integer.parseInt(request.getParameter("cantItemReserva"));
+                    Date fini = Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechainiItemReserva"));
+                    Date ffin = Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechafinItemReserva"));
                     try{
                         ir2.add(new DataItemReserva(cant,fini ,ffin ,Fabrica.getInstance().getIControladorProveedor().informacionServicio(pvr, nom) ,null,esser));
                     }catch(Exception e ){
@@ -57,6 +58,9 @@ public class agregarSerPromCarrito extends HttpServlet {
                 }else{
                     nom = request.getParameter("nomPromocion");
                     pvr = request.getParameter("nomProveedorPromocion");
+                    cant = Integer.parseInt(request.getParameter("cantItemReservaPromo"));
+                    Date fini = Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechainiItemReservaPromo"));
+                    Date ffin = Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechafinItemReservaPromo"));
                     try{
                         ir2.add(new DataItemReserva(cant,fini ,ffin ,null,Fabrica.getInstance().getIControladorProveedor().informacionPromocion(pvr,nom),esser));
                     }catch(Exception e ){

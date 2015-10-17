@@ -55,30 +55,36 @@
                        Set<DataItemReserva> items = reserva.getItems();
                        for(DataItemReserva item : items){
                            if (item.getesServico()){
-                               tipo ="Servicio";
-                               servlet="verinfoservicio";
-                               
-                           }else{
-                               tipo="Promocion";
-                               servlet="verinfopromocion";
-                           }
-                    %> 
-                    <tr> 
-                        <td>
-                            <form action="<%=servlet%>" method="POST">
-                                <!--Se nesesita el proveedor--> 
-                                <input type="text" name="nomProveedor<%=tipo%>" value="<%=item.getNombreproveedor()%>" hidden="true"/>
-                                <input type="text" name="nom<%=tipo%>" value="<%=item.getNombre()%>"  hidden="true" />
-                                <input type="submit" name="<%=servlet%>" value="<%=item.getNombre()%>"/>
-                            </form>
-                        </td>
-                        <td><%= item.getCantidad() %></td> 
-                        <td><%= formatoFecha.format(item.getFechaInicio()) %></td>
-                        <td><%=formatoFecha.format(item.getFechaFin()) %></td>
-                        <td><%= tipo %></td> 
-
-                    </tr>
-                    <%}%>
+                       %> 
+                                <tr> 
+                                    <td>
+                                        <form action="verinfoservicio" method="POST">
+                                            <input type="text" name="nomProveedorServicio" value="<%=item.getServicio().getProveedor() %>" hidden="true"/>
+                                            <input type="text" name="nomServicio" value="<%=item.getServicio().getNombre() %>"  hidden="true" />
+                                            <input type="submit" name="verinfoservicio" value="<%=item.getServicio().getNombre() %>"/>
+                                        </form>
+                                    </td>
+                                    <td><%= item.getCantidad() %></td> 
+                                    <td><%= formatoFecha.format(item.getFechaInicio()) %></td>
+                                    <td><%=formatoFecha.format(item.getFechaFin()) %></td>
+                                    <td> Servicio </td> 
+                                </tr>
+                            <%}else{%> 
+                                <tr> 
+                                    <td>
+                                        <form action="verinfopromocion" method="POST">
+                                            <input type="text" name="nomProveedorPromocion" value="<%=item.getPromocion().getnickProveedro() %>" hidden="true"/>
+                                            <input type="text" name="nomPromocion" value="<%=item.getPromocion().getNombre() %>"  hidden="true" />
+                                            <input type="submit" name="verinfopromocion" value="<%=item.getPromocion().getNombre() %>"/>
+                                        </form>
+                                    </td>
+                                    <td><%= item.getCantidad() %></td> 
+                                    <td><%= formatoFecha.format(item.getFechaInicio()) %></td>
+                                    <td><%=formatoFecha.format(item.getFechaFin()) %></td>
+                                    <td> Promocion </td> 
+                                </tr>
+                           <%}//CIERRO IF ES SERCICIO%>
+                        <%}//CIERRO FOR DE LOS ITEM RESERVA%>
                 </table>
             </div>
         </div>
