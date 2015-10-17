@@ -25,8 +25,10 @@
                 <br>
                 Descripcion: <%= servicio.getDescripcion() %>
                 <br>
-                Destino: <%= servicio.getDestino().getPais()+", "+servicio.getDestino().getNombre()%> 
+                <% if (servicio.getDestino()!=null){%>
+                    Destino: <%= servicio.getDestino().getPais()+", "+servicio.getDestino().getNombre()%> 
                 <br>
+                <%};%>
                 Origen: <%= servicio.getOrigen().getPais()+", "+servicio.getOrigen().getNombre()%> 
                 <br>
                 Precio: <%= servicio.getPrecio() %>

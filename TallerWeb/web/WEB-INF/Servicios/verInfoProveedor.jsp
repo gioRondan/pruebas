@@ -4,6 +4,9 @@
     Author     : giovani
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="java.text.DateFormat"%>
 <%@page import="logica.DataServicio"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.List"%>
@@ -24,7 +27,8 @@
             <div class="container" >
                 <h1>Informacion General de la Proveedor</h1>
                 <%
-                    DataInfoProveedor proveedor = (DataInfoProveedor) request.getAttribute("dataInfoProveedor");
+                    DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+                    DataInfoProveedor proveedor = (DataInfoProveedor) request.getSession().getAttribute("dataInfoProveedor");
                    
                 %>
                 <br>
@@ -36,12 +40,12 @@
                 <br>
                  Email: <%= proveedor.getEmail() %>
                 <br> 
-                 Fecha Nacimiento: <%=proveedor.getFechaNac()%>
+                 Fecha de nacimiento: <%=formatoFecha.format(proveedor.getFechaNac())%>
                 <br>
                 
                 <h1>Empresa</h1>
-                  Nombre:  <%= proveedor.getEmpresa().getNombre() %>
-                  Pagina: <a href="<%= proveedor.getEmpresa().getUrl()%>"
+                  Nombre:  <%= proveedor.getEmpresa().getNombre() %> <br>
+                  Pagina: <a href="<%= proveedor.getEmpresa().getUrl()%>"><%= proveedor.getEmpresa().getUrl()%></a> <br>
                 <h1>Servicios </h1>
                     <% 
                        List<DataServicio> servicios = proveedor.getServicios();

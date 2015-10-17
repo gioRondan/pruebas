@@ -34,7 +34,7 @@ public class verInfoProveedor extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        
-            DataInfoProveedor proveedor = (DataInfoProveedor) Fabrica.getInstance().getIControladorProveedor().verInfoProveedor(request.getParameter("nomProveedor"));
+            DataInfoProveedor proveedor = Fabrica.getInstance().getIControladorProveedor().verInfoProveedor(request.getParameter("nomProveedor"));
             request.getSession().setAttribute("dataInfoProveedor", proveedor);
             request.getRequestDispatcher("/WEB-INF/Servicios/verInfoProveedor.jsp").forward(request, response);
         
