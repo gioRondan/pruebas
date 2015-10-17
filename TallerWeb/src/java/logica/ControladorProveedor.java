@@ -309,6 +309,12 @@ public class ControladorProveedor implements IControladorProveedor{
         Servicio servi = prov.getServicio(ser);
         return servi.getDataServicio();
     }
+    public DataPromocion informacionPromocion(String pvr, String nom)throws Exception{
+        ManejadorProveedor mPr = ManejadorProveedor.getInstance();
+        Proveedor prov = mPr.getProveedor(pvr);
+        Promocion servi = prov.getPromocion(nom);
+        return servi.getDataPromocion();
+    }
     @Override
     public DataInfoPromocion verInfoPromocion(String nickproveedor, String nomPromocion) {
         Promocion promo = ManejadorProveedor.getInstance().getProveedor(nickproveedor).getPromocion(nomPromocion);

@@ -51,4 +51,6 @@ public interface IControladorProveedor {
     public void altaCiudad(String nomCiudad, String nomPais);
 //################################      operaciones tarea 2 ####################################################################################
     public List<DataServicio> buscarServicios(String aBuscar); 
+
+    public DataPromocion informacionPromocion(String pvr, String nom)throws Exception;
 }

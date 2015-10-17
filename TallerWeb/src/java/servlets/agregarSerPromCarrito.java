@@ -6,8 +6,7 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
+
 import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -46,15 +45,26 @@ public class agregarSerPromCarrito extends HttpServlet {
                 String nom = "";
                 String pvr = "";
                 boolean esser = Boolean.parseBoolean(request.getParameter("esservicio"));
+                List<DataItemReserva> ir2 = (List<DataItemReserva>)request.getSession().getAttribute("ItemsReservaActual");
                 if (esser){
                     nom = request.getParameter("nomServicio");
                     pvr = request.getParameter("nomProveedorServicio");
+                    try{
+                        ir2.add(new DataItemReserva(cant,fini ,ffin ,Fabrica.getInstance().getIControladorProveedor().informacionServicio(pvr, nom) ,null,esser));
+                    }catch(Exception e ){
+                        
+                    }
                 }else{
                     nom = request.getParameter("nomPromocion");
                     pvr = request.getParameter("nomProveedorPromocion");
+                    try{
+                        ir2.add(new DataItemReserva(cant,fini ,ffin ,null,Fabrica.getInstance().getIControladorProveedor().informacionPromocion(pvr,nom),esser));
+                    }catch(Exception e ){
+                        
+                    }
                 }
-                List<DataItemReserva> ir2 = (List<DataItemReserva>)request.getSession().getAttribute("ItemsReservaActual");
-                ir2.add(new DataItemReserva(cant,fini ,ffin ,nom,pvr,esser));
+                
+                
                 request.getSession().setAttribute("ItemsReservaActual",ir2);
             
             request.getRequestDispatcher("/WEB-INF/Usuarios/carro.jsp").forward(request, response);
