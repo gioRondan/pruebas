@@ -126,7 +126,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th></th>
-                                                                    <td><input type="submit" value="Agregar al carrito" name="agergaracarrito"/></td>
+                                                                    <td><input type="submit" value="Agregar al carrito" name="agregaracarrito"/></td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -194,7 +194,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th></th>
-                                                                    <td><input type="submit" value="Agregar al carrito" name="agergaracarritopromo"/></td>
+                                                                    <td><input type="submit" value="Agregar al carrito" name="agregarAcarritoPromo"/></td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>

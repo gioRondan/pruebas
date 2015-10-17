@@ -4,29 +4,54 @@
     Author     : giovani
 --%>
 
+<%@page import="logica.DataServicio"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
 <%@page import="logica.DataInfoProveedor"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+
+<!doctype html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <div id="pageheader">
+            <%--<jsp:include page="Template.jsp" /> hacen lo mismo --%> 
+           <%@ include file="\WEB-INF\Template\Template.jsp" %>
+        </div>
+        <title>H4Travel</title>
     </head>
-    <body>
-        verInfoProveedor
-        <br>
-        <%//DataInfoProveedor proveedor = (DataInfoProveedor) request.getSession().getAttribute("proveedor");%>
-        nick: <% //proveedor.getNickname()%>
-        nombre: <% //proveedor.getNombre()%>
-        apellido: <% //proveedor.getApellido()%>
-        email: <%//proveedor.getEmail()%>
-        fecha nacimiento: <%//proveedor.getFechaNac()%>
-        imagen: <%//proveedor.getImagen()%>
-        empresa: <%//proveedor.getEmpresa()%>
-        listarservicios
-        <form action="controller2" method="POST">
-                <input type="submit" name="verInfoServicio" value="ver Info Servicio(sin terminar)"/>
+    <body>        
+        <div class="centerbox" style="text-align:left; margin:auto; width:85% " > 
+            <div class="container" >
+                <h1>Informacion General de la Proveedor</h1>
+                <%
+                    DataInfoProveedor proveedor = (DataInfoProveedor) request.getAttribute("dataInfoProveedor");
+                   
+                %>
+                <br>
+                 Nickname: <%= proveedor.getNickname() %>
+                <br>
+                 Nombre: <%= proveedor.getNombre()  %>
+                <br>
+                 Apellido: <%= proveedor.getApellido()  %>
+                <br>
+                 Email: <%= proveedor.getEmail() %>
+                <br> 
+                 Fecha Nacimiento: <%=proveedor.getFechaNac()%>
+                <br>
                 
-            </form>
+                <h1>Empresa</h1>
+                  Nombre:  <%= proveedor.getEmpresa().getNombre() %>
+                  Pagina: <a href="<%= proveedor.getEmpresa().getUrl()%>"
+                <h1>Servicios </h1>
+                    <% 
+                       List<DataServicio> servicios = proveedor.getServicios();
+                       for(DataServicio item : servicios){
+                    %> 
+                        <%= item.getNombre() %> 
+                        <br/>
+                    <%}%>
+                
+            </div>
+        </div>
     </body>
 </html>

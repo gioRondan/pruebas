@@ -6,12 +6,14 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import logica.DataInfoProveedor;
+import logica.Fabrica;
 
 /**
  *
@@ -31,12 +33,12 @@ public class verInfoProveedor extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if(request.getParameter("infoProveedor")!= null){
-            //DataInfoProveedor proveedor = (DataInfoProveedor) ICP.verInfoProveedor(request.getParameter("nickProveedor"));
-            //request.getSession().setAttribute("proveedor", proveedor);
-            request.getRequestDispatcher("/WEB-INF/verInfoProveedor.jsp").forward(request, response);
+       
+            DataInfoProveedor proveedor = (DataInfoProveedor) Fabrica.getInstance().getIControladorProveedor().verInfoProveedor(request.getParameter("nomProveedor"));
+            request.getSession().setAttribute("dataInfoProveedor", proveedor);
+            request.getRequestDispatcher("/WEB-INF/Servicios/verInfoProveedor.jsp").forward(request, response);
         
-        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
