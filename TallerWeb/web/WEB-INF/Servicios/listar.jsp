@@ -102,7 +102,7 @@
                                                 <td style="width: 45%">
                                                    <form action="agregaraacarrito">
                                                         <input type="text" label="nomServico" id="nombresri" name="nomServicio" value="<%=servcio.getNombre()%>" hidden="true">
-                                                        <input type="text" label="nomProveedor" id="nombrerprv" name="nomProveedor" value="<%=servcio.getProveedor()%>" hidden="true">
+                                                        <input type="text" label="nomProveedor" id="nombrerprv" name="nomProveedorServicio" value="<%=servcio.getProveedor()%>" hidden="true">
                                                         <input type="text" label="Tipo" id="Cantidad4" value="true" name="esservicio" hidden="true">
                                                         <table border="0" cellspacing="1" >
                                                             <thead>

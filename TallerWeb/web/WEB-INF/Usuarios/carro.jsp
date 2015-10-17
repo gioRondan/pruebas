@@ -38,22 +38,20 @@
                         List<DataItemReserva> items = (List<DataItemReserva>) request.getSession().getAttribute("ItemsReservaActual");
                         
                         float p = 0;
-                        float auxp;
-                        float auxc;
+                       
                         if (items != null){
                             for(DataItemReserva item : items){
                                 if (item.getesServico()){
                     %>        
-                    
-                                <tr>
-                                    <td><%=item.getServicio().getNombre()%></td>
-                                    <td > <img src="./media/imagenes/moody - Euro-Car-1 1.png" alt="foto"/> </td>
-                                    <td id="precio1"> <%=item.getServicio().getPrecio() %> </td>
-                                    <td> <%=item.getServicio().getDescripcion() %></td>
-                                    <td> Servicio </td>
-                                    <td id="cant1"> <%=item.getCantidad() %> </td>
-                                </tr>
-                                <% p +=item.getCantidad() * item.getServicio().getPrecio(); %>
+                                    <tr>
+                                        <td><%=item.getServicio().getNombre()%></td>
+                                        <td > <img src="./media/imagenes/moody - Euro-Car-1 1.png" alt="foto"/> </td>
+                                        <td id="precio1"> <%=item.getServicio().getPrecio() %> </td>
+                                        <td> <%=item.getServicio().getDescripcion() %></td>
+                                        <td> Servicio </td>
+                                        <td id="cant1"> <%=item.getCantidad() %> </td>
+                                    </tr>
+                                    <% p +=item.getCantidad() * item.getServicio().getPrecio(); %>
                                 <%}else{%>
                                     <tr>
                                         <td><%=item.getPromocion().getNombre()%></td>
