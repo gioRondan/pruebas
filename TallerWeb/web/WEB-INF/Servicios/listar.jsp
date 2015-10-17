@@ -132,8 +132,7 @@
                                                         </table>
                                                     </form> 
                                                 </td>
-                                        
-                                                 <% };%>  
+                                            <% };%>  
                                             </tr><br/>
                                         </tbody>
                                     </table>                               		
