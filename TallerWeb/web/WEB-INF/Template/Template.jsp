@@ -65,7 +65,7 @@
                         <li><a href="#">Reservas</a></li>-->
                         <form class="navbar-form navbar-left" role="search">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Promociones y/o servicios">
+                                <input type="text" class="form-control" name="textodebusqueda" placeholder="Promociones y/o servicios">
                             </div>
                             <button type="submit" class="btn btn-default">Buscar</button>
                         </form>

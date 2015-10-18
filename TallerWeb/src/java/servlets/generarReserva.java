@@ -48,36 +48,19 @@ public class generarReserva extends HttpServlet {
         if(request.getParameter("comprar") != null){
             Fabrica fab = Fabrica.getInstance();
             IControladorCliente ICC = fab.getIControladorCliente();
-            IControladorWeb web = fab.getIControladorWeb();
+            
             List<DataItemReserva> items = (List<DataItemReserva>) request.getSession().getAttribute("ItemsReservaActual");
             DataInfoCliente cli = (DataInfoCliente) request.getSession().getAttribute("dataCliente");
             if (items != null){
-                for(DataItemReserva item : items){
-                    if (item.getesServico()){
-                        //(String nickProveedor, String nomServicio, Integer cantidad, Date fechaInicio, Date fechaFin
-                    
-                    DataServicio serv = item.getServicio();
-                    try {
-                        web.agregarServicioCarrito(serv.getProveedor(),serv.getNombre(),item.getCantidad(),item.getFechaInicio(),item.getFechaFin());
-                    } catch (Exception ex) { }
-                    }else{
-                        // String nickProveedor, String nomPromocion, Integer cantidad, Date fechaInicio, Date fechaFin
-                        DataPromocion prom = item.getPromocion();
-                        web.agregarPromocionCarrito(prom.getnickProveedro(),prom.getNombre(),item.getCantidad(),item.getFechaInicio(),item.getFechaFin());
-                    }
-                        
-                    
-                }
-                try {
-                    web.iniciarSesion(cli.getNickname(),cli.getPassword());
-                } catch (Exception ex) {
-                }
-                web.confirmarReserva();
-
-        
+                ICC.confirmarReserva(items,cli);
+                items.removeAll(items);//vacio el carrito
+                request.getSession().setAttribute("ItemsReservaActual", items );
+                DataInfoCliente cliente = (DataInfoCliente) request.getSession().getAttribute("dataCliente");
+                cliente = ICC.iniciarSesion(cliente.getNickname(), cliente.getPassword());//reinicio sesion para actualizar los datos de las reservas 
+                request.getSession().setAttribute("dataCliente", cliente);
+            }
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
-     }
      }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

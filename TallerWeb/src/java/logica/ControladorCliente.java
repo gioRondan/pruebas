@@ -10,6 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -134,5 +136,33 @@ public class ControladorCliente implements IControladorCliente{
             ex.printStackTrace();
         }
         return date;
+    }
+
+    public void confirmarReserva(List<DataItemReserva> itemreserva,DataInfoCliente dtcliente){
+        ManejadorCliente mcli = ManejadorCliente.getInstance();
+        ManejadorProveedor mprov = ManejadorProveedor.getInstance();
+        Cliente cliente = mcli.getCliente(dtcliente.getNickname());
+        int clave1 = mcli.getUltimoid();
+        Reserva res = new Reserva(clave1,new Date(), new Date(), new Date(),0,Estado.registrada);
+        cliente.addReserva(res.getId(),res);
+        float preciototal=0;
+        for (DataItemReserva dtir : itemreserva){
+            if (dtir.getesServico()){
+                Servicio servicio;
+                try {
+                    servicio = mprov.getProveedor(dtir.getServicio().getProveedor()).getServicio( dtir.getServicio().getNombre() );
+                    cliente.reservarServicio(clave1, servicio,dtir.getCantidad(), dtir.getFechaInicio(),dtir.getFechaFin());
+                    preciototal= preciototal + servicio.getPrecio()*dtir.getCantidad();
+                } catch (Exception ex) {
+                    Logger.getLogger(ControladorCliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }else{
+                Promocion promo = mprov.getProveedor(dtir.getPromocion().getnickProveedro()).getPromocion(dtir.getPromocion().getNombre());
+                cliente.reservarPromocion(clave1, promo,dtir.getCantidad(), dtir.getFechaInicio(),dtir.getFechaFin());
+                preciototal= preciototal + promo.getPrecioTotal()*dtir.getCantidad();
+            }
+            res.setPrecio(preciototal);
+        }
     }
 }

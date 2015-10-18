@@ -44,12 +44,8 @@ public class Cliente extends Usuario{
     }
     public void reservarServicio(int identificador,Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
         Reserva res = reservas.get(identificador);
-        
-            ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin);    
-            res.agregarItem(item);
-        
-        
-        
+        ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin);    
+        res.agregarItem(item);
     }
     public void modificarEstadoReserva(int identificador, Estado estado){
         Reserva res = reservas.get(identificador);

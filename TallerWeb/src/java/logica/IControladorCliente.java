@@ -26,4 +26,5 @@ public interface IControladorCliente {
 //###################################   Operaciones Tarea2      #########################################################################
     public DataInfoCliente iniciarSesion(String nickCliente, String password);
     public Date toDate(String fecha);
+    public void confirmarReserva(List<DataItemReserva> itemsr,DataInfoCliente cli);
 }
