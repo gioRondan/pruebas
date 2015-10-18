@@ -15,7 +15,7 @@
     <body>        
         <div class="centerbox" style="text-align:left; margin:auto; width:85% " > 
             <div class="container" >
-                <h1>Informacion General de la Servicio</h1>
+                <h1>Informacion General de la Promocion</h1>
                 <%
                     DataInfoPromocion promo = (DataInfoPromocion) request.getAttribute("dataInfoPromocion");
                     Set<DataServicio> servicios = promo.getServicios();
