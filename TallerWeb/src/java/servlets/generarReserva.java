@@ -7,6 +7,9 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -14,8 +17,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import logica.DataExpira;
+import logica.DataItemReserva;
+import logica.DataServicio;
 import logica.Fabrica;
 import logica.IControladorCliente;
+import logica.IControladorWeb;
 
 /**
  *
@@ -38,11 +45,21 @@ public class generarReserva extends HttpServlet {
         if(request.getParameter("ItemsReservaActual") != null){
             Fabrica fab = Fabrica.getInstance();
             IControladorCliente ICC = fab.getIControladorCliente();
-            
-            try {
-                ICC.realizarReserva(null, null, null, null, null, null, null);
-            } catch (Exception ex) {
-            }
+            IControladorWeb web = fab.getIControladorWeb();
+            List<DataItemReserva> items = (List<DataItemReserva>) request.getSession().getAttribute("ItemsReservaActual");
+            if (items != null){
+                for(DataItemReserva item : items){
+                    if (item.getesServico()){
+                        //(String nickProveedor, String nomServicio, Integer cantidad, Date fechaInicio, Date fechaFin
+                    }
+                    DataServicio serv = item.getServicio();
+                    try {
+                        web.agregarServicioCarrito(serv.getProveedor(),serv.getNombre(),item.getCantidad(),item.getFechaInicio(),item.getFechaFin());
+                    } catch (Exception ex) { }
+                        
+                    
+                }
+
         
         }
         request.getRequestDispatcher("/index.jsp").forward(request, response);
