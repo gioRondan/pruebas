@@ -6,6 +6,8 @@
 
 package logica;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
@@ -14,6 +16,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -41,6 +44,15 @@ public class Cliente extends Usuario{
             dts.add(value.getDataReserva());
         }
         return dts;
+    }
+    
+    public static BufferedImage leerURLdeImagen(String imgURL){
+        File imgF = new File(imgURL);
+        try {
+            return ImageIO.read(imgF);
+        } catch (Exception ex) {
+            return null;
+        }
     }
     public void reservarServicio(int id,Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
         Reserva res = reservas.get(id);
