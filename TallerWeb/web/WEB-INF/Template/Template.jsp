@@ -63,11 +63,11 @@
                         </li>
                         <li><a href="#">Proveedores</a></li>  
                         <li><a href="#">Reservas</a></li>-->
-                        <form class="navbar-form navbar-left" role="search">
+                        <form class="navbar-form navbar-left" role="search" action="home">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="textodebusqueda" placeholder="Promociones y/o servicios">
+                                <input type="text" class="form-control" value="" name="textodebusqueda" placeholder="Promociones y/o servicios">
                             </div>
-                            <button type="submit" class="btn btn-default">Buscar</button>
+                            <button type="submit" name="buscar" class="btn btn-default">Buscar</button>
                         </form>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -77,7 +77,6 @@
                             <li style="height: 50px;"><a onClick="window.location = 'iniciosesion'" style="padding-top:9px; height: 50px"><img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" label="Usuario" float="right" style="width:35px;height:35px;"> <% DataInfoCliente cliente = (DataInfoCliente) request.getSession().getAttribute("dataCliente");%><%=cliente.getNickname()%></a></li>
                         <%}else{%>
                             <li><a onClick="window.location = 'iniciosesion';"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                            
                         <% } %>
                     </ul>
                 </div>

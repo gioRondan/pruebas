@@ -71,6 +71,6 @@ public class Promocion {
     }
 
     boolean buscado(String aBuscar) {
-        return this.nombre.equals(aBuscar);
+        return this.nombre.contains(aBuscar);
     }
 }

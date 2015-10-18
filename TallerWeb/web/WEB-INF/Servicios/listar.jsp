@@ -55,7 +55,7 @@
                                     <option value="4">Nombre proveedor</option>
                                     <input id="ord" type="submit" value="Ordenar" name="ordenar" /><br>
                                 </select>
-                                
+                                <input id="filtro2" type="text" value="<%= request.getSession().getAttribute("textodebusqueda")%>" name="textodebusqueda" hidden="true"/>
                                 <input id="filtro" type="text" value="<%= request.getSession().getAttribute("categoria")%>" name="categoria" hidden="true"/>
                             </form>
                         </div>
@@ -76,6 +76,7 @@
                                 <% 
                                     List<DataServicio> servicios = (List<DataServicio>)
                                                         request.getAttribute("dataServicos");
+                                    if (servicios!=null){
                                     for(DataServicio servcio : servicios){
                                 %>
                                 <table border="1" cellspacing="10"  style="width: 95%">
@@ -136,13 +137,14 @@
                                             </tr><br/>
                                         </tbody>
                                     </table>                               		
-                                <% };//CIERRA FOR SERVICOS %>
+                                <% }};//CIERRA FOR SERVICOS %>
                             </div>
                             <div id="cpestana2">
                                 
                                   <% 
                                      List<DataPromocion> promociones = (List<DataPromocion>)
                                                     request.getAttribute("dataPromociones");
+                                     if (promociones !=null){
                                     for(DataPromocion promocion : promociones){
                                 %>
                                 <table border="1" cellspacing="10"  style="width: 95%">
@@ -204,7 +206,7 @@
                                             </tr><br/>
                                         </tbody>
                                     </table>                               		
-                                <% };//CIERRA FOR PROMOCIONES %>
+                                <% }};//CIERRA FOR PROMOCIONES %>
                             </div>
                              
                              <div id="cpestana3"  >

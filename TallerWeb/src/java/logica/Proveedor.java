@@ -79,7 +79,7 @@ public class Proveedor extends Usuario{
         List result = new ArrayList<DataServicio>();
         for(Servicio value : servicios.values()){
             if(value.buscado(aBuscar)){
-                result.add(value);
+                result.add(value.getDataServicio());
             }
         }
         return result;
@@ -89,7 +89,7 @@ public class Proveedor extends Usuario{
         List result = new ArrayList<DataPromocion>();
         for(Promocion value : promociones.values()){
             if(value.buscado(aBuscar)){
-                result.add(value);
+                result.add(value.getDataPromocion());
             }
         }
         return result;

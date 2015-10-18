@@ -61,6 +61,7 @@ public class Home extends HttpServlet {
                 if  (request.getSession().getAttribute("Login") == null){
                     request.getSession().setAttribute("Login", "NoLogeado");
                     List<DataItemReserva> itemsreservascarro = new ArrayList<DataItemReserva>();
+                    request.getSession().setAttribute("textodebusqueda"," ");
                     request.getSession().setAttribute("ItemsReservaActual",itemsreservascarro );
                         try {
                             new CargaInicial().cargar();
@@ -82,29 +83,57 @@ public class Home extends HttpServlet {
                     List<DataServicio> servicos = new ArrayList<DataServicio>();
                     List<DataProveedor> prove = ICP.listarProveedores();
                     List<DataPromocion> promos = new ArrayList<DataPromocion>();
-                    if ( (request.getParameter("categoria") != null) && (!(request.getParameter("categoria").equals(" "))) ){
-                        String categoria = (String) request.getParameter("categoria");
-                        request.getSession().setAttribute("categoria", categoria);//seteo para mantener el filtro en el jsp
-                        //categoria = categoria.substring( categoria.indexOf(":")+2 , categoria.length() );
-                        String comas ="";
-                        while (  categoria.indexOf(",")!=-1 ){
-                            comas = categoria.substring(0, categoria.indexOf(","));
-                            categoria = categoria.substring( categoria.indexOf(",")+2 , categoria.length() );
-                            servicos.addAll(ICP.listarServiciosXCategoria(comas));   
-                        }
-                        
-                        for (DataProveedor una : prove){ 
-                           promos.addAll(ICP.listarPromocionesXProveedor(una.getNickname()));
-                        }
+                    if ( (request.getParameter("textodebusqueda")!=null) && (!(request.getParameter("textodebusqueda")).equals(" ") ) ){
+                        request.getSession().setAttribute("textodebusqueda", request.getParameter("textodebusqueda"));//seteo para mantener el filtro en el jsp
+                        servicos.addAll(ICP.buscarServicios(request.getParameter("textodebusqueda")));
+                        promos.addAll(ICP.buscarPromociones(request.getParameter("textodebusqueda")));
+//                         if ( (request.getParameter("categoria") != null) && (!(request.getParameter("categoria").equals(" "))) ){
+//                            String categoria = (String) request.getParameter("categoria");
+//                            request.getSession().setAttribute("categoria", categoria);//seteo para mantener el filtro en el jsp
+//                            //categoria = categoria.substring( categoria.indexOf(":")+2 , categoria.length() );
+//                            String comas ="";
+//                            while (  categoria.indexOf(",")!=-1 ){
+//                                comas = categoria.substring(0, categoria.indexOf(","));
+//                                categoria = categoria.substring( categoria.indexOf(",")+2 , categoria.length() );
+//                                for (DataServicio servicio : servicos){
+//                                    List<String> nombrescategorias = new ArrayList<String>();
+//                                    try {
+//                                        for ( DataCategoria catego : ICP.verInfoServicio(servicio.getNombre(),servicio.getProveedor()).getCategorias() ){
+//                                            nombrescategorias.add(catego.getNombre());
+//                                        }
+//                                        if ( !nombrescategorias.contains(categoria) ){
+//                                            servicos.remove(servicio);
+//                                        }
+//                                    } catch (Exception ex) {
+//                                        Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//                                    }
+//                                }  
+//                            }
+//                        }
                     }else{
-                       request.getSession().setAttribute("categoria", " ");//seteo para mantener el filtro en el jsp
-                       List<DataProveedor> cate = ICP.listarProveedores();
-                       for (DataProveedor una : cate){
-                          servicos.addAll(ICP.listarServiciosXProveedor(una.getNickname()));
-                          promos.addAll(ICP.listarPromocionesXProveedor(una.getNickname()));
-                       }
+                        if ( (request.getParameter("categoria") != null) && (!(request.getParameter("categoria").equals(" "))) ){
+                            String categoria = (String) request.getParameter("categoria");
+                            request.getSession().setAttribute("categoria", categoria);//seteo para mantener el filtro en el jsp
+                            
+                            String comas ="";
+                            while (  categoria.indexOf(",")!=-1 ){
+                                comas = categoria.substring(0, categoria.indexOf(","));
+                                categoria = categoria.substring( categoria.indexOf(",")+2 , categoria.length() );
+                                servicos.addAll(ICP.listarServiciosXCategoria(comas));   
+                            }
+
+                            for (DataProveedor una : prove){ 
+                               promos.addAll(ICP.listarPromocionesXProveedor(una.getNickname()));
+                            }
+                        }else{
+                           request.getSession().setAttribute("categoria", " ");//seteo para mantener el filtro en el jsp
+                           List<DataProveedor> cate = ICP.listarProveedores();
+                           for (DataProveedor una : cate){
+                              servicos.addAll(ICP.listarServiciosXProveedor(una.getNickname()));
+                              promos.addAll(ICP.listarPromocionesXProveedor(una.getNickname()));
+                           }
+                        }
                     }
-                     
                     
                     if  ( request.getParameter("orden") != null ){
                         int ord = Integer.parseInt(request.getParameter("orden"));

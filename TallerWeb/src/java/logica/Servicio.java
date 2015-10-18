@@ -126,6 +126,6 @@ public class Servicio {
     }
 
     boolean buscado(String aBuscar) {
-        return this.nombre.equals(aBuscar) || this.categorias.containsKey(aBuscar) || this.descripcion.contains(aBuscar);
+        return this.nombre.contains(aBuscar) || this.categorias.containsKey(aBuscar) || this.descripcion.contains(aBuscar);
     }
 }
