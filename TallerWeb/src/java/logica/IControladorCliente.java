@@ -27,4 +27,6 @@ public interface IControladorCliente {
     public DataInfoCliente iniciarSesion(String nickCliente, String password);
     public Date toDate(String fecha);
     public void confirmarReserva(List<DataItemReserva> itemsr,DataInfoCliente cli)throws Exception;
+    public boolean existeEmail(String email);
+    public boolean existeNickName(String nickName);
 }

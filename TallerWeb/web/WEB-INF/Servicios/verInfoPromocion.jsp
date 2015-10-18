@@ -23,11 +23,11 @@
                 <br>
                 Nombre: <%= promo.getNombre()  %>
                 <br>
-                Precio Total: <%= promo.getPrecioTotal()%>
+                Precio Total: <%= "US$ "+promo.getPrecioTotal()%>
                 <br>
-                El descuento aplicado fue: <%= promo.getDescuento()  %>
+                El descuento aplicado fue: <%= promo.getDescuento()+"%"  %>
                 <br>
-                Proveedor: <%= servicios.iterator().next().getProveedor() %>
+                Proveedor: <a onclick="window.location = 'verinfoproveedor?nomProveedor=<%=servicios.iterator().next().getProveedor()%>'" ><%= servicios.iterator().next().getProveedor() %></a>
                 <br> 
                 <%  if ((request.getSession().getAttribute("Login") == "Logeado")){ %>
                     <td style="width: 45%">
@@ -69,7 +69,7 @@
                     <% 
                        for(DataServicio item : servicios){
                     %> 
-                        <%= item.getNombre() %> 
+                    <a href="verinfoservicio?nomProveedorServicio=<%=servicios.iterator().next().getProveedor()%>&nomServicio=<%=item.getNombre()%>" ><%=item.getNombre()%></a> 
                         <br/>
                     <%}%>
             </div>

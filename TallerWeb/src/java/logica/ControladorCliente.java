@@ -161,4 +161,26 @@ public class ControladorCliente implements IControladorCliente{
             res.setPrecio(preciototal);
         }
     }
+    public boolean existeNickName(String nickName){
+        boolean aux=false;
+        ManejadorCliente mCl = ManejadorCliente.getInstance();
+        List<DataCliente> list = mCl.getDataClientes();
+        for(DataCliente dtc : list){
+            if (dtc.getNickname().equals(nickName)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean existeEmail(String email){
+        boolean aux=false;
+        ManejadorCliente mCl = ManejadorCliente.getInstance();
+        List<DataCliente> list = mCl.getDataClientes();
+        for(DataCliente dtc : list){
+            if (dtc.getEmail().equals(email)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

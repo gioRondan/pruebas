@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import logica.Fabrica;
 
 /**
  *
@@ -33,16 +34,23 @@ public class existeusuario extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-           
-            String ass = request.getParameter("usuario");
-            if (ass.equals("Juan")){
-                out.println("<existe>ture</existe>");
-            }else{
-                out.println("<existe>false</existe>");
+        try { 
+            String usuario = request.getParameter("username");
+            String email = request.getParameter("email");
+            if (usuario != null){
+                if ( Fabrica.getInstance().getIControladorCliente().existeNickName(usuario) ){
+                    out.print("nombre usuario invalido");
+                }else{
+                    out.print("false usuario");
+                }
             }
-            
+            if(email !=null){
+                if (  Fabrica.getInstance().getIControladorCliente().existeEmail(email) ){
+                    out.print("email invalido");
+                }else{
+                    out.print("false");
+                }
+            }
         } finally {
             out.close();
         }

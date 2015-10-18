@@ -27,13 +27,15 @@
                 <br>
                 <% if (servicio.getDestino()!=null){%>
                     Destino: <%= servicio.getDestino().getPais()+", "+servicio.getDestino().getNombre()%> 
-                <br>
+                    <a href="https://www.google.com.uy/maps/place/<%=servicio.getDestino().getNombre()%>/" target="_blank">Ver mapa</a>
+                    <br>
                 <%};%>
                 Origen: <%= servicio.getOrigen().getPais()+", "+servicio.getOrigen().getNombre()%> 
+                <a href="https://www.google.com.uy/maps/place/<%=servicio.getOrigen().getNombre()%>/" target="_blank">Ver mapa</a>
                 <br>
-                Precio: <%= servicio.getPrecio() %>
+                Precio: <%= "US$ "+servicio.getPrecio() %>
                 <br>
-                Proveedor: <%= servicio.getProveedor().getNickname() %>
+                Proveedor: <a onclick="window.location = 'verinfoproveedor?nomProveedor=<%=servicio.getProveedor().getNickname()%>'" ><%=servicio.getProveedor().getNickname() %></a>
                 <br> 
                 <%  if ((request.getSession().getAttribute("Login") == "Logeado")){ %>
                     <td style="width: 45%">
@@ -73,14 +75,11 @@
                 <% };%>  
                 <h1>Categorias</h1>
                     <% 
-                   
-                  
                        List<DataCategoria> categorias = servicio.getCategorias();
-                       for(DataCategoria item : categorias){
-                           
+                       for(DataCategoria item : categorias){                   
                     %> 
-                        <%= item.getNombre() %> 
-                        <br/>
+                    <a href="home?categoria=<%=item.getNombre()%>%2C+&botonfiltro=Filtrar"><%= item.getNombre() %></a>
+                    <br/>
                     <%}%>
                 
             </div>

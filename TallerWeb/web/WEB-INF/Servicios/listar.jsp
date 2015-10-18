@@ -90,7 +90,7 @@
                                             <tr>
                                                 <td >
                                                     <%="Nombre: "+servcio.getNombre() %><br>
-                                                    <%="Precio: " +servcio.getPrecio() %><br>
+                                                    <%="Precio: US$ " +servcio.getPrecio() %><br>
                                                     <%="Proveedor: "+servcio.getProveedor()%><br>
                                                     <%="Descripcion: "+servcio.getDescripcion()%><br>
                                                     <form action="verinfoservicio" style="float: left">
@@ -158,7 +158,7 @@
                                             <tr>
                                                 <td >
                                                     <%="Nombre: "+promocion.getNombre() %><br>
-                                                    <%="Precio: " +promocion.getPrecioTotal() %><br>
+                                                    <%="Precio: US$ "+promocion.getPrecioTotal() %><br>
                                                     <%="Proveedor: "+promocion.getnickProveedro() %><br>
                                                    
                                                     <form action="verinfopromocion" style="float: left">
@@ -228,8 +228,8 @@
                                                     <%="Nickname: "+proveedor.getNickname() %><br>
                                                     <%="Nombre: " +proveedor.getNombre() %><br>
                                                     <%="Apellido: "+proveedor.getApellido() %><br>
-                                                    <%="Descripcion: "+proveedor.getEmail() %><br>
-                                                    <a  href="<%=proveedor.getUrlEmpresa()%>"><%=proveedor.getUrlEmpresa()%></a>
+                                                    <%="Email: "+proveedor.getEmail() %><br>
+                                                    
                                                     <form action="verinfoproveedor" style="float: left">
                                                         <input type="submit" value="Mas Info" name="Vermasinfo" style="color: black"  /><br>
                                                         <input type="text" label="nomProveedor" id="nombrerprv" name="nomProveedor" value="<%=proveedor.getNickname()%>" hidden="true">

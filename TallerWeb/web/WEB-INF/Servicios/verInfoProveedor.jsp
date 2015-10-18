@@ -38,20 +38,21 @@
                 <br>
                  Apellido: <%= proveedor.getApellido()  %>
                 <br>
-                 Email: <%= proveedor.getEmail() %>
+                Email:<a href="mailto:<%=proveedor.getEmail()%>"> <%= proveedor.getEmail() %></a>
                 <br> 
                  Fecha de nacimiento: <%=formatoFecha.format(proveedor.getFechaNac())%>
                 <br>
                 
                 <h1>Empresa</h1>
                   Nombre:  <%= proveedor.getEmpresa().getNombre() %> <br>
-                  Pagina: <a href="<%= proveedor.getEmpresa().getUrl()%>"><%= proveedor.getEmpresa().getUrl()%></a> <br>
+                  Pagina: <a href="<%= proveedor.getEmpresa().getUrl()%>" target="_blank"><%= proveedor.getEmpresa().getUrl()%></a> <br>
                 <h1>Servicios </h1>
                     <% 
                        List<DataServicio> servicios = proveedor.getServicios();
                        for(DataServicio item : servicios){
                     %> 
-                        <%= item.getNombre() %> 
+                    <a href="verinfoservicio?nomProveedorServicio=<%=servicios.iterator().next().getProveedor()%>&nomServicio=<%=item.getNombre()%>" ><%=item.getNombre()%></a>
+                        
                         <br/>
                     <%}%>
                 

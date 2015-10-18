@@ -57,7 +57,10 @@
         <servlet-name>verInfoReserva</servlet-name>
         <url-pattern>/verinforeserva</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>existeusuario</servlet-name>
+        <url-pattern>/existeusuario</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>verInfoServicio</servlet-name>
         <url-pattern>/verinfoservicio</url-pattern>
