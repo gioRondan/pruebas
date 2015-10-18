@@ -51,11 +51,14 @@ public class generarReserva extends HttpServlet {
                 for(DataItemReserva item : items){
                     if (item.getesServico()){
                         //(String nickProveedor, String nomServicio, Integer cantidad, Date fechaInicio, Date fechaFin
-                    }
+                    
                     DataServicio serv = item.getServicio();
                     try {
                         web.agregarServicioCarrito(serv.getProveedor(),serv.getNombre(),item.getCantidad(),item.getFechaInicio(),item.getFechaFin());
                     } catch (Exception ex) { }
+                    }else{
+                        
+                    }
                         
                     
                 }
