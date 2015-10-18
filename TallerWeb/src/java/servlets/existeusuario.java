@@ -37,6 +37,8 @@ public class existeusuario extends HttpServlet {
         try { 
             String usuario = request.getParameter("username");
             String email = request.getParameter("email");
+            String pass = request.getParameter("pass");
+            String pass2 = request.getParameter("pass2");
             if (usuario != null){
                 if ( Fabrica.getInstance().getIControladorCliente().existeNickName(usuario) ){
                     out.print("nombre usuario invalido");
@@ -51,6 +53,12 @@ public class existeusuario extends HttpServlet {
                     out.print("false");
                 }
             }
+            if (!pass.equals(pass2)){
+                out.print("contaseña invalida");
+            }else{
+                out.print("false");
+            }
+            
         } finally {
             out.close();
         }

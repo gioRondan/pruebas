@@ -18,14 +18,14 @@
               $(function() {
                 $("#username").change(function() {
 // ajax                 
-                  alert("username");
+                  
                     $.ajax({
                         type: "POST",
                         url: "existeusuario",
                         data: {username: $("#username").val()}
                     })
                         .done(function(msg) {
-                            alert(msg);
+                          
                             if (msg.indexOf("nombre usuario invalido") != -1 )
                             {
                                document.getElementById("error").style.visibility = "visible";
@@ -36,22 +36,47 @@
                 });
                  $("#email").change(function() {
 // ajax                  
-                    alert("Email");
+                    
                     $.ajax({
                         type: "POST",
                         url: "existeusuario",
                         data: {email: $("#email").val()}
                     })
                         .done(function(msg) {
-                            alert(msg);
+                            
                             if (msg.indexOf("email invalido") != -1 )
                             {
                                document.getElementById("error2").style.visibility = "visible";
                             }else{
-                                document.getElementById("error2").style.visibility = "hidden";
+                               document.getElementById("error2").style.visibility = "hidden";
                             }
                         });
                 });
+               
+                    $("#pass2").change(function() {
+    // ajax                  
+                        $.ajax({
+                            type: "POST",
+                            url: "existeusuario",
+                            data: { 
+                                pass: $("#pass").val(),
+                                pass2:$("#pass2").val(),                             
+                            }
+                        })
+                            .done(function(msg) {
+                                
+                                if (msg.indexOf("contaseña invalida") != -1 )
+                                {
+                                   document.getElementById("error3").style.visibility = "visible";
+                                   $("#pass").val(null);
+                                   $("#pass2").val(null);
+                                }else{
+                                   document.getElementById("error3").style.visibility = "hidden";
+                                }
+                                
+                            });
+                    });
+            
             });
         </script>
     </head>
@@ -68,7 +93,9 @@
                     <div class="form-group">
                         <div class="col-sm-5">
                             <span id="error" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12pt;color: #CC3300; visibility: hidden;">Ya existe usuario</span><br>
-                            <span id="error2" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12pt;color: #CC3300; visibility: hidden;">Ya existe Email</span>
+                            <span id="error2" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12pt;color: #CC3300; visibility: hidden;">Ya existe Email</span><br>
+                            <span id="error3" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12pt;color: #CC3300; visibility: hidden;">Las contraseñas no coinciden</span><br>
+                            
                         </div>
                     </div>
                     
@@ -80,44 +107,44 @@
                     <div class="form-group">
                         <label class="control-label col-sm-1" for="nick">Nickname:</label>
                         <div class="col-sm-4">
-                            <input class="form-control" type="text" id="username" name="nickRegistrar" >
+                            <input class="form-control" type="text" id="username" name="nickRegistrar" placeholder="Introduzca su nick" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-1" for="email">Email:</label>
                         <div class="col-sm-4">
 
-                            <input class="form-control" id="email" label= "email" type="email" name="emailCliente" placeholder="Introduzca su nick">
+                            <input class="form-control" id="email" label= "email" type="email" name="emailCliente" placeholder="Introduzca su Email ">
                         </div>
                     </div>
                      <div class="form-group">
                         <label class="control-label col-sm-1" for="nombre"> Nombre:</label>
                         <div class="col-sm-4">
-                            <input class="form-control" label= "nombre" type="text"  name="nombreCliente" placeholder="Introduzca su nick">
+                            <input class="form-control" label= "nombre" type="text"  name="nombreCliente" placeholder="Introduzca su nombre">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-1" for="apellido"> Apellido: </label>
                         <div class="col-sm-4">
-                            <input class="form-control" label= "apellido" type="text"  name="apellidoCliente" placeholder="Introduzca su nick">
+                            <input class="form-control" label= "apellido" type="text"  name="apellidoCliente" placeholder="Introduzca su apellido">
                         </div>
                     </div>
                 <div class="form-group">
                         <label class="control-label col-sm-1" for="Fecha"> Fecha Nacimiento: </label>
                         <div class="col-sm-4">
-                            <input class="form-control" type="date" id="datepicker"  name="fechaCliente" placeholder="Introduzca su nick">
+                            <input class="form-control" type="date" id="datepicker"  name="fechaCliente" placeholder="dd/mm/yyyy">
                         </div>
                     </div>
                 <div class="form-group">
                         <label class="control-label col-sm-1" for="nick"> Password: </label>
                         <div class="col-sm-4">
-                            <input class="form-control" label= "password" type="password"  name="passRegistrar" placeholder="Introduzca su nick">
+                            <input class="form-control" id="pass" label= "password" type="password"  name="passRegistrar" placeholder="Introduzca su contraseña">
                         </div>
                     </div>
                 <div class="form-group">
                         <label class="control-label col-sm-1" for="nick"> Verificar Password: </label>
                         <div class="col-sm-4">
-                            <input class="form-control" label= "verificar password" type="password"  name="passVerificar" placeholder="Introduzca su nick">
+                            <input class="form-control" id="pass2" label="verificar password" type="password"  name="passVerificar" placeholder="Confirme la contraseña">
                         </div>
                     </div>
                     <div class="form-group container">        
