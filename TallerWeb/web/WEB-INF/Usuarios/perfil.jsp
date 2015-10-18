@@ -48,22 +48,28 @@
                                         DataInfoCliente cliente = (DataInfoCliente) request.getSession().getAttribute("dataCliente");
                                     %>
                                     <br>
-                                    nickName= <%= cliente.getNickname()%>
+                                    Nickname: <%= cliente.getNickname()%>
                                     <br>
-                                    email= <%= cliente.getEmail()%>
+                                    Email: <%= cliente.getEmail()%>
                                     <br>
-                                    nombre= <%= cliente.getNombre()%>
+                                    <% if (cliente.getNombre() !=null){%>
+                                        Nombre: <%= cliente.getNombre()%>
+                                    <%}%>
                                     <br>
-                                    apellido= <%= cliente.getApellido()%>
+                                    <% if (cliente.getApellido() !=null){%>
+                                        Apellido: <%= cliente.getApellido()%>
+                                    <%}%>
                                     <br>
                                     <% if (cliente.getFechaNac() !=null){%>
-                                    fecha de nacimiento = <%= formatoFecha.format(cliente.getFechaNac()) %>
+                                        Fecha de nacimiento: <%= formatoFecha.format(cliente.getFechaNac()) %>
                                     <%}%>
                                     <br>
                                 </td>
                                 <td>
+                                   <% if (cliente.getImagen() !=null){%>
                                     imagen <img src="<%="C:"+cliente.getImagen()%>" alt=""/>
                                     <br>
+                                   <%}%>
                                 </td>
                             </tr>
                         </table>
@@ -84,10 +90,7 @@
                             %> 
                             <tr> 
                                 <td>
-                                    <form action="verinforeserva" method="POST">
-                                        <input type="text" name="nickCliente" value="<%=cliente.getNickname()%>"  hidden="true" />
-                                        <input type="submit" name="verInfoReserva" value="<%=c.getId()%>"/>
-                                    </form>
+                                    <a href="<%="verinforeserva?nickCliente="+cliente.getNickname()+"&verInfoReserva="+c.getId()%> "><%=c.getId()%></a>
                                 </td>
                                 <td><%= formatoFecha.format(c.getFechaCreacion()) %></td>
                                 <td><%=c.getPrecio() %></td>

@@ -7,11 +7,13 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import logica.DataItemReserva;
 
 /**
  *
@@ -34,8 +36,12 @@ public class cierreSesion extends HttpServlet {
         if(request.getParameter("cerrarSesion") != null){
             request.getSession().setAttribute("nick", "");
             request.getSession().setAttribute("pass", "");
-            // vaciar carrito
+            
             request.getSession().setAttribute("Login", "NoLogeado");
+            List<DataItemReserva> items = (List<DataItemReserva>) request.getSession().getAttribute("ItemsReservaActual");
+            if (items!=null){
+                items.removeAll(items);//vacio el carrito
+            }
             request.getRequestDispatcher("/index.jsp").forward(request, response);
         }
     }

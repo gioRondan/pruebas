@@ -58,11 +58,7 @@
                        %> 
                                 <tr> 
                                     <td>
-                                        <form action="verinfoservicio" method="POST">
-                                            <input type="text" name="nomProveedorServicio" value="<%=item.getServicio().getProveedor() %>" hidden="true"/>
-                                            <input type="text" name="nomServicio" value="<%=item.getServicio().getNombre() %>"  hidden="true" />
-                                            <input type="submit" name="verinfoservicio" value="<%=item.getServicio().getNombre() %>"/>
-                                        </form>
+                                        <a href="verinfoservicio?nomProveedorServicio=<%=item.getServicio().getProveedor()%>&nomServicio=<%=item.getServicio().getNombre()%>" ><%=item.getServicio().getNombre()%></a>
                                     </td>
                                     <td><%= item.getCantidad() %></td> 
                                     <td><%= formatoFecha.format(item.getFechaInicio()) %></td>
@@ -72,11 +68,7 @@
                             <%}else{%> 
                                 <tr> 
                                     <td>
-                                        <form action="verinfopromocion" method="POST">
-                                            <input type="text" name="nomProveedorPromocion" value="<%=item.getPromocion().getnickProveedro() %>" hidden="true"/>
-                                            <input type="text" name="nomPromocion" value="<%=item.getPromocion().getNombre() %>"  hidden="true" />
-                                            <input type="submit" name="verinfopromocion" value="<%=item.getPromocion().getNombre() %>"/>
-                                        </form>
+                                        <a href="<%="verinfopromocion?nomProveedorPromocion="+item.getPromocion().getnickProveedro()+"&nomPromocion="+item.getPromocion().getNombre()%>" > <%=item.getPromocion().getNombre()%></a>
                                     </td>
                                     <td><%= item.getCantidad() %></td> 
                                     <td><%= formatoFecha.format(item.getFechaInicio()) %></td>
