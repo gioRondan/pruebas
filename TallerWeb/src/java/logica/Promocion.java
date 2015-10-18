@@ -8,7 +8,7 @@ package logica;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
+
 import java.util.Map;
 import java.util.Set;
 
@@ -71,6 +71,6 @@ public class Promocion {
     }
 
     boolean buscado(String aBuscar) {
-        return(this.nombre.equals(aBuscar) );
+        return this.nombre.equals(aBuscar);
     }
 }

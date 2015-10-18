@@ -6,10 +6,7 @@
 package logica;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 /**
  *
  * @author Juan
@@ -70,7 +67,7 @@ public class Categoria {
         this.servicios.add(servicio);
     }
     public boolean esHoja(){
-        return (hijos.isEmpty());
+        return hijos.isEmpty();
     }
 
     @Override
@@ -78,7 +75,7 @@ public class Categoria {
         return nombre;
     }
     public boolean esRaiz() {
-        return (!(tienePadre));
+        return !tienePadre;
     }
 
     Servicio getServicio(String nomServicio) {

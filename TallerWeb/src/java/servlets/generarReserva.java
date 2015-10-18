@@ -5,11 +5,9 @@
  */
 package servlets;
 
+
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -17,15 +15,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.DataCliente;
-import logica.DataExpira;
+
 import logica.DataInfoCliente;
 import logica.DataItemReserva;
-import logica.DataPromocion;
-import logica.DataServicio;
+
+
 import logica.Fabrica;
 import logica.IControladorCliente;
-import logica.IControladorWeb;
+
 
 /**
  *
@@ -52,7 +49,11 @@ public class generarReserva extends HttpServlet {
             List<DataItemReserva> items = (List<DataItemReserva>) request.getSession().getAttribute("ItemsReservaActual");
             DataInfoCliente cli = (DataInfoCliente) request.getSession().getAttribute("dataCliente");
             if (items != null){
-                ICC.confirmarReserva(items,cli);
+                try {
+                    ICC.confirmarReserva(items,cli);
+                } catch (Exception ex) {
+                    Logger.getLogger(generarReserva.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 items.removeAll(items);//vacio el carrito
                 request.getSession().setAttribute("ItemsReservaActual", items );
                 DataInfoCliente cliente = (DataInfoCliente) request.getSession().getAttribute("dataCliente");

@@ -9,9 +9,7 @@ package logica;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
-import java.util.Set;
-import java.util.Collections;
-import java.util.HashMap;
+
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -33,7 +31,7 @@ public class Cliente extends Usuario{
         this.reservas = new LinkedHashMap();
     }
     public DataCliente getDataCliente(){
-        return new DataCliente( nickname, nombre, apellido, email, fechaNac, imagen, password);
+        return new DataCliente( this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),  this.getImagen(), this.getPassword());
     }
     public List<DataReserva> getDataReservas(){
         List<DataReserva> dts = new ArrayList<DataReserva>();
@@ -65,7 +63,7 @@ public class Cliente extends Usuario{
         reservas.remove(identificador);
     }
     public DataInfoCliente getDataInfoCliente(){
-        return new DataInfoCliente(nickname, nombre, apellido, email, fechaNac, imagen, getDataReservas(), password);
+        return new DataInfoCliente(this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),  this.getImagen(), getDataReservas(),this.getPassword());
     }
     public Reserva getReserva(int identificador) {
         return reservas.get(identificador);

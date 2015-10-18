@@ -16,7 +16,7 @@ public class DataExpira {
     private Date fechaCom;
     private Date fechaFin;
     
-    public DataExpira (Date fecha1 ,Date fecha2){
+    public DataExpira(Date fecha1 ,Date fecha2){
         fechaCom=fecha1;
         fechaFin=fecha2;
     }

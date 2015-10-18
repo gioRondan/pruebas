@@ -15,34 +15,34 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script type="text/javascript">
-            jQuery(function () {
-                jQuery("#username").change(function () {
-   // ajax                 
-                    console.log(jQuery("#username").val());
-                    jQuery.ajax({
-                        type: "POST",
-                        url: "./ajax/verificarUsuario.jsp",
-                        data: {username: jQuery("#username").val()},
-                        success: function (data) {
-                            if (data == "si")
-                                alert("Existe");
-                            else
-                                alert(data);
-                                alert("No existe");
-                        }
-                    })
-                    /*.done(function(String msg) {
-                     console.log(msg);
-                  
-                     if(msg == "SI"){
-                     alert("El nombre (" + jQuery("#username").val() + ") ya existe.");
-                     }
-                     else{
-                     alert("gio");
-                     }
-                     });*/
-                });
-            });
+            function autentica(){
+                    usuario = document.getElementById("username").value;
+                    url = "existeusuario?usuario=" + usuario;
+                    leer_doc(url);
+                }
+                var req;
+                if (window.XMLHttpRequest) { 
+                    req = new XMLHttpRequest();
+                } else if (window.ActiveXObject) {
+                    req = new ActiveXObject("Microsoft.XMLHTTP"); 
+                }
+                if(req){
+                    req.onreadystatechange = procesarRespuesta;
+                    req.open('GET', url, true);
+                    req.send(null);
+                }
+                function procesarRespuesta(){
+
+                    respuesta = req.responseXML;
+
+                    var existe = respuesta.getElementsByTagName('existe')
+                      .item(0).firstChild.data;
+
+                    if (existe=="true")
+                      document.getElementById("error").style.visibility = "visible";
+                    else
+                      document.getElementById("error").style.visibility = "hidden";
+                }
         </script>
     </head>
 
@@ -55,8 +55,8 @@
         <div class="centerbox" style="text-align:center">
             <div class="container">
                 <form class="form-horizontal" role="form"  action="registrarcliente"  method="POST">
-                    
-                    
+                    <span id="error" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12pt;color: #CC3300; position: relative; text-align: center;  visibility: hidden;">Ya existe un usuario con ese nickname por favor elije otro</span>
+
                     
                     
                     <div class="form-group">
@@ -67,7 +67,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-1" for="nick">Nickname:</label>
                         <div class="col-sm-4">
-                            <input class="form-control" type="text" label="nick" id="username" name="nickRegistrar" placeholder="Introduzca su nick">
+                            <input class="form-control" type="text" id="username" name="nickRegistrar" onkeypress="return autentica();">
                         </div>
                     </div>
                     <div class="form-group">

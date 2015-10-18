@@ -5,17 +5,13 @@
  */
 
 package logica;
+
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import static java.util.Collections.emptyMap;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+
 
 /**
  *
@@ -27,7 +23,7 @@ public class Proveedor extends Usuario{
     private Map<String, Servicio> servicios;
     
     public Proveedor(String nickname, String nombre, String apellido,String email, Date fechaNac, String imagen, String pasword){
-        super(nickname,nombre,apellido,email,fechaNac,imagen, pasword);
+       super(nickname,nombre,apellido,email,fechaNac,imagen, pasword);
        promociones =  new LinkedHashMap();
        servicios =  new LinkedHashMap();
     }
@@ -76,7 +72,7 @@ public class Proveedor extends Usuario{
     }
 
     public DataInfoProveedor getDataInfoProveedor() {
-        return new DataInfoProveedor(nickname,  nombre,  apellido, email, fechaNac,  imagen,  empresa.getDataEmpresa(), getDataServicios(), this.getPassword());
+        return new DataInfoProveedor(this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),  this.getImagen(),  empresa.getDataEmpresa(), getDataServicios(), this.getPassword());
     }
 
     List<DataServicio> getServiciosBuscados(String aBuscar) {

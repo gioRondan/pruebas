@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 /**
  *
  * @author matias.heredia
@@ -20,7 +19,7 @@ import java.util.Set;
 public class Servicio {
     private String nombre;
     private String descripcion;
-    private String [] imagen;
+    private String[] imagen;
     private int contImagen = 0;
     private float precio;
     private Ciudad origen=null;
@@ -82,7 +81,7 @@ public class Servicio {
     public DataServicio getDataServicio(){
         return new DataServicio(nombre, descripcion, precio, imagen, proveedor.getNickname());
     }
-    public DataInfoServicio getDataInfoServicio (){
+    public DataInfoServicio getDataInfoServicio(){
         DataCiudad des = null;
         if (destino!= null){
             des = destino.getDataCiudad();
@@ -127,6 +126,6 @@ public class Servicio {
     }
 
     boolean buscado(String aBuscar) {
-        return(this.nombre.equals(aBuscar) ||this.categorias.containsKey(aBuscar) || this.descripcion.contains(aBuscar));
+        return this.nombre.equals(aBuscar) || this.categorias.containsKey(aBuscar) || this.descripcion.contains(aBuscar);
     }
 }

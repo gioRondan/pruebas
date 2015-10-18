@@ -67,13 +67,11 @@
                 <% };%>  
                 <h1>Servicios incluidos</h1>
                     <% 
-                       
                        for(DataServicio item : servicios){
                     %> 
                         <%= item.getNombre() %> 
                         <br/>
                     <%}%>
-                
             </div>
         </div>
     </body>

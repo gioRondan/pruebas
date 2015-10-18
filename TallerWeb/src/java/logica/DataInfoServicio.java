@@ -5,7 +5,7 @@
  */
 package logica;
 import java.util.List;
-import java.util.Set;
+
 /**
  *
  * @author giovani
@@ -21,7 +21,7 @@ public class DataInfoServicio {
     private DataProveedor proveedor;
     
     
-    public DataInfoServicio(String nombre, String descripcion, String [] imagen, float precio, DataCiudad origen, DataCiudad destino, List<DataCategoria> categorias, DataProveedor proveedor){
+    public DataInfoServicio(String nombre, String descripcion, String[] imagen, float precio, DataCiudad origen, DataCiudad destino, List<DataCategoria> categorias, DataProveedor proveedor){
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.imagen = imagen;

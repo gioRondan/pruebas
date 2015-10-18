@@ -13,7 +13,7 @@ public class DataServicio {
     private final String nombre;
     private final String descripcion;
     private final float precio;
-    private String [] imagen;
+    private String[] imagen;
     private final String proveedor;
     
     //Contructores

@@ -1,9 +1,12 @@
 package logica;
 
-import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+
 
 
 /**
@@ -254,7 +257,7 @@ public class ControladorProveedor implements IControladorProveedor{
         return mEmp.getDataEmpresas();
     }
     
-    @Override
+    
     public void altaProveedor( String nick, String nombre, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp, String linkEmp, String password) throws Exception{
                
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();

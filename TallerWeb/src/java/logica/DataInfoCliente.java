@@ -7,21 +7,21 @@ package logica;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
+
 
 /**
  *
  * @author diego
  */
 public class DataInfoCliente {
-    private final String nickname;
-    private final String nombre;
-    private final String apellido;
-    private final String email;
-    private final Date fechaNac;
-    private final String imagen;    
+    private String nickname;
+    private String nombre;
+    private String apellido;
+    private String email;
+    private Date fechaNac;
+    private String imagen;    
     private List<DataReserva> reservas;
-    protected final String password;
+    private String password;
     
     //Constructores
     public DataInfoCliente(){

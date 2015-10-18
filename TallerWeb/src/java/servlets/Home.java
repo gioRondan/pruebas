@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -60,7 +62,11 @@ public class Home extends HttpServlet {
                     request.getSession().setAttribute("Login", "NoLogeado");
                     List<DataItemReserva> itemsreservascarro = new ArrayList<DataItemReserva>();
                     request.getSession().setAttribute("ItemsReservaActual",itemsreservascarro );
-                    new CargaInicial().cargar();
+                        try {
+                            new CargaInicial().cargar();
+                        } catch (Exception ex) {
+                            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                 }
                    
                     
