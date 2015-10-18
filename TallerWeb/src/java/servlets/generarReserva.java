@@ -43,7 +43,7 @@ public class generarReserva extends HttpServlet {
      */
      protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if(request.getParameter("ItemsReservaActual") != null){
+        if(request.getParameter("comprar") != null){
             Fabrica fab = Fabrica.getInstance();
             IControladorCliente ICC = fab.getIControladorCliente();
             IControladorWeb web = fab.getIControladorWeb();
