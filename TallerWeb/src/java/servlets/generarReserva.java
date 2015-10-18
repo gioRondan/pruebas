@@ -17,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import logica.DataCliente;
 import logica.DataExpira;
 import logica.DataItemReserva;
 import logica.DataPromocion;
@@ -48,6 +49,7 @@ public class generarReserva extends HttpServlet {
             IControladorCliente ICC = fab.getIControladorCliente();
             IControladorWeb web = fab.getIControladorWeb();
             List<DataItemReserva> items = (List<DataItemReserva>) request.getSession().getAttribute("ItemsReservaActual");
+            DataCliente cli = (DataCliente) request.getSession().getAttribute("dataCliente");
             if (items != null){
                 for(DataItemReserva item : items){
                     if (item.getesServico()){
@@ -64,6 +66,10 @@ public class generarReserva extends HttpServlet {
                     }
                         
                     
+                }
+                try {
+                    web.iniciarSesion(cli.getNickname(),cli.getPassword());
+                } catch (Exception ex) {
                 }
                 web.confirmarReserva();
 
