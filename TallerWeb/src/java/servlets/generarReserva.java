@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logica.DataExpira;
 import logica.DataItemReserva;
+import logica.DataPromocion;
 import logica.DataServicio;
 import logica.Fabrica;
 import logica.IControladorCliente;
@@ -57,11 +58,14 @@ public class generarReserva extends HttpServlet {
                         web.agregarServicioCarrito(serv.getProveedor(),serv.getNombre(),item.getCantidad(),item.getFechaInicio(),item.getFechaFin());
                     } catch (Exception ex) { }
                     }else{
-                        
+                        // String nickProveedor, String nomPromocion, Integer cantidad, Date fechaInicio, Date fechaFin
+                        DataPromocion prom = item.getPromocion();
+                        web.agregarPromocionCarrito(prom.getnickProveedro(),prom.getNombre(),item.getCantidad(),item.getFechaInicio(),item.getFechaFin());
                     }
                         
                     
                 }
+                web.confirmarReserva();
 
         
         }
