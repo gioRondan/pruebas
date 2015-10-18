@@ -74,7 +74,7 @@
                 </table>
                  
                 
-              <form action="/generarreserva">
+              <form action="generarreserva">
               <input type="submit"  name="agregaracarrito" <button style="margin:calc; width:200px" type="button" class="btn btn-success pull-left">Comprar</button> />
               </form>   
                 
