@@ -32,6 +32,7 @@
                         <td>Descripcion</td>
                         <td>Tipo</td>
                         <td>Cantidad</td>
+                        <td>Boton</td>
                     </tr>
                   
                     <% 
@@ -50,6 +51,13 @@
                                         <td> <%=item.getServicio().getDescripcion() %></td>
                                         <td> Servicio </td>
                                         <td id="cant1"> <%=item.getCantidad() %> </td>
+                                        <td id="borrar">  
+                                            <form action="agregaraacarrito">
+                                                <input type="text" name="nomServicio" value="<%=item.getServicio().getNombre()%>" hidden="true"/>
+                                                <input type="text" name="nomProveedorServicio" value="<%=item.getServicio().getProveedor() %>" hidden="true"/>
+                                                <button type="submit"  name="borrar" style="margin:calc; width:200px" type="button" class="btn btn-danger pull-left">Borrar</button>
+                                            </form>    
+                                        </td>
                                     </tr>
                                     <% p +=item.getCantidad() * item.getServicio().getPrecio(); %>
                                 <%}else{%>
@@ -60,6 +68,13 @@
                                         <td> Sin Descripocion </td>
                                         <td> Promocion </td>
                                         <td id="cant1"> <%=item.getCantidad() %> </td>
+                                        <td id="borrar">  
+                                            <form action="agregaraacarrito">
+                                                <input type="text" name="nomPromocion" value="<%=item.getPromocion().getNombre()%>" hidden="true"/>
+                                                <input type="text" name="nomProveedorPromocion" value="<%=item.getPromocion().getnickProveedro() %>" hidden="true"/>
+                                                <button type="submit"  name="borrar" style="margin:calc; width:200px" type="button" class="btn btn-danger pull-left">Borrar</button>
+                                            </form>    
+                                        </td>
                                     </tr>
                                     <% p +=item.getCantidad() * item.getPromocion().getPrecioTotal();%>
                                 

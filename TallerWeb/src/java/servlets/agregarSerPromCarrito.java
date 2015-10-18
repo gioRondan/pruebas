@@ -36,10 +36,30 @@ public class agregarSerPromCarrito extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            
-         
-                int cant;
+             
+            if (request.getParameter("borrar")!=null){
+                List<DataItemReserva> ir2 = (List<DataItemReserva>)request.getSession().getAttribute("ItemsReservaActual");
+                for(DataItemReserva item : ir2 ){
+                    String nom;
+                    String pvr;
+                    if (item.getesServico()){
+                        nom = request.getParameter("nomServicio");
+                        pvr = request.getParameter("nomProveedorServicio");
+                        if (item.getServicio().getNombre().equals(nom) && item.getServicio().getProveedor().equals(pvr) ){
+                            ir2.remove(item);
+                        }
+                    }else{
+                        nom = request.getParameter("nomPromocion");
+                        pvr = request.getParameter("nomProveedorPromocion");
+                         if (item.getPromocion().getNombre().equals(nom) && item.getPromocion().getnickProveedro().equals(pvr) ){
+                            ir2.remove(item);
+                        }
+                    }
+                    request.getSession().setAttribute("ItemsReservaActual", ir2);
                 
+                }
+            }else{
+                int cant;
                 String nom;
                 String pvr;
                 boolean esser = Boolean.parseBoolean(request.getParameter("esservicio"));
@@ -67,10 +87,8 @@ public class agregarSerPromCarrito extends HttpServlet {
                         
                     }
                 }
-                
-                
                 request.getSession().setAttribute("ItemsReservaActual",ir2);
-            
+            }
             request.getRequestDispatcher("/WEB-INF/Usuarios/carro.jsp").forward(request, response);
     }
 
