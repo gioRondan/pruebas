@@ -200,5 +200,26 @@ public class FlujoTest {
 //############################  buscar servicios    ###############################################################
         List<DataServicio> serBuscados = cpr.buscarServicios(nomServicio);
         assertEquals(1, serBuscados.size());
+//############################  iniciar sesion      ###############################################################
+        DataInfoCliente inicioSesion = ccl.iniciarSesion(nickCliente, pass1);
+        assertEquals(nickCliente ,inicioSesion.getNickname());
+        assertEquals(pass1, inicioSesion.getPassword());
+        assertEquals(emailCliente, inicioSesion.getEmail());
+//###########################   existe email    ###################################################################
+        assertEquals(true, ccl.existeEmail(emailCliente));
+        assertEquals(false, ccl.existeEmail("email que no existe"));
+//###########################   existe nick     ###################################################################
+        assertEquals(true, ccl.existeNickName(nickCliente));
+        assertEquals(false, ccl.existeNickName("nickcliente que no existe"));
+//###########################   confiramr reserva   ###############################################################
+        List<DataItemReserva> items = new ArrayList<>();
+        DataItemReserva resCarrito = new DataItemReserva(1, new Date(1,1,2015), new Date(1,5,2015), serBuscados.get(0), null, true);
+        items.add(resCarrito);
+        try{
+        ccl.confirmarReserva(items, inicioSesion);
+        }catch(Exception ex){};
+        List<DataReserva> resCliente = ccl.listarReservasXCliente(nickCliente);
+        assertEquals(2, resCliente.size());//previamente ya se le habia asociado una reserva al cliente
+        
     }
 }
