@@ -5,11 +5,14 @@
  */
 package logica;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import javax.imageio.ImageIO;
 
 
 
@@ -50,7 +53,14 @@ public class ControladorCliente implements IControladorCliente{
         }
         res.setPrecio(preciototal);
     }
-    
+    public static BufferedImage leerImgURL(String imgURL){
+        File imgF = new File(imgURL);
+        try {
+            return ImageIO.read(imgF);
+        } catch (Exception ex) {
+            return null;
+        }
+    }
     @Override
     public void altaCliente(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String password) throws Exception{
         
