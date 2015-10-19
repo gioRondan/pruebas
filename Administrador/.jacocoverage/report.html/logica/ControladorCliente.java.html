@@ -83,42 +83,42 @@ import javax.imageio.ImageIO;
     
     @Override
     public List&lt;DataCliente&gt; listarClientes(){
-<span class="nc" id="L86">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="nc" id="L87">        return mCl.getDataClientes();</span>
+<span class="fc" id="L86">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L87">        return mCl.getDataClientes();</span>
     }
     
     @Override
     public void cancelarReserva(String nomCliente, int identificador){
-<span class="nc" id="L92">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="nc" id="L93">        Cliente cli = mCl.getCliente(nomCliente);</span>
-<span class="nc" id="L94">        cli.cancelarReserva(identificador);</span>
-<span class="nc" id="L95">    }</span>
+<span class="fc" id="L92">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L93">        Cliente cli = mCl.getCliente(nomCliente);</span>
+<span class="fc" id="L94">        cli.cancelarReserva(identificador);</span>
+<span class="fc" id="L95">    }</span>
     
     @Override
     public List&lt;DataReserva&gt; listarReservasSistema(){
-<span class="nc" id="L99">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="nc" id="L100">        return mCl.listarReservas();</span>
+<span class="fc" id="L99">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L100">        return mCl.listarReservas();</span>
         
     }
     
     @Override
     public List&lt;DataReserva&gt; listarReservasXCliente(String nomCliente){
-<span class="nc" id="L106">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="nc" id="L107">        return mCl.getCliente(nomCliente).getDataReservas();</span>
+<span class="fc" id="L106">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L107">        return mCl.getCliente(nomCliente).getDataReservas();</span>
     }
     
     @Override
     public DataInfoReserva verInfoReserva(String nomCliente, int identificador){
-<span class="nc" id="L112">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="nc" id="L113">        Cliente cliente = mCl.getCliente(nomCliente);</span>
-<span class="nc" id="L114">        Reserva reserva = cliente.getReserva(identificador);</span>
-<span class="nc" id="L115">        return reserva.getDataInfoReserva();</span>
+<span class="fc" id="L112">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L113">        Cliente cliente = mCl.getCliente(nomCliente);</span>
+<span class="fc" id="L114">        Reserva reserva = cliente.getReserva(identificador);</span>
+<span class="fc" id="L115">        return reserva.getDataInfoReserva();</span>
     }
     
     @Override
     public DataInfoCliente verInfoCliente( String nomCliente){
-<span class="nc" id="L120">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
-<span class="nc" id="L121">        return mCl.getCliente(nomCliente).getDataInfoCliente();</span>
+<span class="fc" id="L120">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L121">        return mCl.getCliente(nomCliente).getDataInfoCliente();</span>
     }
     @Override
     public DataInfoCliente iniciarSesion(String nickCliente, String password) {

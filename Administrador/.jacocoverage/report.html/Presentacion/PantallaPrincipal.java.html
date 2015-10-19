@@ -47,32 +47,32 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form PantallaPrincipal
      */
-<span class="fc" id="L50">    private static PantallaPrincipal instancia = null;</span>
+<span class="nc" id="L50">    private static PantallaPrincipal instancia = null;</span>
     public IControladorProveedor ICP;
     public IControladorCliente ICC;
-<span class="fc" id="L53">    public static String RutaImagenes=&quot;&quot;; </span>
+<span class="nc" id="L53">    public static String RutaImagenes=&quot;&quot;; </span>
     
-<span class="fc" id="L55">    private PantallaPrincipal() {</span>
-<span class="fc" id="L56">        initComponents();</span>
-<span class="fc" id="L57">        this.setLocationRelativeTo(null);  </span>
-<span class="fc" id="L58">        Fabrica fabrica = Fabrica.getInstance();</span>
-<span class="fc" id="L59">        instancia = this;</span>
-<span class="fc" id="L60">        ICP = fabrica.getIControladorProveedor();</span>
-<span class="fc" id="L61">        ICC = fabrica.getIControladorCliente();</span>
+<span class="nc" id="L55">    private PantallaPrincipal() {</span>
+<span class="nc" id="L56">        initComponents();</span>
+<span class="nc" id="L57">        this.setLocationRelativeTo(null);  </span>
+<span class="nc" id="L58">        Fabrica fabrica = Fabrica.getInstance();</span>
+<span class="nc" id="L59">        instancia = this;</span>
+<span class="nc" id="L60">        ICP = fabrica.getIControladorProveedor();</span>
+<span class="nc" id="L61">        ICC = fabrica.getIControladorCliente();</span>
    
-<span class="fc" id="L63">       PantallaPrincipal.RutaImagenes= JOptionPane.showInputDialog(&quot;Seleccione una ruta para las imagenes&quot;);</span>
-<span class="pc bpc" id="L64" title="1 of 2 branches missed.">            if (PantallaPrincipal.RutaImagenes==null){  </span>
+<span class="nc" id="L63">       PantallaPrincipal.RutaImagenes= JOptionPane.showInputDialog(&quot;Seleccione una ruta para las imagenes&quot;);</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">            if (PantallaPrincipal.RutaImagenes==null){  </span>
 <span class="nc" id="L65">                PantallaPrincipal.RutaImagenes = &quot;/ens/home01/r/rodrigo.linares/Imagenes/&quot;;</span>
             }
-<span class="pc bpc" id="L67" title="1 of 2 branches missed.">            else if (PantallaPrincipal.RutaImagenes.isEmpty()){</span>
-<span class="fc" id="L68">                PantallaPrincipal.RutaImagenes = &quot;/ens/home01/r/rodrigo.linares/Imagenes/&quot;;</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">            else if (PantallaPrincipal.RutaImagenes.isEmpty()){</span>
+<span class="nc" id="L68">                PantallaPrincipal.RutaImagenes = &quot;/ens/home01/r/rodrigo.linares/Imagenes/&quot;;</span>
             }
-<span class="fc" id="L70">            File usuarios=new File(PantallaPrincipal.RutaImagenes+&quot;Usuarios&quot;); </span>
-<span class="fc" id="L71">            usuarios.mkdir();</span>
-<span class="fc" id="L72">            File servicios=new File(PantallaPrincipal.RutaImagenes+&quot;Servicios&quot;); </span>
-<span class="fc" id="L73">            servicios.mkdir();</span>
+<span class="nc" id="L70">            File usuarios=new File(PantallaPrincipal.RutaImagenes+&quot;Usuarios&quot;); </span>
+<span class="nc" id="L71">            usuarios.mkdir();</span>
+<span class="nc" id="L72">            File servicios=new File(PantallaPrincipal.RutaImagenes+&quot;Servicios&quot;); </span>
+<span class="nc" id="L73">            servicios.mkdir();</span>
     
-<span class="fc" id="L75">    }</span>
+<span class="nc" id="L75">    }</span>
     
     public static PantallaPrincipal getInstancia(){
 <span class="nc bnc" id="L78" title="All 2 branches missed.">        if(instancia == null) </span>
@@ -170,345 +170,345 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<span class="fc" id="L173">        Escritorio = new javax.swing.JDesktopPane();</span>
-<span class="fc" id="L174">        jMenuBar1 = new javax.swing.JMenuBar();</span>
-<span class="fc" id="L175">        jMenu8 = new javax.swing.JMenu();</span>
-<span class="fc" id="L176">        jMenu9 = new javax.swing.JMenu();</span>
-<span class="fc" id="L177">        jMenuItem14 = new javax.swing.JMenuItem();</span>
-<span class="fc" id="L178">        jMenuItem5 = new javax.swing.JMenuItem();</span>
-<span class="fc" id="L179">        jMenu10 = new javax.swing.JMenu();</span>
-<span class="fc" id="L180">        jMenuItem1 = new javax.swing.JMenuItem();</span>
-<span class="fc" id="L181">        jMenuItem6 = new javax.swing.JMenuItem();</span>
-<span class="fc" id="L182">        jMenu3 = new javax.swing.JMenu();</span>
-<span class="fc" id="L183">        jMenuItem10 = new javax.swing.JMenuItem();</span>
-<span class="fc" id="L184">        jMenuItem11 = new javax.swing.JMenuItem();</span>
-<span class="fc" id="L185">        jMenuItem12 = new javax.swing.JMenuItem();</span>
-<span class="fc" id="L186">        jMenuItem9 = new javax.swing.JMenuItem();</span>
-<span class="fc" id="L187">        jMenu7 = new javax.swing.JMenu();</span>
-<span class="fc" id="L188">        jMenuItem4 = new javax.swing.JMenuItem();</span>
-<span class="fc" id="L189">        jMenuItem8 = new javax.swing.JMenuItem();</span>
-<span class="fc" id="L190">        Servicios = new javax.swing.JMenuItem();</span>
-<span class="fc" id="L191">        jMenuItem7 = new javax.swing.JMenuItem();</span>
-<span class="fc" id="L192">        jMenuItem16 = new javax.swing.JMenuItem();</span>
-<span class="fc" id="L193">        jMenu6 = new javax.swing.JMenu();</span>
-<span class="fc" id="L194">        jMenuItem3 = new javax.swing.JMenuItem();</span>
-<span class="fc" id="L195">        jMenuItem2 = new javax.swing.JMenuItem();</span>
-<span class="fc" id="L196">        jMenuItem15 = new javax.swing.JMenuItem();</span>
-<span class="fc" id="L197">        jMenu5 = new javax.swing.JMenu();</span>
-<span class="fc" id="L198">        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="fc" id="L199">        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="fc" id="L200">        jRadioButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="fc" id="L201">        jRadioButtonMenuItem4 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="fc" id="L202">        jRadioButtonMenuItem5 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="fc" id="L203">        jRadioButtonMenuItem6 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="fc" id="L204">        jRadioButtonMenuItem7 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="fc" id="L205">        jRadioButtonMenuItem8 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="fc" id="L206">        jRadioButtonMenuItem9 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="fc" id="L207">        jRadioButtonMenuItem10 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="fc" id="L208">        jRadioButtonMenuItem11 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="fc" id="L209">        jRadioButtonMenuItem12 = new javax.swing.JRadioButtonMenuItem();</span>
-<span class="fc" id="L210">        jRadioButtonMenuItem13 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L173">        Escritorio = new javax.swing.JDesktopPane();</span>
+<span class="nc" id="L174">        jMenuBar1 = new javax.swing.JMenuBar();</span>
+<span class="nc" id="L175">        jMenu8 = new javax.swing.JMenu();</span>
+<span class="nc" id="L176">        jMenu9 = new javax.swing.JMenu();</span>
+<span class="nc" id="L177">        jMenuItem14 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L178">        jMenuItem5 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L179">        jMenu10 = new javax.swing.JMenu();</span>
+<span class="nc" id="L180">        jMenuItem1 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L181">        jMenuItem6 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L182">        jMenu3 = new javax.swing.JMenu();</span>
+<span class="nc" id="L183">        jMenuItem10 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L184">        jMenuItem11 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L185">        jMenuItem12 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L186">        jMenuItem9 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L187">        jMenu7 = new javax.swing.JMenu();</span>
+<span class="nc" id="L188">        jMenuItem4 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L189">        jMenuItem8 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L190">        Servicios = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L191">        jMenuItem7 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L192">        jMenuItem16 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L193">        jMenu6 = new javax.swing.JMenu();</span>
+<span class="nc" id="L194">        jMenuItem3 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L195">        jMenuItem2 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L196">        jMenuItem15 = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L197">        jMenu5 = new javax.swing.JMenu();</span>
+<span class="nc" id="L198">        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L199">        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L200">        jRadioButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L201">        jRadioButtonMenuItem4 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L202">        jRadioButtonMenuItem5 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L203">        jRadioButtonMenuItem6 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L204">        jRadioButtonMenuItem7 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L205">        jRadioButtonMenuItem8 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L206">        jRadioButtonMenuItem9 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L207">        jRadioButtonMenuItem10 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L208">        jRadioButtonMenuItem11 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L209">        jRadioButtonMenuItem12 = new javax.swing.JRadioButtonMenuItem();</span>
+<span class="nc" id="L210">        jRadioButtonMenuItem13 = new javax.swing.JRadioButtonMenuItem();</span>
 
-<span class="fc" id="L212">        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);</span>
-<span class="fc" id="L213">        setTitle(&quot;Principal H4T&quot;);</span>
+<span class="nc" id="L212">        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);</span>
+<span class="nc" id="L213">        setTitle(&quot;Principal H4T&quot;);</span>
 
-<span class="fc" id="L215">        Escritorio.setAutoscrolls(true);</span>
+<span class="nc" id="L215">        Escritorio.setAutoscrolls(true);</span>
 
-<span class="fc" id="L217">        javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);</span>
-<span class="fc" id="L218">        Escritorio.setLayout(EscritorioLayout);</span>
-<span class="fc" id="L219">        EscritorioLayout.setHorizontalGroup(</span>
-<span class="fc" id="L220">            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="fc" id="L221">            .addGap(0, 975, Short.MAX_VALUE)</span>
+<span class="nc" id="L217">        javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);</span>
+<span class="nc" id="L218">        Escritorio.setLayout(EscritorioLayout);</span>
+<span class="nc" id="L219">        EscritorioLayout.setHorizontalGroup(</span>
+<span class="nc" id="L220">            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L221">            .addGap(0, 975, Short.MAX_VALUE)</span>
         );
-<span class="fc" id="L223">        EscritorioLayout.setVerticalGroup(</span>
-<span class="fc" id="L224">            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="fc" id="L225">            .addGap(0, 683, Short.MAX_VALUE)</span>
+<span class="nc" id="L223">        EscritorioLayout.setVerticalGroup(</span>
+<span class="nc" id="L224">            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L225">            .addGap(0, 683, Short.MAX_VALUE)</span>
         );
 
-<span class="fc" id="L228">        jMenuBar1.setToolTipText(&quot;&quot;);</span>
+<span class="nc" id="L228">        jMenuBar1.setToolTipText(&quot;&quot;);</span>
 
-<span class="fc" id="L230">        jMenu8.setText(&quot;Usuarios&quot;);</span>
+<span class="nc" id="L230">        jMenu8.setText(&quot;Usuarios&quot;);</span>
 
-<span class="fc" id="L232">        jMenu9.setText(&quot;Clientes&quot;);</span>
+<span class="nc" id="L232">        jMenu9.setText(&quot;Clientes&quot;);</span>
 
-<span class="fc" id="L234">        jMenuItem14.setText(&quot;Alta cliente&quot;);</span>
-<span class="fc" id="L235">        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L234">        jMenuItem14.setText(&quot;Alta cliente&quot;);</span>
+<span class="nc" id="L235">        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L237">                jMenuItem14ActionPerformed(evt);</span>
 <span class="nc" id="L238">            }</span>
         });
-<span class="fc" id="L240">        jMenu9.add(jMenuItem14);</span>
+<span class="nc" id="L240">        jMenu9.add(jMenuItem14);</span>
 
-<span class="fc" id="L242">        jMenuItem5.setText(&quot;Ver informacion clientes&quot;);</span>
-<span class="fc" id="L243">        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L242">        jMenuItem5.setText(&quot;Ver informacion clientes&quot;);</span>
+<span class="nc" id="L243">        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L245">                jMenuItem5ActionPerformed(evt);</span>
 <span class="nc" id="L246">            }</span>
         });
-<span class="fc" id="L248">        jMenu9.add(jMenuItem5);</span>
+<span class="nc" id="L248">        jMenu9.add(jMenuItem5);</span>
 
-<span class="fc" id="L250">        jMenu8.add(jMenu9);</span>
+<span class="nc" id="L250">        jMenu8.add(jMenu9);</span>
 
-<span class="fc" id="L252">        jMenu10.setText(&quot;Proveedores&quot;);</span>
+<span class="nc" id="L252">        jMenu10.setText(&quot;Proveedores&quot;);</span>
 
-<span class="fc" id="L254">        jMenuItem1.setText(&quot;Alta proveedor&quot;);</span>
-<span class="fc" id="L255">        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L254">        jMenuItem1.setText(&quot;Alta proveedor&quot;);</span>
+<span class="nc" id="L255">        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L257">                jMenuItem1ActionPerformed(evt);</span>
 <span class="nc" id="L258">            }</span>
         });
-<span class="fc" id="L260">        jMenu10.add(jMenuItem1);</span>
+<span class="nc" id="L260">        jMenu10.add(jMenuItem1);</span>
 
-<span class="fc" id="L262">        jMenuItem6.setText(&quot;Ver informacion proveedor&quot;);</span>
-<span class="fc" id="L263">        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L262">        jMenuItem6.setText(&quot;Ver informacion proveedor&quot;);</span>
+<span class="nc" id="L263">        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L265">                jMenuItem6ActionPerformed(evt);</span>
 <span class="nc" id="L266">            }</span>
         });
-<span class="fc" id="L268">        jMenu10.add(jMenuItem6);</span>
+<span class="nc" id="L268">        jMenu10.add(jMenuItem6);</span>
 
-<span class="fc" id="L270">        jMenu8.add(jMenu10);</span>
+<span class="nc" id="L270">        jMenu8.add(jMenu10);</span>
 
-<span class="fc" id="L272">        jMenuBar1.add(jMenu8);</span>
+<span class="nc" id="L272">        jMenuBar1.add(jMenu8);</span>
 
-<span class="fc" id="L274">        jMenu3.setText(&quot;Reservas&quot;);</span>
-<span class="fc" id="L275">        jMenu3.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L274">        jMenu3.setText(&quot;Reservas&quot;);</span>
+<span class="nc" id="L275">        jMenu3.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L277">                jMenu3ActionPerformed(evt);</span>
 <span class="nc" id="L278">            }</span>
         });
 
-<span class="fc" id="L281">        jMenuItem10.setText(&quot;Realizar reserva&quot;);</span>
-<span class="fc" id="L282">        jMenuItem10.setEnabled(false);</span>
-<span class="fc" id="L283">        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L281">        jMenuItem10.setText(&quot;Realizar reserva&quot;);</span>
+<span class="nc" id="L282">        jMenuItem10.setEnabled(false);</span>
+<span class="nc" id="L283">        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L285">                jMenuItem10ActionPerformed(evt);</span>
 <span class="nc" id="L286">            }</span>
         });
-<span class="fc" id="L288">        jMenu3.add(jMenuItem10);</span>
+<span class="nc" id="L288">        jMenu3.add(jMenuItem10);</span>
 
-<span class="fc" id="L290">        jMenuItem11.setText(&quot;Actualizar estado&quot;);</span>
-<span class="fc" id="L291">        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L290">        jMenuItem11.setText(&quot;Actualizar estado&quot;);</span>
+<span class="nc" id="L291">        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L293">                jMenuItem11ActionPerformed(evt);</span>
 <span class="nc" id="L294">            }</span>
         });
-<span class="fc" id="L296">        jMenu3.add(jMenuItem11);</span>
+<span class="nc" id="L296">        jMenu3.add(jMenuItem11);</span>
 
-<span class="fc" id="L298">        jMenuItem12.setText(&quot;Cancelar reserva&quot;);</span>
-<span class="fc" id="L299">        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L298">        jMenuItem12.setText(&quot;Cancelar reserva&quot;);</span>
+<span class="nc" id="L299">        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L301">                jMenuItem12ActionPerformed(evt);</span>
 <span class="nc" id="L302">            }</span>
         });
-<span class="fc" id="L304">        jMenu3.add(jMenuItem12);</span>
+<span class="nc" id="L304">        jMenu3.add(jMenuItem12);</span>
 
-<span class="fc" id="L306">        jMenuItem9.setText(&quot;Ver informacion Reserva&quot;);</span>
-<span class="fc" id="L307">        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L306">        jMenuItem9.setText(&quot;Ver informacion Reserva&quot;);</span>
+<span class="nc" id="L307">        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L309">                jMenuItem9ActionPerformed(evt);</span>
 <span class="nc" id="L310">            }</span>
         });
-<span class="fc" id="L312">        jMenu3.add(jMenuItem9);</span>
+<span class="nc" id="L312">        jMenu3.add(jMenuItem9);</span>
 
-<span class="fc" id="L314">        jMenuBar1.add(jMenu3);</span>
+<span class="nc" id="L314">        jMenuBar1.add(jMenu3);</span>
 
-<span class="fc" id="L316">        jMenu7.setText(&quot;Servicos y promociones&quot;);</span>
+<span class="nc" id="L316">        jMenu7.setText(&quot;Servicos y promociones&quot;);</span>
 
-<span class="fc" id="L318">        jMenuItem4.setText(&quot;Alta promocion&quot;);</span>
-<span class="fc" id="L319">        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L318">        jMenuItem4.setText(&quot;Alta promocion&quot;);</span>
+<span class="nc" id="L319">        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L321">                jMenuItem4ActionPerformed(evt);</span>
 <span class="nc" id="L322">            }</span>
         });
-<span class="fc" id="L324">        jMenu7.add(jMenuItem4);</span>
+<span class="nc" id="L324">        jMenu7.add(jMenuItem4);</span>
 
-<span class="fc" id="L326">        jMenuItem8.setText(&quot;Ver informacion promociones&quot;);</span>
-<span class="fc" id="L327">        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L326">        jMenuItem8.setText(&quot;Ver informacion promociones&quot;);</span>
+<span class="nc" id="L327">        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L329">                jMenuItem8ActionPerformed(evt);</span>
 <span class="nc" id="L330">            }</span>
         });
-<span class="fc" id="L332">        jMenu7.add(jMenuItem8);</span>
+<span class="nc" id="L332">        jMenu7.add(jMenuItem8);</span>
 
-<span class="fc" id="L334">        Servicios.setText(&quot;Alta servicio&quot;);</span>
-<span class="fc" id="L335">        Servicios.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L334">        Servicios.setText(&quot;Alta servicio&quot;);</span>
+<span class="nc" id="L335">        Servicios.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L337">                ServiciosActionPerformed(evt);</span>
 <span class="nc" id="L338">            }</span>
         });
-<span class="fc" id="L340">        jMenu7.add(Servicios);</span>
+<span class="nc" id="L340">        jMenu7.add(Servicios);</span>
 
-<span class="fc" id="L342">        jMenuItem7.setText(&quot;Ver informacion servicio&quot;);</span>
-<span class="fc" id="L343">        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L342">        jMenuItem7.setText(&quot;Ver informacion servicio&quot;);</span>
+<span class="nc" id="L343">        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L345">                jMenuItem7ActionPerformed(evt);</span>
 <span class="nc" id="L346">            }</span>
         });
-<span class="fc" id="L348">        jMenu7.add(jMenuItem7);</span>
+<span class="nc" id="L348">        jMenu7.add(jMenuItem7);</span>
 
-<span class="fc" id="L350">        jMenuItem16.setText(&quot;Actualizar servicio&quot;);</span>
-<span class="fc" id="L351">        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L350">        jMenuItem16.setText(&quot;Actualizar servicio&quot;);</span>
+<span class="nc" id="L351">        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L353">                jMenuItem16ActionPerformed(evt);</span>
 <span class="nc" id="L354">            }</span>
         });
-<span class="fc" id="L356">        jMenu7.add(jMenuItem16);</span>
+<span class="nc" id="L356">        jMenu7.add(jMenuItem16);</span>
 
-<span class="fc" id="L358">        jMenuBar1.add(jMenu7);</span>
+<span class="nc" id="L358">        jMenuBar1.add(jMenu7);</span>
 
-<span class="fc" id="L360">        jMenu6.setText(&quot;Configuracion&quot;);</span>
+<span class="nc" id="L360">        jMenu6.setText(&quot;Configuracion&quot;);</span>
 
-<span class="fc" id="L362">        jMenuItem3.setText(&quot;Carga inicial&quot;);</span>
-<span class="fc" id="L363">        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L362">        jMenuItem3.setText(&quot;Carga inicial&quot;);</span>
+<span class="nc" id="L363">        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="fc" id="L365">                jMenuItem3ActionPerformed(evt);</span>
-<span class="fc" id="L366">            }</span>
+<span class="nc" id="L365">                jMenuItem3ActionPerformed(evt);</span>
+<span class="nc" id="L366">            }</span>
         });
-<span class="fc" id="L368">        jMenu6.add(jMenuItem3);</span>
+<span class="nc" id="L368">        jMenu6.add(jMenuItem3);</span>
 
-<span class="fc" id="L370">        jMenuItem2.setText(&quot;Añadir categoria&quot;);</span>
-<span class="fc" id="L371">        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L370">        jMenuItem2.setText(&quot;Añadir categoria&quot;);</span>
+<span class="nc" id="L371">        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L373">                jMenuItem2ActionPerformed(evt);</span>
 <span class="nc" id="L374">            }</span>
         });
-<span class="fc" id="L376">        jMenu6.add(jMenuItem2);</span>
+<span class="nc" id="L376">        jMenu6.add(jMenuItem2);</span>
 
-<span class="fc" id="L378">        jMenuItem15.setText(&quot;Opciones&quot;);</span>
-<span class="fc" id="L379">        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L378">        jMenuItem15.setText(&quot;Opciones&quot;);</span>
+<span class="nc" id="L379">        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L381">                jMenuItem15ActionPerformed(evt);</span>
 <span class="nc" id="L382">            }</span>
         });
-<span class="fc" id="L384">        jMenu6.add(jMenuItem15);</span>
+<span class="nc" id="L384">        jMenu6.add(jMenuItem15);</span>
 
-<span class="fc" id="L386">        jMenu5.setText(&quot;Thema&quot;);</span>
+<span class="nc" id="L386">        jMenu5.setText(&quot;Thema&quot;);</span>
 
-<span class="fc" id="L388">        jRadioButtonMenuItem1.setSelected(true);</span>
-<span class="fc" id="L389">        jRadioButtonMenuItem1.setText(&quot;BlackEye&quot;);</span>
-<span class="fc" id="L390">        jRadioButtonMenuItem1.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L388">        jRadioButtonMenuItem1.setSelected(true);</span>
+<span class="nc" id="L389">        jRadioButtonMenuItem1.setText(&quot;BlackEye&quot;);</span>
+<span class="nc" id="L390">        jRadioButtonMenuItem1.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L392">                jRadioButtonMenuItem1ActionPerformed(evt);</span>
 <span class="nc" id="L393">            }</span>
         });
-<span class="fc" id="L395">        jMenu5.add(jRadioButtonMenuItem1);</span>
+<span class="nc" id="L395">        jMenu5.add(jRadioButtonMenuItem1);</span>
 
-<span class="fc" id="L397">        jRadioButtonMenuItem2.setText(&quot;BlueMoon&quot;);</span>
-<span class="fc" id="L398">        jRadioButtonMenuItem2.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L397">        jRadioButtonMenuItem2.setText(&quot;BlueMoon&quot;);</span>
+<span class="nc" id="L398">        jRadioButtonMenuItem2.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L400">                jRadioButtonMenuItem2ActionPerformed(evt);</span>
 <span class="nc" id="L401">            }</span>
         });
-<span class="fc" id="L403">        jMenu5.add(jRadioButtonMenuItem2);</span>
+<span class="nc" id="L403">        jMenu5.add(jRadioButtonMenuItem2);</span>
 
-<span class="fc" id="L405">        jRadioButtonMenuItem3.setText(&quot;BlackMoon&quot;);</span>
-<span class="fc" id="L406">        jRadioButtonMenuItem3.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L405">        jRadioButtonMenuItem3.setText(&quot;BlackMoon&quot;);</span>
+<span class="nc" id="L406">        jRadioButtonMenuItem3.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L408">                jRadioButtonMenuItem3ActionPerformed(evt);</span>
 <span class="nc" id="L409">            }</span>
         });
-<span class="fc" id="L411">        jMenu5.add(jRadioButtonMenuItem3);</span>
+<span class="nc" id="L411">        jMenu5.add(jRadioButtonMenuItem3);</span>
 
-<span class="fc" id="L413">        jRadioButtonMenuItem4.setText(&quot;BlueIce&quot;);</span>
-<span class="fc" id="L414">        jRadioButtonMenuItem4.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L413">        jRadioButtonMenuItem4.setText(&quot;BlueIce&quot;);</span>
+<span class="nc" id="L414">        jRadioButtonMenuItem4.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L416">                jRadioButtonMenuItem4ActionPerformed(evt);</span>
 <span class="nc" id="L417">            }</span>
         });
-<span class="fc" id="L419">        jMenu5.add(jRadioButtonMenuItem4);</span>
+<span class="nc" id="L419">        jMenu5.add(jRadioButtonMenuItem4);</span>
 
-<span class="fc" id="L421">        jRadioButtonMenuItem5.setText(&quot;BlueSteel&quot;);</span>
-<span class="fc" id="L422">        jRadioButtonMenuItem5.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L421">        jRadioButtonMenuItem5.setText(&quot;BlueSteel&quot;);</span>
+<span class="nc" id="L422">        jRadioButtonMenuItem5.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L424">                jRadioButtonMenuItem5ActionPerformed(evt);</span>
 <span class="nc" id="L425">            }</span>
         });
-<span class="fc" id="L427">        jMenu5.add(jRadioButtonMenuItem5);</span>
+<span class="nc" id="L427">        jMenu5.add(jRadioButtonMenuItem5);</span>
 
-<span class="fc" id="L429">        jRadioButtonMenuItem6.setText(&quot;Classy&quot;);</span>
-<span class="fc" id="L430">        jRadioButtonMenuItem6.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L429">        jRadioButtonMenuItem6.setText(&quot;Classy&quot;);</span>
+<span class="nc" id="L430">        jRadioButtonMenuItem6.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L432">                jRadioButtonMenuItem6ActionPerformed(evt);</span>
 <span class="nc" id="L433">            }</span>
         });
-<span class="fc" id="L435">        jMenu5.add(jRadioButtonMenuItem6);</span>
+<span class="nc" id="L435">        jMenu5.add(jRadioButtonMenuItem6);</span>
 
-<span class="fc" id="L437">        jRadioButtonMenuItem7.setText(&quot;GreenDream&quot;);</span>
-<span class="fc" id="L438">        jRadioButtonMenuItem7.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L437">        jRadioButtonMenuItem7.setText(&quot;GreenDream&quot;);</span>
+<span class="nc" id="L438">        jRadioButtonMenuItem7.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L440">                jRadioButtonMenuItem7ActionPerformed(evt);</span>
 <span class="nc" id="L441">            }</span>
         });
-<span class="fc" id="L443">        jMenu5.add(jRadioButtonMenuItem7);</span>
+<span class="nc" id="L443">        jMenu5.add(jRadioButtonMenuItem7);</span>
 
-<span class="fc" id="L445">        jRadioButtonMenuItem8.setText(&quot;MauveMetallic&quot;);</span>
-<span class="fc" id="L446">        jRadioButtonMenuItem8.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L445">        jRadioButtonMenuItem8.setText(&quot;MauveMetallic&quot;);</span>
+<span class="nc" id="L446">        jRadioButtonMenuItem8.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L448">                jRadioButtonMenuItem8ActionPerformed(evt);</span>
 <span class="nc" id="L449">            }</span>
         });
-<span class="fc" id="L451">        jMenu5.add(jRadioButtonMenuItem8);</span>
+<span class="nc" id="L451">        jMenu5.add(jRadioButtonMenuItem8);</span>
 
-<span class="fc" id="L453">        jRadioButtonMenuItem9.setText(&quot;OrangeMetallic&quot;);</span>
-<span class="fc" id="L454">        jRadioButtonMenuItem9.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L453">        jRadioButtonMenuItem9.setText(&quot;OrangeMetallic&quot;);</span>
+<span class="nc" id="L454">        jRadioButtonMenuItem9.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L456">                jRadioButtonMenuItem9ActionPerformed(evt);</span>
 <span class="nc" id="L457">            }</span>
         });
-<span class="fc" id="L459">        jMenu5.add(jRadioButtonMenuItem9);</span>
+<span class="nc" id="L459">        jMenu5.add(jRadioButtonMenuItem9);</span>
 
-<span class="fc" id="L461">        jRadioButtonMenuItem10.setText(&quot;SilverMoon&quot;);</span>
-<span class="fc" id="L462">        jRadioButtonMenuItem10.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L461">        jRadioButtonMenuItem10.setText(&quot;SilverMoon&quot;);</span>
+<span class="nc" id="L462">        jRadioButtonMenuItem10.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L464">                jRadioButtonMenuItem10ActionPerformed(evt);</span>
 <span class="nc" id="L465">            }</span>
         });
-<span class="fc" id="L467">        jMenu5.add(jRadioButtonMenuItem10);</span>
+<span class="nc" id="L467">        jMenu5.add(jRadioButtonMenuItem10);</span>
 
-<span class="fc" id="L469">        jRadioButtonMenuItem11.setText(&quot;Simple2D&quot;);</span>
-<span class="fc" id="L470">        jRadioButtonMenuItem11.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L469">        jRadioButtonMenuItem11.setText(&quot;Simple2D&quot;);</span>
+<span class="nc" id="L470">        jRadioButtonMenuItem11.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L472">                jRadioButtonMenuItem11ActionPerformed(evt);</span>
 <span class="nc" id="L473">            }</span>
         });
-<span class="fc" id="L475">        jMenu5.add(jRadioButtonMenuItem11);</span>
+<span class="nc" id="L475">        jMenu5.add(jRadioButtonMenuItem11);</span>
 
-<span class="fc" id="L477">        jRadioButtonMenuItem12.setText(&quot;SkyMetallic&quot;);</span>
-<span class="fc" id="L478">        jRadioButtonMenuItem12.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L477">        jRadioButtonMenuItem12.setText(&quot;SkyMetallic&quot;);</span>
+<span class="nc" id="L478">        jRadioButtonMenuItem12.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L480">                jRadioButtonMenuItem12ActionPerformed(evt);</span>
 <span class="nc" id="L481">            }</span>
         });
-<span class="fc" id="L483">        jMenu5.add(jRadioButtonMenuItem12);</span>
+<span class="nc" id="L483">        jMenu5.add(jRadioButtonMenuItem12);</span>
 
-<span class="fc" id="L485">        jRadioButtonMenuItem13.setText(&quot;WhiteVision&quot;);</span>
-<span class="fc" id="L486">        jRadioButtonMenuItem13.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L485">        jRadioButtonMenuItem13.setText(&quot;WhiteVision&quot;);</span>
+<span class="nc" id="L486">        jRadioButtonMenuItem13.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L488">                jRadioButtonMenuItem13ActionPerformed(evt);</span>
 <span class="nc" id="L489">            }</span>
         });
-<span class="fc" id="L491">        jMenu5.add(jRadioButtonMenuItem13);</span>
+<span class="nc" id="L491">        jMenu5.add(jRadioButtonMenuItem13);</span>
 
-<span class="fc" id="L493">        jMenu6.add(jMenu5);</span>
+<span class="nc" id="L493">        jMenu6.add(jMenu5);</span>
 
-<span class="fc" id="L495">        jMenuBar1.add(jMenu6);</span>
+<span class="nc" id="L495">        jMenuBar1.add(jMenu6);</span>
 
-<span class="fc" id="L497">        setJMenuBar(jMenuBar1);</span>
+<span class="nc" id="L497">        setJMenuBar(jMenuBar1);</span>
 
-<span class="fc" id="L499">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="fc" id="L500">        getContentPane().setLayout(layout);</span>
-<span class="fc" id="L501">        layout.setHorizontalGroup(</span>
-<span class="fc" id="L502">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="fc" id="L503">            .addComponent(Escritorio)</span>
+<span class="nc" id="L499">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L500">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L501">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L502">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L503">            .addComponent(Escritorio)</span>
         );
-<span class="fc" id="L505">        layout.setVerticalGroup(</span>
-<span class="fc" id="L506">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="fc" id="L507">            .addComponent(Escritorio, javax.swing.GroupLayout.Alignment.TRAILING)</span>
+<span class="nc" id="L505">        layout.setVerticalGroup(</span>
+<span class="nc" id="L506">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L507">            .addComponent(Escritorio, javax.swing.GroupLayout.Alignment.TRAILING)</span>
         );
 
-<span class="fc" id="L510">        pack();</span>
-<span class="fc" id="L511">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L510">        pack();</span>
+<span class="nc" id="L511">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
  
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
@@ -968,15 +968,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-<span class="fc" id="L971">        CargaInicial c = new CargaInicial();</span>
+<span class="nc" id="L971">        CargaInicial c = new CargaInicial();</span>
         try{
-<span class="fc" id="L973">            c.cargar();</span>
-<span class="fc" id="L974">            JOptionPane.showMessageDialog(null, &quot;Los datos iniciales se cargaron correctamente.&quot;);</span>
+<span class="nc" id="L973">            c.cargar();</span>
+<span class="nc" id="L974">            JOptionPane.showMessageDialog(null, &quot;Los datos iniciales se cargaron correctamente.&quot;);</span>
         }
 <span class="nc" id="L976">        catch(Exception ex){</span>
 <span class="nc" id="L977">            JOptionPane.showMessageDialog(null, ex.getMessage());</span>
-<span class="fc" id="L978">        }        </span>
-<span class="fc" id="L979">    }//GEN-LAST:event_jMenuItem3ActionPerformed</span>
+<span class="nc" id="L978">        }        </span>
+<span class="nc" id="L979">    }//GEN-LAST:event_jMenuItem3ActionPerformed</span>
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
@@ -1028,10 +1028,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-<span class="pc bpc" id="L1031" title="1 of 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
-<span class="fc bfc" id="L1032" title="All 2 branches covered.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
-<span class="fc" id="L1033">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
-<span class="fc" id="L1034">                    break;</span>
+<span class="nc bnc" id="L1031" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L1032" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L1033">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L1034">                    break;</span>
                 }
             }
 <span class="nc" id="L1037">        } catch (ClassNotFoundException ex) {</span>
@@ -1042,26 +1042,26 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 <span class="nc" id="L1042">            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
 <span class="nc" id="L1043">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
 <span class="nc" id="L1044">            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="pc" id="L1045">        }</span>
+<span class="nc" id="L1045">        }</span>
         //&lt;/editor-fold&gt;
 
         /* Create and display the form */
-<span class="fc" id="L1049">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+<span class="nc" id="L1049">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
             public void run() {
                 try {
-<span class="fc" id="L1052">                    UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());</span>
+<span class="nc" id="L1052">                    UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());</span>
 <span class="nc" id="L1053">                } catch (ParseException | UnsupportedLookAndFeelException ex) {</span>
 <span class="nc" id="L1054">                    Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="fc" id="L1055">                }</span>
+<span class="nc" id="L1055">                }</span>
             
-<span class="fc" id="L1057">                PantallaPrincipal x = new PantallaPrincipal();</span>
+<span class="nc" id="L1057">                PantallaPrincipal x = new PantallaPrincipal();</span>
                 //Pantalla Principal maximisada
-<span class="fc" id="L1059">                x.setExtendedState(MAXIMIZED_BOTH);</span>
-<span class="fc" id="L1060">                x.setVisible(true);</span>
+<span class="nc" id="L1059">                x.setExtendedState(MAXIMIZED_BOTH);</span>
+<span class="nc" id="L1060">                x.setVisible(true);</span>
                 
-<span class="fc" id="L1062">            }</span>
+<span class="nc" id="L1062">            }</span>
         });
-<span class="fc" id="L1064">    }</span>
+<span class="nc" id="L1064">    }</span>
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDesktopPane Escritorio;

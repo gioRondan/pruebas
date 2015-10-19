@@ -36,11 +36,11 @@ public class ManejadorProveedor {
 <span class="nc" id="L36">    }</span>
    
     public List&lt;DataProveedor&gt; getDataProveedores(){
-<span class="nc" id="L39">        List&lt;DataProveedor&gt; dts =  new ArrayList&lt;DataProveedor&gt;();</span>
-<span class="nc bnc" id="L40" title="All 2 branches missed.">        for (Proveedor value : proveedores.values()){</span>
-<span class="nc" id="L41">            dts.add(value.getDataProveedor());</span>
-<span class="nc" id="L42">        }</span>
-<span class="nc" id="L43">        return dts;</span>
+<span class="fc" id="L39">        List&lt;DataProveedor&gt; dts =  new ArrayList&lt;DataProveedor&gt;();</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        for (Proveedor value : proveedores.values()){</span>
+<span class="fc" id="L41">            dts.add(value.getDataProveedor());</span>
+<span class="fc" id="L42">        }</span>
+<span class="fc" id="L43">        return dts;</span>
     }
 
     void unicidadNick(String nick) throws Exception{
@@ -64,11 +64,11 @@ public class ManejadorProveedor {
         }
 <span class="fc" id="L65">    }</span>
     List&lt;DataServicio&gt; obtenerServiciosBuscados(String aBuscar){
-<span class="nc" id="L67">        List&lt;DataServicio&gt; result = new ArrayList&lt;DataServicio&gt;();</span>
-<span class="nc bnc" id="L68" title="All 2 branches missed.">        for(Proveedor it : proveedores.values()){</span>
-<span class="nc" id="L69">            result.addAll(it.getServiciosBuscados(aBuscar));</span>
-<span class="nc" id="L70">        }</span>
-<span class="nc" id="L71">        return result;</span>
+<span class="fc" id="L67">        List&lt;DataServicio&gt; result = new ArrayList&lt;DataServicio&gt;();</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">        for(Proveedor it : proveedores.values()){</span>
+<span class="fc" id="L69">            result.addAll(it.getServiciosBuscados(aBuscar));</span>
+<span class="fc" id="L70">        }</span>
+<span class="fc" id="L71">        return result;</span>
     }
 
     List&lt;DataPromocion&gt; obtenerPromocionesBuscados(String aBuscar) {

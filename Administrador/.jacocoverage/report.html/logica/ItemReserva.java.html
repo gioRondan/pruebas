@@ -39,10 +39,10 @@ public class ItemReserva {
 <span class="nc" id="L39">        this.cantidad = cantidad;</span>
 <span class="nc" id="L40">    }</span>
     public DataItemReserva getDataItem(){
-<span class="nc bnc" id="L42" title="All 2 branches missed.">        if (servicio==null){ </span>
-<span class="nc" id="L43">            return new DataItemReserva(cantidad, inicio, fin, null, promocion.getDataPromocion(),false);</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if (servicio==null){ </span>
+<span class="fc" id="L43">            return new DataItemReserva(cantidad, inicio, fin, null, promocion.getDataPromocion(),false);</span>
         }else{
-<span class="nc" id="L45">            return new DataItemReserva(cantidad, inicio, fin, servicio.getDataServicio(),null,true);</span>
+<span class="fc" id="L45">            return new DataItemReserva(cantidad, inicio, fin, servicio.getDataServicio(),null,true);</span>
         }
             
     }

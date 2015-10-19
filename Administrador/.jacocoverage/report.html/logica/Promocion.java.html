@@ -31,13 +31,13 @@ public class Promocion {
 <span class="fc" id="L31">        this.proveedor = prov;</span>
 <span class="fc" id="L32">    }</span>
     public DataPromocion getDataPromocion(){
-<span class="nc" id="L34">        return new DataPromocion(nombre, descuento, precioTotal,proveedor.getNickname());</span>
+<span class="fc" id="L34">        return new DataPromocion(nombre, descuento, precioTotal,proveedor.getNickname());</span>
     }
     public String getNombre(){
 <span class="fc" id="L37">        return nombre;</span>
     }
     public int getDescuento(){
-<span class="nc" id="L40">        return descuento;</span>
+<span class="fc" id="L40">        return descuento;</span>
     }
     public int getPrecioTotal(){
 <span class="fc" id="L43">        return precioTotal;</span>
@@ -63,11 +63,11 @@ public class Promocion {
 <span class="nc" id="L63">        return proveedor;</span>
     }
     DataInfoPromocion getDataInfoPromocion() {       
-<span class="nc" id="L66">        Set&lt;DataServicio&gt; dts =  new HashSet();</span>
-<span class="nc bnc" id="L67" title="All 2 branches missed.">        for (Servicio value : servicios.values()){</span>
-<span class="nc" id="L68">            dts.add(value.getDataServicio());</span>
-<span class="nc" id="L69">        }</span>
-<span class="nc" id="L70">        return new DataInfoPromocion(this.getNombre(),this.getDescuento(),this.getPrecioTotal(),dts);</span>
+<span class="fc" id="L66">        Set&lt;DataServicio&gt; dts =  new HashSet();</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">        for (Servicio value : servicios.values()){</span>
+<span class="fc" id="L68">            dts.add(value.getDataServicio());</span>
+<span class="fc" id="L69">        }</span>
+<span class="fc" id="L70">        return new DataInfoPromocion(this.getNombre(),this.getDescuento(),this.getPrecioTotal(),dts);</span>
     }
 
     boolean buscado(String aBuscar) {

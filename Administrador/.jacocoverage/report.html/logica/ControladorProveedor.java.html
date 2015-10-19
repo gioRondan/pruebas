@@ -50,36 +50,36 @@ import java.util.Set;
     
     @Override
     public void ingresarImagenBorrarServicio(String imagen){
-<span class="nc bnc" id="L53" title="All 2 branches missed.">        if(!imagen.isEmpty()){</span>
-<span class="nc" id="L54">            ControladorProveedor.imagenBorrar.add(imagen);</span>
+<span class="pc bpc" id="L53" title="1 of 2 branches missed.">        if(!imagen.isEmpty()){</span>
+<span class="fc" id="L54">            ControladorProveedor.imagenBorrar.add(imagen);</span>
         }
-<span class="nc" id="L56">    }</span>
+<span class="fc" id="L56">    }</span>
     @Override
     public void ingresarCategoriaBorrarServicio(String categoria){
-<span class="nc" id="L59">        ControladorProveedor.categoriaBorrar.add(categoria);</span>
-<span class="nc" id="L60">    }</span>
+<span class="fc" id="L59">        ControladorProveedor.categoriaBorrar.add(categoria);</span>
+<span class="fc" id="L60">    }</span>
     @Override
     public void ingresarImagenServicio(String imagen){
-<span class="fc bfc" id="L63" title="All 2 branches covered.">        if(!imagen.isEmpty()){</span>
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">        if(!imagen.isEmpty()){</span>
 <span class="fc" id="L64">            ControladorProveedor.imagenServicio[ControladorProveedor.tope]=imagen;</span>
 <span class="fc" id="L65">            ControladorProveedor.tope = ControladorProveedor.tope+1;</span>
         }
 <span class="fc" id="L67">    }</span>
     @Override
     public void ingresarModificarImagenServicio(String imagen){
-<span class="nc bnc" id="L70" title="All 2 branches missed.">        if(!imagen.isEmpty()){</span>
-<span class="nc" id="L71">            ControladorProveedor.imagenModificarServicio[ControladorProveedor.tope2]=imagen;</span>
-<span class="nc" id="L72">            ControladorProveedor.tope2 = ControladorProveedor.tope2+1;</span>
+<span class="pc bpc" id="L70" title="1 of 2 branches missed.">        if(!imagen.isEmpty()){</span>
+<span class="fc" id="L71">            ControladorProveedor.imagenModificarServicio[ControladorProveedor.tope2]=imagen;</span>
+<span class="fc" id="L72">            ControladorProveedor.tope2 = ControladorProveedor.tope2+1;</span>
         }
-<span class="nc" id="L74">    }</span>
+<span class="fc" id="L74">    }</span>
     @Override
     public void ingresarDestinoServicio(String  destino ){
 <span class="fc" id="L77">        ControladorProveedor.destinoServicio = destino;</span>
 <span class="fc" id="L78">    }</span>
     @Override
     public List&lt;DataCiudad&gt; listarCiudades(){
-<span class="nc" id="L81">        ManejadorCiudad mCi = ManejadorCiudad.getInstance();</span>
-<span class="nc" id="L82">        return mCi.getDataCiudades();</span>
+<span class="fc" id="L81">        ManejadorCiudad mCi = ManejadorCiudad.getInstance();</span>
+<span class="fc" id="L82">        return mCi.getDataCiudades();</span>
     }
     @Override
     public void ingresarCategoriaServicio( String categoria) throws Exception{
@@ -99,8 +99,8 @@ import java.util.Set;
 <span class="nc" id="L99">    }</span>
     @Override
     public List&lt;DataCategoria&gt; listarCategorias(){
-<span class="nc" id="L102">        ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
-<span class="nc" id="L103">        return mCa.getDataCategorias();</span>
+<span class="fc" id="L102">        ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
+<span class="fc" id="L103">        return mCa.getDataCategorias();</span>
     }
     @Override
     public void altaServicio(String nombre , String descripcion, int precio, String origen, String proveedor, String pais)throws Exception{
@@ -133,14 +133,14 @@ import java.util.Set;
 <span class="fc" id="L133">    }</span>
     @Override
     public List&lt;DataProveedor&gt; listarProveedores(){
-<span class="nc" id="L136">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
-<span class="nc" id="L137">        return mPr.getDataProveedores();</span>
+<span class="fc" id="L136">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
+<span class="fc" id="L137">        return mPr.getDataProveedores();</span>
     }
     @Override
     public List&lt;DataServicio&gt; listarServiciosXCategoria( String nom2Categoria){
-<span class="nc" id="L141">        ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
-<span class="nc" id="L142">        Categoria cat = mCa.getCategoria(nom2Categoria);</span>
-<span class="nc" id="L143">        return cat.getDataServicios();</span>
+<span class="fc" id="L141">        ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
+<span class="fc" id="L142">        Categoria cat = mCa.getCategoria(nom2Categoria);</span>
+<span class="fc" id="L143">        return cat.getDataServicios();</span>
     }
     @Override
     public void ingresarNombreCategoria(String nombre){
@@ -155,8 +155,8 @@ import java.util.Set;
     @Override
     public void altaCategoria() throws Exception{
 <span class="fc" id="L157">        ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
-<span class="pc bpc" id="L158" title="1 of 2 branches missed.">        if(mCa.getCategoria(nomCategoria) != null){</span>
-<span class="nc" id="L159">            throw new Exception(&quot;Ya existe una categoría con ese nombre.&quot;);</span>
+<span class="fc bfc" id="L158" title="All 2 branches covered.">        if(mCa.getCategoria(nomCategoria) != null){</span>
+<span class="fc" id="L159">            throw new Exception(&quot;Ya existe una categoría con ese nombre.&quot;);</span>
         }
         Categoria categoria;
 <span class="fc bfc" id="L162" title="All 2 branches covered.">        if(nomPadre.equals(&quot;&quot;)){</span>
@@ -171,14 +171,14 @@ import java.util.Set;
 <span class="fc" id="L171">    }</span>
     @Override
     public List&lt;DataServicio&gt; listarServiciosXProveedor( String nomProveedor){
-<span class="nc" id="L174">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
-<span class="nc" id="L175">        Proveedor prov = mPr.getProveedor(nomProveedor);//nickname</span>
-<span class="nc" id="L176">        ControladorProveedor.proveedor = nomProveedor;</span>
-<span class="nc" id="L177">        return prov.getDataServicios();</span>
+<span class="fc" id="L174">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
+<span class="fc" id="L175">        Proveedor prov = mPr.getProveedor(nomProveedor);//nickname</span>
+<span class="fc" id="L176">        ControladorProveedor.proveedor = nomProveedor;</span>
+<span class="fc" id="L177">        return prov.getDataServicios();</span>
     }
     public void seleccionarServicio(String nomServicio){
-<span class="nc" id="L180">        ControladorProveedor.servicio = nomServicio;</span>
-<span class="nc" id="L181">    }</span>
+<span class="fc" id="L180">        ControladorProveedor.servicio = nomServicio;</span>
+<span class="fc" id="L181">    }</span>
     @Override
     public void altaPromocion( String nickProveedor,List&lt;String&gt; ser, String nombreProm, int descuento) throws Exception{
 <span class="fc" id="L184">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
@@ -199,62 +199,62 @@ import java.util.Set;
 <span class="fc" id="L199">    }</span>
     @Override
     public void ingresarDescripcionServicio( String desc){
-<span class="nc" id="L202">        ControladorProveedor.descripcionServicio = desc;</span>
-<span class="nc" id="L203">    }</span>
+<span class="fc" id="L202">        ControladorProveedor.descripcionServicio = desc;</span>
+<span class="fc" id="L203">    }</span>
     @Override
     public void ingresarPrecioServicio(float precio){
-<span class="nc" id="L206">        ControladorProveedor.precioServicio = precio;</span>
-<span class="nc" id="L207">    }</span>
+<span class="fc" id="L206">        ControladorProveedor.precioServicio = precio;</span>
+<span class="fc" id="L207">    }</span>
     @Override
     public void ingresarOrigenServicio( String origen){
-<span class="nc" id="L210">        ControladorProveedor.origenServicio = origen;</span>
-<span class="nc" id="L211">    }</span>
+<span class="fc" id="L210">        ControladorProveedor.origenServicio = origen;</span>
+<span class="fc" id="L211">    }</span>
     @Override
     public void modificarServicio()throws Exception{
-<span class="nc" id="L214">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
-<span class="nc" id="L215">        Proveedor prov = mPr.getProveedor(proveedor);</span>
-<span class="nc" id="L216">        Servicio ser = prov.getServicio(servicio);</span>
-<span class="nc bnc" id="L217" title="All 2 branches missed.">        if (!descripcionServicio.isEmpty()){</span>
-<span class="nc" id="L218">            ser.setDesc(descripcionServicio);</span>
+<span class="fc" id="L214">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
+<span class="fc" id="L215">        Proveedor prov = mPr.getProveedor(proveedor);</span>
+<span class="fc" id="L216">        Servicio ser = prov.getServicio(servicio);</span>
+<span class="fc bfc" id="L217" title="All 2 branches covered.">        if (!descripcionServicio.isEmpty()){</span>
+<span class="fc" id="L218">            ser.setDesc(descripcionServicio);</span>
         }
-<span class="nc bnc" id="L220" title="All 2 branches missed.">        if (precioServicio != 0){</span>
-<span class="nc" id="L221">            ser.setPrecio(precioServicio);</span>
+<span class="fc bfc" id="L220" title="All 2 branches covered.">        if (precioServicio != 0){</span>
+<span class="fc" id="L221">            ser.setPrecio(precioServicio);</span>
         }
-<span class="nc bnc" id="L223" title="All 2 branches missed.">        if (!origenServicio.isEmpty()){</span>
-<span class="nc" id="L224">            ManejadorCiudad mCi = ManejadorCiudad.getInstance();</span>
-<span class="nc" id="L225">            ser.asociarOrigen(mCi.getCiudad(origenServicio));</span>
+<span class="fc bfc" id="L223" title="All 2 branches covered.">        if (!origenServicio.isEmpty()){</span>
+<span class="fc" id="L224">            ManejadorCiudad mCi = ManejadorCiudad.getInstance();</span>
+<span class="fc" id="L225">            ser.asociarOrigen(mCi.getCiudad(origenServicio));</span>
         }
-<span class="nc bnc" id="L227" title="All 2 branches missed.">        if (!destinoServicio.isEmpty()){</span>
-<span class="nc" id="L228">            ManejadorCiudad mCi = ManejadorCiudad.getInstance();</span>
-<span class="nc" id="L229">            ser.asociarDestino(mCi.getCiudad(destinoServicio));</span>
+<span class="fc bfc" id="L227" title="All 2 branches covered.">        if (!destinoServicio.isEmpty()){</span>
+<span class="fc" id="L228">            ManejadorCiudad mCi = ManejadorCiudad.getInstance();</span>
+<span class="fc" id="L229">            ser.asociarDestino(mCi.getCiudad(destinoServicio));</span>
         }
         
-<span class="nc bnc" id="L232" title="All 2 branches missed.">        for(String it1 : categoriaBorrar){</span>
-<span class="nc" id="L233">            ser.eliminarCategoria(it1);</span>
-<span class="nc" id="L234">            ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
-<span class="nc" id="L235">            Categoria cat = mCa.getCategoria(it1);</span>
-<span class="nc" id="L236">            cat.eliminarServicio(ser);</span>
-<span class="nc" id="L237">        }</span>
-<span class="nc bnc" id="L238" title="All 2 branches missed.">        for(String cats : categoriasServicio){</span>
-<span class="nc" id="L239">            ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
-<span class="nc" id="L240">            Categoria cat = mCa.getCategoria(cats);</span>
-<span class="nc" id="L241">            cat.setServicio(ser);</span>
-<span class="nc" id="L242">            ser.agregarCategoria(cat);</span>
-<span class="nc" id="L243">        }</span>
-<span class="nc bnc" id="L244" title="All 2 branches missed.">        for(String it2 : imagenBorrar){</span>
-<span class="nc" id="L245">            ser.eliminarImagen(it2);</span>
-<span class="nc" id="L246">        }</span>
+<span class="fc bfc" id="L232" title="All 2 branches covered.">        for(String it1 : categoriaBorrar){</span>
+<span class="fc" id="L233">            ser.eliminarCategoria(it1);</span>
+<span class="fc" id="L234">            ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
+<span class="fc" id="L235">            Categoria cat = mCa.getCategoria(it1);</span>
+<span class="fc" id="L236">            cat.eliminarServicio(ser);</span>
+<span class="fc" id="L237">        }</span>
+<span class="fc bfc" id="L238" title="All 2 branches covered.">        for(String cats : categoriasServicio){</span>
+<span class="fc" id="L239">            ManejadorCategoria mCa = ManejadorCategoria.getInstance();</span>
+<span class="fc" id="L240">            Categoria cat = mCa.getCategoria(cats);</span>
+<span class="fc" id="L241">            cat.setServicio(ser);</span>
+<span class="fc" id="L242">            ser.agregarCategoria(cat);</span>
+<span class="fc" id="L243">        }</span>
+<span class="fc bfc" id="L244" title="All 2 branches covered.">        for(String it2 : imagenBorrar){</span>
+<span class="fc" id="L245">            ser.eliminarImagen(it2);</span>
+<span class="fc" id="L246">        }</span>
         
-<span class="nc bnc" id="L248" title="All 2 branches missed.">        for(int i=0;i&lt;ControladorProveedor.tope2;++i){</span>
-<span class="nc" id="L249">                ser.agregarImagen(ControladorProveedor.imagenModificarServicio[i]);</span>
+<span class="fc bfc" id="L248" title="All 2 branches covered.">        for(int i=0;i&lt;ControladorProveedor.tope2;++i){</span>
+<span class="fc" id="L249">                ser.agregarImagen(ControladorProveedor.imagenModificarServicio[i]);</span>
                        
         }
-<span class="nc" id="L252">        liberarMemoria();</span>
-<span class="nc" id="L253">    }</span>
+<span class="fc" id="L252">        liberarMemoria();</span>
+<span class="fc" id="L253">    }</span>
     @Override
     public List&lt;DataEmpresa&gt; listarEmpresas(){
-<span class="nc" id="L256">        ManejadorEmpresa mEmp = ManejadorEmpresa.getInstance();</span>
-<span class="nc" id="L257">        return mEmp.getDataEmpresas();</span>
+<span class="fc" id="L256">        ManejadorEmpresa mEmp = ManejadorEmpresa.getInstance();</span>
+<span class="fc" id="L257">        return mEmp.getDataEmpresas();</span>
     }
     
     
@@ -275,7 +275,7 @@ import java.util.Set;
 <span class="fc" id="L275">            Proveedor prov = new Proveedor(nick, nombre, apellido, email, fechaNac, imagen, password);</span>
 <span class="fc" id="L276">            ManejadorEmpresa mEmp =  ManejadorEmpresa.getInstance();</span>
 <span class="fc" id="L277">            Empresa emp = mEmp.getEmpresa(nombreEmp);</span>
-<span class="pc bpc" id="L278" title="1 of 2 branches missed.">            if (emp == null){</span>
+<span class="fc bfc" id="L278" title="All 2 branches covered.">            if (emp == null){</span>
 <span class="fc" id="L279">                emp = new Empresa(nombreEmp, linkEmp);</span>
 <span class="fc" id="L280">                mEmp.addEmpresa(emp);</span>
             }
@@ -285,32 +285,32 @@ import java.util.Set;
 <span class="fc" id="L285">    }</span>
     @Override
     public List&lt;DataPromocion&gt; listarPromocionesXProveedor( String nomProveedor){
-<span class="nc" id="L288">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
-<span class="nc" id="L289">        Proveedor prov = mPr.getProveedor(nomProveedor);</span>
-<span class="nc" id="L290">        return prov.getDataPromociones();</span>
+<span class="fc" id="L288">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
+<span class="fc" id="L289">        Proveedor prov = mPr.getProveedor(nomProveedor);</span>
+<span class="fc" id="L290">        return prov.getDataPromociones();</span>
     }
     @Override
     public DataInfoServicio verInfoServicio(String nomServicio, String nomProveedor)throws Exception{
-<span class="nc" id="L294">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
-<span class="nc" id="L295">        Proveedor prov = mPr.getProveedor(nomProveedor);</span>
+<span class="fc" id="L294">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
+<span class="fc" id="L295">        Proveedor prov = mPr.getProveedor(nomProveedor);</span>
         
-<span class="nc" id="L297">            Servicio ser = prov.getServicio(nomServicio);</span>
+<span class="fc" id="L297">            Servicio ser = prov.getServicio(nomServicio);</span>
         
     
-<span class="nc" id="L300">        return ser.getDataInfoServicio();</span>
+<span class="fc" id="L300">        return ser.getDataInfoServicio();</span>
     }
     @Override
     public DataInfoProveedor verInfoProveedor( String nomProveedor){
-<span class="nc" id="L304">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
-<span class="nc" id="L305">        Proveedor prov = mPr.getProveedor(nomProveedor);</span>
-<span class="nc" id="L306">        return prov.getDataInfoProveedor();</span>
+<span class="fc" id="L304">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
+<span class="fc" id="L305">        Proveedor prov = mPr.getProveedor(nomProveedor);</span>
+<span class="fc" id="L306">        return prov.getDataInfoProveedor();</span>
     }
 
     public DataServicio informacionServicio(String prv,String ser) throws Exception{
-<span class="nc" id="L310">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
-<span class="nc" id="L311">        Proveedor prov = mPr.getProveedor(prv);</span>
-<span class="nc" id="L312">        Servicio servi = prov.getServicio(ser);</span>
-<span class="nc" id="L313">        return servi.getDataServicio();</span>
+<span class="fc" id="L310">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
+<span class="fc" id="L311">        Proveedor prov = mPr.getProveedor(prv);</span>
+<span class="fc" id="L312">        Servicio servi = prov.getServicio(ser);</span>
+<span class="fc" id="L313">        return servi.getDataServicio();</span>
     }
     public DataPromocion informacionPromocion(String pvr, String nom)throws Exception{
 <span class="nc" id="L316">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
@@ -320,8 +320,8 @@ import java.util.Set;
     }
     @Override
     public DataInfoPromocion verInfoPromocion(String nickproveedor, String nomPromocion) {
-<span class="nc" id="L323">        Promocion promo = ManejadorProveedor.getInstance().getProveedor(nickproveedor).getPromocion(nomPromocion);</span>
-<span class="nc" id="L324">        return promo.getDataInfoPromocion();</span>
+<span class="fc" id="L323">        Promocion promo = ManejadorProveedor.getInstance().getProveedor(nickproveedor).getPromocion(nomPromocion);</span>
+<span class="fc" id="L324">        return promo.getDataInfoPromocion();</span>
     }
     public void altaPais(String nomPais) throws Exception {
 <span class="fc" id="L327">        ManejadorPais mPa = ManejadorPais.getInstance();</span>
@@ -337,8 +337,8 @@ import java.util.Set;
 <span class="fc" id="L337">        ManejadorPais mPa = ManejadorPais.getInstance();</span>
 <span class="pc bpc" id="L338" title="1 of 2 branches missed.">        if(!nomCiudad.isEmpty()){</span>
 <span class="fc bfc" id="L339" title="All 2 branches covered.">            if(mCi.getCiudad(nomCiudad) == null){</span>
-<span class="pc bpc" id="L340" title="1 of 2 branches missed.">                if(mPa.getPais(nomPais) == null){</span>
-<span class="nc" id="L341">                    mPa.addPais(new Pais(nomPais));</span>
+<span class="fc bfc" id="L340" title="All 2 branches covered.">                if(mPa.getPais(nomPais) == null){</span>
+<span class="fc" id="L341">                    mPa.addPais(new Pais(nomPais));</span>
                 }
 <span class="fc" id="L343">                mCi.addCiudad(new Ciudad(nomCiudad, mPa.getPais(nomPais)));</span>
                 
@@ -348,23 +348,23 @@ import java.util.Set;
 
     
     public void seleccionarProveedor(String proveedor) {
-<span class="nc" id="L351">        ControladorProveedor.proveedor = proveedor;</span>
-<span class="nc" id="L352">    }</span>
+<span class="fc" id="L351">        ControladorProveedor.proveedor = proveedor;</span>
+<span class="fc" id="L352">    }</span>
     public Set&lt;String&gt; infoPaises(){
-<span class="nc" id="L354">       ManejadorPais mPa = ManejadorPais.getInstance();</span>
-<span class="nc" id="L355">       return mPa.getNombresPaises();</span>
+<span class="fc" id="L354">       ManejadorPais mPa = ManejadorPais.getInstance();</span>
+<span class="fc" id="L355">       return mPa.getNombresPaises();</span>
     }
      public List&lt;DataCiudad&gt; ciudadesXpais( String nombrepais){
-<span class="nc" id="L358">       ManejadorCiudad mCi = ManejadorCiudad.getInstance();</span>
-<span class="nc" id="L359">        ManejadorPais mPa = ManejadorPais.getInstance();</span>
-<span class="nc" id="L360">        Pais pais = mPa.getPais(nombrepais);</span>
-<span class="nc" id="L361">       return mCi.getDataCiudadesXpais(pais);</span>
+<span class="fc" id="L358">       ManejadorCiudad mCi = ManejadorCiudad.getInstance();</span>
+<span class="fc" id="L359">        ManejadorPais mPa = ManejadorPais.getInstance();</span>
+<span class="fc" id="L360">        Pais pais = mPa.getPais(nombrepais);</span>
+<span class="fc" id="L361">       return mCi.getDataCiudadesXpais(pais);</span>
     }
 
     @Override
     public List&lt;DataServicio&gt; buscarServicios(String aBuscar) {
-<span class="nc" id="L366">        ManejadorProveedor mpr = ManejadorProveedor.getInstance();</span>
-<span class="nc" id="L367">        return mpr.obtenerServiciosBuscados(aBuscar);</span>
+<span class="fc" id="L366">        ManejadorProveedor mpr = ManejadorProveedor.getInstance();</span>
+<span class="fc" id="L367">        return mpr.obtenerServiciosBuscados(aBuscar);</span>
     }
     
     public List&lt;DataPromocion&gt; buscarPromociones(String aBuscar) {

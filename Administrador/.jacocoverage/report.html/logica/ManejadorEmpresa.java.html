@@ -37,11 +37,11 @@ public class ManejadorEmpresa {
 <span class="nc" id="L37">        empresas.remove(nombre);</span>
 <span class="nc" id="L38">    }</span>
     public List&lt;DataEmpresa&gt; getDataEmpresas(){
-<span class="nc" id="L40">        List&lt;DataEmpresa&gt; dts = new ArrayList&lt;DataEmpresa&gt;();</span>
-<span class="nc bnc" id="L41" title="All 2 branches missed.">        for (Empresa value : empresas.values()){</span>
-<span class="nc" id="L42">            dts.add(value.getDataEmpresa());</span>
-<span class="nc" id="L43">        }</span>
-<span class="nc" id="L44">        return dts;</span>
+<span class="fc" id="L40">        List&lt;DataEmpresa&gt; dts = new ArrayList&lt;DataEmpresa&gt;();</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        for (Empresa value : empresas.values()){</span>
+<span class="fc" id="L42">            dts.add(value.getDataEmpresa());</span>
+<span class="fc" id="L43">        }</span>
+<span class="fc" id="L44">        return dts;</span>
     }
     
 }    
