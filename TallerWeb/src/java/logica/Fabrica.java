@@ -30,8 +30,5 @@ public class Fabrica {
         IControladorProveedor ICP =  new ControladorProveedor();
         return ICP;
     }
-    public IControladorWeb getIControladorWeb() {
-        IControladorWeb web =  new ControladorWeb();
-        return web;
-    }
+
 }

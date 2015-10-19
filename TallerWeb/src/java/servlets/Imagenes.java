@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import logica.CargaInicial;
 import org.apache.commons.fileupload.FileItem;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import logica.Fabrica;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -64,8 +66,14 @@ public class Imagenes extends HttpServlet {
         }
         if (request.getParameter("Bajar")!=null){
             Fabrica fab = Fabrica.getInstance();
-            BufferedImage img = fab.getIControladorCliente().leerImgURL(request.getParameter(CargaInicial.getRuta()+request.getParameter("rutaIamgen")));
-            request.setAttribute("imagen", img.createGraphics()); 
+            BufferedImage img;
+             try {
+                 img = fab.getIControladorCliente().leerImgURL(request.getParameter(CargaInicial.getRuta()+request.getParameter("rutaIamgen")));
+                  request.setAttribute("imagen", img.createGraphics());
+             } catch (Exception ex) {
+                 Logger.getLogger(Imagenes.class.getName()).log(Level.SEVERE, null, ex);
+             }
+            
         }
         
     }

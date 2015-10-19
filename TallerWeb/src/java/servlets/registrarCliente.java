@@ -47,7 +47,7 @@ public class registrarCliente extends HttpServlet {
                 
                 ICC.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), ICC.toDate(request.getParameter("fechaCliente")),CargaInicial.getRuta()+"Imagenes/Usuarios/"+request.getParameter("nickRegistrar")+".png" , request.getParameter("passRegistrar"));
             } catch (Exception ex) {
-                Logger.getLogger(Servlet1.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(registrarCliente.class.getName()).log(Level.SEVERE, null, ex);
 
             }
             DataInfoCliente cliente = ICC.iniciarSesion(request.getParameter("nickRegistrar"), request.getParameter("passRegistrar"));
