@@ -27,7 +27,7 @@
                 <table class="table table-striped table-hover carrito">
                     <tr>
                         <td>Nombre</td>
-                        <td>Imagen</td>
+                        
                         <td>Precio</td>
                         <td>Descripcion</td>
                         <td>Tipo</td>
@@ -46,7 +46,7 @@
                     %>        
                                     <tr>
                                         <td><%=item.getServicio().getNombre()%></td>
-                                        <td > <img src="./media/imagenes/moody - Euro-Car-1 1.png" alt="foto"/> </td>
+                                       
                                         <td id="precio1"> <%=item.getServicio().getPrecio() %> </td>
                                         <td> <%=item.getServicio().getDescripcion() %></td>
                                         <td> Servicio </td>
@@ -63,7 +63,7 @@
                                 <%}else{%>
                                     <tr>
                                         <td><%=item.getPromocion().getNombre()%></td>
-                                        <td > Sin imagen </td>
+                                        
                                         <td id="precio1"> <%=item.getPromocion().getPrecioTotal()%> </td>
                                         <td> Sin Descripocion </td>
                                         <td> Promocion </td>

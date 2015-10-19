@@ -55,9 +55,9 @@ public class agregarSerPromCarrito extends HttpServlet {
                             ir2.remove(item);
                         }
                     }
-                    request.getSession().setAttribute("ItemsReservaActual", ir2);
-                
                 }
+                
+                request.getSession().setAttribute("ItemsReservaActual", ir2);
             }else{
                 int cant;
                 String nom;
