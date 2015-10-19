@@ -6,17 +6,12 @@
 
 package logica;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
-import java.util.Set;
-import java.util.Collections;
-import java.util.HashMap;
+
 import java.util.LinkedHashMap;
 import java.util.List;
-import javax.imageio.ImageIO;
 
 /**
  *
@@ -36,35 +31,22 @@ public class Cliente extends Usuario{
         this.reservas = new LinkedHashMap();
     }
     public DataCliente getDataCliente(){
-        return new DataCliente( nickname, nombre, apellido, email, fechaNac, imagen, password);
+        return new DataCliente( this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),  this.getImagen(), this.getPassword());
     }
     public List<DataReserva> getDataReservas(){
-        List<DataReserva> dts = new ArrayList<>();
+        List<DataReserva> dts = new ArrayList<DataReserva>();
         for (Reserva value : reservas.values()){
             dts.add(value.getDataReserva());
         }
         return dts;
     }
-    
-    public static BufferedImage leerURLdeImagen(String imgURL){
-        File imgF = new File(imgURL);
-        try {
-            return ImageIO.read(imgF);
-        } catch (Exception ex) {
-            return null;
-        }
+    public void reservarServicio(int identificador,Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
+        Reserva res = reservas.get(identificador);
+        ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin);    
+        res.agregarItem(item);
     }
-    public void reservarServicio(int id,Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
-        Reserva res = reservas.get(id);
-        
-            ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin);    
-            res.agregarItem(item);
-        
-        
-        
-    }
-    public void modificarEstadoReserva(int id, Estado estado){
-        Reserva res = reservas.get(id);
+    public void modificarEstadoReserva(int identificador, Estado estado){
+        Reserva res = reservas.get(identificador);
         if (res.getEstado() == Estado.registrada){
             res.setEstado(estado);
         }
@@ -75,18 +57,18 @@ public class Cliente extends Usuario{
             res.agregarItem(item);
         
     }
-    public void cancelarReserva(int id){
-        Reserva res = reservas.get(id);
+    public void cancelarReserva(int identificador){
+        Reserva res = reservas.get(identificador);
         res.darDeBaja();
-        reservas.remove(id);
+        reservas.remove(identificador);
     }
     public DataInfoCliente getDataInfoCliente(){
-        return new DataInfoCliente(nickname, nombre, apellido, email, fechaNac, imagen, getDataReservas(), password);
+        return new DataInfoCliente(this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),  this.getImagen(), getDataReservas(),this.getPassword());
     }
-    public Reserva getReserva(int id) {
-        return reservas.get(id);
+    public Reserva getReserva(int identificador) {
+        return reservas.get(identificador);
     }
-    public void addReserva(int id, Reserva res){
-        reservas.put(id, res);
+    public void addReserva(int identificador, Reserva res){
+        reservas.put(identificador, res);
     }
 }

@@ -5,13 +5,16 @@
  */
 package logica;
 
-import java.util.ArrayList;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+import javax.imageio.ImageIO;
+
+
 
 
 /**
@@ -21,10 +24,8 @@ import java.util.Set;
 public class ControladorCliente implements IControladorCliente{
     
     @Override
-    public void actualizarEstadoReserva(int id, String nomCliente, Estado estado){
-        ManejadorCliente mCl = ManejadorCliente.getInstance();
-        Cliente cli = mCl.getCliente(nomCliente);
-        cli.modificarEstadoReserva(id, estado);
+    public void actualizarEstadoReserva(final int identificador, final String nomCliente,final Estado estado){
+        ManejadorCliente.getInstance().getCliente(nomCliente).modificarEstadoReserva(identificador, estado);
     }
     
     @Override
@@ -52,7 +53,12 @@ public class ControladorCliente implements IControladorCliente{
         }
         res.setPrecio(preciototal);
     }
-    
+    public BufferedImage leerImgURL(String imgURL) throws Exception{
+        File imgF = new File(imgURL);
+       
+            return ImageIO.read(imgF);
+      
+    }
     @Override
     public void altaCliente(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String password) throws Exception{
         
@@ -82,10 +88,10 @@ public class ControladorCliente implements IControladorCliente{
     }
     
     @Override
-    public void cancelarReserva(String nomCliente, int id){
+    public void cancelarReserva(String nomCliente, int identificador){
         ManejadorCliente mCl = ManejadorCliente.getInstance();
         Cliente cli = mCl.getCliente(nomCliente);
-        cli.cancelarReserva(id);
+        cli.cancelarReserva(identificador);
     }
     
     @Override
@@ -102,10 +108,10 @@ public class ControladorCliente implements IControladorCliente{
     }
     
     @Override
-    public DataInfoReserva verInfoReserva(String nomCliente, int id){
+    public DataInfoReserva verInfoReserva(String nomCliente, int identificador){
         ManejadorCliente mCl = ManejadorCliente.getInstance();
         Cliente cliente = mCl.getCliente(nomCliente);
-        Reserva reserva = cliente.getReserva(id);
+        Reserva reserva = cliente.getReserva(identificador);
         return reserva.getDataInfoReserva();
     }
     
@@ -121,6 +127,68 @@ public class ControladorCliente implements IControladorCliente{
         if ((aux !=null) &&( !aux.verificarPassword(password))){
             aux =null;
         }
-        return aux.getDataInfoCliente();
+        if (aux == null){
+            return null ;
+        }else{
+            return aux.getDataInfoCliente();
+        }
+            
+    }
+     public Date toDate(String fecha) {
+        SimpleDateFormat formatoDelTexto = new SimpleDateFormat("dd/MM/yyyy");
+        Date date =new Date();
+        try {
+            date = formatoDelTexto.parse(fecha);
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+        return date;
+    }
+
+    public void confirmarReserva(List<DataItemReserva> itemreserva,DataInfoCliente dtcliente) throws Exception{
+        ManejadorCliente mcli = ManejadorCliente.getInstance();
+        ManejadorProveedor mprov = ManejadorProveedor.getInstance();
+        Cliente cliente = mcli.getCliente(dtcliente.getNickname());
+        int clave1 = mcli.getUltimoid();
+        Reserva res = new Reserva(clave1,new Date(), new Date(), new Date(),0,Estado.registrada);
+        cliente.addReserva(res.getId(),res);
+        float preciototal=0;
+        for (DataItemReserva dtir : itemreserva){
+            if (dtir.getesServico()){
+                Servicio servicio;
+                
+                    servicio = mprov.getProveedor(dtir.getServicio().getProveedor()).getServicio( dtir.getServicio().getNombre() );
+                    cliente.reservarServicio(clave1, servicio,dtir.getCantidad(), dtir.getFechaInicio(),dtir.getFechaFin());
+                    preciototal= preciototal + servicio.getPrecio()*dtir.getCantidad();
+         
+            }else{
+                Promocion promo = mprov.getProveedor(dtir.getPromocion().getnickProveedro()).getPromocion(dtir.getPromocion().getNombre());
+                cliente.reservarPromocion(clave1, promo,dtir.getCantidad(), dtir.getFechaInicio(),dtir.getFechaFin());
+                preciototal= preciototal + promo.getPrecioTotal()*dtir.getCantidad();
+            }
+            res.setPrecio(preciototal);
+        }
+    }
+    public boolean existeNickName(String nickName){
+        boolean aux=false;
+        ManejadorCliente mCl = ManejadorCliente.getInstance();
+        List<DataCliente> list = mCl.getDataClientes();
+        for(DataCliente dtc : list){
+            if (dtc.getNickname().equals(nickName)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean existeEmail(String email){
+        boolean aux=false;
+        ManejadorCliente mCl = ManejadorCliente.getInstance();
+        List<DataCliente> list = mCl.getDataClientes();
+        for(DataCliente dtc : list){
+            if (dtc.getEmail().equals(email)){
+                return true;
+            }
+        }
+        return false;
     }
 }

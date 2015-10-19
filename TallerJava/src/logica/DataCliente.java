@@ -19,7 +19,7 @@ public class DataCliente {
     private String email;
     private Date fechaNac;
     private String imagen;   
-    protected String password;
+    private String password;
     
     //Constructores
     public DataCliente(){

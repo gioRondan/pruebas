@@ -7,7 +7,6 @@
 package logica;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,7 +37,7 @@ public class ManejadorEmpresa {
         empresas.remove(nombre);
     }
     public List<DataEmpresa> getDataEmpresas(){
-        List<DataEmpresa> dts = new ArrayList<>();
+        List<DataEmpresa> dts = new ArrayList<DataEmpresa>();
         for (Empresa value : empresas.values()){
             dts.add(value.getDataEmpresa());
         }

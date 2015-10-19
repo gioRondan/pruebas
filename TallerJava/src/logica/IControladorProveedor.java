@@ -9,8 +9,7 @@ package logica;
 import java.util.Set;
 import java.util.Date;
 import java.util.List;
-import javax.swing.JSpinner;
-import javax.swing.JTextField;
+
 /**
  *
  * @author Juan
@@ -47,9 +46,11 @@ public interface IControladorProveedor {
     public DataInfoProveedor verInfoProveedor(String nomProveedor);
     public DataServicio informacionServicio(String prv,String ser) throws Exception;
     public Set<String> infoPaises();
-    public List<DataCiudad> ciudadesXpais( String pa);
-    public void altaPais(String pa)throws Exception;
+    public List<DataCiudad> ciudadesXpais( String pais);
+    public void altaPais(String pais)throws Exception;
     public void altaCiudad(String nomCiudad, String nomPais);
 //################################      operaciones tarea 2 ####################################################################################
     public List<DataServicio> buscarServicios(String aBuscar); 
+    public List<DataPromocion> buscarPromociones(String aBuscar);
+    public DataPromocion informacionPromocion(String pvr, String nom)throws Exception;
 }

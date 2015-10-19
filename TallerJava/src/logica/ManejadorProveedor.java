@@ -6,13 +6,9 @@
 
 package logica;
 import java.util.ArrayList;
-import java.util.Collections;
-import static java.util.Collections.emptyMap;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 /**
  *
  * @author matias.heredia
@@ -40,7 +36,7 @@ public class ManejadorProveedor {
     }
    
     public List<DataProveedor> getDataProveedores(){
-        List<DataProveedor> dts =  new ArrayList<>();
+        List<DataProveedor> dts =  new ArrayList<DataProveedor>();
         for (Proveedor value : proveedores.values()){
             dts.add(value.getDataProveedor());
         }
@@ -68,7 +64,7 @@ public class ManejadorProveedor {
         }
     }
     List<DataServicio> obtenerServiciosBuscados(String aBuscar){
-        List<DataServicio> result = new ArrayList<>();
+        List<DataServicio> result = new ArrayList<DataServicio>();
         for(Proveedor it : proveedores.values()){
             result.addAll(it.getServiciosBuscados(aBuscar));
         }
@@ -76,7 +72,7 @@ public class ManejadorProveedor {
     }
 
     List<DataPromocion> obtenerPromocionesBuscados(String aBuscar) {
-         List<DataPromocion> result = new ArrayList<>();
+         List<DataPromocion> result = new ArrayList<DataPromocion>();
         for(Proveedor it : proveedores.values()){
             result.addAll(it.getPromocionesBuscados(aBuscar));
         }

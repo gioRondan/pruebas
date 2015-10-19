@@ -28,22 +28,22 @@ public class ManejadorCiudad {
     } 
     
    public List<DataCiudad> getDataCiudades(){
-       List<DataCiudad> dts =  new ArrayList<>();
+       List<DataCiudad> dts =  new ArrayList<DataCiudad>();
         for (Ciudad value : ciudades.values()){
             dts.add(value.getDataCiudad());
         }
         return dts;
    }
-    public Ciudad getCiudad(String a){
-        return ciudades.get(a);
+    public Ciudad getCiudad(String ciudad){
+        return ciudades.get(ciudad);
     }
     public void addCiudad(Ciudad ciudad){
         ciudades.put(ciudad.getNombre(), ciudad);
     }
-    public List<DataCiudad> getDataCiudadesXpais(Pais p){
-       List<DataCiudad> dts =  new ArrayList<>();
+    public List<DataCiudad> getDataCiudadesXpais(Pais pais){
+       List<DataCiudad> dts =  new ArrayList<DataCiudad>();
         for (Ciudad value : ciudades.values()){
-            if (value.getPais().getNombre().equals(p.getNombre())){
+            if (value.getPais().getNombre().equals(pais.getNombre())){
                 dts.add(value.getDataCiudad());
             }
         }

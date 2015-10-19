@@ -21,7 +21,7 @@ public class DataProveedor {
     private String imagen;
     private String nombreEmpresa;
     private String urlEmpresa;
-    protected String password;
+    private String password;
     
     
     //Constructores

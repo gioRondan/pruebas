@@ -13,7 +13,7 @@ import java.util.Date;
  * @author diego
  */
 public class DataReserva {
-    private int id;
+    private int identificador;
     private Date fechaCreacion;
     private Date fechaInicio;
     private Date fechaFin;
@@ -22,7 +22,7 @@ public class DataReserva {
     
     //Constructores
     public DataReserva(){
-        this.id            = 0;
+        this.identificador = 0;
         this.fechaCreacion = new Date();
         this.fechaInicio   = new Date();
         this.fechaFin      = new Date();
@@ -30,8 +30,8 @@ public class DataReserva {
         this.estado        = Estado.registrada;        
     }
     
-    public DataReserva(int id, Date fechaCreacion, Date fechaInicio, Date fechaFin, float precio, Estado estado){
-        this.id            = id;
+    public DataReserva(int identificador, Date fechaCreacion, Date fechaInicio, Date fechaFin, float precio, Estado estado){
+        this.identificador = identificador;
         this.fechaCreacion = fechaCreacion;
         this.fechaInicio   = fechaInicio;
         this.fechaFin      = fechaFin;
@@ -41,7 +41,7 @@ public class DataReserva {
     
     //Getters
     public int getId(){
-        return id;
+        return identificador;
     }
     
     public Date getFechaCreacion(){

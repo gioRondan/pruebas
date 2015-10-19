@@ -7,8 +7,6 @@ package logica;
 
 
 import java.util.HashMap;
-import java.util.List;
-
 import java.util.Map;
 import java.util.Set;
 
@@ -29,8 +27,8 @@ public class ManejadorPais {
             instance = new ManejadorPais();
         return instance;
     }  
-    public Pais getPais(String a){
-        return paises.get(a);
+    public Pais getPais(String pais){
+        return paises.get(pais);
     }
     public void addPais(Pais pais){
         paises.put(pais.getNombre(), pais);

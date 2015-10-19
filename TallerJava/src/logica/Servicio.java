@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 /**
  *
  * @author matias.heredia
@@ -20,7 +19,7 @@ import java.util.Set;
 public class Servicio {
     private String nombre;
     private String descripcion;
-    private String [] imagen;
+    private String[] imagen;
     private int contImagen = 0;
     private float precio;
     private Ciudad origen=null;
@@ -53,6 +52,10 @@ public class Servicio {
     public void setPrecio(float precio){
          this.precio = precio;
     }
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
     
     public String getNombre(){
         return this.nombre;
@@ -78,7 +81,7 @@ public class Servicio {
     public DataServicio getDataServicio(){
         return new DataServicio(nombre, descripcion, precio, imagen, proveedor.getNickname());
     }
-    public DataInfoServicio getDataInfoServicio (){
+    public DataInfoServicio getDataInfoServicio(){
         DataCiudad des = null;
         if (destino!= null){
             des = destino.getDataCiudad();
@@ -86,7 +89,7 @@ public class Servicio {
         return new DataInfoServicio(nombre, descripcion, imagen, precio, origen.getDataCiudad(), des, getDataCategorias(), proveedor.getDataProveedor());
     }
     public List<DataCategoria> getDataCategorias(){
-        List<DataCategoria> dts = new ArrayList<>();
+        List<DataCategoria> dts = new ArrayList<DataCategoria>();
         for (Categoria c : categorias.values()){
             dts.add(c.getDataCategoria());
         }
@@ -101,15 +104,15 @@ public class Servicio {
         }
     }
     public void eliminarImagen(String imagen) throws Exception{
-        int it = 0;
-        while((it < contImagen)&&(!this.imagen[it].equals(imagen)))
-            ++it;
-        if(it==contImagen)
+        int itera = 0;
+        while((itera < contImagen)&&(!this.imagen[itera].equals(imagen)))
+            ++itera;
+        if(itera==contImagen)
             throw new Exception("la imagen seleccionada no pertenece al servicio");
         else{
-            Files.deleteIfExists(Paths.get(this.imagen[it]));
+            Files.deleteIfExists(Paths.get(this.imagen[itera]));
             //Files.delete(Paths.get(this.imagen[it]));
-            this.imagen[it] = this.imagen[contImagen-1];
+            this.imagen[itera] = this.imagen[contImagen-1];
             this.imagen[contImagen-1] = "";
             contImagen--;
         }
@@ -123,6 +126,6 @@ public class Servicio {
     }
 
     boolean buscado(String aBuscar) {
-        return(this.nombre.equals(aBuscar) ||this.categorias.containsKey(aBuscar) || this.descripcion.contains(aBuscar));
+        return this.nombre.contains(aBuscar) || this.categorias.containsKey(aBuscar) || this.descripcion.contains(aBuscar);
     }
 }

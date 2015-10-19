@@ -6,10 +6,7 @@
 package logica;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 /**
  *
  * @author Juan
@@ -26,8 +23,8 @@ public class Categoria {
     public Categoria(String nombre, boolean tienePadre){
         this.nombre = nombre;
         this.tienePadre = tienePadre;
-        this.hijos = new ArrayList<>();
-        this.servicios = new ArrayList<>();
+        this.hijos = new ArrayList<Categoria>();
+        this.servicios = new ArrayList<Servicio>();
     }
     
     public String getNombre(){
@@ -50,14 +47,14 @@ public class Categoria {
         return this.servicios;
     }
     public List<DataServicio> getDataServicios(){
-        List<DataServicio> dts = new ArrayList<>();
+        List<DataServicio> dts = new ArrayList<DataServicio>();
         for(Servicio s : servicios){
             dts.add(s.getDataServicio());
         }
         return dts;
     }
     public List<DataCategoria> getDataHijos(){
-        List<DataCategoria> dts = new ArrayList<>();
+        List<DataCategoria> dts = new ArrayList<DataCategoria>();
         for(Categoria c : hijos){
             dts.add(c.getDataCategoria());
         }
@@ -70,7 +67,7 @@ public class Categoria {
         this.servicios.add(servicio);
     }
     public boolean esHoja(){
-        return (hijos.isEmpty());
+        return hijos.isEmpty();
     }
 
     @Override
@@ -78,7 +75,7 @@ public class Categoria {
         return nombre;
     }
     public boolean esRaiz() {
-        return (!(tienePadre));
+        return !tienePadre;
     }
 
     Servicio getServicio(String nomServicio) {

@@ -5,20 +5,22 @@
  */
 
 package logica;
-import java.util.*;
+
+import java.util.Date;
+
 /**
  *
  * @author matias.heredia
  */
 public class Usuario {
     
-    protected String nickname;
-    protected String nombre;
-    protected String apellido;
-    protected String email  ;
-    protected Date fechaNac;
-    protected String imagen;
-    protected String password;
+    private  String nickname;
+    private String nombre;
+    private String apellido;
+    private String email  ;
+    private Date fechaNac;
+    private String imagen;
+    private String password;
 
     public Usuario(String nickname,String nombre, String apellido, String email, Date fechaNac, String imagen, String password) {
         this.nombre = nombre;

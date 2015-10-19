@@ -6,17 +6,10 @@
 package logica;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
-/**
- *
- * @author giovani
- */
 public class ManejadorCategoria {
     private Map<String,Categoria> categorias;
     private static ManejadorCategoria instance = null;
@@ -39,7 +32,7 @@ public class ManejadorCategoria {
         categorias.remove(nombre);
     }
     public List<DataCategoria> getDataCategorias(){
-        List<DataCategoria> dts = new ArrayList<>();
+        List<DataCategoria> dts = new ArrayList<DataCategoria>();
         for (Categoria value : categorias.values()) {
             if(value.esRaiz())
             dts.add(value.getDataCategoria());

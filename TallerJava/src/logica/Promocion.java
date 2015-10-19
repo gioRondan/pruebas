@@ -8,7 +8,7 @@ package logica;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
+
 import java.util.Map;
 import java.util.Set;
 
@@ -31,7 +31,7 @@ public class Promocion {
         this.proveedor = prov;
     }
     public DataPromocion getDataPromocion(){
-        return new DataPromocion(nombre, descuento, precioTotal);
+        return new DataPromocion(nombre, descuento, precioTotal,proveedor.getNickname());
     }
     public String getNombre(){
         return nombre;
@@ -59,7 +59,9 @@ public class Promocion {
             throw new Exception("Las promociones deben ser de un mismo proveedor");
         }
     }
-
+    public Proveedor getProveedor(){
+        return proveedor;
+    }
     DataInfoPromocion getDataInfoPromocion() {       
         Set<DataServicio> dts =  new HashSet();
         for (Servicio value : servicios.values()){
@@ -69,6 +71,6 @@ public class Promocion {
     }
 
     boolean buscado(String aBuscar) {
-        return(this.nombre.equals(aBuscar) );
+        return this.nombre.contains(aBuscar);
     }
 }

@@ -23,11 +23,12 @@ public class Fabrica {
     }
     
     public IControladorCliente getIControladorCliente() {
-        IControladorCliente IG =  new ControladorCliente();
-        return IG;
+        IControladorCliente ICC =  new ControladorCliente();
+        return ICC;
     }
     public IControladorProveedor getIControladorProveedor() {
-        IControladorProveedor IG =  new ControladorProveedor();
-        return IG;
+        IControladorProveedor ICP =  new ControladorProveedor();
+        return ICP;
     }
+
 }

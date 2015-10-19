@@ -6,25 +6,20 @@
 package logica;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
 /**
  *
  * @author Juan
  */
 public class ManejadorCliente {
      private Map<String,Cliente> clientes;
-     private  int id;
+     private  int identificador;
     private static ManejadorCliente instance = null;
     private ManejadorCliente(){
-        id=0;
+        identificador=0;
         clientes = new LinkedHashMap();
     }
     
@@ -56,15 +51,15 @@ public class ManejadorCliente {
     
     public List<DataReserva> listarReservas(){
         List<DataReserva> dts;
-        dts = new ArrayList<>();
-        clientes.values().stream().forEach((Cliente value) -> {
-             boolean ni = dts.addAll(value.getDataReservas());
-         });
+        dts = new ArrayList<DataReserva>();
+        for( Cliente value: clientes.values()) {
+             dts.addAll(value.getDataReservas());
+         }
         return dts;
         
     }
     public List<DataCliente> getDataClientes(){
-        List<DataCliente> dts = new ArrayList<>();
+        List<DataCliente> dts = new ArrayList<DataCliente>();
         Iterator iter = clientes.values().iterator();
         for(Cliente c : clientes.values()){
             dts.add(c.getDataCliente());
@@ -74,12 +69,12 @@ public class ManejadorCliente {
     }
 
     public int getUltimoid() {
-        id++;
-        return id;
+        identificador++;
+        return identificador;
     }
     //solo para el test
     public int testGetId(){
-        return id;
+        return identificador;
     }
     
 }

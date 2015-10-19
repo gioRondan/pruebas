@@ -1,9 +1,12 @@
 package logica;
 
-import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+
 
 
 /**
@@ -155,15 +158,15 @@ public class ControladorProveedor implements IControladorProveedor{
         if(mCa.getCategoria(nomCategoria) != null){
             throw new Exception("Ya existe una categoría con ese nombre.");
         }
-        Categoria cat;
+        Categoria categoria;
         if(nomPadre.equals("")){
-            cat = new Categoria(nomCategoria, false);
+            categoria = new Categoria(nomCategoria, false);
         }else{
-            cat = new Categoria(nomCategoria, true);
-            Categoria pa = mCa.getCategoria(nomPadre);
-            pa.setHijo(cat);
+            categoria = new Categoria(nomCategoria, true);
+            Categoria padre = mCa.getCategoria(nomPadre);
+            padre.setHijo(categoria);
         }
-        mCa.addCategoria(cat);
+        mCa.addCategoria(categoria);
         liberarMemoria();
     }
     @Override
@@ -183,16 +186,16 @@ public class ControladorProveedor implements IControladorProveedor{
         mPr.unicidadPromocion(nickProveedor, nombreProm);//controlo unicidad de la promocion apra ese proveedor
         Iterator<String> itera = ser.iterator();
         int totalPrecio = 0;
-        Promocion p = new Promocion(nombreProm, descuento, totalPrecio, prov);
-        prov.asociarPromocion(p);   
+        Promocion promo = new Promocion(nombreProm, descuento, totalPrecio, prov);
+        prov.asociarPromocion(promo);   
         while (itera.hasNext()) {
             //recorro los servicos a agregar y voy calculando el precio de la promocion sin el descuento
-            Servicio s = prov.getServicio(itera.next());          
-            totalPrecio += s.getPrecio();
-            p.agregarServicio(s);
+            Servicio servicio = prov.getServicio(itera.next());          
+            totalPrecio += servicio.getPrecio();
+            promo.agregarServicio(servicio);
         }
         totalPrecio=(int)(totalPrecio - (totalPrecio * (0.01*descuento)));//aplico el descuento
-        p.setPrecioTotal(totalPrecio);//Seteo el precio total con el descuento aplicado 
+        promo.setPrecioTotal(totalPrecio);//Seteo el precio total con el descuento aplicado 
     }
     @Override
     public void ingresarDescripcionServicio( String desc){
@@ -254,7 +257,7 @@ public class ControladorProveedor implements IControladorProveedor{
         return mEmp.getDataEmpresas();
     }
     
-    @Override
+    
     public void altaProveedor( String nick, String nombre, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp, String linkEmp, String password) throws Exception{
                
         ManejadorProveedor mPr = ManejadorProveedor.getInstance();
@@ -309,12 +312,15 @@ public class ControladorProveedor implements IControladorProveedor{
         Servicio servi = prov.getServicio(ser);
         return servi.getDataServicio();
     }
+    public DataPromocion informacionPromocion(String pvr, String nom)throws Exception{
+        ManejadorProveedor mPr = ManejadorProveedor.getInstance();
+        Proveedor prov = mPr.getProveedor(pvr);
+        Promocion servi = prov.getPromocion(nom);
+        return servi.getDataPromocion();
+    }
     @Override
     public DataInfoPromocion verInfoPromocion(String nickproveedor, String nomPromocion) {
-        ManejadorProveedor m = ManejadorProveedor.getInstance();
-        Proveedor p = m.getProveedor(nickproveedor);
-        Promocion promo = p.getPromocion(nomPromocion);
-        
+        Promocion promo = ManejadorProveedor.getInstance().getProveedor(nickproveedor).getPromocion(nomPromocion);
         return promo.getDataInfoPromocion();
     }
     public void altaPais(String nomPais) throws Exception {
@@ -348,11 +354,11 @@ public class ControladorProveedor implements IControladorProveedor{
        ManejadorPais mPa = ManejadorPais.getInstance();
        return mPa.getNombresPaises();
     }
-     public List<DataCiudad> ciudadesXpais( String pa){
+     public List<DataCiudad> ciudadesXpais( String nombrepais){
        ManejadorCiudad mCi = ManejadorCiudad.getInstance();
         ManejadorPais mPa = ManejadorPais.getInstance();
-        Pais p = mPa.getPais(pa);
-       return mCi.getDataCiudadesXpais(p);
+        Pais pais = mPa.getPais(nombrepais);
+       return mCi.getDataCiudadesXpais(pais);
     }
 
     @Override
