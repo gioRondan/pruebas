@@ -6,6 +6,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import java.util.Date;
 import java.util.List;
@@ -38,6 +39,7 @@ public class agregarSerPromCarrito extends HttpServlet {
             throws ServletException, IOException {
              
             if (request.getParameter("borrar")!=null){
+                List<DataItemReserva> itemsreservascarro = new ArrayList<DataItemReserva>();
                 List<DataItemReserva> ir2 = (List<DataItemReserva>)request.getSession().getAttribute("ItemsReservaActual");
                 for(DataItemReserva item : ir2 ){
                     String nom;
@@ -46,18 +48,22 @@ public class agregarSerPromCarrito extends HttpServlet {
                         nom = request.getParameter("nomServicio");
                         pvr = request.getParameter("nomProveedorServicio");
                         if (item.getServicio().getNombre().equals(nom) && item.getServicio().getProveedor().equals(pvr) ){
-                            ir2.remove(item);
+                           // ir2.remove(item);
+                        }else{
+                            itemsreservascarro.add(item);
                         }
                     }else{
                         nom = request.getParameter("nomPromocion");
                         pvr = request.getParameter("nomProveedorPromocion");
                          if (item.getPromocion().getNombre().equals(nom) && item.getPromocion().getnickProveedro().equals(pvr) ){
-                            ir2.remove(item);
+                            //ir2.remove(item);
+                        }else{
+                          itemsreservascarro.add(item);
                         }
                     }
                 }
                 
-                request.getSession().setAttribute("ItemsReservaActual", ir2);
+                request.getSession().setAttribute("ItemsReservaActual", itemsreservascarro);
             }else{
                 int cant;
                 String nom;
