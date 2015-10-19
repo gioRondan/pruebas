@@ -121,5 +121,9 @@ public class Servicio {
 <span class="nc" id="L121">            throw new Exception(&quot;la categoria no pertenece al servicio&quot;); </span>
         }
 <span class="fc" id="L123">    }</span>
+
+    boolean buscado(String aBuscar) {
+<span class="pc bpc" id="L126" title="5 of 6 branches missed.">        return(this.nombre.equals(aBuscar) ||this.categorias.containsKey(aBuscar) || this.descripcion.contains(aBuscar));</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

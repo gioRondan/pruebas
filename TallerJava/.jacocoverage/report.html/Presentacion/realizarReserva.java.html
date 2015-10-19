@@ -344,11 +344,11 @@ public class realizarReserva extends javax.swing.JInternalFrame {
 <span class="nc" id="L344">            proveedor = proveedor.substring(0,proveedor.indexOf(&quot;,&quot;) );  </span>
 <span class="nc bnc" id="L345" title="All 2 branches missed.">            if (proveedorselecionado.isEmpty()){</span>
 <span class="nc" id="L346">                proveedorselecionado=proveedor;</span>
-            }
-<span class="nc bnc" id="L348" title="All 2 branches missed.">            if (!proveedorselecionado.equals(proveedor)){</span>
-<span class="nc" id="L349">                JOptionPane.showMessageDialog(null, &quot;Selecione servicios o promociones de un mismo proveedor&quot;);</span>
-<span class="nc" id="L350">                return;</span>
-            }
+            }/*
+            if (!proveedorselecionado.equals(proveedor)){
+                JOptionPane.showMessageDialog(null, &quot;Selecione servicios o promociones de un mismo proveedor&quot;);
+                return;
+            }*/
            
 <span class="nc" id="L353">            Date fecha1   = jDateChooser1.getDate();</span>
 <span class="nc" id="L354">            Date fecha2   = jDateChooser2.getDate();</span>

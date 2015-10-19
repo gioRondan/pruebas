@@ -66,7 +66,23 @@ public class ManejadorProveedor {
 <span class="pc bpc" id="L66" title="1 of 2 branches missed.">        if(prom != null){            </span>
 <span class="nc" id="L67">            throw new Exception(&quot;El proveedor seleccionado ya tiene una promoción con ese nombre&quot;);            </span>
         }
-<span class="fc" id="L69">    }    </span>
+<span class="fc" id="L69">    }</span>
+    List&lt;DataServicio&gt; obtenerServiciosBuscados(String aBuscar){
+<span class="fc" id="L71">        List&lt;DataServicio&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">        for(Proveedor it : proveedores.values()){</span>
+<span class="fc" id="L73">            result.addAll(it.getServiciosBuscados(aBuscar));</span>
+<span class="fc" id="L74">        }</span>
+<span class="fc" id="L75">        return result;</span>
+    }
+
+    List&lt;DataPromocion&gt; obtenerPromocionesBuscados(String aBuscar) {
+<span class="nc" id="L79">         List&lt;DataPromocion&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">        for(Proveedor it : proveedores.values()){</span>
+<span class="nc" id="L81">            result.addAll(it.getPromocionesBuscados(aBuscar));</span>
+<span class="nc" id="L82">        }</span>
+<span class="nc" id="L83">        return result;</span>
+    }
+   
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
