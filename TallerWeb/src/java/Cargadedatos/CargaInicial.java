@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package logica;
+package Cargadedatos;
 
 
 import java.text.ParseException;
@@ -13,6 +13,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import logica.DataExpira;
+import logica.Estado;
+import logica.Fabrica;
+import logica.IControladorCliente;
+import logica.IControladorProveedor;
 
 
 
