@@ -182,7 +182,7 @@ public class FlujoTest {
         assertEquals(imProveedor ,proveedores.get(0).getImagen());
         assertEquals(nomEmpresa ,proveedores.get(0).getnombreEmpresa());
         assertEquals(urlEmpresa ,proveedores.get(0).getUrlEmpresa());
-        assertEquals(pass1 ,proveedores.get(0).getPassword());
+        assertEquals(pass2 ,proveedores.get(0).getPassword());
 //############################  chequeo de las categorias   ####################################################
         categorias = cpr.listarCategorias();//la primer categoria ingresada es catPadre, catPadre tiene un solo hijo catHoja, cat2Hoja es el segundo elemento de categorias
         assertEquals(catPadre,categorias.get(0).getNombre());
@@ -196,7 +196,9 @@ public class FlujoTest {
         assertEquals(emailCliente, clientes.get(0).getEmail());
         assertEquals(fechaNacCliente, clientes.get(0).getFechaNac());
         assertEquals(imCliente, clientes.get(0).getImagen());
-        assertEquals(pass2, clientes.get(0).getPassword());
-        
+        assertEquals(pass1, clientes.get(0).getPassword());
+//############################  buscar servicios    ###############################################################
+        List<DataServicio> serBuscados = cpr.buscarServicios(nomServicio);
+        assertEquals(1, serBuscados.size());
     }
 }

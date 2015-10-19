@@ -18,55 +18,61 @@ public class DataCliente {
     private String apellido;
     private String email;
     private Date fechaNac;
-    private String imagen;    
+    private String imagen;   
+    protected String password;
     
     //Constructores
-<span class="nc" id="L24">    public DataCliente(){</span>
-<span class="nc" id="L25">        this.nombre     = &quot;&quot;;</span>
-<span class="nc" id="L26">        this.nickname   = &quot;&quot;;</span>
-<span class="nc" id="L27">        this.apellido   = &quot;&quot;;</span>
-<span class="nc" id="L28">        this.email      = &quot;&quot;;</span>
-<span class="nc" id="L29">        this.fechaNac   = null;</span>
-<span class="nc" id="L30">        this.imagen     = &quot;&quot;;</span>
-<span class="nc" id="L31">    }    </span>
+<span class="nc" id="L25">    public DataCliente(){</span>
+<span class="nc" id="L26">        this.nombre     = &quot;&quot;;</span>
+<span class="nc" id="L27">        this.nickname   = &quot;&quot;;</span>
+<span class="nc" id="L28">        this.apellido   = &quot;&quot;;</span>
+<span class="nc" id="L29">        this.email      = &quot;&quot;;</span>
+<span class="nc" id="L30">        this.fechaNac   = null;</span>
+<span class="nc" id="L31">        this.imagen     = &quot;&quot;;</span>
+<span class="nc" id="L32">        this.password = &quot;&quot;;</span>
+<span class="nc" id="L33">    }    </span>
      
-<span class="fc" id="L33">    public DataCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen){</span>
-<span class="fc" id="L34">        this.nombre     = nombre;</span>
-<span class="fc" id="L35">        this.nickname   = nickname;</span>
-<span class="fc" id="L36">        this.apellido   = apellido;</span>
-<span class="fc" id="L37">        this.email      = email;</span>
-<span class="fc" id="L38">        this.fechaNac   = fechaNac;</span>
-<span class="fc" id="L39">        this.imagen     = imagen;</span>
-<span class="fc" id="L40">    }         </span>
+<span class="fc" id="L35">    public DataCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, String password){</span>
+<span class="fc" id="L36">        this.nombre     = nombre;</span>
+<span class="fc" id="L37">        this.nickname   = nickname;</span>
+<span class="fc" id="L38">        this.apellido   = apellido;</span>
+<span class="fc" id="L39">        this.email      = email;</span>
+<span class="fc" id="L40">        this.fechaNac   = fechaNac;</span>
+<span class="fc" id="L41">        this.imagen     = imagen;</span>
+<span class="fc" id="L42">        this.password = password;</span>
+<span class="fc" id="L43">    }         </span>
 
     //Getters
     public String getNickname() {
-<span class="fc" id="L44">        return nickname;</span>
+<span class="fc" id="L47">        return nickname;</span>
     }
 
     public String getNombre() {
-<span class="fc" id="L48">        return nombre;</span>
+<span class="fc" id="L51">        return nombre;</span>
     }
         
     public String getApellido() {
-<span class="fc" id="L52">        return apellido;</span>
+<span class="fc" id="L55">        return apellido;</span>
     }
 
     public String getEmail() {
-<span class="fc" id="L56">        return email;</span>
+<span class="fc" id="L59">        return email;</span>
     }
 
     public Date getFechaNac() {
-<span class="fc" id="L60">        return fechaNac;</span>
+<span class="fc" id="L63">        return fechaNac;</span>
     }
 
     public String getImagen() {
-<span class="fc" id="L64">        return imagen;</span>
+<span class="fc" id="L67">        return imagen;</span>
     }
 
     @Override
     public String toString() {
-<span class="nc" id="L69">        return nickname;</span>
+<span class="nc" id="L72">        return nickname;</span>
+    }
+    public String getPassword() {
+<span class="fc" id="L75">        return password;</span>
     }
     
 }

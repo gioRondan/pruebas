@@ -18,65 +18,77 @@ public class Usuario {
     protected String email  ;
     protected Date fechaNac;
     protected String imagen;
+    protected String password;
 
-<span class="fc" id="L22">    public Usuario(String nickname,String nombre, String apellido, String email, Date fechaNac, String imagen) {</span>
-<span class="fc" id="L23">        this.nombre = nombre;</span>
-<span class="fc" id="L24">        this.nickname = nickname;</span>
-<span class="fc" id="L25">        this.apellido = apellido;</span>
-<span class="fc" id="L26">        this.email = email;</span>
-<span class="fc" id="L27">        this.fechaNac = fechaNac;</span>
-<span class="fc" id="L28">        this.imagen = imagen;</span>
-<span class="fc" id="L29">    }    </span>
+<span class="fc" id="L23">    public Usuario(String nickname,String nombre, String apellido, String email, Date fechaNac, String imagen, String password) {</span>
+<span class="fc" id="L24">        this.nombre = nombre;</span>
+<span class="fc" id="L25">        this.nickname = nickname;</span>
+<span class="fc" id="L26">        this.apellido = apellido;</span>
+<span class="fc" id="L27">        this.email = email;</span>
+<span class="fc" id="L28">        this.fechaNac = fechaNac;</span>
+<span class="fc" id="L29">        this.imagen = imagen;</span>
+<span class="fc" id="L30">        this.password = password;</span>
+<span class="fc" id="L31">    }    </span>
      
     public String getNombre() {
-<span class="fc" id="L32">        return nombre;</span>
+<span class="fc" id="L34">        return nombre;</span>
     }
 
     public String getNickname() {
-<span class="fc" id="L36">        return nickname;</span>
+<span class="fc" id="L38">        return nickname;</span>
     }
 
     public String getApellido() {
-<span class="fc" id="L40">        return apellido;</span>
+<span class="fc" id="L42">        return apellido;</span>
     }
 
     public String getEmail() {
-<span class="fc" id="L44">        return email;</span>
+<span class="fc" id="L46">        return email;</span>
     }
 
     public Date getFechaNac() {
-<span class="fc" id="L48">        return fechaNac;</span>
+<span class="fc" id="L50">        return fechaNac;</span>
     }
 
     public String getImagen() {
-<span class="fc" id="L52">        return imagen;</span>
+<span class="fc" id="L54">        return imagen;</span>
     }
 
     public void setNombre(String nombre) {
-<span class="nc" id="L56">        this.nombre = nombre;</span>
-<span class="nc" id="L57">    }</span>
+<span class="nc" id="L58">        this.nombre = nombre;</span>
+<span class="nc" id="L59">    }</span>
 
     public void setNickname(String nickname) {
-<span class="nc" id="L60">        this.nickname = nickname;</span>
-<span class="nc" id="L61">    }</span>
+<span class="nc" id="L62">        this.nickname = nickname;</span>
+<span class="nc" id="L63">    }</span>
 
     public void setApellido(String apellido) {
-<span class="nc" id="L64">        this.apellido = apellido;</span>
-<span class="nc" id="L65">    }</span>
+<span class="nc" id="L66">        this.apellido = apellido;</span>
+<span class="nc" id="L67">    }</span>
 
     public void setEmail(String email) {
-<span class="nc" id="L68">        this.email = email;</span>
-<span class="nc" id="L69">    }</span>
+<span class="nc" id="L70">        this.email = email;</span>
+<span class="nc" id="L71">    }</span>
 
     public void setFechaNac(Date fechaNac) {
-<span class="nc" id="L72">        this.fechaNac = fechaNac;</span>
-<span class="nc" id="L73">    }</span>
+<span class="nc" id="L74">        this.fechaNac = fechaNac;</span>
+<span class="nc" id="L75">    }</span>
 
     public void setImagen(String imagen) {
-<span class="nc" id="L76">        this.imagen = imagen;</span>
-<span class="nc" id="L77">    }</span>
+<span class="nc" id="L78">        this.imagen = imagen;</span>
+<span class="nc" id="L79">    }</span>
 
-   
+    public String getPassword() {
+<span class="fc" id="L82">        return password;</span>
+    }
+
+    public void setPassword(String password) {
+<span class="nc" id="L86">        this.password = password;</span>
+<span class="nc" id="L87">    }</span>
+
+   public boolean verificarPassword(String password) {
+<span class="nc" id="L90">        return this.password.equals(password);</span>
+    }
     
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

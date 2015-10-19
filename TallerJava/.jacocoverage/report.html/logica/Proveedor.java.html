@@ -6,6 +6,7 @@
 
 package logica;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import static java.util.Collections.emptyMap;
 import java.util.Date;
@@ -25,57 +26,77 @@ public class Proveedor extends Usuario{
     private Map&lt;String, Promocion&gt; promociones;
     private Map&lt;String, Servicio&gt; servicios;
     
-    public Proveedor(String nickname, String nombre, String apellido,String email, Date fechaNac, String imagen){
-<span class="fc" id="L29">        super(nickname,nombre,apellido,email,fechaNac,imagen);</span>
-<span class="fc" id="L30">       promociones =  new LinkedHashMap();</span>
-<span class="fc" id="L31">       servicios =  new LinkedHashMap();</span>
-<span class="fc" id="L32">    }</span>
+    public Proveedor(String nickname, String nombre, String apellido,String email, Date fechaNac, String imagen, String pasword){
+<span class="fc" id="L30">        super(nickname,nombre,apellido,email,fechaNac,imagen, pasword);</span>
+<span class="fc" id="L31">       promociones =  new LinkedHashMap();</span>
+<span class="fc" id="L32">       servicios =  new LinkedHashMap();</span>
+<span class="fc" id="L33">    }</span>
 
      
     public DataProveedor getDataProveedor(){
-<span class="fc" id="L36">        return new DataProveedor(this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),this.getImagen() , this.empresa.getNombre(),this.empresa.getUrl());</span>
+<span class="fc" id="L37">        return new DataProveedor(this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),this.getImagen() , this.empresa.getNombre(),this.empresa.getUrl(), this.getPassword());</span>
     }
 
     public Empresa getEmpresa() {
-<span class="nc" id="L40">        return empresa;</span>
+<span class="nc" id="L41">        return empresa;</span>
     }
     public List&lt;DataServicio&gt; getDataServicios(){
-<span class="fc" id="L43">        List&lt;DataServicio&gt; dts =  new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L44" title="All 2 branches covered.">        for (Servicio value : servicios.values()){</span>
-<span class="fc" id="L45">            dts.add(value.getDataServicio());</span>
-<span class="fc" id="L46">        }</span>
-<span class="fc" id="L47">        return dts;</span>
+<span class="fc" id="L44">        List&lt;DataServicio&gt; dts =  new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        for (Servicio value : servicios.values()){</span>
+<span class="fc" id="L46">            dts.add(value.getDataServicio());</span>
+<span class="fc" id="L47">        }</span>
+<span class="fc" id="L48">        return dts;</span>
     }
     public Promocion getPromocion(String nomPromocion){
-<span class="fc" id="L50">        return this.promociones.get(nomPromocion);</span>
+<span class="fc" id="L51">        return this.promociones.get(nomPromocion);</span>
     }
     public List&lt;DataPromocion&gt; getDataPromociones(){
-<span class="fc" id="L53">        List&lt;DataPromocion&gt; dts =  new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L54" title="All 2 branches covered.">        for (Promocion value : promociones.values()){</span>
-<span class="fc" id="L55">            dts.add(value.getDataPromocion());</span>
-<span class="fc" id="L56">        }</span>
-<span class="fc" id="L57">        return dts;</span>
+<span class="fc" id="L54">        List&lt;DataPromocion&gt; dts =  new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        for (Promocion value : promociones.values()){</span>
+<span class="fc" id="L56">            dts.add(value.getDataPromocion());</span>
+<span class="fc" id="L57">        }</span>
+<span class="fc" id="L58">        return dts;</span>
     }
     public void asociarServicio(Servicio ser){
-<span class="fc" id="L60">        this.servicios.put(ser.getNombre(), ser);</span>
-<span class="fc" id="L61">    }</span>
+<span class="fc" id="L61">        this.servicios.put(ser.getNombre(), ser);</span>
+<span class="fc" id="L62">    }</span>
     public void asociarPromocion(Promocion prom){
-<span class="fc" id="L63">        this.promociones.put(prom.getNombre(), prom);</span>
-<span class="fc" id="L64">    }</span>
+<span class="fc" id="L64">        this.promociones.put(prom.getNombre(), prom);</span>
+<span class="fc" id="L65">    }</span>
     public Servicio getServicio(String nombre)throws Exception{
-<span class="pc bpc" id="L66" title="1 of 2 branches missed.">        if (servicios.containsKey(nombre))</span>
-<span class="fc" id="L67">            return servicios.get(nombre);</span>
+<span class="pc bpc" id="L67" title="1 of 2 branches missed.">        if (servicios.containsKey(nombre))</span>
+<span class="fc" id="L68">            return servicios.get(nombre);</span>
         else
-<span class="nc" id="L69">            throw new Exception(&quot;Los servicios deben ser de un mismo proveedor&quot;);</span>
+<span class="nc" id="L70">            throw new Exception(&quot;El servicio seleccionado no pertenece al proveedor&quot;);</span>
     
         
     }
     public void asociarEmpresa(Empresa empresa){
-<span class="fc" id="L74">        this.empresa = empresa;</span>
-<span class="fc" id="L75">    }</span>
+<span class="fc" id="L75">        this.empresa = empresa;</span>
+<span class="fc" id="L76">    }</span>
 
     public DataInfoProveedor getDataInfoProveedor() {
-<span class="fc" id="L78">        return new DataInfoProveedor(nickname,  nombre,  apellido, email, fechaNac,  imagen,  empresa.getDataEmpresa(), getDataServicios());</span>
+<span class="fc" id="L79">        return new DataInfoProveedor(nickname,  nombre,  apellido, email, fechaNac,  imagen,  empresa.getDataEmpresa(), getDataServicios(), this.getPassword());</span>
+    }
+
+    List&lt;DataServicio&gt; getServiciosBuscados(String aBuscar) {
+<span class="fc" id="L83">        List result = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L84" title="All 2 branches covered.">        for(Servicio value : servicios.values()){</span>
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">            if(value.buscado(aBuscar)){</span>
+<span class="fc" id="L86">                result.add(value);</span>
+            }
+<span class="fc" id="L88">        }</span>
+<span class="fc" id="L89">        return result;</span>
+    }
+
+    List&lt;DataPromocion&gt; getPromocionesBuscados(String aBuscar) {
+<span class="nc" id="L93">        List result = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">        for(Promocion value : promociones.values()){</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">            if(value.buscado(aBuscar)){</span>
+<span class="nc" id="L96">                result.add(value);</span>
+            }
+<span class="nc" id="L98">        }</span>
+<span class="nc" id="L99">        return result;</span>
     }
 }
 

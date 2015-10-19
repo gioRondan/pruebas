@@ -255,7 +255,7 @@ import javax.swing.JOptionPane;
     }
     
     @Override
-    public void altaProveedor( String nick, String nombre, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp, String linkEmp) throws Exception{
+    public void altaProveedor( String nick, String nombre, String  apellido,String email ,Date fechaNac, String imagen, String nombreEmp, String linkEmp, String password) throws Exception{
                
 <span class="fc" id="L260">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
 <span class="fc" id="L261">        ManejadorCliente mCl   = ManejadorCliente.getInstance();</span>
@@ -269,7 +269,7 @@ import javax.swing.JOptionPane;
 <span class="pc bpc" id="L269" title="5 of 10 branches missed.">        if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty())  || (nombreEmp.isEmpty())){</span>
 <span class="nc" id="L270">            throw new Exception(&quot;Los datos ingresados no son correctos&quot;);</span>
         }else{                    
-<span class="fc" id="L272">            Proveedor prov = new Proveedor(nick, nombre, apellido, email, fechaNac, imagen);</span>
+<span class="fc" id="L272">            Proveedor prov = new Proveedor(nick, nombre, apellido, email, fechaNac, imagen, password);</span>
 <span class="fc" id="L273">            ManejadorEmpresa mEmp =  ManejadorEmpresa.getInstance();</span>
 <span class="fc" id="L274">            Empresa emp = mEmp.getEmpresa(nombreEmp);</span>
 <span class="fc bfc" id="L275" title="All 2 branches covered.">            if (emp == null){</span>
@@ -354,7 +354,17 @@ import javax.swing.JOptionPane;
 <span class="fc" id="L354">        Pais p = mPa.getPais(pa);</span>
 <span class="fc" id="L355">       return mCi.getDataCiudadesXpais(p);</span>
     }
+
+    @Override
+    public List&lt;DataServicio&gt; buscarServicios(String aBuscar) {
+<span class="fc" id="L360">        ManejadorProveedor mpr = ManejadorProveedor.getInstance();</span>
+<span class="fc" id="L361">        return mpr.obtenerServiciosBuscados(aBuscar);</span>
+    }
     
+    public List&lt;DataPromocion&gt; buscarPromociones(String aBuscar) {
+<span class="nc" id="L365">        ManejadorProveedor mpr = ManejadorProveedor.getInstance();</span>
+<span class="nc" id="L366">        return mpr.obtenerPromocionesBuscados(aBuscar);</span>
+    }
 
 }
 

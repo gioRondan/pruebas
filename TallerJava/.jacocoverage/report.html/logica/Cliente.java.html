@@ -6,6 +6,8 @@
 
 package logica;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
@@ -14,6 +16,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -28,54 +31,63 @@ public class Cliente extends Usuario{
     
     
     
-    public Cliente(String nickname, String nombre, String apellido,String email, Date fechaNac, String url){
-<span class="fc" id="L32">        super(nickname,nombre,apellido,email,fechaNac,url);</span>
-<span class="fc" id="L33">        this.reservas = new LinkedHashMap();</span>
-<span class="fc" id="L34">    }</span>
+    public Cliente(String nickname, String nombre, String apellido,String email, Date fechaNac, String url, String password){
+<span class="fc" id="L35">        super(nickname,nombre,apellido,email,fechaNac,url, password);</span>
+<span class="fc" id="L36">        this.reservas = new LinkedHashMap();</span>
+<span class="fc" id="L37">    }</span>
     public DataCliente getDataCliente(){
-<span class="fc" id="L36">        return new DataCliente( nickname, nombre, apellido, email, fechaNac, imagen);</span>
+<span class="fc" id="L39">        return new DataCliente( nickname, nombre, apellido, email, fechaNac, imagen, password);</span>
     }
     public List&lt;DataReserva&gt; getDataReservas(){
-<span class="fc" id="L39">        List&lt;DataReserva&gt; dts = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L40" title="All 2 branches covered.">        for (Reserva value : reservas.values()){</span>
-<span class="fc" id="L41">            dts.add(value.getDataReserva());</span>
-<span class="fc" id="L42">        }</span>
-<span class="fc" id="L43">        return dts;</span>
+<span class="fc" id="L42">        List&lt;DataReserva&gt; dts = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (Reserva value : reservas.values()){</span>
+<span class="fc" id="L44">            dts.add(value.getDataReserva());</span>
+<span class="fc" id="L45">        }</span>
+<span class="fc" id="L46">        return dts;</span>
+    }
+    
+    public static BufferedImage leerURLdeImagen(String imgURL){
+<span class="nc" id="L50">        File imgF = new File(imgURL);</span>
+        try {
+<span class="nc" id="L52">            return ImageIO.read(imgF);</span>
+<span class="nc" id="L53">        } catch (Exception ex) {</span>
+<span class="nc" id="L54">            return null;</span>
+        }
     }
     public void reservarServicio(int id,Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
-<span class="fc" id="L46">        Reserva res = reservas.get(id);</span>
+<span class="fc" id="L58">        Reserva res = reservas.get(id);</span>
         
-<span class="fc" id="L48">            ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin);    </span>
-<span class="fc" id="L49">            res.agregarItem(item);</span>
+<span class="fc" id="L60">            ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin);    </span>
+<span class="fc" id="L61">            res.agregarItem(item);</span>
         
         
-        
-<span class="fc" id="L53">    }</span>
-    public void modificarEstadoReserva(int id, Estado estado){
-<span class="fc" id="L55">        Reserva res = reservas.get(id);</span>
-<span class="pc bpc" id="L56" title="1 of 2 branches missed.">        if (res.getEstado() == Estado.registrada){</span>
-<span class="fc" id="L57">            res.setEstado(estado);</span>
-        }
-<span class="fc" id="L59">    }</span>
-    public void reservarPromocion(int clave,Promocion prom,int cantidad,Date fechaIni,Date fechaFin){
-<span class="fc" id="L61">        Reserva res = reservas.get(clave);</span>
-<span class="fc" id="L62">            ItemReserva item = new ItemReserva(cantidad,prom, fechaIni, fechaFin);</span>
-<span class="fc" id="L63">            res.agregarItem(item);</span>
         
 <span class="fc" id="L65">    }</span>
-    public void cancelarReserva(int id){
+    public void modificarEstadoReserva(int id, Estado estado){
 <span class="fc" id="L67">        Reserva res = reservas.get(id);</span>
-<span class="fc" id="L68">        res.darDeBaja();</span>
-<span class="fc" id="L69">        reservas.remove(id);</span>
-<span class="fc" id="L70">    }</span>
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">        if (res.getEstado() == Estado.registrada){</span>
+<span class="fc" id="L69">            res.setEstado(estado);</span>
+        }
+<span class="fc" id="L71">    }</span>
+    public void reservarPromocion(int clave,Promocion prom,int cantidad,Date fechaIni,Date fechaFin){
+<span class="fc" id="L73">        Reserva res = reservas.get(clave);</span>
+<span class="fc" id="L74">            ItemReserva item = new ItemReserva(cantidad,prom, fechaIni, fechaFin);</span>
+<span class="fc" id="L75">            res.agregarItem(item);</span>
+        
+<span class="fc" id="L77">    }</span>
+    public void cancelarReserva(int id){
+<span class="fc" id="L79">        Reserva res = reservas.get(id);</span>
+<span class="fc" id="L80">        res.darDeBaja();</span>
+<span class="fc" id="L81">        reservas.remove(id);</span>
+<span class="fc" id="L82">    }</span>
     public DataInfoCliente getDataInfoCliente(){
-<span class="fc" id="L72">        return new DataInfoCliente(nickname, nombre, apellido, email, fechaNac, imagen, getDataReservas());</span>
+<span class="fc" id="L84">        return new DataInfoCliente(nickname, nombre, apellido, email, fechaNac, imagen, getDataReservas(), password);</span>
     }
     public Reserva getReserva(int id) {
-<span class="fc" id="L75">        return reservas.get(id);</span>
+<span class="fc" id="L87">        return reservas.get(id);</span>
     }
     public void addReserva(int id, Reserva res){
-<span class="fc" id="L78">        reservas.put(id, res);</span>
-<span class="fc" id="L79">    }</span>
+<span class="fc" id="L90">        reservas.put(id, res);</span>
+<span class="fc" id="L91">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
