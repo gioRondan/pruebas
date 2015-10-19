@@ -105,7 +105,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-1" for="nick">Nickname:</label>
+                        <label class="control-label col-sm-1" for="username">Nickname:</label>
                         <div class="col-sm-4">
                             <input class="form-control" type="text" id="username" name="nickRegistrar" placeholder="Introduzca su nick" >
                         </div>
@@ -130,29 +130,42 @@
                         </div>
                     </div>
                 <div class="form-group">
-                        <label class="control-label col-sm-1" for="Fecha"> Fecha Nacimiento: </label>
+                        <label class="control-label col-sm-1" for="datepicker"> Fecha Nacimiento: </label>
                         <div class="col-sm-4">
                             <input class="form-control" type="date" id="datepicker"  name="fechaCliente" placeholder="dd/mm/yyyy">
                         </div>
                     </div>
                 <div class="form-group">
-                        <label class="control-label col-sm-1" for="nick"> Password: </label>
+                        <label class="control-label col-sm-1" for="pass"> Password: </label>
                         <div class="col-sm-4">
                             <input class="form-control" id="pass" label= "password" type="password"  name="passRegistrar" placeholder="Introduzca su contraseña">
                         </div>
                     </div>
                 <div class="form-group">
-                        <label class="control-label col-sm-1" for="nick"> Verificar Password: </label>
+                        <label class="control-label col-sm-1" for="pass2"> Verificar Password: </label>
                         <div class="col-sm-4">
                             <input class="form-control" id="pass2" label="verificar password" type="password"  name="passVerificar" placeholder="Confirme la contraseña">
                         </div>
                     </div>
+                    
                     <div class="form-group container">        
                         <div class="col-sm-5 jumbotron" >
                             <button type="submit" name="altaCliente" value="altaCliente" class="btn btn-success"><span class="glyphicon glyphicon-log-in"></span> Registrar</button>
                         </div>
                     </div>
                 </form>
+                
+<!--  PARA SUBIR IMAGEN <div class="form-group" >
+                        <label class="control-label col-sm-1" for="nick">Imagen: </label>
+                        <div class="col-sm-4">
+                            <form action="imagenes"  method="post" enctype="multipart/form-data">
+                                <input  type="file" name="file" />
+                                <br>
+                                <input type="submit" name="Subir" value="Subir" />
+                            </form>
+                        </div>
+                    </div>-->
+                
             </div>
             
         </div><br>    

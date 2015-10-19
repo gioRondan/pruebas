@@ -53,13 +53,11 @@ public class ControladorCliente implements IControladorCliente{
         }
         res.setPrecio(preciototal);
     }
-    public static BufferedImage leerImgURL(String imgURL){
+    public BufferedImage leerImgURL(String imgURL) throws Exception{
         File imgF = new File(imgURL);
-        try {
+       
             return ImageIO.read(imgF);
-        } catch (Exception ex) {
-            return null;
-        }
+      
     }
     @Override
     public void altaCliente(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String password) throws Exception{

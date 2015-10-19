@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import logica.CargaInicial;
 import logica.DataInfoCliente;
 import logica.Fabrica;
 import logica.IControladorCliente;
@@ -42,7 +43,9 @@ public class registrarCliente extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/Usuarios/registrarCliente.jsp").forward(request, response);
         } else if (request.getParameter("altaCliente") != null) {
             try {
-                ICC.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), ICC.toDate(request.getParameter("fechaCliente")), "imagen", request.getParameter("passRegistrar"));
+               
+                
+                ICC.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), ICC.toDate(request.getParameter("fechaCliente")),CargaInicial.getRuta()+"Imagenes/Usuarios/"+request.getParameter("nickRegistrar")+".png" , request.getParameter("passRegistrar"));
             } catch (Exception ex) {
                 Logger.getLogger(Servlet1.class.getName()).log(Level.SEVERE, null, ex);
 

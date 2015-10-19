@@ -5,6 +5,7 @@
  */
 package logica;
 
+import java.awt.image.BufferedImage;
 import java.util.Date;
 
 import java.util.List;
@@ -29,4 +30,5 @@ public interface IControladorCliente {
     public void confirmarReserva(List<DataItemReserva> itemsr,DataInfoCliente cli)throws Exception;
     public boolean existeEmail(String email);
     public boolean existeNickName(String nickName);
+    public BufferedImage leerImgURL(String imgURL)throws Exception;
 }

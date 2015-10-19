@@ -67,7 +67,7 @@
                                 </td>
                                 <td>
                                    <% if (cliente.getImagen() !=null){%>
-                                    imagen <img src="<%="C:"+cliente.getImagen()%>" alt=""/>
+                                        <img src="<%="C:/"+cliente.getImagen()%>" alt=""/>
                                     <br>
                                    <%}%>
                                 </td>
@@ -76,28 +76,32 @@
                     </div>
                     <div id="cpestana2">
                         <h1>Reservas</h1>
-                        <table>
-                            <tr>
-                                <td><strong> Id </strong></td>
-                                <td><strong> Fechadecreacion </strong></td>
-                                <td><strong> Precio </strong></td>
-                                <td><strong> Estado </strong></td>
-                            </tr>
-                            <% 
+                        <table border="1">
+                            <thead>
+                                <tr>
+                                    <th> Id </th>
+                                    <th> Fechadecreacion </th>
+                                    <th> Precio </th>
+                                    <th> Estado </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% 
                                 List<DataReserva> a = cliente.getReservas();
                                 if (a!=null){
-                                for(DataReserva c : a){ 
-                            %> 
-                            <tr> 
-                                <td>
-                                    <a href="<%="verinforeserva?nickCliente="+cliente.getNickname()+"&verInfoReserva="+c.getId()%> "><%=c.getId()%></a>
-                                </td>
-                                <td><%= formatoFecha.format(c.getFechaCreacion()) %></td>
-                                <td><%=c.getPrecio() %></td>
-                                <td><%= c.getEstado().name() %></td> 
+                                    for(DataReserva c : a){ 
+                                %> 
+                                    <tr> 
+                                        <td>
+                                            <a href="<%="verinforeserva?nickCliente="+cliente.getNickname()+"&verInfoReserva="+c.getId()%> "><%=c.getId()%></a>
+                                        </td>
+                                        <td><%= formatoFecha.format(c.getFechaCreacion()) %></td>
+                                        <td><%=c.getPrecio() %></td>
+                                        <td><%= c.getEstado().name() %></td> 
 
-                            </tr>
-                            <%}}%>
+                                    </tr>
+                                <%}}%>
+                            </tbody>
                         </table>
                     </div>
                 </div>

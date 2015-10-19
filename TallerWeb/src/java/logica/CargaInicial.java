@@ -23,25 +23,33 @@ import java.util.Map;
  */
 
 public class CargaInicial {
-   private Fabrica fab = Fabrica.getInstance();
-   private  IControladorProveedor icp = fab.getIControladorProveedor();
-   private IControladorCliente icc = fab.getIControladorCliente();
-
+    private Fabrica fab = Fabrica.getInstance();
+    private IControladorProveedor icp = fab.getIControladorProveedor();
+    private IControladorCliente icc = fab.getIControladorCliente();
+    private static String Ruta = "";
+    
     public CargaInicial(){}
-
+   
+    public static String getRuta(){
+        return Ruta;
+    }
+    public  void setRuta(String Ruta){
+        this.Ruta = Ruta;
+    }
     public void cargar() throws Exception{
          
-        
+             //Seteo la ruta por defecto 
+             Ruta="C:/";
              //PROVEEDORES Y SUS EMPRESAS
-            icp.altaProveedor("tCook","Tim", "Cook", "air.f@gmail.com",toDate("1/11/1960"), "/Imagenes/Usuarios/tCook.png","AirFrance", "http://www.airfrance.com/","hola");
-            icp.altaProveedor("moody","Alastor", "Moody", "eu.car@eucar.com",toDate("2/9/1965"), "/Imagenes/Usuarios/moody.png","EuropCar", "http://www.europcar.com.uy/","hola");
-            icp.altaProveedor("remus","Remus", "Lupin", "iberia@gmail.com",toDate("4/5/1970"), "/Imagenes/Usuarios/remus.png","Iberia", "http://www.iberia.com/uy/","hola");
-            icp.altaProveedor("adippet","Armando", "Dippet", "tam@outlook.com",toDate("12/2/1967"), "/Imagenes/Usuarios/adippet.png","Tam", "http://www.tam.com.br/","hola");
-            icp.altaProveedor("mHooch","Madam", "Hooch", "segHogar@gmail.com",toDate("5/8/1963"), "/Imagenes/Usuarios/mHooch.png","Segundo Hogar", "http://www.segundohogar.com/","hola");
+            icp.altaProveedor("tCook","Tim", "Cook", "air.f@gmail.com",toDate("1/11/1960"),  Ruta+"/Imagenes/Usuarios/tCook.png","AirFrance", "http://www.airfrance.com/","hola");
+            icp.altaProveedor("moody","Alastor", "Moody", "eu.car@eucar.com",toDate("2/9/1965"), Ruta+"/Imagenes/Usuarios/moody.png","EuropCar", "http://www.europcar.com.uy/","hola");
+            icp.altaProveedor("remus","Remus", "Lupin", "iberia@gmail.com",toDate("4/5/1970"), Ruta+"/Imagenes/Usuarios/remus.png","Iberia", "http://www.iberia.com/uy/","hola");
+            icp.altaProveedor("adippet","Armando", "Dippet", "tam@outlook.com",toDate("12/2/1967"), Ruta+"/Imagenes/Usuarios/adippet.png","Tam", "http://www.tam.com.br/","hola");
+            icp.altaProveedor("mHooch","Madam", "Hooch", "segHogar@gmail.com",toDate("5/8/1963"), Ruta+"/Imagenes/Usuarios/mHooch.png","Segundo Hogar", "http://www.segundohogar.com/","hola");
             
             // CLIENTES
-            icc.altaCliente("oWood" , "Oliver", "Wood", "quidditch28@gmail.com", toDate("28/12/1988"),"/Imagenes/Usuarios/oWood.png","hola");
-            icc.altaCliente("eWaston" , "Emma", "Watson", "e.watson@gmail.com", toDate("15/4/1990"),"/Imagenes/Usuarios/eWaston.png","hola");
+            icc.altaCliente("oWood" , "Oliver", "Wood", "quidditch28@gmail.com", toDate("28/12/1988"),Ruta+"/Imagenes/Usuarios/oWood.png","hola");
+            icc.altaCliente("eWaston" , "Emma", "Watson", "e.watson@gmail.com", toDate("15/4/1990"),Ruta+"/Imagenes/Usuarios/eWaston.png","hola");
             icc.altaCliente("BruceS" , "Bruce", "Sewell", "bruce.sewell@gmail.com", toDate("3/12/1978"),"","hola");
             icc.altaCliente("JeffW" , "Jeff", "Wiliams", "jeff.williams@gmail.com", toDate("27/11/1984"),"","hola");
             //CATEGORIAS
@@ -123,7 +131,7 @@ public class CargaInicial {
                     
             //SERVICIOS nombre, descripcion,precio,origen,proveedor,pais
                 //S1
-                icp.ingresarImagenServicio("/Imagenes/Servicios/remus - Euro-Vuelo-S 1.png");
+                icp.ingresarImagenServicio(Ruta+"/Imagenes/Servicios/remus - Euro-Vuelo-S 1.png");
                 icp.ingresarImagenServicio("");
                 icp.ingresarImagenServicio("");
                 icp.ingresarCategoriaServicio("Iberia");
@@ -131,7 +139,7 @@ public class CargaInicial {
                 icp.ingresarDestinoServicio("Valencia");
                 icp.altaServicio("Euro-Vuelo-S", "Vuelo con excelente atención y comodidad.", 1100, "Montevideo", "remus", "Uruguay");
                 //S2
-                icp.ingresarImagenServicio("/Imagenes/Servicios/remus - Euro-Vuelo-LC 1.png");
+                icp.ingresarImagenServicio(Ruta+"/Imagenes/Servicios/remus - Euro-Vuelo-LC 1.png");
                 icp.ingresarImagenServicio("");
                 icp.ingresarImagenServicio("");
                 icp.ingresarCategoriaServicio("Iberia");
@@ -139,7 +147,7 @@ public class CargaInicial {
                 icp.ingresarDestinoServicio("Valencia");
                 icp.altaServicio("Euro-Vuelo-LC", "Vuelo con excelente atención y comodidad a un precio accesible.", 850, "Montevideo", "remus", "Uruguay");
                 //S3
-                icp.ingresarImagenServicio("/Imagenes/Servicios/remus - Euro-Vuelo-FC 1.png");
+                icp.ingresarImagenServicio(Ruta+"/Imagenes/Servicios/remus - Euro-Vuelo-FC 1.png");
                 icp.ingresarImagenServicio("");
                 icp.ingresarImagenServicio("");
                 icp.ingresarCategoriaServicio("Iberia");
@@ -147,7 +155,7 @@ public class CargaInicial {
                 icp.ingresarDestinoServicio("Valencia");
                 icp.altaServicio("Euro-Vuelo-FC", "Vuelo de primera clase. Excelente atención, comodidad y servicio.", 1300, "Montevideo", "remus", "Uruguay");
                 //S4
-                icp.ingresarImagenServicio("/Imagenes/Servicios/moody - Euro-Car-1 1.png");
+                icp.ingresarImagenServicio(Ruta+"/Imagenes/Servicios/moody - Euro-Car-1 1.png");
                 icp.ingresarImagenServicio("");
                 icp.ingresarImagenServicio("");
                 icp.ingresarCategoriaServicio("Económico");
@@ -156,7 +164,7 @@ public class CargaInicial {
                 icp.ingresarDestinoServicio("Valencia");
                 icp.altaServicio("Euro-Car-1", "Euro-Car. Autos de buena calidad y comodidad. Versión Económica.", 300, "Madrid", "moody", "España");
                 //S5
-                icp.ingresarImagenServicio("/Imagenes/Servicios/moody - Euro-Car-2 1.png" );
+                icp.ingresarImagenServicio(Ruta+"/Imagenes/Servicios/moody - Euro-Car-2 1.png" );
                 icp.ingresarImagenServicio("");
                 icp.ingresarImagenServicio("");
                 icp.ingresarCategoriaServicio("Standard");
@@ -165,7 +173,7 @@ public class CargaInicial {
                 icp.ingresarDestinoServicio("Valencia");
                 icp.altaServicio("Euro-Car-2", "Euro-Car. Autos de buena calidad y comodidad. Versión Standard.", 300, "Madrid", "moody", "España");
                 //S6
-                icp.ingresarImagenServicio("/Imagenes/Servicios/moody - Euro-Car-3 1.png" );
+                icp.ingresarImagenServicio(Ruta+"/Imagenes/Servicios/moody - Euro-Car-3 1.png" );
                 icp.ingresarImagenServicio("");
                 icp.ingresarImagenServicio("");
                 icp.ingresarCategoriaServicio("Full");
@@ -173,8 +181,8 @@ public class CargaInicial {
                 icp.ingresarCategoriaServicio("Camioneta");
                 icp.altaServicio("Euro-Car-3", "Euro-Car. Autos de buena calidad y comodidad. Una camioneta para toda la familia.", 300, "Valencia", "moody", "España");
                 //S7
-                icp.ingresarImagenServicio("/Imagenes/Servicios/mHooch - Casa para p4 BsAs 1.png" );
-                icp.ingresarImagenServicio("/Imagenes/Servicios/mHooch - Casa para p4 BsAs 2.png" );
+                icp.ingresarImagenServicio(Ruta+"/Imagenes/Servicios/mHooch - Casa para p4 BsAs 1.png" );
+                icp.ingresarImagenServicio(Ruta+"/Imagenes/Servicios/mHooch - Casa para p4 BsAs 2.png" );
                 icp.ingresarImagenServicio("");
                 icp.ingresarCategoriaServicio("Casa");
                 icp.ingresarCategoriaServicio("2 dormitorios");
@@ -182,9 +190,9 @@ public class CargaInicial {
 "para cuatro personas. La propiedad cuenta con un dormitorio con dos camas simples, que pueden\n" +
 "transformarse en una matrimonial y dos baños completos, que incluyen toallas.", 80, "Buenos Aires", "mHooch", "Argentina");
                 //S8
-                icp.ingresarImagenServicio("/Imagenes/Servicios/mHooch - Floripa G. House 1.png" );
-                icp.ingresarImagenServicio("/Imagenes/Servicios/mHooch - Floripa G. House 2.png" );
-                icp.ingresarImagenServicio("/Imagenes/Servicios/mHooch - Floripa G. House 3.png");
+                icp.ingresarImagenServicio(Ruta+"/Imagenes/Servicios/mHooch - Floripa G. House 1.png" );
+                icp.ingresarImagenServicio(Ruta+"/Imagenes/Servicios/mHooch - Floripa G. House 2.png" );
+                icp.ingresarImagenServicio(Ruta+"/Imagenes/Servicios/mHooch - Floripa G. House 3.png");
                 icp.ingresarCategoriaServicio("Casa");
                 icp.ingresarCategoriaServicio("2 dormitorios");
                 icp.altaServicio("Floripa G. House", "Estamos a sólo unos pasos de un supermercado, restaurantes, cajero automático, gasolinera,\n" +
@@ -192,7 +200,7 @@ public class CargaInicial {
 "15 minutos en el transporte público. Allí se encuentra una buena vida nocturna con bares y música\n" +
 "en vivo", 190, "Florianópolis", "mHooch", "Brasil");
                 //S9
-                icp.ingresarImagenServicio("/Imagenes/Servicios/tCook - Air-France-FC 1.png" );
+                icp.ingresarImagenServicio(Ruta+"/Imagenes/Servicios/tCook - Air-France-FC 1.png" );
                 icp.ingresarImagenServicio("");
                 icp.ingresarImagenServicio("");
                 icp.ingresarCategoriaServicio("Air France");
@@ -200,7 +208,7 @@ public class CargaInicial {
                 icp.ingresarDestinoServicio("Berlín");
                 icp.altaServicio("Air-France-FC", "¡Un vuelo de primera! Excelencia y experiencia en mejorar sus viajes.", 100, "París", "tCook", "Francia");
                 //S10
-                icp.ingresarImagenServicio("/Imagenes/Servicios/adippet - TAM-FC 1.png" );
+                icp.ingresarImagenServicio(Ruta+"/Imagenes/Servicios/adippet - TAM-FC 1.png" );
                 icp.ingresarImagenServicio("");
                 icp.ingresarImagenServicio("");
                 icp.ingresarCategoriaServicio("TAM");
@@ -208,7 +216,7 @@ public class CargaInicial {
                 icp.ingresarDestinoServicio("Pekín");
                 icp.altaServicio("TAM-FC", "¡Un vuelo de primera! Excelencia y experiencia.", 150, "Florianópolis", "adippet", "Brasil");
                 //S11
-                icp.ingresarImagenServicio("/Imagenes/Servicios/mHooch - Luxury south beach corner apartment 1.png" );
+                icp.ingresarImagenServicio(Ruta+"/Imagenes/Servicios/mHooch - Luxury south beach corner apartment 1.png" );
                 icp.ingresarImagenServicio("");
                 icp.ingresarImagenServicio("");
                 icp.ingresarCategoriaServicio("Hotel");
@@ -218,7 +226,7 @@ public class CargaInicial {
 "beautiful open kitchen, granite counter top, spacious dining room area and living room area.\n" +
 "Spectacular views of Miami from all windows and balcony", 300, "Miami", "mHooch", "EEUU");
                 //S12
-                icp.ingresarImagenServicio("/Imagenes/Servicios/mHooch - Coche-Miami 1.png" );
+                icp.ingresarImagenServicio(Ruta+"/Imagenes/Servicios/mHooch - Coche-Miami 1.png" );
                 icp.ingresarImagenServicio("");
                 icp.ingresarImagenServicio("");
                 icp.ingresarCategoriaServicio("Económico");
