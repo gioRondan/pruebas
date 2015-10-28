@@ -36,6 +36,7 @@ import logica.DataExpira;
 import logica.Fabrica;
 import logica.IControladorCliente;
 import logica.IControladorProveedor;
+import logica.PublicadorCliente;
 
 /**
  *
@@ -1053,7 +1054,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 } catch (ParseException | UnsupportedLookAndFeelException ex) {
                     Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            
+                PublicadorCliente p = new PublicadorCliente();
+                p.publicar();
                 PantallaPrincipal x = new PantallaPrincipal();
                 //Pantalla Principal maximisada
                 x.setExtendedState(MAXIMIZED_BOTH);
