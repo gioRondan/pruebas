@@ -5,6 +5,11 @@
  */
 package logica;
 
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
@@ -20,6 +25,9 @@ import javax.xml.ws.Endpoint;
 @SOAPBinding(style = Style.RPC, parameterStyle = ParameterStyle.WRAPPED)
 public class PublicadorCliente {
    private Endpoint endpoint = null;
+   public Fabrica fabrica = Fabrica.getInstance();
+   public IControladorCliente ICC = fabrica.getIControladorCliente();
+   
    
    @WebMethod(exclude = true)
    public void publicar(){
@@ -34,5 +42,87 @@ public class PublicadorCliente {
    public int prueba(){
        return 5;
    }
+   
+   @WebMethod
+   public void actualizarEstadoReserva(int identificador, String nomCliente, Estado estado){
+       ICC.actualizarEstadoReserva(identificador, nomCliente, estado);
+   }
+   
+   @WebMethod
+   public void altaCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, String password)throws Exception{
+       ICC.altaCliente(nickname, nombre, apellido, email, fechaNac, imagen, password);
+   }
+   
+   /*
+   @WebMethod
+   public List<DataCliente> listarClientes(){
+       return ICC.listarClientes();
+   }
+   
+   @WebMethod
+   public void cancelarReserva(String nomCliente, int identificador){
+       ICC.cancelarReserva(nomCliente, identificador);
+   }
+   
+   @WebMethod
+   public List<DataReserva> listarReservasXCliente(String nomCliente){
+       return ICC.listarReservasXCliente(nomCliente);
+   }
+   
+   
+   @WebMethod
+   public List<DataReserva> listarReservasSistema(){
+       return new ArrayList<>();
+   }
+   
+   
+   @WebMethod
+   public DataInfoReserva verInfoReserva(String nomCliente, int identificador){
+       return null;
+   }
+   
+   @WebMethod
+   public DataInfoCliente verInfoCliente(String nomCliente){
+       return null;
+   }
+   
+   @WebMethod
+   public void realizarReserva(String proveedor,String cliente,Map<String,Integer> servicio, Map<String,Integer> promocion,Map<String,DataExpira> fechas,Map<String,DataExpira> fechaspromos,Date fecha_creacion )throws Exception{
+       
+   }
+   //###################################   Operaciones Tarea2      #########################################################################
+   
+   @WebMethod
+   public DataInfoCliente iniciarSesion(String nickCliente, String password){
+       return null;
+   }
+   
+   
+   @WebMethod
+   public Date toDate(String fecha){
+       return null;
+   }
+   
+   @WebMethod
+   public void confirmarReserva(List<DataItemReserva> itemsr,DataInfoCliente cli)throws Exception{
+       
+   }
+   
+   @WebMethod
+   public boolean existeEmail(String email){
+       return ICC.existeEmail(email);
+   }
+   
+   @WebMethod
+   public boolean existeNickName(String nickName){
+       return ICC.existeNickName(nickName);
+   }
+   
+   @WebMethod
+   public BufferedImage leerImgURL(String imgURL)throws Exception{
+       return null;
+   }
+   */
+   
    
 }

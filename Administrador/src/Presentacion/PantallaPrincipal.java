@@ -20,14 +20,12 @@ import de.javasoft.plaf.synthetica.SyntheticaSilverMoonLookAndFeel;
 import de.javasoft.plaf.synthetica.SyntheticaSimple2DLookAndFeel;
 import de.javasoft.plaf.synthetica.SyntheticaSkyMetallicLookAndFeel;
 import de.javasoft.plaf.synthetica.SyntheticaWhiteVisionLookAndFeel;
-
 import java.beans.PropertyVetoException;
 import java.io.File;
 import java.text.ParseException;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -36,6 +34,7 @@ import logica.DataExpira;
 import logica.Fabrica;
 import logica.IControladorCliente;
 import logica.IControladorProveedor;
+import logica.PublicadorCliente;
 
 /**
  *
@@ -1044,7 +1043,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        PublicadorCliente p = new PublicadorCliente();
+        p.publicar();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -1053,7 +1053,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 } catch (ParseException | UnsupportedLookAndFeelException ex) {
                     Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            
+                
                 PantallaPrincipal x = new PantallaPrincipal();
                 //Pantalla Principal maximisada
                 x.setExtendedState(MAXIMIZED_BOTH);
