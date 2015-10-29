@@ -45,7 +45,9 @@ public class registrarCliente extends HttpServlet {
         } else if (request.getParameter("altaCliente") != null) {
             try {
                /*consumo webservice
-                altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), null,null , request.getParameter("passRegistrar"));
+                wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
+        wsc.PublicadorCliente port = service.getPublicadorClientePort();
+        port.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), null,null , request.getParameter("passRegistrar"));
                 */
                 ICC.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), null,CargaInicial.getRuta()+"Imagenes/Usuarios/"+request.getParameter("nickRegistrar")+".png" , request.getParameter("passRegistrar"));
             } catch (Exception ex) {
@@ -99,10 +101,6 @@ public class registrarCliente extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private static void altaCliente(java.lang.String arg0, java.lang.String arg1, java.lang.String arg2, java.lang.String arg3, javax.xml.datatype.XMLGregorianCalendar arg4, java.lang.String arg5, java.lang.String arg6) throws Exception_Exception {
-        wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
-        wsc.PublicadorCliente port = service.getPublicadorClientePort();
-        port.altaCliente(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
-    }
+   
 
 }
