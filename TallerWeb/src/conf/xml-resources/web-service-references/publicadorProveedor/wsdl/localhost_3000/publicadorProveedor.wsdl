@@ -14,16 +14,6 @@
 <message name="Exception">
 <part name="fault" element="tns:Exception"></part>
 </message>
-<message name="ingresarNombreCategoria">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="ingresarNombreCategoriaResponse"></message>
-<message name="seleccionarPadre">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="seleccionarPadreResponse"></message>
-<message name="altaCategoria"></message>
-<message name="altaCategoriaResponse"></message>
 <message name="informacionServicio">
 <part name="arg0" type="xsd:string"></part>
 <part name="arg1" type="xsd:string"></part>
@@ -61,6 +51,16 @@
 <part name="arg5" type="xsd:string"></part>
 </message>
 <message name="altaServicioResponse"></message>
+<message name="ingresarNombreCategoria">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="ingresarNombreCategoriaResponse"></message>
+<message name="seleccionarPadre">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="seleccionarPadreResponse"></message>
+<message name="altaCategoria"></message>
+<message name="altaCategoriaResponse"></message>
 <message name="verInfoProveedor">
 <part name="arg0" type="xsd:string"></part>
 </message>
@@ -123,19 +123,6 @@
 <output wsam:Action="http://Servidor/PublicadorProveedor/verInfoServicioResponse" message="tns:verInfoServicioResponse"></output>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://Servidor/PublicadorProveedor/verInfoServicio/Fault/Exception"></fault>
 </operation>
-<operation name="ingresarNombreCategoria">
-<input wsam:Action="http://Servidor/PublicadorProveedor/ingresarNombreCategoriaRequest" message="tns:ingresarNombreCategoria"></input>
-<output wsam:Action="http://Servidor/PublicadorProveedor/ingresarNombreCategoriaResponse" message="tns:ingresarNombreCategoriaResponse"></output>
-</operation>
-<operation name="seleccionarPadre">
-<input wsam:Action="http://Servidor/PublicadorProveedor/seleccionarPadreRequest" message="tns:seleccionarPadre"></input>
-<output wsam:Action="http://Servidor/PublicadorProveedor/seleccionarPadreResponse" message="tns:seleccionarPadreResponse"></output>
-</operation>
-<operation name="altaCategoria">
-<input wsam:Action="http://Servidor/PublicadorProveedor/altaCategoriaRequest" message="tns:altaCategoria"></input>
-<output wsam:Action="http://Servidor/PublicadorProveedor/altaCategoriaResponse" message="tns:altaCategoriaResponse"></output>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://Servidor/PublicadorProveedor/altaCategoria/Fault/Exception"></fault>
-</operation>
 <operation name="informacionServicio" parameterOrder="arg0 arg1">
 <input wsam:Action="http://Servidor/PublicadorProveedor/informacionServicioRequest" message="tns:informacionServicio"></input>
 <output wsam:Action="http://Servidor/PublicadorProveedor/informacionServicioResponse" message="tns:informacionServicioResponse"></output>
@@ -166,6 +153,19 @@
 <input wsam:Action="http://Servidor/PublicadorProveedor/altaServicioRequest" message="tns:altaServicio"></input>
 <output wsam:Action="http://Servidor/PublicadorProveedor/altaServicioResponse" message="tns:altaServicioResponse"></output>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://Servidor/PublicadorProveedor/altaServicio/Fault/Exception"></fault>
+</operation>
+<operation name="ingresarNombreCategoria">
+<input wsam:Action="http://Servidor/PublicadorProveedor/ingresarNombreCategoriaRequest" message="tns:ingresarNombreCategoria"></input>
+<output wsam:Action="http://Servidor/PublicadorProveedor/ingresarNombreCategoriaResponse" message="tns:ingresarNombreCategoriaResponse"></output>
+</operation>
+<operation name="seleccionarPadre">
+<input wsam:Action="http://Servidor/PublicadorProveedor/seleccionarPadreRequest" message="tns:seleccionarPadre"></input>
+<output wsam:Action="http://Servidor/PublicadorProveedor/seleccionarPadreResponse" message="tns:seleccionarPadreResponse"></output>
+</operation>
+<operation name="altaCategoria">
+<input wsam:Action="http://Servidor/PublicadorProveedor/altaCategoriaRequest" message="tns:altaCategoria"></input>
+<output wsam:Action="http://Servidor/PublicadorProveedor/altaCategoriaResponse" message="tns:altaCategoriaResponse"></output>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://Servidor/PublicadorProveedor/altaCategoria/Fault/Exception"></fault>
 </operation>
 <operation name="verInfoProveedor">
 <input wsam:Action="http://Servidor/PublicadorProveedor/verInfoProveedorRequest" message="tns:verInfoProveedor"></input>
@@ -226,36 +226,6 @@
 <binding name="PublicadorProveedorPortBinding" type="tns:PublicadorProveedor">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"></soap:binding>
 <operation name="verInfoServicio">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"></soap:fault>
-</fault>
-</operation>
-<operation name="ingresarNombreCategoria">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-</operation>
-<operation name="seleccionarPadre">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-</operation>
-<operation name="altaCategoria">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
@@ -328,6 +298,36 @@
 </output>
 </operation>
 <operation name="altaServicio">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"></soap:fault>
+</fault>
+</operation>
+<operation name="ingresarNombreCategoria">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+</operation>
+<operation name="seleccionarPadre">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+</operation>
+<operation name="altaCategoria">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>

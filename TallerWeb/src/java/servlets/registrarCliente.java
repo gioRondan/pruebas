@@ -44,12 +44,12 @@ public class registrarCliente extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/Usuarios/registrarCliente.jsp").forward(request, response);
         } else if (request.getParameter("altaCliente") != null) {
             try {
-               /*consumo webservice
+              /* consumo webservice
                 wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
         wsc.PublicadorCliente port = service.getPublicadorClientePort();
         port.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), null,null , request.getParameter("passRegistrar"));
-                */
-                ICC.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), null,CargaInicial.getRuta()+"Imagenes/Usuarios/"+request.getParameter("nickRegistrar")+".png" , request.getParameter("passRegistrar"));
+                
+                */ICC.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), null,CargaInicial.getRuta()+"Imagenes/Usuarios/"+request.getParameter("nickRegistrar")+".png" , request.getParameter("passRegistrar"));
             } catch (Exception ex) {
                 Logger.getLogger(registrarCliente.class.getName()).log(Level.SEVERE, null, ex);
 
