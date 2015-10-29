@@ -7,6 +7,8 @@
 package Presentacion;
 
 
+import Servidor.PublicadorCliente;
+import Servidor.PublicadorProveedor;
 import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
 import de.javasoft.plaf.synthetica.SyntheticaBlackMoonLookAndFeel;
 import de.javasoft.plaf.synthetica.SyntheticaBlueIceLookAndFeel;
@@ -34,7 +36,6 @@ import logica.DataExpira;
 import logica.Fabrica;
 import logica.IControladorCliente;
 import logica.IControladorProveedor;
-import Servidor.PublicadorCliente;
 
 /**
  *
@@ -1045,6 +1046,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         //</editor-fold>
         PublicadorCliente p = new PublicadorCliente();
         p.publicar();
+        PublicadorProveedor pp = new PublicadorProveedor();
+        pp.publicar();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
