@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package logica;
+package Servidor;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -16,6 +16,9 @@ import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.ParameterStyle;
 import javax.jws.soap.SOAPBinding.Style;
 import javax.xml.ws.Endpoint;
+import logica.Estado;
+import logica.Fabrica;
+import logica.IControladorCliente;
 
 /**
  *
@@ -31,7 +34,7 @@ public class PublicadorCliente {
    
    @WebMethod(exclude = true)
    public void publicar(){
-       endpoint = Endpoint.publish("http://localhost:3000/publicador",this);
+       endpoint = Endpoint.publish("http://localhost:3000/publicadorCliente",this);
    }
    @WebMethod(exclude = true)
    public Endpoint getEndpoint(){

@@ -34,7 +34,7 @@ import logica.DataExpira;
 import logica.Fabrica;
 import logica.IControladorCliente;
 import logica.IControladorProveedor;
-import logica.PublicadorCliente;
+import Servidor.PublicadorCliente;
 
 /**
  *
