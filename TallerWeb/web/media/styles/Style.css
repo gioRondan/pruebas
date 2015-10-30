@@ -10,6 +10,11 @@
 .img-circle {
     border-radius: 50%;
 }
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
 .center{
     text-align:center;
 }
