@@ -39,10 +39,11 @@ public class existeusuario extends HttpServlet {
             String email = request.getParameter("email");
             String pass = request.getParameter("pass");
             String pass2 = request.getParameter("pass2");
-            if (usuario != null){
-//                Fabrica.getInstance().getIControladorCliente().
+            
                 wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
         wsc.PublicadorCliente port = service.getPublicadorClientePort();
+            if (usuario != null){
+//                Fabrica.getInstance().getIControladorCliente().\
          
                 if ( port.existeNickName(usuario) ){
                     out.print("nombre usuario invalido");
@@ -51,7 +52,7 @@ public class existeusuario extends HttpServlet {
                 }
             }
             if(email !=null){
-                if (  Fabrica.getInstance().getIControladorCliente().existeEmail(email) ){
+                if (  port.existeEmail(email) ){
                     out.print("email invalido");
                 }else{
                     out.print("false");
