@@ -74,7 +74,9 @@ t   : inicioSesion
                     </div>
                     <button class="btn btn-lg btn-primary btn-block" type="submit" name="entrar"><span class="glyphicon glyphicon-log-in"></span> Ingresar</button>
                 </form>
-
+                <form class="form-signin" style="margin-left:65px;" action="registrarcliente"  method="POST">
+                    <button class="btn btn-lg btn-default btn-block" type="submit" name="registrar">Registrarse</button>
+                </form>
             </div>
         </div>
 <!--        <div class="centerbox" >
