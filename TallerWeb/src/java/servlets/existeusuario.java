@@ -40,7 +40,11 @@ public class existeusuario extends HttpServlet {
             String pass = request.getParameter("pass");
             String pass2 = request.getParameter("pass2");
             if (usuario != null){
-                if ( Fabrica.getInstance().getIControladorCliente().existeNickName(usuario) ){
+//                Fabrica.getInstance().getIControladorCliente().
+                wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
+        wsc.PublicadorCliente port = service.getPublicadorClientePort();
+         
+                if ( port.existeNickName(usuario) ){
                     out.print("nombre usuario invalido");
                 }else{
                     out.print("false usuario");
@@ -102,5 +106,11 @@ public class existeusuario extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private static boolean existeNickName(java.lang.String arg0) {
+        wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
+        wsc.PublicadorCliente port = service.getPublicadorClientePort();
+        return port.existeNickName(arg0);
+    }
 
 }
