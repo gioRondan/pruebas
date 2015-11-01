@@ -108,10 +108,5 @@ public class existeusuario extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private static boolean existeNickName(java.lang.String arg0) {
-        wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
-        wsc.PublicadorCliente port = service.getPublicadorClientePort();
-        return port.existeNickName(arg0);
-    }
 
 }
