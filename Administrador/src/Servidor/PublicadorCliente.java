@@ -110,7 +110,7 @@ public class PublicadorCliente {
    public void confirmarReserva(List<DataItemReserva> itemsr,DataInfoCliente cli)throws Exception{
        
    }
-   
+   */
    @WebMethod
    public boolean existeEmail(String email){
        return ICC.existeEmail(email);
@@ -120,7 +120,7 @@ public class PublicadorCliente {
    public boolean existeNickName(String nickName){
        return ICC.existeNickName(nickName);
    }
-   
+   /*
    @WebMethod
    public BufferedImage leerImgURL(String imgURL)throws Exception{
        return null;
