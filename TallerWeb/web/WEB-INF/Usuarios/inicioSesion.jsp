@@ -61,22 +61,23 @@ t   : inicioSesion
             <div class="container">
 
                 <form class="form-signin" style="margin-left:65px;">
-                    <h2 class="form-signin-heading">Please sign in</h2>
-                    <label for="inputEmail" class="sr-only">Email address</label>
-                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-                    <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+                    <img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" style="margin-left:70px; width:150px;height:150px;">
+                    <h2 class="form-signin-heading">Inicio de sesión</h2>
+                    <label for="inputEmail" class="sr-only">Correo</label>
+                    <input class="form-control" id="nick" name="nick"placeholder="Introduzca su nick" required="" autofocus="">
+                    <label for="inputPassword" class="sr-only">Contraseña</label>
+                    <input type="password" class="form-control" id="pwd" name="pass"placeholder="Introduzca su password" required="">
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" value="remember-me"> Remember me
+                            <input type="checkbox" value="remember-me"> Recordarme
                         </label>
                     </div>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" name="entrar"><span class="glyphicon glyphicon-log-in"></span> Ingresar</button>
                 </form>
 
             </div>
         </div>
-        <div class="centerbox" >
+<!--        <div class="centerbox" >
             <div class="container" >
                 <form class="form-horizontal" role="form" >
                     <div class="form-group">
@@ -103,7 +104,7 @@ t   : inicioSesion
                     </div>
                     <div class="form-group">        
                         <div class="col-sm-5 col-xs-5">
-                            <!--<input class="center"  type="submit" name="entrar" value="Entrar"/>--> 
+                            <input class="center"  type="submit" name="entrar" value="Entrar"/> 
                             <div class="col-sm-3 col-xs-3"></div>
                             <div class="col-sm-6 col-xs-6">
                                 <button type="submit" name="entrar" class="btn btn-success"><span class="glyphicon glyphicon-log-in"></span> Entrar</button>
@@ -123,7 +124,7 @@ t   : inicioSesion
                 </form>  
             </div>
         </div><br>    
-
+-->
 
 
     </body>
