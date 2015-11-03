@@ -7,14 +7,20 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import logica.DataCliente;
 import logica.DataInfoCliente;
 import logica.Fabrica;
 import logica.IControladorCliente;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -41,7 +47,19 @@ public class inicioSesion extends HttpServlet {
         wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
         wsc.PublicadorCliente port = service.getPublicadorClientePort();
         
-        request.getSession().setAttribute("json", port.listarClientes());
+      //request.getSession().setAttribute("json", port.listarClientes());
+        JSONParser jsonParser = new JSONParser();
+        
+        Object obj;
+        try {
+            obj = jsonParser.parse(port.listarClientes());
+            JSONArray lista = (JSONArray)obj;
+        DataCliente cli = (DataCliente) lista.get(1);
+        request.getSession().setAttribute("Data", cli);
+        } catch (ParseException ex) {
+            Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         if ((request.getSession().getAttribute("Login") == "Logeado")){
             
              request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);

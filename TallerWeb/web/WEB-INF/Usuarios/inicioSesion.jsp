@@ -6,6 +6,7 @@ t   : inicioSesion
     Author     : giovani.rondan
 --%>
 
+<%@page import="logica.DataCliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -79,7 +80,12 @@ t   : inicioSesion
                 </form>
             </div>
         </div>
-        <%= request.getSession().getAttribute("json")%>
+        
+<!--           <%// DataCliente cliente = (DataCliente) request.getSession().getAttribute("Data");
+                                    %>
+                                    <br>
+                                    Nickname: <%= //cliente.getNickname()%>
+                                    <br>-->
 <!--        <div class="centerbox" >
             <div class="container" >
                 <form class="form-horizontal" role="form" >
