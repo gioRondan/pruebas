@@ -16,6 +16,9 @@ import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.ParameterStyle;
 import javax.jws.soap.SOAPBinding.Style;
 import javax.xml.ws.Endpoint;
+import jdk.nashorn.internal.ir.debug.JSONWriter;
+import org.json.simple.JSONObject;
+
 import logica.Estado;
 import logica.Fabrica;
 import logica.IControladorCliente;
@@ -56,12 +59,19 @@ public class PublicadorCliente {
        ICC.altaCliente(nickname, nombre, apellido, email, fechaNac, imagen, password);
    }
    
-   /*
-   @WebMethod
-   public List<DataCliente> listarClientes(){
-       return ICC.listarClientes();
-   }
    
+   @WebMethod
+   public String listarClientes(){
+    JSONObject obj=new JSONObject();
+    obj.put("name","foo");
+    obj.put("num",new Integer(100));
+    obj.put("balance",new Double(1000.21));
+    obj.put("is_vip",new Boolean(true));
+    obj.put("nickname",null);
+    //System.out.print(obj);
+    return obj.toJSONString();
+   }
+   /*
    @WebMethod
    public void cancelarReserva(String nomCliente, int identificador){
        ICC.cancelarReserva(nomCliente, identificador);
