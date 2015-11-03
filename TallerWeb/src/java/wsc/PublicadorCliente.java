@@ -28,6 +28,16 @@ public interface PublicadorCliente {
 
     /**
      * 
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://Servidor/PublicadorCliente/listarClientesRequest", output = "http://Servidor/PublicadorCliente/listarClientesResponse")
+    public String listarClientes();
+
+    /**
+     * 
      * @param arg3
      * @param arg2
      * @param arg5

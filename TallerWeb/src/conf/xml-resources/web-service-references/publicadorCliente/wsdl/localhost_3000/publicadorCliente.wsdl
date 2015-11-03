@@ -4,6 +4,10 @@
 <xsd:import namespace="http://Servidor/" schemaLocation="http://localhost:3000/publicadorCliente?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
+<message name="listarClientes"></message>
+<message name="listarClientesResponse">
+<part name="return" type="xsd:string"></part>
+</message>
 <message name="altaCliente">
 <part name="arg0" type="xsd:string"></part>
 <part name="arg1" type="xsd:string"></part>
@@ -40,6 +44,10 @@
 <part name="return" type="xsd:boolean"></part>
 </message>
 <portType name="PublicadorCliente">
+<operation name="listarClientes">
+<input wsam:Action="http://Servidor/PublicadorCliente/listarClientesRequest" message="tns:listarClientes"></input>
+<output wsam:Action="http://Servidor/PublicadorCliente/listarClientesResponse" message="tns:listarClientesResponse"></output>
+</operation>
 <operation name="altaCliente" parameterOrder="arg0 arg1 arg2 arg3 arg4 arg5 arg6">
 <input wsam:Action="http://Servidor/PublicadorCliente/altaClienteRequest" message="tns:altaCliente"></input>
 <output wsam:Action="http://Servidor/PublicadorCliente/altaClienteResponse" message="tns:altaClienteResponse"></output>
@@ -64,6 +72,15 @@
 </portType>
 <binding name="PublicadorClientePortBinding" type="tns:PublicadorCliente">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"></soap:binding>
+<operation name="listarClientes">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+</operation>
 <operation name="altaCliente">
 <soap:operation soapAction=""></soap:operation>
 <input>

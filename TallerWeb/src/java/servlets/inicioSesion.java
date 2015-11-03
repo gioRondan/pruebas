@@ -37,6 +37,11 @@ public class inicioSesion extends HttpServlet {
         
         Fabrica fab = Fabrica.getInstance();
         IControladorCliente ICC = fab.getIControladorCliente();
+        
+        wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
+        wsc.PublicadorCliente port = service.getPublicadorClientePort();
+        
+        request.getSession().setAttribute("json", port.listarClientes());
         if ((request.getSession().getAttribute("Login") == "Logeado")){
             
              request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);
@@ -99,5 +104,6 @@ public class inicioSesion extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 
 }

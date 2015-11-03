@@ -79,6 +79,7 @@ t   : inicioSesion
                 </form>
             </div>
         </div>
+        <%= request.getSession().getAttribute("json")%>
 <!--        <div class="centerbox" >
             <div class="container" >
                 <form class="form-horizontal" role="form" >
