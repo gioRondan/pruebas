@@ -6,6 +6,7 @@
 package logica;
 
 import java.util.Date;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -40,7 +41,19 @@ public class DataCliente {
         this.fechaNac   = fechaNac;
         this.imagen     = imagen;
         this.password = password;
-    }         
+    }
+    public JSONObject ToJson(){
+        JSONObject obj = new JSONObject();
+        obj.put("nombre",this.nombre);
+        obj.put("nickname",this.nickname);
+        obj.put("apellido",this.apellido);
+        obj.put("email",this.email);
+        obj.put("fechaNac",this.fechaNac);
+        obj.put("imagen",this.imagen);
+        obj.put("password",this.password);
+        
+        return obj;
+    }
 
     //Getters
     public String getNickname() {

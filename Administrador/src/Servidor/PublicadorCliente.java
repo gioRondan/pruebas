@@ -8,6 +8,7 @@ package Servidor;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import javax.jws.WebMethod;
@@ -17,11 +18,12 @@ import javax.jws.soap.SOAPBinding.ParameterStyle;
 import javax.jws.soap.SOAPBinding.Style;
 import javax.xml.ws.Endpoint;
 import jdk.nashorn.internal.ir.debug.JSONWriter;
-import org.json.simple.JSONObject;
-
+import logica.DataCliente;
 import logica.Estado;
 import logica.Fabrica;
 import logica.IControladorCliente;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 
 /**
  *
@@ -62,14 +64,13 @@ public class PublicadorCliente {
    
    @WebMethod
    public String listarClientes(){
-    JSONObject obj=new JSONObject();
-    obj.put("name","foo");
-    obj.put("num",new Integer(100));
-    obj.put("balance",new Double(1000.21));
-    obj.put("is_vip",new Boolean(true));
-    obj.put("nickname",null);
-    //System.out.print(obj);
-    return obj.toJSONString();
+    List<DataCliente> clientes = ICC.listarClientes();
+    List lista = new LinkedList();
+    for (DataCliente cliente : clientes ){
+        lista.add(cliente.ToJson());
+    }
+         return JSONValue.toJSONString(lista);
+
    }
    /*
    @WebMethod
