@@ -17,8 +17,8 @@ public class DataExpira {
     private Date fechaFin;
     
      public DataExpira(){
-        fechaCom= ;
-        fechaFin= ;
+        fechaCom= new Date();
+        fechaFin= new Date();
     }
      
     public DataExpira(Date fecha1 ,Date fecha2){

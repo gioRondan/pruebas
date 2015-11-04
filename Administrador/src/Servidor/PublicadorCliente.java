@@ -18,6 +18,7 @@ import javax.jws.soap.SOAPBinding.ParameterStyle;
 import javax.jws.soap.SOAPBinding.Style;
 import javax.xml.ws.Endpoint;
 import jdk.nashorn.internal.ir.debug.JSONWriter;
+import logica.DataCiudad;
 import logica.DataCliente;
 import logica.Estado;
 import logica.Fabrica;
@@ -72,6 +73,10 @@ public class PublicadorCliente {
          return JSONValue.toJSONString(lista);
 
    }
+  /* @WebMethod
+   public DataCiudad pruebaData(){
+       return new DataCiudad("hola", "hola2");
+   }*/
    /*
    @WebMethod
    public void cancelarReserva(String nomCliente, int identificador){
