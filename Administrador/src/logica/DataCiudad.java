@@ -7,14 +7,13 @@ package logica;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Juan
  */
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.PROPERTY)
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DataCiudad {
     
     private String nombre;
@@ -22,8 +21,6 @@ public class DataCiudad {
     
     //Constructores
     public DataCiudad(){
-        this.nombre = "";
-        this.pais    = "";
     }
     
     public DataCiudad(String nombre, String pais){

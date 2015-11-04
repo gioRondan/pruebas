@@ -75,7 +75,34 @@ public class PublicadorCliente {
    }
    @WebMethod
    public DataCiudad pruebaData(){
-       return new DataCiudad("hola", "hola2");
+       DataCiudad aux = new DataCiudad();
+       aux.setNombre("cardona");
+       aux.setPais("hola2");
+       return aux;
+   }
+   
+   @WebMethod
+   public DataCiudad[] pruebaDatas(){
+       DataCiudad aux = new DataCiudad();
+       aux.setNombre("cardona");
+       aux.setPais("hola2");
+       DataCiudad aux2 = new DataCiudad();
+       aux.setNombre("cardona2");
+       aux.setPais("hola22");
+       DataCiudad aux3 = new DataCiudad();
+       aux.setNombre("cardona3");
+       aux.setPais("hola23");
+       List<DataCiudad> aux4 = new ArrayList<>();
+       aux4.add(aux);
+       aux4.add(aux2);
+       aux4.add(aux3);
+       DataCiudad[] aux5 = new DataCiudad[aux4.size()];
+       int i = 0;
+       for (DataCiudad value : aux4){
+            aux5[i] = value;
+            i++;
+        }
+       return aux5;
    }
    /*
    @WebMethod
