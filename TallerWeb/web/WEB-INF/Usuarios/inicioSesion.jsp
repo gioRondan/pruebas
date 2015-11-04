@@ -81,11 +81,10 @@ t   : inicioSesion
             </div>
         </div>
         
-<!--           <%// DataCliente cliente = (DataCliente) request.getSession().getAttribute("Data");
-                                    %>
-                                    <br>
-                                    Nickname: <%= //cliente.getNickname()%>
-                                    <br>-->
+        <script>
+            var x ='<%=request.getSession().getAttribute("json")%>';
+            alert(x);
+        </script>
 <!--        <div class="centerbox" >
             <div class="container" >
                 <form class="form-horizontal" role="form" >

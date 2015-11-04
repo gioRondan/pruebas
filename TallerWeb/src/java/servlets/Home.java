@@ -64,7 +64,7 @@ public class Home extends HttpServlet {
                     request.getSession().setAttribute("textodebusqueda"," ");
                     request.getSession().setAttribute("ItemsReservaActual",itemsreservascarro );
                         try {
-                            new CargaInicial().cargar();
+                           new CargaInicial().cargar();
                         } catch (Exception ex) {
                             Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
                         }

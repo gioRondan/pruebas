@@ -47,18 +47,18 @@ public class inicioSesion extends HttpServlet {
         wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
         wsc.PublicadorCliente port = service.getPublicadorClientePort();
         
-      //request.getSession().setAttribute("json", port.listarClientes());
-        JSONParser jsonParser = new JSONParser();
-        
-        Object obj;
-        try {
-            obj = jsonParser.parse(port.listarClientes());
-            JSONArray lista = (JSONArray)obj;
-        DataCliente cli = (DataCliente) lista.get(1);
-        request.getSession().setAttribute("Data", cli);
-        } catch (ParseException ex) {
-            Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
-        }
+      request.getSession().setAttribute("json", port.listarClientes());
+//        JSONParser jsonParser = new JSONParser();
+//        
+//        Object obj;
+//        try {
+//            obj = jsonParser.parse(port.listarClientes());
+//            JSONArray lista = (JSONArray)obj;
+//        DataCliente cli = (DataCliente) lista.get(1);
+//        request.getSession().setAttribute("Data", cli);
+//        } catch (ParseException ex) {
+//            Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         
         if ((request.getSession().getAttribute("Login") == "Logeado")){
             
