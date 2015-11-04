@@ -73,10 +73,10 @@ public class PublicadorCliente {
          return JSONValue.toJSONString(lista);
 
    }
-  /* @WebMethod
+   @WebMethod
    public DataCiudad pruebaData(){
        return new DataCiudad("hola", "hola2");
-   }*/
+   }
    /*
    @WebMethod
    public void cancelarReserva(String nomCliente, int identificador){
