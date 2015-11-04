@@ -21,6 +21,7 @@ import logica.IControladorCliente;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import wsc.DataCiudad;
 
 /**
  *
@@ -47,7 +48,11 @@ public class inicioSesion extends HttpServlet {
         wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
         wsc.PublicadorCliente port = service.getPublicadorClientePort();
         
-      request.getSession().setAttribute("json", port.listarClientes());
+     // request.getSession().setAttribute("json", port.listarClientes());
+      request.getSession().setAttribute("datatype", port.pruebaDatas());
+      
+      //String mostrar = port.pruebaDatas()[0].getNombre() + port.pruebaDatas()[1].getNombre();
+       request.getSession().setAttribute("json", port.pruebaDatas().toString());
 //        JSONParser jsonParser = new JSONParser();
 //        
 //        Object obj;
@@ -122,6 +127,10 @@ public class inicioSesion extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    
+
+    
 
 
 }

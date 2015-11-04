@@ -27,10 +27,6 @@
 <part name="arg2" type="tns:estado"></part>
 </message>
 <message name="actualizarEstadoReservaResponse"></message>
-<message name="prueba"></message>
-<message name="pruebaResponse">
-<part name="return" type="xsd:int"></part>
-</message>
 <message name="existeEmail">
 <part name="arg0" type="xsd:string"></part>
 </message>
@@ -42,6 +38,18 @@
 </message>
 <message name="existeNickNameResponse">
 <part name="return" type="xsd:boolean"></part>
+</message>
+<message name="prueba"></message>
+<message name="pruebaResponse">
+<part name="return" type="xsd:int"></part>
+</message>
+<message name="pruebaData"></message>
+<message name="pruebaDataResponse">
+<part name="return" type="tns:dataCiudad"></part>
+</message>
+<message name="pruebaDatas"></message>
+<message name="pruebaDatasResponse">
+<part name="return" type="tns:dataCiudadArray"></part>
 </message>
 <portType name="PublicadorCliente">
 <operation name="listarClientes">
@@ -57,10 +65,6 @@
 <input wsam:Action="http://Servidor/PublicadorCliente/actualizarEstadoReservaRequest" message="tns:actualizarEstadoReserva"></input>
 <output wsam:Action="http://Servidor/PublicadorCliente/actualizarEstadoReservaResponse" message="tns:actualizarEstadoReservaResponse"></output>
 </operation>
-<operation name="prueba">
-<input wsam:Action="http://Servidor/PublicadorCliente/pruebaRequest" message="tns:prueba"></input>
-<output wsam:Action="http://Servidor/PublicadorCliente/pruebaResponse" message="tns:pruebaResponse"></output>
-</operation>
 <operation name="existeEmail">
 <input wsam:Action="http://Servidor/PublicadorCliente/existeEmailRequest" message="tns:existeEmail"></input>
 <output wsam:Action="http://Servidor/PublicadorCliente/existeEmailResponse" message="tns:existeEmailResponse"></output>
@@ -68,6 +72,18 @@
 <operation name="existeNickName">
 <input wsam:Action="http://Servidor/PublicadorCliente/existeNickNameRequest" message="tns:existeNickName"></input>
 <output wsam:Action="http://Servidor/PublicadorCliente/existeNickNameResponse" message="tns:existeNickNameResponse"></output>
+</operation>
+<operation name="prueba">
+<input wsam:Action="http://Servidor/PublicadorCliente/pruebaRequest" message="tns:prueba"></input>
+<output wsam:Action="http://Servidor/PublicadorCliente/pruebaResponse" message="tns:pruebaResponse"></output>
+</operation>
+<operation name="pruebaData">
+<input wsam:Action="http://Servidor/PublicadorCliente/pruebaDataRequest" message="tns:pruebaData"></input>
+<output wsam:Action="http://Servidor/PublicadorCliente/pruebaDataResponse" message="tns:pruebaDataResponse"></output>
+</operation>
+<operation name="pruebaDatas">
+<input wsam:Action="http://Servidor/PublicadorCliente/pruebaDatasRequest" message="tns:pruebaDatas"></input>
+<output wsam:Action="http://Servidor/PublicadorCliente/pruebaDatasResponse" message="tns:pruebaDatasResponse"></output>
 </operation>
 </portType>
 <binding name="PublicadorClientePortBinding" type="tns:PublicadorCliente">
@@ -102,15 +118,6 @@
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
 </output>
 </operation>
-<operation name="prueba">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-</operation>
 <operation name="existeEmail">
 <soap:operation soapAction=""></soap:operation>
 <input>
@@ -121,6 +128,33 @@
 </output>
 </operation>
 <operation name="existeNickName">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+</operation>
+<operation name="prueba">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+</operation>
+<operation name="pruebaData">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+</operation>
+<operation name="pruebaDatas">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>

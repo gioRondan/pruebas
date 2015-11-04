@@ -2,6 +2,13 @@
 
 <xs:element name="Exception" type="tns:Exception"></xs:element>
 
+<xs:complexType name="dataCiudad">
+<xs:sequence>
+<xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="pais" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="Exception">
 <xs:sequence>
 <xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
@@ -16,4 +23,10 @@
 <xs:enumeration value="facturada"></xs:enumeration>
 </xs:restriction>
 </xs:simpleType>
+
+<xs:complexType name="dataCiudadArray" final="#all">
+<xs:sequence>
+<xs:element name="item" type="tns:dataCiudad" minOccurs="0" maxOccurs="unbounded" nillable="true"></xs:element>
+</xs:sequence>
+</xs:complexType>
 </xs:schema>
