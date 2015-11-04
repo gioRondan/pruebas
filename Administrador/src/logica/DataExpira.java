@@ -16,6 +16,11 @@ public class DataExpira {
     private Date fechaCom;
     private Date fechaFin;
     
+     public DataExpira(){
+        fechaCom= ;
+        fechaFin= ;
+    }
+     
     public DataExpira(Date fecha1 ,Date fecha2){
         fechaCom=fecha1;
         fechaFin=fecha2;
@@ -26,6 +31,14 @@ public class DataExpira {
     }
     public Date getFechaf(){
         return fechaFin;
+    }
+
+    public void setFechaCom(Date fechaCom) {
+        this.fechaCom = fechaCom;
+    }
+
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
     }
     
 }

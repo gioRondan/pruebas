@@ -50,5 +50,21 @@ public class DataPromocion {
     public float getPrecioTotal(){
         return precioTotal;
     }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDescuento(int descuento) {
+        this.descuento = descuento;
+    }
+
+    public void setPrecioTotal(int precioTotal) {
+        this.precioTotal = precioTotal;
+    }
+
+    public void setNickProveedor(String nickProveedor) {
+        this.nickProveedor = nickProveedor;
+    }
     
 }

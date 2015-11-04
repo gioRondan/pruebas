@@ -63,6 +63,30 @@ public class DataReserva {
     public Estado getEstado(){
         return estado;
     }
+
+    public void setIdentificador(int identificador) {
+        this.identificador = identificador;
+    }
+
+    public void setFechaCreacion(Date fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
     
     
 }

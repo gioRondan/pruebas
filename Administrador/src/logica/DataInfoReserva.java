@@ -70,5 +70,33 @@ public class DataInfoReserva {
     public Set<DataItemReserva> getItems(){
         return items;
     }
+
+    public void setIdentificador(int identificador) {
+        this.identificador = identificador;
+    }
+
+    public void setFechaCreacion(Date fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
+    public void setItems(Set<DataItemReserva> items) {
+        this.items = items;
+    }
  
 }

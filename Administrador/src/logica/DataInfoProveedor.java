@@ -90,4 +90,5 @@ public class DataInfoProveedor {
     public String getPassword() {
         return password;
     }
+    
 }

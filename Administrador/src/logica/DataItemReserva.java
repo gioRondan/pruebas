@@ -61,4 +61,29 @@ public class DataItemReserva {
     public boolean getesServico(){
         return esServico;
     }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
+    public void setEsServico(boolean esServico) {
+        this.esServico = esServico;
+    }
+
+    public void setServicio(DataServicio servicio) {
+        this.servicio = servicio;
+    }
+
+    public void setPromocion(DataPromocion promocion) {
+        this.promocion = promocion;
+    }
+    
 }

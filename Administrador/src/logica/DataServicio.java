@@ -53,6 +53,10 @@ public class DataServicio {
         return proveedor;
     }
 
+    public void setImagen(String[] imagen) {
+        this.imagen = imagen;
+    }
+
     @Override
     public String toString() {
         return nombre + " - " + proveedor;

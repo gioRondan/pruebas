@@ -5,6 +5,7 @@
  */
 package logica;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -15,6 +16,12 @@ import java.util.List;
 public class DataCategoria {
     private String nombre;
     private List<DataCategoria> hijos;
+
+    
+    public DataCategoria() {
+         this.nombre = "";
+        this.hijos = new ArrayList<>();
+    }
 
     public DataCategoria(String nombre, List<DataCategoria> hijos) {
         this.nombre = nombre;
@@ -32,6 +39,14 @@ public class DataCategoria {
     @Override
     public String toString() {
         return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setHijos(List<DataCategoria> hijos) {
+        this.hijos = hijos;
     }
     
 }

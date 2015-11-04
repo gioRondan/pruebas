@@ -61,5 +61,37 @@ public class DataInfoServicio {
     public DataProveedor getProveedor(){
         return proveedor;
     }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public void setImagen(String[] imagen) {
+        this.imagen = imagen;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
+    public void setOrigen(DataCiudad origen) {
+        this.origen = origen;
+    }
+
+    public void setDestino(DataCiudad destino) {
+        this.destino = destino;
+    }
+
+    public void setCategorias(List<DataCategoria> categorias) {
+        this.categorias = categorias;
+    }
+
+    public void setProveedor(DataProveedor proveedor) {
+        this.proveedor = proveedor;
+    }
     
 }
