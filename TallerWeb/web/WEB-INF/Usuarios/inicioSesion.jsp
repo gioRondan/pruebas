@@ -45,7 +45,7 @@ t   : inicioSesion
         }
     </style>
 
-    <body>
+    <body class="login">
         <div id="pageheader">
             <%--<jsp:include page="Template.jsp" /> hacen lo mismo --%> 
             <%@ include file="\WEB-INF\Template\Template.jsp" %>
@@ -61,8 +61,8 @@ t   : inicioSesion
         <div class="centerbox" >
             <div class="container">
 
-                <form class="form-signin" style="margin-left:65px;">
-                    <img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" style="margin-left:70px; width:150px;height:150px;">
+                <form class="form-signin">
+                    <img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" style="width:150px;height:150px;">
                     <h2 class="form-signin-heading">Inicio de sesión</h2>
                     <label for="inputEmail" class="sr-only">Correo</label>
                     <input class="form-control" id="nick" name="nick"placeholder="Introduzca su nick" required="" autofocus="">
@@ -75,7 +75,7 @@ t   : inicioSesion
                     </div>
                     <button class="btn btn-lg btn-primary btn-block" type="submit" name="entrar"><span class="glyphicon glyphicon-log-in"></span> Ingresar</button>
                 </form>
-                <form class="form-signin" style="margin-left:65px;" action="registrarcliente"  method="POST">
+                <form class="form-signin" action="registrarcliente"  method="POST">
                     <button class="btn btn-lg btn-default btn-block" type="submit" name="registrar">Registrarse</button>
                 </form>
             </div>

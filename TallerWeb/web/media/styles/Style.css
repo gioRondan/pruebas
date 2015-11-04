@@ -68,3 +68,18 @@ div.horizontal a {
     background-color: #ffffff;
         border-color: #ffffff;
 }
+
+/* Inicio sesiòn */
+.login .centerbox {
+    margin: auto;
+    width: 85%;
+}
+
+.login .container{
+    width: 100%;
+}
+
+.login .form-signin{
+    text-align: center;
+    margin: 0px auto;
+}
