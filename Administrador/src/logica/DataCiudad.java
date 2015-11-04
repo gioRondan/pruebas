@@ -34,4 +34,12 @@ public class DataCiudad {
         return pais;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
 }

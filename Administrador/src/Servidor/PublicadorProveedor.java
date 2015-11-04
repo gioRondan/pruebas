@@ -34,7 +34,7 @@ public class PublicadorProveedor {
    public IControladorProveedor ICP = fabrica.getIControladorProveedor();
    @WebMethod(exclude = true)
    public void publicar(){
-       endpoint = Endpoint.publish("http://localhost:3000/publicadorProveedor",this);
+       endpoint = Endpoint.publish("http://localhost:3001/publicadorProveedor",this);
    }
    @WebMethod(exclude = true)
    public Endpoint getEndpoint(){

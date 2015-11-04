@@ -41,6 +41,7 @@ public class DataInfoProveedor {
         this.servicios      = new ArrayList<DataServicio>();
         this.password = "";
     }
+
     
     public DataInfoProveedor(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, DataEmpresa empresa, List<DataServicio> servicios, String password){
         this.nickname      = nickname;
