@@ -23,9 +23,9 @@ public class DataInfoCliente {
     private String email;
     private DataFecha fechaNac;
     private String imagen;    
-    private List<DataReserva> reservas;
+    private DataReserva[] reservas;
     private String password;
-    
+    private String hola;
     //Constructores
     public DataInfoCliente(){
         this.nombre     = "";
@@ -46,7 +46,13 @@ public class DataInfoCliente {
         this.fechaNac   = new DataFecha(fechaNac.getDay(), fechaNac.getMonth(), fechaNac.getYear());
         this.imagen     = imagen;
         this.password = password;
-        this.reservas = reservas;
+        DataReserva[] ret = new DataReserva[reservas.size()];
+        int i = 0;
+        for (DataReserva value : reservas){
+            ret[i] = value;
+            i++;
+        }
+        this.reservas = ret;
     }         
 
     //Getters
@@ -70,11 +76,20 @@ public class DataInfoCliente {
         return fechaNac;
     }
 
+    public void setHola(String hola) {
+        this.hola = hola;
+    }
+
+    public String getHola() {
+        return hola;
+    }
+
     public String getImagen() {
         return imagen;
     }
     
-    public List<DataReserva> getReservas(){
+    public DataReserva[] getReservas(){
+        
         return reservas;
     }
     public String getPassword() {
@@ -105,7 +120,7 @@ public class DataInfoCliente {
         this.imagen = imagen;
     }
 
-    public void setReservas(List<DataReserva> reservas) {
+    public void setReservas(DataReserva[] reservas) {
         this.reservas = reservas;
     }
 

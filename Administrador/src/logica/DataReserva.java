@@ -17,27 +17,27 @@ import javax.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DataReserva {
     private int identificador;
-    private Date fechaCreacion;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private DataFecha fechaCreacion;
+    private DataFecha fechaInicio;
+    private DataFecha fechaFin;
     private float precio;
     private Estado estado;
     
     //Constructores
     public DataReserva(){
         this.identificador = 0;
-        this.fechaCreacion = new Date();
-        this.fechaInicio   = new Date();
-        this.fechaFin      = new Date();
+        this.fechaCreacion = new DataFecha();
+        this.fechaInicio   = new DataFecha();
+        this.fechaFin      = new DataFecha();
         this.precio        = 0;
         this.estado        = Estado.registrada;        
     }
     
     public DataReserva(int identificador, Date fechaCreacion, Date fechaInicio, Date fechaFin, float precio, Estado estado){
         this.identificador = identificador;
-        this.fechaCreacion = fechaCreacion;
-        this.fechaInicio   = fechaInicio;
-        this.fechaFin      = fechaFin;
+        this.fechaCreacion = new DataFecha(fechaCreacion.getDay(), fechaCreacion.getMonth(), fechaCreacion.getYear());
+        this.fechaInicio   = new DataFecha(fechaInicio.getDay(), fechaInicio.getMonth(), fechaInicio.getYear());
+        this.fechaFin      = new DataFecha(fechaFin.getDay(), fechaFin.getMonth(), fechaFin.getYear());
         this.precio        = precio;
         this.estado        = estado;        
     }
@@ -47,15 +47,15 @@ public class DataReserva {
         return identificador;
     }
     
-    public Date getFechaCreacion(){
+    public DataFecha getFechaCreacion(){
         return fechaCreacion;
     }
 
-    public Date getFechaInicio(){
+    public DataFecha getFechaInicio(){
         return fechaInicio;
     }
     
-    public Date getFechaFin(){
+    public DataFecha getFechaFin(){
         return fechaFin;
     }
     
@@ -71,15 +71,15 @@ public class DataReserva {
         this.identificador = identificador;
     }
 
-    public void setFechaCreacion(Date fechaCreacion) {
+    public void setFechaCreacion(DataFecha fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(DataFecha fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(DataFecha fechaFin) {
         this.fechaFin = fechaFin;
     }
 
