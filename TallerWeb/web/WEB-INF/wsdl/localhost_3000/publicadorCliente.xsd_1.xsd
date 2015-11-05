@@ -15,6 +15,39 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="dataInfoCliente">
+<xs:sequence>
+<xs:element name="nickname" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="apellido" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="email" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="fechaNac" type="tns:dataFecha" minOccurs="0"></xs:element>
+<xs:element name="imagen" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="reservas" type="tns:dataReserva" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element name="password" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="hola" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dataFecha">
+<xs:sequence>
+<xs:element name="dia" type="xs:int"></xs:element>
+<xs:element name="mes" type="xs:int"></xs:element>
+<xs:element name="anio" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dataReserva">
+<xs:sequence>
+<xs:element name="identificador" type="xs:int"></xs:element>
+<xs:element name="fechaCreacion" type="tns:dataFecha" minOccurs="0"></xs:element>
+<xs:element name="fechaInicio" type="tns:dataFecha" minOccurs="0"></xs:element>
+<xs:element name="fechaFin" type="tns:dataFecha" minOccurs="0"></xs:element>
+<xs:element name="precio" type="xs:float"></xs:element>
+<xs:element name="estado" type="tns:estado" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
 <xs:simpleType name="estado">
 <xs:restriction base="xs:string">
 <xs:enumeration value="registrada"></xs:enumeration>

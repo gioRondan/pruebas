@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logica.DataCliente;
-import logica.DataInfoCliente;
+import wsc.DataInfoCliente;
 import logica.Fabrica;
 import logica.IControladorCliente;
 import org.json.simple.JSONArray;
@@ -64,7 +64,6 @@ public class inicioSesion extends HttpServlet {
 //        } catch (ParseException ex) {
 //            Logger.getLogger(inicioSesion.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-        
         if ((request.getSession().getAttribute("Login") == "Logeado")){
             
              request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);
@@ -73,9 +72,11 @@ public class inicioSesion extends HttpServlet {
             if(request.getParameter("entrar") != null){
                String nick = (String) request.getParameter("nick");
                String pass = (String) request.getParameter("pass");
-               DataInfoCliente cliente = ICC.iniciarSesion(nick, pass);
+               DataInfoCliente cliente = port.iniciarSesion(nick, pass);
+               
                if(cliente != null){
                    request.getSession().setAttribute("dataCliente", cliente);
+                   request.getSession().setAttribute("dataClienteres", cliente.getReservas());
                    request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);
                    request.getSession().setAttribute("Login", "Logeado");
                }else{

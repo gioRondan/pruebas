@@ -2,12 +2,11 @@
     Document   : listar
     Author     : Igui
 --%>
+<%@page import="wsc.DataReserva"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
-<%@page import="logica.DataReserva"%>
-<%@page import="logica.DataInfoCliente"%>
+<%@page import="wsc.DataInfoCliente"%>
 <%@page import="javax.websocket.Session"%>
-<%@page import="java.util.List"%>
 <%@page import="java.util.List"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -87,13 +86,14 @@
                             </thead>
                             <tbody>
                                 <% 
-                                List<DataReserva> a = cliente.getReservas();
+                                  
+                                List<DataReserva> a = (List<DataReserva>) request.getSession().getAttribute("dataClienteres");
                                 if (a!=null){
                                     for(DataReserva c : a){ 
                                 %> 
                                     <tr> 
                                         <td>
-                                            <a href="<%="verinforeserva?nickCliente="+cliente.getNickname()+"&verInfoReserva="+c.getId()%> "><%=c.getId()%></a>
+                                            <a href="<%="verinforeserva?nickCliente="+cliente.getNickname()+"&verInfoReserva="+c.getIdentificador()%> "><%=c.getIdentificador()%></a>
                                         </td>
                                         <td><%= formatoFecha.format(c.getFechaCreacion()) %></td>
                                         <td><%=c.getPrecio() %></td>
