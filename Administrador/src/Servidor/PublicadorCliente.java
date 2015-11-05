@@ -20,6 +20,7 @@ import javax.xml.ws.Endpoint;
 import jdk.nashorn.internal.ir.debug.JSONWriter;
 import logica.DataCiudad;
 import logica.DataCliente;
+import logica.DataInfoCliente;
 import logica.Estado;
 import logica.Fabrica;
 import logica.IControladorCliente;
@@ -137,12 +138,12 @@ public class PublicadorCliente {
        
    }
    //###################################   Operaciones Tarea2      #########################################################################
-   
+   */
    @WebMethod
    public DataInfoCliente iniciarSesion(String nickCliente, String password){
-       return null;
+       return ICC.iniciarSesion(nickCliente, password);
    }
-   
+   /*
    
    @WebMethod
    public Date toDate(String fecha){

@@ -6,12 +6,15 @@
 package logica;
 
 import java.util.Date;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
 
 /**
  *
  * @author Juan
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DataProveedor {
     private String nickname;
     private String nombre;

@@ -7,18 +7,21 @@ package logica;
 
 import java.util.Date;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
 
 /**
  *
  * @author diego
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DataInfoCliente {
     private String nickname;
     private String nombre;
     private String apellido;
     private String email;
-    private Date fechaNac;
+    private DataFecha fechaNac;
     private String imagen;    
     private List<DataReserva> reservas;
     private String password;
@@ -29,7 +32,7 @@ public class DataInfoCliente {
         this.nickname   = "";
         this.apellido   = "";
         this.email      = "";
-        this.fechaNac   = null;
+        this.fechaNac   = new DataFecha();
         this.imagen     = "";
         this.reservas   = null;
         this.password = "";
@@ -40,7 +43,7 @@ public class DataInfoCliente {
         this.nickname   = nickname;
         this.apellido   = apellido;
         this.email      = email;
-        this.fechaNac   = fechaNac;
+        this.fechaNac   = new DataFecha(fechaNac.getDay(), fechaNac.getMonth(), fechaNac.getYear());
         this.imagen     = imagen;
         this.password = password;
         this.reservas = reservas;
@@ -63,7 +66,7 @@ public class DataInfoCliente {
         return email;
     }
 
-    public Date getFechaNac() {
+    public DataFecha getFechaNac() {
         return fechaNac;
     }
 
@@ -94,7 +97,7 @@ public class DataInfoCliente {
         this.email = email;
     }
 
-    public void setFechaNac(Date fechaNac) {
+    public void setFechaNac(DataFecha fechaNac) {
         this.fechaNac = fechaNac;
     }
 

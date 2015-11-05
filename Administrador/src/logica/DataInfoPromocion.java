@@ -7,10 +7,13 @@ package logica;
 
 import java.util.HashSet;
 import java.util.Set;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 /**
  *
  * @author diego
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DataInfoPromocion {
     private final String nombre;
     private final int descuento;

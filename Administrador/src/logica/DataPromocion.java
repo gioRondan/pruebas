@@ -5,10 +5,14 @@
  */
 package logica;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+
 /**
  *
  * @author diego
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DataPromocion {
 
     private String nombre;

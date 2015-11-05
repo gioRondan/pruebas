@@ -6,12 +6,15 @@
 package logica;
 
 import java.util.Date;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import org.json.simple.JSONObject;
 
 /**
  *
  * @author diego
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DataCliente {
     
     private String nickname;

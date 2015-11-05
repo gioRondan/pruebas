@@ -6,10 +6,14 @@
 
 package logica;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+
 /**
  *
  * @author giovani.rondan
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DataFecha {
     private int dia;
     private int mes;

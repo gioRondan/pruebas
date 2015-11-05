@@ -5,11 +5,14 @@
  */
 package logica;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
 /**
  *
  * @author giovani
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DataInfoServicio {
     private String nombre;
     private String descripcion;

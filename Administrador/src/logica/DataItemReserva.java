@@ -6,12 +6,15 @@
 package logica;
 
 import java.util.Date;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
 
 /**
  *
  * @author Juan
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DataItemReserva {
     private int cantidad; //cantidad de promociones o servicios reservados
     private Date fechaInicio;

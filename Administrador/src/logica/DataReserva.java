@@ -6,12 +6,15 @@
 package logica;
 
 import java.util.Date;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
 
 /**
  *
  * @author diego
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DataReserva {
     private int identificador;
     private Date fechaCreacion;
