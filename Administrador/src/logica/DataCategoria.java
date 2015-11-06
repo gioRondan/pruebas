@@ -39,11 +39,6 @@ public class DataCategoria {
         return hijos;
     }
 
-    @Override
-    public String toString() {
-        return nombre;
-    }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }

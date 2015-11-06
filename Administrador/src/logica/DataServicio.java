@@ -61,9 +61,5 @@ public class DataServicio {
         this.imagen = imagen;
     }
 
-    @Override
-    public String toString() {
-        return nombre + " - " + proveedor;
-    }
     
 }

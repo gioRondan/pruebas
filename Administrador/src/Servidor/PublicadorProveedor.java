@@ -15,10 +15,12 @@ import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.ParameterStyle;
 import javax.jws.soap.SOAPBinding.Style;
 import javax.xml.ws.Endpoint;
+import logica.DataCategoria;
 import logica.DataInfoPromocion;
 import logica.DataInfoProveedor;
 import logica.DataInfoServicio;
 import logica.DataPromocion;
+import logica.DataProveedor;
 import logica.DataServicio;
 import logica.Fabrica;
 import logica.IControladorProveedor;
@@ -63,18 +65,47 @@ public class PublicadorProveedor {
    /*@WebMethod
    public List<DataCiudad> listarCiudades(){
        
+   }*/
+   @WebMethod
+   public DataCategoria[] listarCategorias(){
+       List<DataCategoria> aux4 = ICP.listarCategorias();
+        DataCategoria[] aux5 = new DataCategoria[aux4.size()];
+       int i = 0;
+       for( DataCategoria it : aux4){
+           aux5[i] = it;
+           i = i+1;
+       }
+       return aux5;
    }
    @WebMethod
-   public List<DataCategoria> listarCategorias();
-   */@WebMethod
    public void altaServicio(String nombre, String descripcion, int precio, String origen, String proveedor, String pais)throws Exception{
        ICP.altaServicio(nombre, descripcion, precio, origen, proveedor, pais);
-   }/*
+   }
    @WebMethod
-   public List<DataProveedor> listarProveedores();
+   public DataProveedor[] listarProveedores()
+   {
+       List<DataProveedor> aux4 = ICP.listarProveedores();
+        DataProveedor[] aux5 = new DataProveedor[aux4.size()];
+       int i = 0;
+       for( DataProveedor it : aux4){
+           aux5[i] = it;
+           i = i+1;
+       }
+       return aux5;
+   }
    @WebMethod
-   public List<DataServicio> listarServiciosXCategoria(String nomCategoria);
-   */@WebMethod
+   public DataServicio[] listarServiciosXCategoria(String nomCategoria){
+      List<DataServicio> aux4 = ICP.listarServiciosXCategoria(nomCategoria);
+        DataServicio[] aux5 = new DataServicio[aux4.size()];
+       int i = 0;
+       for( DataServicio it : aux4){
+           aux5[i] = it;
+           i = i+1;
+       }
+       return aux5;
+   };
+  
+   @WebMethod
    public void ingresarNombreCategoria(String nombre){
        ICP.ingresarNombreCategoria(nombre);
    }
@@ -86,9 +117,18 @@ public class PublicadorProveedor {
    public void altaCategoria(/*sin parametros?*/) throws Exception{
        ICP.altaCategoria();
    }
-   /*@WebMethod
-   public List<DataServicio> listarServiciosXProveedor(String nomProveedor);
    @WebMethod
+   public DataServicio[] listarServiciosXProveedor(String nomProveedor){
+       List<DataServicio> aux4 = ICP.listarServiciosXProveedor(nomProveedor);
+        DataServicio[] aux5 = new DataServicio[aux4.size()];
+       int i = 0;
+       for( DataServicio it : aux4){
+           aux5[i] = it;
+           i = i+1;
+       }
+       return aux5;
+   };
+   /*@WebMethod
    public void altaPromocion( String nomProveedor,List<String> ser, String nombre, int descuento) throws Exception{
        ICP.altaPromocion(nomProveedor, ser, nombre, descuento);
    }*/
@@ -129,10 +169,19 @@ public class PublicadorProveedor {
    @WebMethod
    public void altaProveedor(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String nombreEmp, String LinkEmpres, String password) throws Exception{
        ICP.altaProveedor(nick, nombre, apellido, email, fechaNac, imagen, nombreEmp, LinkEmpres, password);
-   }
+   }*/
    @WebMethod
-   public List<DataPromocion> listarPromocionesXProveedor(String nomProveedor);
-   */@WebMethod
+   public DataPromocion[] listarPromocionesXProveedor(String nomProveedor){
+    List<DataPromocion> aux4 = ICP.listarPromocionesXProveedor(nomProveedor);
+        DataPromocion[] aux5 = new DataPromocion[aux4.size()];
+       int i = 0;
+       for( DataPromocion it : aux4){
+           aux5[i] = it;
+           i = i+1;
+       }
+       return aux5;
+   };
+   @WebMethod
    public DataInfoPromocion verInfoPromocion(String nickproveedor, String nomPromocion){
        return ICP.verInfoPromocion(nickproveedor, nomPromocion);
    }
