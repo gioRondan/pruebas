@@ -6,6 +6,7 @@ t   : inicioSesion
     Author     : giovani.rondan
 --%>
 
+<%@page import="java.util.List"%>
 <%@page import="logica.DataCliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -65,9 +66,16 @@ t   : inicioSesion
                     <img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" style="width:150px;height:150px;">
                     <h2 class="form-signin-heading">Inicio de sesión</h2>
                     <label for="inputEmail" class="sr-only">Correo</label>
-                    <input class="form-control" id="nick" name="nick"placeholder="Introduzca su nick" required="" autofocus="">
+                    <input class="form-control" id="nick" name="nick" placeholder="Introduzca su nick" required="" autofocus="">
+                    <% 
+                        servidor.DataCiudadArray hola = (servidor.DataCiudadArray) request.getSession().getAttribute("datatype");
+                        List<servidor.DataCiudad> ciudades = hola.getItem();
+                        for (servidor.DataCiudad ciudad : ciudades){ %>
+                            <a><%= ciudad.getNombre()+' '+ciudad.getPais() %></a><br>
+                        <% }; %>
+                        
                     <label for="inputPassword" class="sr-only">Contraseña</label>
-                    <input type="password" class="form-control" id="pwd" name="pass"placeholder="Introduzca su password" required="">
+                    <input type="password" class="form-control" id="pwd" name="pass" placeholder="Introduzca su password" required="">
                     <div class="checkbox">
                         <label>
                             <input type="checkbox" value="remember-me"> Recordarme
@@ -81,10 +89,7 @@ t   : inicioSesion
             </div>
         </div>
         
-        <script>
-            var x ='<%=request.getSession().getAttribute("json")%>';
-            alert(x);
-        </script>
+      
 <!--        <div class="centerbox" >
             <div class="container" >
                 <form class="form-horizontal" role="form" >
