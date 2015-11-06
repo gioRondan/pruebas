@@ -8,6 +8,7 @@ package Servidor;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -99,8 +100,9 @@ public class PublicadorCliente {
        aux4.add(aux3);
        DataCiudad[] aux5 = new DataCiudad[aux4.size()];
        int i = 0;
-       for (DataCiudad value : aux4){
-            aux5[i] = value;
+       Iterator it = aux4.iterator();
+        while(it.hasNext()) {
+            aux5[i] = (DataCiudad) it.next();
             i++;
         }
        return aux5;
