@@ -66,13 +66,15 @@ public class PublicadorCliente {
    
    
    @WebMethod
-   public String listarClientes(){
+   public DataCliente[] listarClientes(){
     List<DataCliente> clientes = ICC.listarClientes();
-    List lista = new LinkedList();
-    for (DataCliente cliente : clientes ){
-        lista.add(cliente.ToJson());
-    }
-         return JSONValue.toJSONString(lista);
+    DataCliente[] aux5 = new DataCliente[clientes.size()];
+       int i = 0;
+       for( DataCliente it : clientes){
+           aux5[i] = it;
+           i = i+1;
+       }
+         return aux5;
 
    }
    @WebMethod
