@@ -18,6 +18,7 @@ import Cargadedatos.CargaInicial;
 import logica.DataInfoCliente;
 import logica.Fabrica;
 import logica.IControladorCliente;
+import wsc.DataFecha;
 
 
 /**
@@ -40,21 +41,29 @@ public class registrarCliente extends HttpServlet {
             throws ServletException, IOException {
          Fabrica fab = Fabrica.getInstance();
         IControladorCliente ICC = fab.getIControladorCliente();
+        wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
+        wsc.PublicadorCliente port = service.getPublicadorClientePort();
+        String nick = request.getParameter("nickRegistrar");
+        String pass = request.getParameter("passRegistrar");
         if (request.getParameter("registrar") != null) {
             request.getRequestDispatcher("/WEB-INF/Usuarios/registrarCliente.jsp").forward(request, response);
         } else if (request.getParameter("altaCliente") != null) {
             try {
-              /* consumo webservice
-                wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
-        wsc.PublicadorCliente port = service.getPublicadorClientePort();
-        port.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), null,null , request.getParameter("passRegistrar"));
+              
+//                wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
+//        wsc.PublicadorCliente port = service.getPublicadorClientePort();
+                DataFecha dateNac= new DataFecha();
+                dateNac.setDia(1);
+                dateNac.setMes(1);
+                dateNac.setAnio(2000);
+        port.altaCliente(nick, request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), dateNac, "imagen" , pass);
                 
-                */ICC.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), null,CargaInicial.getRuta()+"Imagenes/Usuarios/"+request.getParameter("nickRegistrar")+".png" , request.getParameter("passRegistrar"));
+                //ICC.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), null,CargaInicial.getRuta()+"Imagenes/Usuarios/"+request.getParameter("nickRegistrar")+".png" , request.getParameter("passRegistrar"));
             } catch (Exception ex) {
                 Logger.getLogger(registrarCliente.class.getName()).log(Level.SEVERE, null, ex);
 
             }
-            DataInfoCliente cliente = ICC.iniciarSesion(request.getParameter("nickRegistrar"), request.getParameter("passRegistrar"));
+            wsc.DataInfoCliente cliente = port.iniciarSesion(nick, pass);
             request.getSession().setAttribute("dataCliente", cliente);
             request.getSession().setAttribute("Login", "Logeado");
             request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);

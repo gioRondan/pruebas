@@ -6,14 +6,14 @@
 </types>
 <message name="listarClientes"></message>
 <message name="listarClientesResponse">
-<part name="return" type="xsd:string"></part>
+<part name="return" type="tns:dataClienteArray"></part>
 </message>
 <message name="altaCliente">
 <part name="arg0" type="xsd:string"></part>
 <part name="arg1" type="xsd:string"></part>
 <part name="arg2" type="xsd:string"></part>
 <part name="arg3" type="xsd:string"></part>
-<part name="arg4" type="xsd:dateTime"></part>
+<part name="arg4" type="tns:dataFecha"></part>
 <part name="arg5" type="xsd:string"></part>
 <part name="arg6" type="xsd:string"></part>
 </message>
