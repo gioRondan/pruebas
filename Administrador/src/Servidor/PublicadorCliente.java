@@ -89,22 +89,26 @@ public class PublicadorCliente {
        aux.setNombre("cardona");
        aux.setPais("hola2");
        DataCiudad aux2 = new DataCiudad();
-       aux.setNombre("cardona2");
-       aux.setPais("hola22");
+       aux2.setNombre("cardona2");
+       aux2.setPais("hola22");
        DataCiudad aux3 = new DataCiudad();
-       aux.setNombre("cardona3");
-       aux.setPais("hola23");
+       aux3.setNombre("cardona3");
+       aux3.setPais("hola23");
        List<DataCiudad> aux4 = new ArrayList<>();
        aux4.add(aux);
        aux4.add(aux2);
        aux4.add(aux3);
        DataCiudad[] aux5 = new DataCiudad[aux4.size()];
        int i = 0;
-       Iterator it = aux4.iterator();
+       for( DataCiudad it : aux4){
+           aux5[i] = it;
+           i = i+1;
+       }
+       /*Iterator it = aux4.iterator();
         while(it.hasNext()) {
             aux5[i] = (DataCiudad) it.next();
             i++;
-        }
+        }*/
        return aux5;
    }
    /*
