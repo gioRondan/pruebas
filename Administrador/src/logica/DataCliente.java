@@ -21,7 +21,7 @@ public class DataCliente {
     private String nombre;
     private String apellido;
     private String email;
-    private Date fechaNac;
+    private DataFecha fechaNac;
     private String imagen;   
     private String password;
     
@@ -31,7 +31,7 @@ public class DataCliente {
         this.nickname   = "";
         this.apellido   = "";
         this.email      = "";
-        this.fechaNac   = null;
+        this.fechaNac   = new DataFecha();
         this.imagen     = "";
         this.password = "";
     }    
@@ -41,11 +41,11 @@ public class DataCliente {
         this.nickname   = nickname;
         this.apellido   = apellido;
         this.email      = email;
-        this.fechaNac   = fechaNac;
+        this.fechaNac   = new DataFecha(fechaNac.getDay(), fechaNac.getMonth(), fechaNac.getYear());
         this.imagen     = imagen;
         this.password = password;
     }
-    public JSONObject ToJson(){
+    /*public JSONObject ToJson(){
         JSONObject obj = new JSONObject();
         obj.put("nombre",this.nombre);
         obj.put("nickname",this.nickname);
@@ -56,7 +56,7 @@ public class DataCliente {
         obj.put("password",this.password);
         
         return obj;
-    }
+    }*/
 
     //Getters
     public String getNickname() {
@@ -75,7 +75,7 @@ public class DataCliente {
         return email;
     }
 
-    public Date getFechaNac() {
+    public DataFecha getFechaNac() {
         return fechaNac;
     }
 
@@ -99,7 +99,7 @@ public class DataCliente {
         this.email = email;
     }
 
-    public void setFechaNac(Date fechaNac) {
+    public void setFechaNac(DataFecha fechaNac) {
         this.fechaNac = fechaNac;
     }
 

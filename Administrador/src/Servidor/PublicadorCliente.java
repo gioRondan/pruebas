@@ -21,6 +21,7 @@ import javax.xml.ws.Endpoint;
 import jdk.nashorn.internal.ir.debug.JSONWriter;
 import logica.DataCiudad;
 import logica.DataCliente;
+import logica.DataFecha;
 import logica.DataInfoCliente;
 import logica.Estado;
 import logica.Fabrica;
@@ -60,8 +61,9 @@ public class PublicadorCliente {
    }
    
    @WebMethod
-   public void altaCliente(String nickname, String nombre, String apellido, String email, Date fechaNac, String imagen, String password)throws Exception{
-       ICC.altaCliente(nickname, nombre, apellido, email, fechaNac, imagen, password);
+   public void altaCliente(String nickname, String nombre, String apellido, String email, DataFecha fechaNac, String imagen, String password)throws Exception{
+       Date dateNac = new Date(fechaNac.getDia(), fechaNac.getMes(), fechaNac.getAnio());
+       ICC.altaCliente(nickname, nombre, apellido, email, dateNac, imagen, password);
    }
    
    
