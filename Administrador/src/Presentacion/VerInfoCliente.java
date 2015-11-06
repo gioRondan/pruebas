@@ -12,6 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import logica.DataCliente;
+import logica.DataFecha;
 import logica.DataInfoCliente;
 import logica.DataProveedor;
 import logica.DataReserva;
@@ -272,13 +273,13 @@ public class VerInfoCliente extends javax.swing.JInternalFrame {
         int cant = jList1.getAnchorSelectionIndex();
         String nick =  model.elementAt(cant).toString();
         DataInfoCliente dtinfocli = pp.ICC.verInfoCliente(nick);
-        Date fechaNac = dtinfocli.getFechaNac();
-        DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");		
+        DataFecha fechaNac = dtinfocli.getFechaNac();
+        		
         clienteNick.setText(dtinfocli.getNickname());
         clienteNombre.setText(dtinfocli.getNombre());
         clienteApellido.setText(dtinfocli.getApellido());
         clienteEmail.setText(dtinfocli.getEmail());
-        FechaNac.setText(formatoFecha.format(fechaNac));        
+        FechaNac.setText(fechaNac.getDia()+"/"+fechaNac.getMes()+"/"+fechaNac.getAnio());        
         this.rutaImagen = dtinfocli.getImagen();//falta revisar
         //Seteo el nombre de la imagen
 
