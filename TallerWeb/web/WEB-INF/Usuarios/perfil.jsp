@@ -63,7 +63,6 @@
                                 </td>
                                 <td>
                                    <% if (cliente.getImagen() !=null){%>
-                                        <img src="<%="C:/"+cliente.getImagen()%>" alt=""/>
                                     <br>
                                    <%}%>
                                 </td>

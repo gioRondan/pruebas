@@ -65,6 +65,7 @@ public class registrarCliente extends HttpServlet {
             }
             wsc.DataInfoCliente cliente = port.iniciarSesion(nick, pass);
             request.getSession().setAttribute("dataCliente", cliente);
+            request.getSession().setAttribute("dataCliente", cliente.getReservas());
             request.getSession().setAttribute("Login", "Logeado");
             request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);
         }
