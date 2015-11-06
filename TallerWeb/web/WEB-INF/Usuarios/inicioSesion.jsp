@@ -68,9 +68,9 @@ t   : inicioSesion
                     <label for="inputEmail" class="sr-only">Correo</label>
                     <input class="form-control" id="nick" name="nick" placeholder="Introduzca su nick" required="" autofocus="">
                     <% 
-                        servidor.DataCiudadArray hola = (servidor.DataCiudadArray) request.getSession().getAttribute("datatype");
-                        List<servidor.DataCiudad> ciudades = hola.getItem();
-                        for (servidor.DataCiudad ciudad : ciudades){ %>
+                        wsc.DataCiudadArray hola = (wsc.DataCiudadArray) request.getSession().getAttribute("datatype");
+                        List<wsc.DataCiudad> ciudades = hola.getItem();
+                        for (wsc.DataCiudad ciudad : ciudades){ %>
                             <a><%= ciudad.getNombre()+' '+ciudad.getPais() %></a><br>
                         <% }; %>
                         

@@ -40,8 +40,8 @@ public class existeusuario extends HttpServlet {
             String pass = request.getParameter("pass");
             String pass2 = request.getParameter("pass2");
             
-                servidor.PublicadorClienteService service = new servidor.PublicadorClienteService();
-        servidor.PublicadorCliente port = service.getPublicadorClientePort();
+                wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
+        wsc.PublicadorCliente port = service.getPublicadorClientePort();
             if (usuario != null){
 //                Fabrica.getInstance().getIControladorCliente().\
          

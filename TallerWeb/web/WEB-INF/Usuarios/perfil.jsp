@@ -1,8 +1,8 @@
 
-<%@page import="servidor.DataReserva"%>
+<%@page import="wsc.DataReserva"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
-<%@page import="servidor.DataInfoCliente"%>
+<%@page import="wsc.DataInfoCliente"%>
 <%@page import="javax.websocket.Session"%>
 <%@page import="java.util.List"%>
 
@@ -41,7 +41,7 @@
                                     <h1 >Perfil</h1>
                                     <%
                                       //  DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
-                                        servidor.DataInfoCliente cliente = (servidor.DataInfoCliente) request.getSession().getAttribute("dataCliente");
+                                        wsc.DataInfoCliente cliente = (wsc.DataInfoCliente) request.getSession().getAttribute("dataCliente");
                                     %>
                                     <br>
                                     Nickname: <%= cliente.getNickname()%>

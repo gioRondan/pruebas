@@ -4,12 +4,10 @@
 <xsd:import namespace="http://Servidor/" schemaLocation="http://localhost:3000/publicadorCliente?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
-<message name="actualizarEstadoReserva">
-<part name="arg0" type="xsd:int"></part>
-<part name="arg1" type="xsd:string"></part>
-<part name="arg2" type="tns:estado"></part>
+<message name="listarClientes"></message>
+<message name="listarClientesResponse">
+<part name="return" type="xsd:string"></part>
 </message>
-<message name="actualizarEstadoReservaResponse"></message>
 <message name="altaCliente">
 <part name="arg0" type="xsd:string"></part>
 <part name="arg1" type="xsd:string"></part>
@@ -23,13 +21,23 @@
 <message name="Exception">
 <part name="fault" element="tns:Exception"></part>
 </message>
-<message name="listarClientes"></message>
-<message name="listarClientesResponse">
-<part name="return" type="xsd:string"></part>
+<message name="actualizarEstadoReserva">
+<part name="arg0" type="xsd:int"></part>
+<part name="arg1" type="xsd:string"></part>
+<part name="arg2" type="tns:estado"></part>
+</message>
+<message name="actualizarEstadoReservaResponse"></message>
+<message name="prueba"></message>
+<message name="pruebaResponse">
+<part name="return" type="xsd:int"></part>
 </message>
 <message name="pruebaData"></message>
 <message name="pruebaDataResponse">
 <part name="return" type="tns:dataCiudad"></part>
+</message>
+<message name="pruebaDatas"></message>
+<message name="pruebaDatasResponse">
+<part name="return" type="tns:dataCiudadArray"></part>
 </message>
 <message name="iniciarSesion">
 <part name="arg0" type="xsd:string"></part>
@@ -38,19 +46,11 @@
 <message name="iniciarSesionResponse">
 <part name="return" type="tns:dataInfoCliente"></part>
 </message>
-<message name="prueba"></message>
-<message name="pruebaResponse">
-<part name="return" type="xsd:int"></part>
-</message>
 <message name="existeEmail">
 <part name="arg0" type="xsd:string"></part>
 </message>
 <message name="existeEmailResponse">
 <part name="return" type="xsd:boolean"></part>
-</message>
-<message name="pruebaDatas"></message>
-<message name="pruebaDatasResponse">
-<part name="return" type="tns:dataCiudadArray"></part>
 </message>
 <message name="existeNickName">
 <part name="arg0" type="xsd:string"></part>
@@ -59,38 +59,38 @@
 <part name="return" type="xsd:boolean"></part>
 </message>
 <portType name="PublicadorCliente">
-<operation name="actualizarEstadoReserva" parameterOrder="arg0 arg1 arg2">
-<input wsam:Action="http://Servidor/PublicadorCliente/actualizarEstadoReservaRequest" message="tns:actualizarEstadoReserva"></input>
-<output wsam:Action="http://Servidor/PublicadorCliente/actualizarEstadoReservaResponse" message="tns:actualizarEstadoReservaResponse"></output>
+<operation name="listarClientes">
+<input wsam:Action="http://Servidor/PublicadorCliente/listarClientesRequest" message="tns:listarClientes"></input>
+<output wsam:Action="http://Servidor/PublicadorCliente/listarClientesResponse" message="tns:listarClientesResponse"></output>
 </operation>
 <operation name="altaCliente" parameterOrder="arg0 arg1 arg2 arg3 arg4 arg5 arg6">
 <input wsam:Action="http://Servidor/PublicadorCliente/altaClienteRequest" message="tns:altaCliente"></input>
 <output wsam:Action="http://Servidor/PublicadorCliente/altaClienteResponse" message="tns:altaClienteResponse"></output>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://Servidor/PublicadorCliente/altaCliente/Fault/Exception"></fault>
 </operation>
-<operation name="listarClientes">
-<input wsam:Action="http://Servidor/PublicadorCliente/listarClientesRequest" message="tns:listarClientes"></input>
-<output wsam:Action="http://Servidor/PublicadorCliente/listarClientesResponse" message="tns:listarClientesResponse"></output>
-</operation>
-<operation name="pruebaData">
-<input wsam:Action="http://Servidor/PublicadorCliente/pruebaDataRequest" message="tns:pruebaData"></input>
-<output wsam:Action="http://Servidor/PublicadorCliente/pruebaDataResponse" message="tns:pruebaDataResponse"></output>
-</operation>
-<operation name="iniciarSesion" parameterOrder="arg0 arg1">
-<input wsam:Action="http://Servidor/PublicadorCliente/iniciarSesionRequest" message="tns:iniciarSesion"></input>
-<output wsam:Action="http://Servidor/PublicadorCliente/iniciarSesionResponse" message="tns:iniciarSesionResponse"></output>
+<operation name="actualizarEstadoReserva" parameterOrder="arg0 arg1 arg2">
+<input wsam:Action="http://Servidor/PublicadorCliente/actualizarEstadoReservaRequest" message="tns:actualizarEstadoReserva"></input>
+<output wsam:Action="http://Servidor/PublicadorCliente/actualizarEstadoReservaResponse" message="tns:actualizarEstadoReservaResponse"></output>
 </operation>
 <operation name="prueba">
 <input wsam:Action="http://Servidor/PublicadorCliente/pruebaRequest" message="tns:prueba"></input>
 <output wsam:Action="http://Servidor/PublicadorCliente/pruebaResponse" message="tns:pruebaResponse"></output>
 </operation>
-<operation name="existeEmail">
-<input wsam:Action="http://Servidor/PublicadorCliente/existeEmailRequest" message="tns:existeEmail"></input>
-<output wsam:Action="http://Servidor/PublicadorCliente/existeEmailResponse" message="tns:existeEmailResponse"></output>
+<operation name="pruebaData">
+<input wsam:Action="http://Servidor/PublicadorCliente/pruebaDataRequest" message="tns:pruebaData"></input>
+<output wsam:Action="http://Servidor/PublicadorCliente/pruebaDataResponse" message="tns:pruebaDataResponse"></output>
 </operation>
 <operation name="pruebaDatas">
 <input wsam:Action="http://Servidor/PublicadorCliente/pruebaDatasRequest" message="tns:pruebaDatas"></input>
 <output wsam:Action="http://Servidor/PublicadorCliente/pruebaDatasResponse" message="tns:pruebaDatasResponse"></output>
+</operation>
+<operation name="iniciarSesion" parameterOrder="arg0 arg1">
+<input wsam:Action="http://Servidor/PublicadorCliente/iniciarSesionRequest" message="tns:iniciarSesion"></input>
+<output wsam:Action="http://Servidor/PublicadorCliente/iniciarSesionResponse" message="tns:iniciarSesionResponse"></output>
+</operation>
+<operation name="existeEmail">
+<input wsam:Action="http://Servidor/PublicadorCliente/existeEmailRequest" message="tns:existeEmail"></input>
+<output wsam:Action="http://Servidor/PublicadorCliente/existeEmailResponse" message="tns:existeEmailResponse"></output>
 </operation>
 <operation name="existeNickName">
 <input wsam:Action="http://Servidor/PublicadorCliente/existeNickNameRequest" message="tns:existeNickName"></input>
@@ -99,7 +99,7 @@
 </portType>
 <binding name="PublicadorClientePortBinding" type="tns:PublicadorCliente">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"></soap:binding>
-<operation name="actualizarEstadoReserva">
+<operation name="listarClientes">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
@@ -120,25 +120,7 @@
 <soap:fault name="Exception" use="literal"></soap:fault>
 </fault>
 </operation>
-<operation name="listarClientes">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-</operation>
-<operation name="pruebaData">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-</operation>
-<operation name="iniciarSesion">
+<operation name="actualizarEstadoReserva">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
@@ -156,7 +138,7 @@
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
 </output>
 </operation>
-<operation name="existeEmail">
+<operation name="pruebaData">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
@@ -166,6 +148,24 @@
 </output>
 </operation>
 <operation name="pruebaDatas">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+</operation>
+<operation name="iniciarSesion">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+</operation>
+<operation name="existeEmail">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>

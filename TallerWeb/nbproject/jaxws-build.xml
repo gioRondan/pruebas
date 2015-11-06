@@ -28,7 +28,7 @@
     </target>
     <target name="wsimport-client-publicadorCliente" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/publicadorCliente"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/publicadorCliente" destdir="${build.generated.dir}/jax-wsCache/publicadorCliente" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/publicadorCliente/wsdl/localhost_3000/publicadorCliente.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:3000/publicadorCliente?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/publicadorCliente" destdir="${build.generated.dir}/jax-wsCache/publicadorCliente" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/publicadorCliente/wsdl/localhost_3000/publicadorCliente.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:3000/publicadorCliente?wsdl" xnocompile="true" xendorsed="true" package="wsc">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/publicadorCliente/wsdl/localhost_3000/publicadorCliente.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/publicadorCliente"/>
         </wsimport>
@@ -39,7 +39,7 @@
         </copy>
     </target>
     <target name="wsimport-client-clean-publicadorCliente" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/servidor"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/wsc"/>
         <delete dir="${build.generated.dir}/jax-wsCache/publicadorCliente"/>
     </target>
     <target name="wsimport-client-generate" depends="wsimport-client-publicadorCliente"/>
