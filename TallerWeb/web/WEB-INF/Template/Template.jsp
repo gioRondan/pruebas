@@ -4,7 +4,7 @@
     Author     : Rodrigo
 --%>
 
-<%@page import="logica.DataInfoCliente"%>
+
 <%@page import="org.apache.catalina.connector.Request"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -74,7 +74,7 @@
                             <li><a onClick="window.location = 'vercarrito';">  Carrito</a></li>                      
 
                             <%  if ((request.getSession().getAttribute("Login") == "Logeado")) { %>
-                            <li style="height: 50px;"><a onClick="window.location = 'iniciosesion'" style="padding-top:9px; height: 50px"><img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" label="Usuario" float="right" style="width:35px;height:35px;"> <% DataInfoCliente cliente = (DataInfoCliente) request.getSession().getAttribute("dataCliente");%><%=cliente.getNickname()%></a></li>
+                            <li style="height: 50px;"><a onClick="window.location = 'iniciosesion'" style="padding-top:9px; height: 50px"><img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" label="Usuario" float="right" style="width:35px;height:35px;">  <% logica.DataInfoCliente cliente = (logica.DataInfoCliente) request.getSession().getAttribute("dataCliente");%><%=cliente.getNickname()%></a></li>
                                     <%} else {%>
                             <li><a onClick="window.location = 'iniciosesion';"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                                 <% }%>

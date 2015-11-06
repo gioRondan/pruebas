@@ -15,13 +15,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logica.DataCliente;
-import wsc.DataInfoCliente;
+import logica.DataInfoCliente;
+
 import logica.Fabrica;
 import logica.IControladorCliente;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import wsc.DataCiudad;
+import servidor.DataCiudad;
 
 /**
  *
@@ -45,8 +46,8 @@ public class inicioSesion extends HttpServlet {
         Fabrica fab = Fabrica.getInstance();
         IControladorCliente ICC = fab.getIControladorCliente();
         
-        wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
-        wsc.PublicadorCliente port = service.getPublicadorClientePort();
+        servidor.PublicadorClienteService service = new servidor.PublicadorClienteService();
+        servidor.PublicadorCliente port = service.getPublicadorClientePort();
         
      // request.getSession().setAttribute("json", port.listarClientes());
       request.getSession().setAttribute("datatype", port.pruebaDatas());
@@ -72,7 +73,7 @@ public class inicioSesion extends HttpServlet {
             if(request.getParameter("entrar") != null){
                String nick = (String) request.getParameter("nick");
                String pass = (String) request.getParameter("pass");
-               DataInfoCliente cliente = port.iniciarSesion(nick, pass);
+                servidor.DataInfoCliente cliente = port.iniciarSesion(nick, pass);
                
                if(cliente != null){
                    request.getSession().setAttribute("dataCliente", cliente);

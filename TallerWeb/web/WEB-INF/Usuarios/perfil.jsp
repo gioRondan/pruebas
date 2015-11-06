@@ -1,11 +1,8 @@
-<%-- 
-    Document   : listar
-    Author     : Igui
---%>
-<%@page import="wsc.DataReserva"%>
+
+<%@page import="servidor.DataReserva"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
-<%@page import="wsc.DataInfoCliente"%>
+<%@page import="servidor.DataInfoCliente"%>
 <%@page import="javax.websocket.Session"%>
 <%@page import="java.util.List"%>
 
@@ -34,7 +31,7 @@
                     </ul>
                 </div>
 
-                <body onload="javascript:cambiarPestanna(pestanas,pestana1);"\>
+             
 
                     <div id="contenidopestanas" style="width: 500px" >
                     <div id="cpestana1" >
@@ -43,8 +40,8 @@
                                 <td>
                                     <h1 >Perfil</h1>
                                     <%
-                                        DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
-                                        DataInfoCliente cliente = (DataInfoCliente) request.getSession().getAttribute("dataCliente");
+                                      //  DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+                                        servidor.DataInfoCliente cliente = (servidor.DataInfoCliente) request.getSession().getAttribute("dataCliente");
                                     %>
                                     <br>
                                     Nickname: <%= cliente.getNickname()%>
@@ -60,7 +57,7 @@
                                     <%}%>
                                     <br>
                                     <% if (cliente.getFechaNac() !=null){%>
-                                        Fecha de nacimiento: <%= formatoFecha.format(cliente.getFechaNac()) %>
+                                        Fecha de nacimiento: <%= cliente.getFechaNac().getDia()+'/'+cliente.getFechaNac().getMes()+'/'+cliente.getFechaNac().getAnio() %>
                                     <%}%>
                                     <br>
                                 </td>
@@ -95,7 +92,7 @@
                                         <td>
                                             <a href="<%="verinforeserva?nickCliente="+cliente.getNickname()+"&verInfoReserva="+c.getIdentificador()%> "><%=c.getIdentificador()%></a>
                                         </td>
-                                        <td><%= formatoFecha.format(c.getFechaCreacion()) %></td>
+                                        <td><%=c.getFechaCreacion().getDia() %></td>
                                         <td><%=c.getPrecio() %></td>
                                         <td><%= c.getEstado().name() %></td> 
 
