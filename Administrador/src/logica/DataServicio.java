@@ -14,11 +14,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DataServicio {
-    private final String nombre;
-    private final String descripcion;
-    private final float precio;
+    private String nombre;
+    private String descripcion;
+    private float precio;
     private String[] imagen;
-    private final String proveedor;
+    private String proveedor;
     
     //Contructores
     public DataServicio(){
@@ -27,6 +27,22 @@ public class DataServicio {
         this.precio         = 0;
         this.imagen         = null;
         this.proveedor = "";
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
+    public void setProveedor(String proveedor) {
+        this.proveedor = proveedor;
     }
         
     public DataServicio(String nombre, String descripcion, float precio, String[] imagen, String proveedor){

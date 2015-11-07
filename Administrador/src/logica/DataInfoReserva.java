@@ -17,19 +17,19 @@ import javax.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DataInfoReserva {
     private int identificador;
-    private Date fechaCreacion;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private DataFecha fechaCreacion;
+    private DataFecha fechaInicio;
+    private DataFecha fechaFin;
     private float precio;
     private Estado estado;
-    private Set<DataItemReserva> items; 
-    
+    //private DataItemReserva[] items; 
+    private Set<DataItemReserva> items;
     //Constructores
     public DataInfoReserva(){
         this.identificador = 0;
-        this.fechaCreacion = new Date();
-        this.fechaInicio   = new Date();
-        this.fechaFin      = new Date();
+        this.fechaCreacion = new DataFecha();
+        this.fechaInicio   = new DataFecha();
+        this.fechaFin      = new DataFecha();
         this.precio        = 0;
         this.estado        = Estado.registrada;     
         this.items         = null;
@@ -37,12 +37,19 @@ public class DataInfoReserva {
     
     public DataInfoReserva(int identificador, Date fechaCreacion, Date fechaInicio, Date fechaFin, float precio, Estado estado, Set<DataItemReserva> items){
         this.identificador = identificador;
-        this.fechaCreacion = fechaCreacion;
-        this.fechaInicio   = fechaInicio;
-        this.fechaFin      = fechaFin;
+        this.fechaCreacion = new DataFecha(fechaCreacion.getDay(), fechaCreacion.getMonth(), fechaCreacion.getYear());
+        this.fechaInicio   = new DataFecha(fechaInicio.getDay(), fechaInicio.getMonth(), fechaInicio.getYear());
+        this.fechaFin      = new DataFecha(fechaFin.getDay(), fechaFin.getMonth(), fechaFin.getYear());
         this.precio        = precio;
-        this.estado        = estado;        
-        this.items         = items;
+        this.estado        = estado;       
+        /*DataItemReserva[] ret = new DataItemReserva[items.size()];
+        int i = 0;
+        for (DataItemReserva value : items){
+            ret[i] = value;
+            i++;
+        }
+        this.items = ret;*/
+        this.items = items;
     }
     
     //Getters
@@ -50,15 +57,15 @@ public class DataInfoReserva {
         return identificador;
     }
     
-    public Date getFechaCreacion(){
+    public DataFecha getFechaCreacion(){
         return fechaCreacion;
     }
 
-    public Date getFechaInicio(){
+    public DataFecha getFechaInicio(){
         return fechaInicio;
     }
     
-    public Date getFechaFin(){
+    public DataFecha getFechaFin(){
         return fechaFin;
     }
     
@@ -78,15 +85,15 @@ public class DataInfoReserva {
         this.identificador = identificador;
     }
 
-    public void setFechaCreacion(Date fechaCreacion) {
+    public void setFechaCreacion(DataFecha fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(DataFecha fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(DataFecha fechaFin) {
         this.fechaFin = fechaFin;
     }
 
@@ -98,7 +105,7 @@ public class DataInfoReserva {
         this.estado = estado;
     }
 
-    public void setItems(Set<DataItemReserva> items) {
+    public void setItems(Set<DataItemReserva>items) {
         this.items = items;
     }
  

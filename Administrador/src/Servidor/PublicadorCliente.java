@@ -23,6 +23,7 @@ import logica.DataCiudad;
 import logica.DataCliente;
 import logica.DataFecha;
 import logica.DataInfoCliente;
+import logica.DataInfoReserva;
 import logica.Estado;
 import logica.Fabrica;
 import logica.IControladorCliente;
@@ -131,13 +132,13 @@ public class PublicadorCliente {
    public List<DataReserva> listarReservasSistema(){
        return new ArrayList<>();
    }
-   
+   */
    
    @WebMethod
    public DataInfoReserva verInfoReserva(String nomCliente, int identificador){
        return null;
    }
-   
+   /*
    @WebMethod
    public DataInfoCliente verInfoCliente(String nomCliente){
        return null;

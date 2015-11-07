@@ -17,24 +17,24 @@ import javax.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DataItemReserva {
     private int cantidad; //cantidad de promociones o servicios reservados
-    private Date fechaInicio;
-    private Date fechaFin;
+    private DataFecha fechaInicio;
+    private DataFecha fechaFin;
     private boolean esServico;
     private DataServicio servicio;
     private DataPromocion promocion;
     //Constructores
     public DataItemReserva(){
         this.cantidad      = 0; 
-        this.fechaInicio   = new Date();
-        this.fechaFin      = new Date();
+        this.fechaInicio   = new DataFecha();
+        this.fechaFin      = new DataFecha();
         this.promocion        = null;
         this.servicio = null;
     }
     
     public DataItemReserva(int cantidad, Date fechaInicio, Date fechaFin, DataServicio servicio, DataPromocion promocion,boolean esservi){
         this.cantidad      = cantidad;
-        this.fechaInicio   = fechaInicio;
-        this.fechaFin      = fechaFin;
+        this.fechaInicio   = new DataFecha(fechaInicio.getDay(), fechaInicio.getMonth(), fechaInicio.getYear());
+        this.fechaFin      = new DataFecha(fechaFin.getDay(), fechaFin.getMonth(), fechaFin.getYear());
         this.servicio        = servicio;
         esServico = esservi;
         this.promocion = promocion;
@@ -45,11 +45,11 @@ public class DataItemReserva {
         return cantidad;
     }
         
-    public Date getFechaInicio(){
+    public DataFecha getFechaInicio(){
         return fechaInicio;
     }
     
-    public Date getFechaFin(){
+    public DataFecha getFechaFin(){
         return fechaFin;
     }
 
@@ -69,11 +69,11 @@ public class DataItemReserva {
         this.cantidad = cantidad;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(DataFecha fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(DataFecha fechaFin) {
         this.fechaFin = fechaFin;
     }
 
