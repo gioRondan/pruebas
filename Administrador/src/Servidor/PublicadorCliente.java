@@ -8,8 +8,6 @@ package Servidor;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import javax.jws.WebMethod;
@@ -24,6 +22,8 @@ import logica.DataCliente;
 import logica.DataFecha;
 import logica.DataInfoCliente;
 import logica.DataInfoReserva;
+import logica.DataItemReserva;
+import logica.DataReserva;
 import logica.Estado;
 import logica.Fabrica;
 import logica.IControladorCliente;
@@ -109,41 +109,50 @@ public class PublicadorCliente {
            aux5[i] = it;
            i = i+1;
        }
-       /*Iterator it = aux4.iterator();
-        while(it.hasNext()) {
-            aux5[i] = (DataCiudad) it.next();
-            i++;
-        }*/
        return aux5;
    }
-   /*
+   
    @WebMethod
    public void cancelarReserva(String nomCliente, int identificador){
        ICC.cancelarReserva(nomCliente, identificador);
    }
    
    @WebMethod
-   public List<DataReserva> listarReservasXCliente(String nomCliente){
-       return ICC.listarReservasXCliente(nomCliente);
+   public DataReserva[] listarReservasXCliente(String nomCliente){
+        List<DataReserva> aux = ICC.listarReservasXCliente(nomCliente);
+       DataReserva[] ret = new DataReserva[aux.size()];
+       int i = 0;
+       for(DataReserva it : aux){
+           ret[i] = it;
+           i++;
+       }
+       return ret;
    }
-   
+ 
    
    @WebMethod
-   public List<DataReserva> listarReservasSistema(){
-       return new ArrayList<>();
+   public DataReserva[] listarReservasSistema(){
+       List<DataReserva> aux = ICC.listarReservasSistema();
+       DataReserva[] ret = new DataReserva[aux.size()];
+       int i = 0;
+       for(DataReserva it : aux){
+           ret[i] = it;
+           i++;
+       }
+       return ret;
    }
-   */
+   
    
    @WebMethod
    public DataInfoReserva verInfoReserva(String nomCliente, int identificador){
-       return null;
-   }
-   /*
-   @WebMethod
-   public DataInfoCliente verInfoCliente(String nomCliente){
-       return null;
+       return ICC.verInfoReserva(nomCliente, identificador);
    }
    
+   @WebMethod
+   public DataInfoCliente verInfoCliente(String nomCliente){
+       return ICC.verInfoCliente(nomCliente);
+   }
+   /*
    @WebMethod
    public void realizarReserva(String proveedor,String cliente,Map<String,Integer> servicio, Map<String,Integer> promocion,Map<String,DataExpira> fechas,Map<String,DataExpira> fechaspromos,Date fecha_creacion )throws Exception{
        
@@ -160,12 +169,16 @@ public class PublicadorCliente {
    public Date toDate(String fecha){
        return null;
    }
-   
-   @WebMethod
-   public void confirmarReserva(List<DataItemReserva> itemsr,DataInfoCliente cli)throws Exception{
-       
-   }
    */
+   @WebMethod
+   public void confirmarReserva(DataItemReserva[] itemsr,DataInfoCliente cli)throws Exception{
+       List<DataItemReserva> aux = new ArrayList<>();
+       for(int i = 0; i < itemsr.length; ++i){
+           aux.add(itemsr[i]);
+       }
+       ICC.confirmarReserva(aux, cli);
+   }
+   
    @WebMethod
    public boolean existeEmail(String email){
        return ICC.existeEmail(email);

@@ -43,7 +43,7 @@ public class DataPromocion {
     public String getNombre(){
         return nombre;
     }
-    public String getnickProveedro(){
+    public String getNickProveedor(){
         return  nickProveedor;
     }
 

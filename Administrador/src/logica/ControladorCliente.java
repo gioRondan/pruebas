@@ -158,12 +158,12 @@ public class ControladorCliente implements IControladorCliente{
                 Servicio servicio;
                 
                     servicio = mprov.getProveedor(dtir.getServicio().getProveedor()).getServicio( dtir.getServicio().getNombre() );
-                    cliente.reservarServicio(clave1, servicio,dtir.getCantidad(), dtir.getFechaInicio(),dtir.getFechaFin());
+                    cliente.reservarServicio(clave1, servicio,dtir.getCantidad(), new Date(dtir.getFechaInicio().getDia(), dtir.getFechaInicio().getMes(), dtir.getFechaInicio().getAnio()), new Date(dtir.getFechaFin().getDia(), dtir.getFechaFin().getMes(), dtir.getFechaFin().getAnio()));
                     preciototal= preciototal + servicio.getPrecio()*dtir.getCantidad();
          
             }else{
-                Promocion promo = mprov.getProveedor(dtir.getPromocion().getnickProveedro()).getPromocion(dtir.getPromocion().getNombre());
-                cliente.reservarPromocion(clave1, promo,dtir.getCantidad(), dtir.getFechaInicio(),dtir.getFechaFin());
+                Promocion promo = mprov.getProveedor(dtir.getPromocion().getNickProveedor()).getPromocion(dtir.getPromocion().getNombre());
+                cliente.reservarPromocion(clave1, promo,dtir.getCantidad(), new Date(dtir.getFechaInicio().getDia(), dtir.getFechaInicio().getMes(), dtir.getFechaInicio().getAnio()), new Date(dtir.getFechaFin().getDia(), dtir.getFechaFin().getMes(), dtir.getFechaFin().getAnio()));
                 preciototal= preciototal + promo.getPrecioTotal()*dtir.getCantidad();
             }
             res.setPrecio(preciototal);

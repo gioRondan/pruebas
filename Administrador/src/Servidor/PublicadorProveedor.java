@@ -210,11 +210,29 @@ public class PublicadorProveedor {
        ICP.altaCiudad(nomCiudad, nomPais);
    }
 //################################      operaciones tarea 2 ####################################################################################
-   /*@WebMethod
-   public List<DataServicio> buscarServicios(String aBuscar); 
    @WebMethod
-   public List<DataPromocion> buscarPromociones(String aBuscar);
-   */@WebMethod
+   public DataServicio[] buscarServicios(String aBuscar){
+       List<DataServicio> aux = ICP.buscarServicios(aBuscar);
+       DataServicio[] ret = new DataServicio[aux.size()];
+       int i = 0;
+       for(DataServicio it : aux){
+           ret[i] = it;
+           i++;
+       }
+       return ret;
+   } 
+   @WebMethod
+   public DataPromocion[] buscarPromociones(String aBuscar){
+       List<DataPromocion> aux = ICP.buscarPromociones(aBuscar);
+       DataPromocion[] ret = new DataPromocion[aux.size()];
+       int i = 0;
+       for(DataPromocion it : aux){
+           ret[i] = it;
+           i++;
+       }
+       return ret;
+   }
+   @WebMethod
    public DataPromocion informacionPromocion(String pvr, String nom)throws Exception{
        return ICP.informacionPromocion(pvr, nom);
    }

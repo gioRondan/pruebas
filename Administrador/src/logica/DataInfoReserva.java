@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DataInfoReserva {
-    private int identificador;
+    private int id;
     private DataFecha fechaCreacion;
     private DataFecha fechaInicio;
     private DataFecha fechaFin;
@@ -26,7 +26,7 @@ public class DataInfoReserva {
     private Set<DataItemReserva> items;
     //Constructores
     public DataInfoReserva(){
-        this.identificador = 0;
+        this.id = 0;
         this.fechaCreacion = new DataFecha();
         this.fechaInicio   = new DataFecha();
         this.fechaFin      = new DataFecha();
@@ -36,7 +36,7 @@ public class DataInfoReserva {
     }
     
     public DataInfoReserva(int identificador, Date fechaCreacion, Date fechaInicio, Date fechaFin, float precio, Estado estado, Set<DataItemReserva> items){
-        this.identificador = identificador;
+        this.id = identificador;
         this.fechaCreacion = new DataFecha(fechaCreacion.getDay(), fechaCreacion.getMonth(), fechaCreacion.getYear());
         this.fechaInicio   = new DataFecha(fechaInicio.getDay(), fechaInicio.getMonth(), fechaInicio.getYear());
         this.fechaFin      = new DataFecha(fechaFin.getDay(), fechaFin.getMonth(), fechaFin.getYear());
@@ -54,7 +54,7 @@ public class DataInfoReserva {
     
     //Getters
     public int getId(){
-        return identificador;
+        return id;
     }
     
     public DataFecha getFechaCreacion(){
@@ -81,8 +81,8 @@ public class DataInfoReserva {
         return items;
     }
 
-    public void setIdentificador(int identificador) {
-        this.identificador = identificador;
+    public void setId(int identificador) {
+        this.id = identificador;
     }
 
     public void setFechaCreacion(DataFecha fechaCreacion) {
