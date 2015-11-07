@@ -1,12 +1,12 @@
 
 
-<%@page import="logica.DataProveedor"%>
+<%@page import="wsp.DataProveedor"%>
 <%@page import="java.util.Comparator"%>
 <%@page import="java.util.Collections"%>
-<%@page import="logica.DataCategoria"%>
-<%@page import="logica.DataPromocion"%>
-<%@page import="logica.DataServicio"%>
-<%@page import="logica.DataServicio"%>
+<%@page import="wsp.DataCategoria"%>
+<%@page import="wsp.DataPromocion"%>
+<%@page import="wsp.DataServicio"%>
+<%@page import="wsp.DataServicio"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.List"%>
 
@@ -159,19 +159,19 @@
                                                 <td >
                                                     <%="Nombre: "+promocion.getNombre() %><br>
                                                     <%="Precio: US$ "+promocion.getPrecioTotal() %><br>
-                                                    <%="Proveedor: "+promocion.getnickProveedro() %><br>
+                                                    <%="Proveedor: "+promocion.getNickProveedor() %><br>
                                                    
                                                     <form action="verinfopromocion" style="float: left">
                                                         <input type="submit" value="Mas Info" name="Vermasinfo" style="color: black"  /><br>
                                                         <input type="text" label="nomPromocion" id="nombresri" name="nomPromocion" value="<%=promocion.getNombre()%>" hidden="true"> 
-                                                        <input type="text" label="nomProveedorPromocion" id="nombrerprv" name="nomProveedorPromocion" value="<%=promocion.getnickProveedro()%>" hidden="true">
+                                                        <input type="text" label="nomProveedorPromocion" id="nombrerprv" name="nomProveedorPromocion" value="<%=promocion.getNickProveedor()%>" hidden="true">
                                                     </form> 
                                                 </td>
                                                 <%  if ((request.getSession().getAttribute("Login") == "Logeado")){ %>
                                                 <td style="width: 45%">
                                                    <form action="agregaraacarrito">
                                                         <input type="text" label="nomPromocion" id="nombresri" name="nomPromocion" value="<%=promocion.getNombre()%>" hidden="true">
-                                                        <input type="text" label="nomProveedorPromocion" id="nombrerprv" name="nomProveedorPromocion" value="<%=promocion.getnickProveedro()%>" hidden="true">
+                                                        <input type="text" label="nomProveedorPromocion" id="nombrerprv" name="nomProveedorPromocion" value="<%=promocion.getNickProveedor()%>" hidden="true">
                                                         <input type="text" label="Tipo" id="Cantidad4" value="false" name="esservicio" hidden="true">
                                                         <table border="0" cellspacing="1" >
                                                             <thead>
@@ -261,7 +261,7 @@
                 $('#filtro').attr("value",r.join(', ')+', ');
               
               })
-            .jstree( <%= request.getAttribute("dataCategorias")  %>
+            .jstree( <%= request.getAttribute("dataCategorias")  %>);
             });
             
         

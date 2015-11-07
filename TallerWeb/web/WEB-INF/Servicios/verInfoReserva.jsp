@@ -1,12 +1,9 @@
-<%-- 
-    Document   : listar
-    Author     : Igui
---%>
+
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.util.Set"%>
-<%@page import="logica.DataItemReserva"%>
-<%@page import="logica.DataInfoReserva"%>
+<%@page import="wsc.DataItemReserva"%>
+<%@page import="wsc.DataInfoReserva"%>
 <%@page import="logica.DataInfoCliente"%>
 <%@page import="javax.websocket.Session"%>
 <%@page import="java.util.List"%>
@@ -18,12 +15,11 @@
 <html>
     <head>
         <div id="pageheader">
-            <%--<jsp:include page="Template.jsp" /> hacen lo mismo --%> 
            <%@ include file="\WEB-INF\Template\Template.jsp" %>
         </div>
         <title>H4Travel</title>
     </head>
-    <body>        
+    <body>       
         <div class="centerbox" style="text-align:left; margin:auto; width:85% " > 
             <div class="container" >
                 <h1>Informacion General de la Reserva </h1>
@@ -51,16 +47,15 @@
                     DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
                        String servlet ="";
                        String tipo = "";
-                       
-                       Set<DataItemReserva> items = reserva.getItems();
+                       List<DataItemReserva> items = reserva.getItems();
                        for(DataItemReserva item : items){
-                           if (item.getesServico()){
+                           if (item.getServicio() != null){
                        %> 
                                 <tr> 
                                     <td>
                                         <a href="verinfoservicio?nomProveedorServicio=<%=item.getServicio().getProveedor()%>&nomServicio=<%=item.getServicio().getNombre()%>" ><%=item.getServicio().getNombre()%></a>
                                     </td>
-                                    <td><%= item.getCantidad() %></td> 
+                               Solos     <td><%= item.getCantidad() %></td> 
                                     <td><%= formatoFecha.format(item.getFechaInicio()) %></td>
                                     <td><%=formatoFecha.format(item.getFechaFin()) %></td>
                                     <td> Servicio </td> 
@@ -68,7 +63,7 @@
                             <%}else{%> 
                                 <tr> 
                                     <td>
-                                        <a href="<%="verinfopromocion?nomProveedorPromocion="+item.getPromocion().getnickProveedro()+"&nomPromocion="+item.getPromocion().getNombre()%>" > <%=item.getPromocion().getNombre()%></a>
+                                        <a href="<%="verinfopromocion?nomProveedorPromocion="+item.getPromocion().getNickProveedor()+"&nomPromocion="+item.getPromocion().getNombre()%>" > <%=item.getPromocion().getNombre()%></a>
                                     </td>
                                     <td><%= item.getCantidad() %></td> 
                                     <td><%= formatoFecha.format(item.getFechaInicio()) %></td>
@@ -79,6 +74,6 @@
                         <%}//CIERRO FOR DE LOS ITEM RESERVA%>
                 </table>
             </div>
-        </div>
+        </div>   
     </body>
 </html>

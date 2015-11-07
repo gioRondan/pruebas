@@ -18,13 +18,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Cargadedatos.CargaInicial;
-import logica.DataCategoria;
-import logica.DataItemReserva;
-import logica.DataPromocion;
-import logica.DataProveedor;
-import logica.DataServicio;
+import wsp.DataCategoria;
+import wsc.DataItemReserva;
+import wsp.DataPromocion;
+import wsp.DataProveedor;
+import wsp.DataServicio;
 import logica.Fabrica;
 import logica.IControladorProveedor;
+import wsp.Exception_Exception;
 
 
 /**
@@ -58,6 +59,8 @@ public class Home extends HttpServlet {
         
                     Fabrica fab = Fabrica.getInstance();
                     IControladorProveedor ICP = fab.getIControladorProveedor();
+                    wsp.PublicadorProveedorService service = new wsp.PublicadorProveedorService();
+        wsp.PublicadorProveedor portP = service.getPublicadorProveedorPort();
                 if  (request.getSession().getAttribute("Login") == null){
                     request.getSession().setAttribute("Login", "NoLogeado");
                     List<DataItemReserva> itemsreservascarro = new ArrayList<DataItemReserva>();
@@ -71,7 +74,7 @@ public class Home extends HttpServlet {
                 }
                    
                     
-                    List<DataCategoria> dtps = ICP.listarCategorias();
+                    List<DataCategoria> dtps = portP.listarCategorias().getItem();
                     prueba = " { 'core' : {'data' : [";
                     indice =0;
                     armarArbol("'#'", dtps);
@@ -81,12 +84,12 @@ public class Home extends HttpServlet {
                     request.setAttribute("dataCategorias", prueba);
                     
                     List<DataServicio> servicos = new ArrayList<DataServicio>();
-                    List<DataProveedor> prove = ICP.listarProveedores();
+                    List<DataProveedor> prove = portP.listarProveedores().getItem();
                     List<DataPromocion> promos = new ArrayList<DataPromocion>();
                     if ( (request.getParameter("textodebusqueda")!=null) && (!(request.getParameter("textodebusqueda")).equals(" ") ) ){
                         request.getSession().setAttribute("textodebusqueda", request.getParameter("textodebusqueda"));//seteo para mantener el filtro en el jsp
-                        servicos.addAll(ICP.buscarServicios(request.getParameter("textodebusqueda")));
-                        promos.addAll(ICP.buscarPromociones(request.getParameter("textodebusqueda")));
+                        servicos.addAll(portP.buscarServicios(request.getParameter("textodebusqueda")).getItem());
+                        promos.addAll(portP.buscarPromociones(request.getParameter("textodebusqueda")).getItem());
 //                         if ( (request.getParameter("categoria") != null) && (!(request.getParameter("categoria").equals(" "))) ){
 //                            String categoria = (String) request.getParameter("categoria");
 //                            request.getSession().setAttribute("categoria", categoria);//seteo para mantener el filtro en el jsp
@@ -119,18 +122,18 @@ public class Home extends HttpServlet {
                             while (  categoria.indexOf(",")!=-1 ){
                                 comas = categoria.substring(0, categoria.indexOf(","));
                                 categoria = categoria.substring( categoria.indexOf(",")+2 , categoria.length() );
-                                servicos.addAll(ICP.listarServiciosXCategoria(comas));   
+                                servicos.addAll(portP.listarServiciosXCategoria(comas).getItem());   
                             }
 
                             for (DataProveedor una : prove){ 
-                               promos.addAll(ICP.listarPromocionesXProveedor(una.getNickname()));
+                               promos.addAll(portP.listarPromocionesXProveedor(una.getNickname()).getItem());
                             }
                         }else{
                            request.getSession().setAttribute("categoria", " ");//seteo para mantener el filtro en el jsp
-                           List<DataProveedor> cate = ICP.listarProveedores();
+                           List<DataProveedor> cate = portP.listarProveedores().getItem();
                            for (DataProveedor una : cate){
-                              servicos.addAll(ICP.listarServiciosXProveedor(una.getNickname()));
-                              promos.addAll(ICP.listarPromocionesXProveedor(una.getNickname()));
+                              servicos.addAll(portP.listarServiciosXProveedor(una.getNickname()).getItem());
+                              promos.addAll(portP.listarPromocionesXProveedor(una.getNickname()).getItem());
                            }
                         }
                     }
@@ -255,5 +258,7 @@ public class Home extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+   
 
 }

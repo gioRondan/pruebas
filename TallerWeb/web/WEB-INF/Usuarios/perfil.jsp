@@ -104,7 +104,7 @@
             </div>
         </div>
          <form action="cierresesion" method="POST">
-            <input type="submit" name="cerrarSesion"value="Cerrar Sesion"/>
+            <input type="submit" name="cerrarSesion" value="Cerrar Sesion"/>
         </form>
         </div>
         
