@@ -12,8 +12,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.Fabrica;
-import logica.IControladorCliente;
 import wsc.DataInfoReserva;
 
 /**
@@ -38,8 +36,6 @@ public class verInfoReserva extends HttpServlet {
         wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
         wsc.PublicadorCliente port = service.getPublicadorClientePort();
         if(request.getParameter("verInfoReserva")!= null){
-             Fabrica fab = Fabrica.getInstance();
-        IControladorCliente ICC = fab.getIControladorCliente();
         
             request.setAttribute("dataInfoReserva",port.verInfoReserva(request.getParameter("nickCliente") , Integer.parseInt(request.getParameter("verInfoReserva"))) );
             request.getRequestDispatcher("./WEB-INF/Servicios/verInfoReserva.jsp").forward(request, response);

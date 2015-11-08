@@ -17,14 +17,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Cargadedatos.CargaInicial;
 import wsp.DataCategoria;
 import wsc.DataItemReserva;
 import wsp.DataPromocion;
 import wsp.DataProveedor;
 import wsp.DataServicio;
-import logica.Fabrica;
-import logica.IControladorProveedor;
 import wsp.Exception_Exception;
 
 
@@ -57,8 +54,6 @@ public class Home extends HttpServlet {
             throws ServletException, IOException {
         
         
-                    Fabrica fab = Fabrica.getInstance();
-                    IControladorProveedor ICP = fab.getIControladorProveedor();
                     wsp.PublicadorProveedorService service = new wsp.PublicadorProveedorService();
         wsp.PublicadorProveedor portP = service.getPublicadorProveedorPort();
                 if  (request.getSession().getAttribute("Login") == null){
@@ -66,11 +61,11 @@ public class Home extends HttpServlet {
                     List<DataItemReserva> itemsreservascarro = new ArrayList<DataItemReserva>();
                     request.getSession().setAttribute("textodebusqueda"," ");
                     request.getSession().setAttribute("ItemsReservaActual",itemsreservascarro );
-                        try {
-                           new CargaInicial().cargar();
-                        } catch (Exception ex) {
-                            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-                        }
+//                        try {
+//                           new CargaInicial().cargar();
+//                        } catch (Exception ex) {
+//                            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//                        }
                 }
                    
                     

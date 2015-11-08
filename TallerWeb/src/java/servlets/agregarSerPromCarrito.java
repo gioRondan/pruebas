@@ -15,8 +15,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.DataItemReserva;
-import logica.Fabrica;
+import wsc.DataItemReserva;
+import wsp.DataServicio;
+import wsp.Exception_Exception;
 
 
 /**
@@ -37,14 +38,15 @@ public class agregarSerPromCarrito extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-             
+             wsp.PublicadorProveedorService service = new wsp.PublicadorProveedorService();
+        wsp.PublicadorProveedor port = service.getPublicadorProveedorPort();
             if (request.getParameter("borrar")!=null){
                 List<DataItemReserva> itemsreservascarro = new ArrayList<DataItemReserva>();
                 List<DataItemReserva> ir2 = (List<DataItemReserva>)request.getSession().getAttribute("ItemsReservaActual");
                 for(DataItemReserva item : ir2 ){
                     String nom;
                     String pvr;
-                    if (item.getesServico()){
+                    if (item.isEsServico()){
                         nom = request.getParameter("nomServicio");
                         pvr = request.getParameter("nomProveedorServicio");
                         if (item.getServicio().getNombre().equals(nom) && item.getServicio().getProveedor().equals(pvr) ){
@@ -55,7 +57,7 @@ public class agregarSerPromCarrito extends HttpServlet {
                     }else{
                         nom = request.getParameter("nomPromocion");
                         pvr = request.getParameter("nomProveedorPromocion");
-                         if (item.getPromocion().getNombre().equals(nom) && item.getPromocion().getnickProveedro().equals(pvr) ){
+                         if (item.getPromocion().getNombre().equals(nom) && item.getPromocion().getNickProveedor().equals(pvr) ){
                             //ir2.remove(item);
                         }else{
                           itemsreservascarro.add(item);
@@ -85,10 +87,20 @@ public class agregarSerPromCarrito extends HttpServlet {
                     nom = request.getParameter("nomPromocion");
                     pvr = request.getParameter("nomProveedorPromocion");
                     cant = Integer.parseInt(request.getParameter("cantItemReservaPromo"));
-                    Date fini = Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechainiItemReservaPromo"));
-                    Date ffin = Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechafinItemReservaPromo"));
+                    Date fini = null;//Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechainiItemReservaPromo"));
+                    Date ffin = null;//Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechafinItemReservaPromo"));
                     try{
-                        ir2.add(new DataItemReserva(cant,fini ,ffin ,null,Fabrica.getInstance().getIControladorProveedor().informacionPromocion(pvr,nom),esser));
+                        DataItemReserva dtr = new DataItemReserva();
+                        dtr.setCantidad(cant);
+                        dtr.setFechaInicio(null);
+                        dtr.setFechaFin(null);
+                        if(esser){
+                            dtr.setServicio( port.informacionServicio(pvr,nom));
+                        }else{
+                            dtr.setPromocion(port.informacionPromocion(pvr,nom));
+                        }
+                        dtr.setEsServico(esser);
+                        ir2.add(dtr);
                     }catch(Exception e ){
                         
                     }
@@ -136,6 +148,8 @@ public class agregarSerPromCarrito extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    
 
     
 
