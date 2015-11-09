@@ -15,9 +15,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import wsc.DataItemReserva;
-import wsp.DataServicio;
-import wsp.Exception_Exception;
+import servidor.DataItemReserva;
+import servidor.DataServicio;
+import servidor.Exception_Exception;
 
 
 /**
@@ -38,8 +38,8 @@ public class agregarSerPromCarrito extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-             wsp.PublicadorProveedorService service = new wsp.PublicadorProveedorService();
-        wsp.PublicadorProveedor port = service.getPublicadorProveedorPort();
+             servidor.PublicadorProveedorService service = new servidor.PublicadorProveedorService();
+        servidor.PublicadorProveedor port = service.getPublicadorProveedorPort();
             if (request.getParameter("borrar")!=null){
                 List<DataItemReserva> itemsreservascarro = new ArrayList<DataItemReserva>();
                 List<DataItemReserva> ir2 = (List<DataItemReserva>)request.getSession().getAttribute("ItemsReservaActual");
