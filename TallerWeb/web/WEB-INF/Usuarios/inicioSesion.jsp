@@ -7,7 +7,7 @@ t   : inicioSesion
 --%>
 
 <%@page import="java.util.List"%>
-<%@page import="logica.DataCliente"%>
+<%@page import="servidor.DataCliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -68,9 +68,9 @@ t   : inicioSesion
                     <label for="inputEmail" class="sr-only">Correo</label>
                     <input class="form-control" id="nick" name="nick" placeholder="Introduzca su nick" required="" autofocus="">
                     <% 
-                        wsc.DataCiudadArray hola = (wsc.DataCiudadArray) request.getSession().getAttribute("datatype");
-                        List<wsc.DataCiudad> ciudades = hola.getItem();
-                        for (wsc.DataCiudad ciudad : ciudades){ %>
+                        servidor.DataCiudadArray hola = (servidor.DataCiudadArray) request.getSession().getAttribute("datatype");
+                        List<servidor.DataCiudad> ciudades = hola.getItem();
+                        for (servidor.DataCiudad ciudad : ciudades){ %>
                             <a><%= ciudad.getNombre()+' '+ciudad.getPais() %></a><br>
                         <% }; %>
                         

@@ -1,13 +1,11 @@
 
 
-<%@page import="wsp.DataProveedor"%>
+<%@page import="servidor.DataProveedor"%>
 <%@page import="java.util.Comparator"%>
 <%@page import="java.util.Collections"%>
-<%@page import="wsp.DataCategoria"%>
-<%@page import="wsp.DataPromocion"%>
-<%@page import="wsp.DataServicio"%>
-<%@page import="wsp.DataServicio"%>
-<%@page import="java.util.List"%>
+<%@page import="servidor.DataCategoria"%>
+<%@page import="servidor.DataPromocion"%>
+<%@page import="servidor.DataServicio"%>
 <%@page import="java.util.List"%>
 
 

@@ -2,13 +2,11 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.util.Set"%>
-<%@page import="wsc.DataItemReserva"%>
-<%@page import="wsc.DataInfoReserva"%>
-<%@page import="logica.DataInfoCliente"%>
+<%@page import="servidor.DataItemReserva"%>
+<%@page import="servidor.DataInfoReserva"%>
+<%@page import="servidor.DataInfoCliente"%>
 <%@page import="javax.websocket.Session"%>
 <%@page import="java.util.List"%>
-<%@page import="java.util.List"%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page errorPage="/WEB-INF/errorPages/500.jsp" %>
 <!doctype html>

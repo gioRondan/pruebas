@@ -16,12 +16,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import logica.DataInfoCliente;
-import logica.DataItemReserva;
+import servidor.DataInfoCliente;
+import servidor.DataItemReserva;
+import servidor.DataItemReservaArray;
+import servidor.Exception_Exception;
 
-
-import logica.Fabrica;
-import logica.IControladorCliente;
 
 
 /**
@@ -43,21 +42,22 @@ public class generarReserva extends HttpServlet {
      protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if(request.getParameter("comprar") != null){
-            Fabrica fab = Fabrica.getInstance();
-            IControladorCliente ICC = fab.getIControladorCliente();
-            
+            servidor.PublicadorClienteService service = new servidor.PublicadorClienteService();
+        servidor.PublicadorCliente port = service.getPublicadorClientePort();
             List<DataItemReserva> items = (List<DataItemReserva>) request.getSession().getAttribute("ItemsReservaActual");
             DataInfoCliente cli = (DataInfoCliente) request.getSession().getAttribute("dataCliente");
             if (items != null){
                 try {
-                    ICC.confirmarReserva(items,cli);
+                    DataItemReservaArray arrayItems = (DataItemReservaArray) request.getSession().getAttribute("ItemsReservaActual");
+
+                    port.confirmarReserva(arrayItems,cli);
                 } catch (Exception ex) {
                     Logger.getLogger(generarReserva.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 items.removeAll(items);//vacio el carrito
                 request.getSession().setAttribute("ItemsReservaActual", items );
                 DataInfoCliente cliente = (DataInfoCliente) request.getSession().getAttribute("dataCliente");
-                cliente = ICC.iniciarSesion(cliente.getNickname(), cliente.getPassword());//reinicio sesion para actualizar los datos de las reservas 
+                cliente = port.iniciarSesion(cliente.getNickname(), cliente.getPassword());//reinicio sesion para actualizar los datos de las reservas 
                 request.getSession().setAttribute("dataCliente", cliente);
             }
             request.getRequestDispatcher("/index.jsp").forward(request, response);
@@ -101,6 +101,8 @@ public class generarReserva extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+   
 
     
     

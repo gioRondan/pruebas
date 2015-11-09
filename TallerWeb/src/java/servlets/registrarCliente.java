@@ -14,10 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Cargadedatos.CargaInicial;
-import logica.DataInfoCliente;
-import logica.Fabrica;
-import logica.IControladorCliente;
+import servidor.DataInfoCliente;
 import servidor.DataFecha;
 
 
@@ -39,8 +36,6 @@ public class registrarCliente extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         Fabrica fab = Fabrica.getInstance();
-        IControladorCliente ICC = fab.getIControladorCliente();
         servidor.PublicadorClienteService service = new servidor.PublicadorClienteService();
         servidor.PublicadorCliente port = service.getPublicadorClientePort();
         String nick = request.getParameter("nickRegistrar");

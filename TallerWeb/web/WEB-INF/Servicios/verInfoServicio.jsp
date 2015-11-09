@@ -1,6 +1,7 @@
-<%@page import="wsp.DataCategoria"%>
+<%@page import="servidor.DataInfoServicio"%>
+<%@page import="servidor.DataCategoria"%>
 <%@page import="java.util.List"%>
-<%@page import="wsp.DataInfoServicio"%>
+<%@page import="servidor.DataInfoServicio"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!doctype html>

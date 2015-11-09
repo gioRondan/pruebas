@@ -7,10 +7,9 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.text.DateFormat"%>
-<%@page import="logica.DataServicio"%>
+<%@page import="servidor.DataServicio"%>
 <%@page import="java.util.List"%>
-<%@page import="java.util.List"%>
-<%@page import="logica.DataInfoProveedor"%>
+<%@page import="servidor.DataInfoProveedor"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!doctype html>

@@ -1,13 +1,9 @@
 
-<%@page import="logica.DataItemReserva"%>
-<%@page import="logica.IControladorProveedor"%>
-<%@page import="logica.Fabrica"%>
+<%@page import="servidor.DataItemReserva"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="logica.DataCategoria"%>
-<%@page import="logica.DataPromocion"%>
-<%@page import="logica.DataServicio"%>
-<%@page import="logica.DataServicio"%>
-<%@page import="java.util.List"%>
+<%@page import="servidor.DataCategoria"%>
+<%@page import="servidor.DataPromocion"%>
+<%@page import="servidor.DataServicio"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
@@ -42,7 +38,7 @@
                        
                         if (items != null){
                             for(DataItemReserva item : items){
-                                if (item.getesServico()){
+                                if (item.isEsServico()){
                     %>        
                                     <tr>
                                         <td><%=item.getServicio().getNombre()%></td>
@@ -71,7 +67,7 @@
                                         <td id="borrar">  
                                             <form action="agregaraacarrito">
                                                 <input type="text" name="nomPromocion" value="<%=item.getPromocion().getNombre()%>" hidden="true"/>
-                                                <input type="text" name="nomProveedorPromocion" value="<%=item.getPromocion().getnickProveedro() %>" hidden="true"/>
+                                                <input type="text" name="nomProveedorPromocion" value="<%=item.getPromocion().getNickProveedor() %>" hidden="true"/>
                                                 <button type="submit"  name="borrar" style="margin:calc; width:200px" type="button" class="btn btn-danger pull-left">Borrar</button>
                                             </form>    
                                         </td>

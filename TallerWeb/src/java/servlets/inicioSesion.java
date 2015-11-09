@@ -15,8 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import logica.Fabrica;
-import logica.IControladorCliente;
 
 
 /**
@@ -38,8 +36,6 @@ public class inicioSesion extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        Fabrica fab = Fabrica.getInstance();
-        IControladorCliente ICC = fab.getIControladorCliente();
         
         servidor.PublicadorClienteService service = new servidor.PublicadorClienteService();
         servidor.PublicadorCliente port = service.getPublicadorClientePort();

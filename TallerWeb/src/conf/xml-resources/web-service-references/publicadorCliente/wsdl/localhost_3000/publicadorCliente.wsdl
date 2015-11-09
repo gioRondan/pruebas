@@ -27,6 +27,11 @@
 <message name="verInfoClienteResponse">
 <part name="return" type="tns:dataInfoCliente"></part>
 </message>
+<message name="cancelarReserva">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:int"></part>
+</message>
+<message name="cancelarReservaResponse"></message>
 <message name="listarReservasXCliente">
 <part name="arg0" type="xsd:string"></part>
 </message>
@@ -40,17 +45,16 @@
 <message name="verInfoReservaResponse">
 <part name="return" type="tns:dataInfoReserva"></part>
 </message>
-<message name="cancelarReserva">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:int"></part>
-</message>
-<message name="cancelarReservaResponse"></message>
 <message name="actualizarEstadoReserva">
 <part name="arg0" type="xsd:int"></part>
 <part name="arg1" type="xsd:string"></part>
 <part name="arg2" type="tns:estado"></part>
 </message>
 <message name="actualizarEstadoReservaResponse"></message>
+<message name="prueba"></message>
+<message name="pruebaResponse">
+<part name="return" type="xsd:int"></part>
+</message>
 <message name="pruebaData"></message>
 <message name="pruebaDataResponse">
 <part name="return" type="tns:dataCiudad"></part>
@@ -87,10 +91,6 @@
 <message name="existeNickNameResponse">
 <part name="return" type="xsd:boolean"></part>
 </message>
-<message name="prueba"></message>
-<message name="pruebaResponse">
-<part name="return" type="xsd:int"></part>
-</message>
 <portType name="PublicadorCliente">
 <operation name="listarClientes">
 <input wsam:Action="http://Servidor/PublicadorCliente/listarClientesRequest" message="tns:listarClientes"></input>
@@ -105,6 +105,10 @@
 <input wsam:Action="http://Servidor/PublicadorCliente/verInfoClienteRequest" message="tns:verInfoCliente"></input>
 <output wsam:Action="http://Servidor/PublicadorCliente/verInfoClienteResponse" message="tns:verInfoClienteResponse"></output>
 </operation>
+<operation name="cancelarReserva" parameterOrder="arg0 arg1">
+<input wsam:Action="http://Servidor/PublicadorCliente/cancelarReservaRequest" message="tns:cancelarReserva"></input>
+<output wsam:Action="http://Servidor/PublicadorCliente/cancelarReservaResponse" message="tns:cancelarReservaResponse"></output>
+</operation>
 <operation name="listarReservasXCliente">
 <input wsam:Action="http://Servidor/PublicadorCliente/listarReservasXClienteRequest" message="tns:listarReservasXCliente"></input>
 <output wsam:Action="http://Servidor/PublicadorCliente/listarReservasXClienteResponse" message="tns:listarReservasXClienteResponse"></output>
@@ -113,13 +117,13 @@
 <input wsam:Action="http://Servidor/PublicadorCliente/verInfoReservaRequest" message="tns:verInfoReserva"></input>
 <output wsam:Action="http://Servidor/PublicadorCliente/verInfoReservaResponse" message="tns:verInfoReservaResponse"></output>
 </operation>
-<operation name="cancelarReserva" parameterOrder="arg0 arg1">
-<input wsam:Action="http://Servidor/PublicadorCliente/cancelarReservaRequest" message="tns:cancelarReserva"></input>
-<output wsam:Action="http://Servidor/PublicadorCliente/cancelarReservaResponse" message="tns:cancelarReservaResponse"></output>
-</operation>
 <operation name="actualizarEstadoReserva" parameterOrder="arg0 arg1 arg2">
 <input wsam:Action="http://Servidor/PublicadorCliente/actualizarEstadoReservaRequest" message="tns:actualizarEstadoReserva"></input>
 <output wsam:Action="http://Servidor/PublicadorCliente/actualizarEstadoReservaResponse" message="tns:actualizarEstadoReservaResponse"></output>
+</operation>
+<operation name="prueba">
+<input wsam:Action="http://Servidor/PublicadorCliente/pruebaRequest" message="tns:prueba"></input>
+<output wsam:Action="http://Servidor/PublicadorCliente/pruebaResponse" message="tns:pruebaResponse"></output>
 </operation>
 <operation name="pruebaData">
 <input wsam:Action="http://Servidor/PublicadorCliente/pruebaDataRequest" message="tns:pruebaData"></input>
@@ -149,10 +153,6 @@
 <operation name="existeNickName">
 <input wsam:Action="http://Servidor/PublicadorCliente/existeNickNameRequest" message="tns:existeNickName"></input>
 <output wsam:Action="http://Servidor/PublicadorCliente/existeNickNameResponse" message="tns:existeNickNameResponse"></output>
-</operation>
-<operation name="prueba">
-<input wsam:Action="http://Servidor/PublicadorCliente/pruebaRequest" message="tns:prueba"></input>
-<output wsam:Action="http://Servidor/PublicadorCliente/pruebaResponse" message="tns:pruebaResponse"></output>
 </operation>
 </portType>
 <binding name="PublicadorClientePortBinding" type="tns:PublicadorCliente">
@@ -187,6 +187,15 @@
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
 </output>
 </operation>
+<operation name="cancelarReserva">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+</operation>
 <operation name="listarReservasXCliente">
 <soap:operation soapAction=""></soap:operation>
 <input>
@@ -205,7 +214,7 @@
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
 </output>
 </operation>
-<operation name="cancelarReserva">
+<operation name="actualizarEstadoReserva">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
@@ -214,7 +223,7 @@
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
 </output>
 </operation>
-<operation name="actualizarEstadoReserva">
+<operation name="prueba">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
@@ -281,15 +290,6 @@
 </output>
 </operation>
 <operation name="existeNickName">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-</operation>
-<operation name="prueba">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>

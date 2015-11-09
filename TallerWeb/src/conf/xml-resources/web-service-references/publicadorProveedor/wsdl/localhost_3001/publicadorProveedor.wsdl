@@ -81,12 +81,12 @@
 <part name="arg0" type="xsd:string"></part>
 </message>
 <message name="ingresarNombreCategoriaResponse"></message>
-<message name="altaCategoria"></message>
-<message name="altaCategoriaResponse"></message>
 <message name="seleccionarPadre">
 <part name="arg0" type="xsd:string"></part>
 </message>
 <message name="seleccionarPadreResponse"></message>
+<message name="altaCategoria"></message>
+<message name="altaCategoriaResponse"></message>
 <message name="verInfoProveedor">
 <part name="arg0" type="xsd:string"></part>
 </message>
@@ -134,6 +134,18 @@
 <message name="informacionPromocionResponse">
 <part name="return" type="tns:dataPromocion"></part>
 </message>
+<message name="buscarPromociones">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="buscarPromocionesResponse">
+<part name="return" type="tns:dataPromocionArray"></part>
+</message>
+<message name="buscarServicios">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="buscarServiciosResponse">
+<part name="return" type="tns:dataServicioArray"></part>
+</message>
 <message name="altaPais">
 <part name="arg0" type="xsd:string"></part>
 </message>
@@ -143,18 +155,6 @@
 <part name="arg1" type="xsd:string"></part>
 </message>
 <message name="altaCiudadResponse"></message>
-<message name="buscarServicios">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="buscarServiciosResponse">
-<part name="return" type="tns:dataServicioArray"></part>
-</message>
-<message name="buscarPromociones">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="buscarPromocionesResponse">
-<part name="return" type="tns:dataPromocionArray"></part>
-</message>
 <portType name="PublicadorProveedor">
 <operation name="verInfoServicio" parameterOrder="arg0 arg1">
 <input wsam:Action="http://Servidor/PublicadorProveedor/verInfoServicioRequest" message="tns:verInfoServicio"></input>
@@ -216,14 +216,14 @@
 <input wsam:Action="http://Servidor/PublicadorProveedor/ingresarNombreCategoriaRequest" message="tns:ingresarNombreCategoria"></input>
 <output wsam:Action="http://Servidor/PublicadorProveedor/ingresarNombreCategoriaResponse" message="tns:ingresarNombreCategoriaResponse"></output>
 </operation>
+<operation name="seleccionarPadre">
+<input wsam:Action="http://Servidor/PublicadorProveedor/seleccionarPadreRequest" message="tns:seleccionarPadre"></input>
+<output wsam:Action="http://Servidor/PublicadorProveedor/seleccionarPadreResponse" message="tns:seleccionarPadreResponse"></output>
+</operation>
 <operation name="altaCategoria">
 <input wsam:Action="http://Servidor/PublicadorProveedor/altaCategoriaRequest" message="tns:altaCategoria"></input>
 <output wsam:Action="http://Servidor/PublicadorProveedor/altaCategoriaResponse" message="tns:altaCategoriaResponse"></output>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://Servidor/PublicadorProveedor/altaCategoria/Fault/Exception"></fault>
-</operation>
-<operation name="seleccionarPadre">
-<input wsam:Action="http://Servidor/PublicadorProveedor/seleccionarPadreRequest" message="tns:seleccionarPadre"></input>
-<output wsam:Action="http://Servidor/PublicadorProveedor/seleccionarPadreResponse" message="tns:seleccionarPadreResponse"></output>
 </operation>
 <operation name="verInfoProveedor">
 <input wsam:Action="http://Servidor/PublicadorProveedor/verInfoProveedorRequest" message="tns:verInfoProveedor"></input>
@@ -271,6 +271,14 @@
 <output wsam:Action="http://Servidor/PublicadorProveedor/informacionPromocionResponse" message="tns:informacionPromocionResponse"></output>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://Servidor/PublicadorProveedor/informacionPromocion/Fault/Exception"></fault>
 </operation>
+<operation name="buscarPromociones">
+<input wsam:Action="http://Servidor/PublicadorProveedor/buscarPromocionesRequest" message="tns:buscarPromociones"></input>
+<output wsam:Action="http://Servidor/PublicadorProveedor/buscarPromocionesResponse" message="tns:buscarPromocionesResponse"></output>
+</operation>
+<operation name="buscarServicios">
+<input wsam:Action="http://Servidor/PublicadorProveedor/buscarServiciosRequest" message="tns:buscarServicios"></input>
+<output wsam:Action="http://Servidor/PublicadorProveedor/buscarServiciosResponse" message="tns:buscarServiciosResponse"></output>
+</operation>
 <operation name="altaPais">
 <input wsam:Action="http://Servidor/PublicadorProveedor/altaPaisRequest" message="tns:altaPais"></input>
 <output wsam:Action="http://Servidor/PublicadorProveedor/altaPaisResponse" message="tns:altaPaisResponse"></output>
@@ -279,14 +287,6 @@
 <operation name="altaCiudad" parameterOrder="arg0 arg1">
 <input wsam:Action="http://Servidor/PublicadorProveedor/altaCiudadRequest" message="tns:altaCiudad"></input>
 <output wsam:Action="http://Servidor/PublicadorProveedor/altaCiudadResponse" message="tns:altaCiudadResponse"></output>
-</operation>
-<operation name="buscarServicios">
-<input wsam:Action="http://Servidor/PublicadorProveedor/buscarServiciosRequest" message="tns:buscarServicios"></input>
-<output wsam:Action="http://Servidor/PublicadorProveedor/buscarServiciosResponse" message="tns:buscarServiciosResponse"></output>
-</operation>
-<operation name="buscarPromociones">
-<input wsam:Action="http://Servidor/PublicadorProveedor/buscarPromocionesRequest" message="tns:buscarPromociones"></input>
-<output wsam:Action="http://Servidor/PublicadorProveedor/buscarPromocionesResponse" message="tns:buscarPromocionesResponse"></output>
 </operation>
 </portType>
 <binding name="PublicadorProveedorPortBinding" type="tns:PublicadorProveedor">
@@ -429,6 +429,15 @@
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
 </output>
 </operation>
+<operation name="seleccionarPadre">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+</operation>
 <operation name="altaCategoria">
 <soap:operation soapAction=""></soap:operation>
 <input>
@@ -440,15 +449,6 @@
 <fault name="Exception">
 <soap:fault name="Exception" use="literal"></soap:fault>
 </fault>
-</operation>
-<operation name="seleccionarPadre">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
 </operation>
 <operation name="verInfoProveedor">
 <soap:operation soapAction=""></soap:operation>
@@ -555,19 +555,7 @@
 <soap:fault name="Exception" use="literal"></soap:fault>
 </fault>
 </operation>
-<operation name="altaPais">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"></soap:fault>
-</fault>
-</operation>
-<operation name="altaCiudad">
+<operation name="buscarPromociones">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
@@ -585,7 +573,19 @@
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
 </output>
 </operation>
-<operation name="buscarPromociones">
+<operation name="altaPais">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"></soap:fault>
+</fault>
+</operation>
+<operation name="altaCiudad">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>

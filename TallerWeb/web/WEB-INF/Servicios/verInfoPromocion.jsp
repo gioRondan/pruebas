@@ -1,6 +1,6 @@
-<%@page import="java.util.Set"%>
-<%@page import="logica.DataServicio"%>
-<%@page import="logica.DataInfoPromocion"%>
+<%@page import="java.util.List"%>
+<%@page import="servidor.DataServicio"%>
+<%@page import="servidor.DataInfoPromocion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!doctype html>
@@ -18,7 +18,7 @@
                 <h1>Informacion General de la Promocion</h1>
                 <%
                     DataInfoPromocion promo = (DataInfoPromocion) request.getAttribute("dataInfoPromocion");
-                    Set<DataServicio> servicios = promo.getServicios();
+                    List<DataServicio> servicios = promo.getServicios();
                 %>
                 <br>
                 Nombre: <%= promo.getNombre()  %>
