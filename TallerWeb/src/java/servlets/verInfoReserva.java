@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import wsc.DataInfoReserva;
+import servidor.DataInfoReserva;
 
 /**
  *
@@ -33,8 +33,8 @@ public class verInfoReserva extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
-        wsc.PublicadorCliente port = service.getPublicadorClientePort();
+        servidor.PublicadorClienteService service = new servidor.PublicadorClienteService();
+        servidor.PublicadorCliente port = service.getPublicadorClientePort();
         if(request.getParameter("verInfoReserva")!= null){
         
             request.setAttribute("dataInfoReserva",port.verInfoReserva(request.getParameter("nickCliente") , Integer.parseInt(request.getParameter("verInfoReserva"))) );

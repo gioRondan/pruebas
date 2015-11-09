@@ -17,12 +17,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import wsp.DataCategoria;
-import wsc.DataItemReserva;
-import wsp.DataPromocion;
-import wsp.DataProveedor;
-import wsp.DataServicio;
-import wsp.Exception_Exception;
+import servidor.DataCategoria;
+import servidor.DataItemReserva;
+import servidor.DataPromocion;
+import servidor.DataProveedor;
+import servidor.DataServicio;
+import servidor.Exception_Exception;
 
 
 /**
@@ -54,8 +54,8 @@ public class Home extends HttpServlet {
             throws ServletException, IOException {
         
         
-                    wsp.PublicadorProveedorService service = new wsp.PublicadorProveedorService();
-        wsp.PublicadorProveedor portP = service.getPublicadorProveedorPort();
+                    servidor.PublicadorProveedorService service = new servidor.PublicadorProveedorService();
+        servidor.PublicadorProveedor portP = service.getPublicadorProveedorPort();
                 if  (request.getSession().getAttribute("Login") == null){
                     request.getSession().setAttribute("Login", "NoLogeado");
                     List<DataItemReserva> itemsreservascarro = new ArrayList<DataItemReserva>();

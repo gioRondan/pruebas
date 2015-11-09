@@ -18,7 +18,7 @@ import Cargadedatos.CargaInicial;
 import logica.DataInfoCliente;
 import logica.Fabrica;
 import logica.IControladorCliente;
-import wsc.DataFecha;
+import servidor.DataFecha;
 
 
 /**
@@ -41,8 +41,8 @@ public class registrarCliente extends HttpServlet {
             throws ServletException, IOException {
          Fabrica fab = Fabrica.getInstance();
         IControladorCliente ICC = fab.getIControladorCliente();
-        wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
-        wsc.PublicadorCliente port = service.getPublicadorClientePort();
+        servidor.PublicadorClienteService service = new servidor.PublicadorClienteService();
+        servidor.PublicadorCliente port = service.getPublicadorClientePort();
         String nick = request.getParameter("nickRegistrar");
         String pass = request.getParameter("passRegistrar");
         if (request.getParameter("registrar") != null) {
@@ -63,7 +63,7 @@ public class registrarCliente extends HttpServlet {
                 Logger.getLogger(registrarCliente.class.getName()).log(Level.SEVERE, null, ex);
 
             }
-            wsc.DataInfoCliente cliente = port.iniciarSesion(nick, pass);
+            servidor.DataInfoCliente cliente = port.iniciarSesion(nick, pass);
             request.getSession().setAttribute("dataCliente", cliente);
             request.getSession().setAttribute("dataCliente", cliente.getReservas());
             request.getSession().setAttribute("Login", "Logeado");

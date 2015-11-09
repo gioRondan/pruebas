@@ -41,8 +41,8 @@ public class inicioSesion extends HttpServlet {
         Fabrica fab = Fabrica.getInstance();
         IControladorCliente ICC = fab.getIControladorCliente();
         
-        wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
-        wsc.PublicadorCliente port = service.getPublicadorClientePort();
+        servidor.PublicadorClienteService service = new servidor.PublicadorClienteService();
+        servidor.PublicadorCliente port = service.getPublicadorClientePort();
         
      // request.getSession().setAttribute("json", port.listarClientes());
         
@@ -69,7 +69,7 @@ public class inicioSesion extends HttpServlet {
             if(request.getParameter("entrar") != null){
                String nick = (String) request.getParameter("nick");
                String pass = (String) request.getParameter("pass");
-                wsc.DataInfoCliente cliente = port.iniciarSesion(nick, pass);
+                servidor.DataInfoCliente cliente = port.iniciarSesion(nick, pass);
                
                if(cliente != null){
                    request.getSession().setAttribute("dataCliente", cliente);
