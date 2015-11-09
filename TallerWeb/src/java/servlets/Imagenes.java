@@ -13,12 +13,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Cargadedatos.CargaInicial;
 import org.apache.commons.fileupload.FileItem;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import logica.Fabrica;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
@@ -40,7 +38,7 @@ public class Imagenes extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          PrintWriter out = response.getWriter();
-        if (request.getParameter("Subir")!=null){
+        /*if (request.getParameter("Subir")!=null){
             String ubicacion = CargaInicial.getRuta()+"/Imagenes/Usuarios/";
             
                DiskFileItemFactory fabrica = new DiskFileItemFactory();
@@ -74,7 +72,7 @@ public class Imagenes extends HttpServlet {
                  Logger.getLogger(Imagenes.class.getName()).log(Level.SEVERE, null, ex);
              }
             
-        }
+        }*/
         
     }
 

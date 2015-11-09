@@ -12,8 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.DataInfoProveedor;
-import logica.Fabrica;
+import servidor.DataInfoProveedor;
 
 /**
  *
@@ -33,8 +32,9 @@ public class verInfoProveedor extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-            DataInfoProveedor proveedor = Fabrica.getInstance().getIControladorProveedor().verInfoProveedor(request.getParameter("nomProveedor"));
+       servidor.PublicadorProveedorService service = new servidor.PublicadorProveedorService();
+        servidor.PublicadorProveedor port = service.getPublicadorProveedorPort();
+            DataInfoProveedor proveedor = port.verInfoProveedor(request.getParameter("nomProveedor"));
             request.getSession().setAttribute("dataInfoProveedor", proveedor);
             request.getRequestDispatcher("/WEB-INF/Servicios/verInfoProveedor.jsp").forward(request, response);
         

@@ -41,9 +41,11 @@ public class verInfoPromocion extends HttpServlet {
        
          
         try {
+            servidor.PublicadorProveedorService service = new servidor.PublicadorProveedorService();
+            servidor.PublicadorProveedor port = service.getPublicadorProveedorPort();
             String nombreproveedor = request.getParameter("nomProveedorPromocion");
             String nombrePromocion = request.getParameter("nomPromocion");
-            DataInfoPromocion datainfos = Fabrica.getInstance().getIControladorProveedor().verInfoPromocion(nombreproveedor,nombrePromocion);
+            DataInfoPromocion datainfos = port.verInfoPromocion(nombreproveedor,nombrePromocion);
             request.setAttribute("dataInfoPromocion", datainfos );
         } catch (Exception ex) {
             Logger.getLogger(verInfoServicio.class.getName()).log(Level.SEVERE, null, ex);
@@ -90,6 +92,8 @@ public class verInfoPromocion extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    
 
     
 

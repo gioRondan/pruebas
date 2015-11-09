@@ -14,9 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.DataInfoServicio;
-import logica.Fabrica;
-import logica.IControladorProveedor;
+import servidor.DataInfoServicio;
 
 /**
  *
@@ -40,7 +38,10 @@ public class verInfoServicio extends HttpServlet {
         try {
             String nombreproveedor = request.getParameter("nomProveedorServicio");
             String nombreservicio = request.getParameter("nomServicio");
-            DataInfoServicio datainfos = Fabrica.getInstance().getIControladorProveedor().verInfoServicio(nombreservicio,nombreproveedor);
+            
+       servidor.PublicadorProveedorService service = new servidor.PublicadorProveedorService();
+        servidor.PublicadorProveedor port = service.getPublicadorProveedorPort();
+            DataInfoServicio datainfos = port.verInfoServicio(nombreservicio,nombreproveedor);
             request.setAttribute("dataInfoServicio", datainfos );
         } catch (Exception ex) {
             Logger.getLogger(verInfoServicio.class.getName()).log(Level.SEVERE, null, ex);
