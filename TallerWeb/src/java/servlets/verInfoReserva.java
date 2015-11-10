@@ -35,8 +35,7 @@ public class verInfoReserva extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         servidor.PublicadorClienteService service = new servidor.PublicadorClienteService();
         servidor.PublicadorCliente port = service.getPublicadorClientePort();
-        if(request.getParameter("verInfoReserva")!= null){
-        
+        if(request.getParameter("verInfoReserva")!= null){        
             request.setAttribute("dataInfoReserva",port.verInfoReserva(request.getParameter("nickCliente") , Integer.parseInt(request.getParameter("verInfoReserva"))) );
             request.getRequestDispatcher("./WEB-INF/Servicios/verInfoReserva.jsp").forward(request, response);
         }

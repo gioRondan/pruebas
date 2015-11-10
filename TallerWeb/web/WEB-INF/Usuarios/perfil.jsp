@@ -1,4 +1,5 @@
 
+<%@page import="servidor.DataFecha"%>
 <%@page import="servidor.DataReserva"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
@@ -12,8 +13,6 @@
         <script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>
 <%@page errorPage="/WEB-INF/errorPages/500.jsp" %>
 <!doctype html>
-<html>
-    <head>
         <title>H4Travel</title>
     </head>
     <body>       
@@ -41,7 +40,8 @@
                                     <h1 >Perfil</h1>
                                     <%
                                       //  DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
-                                        servidor.DataInfoCliente cliente = (servidor.DataInfoCliente) request.getSession().getAttribute("dataCliente");
+                                        DataInfoCliente cliente = (DataInfoCliente) request.getSession().getAttribute("dataCliente");
+                                        DataFecha fecha = (DataFecha)request.getSession().getAttribute("fechaNacimiento");
                                     %>
                                     <br>
                                     Nickname: <%= cliente.getNickname()%>
@@ -60,6 +60,7 @@
                                         Fecha de nacimiento: <%= cliente.getFechaNac().getDia()+'/'+cliente.getFechaNac().getMes()+'/'+cliente.getFechaNac().getAnio() %>
                                     <%}%>
                                     <br>
+                                    <%= fecha.getDia() %>                                    
                                 </td>
                                 <td>
                                    <% if (cliente.getImagen() !=null){%>
@@ -91,9 +92,9 @@
                                         <td>
                                             <a href="<%="verinforeserva?nickCliente="+cliente.getNickname()+"&verInfoReserva="+c.getIdentificador()%> "><%=c.getIdentificador()%></a>
                                         </td>
-                                        <td><%=c.getFechaCreacion().getDia() %></td>
+                                        <td><%//=c.getFechaCreacion().getDia() %></td>
                                         <td><%=c.getPrecio() %></td>
-                                        <td><%= c.getEstado().name() %></td> 
+                                        <td><%//= c.getEstado().name() %></td> 
 
                                     </tr>
                                 <%}}%>

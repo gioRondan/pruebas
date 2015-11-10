@@ -259,8 +259,9 @@
                 $('#filtro').attr("value",r.join(', ')+', ');
               
               })
+            //.jstree( <%= request.getAttribute("dataCategorias")  %>);
             .jstree( <%= request.getAttribute("dataCategorias")  %>);
-            });
+        });
             
         
     </script>

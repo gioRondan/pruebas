@@ -73,7 +73,7 @@ public class Home extends HttpServlet {
                     prueba = " { 'core' : {'data' : [";
                     indice =0;
                     armarArbol("'#'", dtps);
-                    prueba=prueba+"] } });";
+                    prueba=prueba+"] } }";
                     
                   
                     request.setAttribute("dataCategorias", prueba);

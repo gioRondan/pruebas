@@ -7,6 +7,7 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -14,8 +15,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import servidor.DataInfoCliente;
 import servidor.DataFecha;
+import servidor.DataInfoCliente;
+import servidor.Exception_Exception;
 
 
 /**
@@ -34,6 +36,8 @@ public class registrarCliente extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+  
+       
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         servidor.PublicadorClienteService service = new servidor.PublicadorClienteService();
@@ -48,9 +52,14 @@ public class registrarCliente extends HttpServlet {
 //                wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
 //        wsc.PublicadorCliente port = service.getPublicadorClientePort();
                 DataFecha dateNac= new DataFecha();
-                dateNac.setDia(1);
-                dateNac.setMes(1);
-                dateNac.setAnio(2000);
+                String fecha = request.getParameter("fechaCliente");
+                int dia = Integer.parseInt(fecha.substring(0, 2));
+                int mes = Integer.parseInt(fecha.substring(4, 6));
+                int anio = Integer.parseInt(fecha.substring(7, 10));        
+                dateNac.setDia(dia);
+                dateNac.setMes(mes);
+                dateNac.setAnio(anio);
+                 request.getSession().setAttribute("fechaNacimiento", dateNac);
         port.altaCliente(nick, request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), dateNac, "imagen" , pass);
                 
                 //ICC.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), null,CargaInicial.getRuta()+"Imagenes/Usuarios/"+request.getParameter("nickRegistrar")+".png" , request.getParameter("passRegistrar"));
@@ -58,9 +67,9 @@ public class registrarCliente extends HttpServlet {
                 Logger.getLogger(registrarCliente.class.getName()).log(Level.SEVERE, null, ex);
 
             }
-            servidor.DataInfoCliente cliente = port.iniciarSesion(nick, pass);
+            DataInfoCliente cliente = port.iniciarSesion(nick, pass);
             request.getSession().setAttribute("dataCliente", cliente);
-            request.getSession().setAttribute("dataCliente", cliente.getReservas());
+            request.getSession().setAttribute("dataClienteres", cliente.getReservas());
             request.getSession().setAttribute("Login", "Logeado");
             request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);
         }

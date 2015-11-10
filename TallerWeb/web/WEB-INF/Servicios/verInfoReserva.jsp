@@ -54,8 +54,8 @@
                                         <a href="verinfoservicio?nomProveedorServicio=<%=item.getServicio().getProveedor()%>&nomServicio=<%=item.getServicio().getNombre()%>" ><%=item.getServicio().getNombre()%></a>
                                     </td>
                                Solos     <td><%= item.getCantidad() %></td> 
-                                    <td><%= formatoFecha.format(item.getFechaInicio()) %></td>
-                                    <td><%=formatoFecha.format(item.getFechaFin()) %></td>
+                                    <td><%//= formatoFecha.format(item.getFechaInicio()) %></td>
+                                    <td><%//= formatoFecha.format(item.getFechaFin()) %></td>
                                     <td> Servicio </td> 
                                 </tr>
                             <%}else{%> 
@@ -64,8 +64,8 @@
                                         <a href="<%="verinfopromocion?nomProveedorPromocion="+item.getPromocion().getNickProveedor()+"&nomPromocion="+item.getPromocion().getNombre()%>" > <%=item.getPromocion().getNombre()%></a>
                                     </td>
                                     <td><%= item.getCantidad() %></td> 
-                                    <td><%= formatoFecha.format(item.getFechaInicio()) %></td>
-                                    <td><%=formatoFecha.format(item.getFechaFin()) %></td>
+                                    <td><%//= formatoFecha.format(item.getFechaInicio()) %></td>
+                                    <td><%//= formatoFecha.format(item.getFechaFin()) %></td>
                                     <td> Promocion </td> 
                                 </tr>
                            <%}//CIERRO IF ES SERCICIO%>
