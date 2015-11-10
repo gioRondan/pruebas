@@ -39,7 +39,6 @@
                                 <td>
                                     <h1 >Perfil</h1>
                                     <%
-                                      //  DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
                                         DataInfoCliente cliente = (DataInfoCliente) request.getSession().getAttribute("dataCliente");
                                         DataFecha fecha = (DataFecha)request.getSession().getAttribute("fechaNacimiento");
                                     %>
@@ -60,7 +59,8 @@
                                         Fecha de nacimiento: <%= cliente.getFechaNac().getDia()+'/'+cliente.getFechaNac().getMes()+'/'+cliente.getFechaNac().getAnio() %>
                                     <%}%>
                                     <br>
-                                    <%= fecha.getDia() %>                                    
+                                    <%= fecha.getDia() %><br><%= fecha.getMes() %><br><%= fecha.getAnio() %>     
+                                    <%= cliente.getFechaNac().getDia() %><br><%= cliente.getFechaNac().getMes() %><br><%= cliente.getFechaNac().getAnio() %>     
                                 </td>
                                 <td>
                                    <% if (cliente.getImagen() !=null){%>
@@ -82,8 +82,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <% 
-                                  
+                                <%                                   
                                 List<DataReserva> a = (List<DataReserva>) request.getSession().getAttribute("dataClienteres");
                                 if (a!=null){
                                     for(DataReserva c : a){ 

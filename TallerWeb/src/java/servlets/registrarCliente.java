@@ -53,14 +53,15 @@ public class registrarCliente extends HttpServlet {
 //        wsc.PublicadorCliente port = service.getPublicadorClientePort();
                 DataFecha dateNac= new DataFecha();
                 String fecha = request.getParameter("fechaCliente");
-                int dia = Integer.parseInt(fecha.substring(0, 2));
-                int mes = Integer.parseInt(fecha.substring(4, 6));
-                int anio = Integer.parseInt(fecha.substring(7, 10));        
+                String[] partes = fecha.split("/");
+                int dia = Integer.parseInt(partes[0]); //dd
+                int mes = Integer.parseInt(partes[1]); // mm
+                int anio = Integer.parseInt(partes[2]); // aaaa
                 dateNac.setDia(dia);
                 dateNac.setMes(mes);
                 dateNac.setAnio(anio);
-                 request.getSession().setAttribute("fechaNacimiento", dateNac);
-        port.altaCliente(nick, request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), dateNac, "imagen" , pass);
+                request.getSession().setAttribute("fechaNacimiento", dateNac);
+                port.altaCliente(nick, request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), dateNac, "imagen" , pass);
                 
                 //ICC.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), null,CargaInicial.getRuta()+"Imagenes/Usuarios/"+request.getParameter("nickRegistrar")+".png" , request.getParameter("passRegistrar"));
             } catch (Exception ex) {
