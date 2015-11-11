@@ -71,34 +71,7 @@
                         </table>
                     </div>
                     <div id="cpestana2">
-                        <h1>Reservas</h1>
-                        <table border="1">
-                            <thead>
-                                <tr>
-                                    <th> Id </th>
-                                    <th> Fechadecreacion </th>
-                                    <th> Precio </th>
-                                    <th> Estado </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <%                                   
-                                List<DataReserva> a = (List<DataReserva>) request.getSession().getAttribute("dataClienteres");
-                                if (a!=null){
-                                    for(DataReserva c : a){ 
-                                %> 
-                                    <tr> 
-                                        <td>
-                                            <a href="<%="verinforeserva?nickCliente="+cliente.getNickname()+"&verInfoReserva="+c.getIdentificador()%> "><%=c.getIdentificador()%></a>
-                                        </td>
-                                        <td><%//=c.getFechaCreacion().getDia() %></td>
-                                        <td><%=c.getPrecio() %></td>
-                                        <td><%//= c.getEstado().name() %></td> 
-
-                                    </tr>
-                                <%}}%>
-                            </tbody>
-                        </table>
+                       aaa
                     </div>
                 </div>
             </div>
