@@ -56,11 +56,9 @@
                                     <%}%>
                                     <br>
                                     <% if (cliente.getFechaNac() !=null){%>
-                                        Fecha de nacimiento: <%= cliente.getFechaNac().getDia()+'/'+cliente.getFechaNac().getMes()+'/'+cliente.getFechaNac().getAnio() %>
+                                        Fecha de nacimiento: <%= cliente.getFechaNac().getDia()+"/"+cliente.getFechaNac().getMes()+"/"+cliente.getFechaNac().getAnio() %>
                                     <%}%>
                                     <br>
-                                    <%//= fecha.getDia() %><br><%//= fecha.getMes() %><br><%//= fecha.getAnio() %>     
-                                    <%= cliente.getFechaNac().getDia() %><br><%= cliente.getFechaNac().getMes() %><br><%= cliente.getFechaNac().getAnio() %>     
                                 </td>
                                 <td>
                                    <% if (cliente.getImagen() !=null){%>
@@ -71,7 +69,7 @@
                         </table>
                     </div>
                     <div id="cpestana2">
-                       aaa
+                       InfoReservas
                     </div>
                 </div>
             </div>
