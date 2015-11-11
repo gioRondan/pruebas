@@ -31,7 +31,7 @@
                 </div>
 
              
-
+            <body onload="javascript:cambiarPestanna(pestanas,pestana1);"></body> <%--Para setear la pestanea 1 conmo activa  --%>
                     <div id="contenidopestanas" style="width: 500px" >
                     <div id="cpestana1" >
                         <table>
@@ -59,7 +59,7 @@
                                         Fecha de nacimiento: <%= cliente.getFechaNac().getDia()+'/'+cliente.getFechaNac().getMes()+'/'+cliente.getFechaNac().getAnio() %>
                                     <%}%>
                                     <br>
-                                    <%= fecha.getDia() %><br><%= fecha.getMes() %><br><%= fecha.getAnio() %>     
+                                    <%//= fecha.getDia() %><br><%//= fecha.getMes() %><br><%//= fecha.getAnio() %>     
                                     <%= cliente.getFechaNac().getDia() %><br><%= cliente.getFechaNac().getMes() %><br><%= cliente.getFechaNac().getAnio() %>     
                                 </td>
                                 <td>

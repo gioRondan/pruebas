@@ -53,10 +53,10 @@ public class registrarCliente extends HttpServlet {
 //        wsc.PublicadorCliente port = service.getPublicadorClientePort();
                 DataFecha dateNac= new DataFecha();
                 String fecha = request.getParameter("fechaCliente");
-                String[] partes = fecha.split("/");
-                int dia = Integer.parseInt(partes[0]); //dd
+                String[] partes = fecha.split("-");
+                int dia = Integer.parseInt(partes[2]); //dd
                 int mes = Integer.parseInt(partes[1]); // mm
-                int anio = Integer.parseInt(partes[2]); // aaaa
+                int anio = Integer.parseInt(partes[0]); // aaaa
                 dateNac.setDia(dia);
                 dateNac.setMes(mes);
                 dateNac.setAnio(anio);
