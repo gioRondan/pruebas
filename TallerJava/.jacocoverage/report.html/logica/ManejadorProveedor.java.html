@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ManejadorProveedor.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TallerJava&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">logica</a> &gt; <span class="el_source">ManejadorProveedor.java</span></div><h1>ManejadorProveedor.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package logica;
+import java.util.ArrayList;
+import java.util.Collections;
+import static java.util.Collections.emptyMap;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+/**
+ *
+ * @author matias.heredia
+ */
+public class ManejadorProveedor {
+    private Map&lt;String,Proveedor&gt; proveedores;
+<span class="fc" id="L22">    private static ManejadorProveedor instance = null;</span>
+<span class="fc" id="L23">    private ManejadorProveedor(){</span>
+<span class="fc" id="L24">        proveedores = new HashMap();</span>
+<span class="fc" id="L25">    }</span>
+    
+    public static ManejadorProveedor getInstance(){
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if(instance == null)</span>
+<span class="fc" id="L29">            instance = new ManejadorProveedor();</span>
+<span class="fc" id="L30">        return instance;</span>
+    }
+    public Proveedor getProveedor(String nickname){
+<span class="fc" id="L33">        return proveedores.get(nickname);</span>
+    }
+    public void addProveedor(Proveedor proveedor){
+<span class="fc" id="L36">        proveedores.put(proveedor.getNickname(), proveedor);</span>
+<span class="fc" id="L37">    }</span>
+    public void removeProveedor(String nickname){
+<span class="nc" id="L39">        proveedores.remove(nickname);</span>
+<span class="nc" id="L40">    }</span>
+   
+    public List&lt;DataProveedor&gt; getDataProveedores(){
+<span class="fc" id="L43">        List&lt;DataProveedor&gt; dts =  new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        for (Proveedor value : proveedores.values()){</span>
+<span class="fc" id="L45">            dts.add(value.getDataProveedor());</span>
+<span class="fc" id="L46">        }</span>
+<span class="fc" id="L47">        return dts;</span>
+    }
+
+    void unicidadNick(String nick) throws Exception{
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">        if (proveedores.containsKey(nick))</span>
+<span class="nc" id="L52">            throw new Exception(&quot;El nick ingresado ya pertenece a otro proveedor&quot;); </span>
+<span class="fc" id="L53">    }</span>
+
+    void unicidadEmail(String email) throws Exception{
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        for(Proveedor it : proveedores.values()){</span>
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">            if (it.getEmail().equals(email)){</span>
+<span class="nc" id="L58">                throw new Exception(&quot;El email ingresado ya pertenece a otro proveedor&quot;);</span>
+            }
+<span class="fc" id="L60">        }</span>
+<span class="fc" id="L61">    }</span>
+    
+    void unicidadPromocion(String nickProveedor, String nomPromocion) throws Exception{
+<span class="fc" id="L64">        Proveedor prov = proveedores.get(nickProveedor);</span>
+<span class="fc" id="L65">        Promocion prom = prov.getPromocion(nomPromocion);</span>
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">        if(prom != null){            </span>
+<span class="nc" id="L67">            throw new Exception(&quot;El proveedor seleccionado ya tiene una promoción con ese nombre&quot;);            </span>
+        }
+<span class="fc" id="L69">    }</span>
+    List&lt;DataServicio&gt; obtenerServiciosBuscados(String aBuscar){
+<span class="fc" id="L71">        List&lt;DataServicio&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">        for(Proveedor it : proveedores.values()){</span>
+<span class="fc" id="L73">            result.addAll(it.getServiciosBuscados(aBuscar));</span>
+<span class="fc" id="L74">        }</span>
+<span class="fc" id="L75">        return result;</span>
+    }
+
+    List&lt;DataPromocion&gt; obtenerPromocionesBuscados(String aBuscar) {
+<span class="nc" id="L79">         List&lt;DataPromocion&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">        for(Proveedor it : proveedores.values()){</span>
+<span class="nc" id="L81">            result.addAll(it.getPromocionesBuscados(aBuscar));</span>
+<span class="nc" id="L82">        }</span>
+<span class="nc" id="L83">        return result;</span>
+    }
+   
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

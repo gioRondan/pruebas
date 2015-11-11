@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Servicio.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TallerJava&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">logica</a> &gt; <span class="el_source">Servicio.java</span></div><h1>Servicio.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package logica;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+/**
+ *
+ * @author matias.heredia
+ */
+public class Servicio {
+    private String nombre;
+    private String descripcion;
+    private String [] imagen;
+<span class="fc" id="L24">    private int contImagen = 0;</span>
+    private float precio;
+<span class="fc" id="L26">    private Ciudad origen=null;</span>
+<span class="fc" id="L27">    private Ciudad destino=null;</span>
+    private Map&lt;String, Categoria&gt; categorias;
+    private Proveedor proveedor;
+    
+<span class="fc" id="L31">    public Servicio(String nombre,String descripcion,float precio){</span>
+<span class="fc" id="L32">        this.nombre=nombre;</span>
+<span class="fc" id="L33">        this.descripcion=descripcion;</span>
+<span class="fc" id="L34">        this.precio=precio;</span>
+<span class="fc" id="L35">        this.imagen=new String[3];</span>
+<span class="fc" id="L36">        this.categorias = new HashMap();</span>
+<span class="fc" id="L37">        proveedor = null;</span>
+<span class="fc" id="L38">    }</span>
+
+    public void setNombre(String nom){
+<span class="nc" id="L41">        this.nombre = nom;</span>
+<span class="nc" id="L42">    }</span>
+    public void setDesc(String des){
+<span class="fc" id="L44">        this.descripcion = des;</span>
+<span class="fc" id="L45">    }</span>
+    public void agregarImagen(String img)throws Exception{
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">        if (contImagen &lt; 3){</span>
+<span class="fc" id="L48">            this.imagen[contImagen] = img;</span>
+<span class="fc" id="L49">            contImagen++;</span>
+        }else
+<span class="nc" id="L51">            throw new Exception(&quot;El servicio ya tiene asignado 3 imagenes&quot;);</span>
+<span class="fc" id="L52">    }</span>
+    public void setPrecio(float precio){
+<span class="fc" id="L54">         this.precio = precio;</span>
+<span class="fc" id="L55">    }</span>
+    
+    public String getNombre(){
+<span class="fc" id="L58">        return this.nombre;</span>
+    }
+    public String getDesc(){
+<span class="nc" id="L61">        return this.descripcion;</span>
+    }
+    public float getPrecio(){
+<span class="fc" id="L64">        return this.precio;</span>
+    }
+    public String getImagen(int num){
+<span class="nc" id="L67">        return this.imagen[num];</span>
+    }
+    public void asociarOrigen(Ciudad origen){
+<span class="fc" id="L70">        this.origen = origen;</span>
+<span class="fc" id="L71">    }</span>
+    public void asociarDestino(Ciudad destino){
+<span class="fc" id="L73">        this.destino = destino;</span>
+<span class="fc" id="L74">    }</span>
+    public void agregarCategoria(Categoria categoria){
+<span class="fc" id="L76">        this.categorias.put(categoria.getNombre(), categoria);</span>
+<span class="fc" id="L77">    }</span>
+    public DataServicio getDataServicio(){
+<span class="fc" id="L79">        return new DataServicio(nombre, descripcion, precio, imagen, proveedor.getNickname());</span>
+    }
+    public DataInfoServicio getDataInfoServicio (){
+<span class="fc" id="L82">        DataCiudad des = null;</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">        if (destino!= null){</span>
+<span class="fc" id="L84">            des = destino.getDataCiudad();</span>
+        }
+<span class="fc" id="L86">        return new DataInfoServicio(nombre, descripcion, imagen, precio, origen.getDataCiudad(), des, getDataCategorias(), proveedor.getDataProveedor());</span>
+    }
+    public List&lt;DataCategoria&gt; getDataCategorias(){
+<span class="fc" id="L89">        List&lt;DataCategoria&gt; dts = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">        for (Categoria c : categorias.values()){</span>
+<span class="fc" id="L91">            dts.add(c.getDataCategoria());</span>
+<span class="fc" id="L92">        }</span>
+<span class="fc" id="L93">        return dts;</span>
+    }
+    public void setProveedor(Proveedor proveedor){
+<span class="fc" id="L96">        this.proveedor = proveedor;</span>
+<span class="fc" id="L97">    }</span>
+    public void esdeProveedor(String nomProv) throws Exception{
+<span class="nc bnc" id="L99" title="All 2 branches missed.">        if (!(nomProv.equals(proveedor.getNombre()))){</span>
+<span class="nc" id="L100">            throw new Exception(&quot;Los servicios deben ser de un mismo proveedor&quot;);</span>
+        }
+<span class="nc" id="L102">    }</span>
+    public void eliminarImagen(String imagen) throws Exception{
+<span class="fc" id="L104">        int it = 0;</span>
+<span class="pc bpc" id="L105" title="1 of 4 branches missed.">        while((it &lt; contImagen)&amp;&amp;(!this.imagen[it].equals(imagen)))</span>
+<span class="fc" id="L106">            ++it;</span>
+<span class="pc bpc" id="L107" title="1 of 2 branches missed.">        if(it==contImagen)</span>
+<span class="nc" id="L108">            throw new Exception(&quot;la imagen seleccionada no pertenece al servicio&quot;);</span>
+        else{
+<span class="fc" id="L110">            Files.deleteIfExists(Paths.get(this.imagen[it]));</span>
+            //Files.delete(Paths.get(this.imagen[it]));
+<span class="fc" id="L112">            this.imagen[it] = this.imagen[contImagen-1];</span>
+<span class="fc" id="L113">            this.imagen[contImagen-1] = &quot;&quot;;</span>
+<span class="fc" id="L114">            contImagen--;</span>
+        }
+<span class="fc" id="L116">    }</span>
+    public void eliminarCategoria(String categoria) throws Exception{
+<span class="pc bpc" id="L118" title="1 of 2 branches missed.">        if(categorias.containsKey(categoria)){</span>
+<span class="fc" id="L119">            this.categorias.remove(categoria);</span>
+        }else{
+<span class="nc" id="L121">            throw new Exception(&quot;la categoria no pertenece al servicio&quot;); </span>
+        }
+<span class="fc" id="L123">    }</span>
+
+    boolean buscado(String aBuscar) {
+<span class="pc bpc" id="L126" title="5 of 6 branches missed.">        return(this.nombre.equals(aBuscar) ||this.categorias.containsKey(aBuscar) || this.descripcion.contains(aBuscar));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

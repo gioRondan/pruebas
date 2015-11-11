@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Cliente.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Administrador&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">logica</a> &gt; <span class="el_source">Cliente.java</span></div><h1>Cliente.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package logica;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Map;
+
+import java.util.LinkedHashMap;
+import java.util.List;
+
+/**
+ *
+ * @author matias.heredia
+ */
+public class Cliente extends Usuario{
+    private Map&lt;Integer,Reserva&gt; reservas;
+    
+    
+    
+    
+    
+    
+    
+    public Cliente(String nickname, String nombre, String apellido,String email, Date fechaNac, String url, String password){
+<span class="fc" id="L30">        super(nickname,nombre,apellido,email,fechaNac,url, password);</span>
+<span class="fc" id="L31">        this.reservas = new LinkedHashMap();</span>
+<span class="fc" id="L32">    }</span>
+    public DataCliente getDataCliente(){
+<span class="fc" id="L34">        return new DataCliente( this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),  this.getImagen(), this.getPassword());</span>
+    }
+    public List&lt;DataReserva&gt; getDataReservas(){
+<span class="fc" id="L37">        List&lt;DataReserva&gt; dts = new ArrayList&lt;DataReserva&gt;();</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        for (Reserva value : reservas.values()){</span>
+<span class="fc" id="L39">            dts.add(value.getDataReserva());</span>
+<span class="fc" id="L40">        }</span>
+<span class="fc" id="L41">        return dts;</span>
+    }
+    public void reservarServicio(int identificador,Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
+<span class="fc" id="L44">        Reserva res = reservas.get(identificador);</span>
+<span class="fc" id="L45">        ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin);    </span>
+<span class="fc" id="L46">        res.agregarItem(item);</span>
+<span class="fc" id="L47">    }</span>
+    public void modificarEstadoReserva(int identificador, Estado estado){
+<span class="fc" id="L49">        Reserva res = reservas.get(identificador);</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">        if (res.getEstado() == Estado.registrada){</span>
+<span class="fc" id="L51">            res.setEstado(estado);</span>
+        }
+<span class="fc" id="L53">    }</span>
+    public void reservarPromocion(int clave,Promocion prom,int cantidad,Date fechaIni,Date fechaFin){
+<span class="fc" id="L55">        Reserva res = reservas.get(clave);</span>
+<span class="fc" id="L56">            ItemReserva item = new ItemReserva(cantidad,prom, fechaIni, fechaFin);</span>
+<span class="fc" id="L57">            res.agregarItem(item);</span>
+        
+<span class="fc" id="L59">    }</span>
+    public void cancelarReserva(int identificador){
+<span class="fc" id="L61">        Reserva res = reservas.get(identificador);</span>
+<span class="fc" id="L62">        res.darDeBaja();</span>
+<span class="fc" id="L63">        reservas.remove(identificador);</span>
+<span class="fc" id="L64">    }</span>
+    public DataInfoCliente getDataInfoCliente(){
+<span class="fc" id="L66">        return new DataInfoCliente(this.getNickname(), this.getNombre(), this.getApellido(), this.getEmail(), this.getFechaNac(),  this.getImagen(), getDataReservas(),this.getPassword());</span>
+    }
+    public Reserva getReserva(int identificador) {
+<span class="fc" id="L69">        return reservas.get(identificador);</span>
+    }
+    public void addReserva(int identificador, Reserva res){
+<span class="fc" id="L72">        reservas.put(identificador, res);</span>
+<span class="fc" id="L73">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ManejadorCategoria.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Administrador&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">logica</a> &gt; <span class="el_source">ManejadorCategoria.java</span></div><h1>ManejadorCategoria.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package logica;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+public class ManejadorCategoria {
+    private Map&lt;String,Categoria&gt; categorias;
+<span class="fc" id="L15">    private static ManejadorCategoria instance = null;</span>
+<span class="fc" id="L16">    private ManejadorCategoria(){</span>
+<span class="fc" id="L17">        categorias = new LinkedHashMap();</span>
+<span class="fc" id="L18">    }</span>
+    
+    public static ManejadorCategoria getInstance(){
+<span class="fc bfc" id="L21" title="All 2 branches covered.">        if(instance == null)</span>
+<span class="fc" id="L22">            instance = new ManejadorCategoria();</span>
+<span class="fc" id="L23">        return instance;</span>
+    }
+    public Categoria getCategoria(String nombre){
+<span class="fc" id="L26">        return categorias.get(nombre);</span>
+    }
+    public void addCategoria(Categoria proveedor){
+<span class="fc" id="L29">        categorias.put(proveedor.getNombre(), proveedor);</span>
+<span class="fc" id="L30">    }</span>
+    public void removeCategoria(String nombre){
+<span class="nc" id="L32">        categorias.remove(nombre);</span>
+<span class="nc" id="L33">    }</span>
+    public List&lt;DataCategoria&gt; getDataCategorias(){
+<span class="fc" id="L35">        List&lt;DataCategoria&gt; dts = new ArrayList&lt;DataCategoria&gt;();</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        for (Categoria value : categorias.values()) {</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">            if(value.esRaiz())</span>
+<span class="fc" id="L38">            dts.add(value.getDataCategoria());</span>
+<span class="fc" id="L39">        }</span>
+<span class="fc" id="L40">        return dts;</span>
+    }/*
+    public void crearCategoria(String nomCategoria, String nomPadre){
+        Categoria nueva = new Categoria(nomCategoria);
+        if (!(nomPadre.isEmpty())){
+            Categoria padre = categorias.get(nomPadre);
+            padre.setHijo(nueva);
+        }else       //solo quedan en el manejador las categorias de mayor jerarquia, el resto se consiguen por medio de sus hijos. Para mayor informacion consultar a gio
+            categorias.put(nomCategoria, nueva);
+    }*/
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

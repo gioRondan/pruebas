@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>CargaInicial.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Administrador&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Presentacion</a> &gt; <span class="el_source">CargaInicial.java</span></div><h1>CargaInicial.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Presentacion;
+
+import Presentacion.PantallaPrincipal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import logica.DataExpira;
+import logica.Estado;
+import logica.Fabrica;
+import logica.IControladorCliente;
+import logica.IControladorProveedor;
+
+
+/**
+ *
+ * @author Juan
+ */
+
+public class CargaInicial {
+<span class="nc" id="L33">    Fabrica fab = Fabrica.getInstance();</span>
+<span class="nc" id="L34">    IControladorProveedor ICP = fab.getIControladorProveedor();</span>
+<span class="nc" id="L35">    private IControladorCliente ICC = fab.getIControladorCliente();</span>
+
+<span class="nc" id="L37">    public CargaInicial() {</span>
+     
+        
+<span class="nc" id="L40">    }</span>
+
+    
+    public void cargar(){
+         
+        try {
+             //PROVEEDORES Y SUS EMPRESAS
+<span class="nc" id="L47">            ICP.altaProveedor(&quot;tCook&quot;,&quot;Tim&quot;, &quot;Cook&quot;, &quot;air.f@gmail.com&quot;,toDate(&quot;1/11/1960&quot;), PantallaPrincipal.RutaImagenes+&quot;Usuarios/tCook.png&quot;,&quot;AirFrance&quot;, &quot;http://www.airfrance.com/&quot;,&quot;hola&quot;);</span>
+<span class="nc" id="L48">            ICP.altaProveedor(&quot;moody&quot;,&quot;Alastor&quot;, &quot;Moody&quot;, &quot;eu.car@eucar.com&quot;,toDate(&quot;2/9/1965&quot;), PantallaPrincipal.RutaImagenes+&quot;Usuarios/moody.png&quot;,&quot;EuropCar&quot;, &quot;http://www.europcar.com.uy/&quot;,&quot;hola&quot;);</span>
+<span class="nc" id="L49">            ICP.altaProveedor(&quot;remus&quot;,&quot;Remus&quot;, &quot;Lupin&quot;, &quot;iberia@gmail.com&quot;,toDate(&quot;4/5/1970&quot;), PantallaPrincipal.RutaImagenes+&quot;Usuarios/remus.png&quot;,&quot;Iberia&quot;, &quot;http://www.iberia.com/uy/&quot;,&quot;hola&quot;);</span>
+<span class="nc" id="L50">            ICP.altaProveedor(&quot;adippet&quot;,&quot;Armando&quot;, &quot;Dippet&quot;, &quot;tam@outlook.com&quot;,toDate(&quot;12/2/1967&quot;), PantallaPrincipal.RutaImagenes+&quot;Usuarios/adippet.png&quot;,&quot;Tam&quot;, &quot;http://www.tam.com.br/&quot;,&quot;hola&quot;);</span>
+<span class="nc" id="L51">            ICP.altaProveedor(&quot;mHooch&quot;,&quot;Madam&quot;, &quot;Hooch&quot;, &quot;segHogar@gmail.com&quot;,toDate(&quot;5/8/1963&quot;), PantallaPrincipal.RutaImagenes+&quot;Usuarios/mHooch.png&quot;,&quot;Segundo Hogar&quot;, &quot;http://www.segundohogar.com/&quot;,&quot;hola&quot;);</span>
+            
+            // CLIENTES
+<span class="nc" id="L54">            ICC.altaCliente(&quot;oWood&quot; , &quot;Oliver&quot;, &quot;Wood&quot;, &quot;quidditch28@gmail.com&quot;, toDate(&quot;28/12/1988&quot;),PantallaPrincipal.RutaImagenes+&quot;Usuarios/oWood.png&quot;,&quot;hola&quot;);</span>
+<span class="nc" id="L55">            ICC.altaCliente(&quot;eWaston&quot; , &quot;Emma&quot;, &quot;Watson&quot;, &quot;e.watson@gmail.com&quot;, toDate(&quot;15/4/1990&quot;),PantallaPrincipal.RutaImagenes+&quot;Usuarios/eWaston.png&quot;,&quot;hola&quot;);</span>
+<span class="nc" id="L56">            ICC.altaCliente(&quot;BruceS&quot; , &quot;Bruce&quot;, &quot;Sewell&quot;, &quot;bruce.sewell@gmail.com&quot;, toDate(&quot;3/12/1978&quot;),&quot;&quot;,&quot;hola&quot;);</span>
+<span class="nc" id="L57">            ICC.altaCliente(&quot;JeffW&quot; , &quot;Jeff&quot;, &quot;Wiliams&quot;, &quot;jeff.williams@gmail.com&quot;, toDate(&quot;27/11/1984&quot;),&quot;&quot;,&quot;hola&quot;);</span>
+            //CATEGORIAS
+<span class="nc" id="L59">                ICP.ingresarNombreCategoria(&quot;Vuelos&quot;);ICP.seleccionarPadre(&quot;&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L60">                    ICP.ingresarNombreCategoria(&quot;Empresas&quot;);ICP.seleccionarPadre(&quot;Vuelos&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L61">                        ICP.ingresarNombreCategoria(&quot;Iberia&quot;);ICP.seleccionarPadre(&quot;Empresas&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L62">                        ICP.ingresarNombreCategoria(&quot;American Airlines&quot;);ICP.seleccionarPadre(&quot;Empresas&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L63">                        ICP.ingresarNombreCategoria(&quot;Air France&quot;);ICP.seleccionarPadre(&quot;Empresas&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L64">                        ICP.ingresarNombreCategoria(&quot;TAM&quot;);ICP.seleccionarPadre(&quot;Empresas&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L65">                    ICP.ingresarNombreCategoria(&quot;Tipo vuelo&quot;);ICP.seleccionarPadre(&quot;Vuelos&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L66">                        ICP.ingresarNombreCategoria(&quot;LowCost&quot;);ICP.seleccionarPadre(&quot;Tipo vuelo&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L67">                        ICP.ingresarNombreCategoria(&quot;Standard&quot;);ICP.seleccionarPadre(&quot;Tipo vuelo&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L68">                        ICP.ingresarNombreCategoria(&quot;First Class&quot;);ICP.seleccionarPadre(&quot;Tipo vuelo&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L69">                ICP.ingresarNombreCategoria(&quot;Alojamientos&quot;);ICP.seleccionarPadre(&quot;&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L70">                    ICP.ingresarNombreCategoria(&quot;Tipo alojamiento&quot;);ICP.seleccionarPadre(&quot;Alojamientos&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L71">                        ICP.ingresarNombreCategoria(&quot;Hotel&quot;);ICP.seleccionarPadre(&quot;Tipo alojamiento&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L72">                        ICP.ingresarNombreCategoria(&quot;Hostal&quot;);ICP.seleccionarPadre(&quot;Tipo alojamiento&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L73">                        ICP.ingresarNombreCategoria(&quot;Apartamento&quot;);ICP.seleccionarPadre(&quot;Tipo alojamiento&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L74">                        ICP.ingresarNombreCategoria(&quot;Casa&quot;);ICP.seleccionarPadre(&quot;Tipo alojamiento&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L75">                    ICP.ingresarNombreCategoria(&quot;Ubicación&quot;);ICP.seleccionarPadre(&quot;Alojamientos&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L76">                        ICP.ingresarNombreCategoria(&quot;Playa&quot;);ICP.seleccionarPadre(&quot;Ubicación&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L77">                        ICP.ingresarNombreCategoria(&quot;Rural&quot;);ICP.seleccionarPadre(&quot;Ubicación&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L78">                        ICP.ingresarNombreCategoria(&quot;Montaña&quot;);ICP.seleccionarPadre(&quot;Ubicación&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L79">                    ICP.ingresarNombreCategoria(&quot;Habitaciones&quot;);ICP.seleccionarPadre(&quot;Alojamientos&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L80">                        ICP.ingresarNombreCategoria(&quot;1 ambiente&quot;);ICP.seleccionarPadre(&quot;Habitaciones&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L81">                        ICP.ingresarNombreCategoria(&quot;1 dormitorio&quot;);ICP.seleccionarPadre(&quot;Habitaciones&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L82">                        ICP.ingresarNombreCategoria(&quot;2 dormitorios&quot;);ICP.seleccionarPadre(&quot;Habitaciones&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L83">                ICP.ingresarNombreCategoria(&quot;Automóviles&quot;);ICP.seleccionarPadre(&quot;&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L84">                    ICP.ingresarNombreCategoria(&quot;Tarifa&quot;);ICP.seleccionarPadre(&quot;Automóviles&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L85">                          ICP.ingresarNombreCategoria(&quot;Mini&quot;);ICP.seleccionarPadre(&quot;Tarifa&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L86">                          ICP.ingresarNombreCategoria(&quot;Económico&quot;);ICP.seleccionarPadre(&quot;Tarifa&quot;);ICP.altaCategoria();</span>
+//                        ICP.ingresarNombreCategoria(&quot;Standard&quot;);ICP.seleccionarPadre(&quot;Tarifa&quot;);ICP.altaCategoria();
+<span class="nc" id="L88">                          ICP.ingresarNombreCategoria(&quot;Full&quot;);ICP.seleccionarPadre(&quot;Tarifa&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L89">                    ICP.ingresarNombreCategoria(&quot;Tipo vehículo&quot;);ICP.seleccionarPadre(&quot;Automóviles&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L90">                        ICP.ingresarNombreCategoria(&quot;Auto&quot;);ICP.seleccionarPadre(&quot;Tipo vehículo&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L91">                        ICP.ingresarNombreCategoria(&quot;Camioneta&quot;);ICP.seleccionarPadre(&quot;Tipo vehículo&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L92">                        ICP.ingresarNombreCategoria(&quot;Camión&quot;);ICP.seleccionarPadre(&quot;Tipo vehículo&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L93">                        ICP.ingresarNombreCategoria(&quot;Moto&quot;);ICP.seleccionarPadre(&quot;Tipo vehículo&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L94">                    ICP.ingresarNombreCategoria(&quot;Marca&quot;);ICP.seleccionarPadre(&quot;Automóviles&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L95">                        ICP.ingresarNombreCategoria(&quot;Chevrolet&quot;);ICP.seleccionarPadre(&quot;Marca&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L96">                        ICP.ingresarNombreCategoria(&quot;Peugeot&quot;);ICP.seleccionarPadre(&quot;Marca&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L97">                        ICP.ingresarNombreCategoria(&quot;Daihatsu&quot;);ICP.seleccionarPadre(&quot;Marca&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L98">                        ICP.ingresarNombreCategoria(&quot;Fiat&quot;);ICP.seleccionarPadre(&quot;Marca&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L99">                        ICP.ingresarNombreCategoria(&quot;Ford&quot;);ICP.seleccionarPadre(&quot;Marca&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L100">                ICP.ingresarNombreCategoria(&quot;Cruceros&quot;);ICP.seleccionarPadre(&quot;&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L101">                    ICP.ingresarNombreCategoria(&quot;Mediterráneo&quot;);ICP.seleccionarPadre(&quot;Cruceros&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L102">                    ICP.ingresarNombreCategoria(&quot;Mar Negro&quot;);ICP.seleccionarPadre(&quot;Cruceros&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L103">                    ICP.ingresarNombreCategoria(&quot;Caribe&quot;);ICP.seleccionarPadre(&quot;Cruceros&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L104">                    ICP.ingresarNombreCategoria(&quot;Nilo&quot;);ICP.seleccionarPadre(&quot;Cruceros&quot;);ICP.altaCategoria();</span>
+<span class="nc" id="L105">                    ICP.ingresarNombreCategoria(&quot;Alaska&quot;);ICP.seleccionarPadre(&quot;Cruceros&quot;);ICP.altaCategoria();</span>
+             //PAISES                       
+<span class="nc" id="L107">                    ICP.altaPais(&quot;Uruguay&quot;);</span>
+<span class="nc" id="L108">                    ICP.altaPais(&quot;Argentina&quot;);</span>
+<span class="nc" id="L109">                    ICP.altaPais(&quot;Colombia&quot;);</span>
+<span class="nc" id="L110">                    ICP.altaPais(&quot;EEUU&quot;);</span>
+<span class="nc" id="L111">                    ICP.altaPais(&quot;España&quot;);</span>
+<span class="nc" id="L112">                    ICP.altaPais(&quot;Francia&quot;);</span>
+<span class="nc" id="L113">                    ICP.altaPais(&quot;Alemania&quot;);</span>
+<span class="nc" id="L114">                    ICP.altaPais(&quot;Suiza&quot;);</span>
+<span class="nc" id="L115">                    ICP.altaPais(&quot;Australia&quot;);</span>
+<span class="nc" id="L116">                    ICP.altaPais(&quot;Brasil&quot;);    </span>
+<span class="nc" id="L117">                    ICP.altaPais(&quot;China&quot;);    </span>
+                                   
+             //CIUDADES String nomCiudad, String nomPais)
+<span class="nc" id="L120">                    ICP.altaCiudad(&quot;Montevideo&quot;, &quot;Uruguay&quot;);</span>
+<span class="nc" id="L121">                    ICP.altaCiudad(&quot;Buenos Aires&quot;, &quot;Argentina&quot;);</span>
+<span class="nc" id="L122">                    ICP.altaCiudad(&quot;Bogotá&quot;,&quot;Colombia&quot;);</span>
+<span class="nc" id="L123">                    ICP.altaCiudad(&quot;Miami&quot;,&quot;EEUU&quot;);</span>
+<span class="nc" id="L124">                    ICP.altaCiudad(&quot;Valencia&quot;,&quot;España&quot;);</span>
+<span class="nc" id="L125">                    ICP.altaCiudad(&quot;Madrid&quot;, &quot;España&quot;);</span>
+<span class="nc" id="L126">                    ICP.altaCiudad(&quot;París&quot;,&quot;Francia&quot;);</span>
+<span class="nc" id="L127">                    ICP.altaCiudad(&quot;Berlín&quot;,&quot;Alemania&quot;);</span>
+<span class="nc" id="L128">                    ICP.altaCiudad(&quot;Ginebra&quot;,&quot;Suiza&quot;);</span>
+<span class="nc" id="L129">                    ICP.altaCiudad(&quot;Sidney&quot;,&quot;Australia&quot;);</span>
+<span class="nc" id="L130">                    ICP.altaCiudad(&quot;Pekín&quot;,&quot;China&quot;);</span>
+<span class="nc" id="L131">                    ICP.altaCiudad(&quot;Cantón&quot;, &quot;China&quot;);</span>
+<span class="nc" id="L132">                    ICP.altaCiudad(&quot;Florianópolis&quot;, &quot;Brasil&quot;);</span>
+<span class="nc" id="L133">                    ICP.altaCiudad(&quot;Bariloche&quot;,&quot;Argentina&quot;);</span>
+                    
+            //SERVICIOS nombre, descripcion,precio,origen,proveedor,pais
+                //S1
+<span class="nc" id="L137">                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+&quot;Servicios/remus - Euro-Vuelo-S 1.png&quot;);</span>
+<span class="nc" id="L138">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L139">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L140">                ICP.ingresarCategoriaServicio(&quot;Iberia&quot;);</span>
+<span class="nc" id="L141">                ICP.ingresarCategoriaServicio(&quot;Standard&quot;);    </span>
+<span class="nc" id="L142">                ICP.ingresarDestinoServicio(&quot;Valencia&quot;);</span>
+<span class="nc" id="L143">                ICP.altaServicio(&quot;Euro-Vuelo-S&quot;, &quot;Vuelo con excelente atención y comodidad.&quot;, 1100, &quot;Montevideo&quot;, &quot;remus&quot;, &quot;Uruguay&quot;);</span>
+                //S2
+<span class="nc" id="L145">                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+&quot;Servicios/remus - Euro-Vuelo-LC 1.png&quot;);</span>
+<span class="nc" id="L146">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L147">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L148">                ICP.ingresarCategoriaServicio(&quot;Iberia&quot;);</span>
+<span class="nc" id="L149">                ICP.ingresarCategoriaServicio(&quot;LowCost&quot;);    </span>
+<span class="nc" id="L150">                ICP.ingresarDestinoServicio(&quot;Valencia&quot;);</span>
+<span class="nc" id="L151">                ICP.altaServicio(&quot;Euro-Vuelo-LC&quot;, &quot;Vuelo con excelente atención y comodidad a un precio accesible.&quot;, 850, &quot;Montevideo&quot;, &quot;remus&quot;, &quot;Uruguay&quot;);</span>
+                //S3
+<span class="nc" id="L153">                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+&quot;Servicios/remus - Euro-Vuelo-FC 1.png&quot;);</span>
+<span class="nc" id="L154">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L155">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L156">                ICP.ingresarCategoriaServicio(&quot;Iberia&quot;);</span>
+<span class="nc" id="L157">                ICP.ingresarCategoriaServicio(&quot;First Class&quot;);    </span>
+<span class="nc" id="L158">                ICP.ingresarDestinoServicio(&quot;Valencia&quot;);</span>
+<span class="nc" id="L159">                ICP.altaServicio(&quot;Euro-Vuelo-FC&quot;, &quot;Vuelo de primera clase. Excelente atención, comodidad y servicio.&quot;, 1300, &quot;Montevideo&quot;, &quot;remus&quot;, &quot;Uruguay&quot;);</span>
+                //S4
+<span class="nc" id="L161">                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+&quot;Servicios/moody - Euro-Car-1 1.png&quot;);</span>
+<span class="nc" id="L162">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L163">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L164">                ICP.ingresarCategoriaServicio(&quot;Económico&quot;);</span>
+<span class="nc" id="L165">                ICP.ingresarCategoriaServicio(&quot;Auto&quot;);</span>
+<span class="nc" id="L166">                ICP.ingresarCategoriaServicio(&quot;Chevrolet&quot;);</span>
+<span class="nc" id="L167">                ICP.ingresarDestinoServicio(&quot;Valencia&quot;);</span>
+<span class="nc" id="L168">                ICP.altaServicio(&quot;Euro-Car-1&quot;, &quot;Euro-Car. Autos de buena calidad y comodidad. Versión Económica.&quot;, 300, &quot;Madrid&quot;, &quot;moody&quot;, &quot;España&quot;);</span>
+                //S5
+<span class="nc" id="L170">                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+&quot;Servicios/moody - Euro-Car-2 1.png&quot; );</span>
+<span class="nc" id="L171">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L172">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L173">                ICP.ingresarCategoriaServicio(&quot;Standard&quot;);</span>
+<span class="nc" id="L174">                ICP.ingresarCategoriaServicio(&quot;Auto&quot;);</span>
+<span class="nc" id="L175">                ICP.ingresarCategoriaServicio(&quot;Chevrolet&quot;);</span>
+<span class="nc" id="L176">                ICP.ingresarDestinoServicio(&quot;Valencia&quot;);</span>
+<span class="nc" id="L177">                ICP.altaServicio(&quot;Euro-Car-2&quot;, &quot;Euro-Car. Autos de buena calidad y comodidad. Versión Standard.&quot;, 300, &quot;Madrid&quot;, &quot;moody&quot;, &quot;España&quot;);</span>
+                //S6
+<span class="nc" id="L179">                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+&quot;Servicios/moody - Euro-Car-3 1.png&quot; );</span>
+<span class="nc" id="L180">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L181">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L182">                ICP.ingresarCategoriaServicio(&quot;Full&quot;);</span>
+<span class="nc" id="L183">                ICP.ingresarCategoriaServicio(&quot;Chevrolet&quot;);</span>
+<span class="nc" id="L184">                ICP.ingresarCategoriaServicio(&quot;Camioneta&quot;);</span>
+<span class="nc" id="L185">                ICP.altaServicio(&quot;Euro-Car-3&quot;, &quot;Euro-Car. Autos de buena calidad y comodidad. Una camioneta para toda la familia.&quot;, 300, &quot;Valencia&quot;, &quot;moody&quot;, &quot;España&quot;);</span>
+                //S7
+<span class="nc" id="L187">                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+&quot;Servicios/mHooch - Casa para p4 BsAs 1.png&quot; );</span>
+<span class="nc" id="L188">                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+&quot;Servicios/mHooch - Casa para p4 BsAs 2.png&quot; );</span>
+<span class="nc" id="L189">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L190">                ICP.ingresarCategoriaServicio(&quot;Casa&quot;);</span>
+<span class="nc" id="L191">                ICP.ingresarCategoriaServicio(&quot;2 dormitorios&quot;);</span>
+<span class="nc" id="L192">                ICP.altaServicio(&quot;Casa para p4 BsAs&quot;, &quot;Esta hermosa casa, se encuentra ubicada en el corazón de Buenos Aires y ofrece una capacidad\n&quot; +</span>
+&quot;para cuatro personas. La propiedad cuenta con un dormitorio con dos camas simples, que pueden\n&quot; +
+&quot;transformarse en una matrimonial y dos baños completos, que incluyen toallas.&quot;, 80, &quot;Buenos Aires&quot;, &quot;mHooch&quot;, &quot;Argentina&quot;);
+                //S8
+<span class="nc" id="L196">                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+&quot;Servicios/mHooch - Floripa G. House 1.png&quot; );</span>
+<span class="nc" id="L197">                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+&quot;Servicios/mHooch - Floripa G. House 2.png&quot; );</span>
+<span class="nc" id="L198">                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+&quot;Servicios/mHooch - Floripa G. House 3.png&quot;);</span>
+<span class="nc" id="L199">                ICP.ingresarCategoriaServicio(&quot;Casa&quot;);</span>
+<span class="nc" id="L200">                ICP.ingresarCategoriaServicio(&quot;2 dormitorios&quot;);</span>
+<span class="nc" id="L201">                ICP.altaServicio(&quot;Floripa G. House&quot;, &quot;Estamos a sólo unos pasos de un supermercado, restaurantes, cajero automático, gasolinera,\n&quot; +</span>
+&quot;farmacia, gimnasio, etc. Lagoa da Conceição es 7 km de nuestra casa de huéspedes y tarda sólo 10-\n&quot; +
+&quot;15 minutos en el transporte público. Allí se encuentra una buena vida nocturna con bares y música\n&quot; +
+&quot;en vivo&quot;, 190, &quot;Florianópolis&quot;, &quot;mHooch&quot;, &quot;Brasil&quot;);
+                //S9
+<span class="nc" id="L206">                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+&quot;Servicios/tCook - Air-France-FC 1.png&quot; );</span>
+<span class="nc" id="L207">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L208">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L209">                ICP.ingresarCategoriaServicio(&quot;Air France&quot;);</span>
+<span class="nc" id="L210">                ICP.ingresarCategoriaServicio(&quot;First Class&quot;);</span>
+<span class="nc" id="L211">                ICP.ingresarDestinoServicio(&quot;Berlín&quot;);</span>
+<span class="nc" id="L212">                ICP.altaServicio(&quot;Air-France-FC&quot;, &quot;¡Un vuelo de primera! Excelencia y experiencia en mejorar sus viajes.&quot;, 100, &quot;París&quot;, &quot;tCook&quot;, &quot;Francia&quot;);</span>
+                //S10
+<span class="nc" id="L214">                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+&quot;Servicios/adippet - TAM-FC 1.png&quot; );</span>
+<span class="nc" id="L215">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L216">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L217">                ICP.ingresarCategoriaServicio(&quot;TAM&quot;);</span>
+<span class="nc" id="L218">                ICP.ingresarCategoriaServicio(&quot;First Class&quot;);</span>
+<span class="nc" id="L219">                ICP.ingresarDestinoServicio(&quot;Pekín&quot;);</span>
+<span class="nc" id="L220">                ICP.altaServicio(&quot;TAM-FC&quot;, &quot;¡Un vuelo de primera! Excelencia y experiencia.&quot;, 150, &quot;Florianópolis&quot;, &quot;adippet&quot;, &quot;Brasil&quot;);</span>
+                //S11
+<span class="nc" id="L222">                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+&quot;Servicios/mHooch - Luxury south beach corner apartment 1.png&quot; );</span>
+<span class="nc" id="L223">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L224">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L225">                ICP.ingresarCategoriaServicio(&quot;Hotel&quot;);</span>
+<span class="nc" id="L226">                ICP.ingresarCategoriaServicio(&quot;Playa&quot;);</span>
+<span class="nc" id="L227">                ICP.ingresarCategoriaServicio(&quot;2 dormitorios&quot;);</span>
+<span class="nc" id="L228">                ICP.altaServicio(&quot;Luxury south beach corner apartment&quot;, &quot;Beautiful large 2 bedrooms 2 bathrooms apartment CORNER UNIT. Marble floor throughout,\n&quot; +</span>
+&quot;beautiful open kitchen, granite counter top, spacious dining room area and living room area.\n&quot; +
+&quot;Spectacular views of Miami from all windows and balcony&quot;, 300, &quot;Miami&quot;, &quot;mHooch&quot;, &quot;EEUU&quot;);
+                //S12
+<span class="nc" id="L232">                ICP.ingresarImagenServicio(PantallaPrincipal.RutaImagenes+&quot;Servicios/mHooch - Coche-Miami 1.png&quot; );</span>
+<span class="nc" id="L233">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L234">                ICP.ingresarImagenServicio(&quot;&quot;);</span>
+<span class="nc" id="L235">                ICP.ingresarCategoriaServicio(&quot;Económico&quot;);</span>
+<span class="nc" id="L236">                ICP.ingresarCategoriaServicio(&quot;Auto&quot;);</span>
+<span class="nc" id="L237">                ICP.ingresarCategoriaServicio(&quot;Chevrolet&quot;);</span>
+<span class="nc" id="L238">                ICP.altaServicio(&quot;Coche-Miami&quot;, &quot;A useful car to travel around Miami&quot;, 360, &quot;Miami&quot;, &quot;mHooch&quot;, &quot;EEUU&quot;);</span>
+      
+            //PROMOCIONES nomProveedor, ser, nombre, descuento)
+<span class="nc" id="L241">            List&lt;String&gt; ser = new ArrayList&lt;&gt;(); </span>
+            //P1
+<span class="nc" id="L243">            ser.add(&quot;Euro-Car-1&quot;);</span>
+<span class="nc" id="L244">            ser.add(&quot;Euro-Car-2&quot;);</span>
+<span class="nc" id="L245">            ICP.altaPromocion(&quot;moody&quot;, ser, &quot;Euro-Cars-E-S&quot;, 30);</span>
+<span class="nc" id="L246">            ser.clear();</span>
+            //P2
+<span class="nc" id="L248">            ser.add(&quot;Euro-Car-1&quot;);</span>
+<span class="nc" id="L249">            ser.add(&quot;Euro-Car-3&quot;);</span>
+<span class="nc" id="L250">            ICP.altaPromocion(&quot;moody&quot;, ser, &quot;Euro-Cars-E-F&quot;, 30);</span>
+<span class="nc" id="L251">            ser.clear();</span>
+            //P3
+<span class="nc" id="L253">            ser.add(&quot;Euro-Car-2&quot;);</span>
+<span class="nc" id="L254">            ser.add(&quot;Euro-Car-3&quot;);</span>
+<span class="nc" id="L255">            ICP.altaPromocion(&quot;moody&quot;, ser, &quot;Euro-Cars-S-F&quot;, 30);</span>
+<span class="nc" id="L256">            ser.clear();</span>
+            //P4
+<span class="nc" id="L258">            ser.add(&quot;Euro-Vuelo-S&quot;);</span>
+<span class="nc" id="L259">            ser.add(&quot;Euro-Vuelo-LC&quot;);</span>
+<span class="nc" id="L260">            ICP.altaPromocion(&quot;remus&quot;, ser, &quot;Euro-Vuelos-S-LC&quot;, 40);</span>
+<span class="nc" id="L261">            ser.clear();</span>
+            //P5
+<span class="nc" id="L263">            ser.add(&quot;Euro-Vuelo-S&quot;);</span>
+<span class="nc" id="L264">            ser.add(&quot;Euro-Vuelo-FC&quot;);</span>
+<span class="nc" id="L265">            ICP.altaPromocion(&quot;remus&quot;, ser, &quot;Euro-Vuelos-S-FC&quot;, 40);</span>
+<span class="nc" id="L266">            ser.clear();</span>
+            //P6
+<span class="nc" id="L268">            ser.add(&quot;Euro-Vuelo-LC&quot;);</span>
+<span class="nc" id="L269">            ser.add(&quot;Euro-Vuelo-FC&quot;);</span>
+<span class="nc" id="L270">            ICP.altaPromocion(&quot;remus&quot;, ser, &quot;Euro-Vuelos-LC-FC&quot;, 40);</span>
+<span class="nc" id="L271">            ser.clear();</span>
+            //P7
+<span class="nc" id="L273">            ser.add(&quot;Casa para p4 BsAs&quot;);</span>
+<span class="nc" id="L274">            ser.add(&quot;Floripa G. House&quot;);</span>
+<span class="nc" id="L275">            ICP.altaPromocion(&quot;mHooch&quot;, ser, &quot;Sudamerica-Casas&quot;, 50);</span>
+<span class="nc" id="L276">            ser.clear();</span>
+            //P8
+<span class="nc" id="L278">            ser.add(&quot;Luxury south beach corner apartment&quot;);</span>
+<span class="nc" id="L279">            ser.add(&quot;Coche-Miami&quot;);</span>
+<span class="nc" id="L280">            ICP.altaPromocion(&quot;mHooch&quot;, ser, &quot;Miami-Viaje&quot;, 30);</span>
+<span class="nc" id="L281">            ser.clear();</span>
+            //RESERVAS proveedor,cliente,servicio, promocion, fechas 
+<span class="nc" id="L283">            Map&lt;String, Integer&gt; servicio = new HashMap();</span>
+<span class="nc" id="L284">            Map&lt;String, Integer&gt; promocion = new HashMap();</span>
+<span class="nc" id="L285">            Map&lt;String,DataExpira&gt; fechass = new HashMap();</span>
+<span class="nc" id="L286">            Map&lt;String,DataExpira&gt; fechasp = new HashMap();</span>
+            //R1
+<span class="nc" id="L288">            servicio.put(&quot;Euro-Vuelo-S&quot;,1);</span>
+<span class="nc" id="L289">            DataExpira f = new DataExpira(toDate(&quot;1/1/2015&quot;),toDate(&quot;1/1/2015&quot;));</span>
+<span class="nc" id="L290">            fechass.put(&quot;Euro-Vuelo-S&quot;,f);</span>
+<span class="nc" id="L291">            ICC.realizarReserva(&quot;remus&quot;,&quot;oWood&quot;,servicio,promocion,fechass,fechasp,toDate(&quot;1/1/2015&quot;));    </span>
+<span class="nc" id="L292">            ICC.actualizarEstadoReserva(1, &quot;oWood&quot;, Estado.facturada);</span>
+<span class="nc" id="L293">            servicio.clear();</span>
+<span class="nc" id="L294">            promocion.clear();</span>
+<span class="nc" id="L295">            fechass.clear();</span>
+<span class="nc" id="L296">            fechasp.clear();</span>
+            //R2
+<span class="nc" id="L298">            servicio.put(&quot;Euro-Vuelo-S&quot;,2);</span>
+<span class="nc" id="L299">            servicio.put(&quot;Euro-Vuelo-LC&quot;,1);</span>
+<span class="nc" id="L300">            f = new DataExpira(toDate(&quot;1/1/2015&quot;),toDate(&quot;1/1/2015&quot;));</span>
+<span class="nc" id="L301">            fechass.put(&quot;Euro-Vuelo-S&quot;,f);</span>
+<span class="nc" id="L302">            f = new DataExpira(toDate(&quot;1/1/2015&quot;),toDate(&quot;1/1/2015&quot;));</span>
+<span class="nc" id="L303">            fechass.put(&quot;Euro-Vuelo-LC&quot;,f);</span>
+<span class="nc" id="L304">            ICC.realizarReserva(&quot;remus&quot;,&quot;eWaston&quot;,servicio,promocion,fechass,fechasp,toDate(&quot;1/1/2015&quot;));    </span>
+<span class="nc" id="L305">            ICC.actualizarEstadoReserva(2, &quot;eWaston&quot;, Estado.cancelada);</span>
+<span class="nc" id="L306">            servicio.clear();</span>
+<span class="nc" id="L307">            promocion.clear();</span>
+<span class="nc" id="L308">            fechass.clear();</span>
+<span class="nc" id="L309">            fechasp.clear();</span>
+            //R3
+<span class="nc" id="L311">            promocion.put(&quot;Sudamerica-Casas&quot;,1);</span>
+<span class="nc" id="L312">            f = new DataExpira(toDate(&quot;5/3/2015&quot;),toDate(&quot;2/4/2015&quot;));</span>
+<span class="nc" id="L313">            fechasp.put(&quot;Sudamerica-Casas&quot;,f);</span>
+<span class="nc" id="L314">            ICC.realizarReserva(&quot;mHooch&quot;,&quot;BruceS&quot;,servicio,promocion,fechass,fechasp,toDate(&quot;5/3/2015&quot;));    </span>
+<span class="nc" id="L315">            ICC.actualizarEstadoReserva(3, &quot;BruceS&quot;, Estado.pagada);</span>
+<span class="nc" id="L316">            servicio.clear();</span>
+<span class="nc" id="L317">            promocion.clear();</span>
+<span class="nc" id="L318">            fechass.clear();</span>
+<span class="nc" id="L319">            fechasp.clear();</span>
+            //R4
+<span class="nc" id="L321">            servicio.put(&quot;Euro-Car-2&quot;,1);</span>
+<span class="nc" id="L322">            servicio.put(&quot;Euro-Car-3&quot;,1);</span>
+<span class="nc" id="L323">            f = new DataExpira(toDate(&quot;8/5/2015&quot;),toDate(&quot;12/5/2015&quot;));</span>
+<span class="nc" id="L324">            fechass.put(&quot;Euro-Car-2&quot;,f);</span>
+<span class="nc" id="L325">            f = new DataExpira(toDate(&quot;8/5/2015&quot;),toDate(&quot;12/5/2015&quot;));</span>
+<span class="nc" id="L326">            fechass.put(&quot;Euro-Car-3&quot;,f);</span>
+<span class="nc" id="L327">            ICC.realizarReserva(&quot;moody&quot;,&quot;JeffW&quot;,servicio,promocion,fechass,fechasp,toDate(&quot;8/5/2015&quot;));    </span>
+<span class="nc" id="L328">            ICC.actualizarEstadoReserva(4, &quot;JeffW&quot;, Estado.pagada);</span>
+<span class="nc" id="L329">            servicio.clear();</span>
+<span class="nc" id="L330">            promocion.clear();</span>
+<span class="nc" id="L331">            fechass.clear();</span>
+<span class="nc" id="L332">            fechasp.clear();</span>
+            //R5
+<span class="nc" id="L334">            servicio.put(&quot;Air-France-FC&quot;,2);</span>
+<span class="nc" id="L335">            f = new DataExpira(toDate(&quot;7/8/2015&quot;),toDate(&quot;10/8/2015&quot;));</span>
+<span class="nc" id="L336">            fechass.put(&quot;Air-France-FC&quot;,f);</span>
+<span class="nc" id="L337">            ICC.realizarReserva(&quot;tCook&quot;,&quot;oWood&quot;,servicio,promocion,fechass,fechasp,toDate(&quot;7/8/2015&quot;));    </span>
+<span class="nc" id="L338">            ICC.actualizarEstadoReserva(5, &quot;oWood&quot;, Estado.registrada);</span>
+<span class="nc" id="L339">            servicio.clear();</span>
+<span class="nc" id="L340">            promocion.clear();</span>
+<span class="nc" id="L341">            fechass.clear();</span>
+<span class="nc" id="L342">            fechasp.clear();</span>
+            //R6
+<span class="nc" id="L344">            servicio.put(&quot;Casa para p4 BsAs&quot;,1);</span>
+<span class="nc" id="L345">            promocion.put(&quot;Miami-Viaje&quot;,1);</span>
+<span class="nc" id="L346">            f = new DataExpira(toDate(&quot;14/8/2015&quot;),toDate(&quot;21/8/2015&quot;));</span>
+<span class="nc" id="L347">            fechass.put(&quot;Casa para p4 BsAs&quot;,f);</span>
+<span class="nc" id="L348">            f = new DataExpira(toDate(&quot;7/8/2015&quot;),toDate(&quot;14/8/2015&quot;));</span>
+<span class="nc" id="L349">            fechasp.put(&quot;Miami-Viaje&quot;,f);</span>
+<span class="nc" id="L350">            ICC.realizarReserva(&quot;mHooch&quot;,&quot;eWaston&quot;,servicio,promocion,fechass,fechasp,toDate(&quot;7/8/2015&quot;));    </span>
+<span class="nc" id="L351">            ICC.actualizarEstadoReserva(6, &quot;eWaston&quot;, Estado.registrada);</span>
+<span class="nc" id="L352">            servicio.clear();</span>
+<span class="nc" id="L353">            promocion.clear();</span>
+<span class="nc" id="L354">            fechass.clear();</span>
+<span class="nc" id="L355">            fechasp.clear();</span>
+            //R7
+<span class="nc" id="L357">            servicio.put(&quot;Euro-Vuelo-LC&quot;,2);</span>
+<span class="nc" id="L358">            f = new DataExpira(toDate(&quot;7/8/2015&quot;),toDate(&quot;7/8/2015&quot;));</span>
+<span class="nc" id="L359">            fechass.put(&quot;Euro-Vuelo-LC&quot;,f);</span>
+<span class="nc" id="L360">            ICC.realizarReserva(&quot;remus&quot;,&quot;BruceS&quot;,servicio,promocion,fechass,fechasp,toDate(&quot;7/8/2015&quot;));    </span>
+<span class="nc" id="L361">            ICC.actualizarEstadoReserva(7, &quot;BruceS&quot;, Estado.registrada);</span>
+<span class="nc" id="L362">            servicio.clear();</span>
+<span class="nc" id="L363">            promocion.clear();</span>
+<span class="nc" id="L364">            fechass.clear();</span>
+<span class="nc" id="L365">            fechasp.clear();</span>
+                
+<span class="nc" id="L367">        } catch (Exception ex) {</span>
+<span class="nc" id="L368">            Logger.getLogger(CargaInicial.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L369">        }</span>
+<span class="nc" id="L370">    }</span>
+    public Date toDate(String fecha) {
+<span class="nc" id="L372">        SimpleDateFormat formatoDelTexto = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+<span class="nc" id="L373">        Date date =new Date();</span>
+        try {
+<span class="nc" id="L375">            date = formatoDelTexto.parse(fecha);</span>
+<span class="nc" id="L376">        } catch (ParseException ex) {</span>
+<span class="nc" id="L377">            ex.printStackTrace();</span>
+<span class="nc" id="L378">        }</span>
+<span class="nc" id="L379">        return date;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

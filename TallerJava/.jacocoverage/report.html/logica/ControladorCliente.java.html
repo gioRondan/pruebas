@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ControladorCliente.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TallerJava&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">logica</a> &gt; <span class="el_source">ControladorCliente.java</span></div><h1>ControladorCliente.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package logica;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+
+/**
+ *
+ * @author Juan
+ */
+<span class="fc" id="L21">public class ControladorCliente implements IControladorCliente{</span>
+    
+    @Override
+    public void actualizarEstadoReserva(int id, String nomCliente, Estado estado){
+<span class="fc" id="L25">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L26">        Cliente cli = mCl.getCliente(nomCliente);</span>
+<span class="fc" id="L27">        cli.modificarEstadoReserva(id, estado);</span>
+<span class="fc" id="L28">    }</span>
+    
+    @Override
+    public void realizarReserva(String proveedor, String cliente,Map&lt;String, Integer&gt; servicio, Map&lt;String,Integer&gt; promocion,Map&lt;String,DataExpira&gt; fechas,Map&lt;String,DataExpira&gt; fechaspromos,Date fecha_creacion )throws Exception{
+<span class="fc" id="L32">        ManejadorCliente mcli = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L33">        Cliente aux_cliente = mcli.getCliente(cliente);</span>
+<span class="fc" id="L34">        int clave1 = mcli.getUltimoid();</span>
+<span class="fc" id="L35">        ManejadorProveedor mpr = ManejadorProveedor.getInstance();</span>
+<span class="fc" id="L36">        Reserva res = new Reserva(clave1,fecha_creacion,fecha_creacion,fecha_creacion,0,Estado.registrada);</span>
+<span class="fc" id="L37">        aux_cliente.addReserva(res.getId(),res);</span>
+<span class="fc" id="L38">        Proveedor prov = mpr.getProveedor(proveedor);</span>
+<span class="fc" id="L39">        float preciototal=0;</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        for(Map.Entry&lt;String, Integer&gt; entries : servicio.entrySet()){</span>
+           
+<span class="fc" id="L42">            aux_cliente.reservarServicio(clave1, prov.getServicio(entries.getKey()),entries.getValue(),fechas.get(entries.getKey()).getFechai(),fechas.get(entries.getKey()).getFechaf());</span>
+           
+<span class="fc" id="L44">            preciototal= preciototal + prov.getServicio(entries.getKey()).getPrecio()*entries.getValue();</span>
+<span class="fc" id="L45">        }</span>
+        
+        
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        for(Map.Entry&lt;String, Integer&gt; entries : promocion.entrySet()){</span>
+<span class="fc" id="L49">            aux_cliente.reservarPromocion(clave1, prov.getPromocion(entries.getKey()),entries.getValue(),fechaspromos.get(entries.getKey()).getFechai(),fechaspromos.get(entries.getKey()).getFechaf());</span>
+            
+<span class="fc" id="L51">            preciototal= preciototal + prov.getPromocion(entries.getKey()).getPrecioTotal()*entries.getValue();</span>
+<span class="fc" id="L52">        }</span>
+<span class="fc" id="L53">        res.setPrecio(preciototal);</span>
+<span class="fc" id="L54">    }</span>
+    
+    @Override
+    public void altaCliente(String nick, String nombre, String apellido, String email, Date fechaNac, String imagen, String password) throws Exception{
+        
+<span class="fc" id="L59">        ManejadorProveedor mPr = ManejadorProveedor.getInstance();</span>
+<span class="fc" id="L60">        ManejadorCliente mCl   = ManejadorCliente.getInstance();</span>
+        
+        //Control de unicidad de usuarios
+<span class="fc" id="L63">        mPr.unicidadNick(nick);</span>
+<span class="fc" id="L64">        mPr.unicidadEmail(email);</span>
+<span class="fc" id="L65">        mCl.unicidadNick(nick);</span>
+<span class="fc" id="L66">        mCl.unicidadEmail(email);/*</span>
+        if(!password.equals(passwordVerif))
+            throw new Exception(&quot;Las contraseñas ingresadas no coinciden&quot;);*/
+<span class="pc bpc" id="L69" title="4 of 8 branches missed.">        if ((nick.isEmpty()) || (nombre.isEmpty()) || (apellido.isEmpty()) || (email.isEmpty())){</span>
+<span class="nc" id="L70">            throw new Exception(&quot;Los datos ingresados no son correctos&quot;);</span>
+        }else{
+<span class="fc" id="L72">            Cliente cliente = new Cliente(nick, nombre, apellido, email, fechaNac, imagen, password);</span>
+<span class="fc" id="L73">            mCl.addCliente(cliente);        </span>
+        }
+        
+<span class="fc" id="L76">    }</span>
+    
+    @Override
+    public List&lt;DataCliente&gt; listarClientes(){
+<span class="fc" id="L80">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L81">        return mCl.getDataClientes();</span>
+    }
+    
+    @Override
+    public void cancelarReserva(String nomCliente, int id){
+<span class="fc" id="L86">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L87">        Cliente cli = mCl.getCliente(nomCliente);</span>
+<span class="fc" id="L88">        cli.cancelarReserva(id);</span>
+<span class="fc" id="L89">    }</span>
+    
+    @Override
+    public List&lt;DataReserva&gt; listarReservasSistema(){
+<span class="fc" id="L93">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L94">        return mCl.listarReservas();</span>
+        
+    }
+    
+    @Override
+    public List&lt;DataReserva&gt; listarReservasXCliente(String nomCliente){
+<span class="fc" id="L100">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L101">        return mCl.getCliente(nomCliente).getDataReservas();</span>
+    }
+    
+    @Override
+    public DataInfoReserva verInfoReserva(String nomCliente, int id){
+<span class="fc" id="L106">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L107">        Cliente cliente = mCl.getCliente(nomCliente);</span>
+<span class="fc" id="L108">        Reserva reserva = cliente.getReserva(id);</span>
+<span class="fc" id="L109">        return reserva.getDataInfoReserva();</span>
+    }
+    
+    @Override
+    public DataInfoCliente verInfoCliente( String nomCliente){
+<span class="fc" id="L114">        ManejadorCliente mCl = ManejadorCliente.getInstance();</span>
+<span class="fc" id="L115">        return mCl.getCliente(nomCliente).getDataInfoCliente();</span>
+    }
+    @Override
+    public DataInfoCliente iniciarSesion(String nickCliente, String password) {
+<span class="nc" id="L119">        ManejadorCliente mcl = ManejadorCliente.getInstance();</span>
+<span class="nc" id="L120">        Cliente aux = mcl.getCliente(nickCliente);</span>
+<span class="nc bnc" id="L121" title="All 4 branches missed.">        if ((aux !=null) &amp;&amp;( !aux.verificarPassword(password))){</span>
+<span class="nc" id="L122">            aux =null;</span>
+        }
+<span class="nc" id="L124">        return aux.getDataInfoCliente();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

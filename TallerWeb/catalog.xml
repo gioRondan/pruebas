@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:3000/publicadorProveedor?wsdl" uri="src/conf/xml-resources/web-service-references/publicadorProveedor_2/wsdl/localhost_3000/publicadorProveedor.wsdl"/>
+    <system systemId="http://localhost:3000/publicadorProveedor?xsd=1" uri="src/conf/xml-resources/web-service-references/publicadorProveedor_2/wsdl/localhost_3000/publicadorProveedor.xsd_1.xsd"/>
+    <system systemId="http://localhost:3000/publicadorCliente?wsdl" uri="src/conf/xml-resources/web-service-references/publicadorCliente/wsdl/localhost_3000/publicadorCliente.wsdl"/>
+    <system systemId="http://localhost:3000/publicadorCliente?xsd=1" uri="src/conf/xml-resources/web-service-references/publicadorCliente/wsdl/localhost_3000/publicadorCliente.xsd_1.xsd"/>
+    <system systemId="http://localhost:3001/publicadorProveedor?wsdl" uri="src/conf/xml-resources/web-service-references/publicadorProveedor/wsdl/localhost_3001/publicadorProveedor.wsdl"/>
+    <system systemId="http://localhost:3001/publicadorProveedor?xsd=1" uri="src/conf/xml-resources/web-service-references/publicadorProveedor/wsdl/localhost_3001/publicadorProveedor.xsd_1.xsd"/>
+</catalog>
