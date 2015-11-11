@@ -3,8 +3,6 @@
     Created on : 08-oct-2015, 21:30:01
     Author     : Rodrigo
 --%>
-
-
 <%@page import="org.apache.catalina.connector.Request"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

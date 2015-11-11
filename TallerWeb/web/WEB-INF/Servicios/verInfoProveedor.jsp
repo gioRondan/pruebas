@@ -25,10 +25,8 @@
         <div class="centerbox" style="text-align:left; margin:auto; width:85% " > 
             <div class="container" >
                 <h1>Informacion General de la Proveedor</h1>
-                <%
-                    DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+                <% 
                     DataInfoProveedor proveedor = (DataInfoProveedor) request.getSession().getAttribute("dataInfoProveedor");
-                   
                 %>
                 <br>
                  Nickname: <%= proveedor.getNickname() %>
@@ -39,7 +37,7 @@
                 <br>
                 Email:<a href="mailto:<%=proveedor.getEmail()%>"> <%= proveedor.getEmail() %></a>
                 <br> 
-                 Fecha de nacimiento: <%=formatoFecha.format(proveedor.getFechaNac())%>
+                 Fecha de nacimiento: <%=proveedor.getFechaNac().getDay()+"/"+ proveedor.getFechaNac().getMonth()+"/"+ proveedor.getFechaNac().getYear() %>
                 <br>
                 
                 <h1>Empresa</h1>
@@ -50,8 +48,7 @@
                        List<DataServicio> servicios = proveedor.getServicios();
                        for(DataServicio item : servicios){
                     %> 
-                    <a href="verinfoservicio?nomProveedorServicio=<%=servicios.iterator().next().getProveedor()%>&nomServicio=<%=item.getNombre()%>" ><%=item.getNombre()%></a>
-                        
+                    <a href="verinfoservicio?nomProveedorServicio=<%=servicios.iterator().next().getProveedor()%>&nomServicio=<%=item.getNombre()%>" ><%=item.getNombre()%></a>  
                         <br/>
                     <%}%>
                 
