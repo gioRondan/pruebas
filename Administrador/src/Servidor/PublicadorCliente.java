@@ -6,6 +6,7 @@
 package Servidor;
 
 import java.awt.image.BufferedImage;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -63,7 +64,10 @@ public class PublicadorCliente {
    
    @WebMethod
    public void altaCliente(String nickname, String nombre, String apellido, String email, DataFecha fechaNac, String imagen, String password)throws Exception{
-       Date dateNac = new Date(fechaNac.getDia(), fechaNac.getMes(), fechaNac.getAnio());
+       Date dateNac = null;
+       String fechas =  fechaNac.getDia()+"/"+fechaNac.getMes()+"/"+fechaNac.getAnio();
+       SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+       dateNac = formatoFecha.parse(fechas);
        ICC.altaCliente(nickname, nombre, apellido, email, dateNac, imagen, password);
    }
    
