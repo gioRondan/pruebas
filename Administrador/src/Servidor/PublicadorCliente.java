@@ -52,10 +52,7 @@ public class PublicadorCliente {
        return endpoint;
    }
    
-   @WebMethod
-   public int prueba(){
-       return 5;
-   }
+   
    
    @WebMethod
    public void actualizarEstadoReserva(int identificador, String nomCliente, Estado estado){
@@ -84,37 +81,7 @@ public class PublicadorCliente {
          return aux5;
 
    }
-   @WebMethod
-   public DataCiudad pruebaData(){
-       DataCiudad aux = new DataCiudad();
-       aux.setNombre("cardona");
-       aux.setPais("hola2");
-       return aux;
-   }
-   
-   @WebMethod
-   public DataCiudad[] pruebaDatas(){
-       DataCiudad aux = new DataCiudad();
-       aux.setNombre("cardona");
-       aux.setPais("hola2");
-       DataCiudad aux2 = new DataCiudad();
-       aux2.setNombre("cardona2");
-       aux2.setPais("hola22");
-       DataCiudad aux3 = new DataCiudad();
-       aux3.setNombre("cardona3");
-       aux3.setPais("hola23");
-       List<DataCiudad> aux4 = new ArrayList<>();
-       aux4.add(aux);
-       aux4.add(aux2);
-       aux4.add(aux3);
-       DataCiudad[] aux5 = new DataCiudad[aux4.size()];
-       int i = 0;
-       for( DataCiudad it : aux4){
-           aux5[i] = it;
-           i = i+1;
-       }
-       return aux5;
-   }
+  
    
    @WebMethod
    public void cancelarReserva(String nomCliente, int identificador){
@@ -156,24 +123,13 @@ public class PublicadorCliente {
    public DataInfoCliente verInfoCliente(String nomCliente){
        return ICC.verInfoCliente(nomCliente);
    }
-   /*
-   @WebMethod
-   public void realizarReserva(String proveedor,String cliente,Map<String,Integer> servicio, Map<String,Integer> promocion,Map<String,DataExpira> fechas,Map<String,DataExpira> fechaspromos,Date fecha_creacion )throws Exception{
-       
-   }
-   //###################################   Operaciones Tarea2      #########################################################################
-   */
+  
+   
    @WebMethod
    public DataInfoCliente iniciarSesion(String nickCliente, String password){
        return ICC.iniciarSesion(nickCliente, password);
    }
-   /*
    
-   @WebMethod
-   public Date toDate(String fecha){
-       return null;
-   }
-   */
    @WebMethod
    public void confirmarReserva(DataItemReserva[] itemsr,DataInfoCliente cli)throws Exception{
        List<DataItemReserva> aux = new ArrayList<>();
@@ -192,12 +148,6 @@ public class PublicadorCliente {
    public boolean existeNickName(String nickName){
        return ICC.existeNickName(nickName);
    }
-   /*
-   @WebMethod
-   public BufferedImage leerImgURL(String imgURL)throws Exception{
-       return null;
-   }
-   */
-   
+  
    
 }
