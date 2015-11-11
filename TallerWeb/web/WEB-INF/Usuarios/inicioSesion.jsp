@@ -67,12 +67,7 @@ t   : inicioSesion
                     <h2 class="form-signin-heading">Inicio de sesión</h2>
                     <label for="inputEmail" class="sr-only">Correo</label>
                     <input class="form-control" id="nick" name="nick" placeholder="Introduzca su nick" required="" autofocus="">
-                    <% 
-                        servidor.DataCiudadArray hola = (servidor.DataCiudadArray) request.getSession().getAttribute("datatype");
-                        List<servidor.DataCiudad> ciudades = hola.getItem();
-                        for (servidor.DataCiudad ciudad : ciudades){ %>
-                            <a><%= ciudad.getNombre()+' '+ciudad.getPais() %></a><br>
-                        <% }; %>
+                    
                         
                     <label for="inputPassword" class="sr-only">Contraseña</label>
                     <input type="password" class="form-control" id="pwd" name="pass" placeholder="Introduzca su password" required="">

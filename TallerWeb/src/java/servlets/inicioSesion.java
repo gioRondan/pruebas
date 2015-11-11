@@ -42,10 +42,8 @@ public class inicioSesion extends HttpServlet {
         
      // request.getSession().setAttribute("json", port.listarClientes());
         
-      request.getSession().setAttribute("datatype", port.pruebaDatas());
       
       //String mostrar = port.pruebaDatas()[0].getNombre() + port.pruebaDatas()[1].getNombre();
-       request.getSession().setAttribute("json", port.pruebaDatas());
 //        JSONParser jsonParser = new JSONParser();
 //        
 //        Object obj;

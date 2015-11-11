@@ -4,19 +4,17 @@
 <xsd:import namespace="http://Servidor/" schemaLocation="http://localhost:3000/publicadorCliente?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
-<message name="listarReservasXCliente">
+<message name="verInfoCliente">
 <part name="arg0" type="xsd:string"></part>
 </message>
-<message name="listarReservasXClienteResponse">
-<part name="return" type="tns:dataReservaArray"></part>
+<message name="verInfoClienteResponse">
+<part name="return" type="tns:dataInfoCliente"></part>
 </message>
-<message name="verInfoReserva">
+<message name="cancelarReserva">
 <part name="arg0" type="xsd:string"></part>
 <part name="arg1" type="xsd:int"></part>
 </message>
-<message name="verInfoReservaResponse">
-<part name="return" type="tns:dataInfoReserva"></part>
-</message>
+<message name="cancelarReservaResponse"></message>
 <message name="listarClientes"></message>
 <message name="listarClientesResponse">
 <part name="return" type="tns:dataClienteArray"></part>
@@ -34,23 +32,31 @@
 <message name="Exception">
 <part name="fault" element="tns:Exception"></part>
 </message>
-<message name="verInfoCliente">
+<message name="listarReservasXCliente">
 <part name="arg0" type="xsd:string"></part>
 </message>
-<message name="verInfoClienteResponse">
-<part name="return" type="tns:dataInfoCliente"></part>
+<message name="listarReservasXClienteResponse">
+<part name="return" type="tns:dataReservaArray"></part>
 </message>
-<message name="cancelarReserva">
+<message name="verInfoReserva">
 <part name="arg0" type="xsd:string"></part>
 <part name="arg1" type="xsd:int"></part>
 </message>
-<message name="cancelarReservaResponse"></message>
+<message name="verInfoReservaResponse">
+<part name="return" type="tns:dataInfoReserva"></part>
+</message>
 <message name="actualizarEstadoReserva">
 <part name="arg0" type="xsd:int"></part>
 <part name="arg1" type="xsd:string"></part>
 <part name="arg2" type="tns:estado"></part>
 </message>
 <message name="actualizarEstadoReservaResponse"></message>
+<message name="existeNickName">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="existeNickNameResponse">
+<part name="return" type="xsd:boolean"></part>
+</message>
 <message name="existeEmail">
 <part name="arg0" type="xsd:string"></part>
 </message>
@@ -66,24 +72,6 @@
 <part name="arg1" type="tns:dataInfoCliente"></part>
 </message>
 <message name="confirmarReservaResponse"></message>
-<message name="prueba"></message>
-<message name="pruebaResponse">
-<part name="return" type="xsd:int"></part>
-</message>
-<message name="pruebaData"></message>
-<message name="pruebaDataResponse">
-<part name="return" type="tns:dataCiudad"></part>
-</message>
-<message name="pruebaDatas"></message>
-<message name="pruebaDatasResponse">
-<part name="return" type="tns:dataCiudadArray"></part>
-</message>
-<message name="existeNickName">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="existeNickNameResponse">
-<part name="return" type="xsd:boolean"></part>
-</message>
 <message name="iniciarSesion">
 <part name="arg0" type="xsd:string"></part>
 <part name="arg1" type="xsd:string"></part>
@@ -92,13 +80,13 @@
 <part name="return" type="tns:dataInfoCliente"></part>
 </message>
 <portType name="PublicadorCliente">
-<operation name="listarReservasXCliente">
-<input wsam:Action="http://Servidor/PublicadorCliente/listarReservasXClienteRequest" message="tns:listarReservasXCliente"></input>
-<output wsam:Action="http://Servidor/PublicadorCliente/listarReservasXClienteResponse" message="tns:listarReservasXClienteResponse"></output>
+<operation name="verInfoCliente">
+<input wsam:Action="http://Servidor/PublicadorCliente/verInfoClienteRequest" message="tns:verInfoCliente"></input>
+<output wsam:Action="http://Servidor/PublicadorCliente/verInfoClienteResponse" message="tns:verInfoClienteResponse"></output>
 </operation>
-<operation name="verInfoReserva" parameterOrder="arg0 arg1">
-<input wsam:Action="http://Servidor/PublicadorCliente/verInfoReservaRequest" message="tns:verInfoReserva"></input>
-<output wsam:Action="http://Servidor/PublicadorCliente/verInfoReservaResponse" message="tns:verInfoReservaResponse"></output>
+<operation name="cancelarReserva" parameterOrder="arg0 arg1">
+<input wsam:Action="http://Servidor/PublicadorCliente/cancelarReservaRequest" message="tns:cancelarReserva"></input>
+<output wsam:Action="http://Servidor/PublicadorCliente/cancelarReservaResponse" message="tns:cancelarReservaResponse"></output>
 </operation>
 <operation name="listarClientes">
 <input wsam:Action="http://Servidor/PublicadorCliente/listarClientesRequest" message="tns:listarClientes"></input>
@@ -109,17 +97,21 @@
 <output wsam:Action="http://Servidor/PublicadorCliente/altaClienteResponse" message="tns:altaClienteResponse"></output>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://Servidor/PublicadorCliente/altaCliente/Fault/Exception"></fault>
 </operation>
-<operation name="verInfoCliente">
-<input wsam:Action="http://Servidor/PublicadorCliente/verInfoClienteRequest" message="tns:verInfoCliente"></input>
-<output wsam:Action="http://Servidor/PublicadorCliente/verInfoClienteResponse" message="tns:verInfoClienteResponse"></output>
+<operation name="listarReservasXCliente">
+<input wsam:Action="http://Servidor/PublicadorCliente/listarReservasXClienteRequest" message="tns:listarReservasXCliente"></input>
+<output wsam:Action="http://Servidor/PublicadorCliente/listarReservasXClienteResponse" message="tns:listarReservasXClienteResponse"></output>
 </operation>
-<operation name="cancelarReserva" parameterOrder="arg0 arg1">
-<input wsam:Action="http://Servidor/PublicadorCliente/cancelarReservaRequest" message="tns:cancelarReserva"></input>
-<output wsam:Action="http://Servidor/PublicadorCliente/cancelarReservaResponse" message="tns:cancelarReservaResponse"></output>
+<operation name="verInfoReserva" parameterOrder="arg0 arg1">
+<input wsam:Action="http://Servidor/PublicadorCliente/verInfoReservaRequest" message="tns:verInfoReserva"></input>
+<output wsam:Action="http://Servidor/PublicadorCliente/verInfoReservaResponse" message="tns:verInfoReservaResponse"></output>
 </operation>
 <operation name="actualizarEstadoReserva" parameterOrder="arg0 arg1 arg2">
 <input wsam:Action="http://Servidor/PublicadorCliente/actualizarEstadoReservaRequest" message="tns:actualizarEstadoReserva"></input>
 <output wsam:Action="http://Servidor/PublicadorCliente/actualizarEstadoReservaResponse" message="tns:actualizarEstadoReservaResponse"></output>
+</operation>
+<operation name="existeNickName">
+<input wsam:Action="http://Servidor/PublicadorCliente/existeNickNameRequest" message="tns:existeNickName"></input>
+<output wsam:Action="http://Servidor/PublicadorCliente/existeNickNameResponse" message="tns:existeNickNameResponse"></output>
 </operation>
 <operation name="existeEmail">
 <input wsam:Action="http://Servidor/PublicadorCliente/existeEmailRequest" message="tns:existeEmail"></input>
@@ -134,22 +126,6 @@
 <output wsam:Action="http://Servidor/PublicadorCliente/confirmarReservaResponse" message="tns:confirmarReservaResponse"></output>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://Servidor/PublicadorCliente/confirmarReserva/Fault/Exception"></fault>
 </operation>
-<operation name="prueba">
-<input wsam:Action="http://Servidor/PublicadorCliente/pruebaRequest" message="tns:prueba"></input>
-<output wsam:Action="http://Servidor/PublicadorCliente/pruebaResponse" message="tns:pruebaResponse"></output>
-</operation>
-<operation name="pruebaData">
-<input wsam:Action="http://Servidor/PublicadorCliente/pruebaDataRequest" message="tns:pruebaData"></input>
-<output wsam:Action="http://Servidor/PublicadorCliente/pruebaDataResponse" message="tns:pruebaDataResponse"></output>
-</operation>
-<operation name="pruebaDatas">
-<input wsam:Action="http://Servidor/PublicadorCliente/pruebaDatasRequest" message="tns:pruebaDatas"></input>
-<output wsam:Action="http://Servidor/PublicadorCliente/pruebaDatasResponse" message="tns:pruebaDatasResponse"></output>
-</operation>
-<operation name="existeNickName">
-<input wsam:Action="http://Servidor/PublicadorCliente/existeNickNameRequest" message="tns:existeNickName"></input>
-<output wsam:Action="http://Servidor/PublicadorCliente/existeNickNameResponse" message="tns:existeNickNameResponse"></output>
-</operation>
 <operation name="iniciarSesion" parameterOrder="arg0 arg1">
 <input wsam:Action="http://Servidor/PublicadorCliente/iniciarSesionRequest" message="tns:iniciarSesion"></input>
 <output wsam:Action="http://Servidor/PublicadorCliente/iniciarSesionResponse" message="tns:iniciarSesionResponse"></output>
@@ -157,7 +133,7 @@
 </portType>
 <binding name="PublicadorClientePortBinding" type="tns:PublicadorCliente">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"></soap:binding>
-<operation name="listarReservasXCliente">
+<operation name="verInfoCliente">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
@@ -166,7 +142,7 @@
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
 </output>
 </operation>
-<operation name="verInfoReserva">
+<operation name="cancelarReserva">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
@@ -196,7 +172,7 @@
 <soap:fault name="Exception" use="literal"></soap:fault>
 </fault>
 </operation>
-<operation name="verInfoCliente">
+<operation name="listarReservasXCliente">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
@@ -205,7 +181,7 @@
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
 </output>
 </operation>
-<operation name="cancelarReserva">
+<operation name="verInfoReserva">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
@@ -215,6 +191,15 @@
 </output>
 </operation>
 <operation name="actualizarEstadoReserva">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+</operation>
+<operation name="existeNickName">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
@@ -252,42 +237,6 @@
 <fault name="Exception">
 <soap:fault name="Exception" use="literal"></soap:fault>
 </fault>
-</operation>
-<operation name="prueba">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-</operation>
-<operation name="pruebaData">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-</operation>
-<operation name="pruebaDatas">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-</operation>
-<operation name="existeNickName">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
 </operation>
 <operation name="iniciarSesion">
 <soap:operation soapAction=""></soap:operation>
