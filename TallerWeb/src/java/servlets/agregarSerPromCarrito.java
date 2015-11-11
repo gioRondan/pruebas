@@ -73,9 +73,9 @@ public class agregarSerPromCarrito extends HttpServlet {
                 boolean esser = Boolean.parseBoolean(request.getParameter("esservicio"));
                 List<DataItemReserva> ir2 = (List<DataItemReserva>)request.getSession().getAttribute("ItemsReservaActual");
                 if (esser){
-                    nom = request.getParameter("nomPromocion");
-                    pvr = request.getParameter("nomProveedorPromocion");
-                    cant = Integer.parseInt(request.getParameter("cantItemReservaPromo"));
+                    nom = request.getParameter("nomServicio");
+                    pvr = request.getParameter("nomProveedorServicio");
+                    cant = Integer.parseInt(request.getParameter("cantItemReserva"));
                     Date fini = null;//Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechainiItemReservaPromo"));
                     Date ffin = null;//Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechafinItemReservaPromo"));
                     try{

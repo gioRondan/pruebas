@@ -49,8 +49,6 @@ public class registrarCliente extends HttpServlet {
         } else if (request.getParameter("altaCliente") != null) {
             try {
               
-//                wsc.PublicadorClienteService service = new wsc.PublicadorClienteService();
-//        wsc.PublicadorCliente port = service.getPublicadorClientePort();
                 DataFecha dateNac= new DataFecha();
                 String fecha = request.getParameter("fechaCliente");
                 String[] partes = fecha.split("-");
@@ -63,7 +61,6 @@ public class registrarCliente extends HttpServlet {
                 request.getSession().setAttribute("fechaNacimiento", dateNac);
                 port.altaCliente(nick, request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), dateNac, "imagen" , pass);
                 
-                //ICC.altaCliente(request.getParameter("nickRegistrar"), request.getParameter("nombreCliente"), request.getParameter("apellidoCliente"), request.getParameter("emailCliente"), null,CargaInicial.getRuta()+"Imagenes/Usuarios/"+request.getParameter("nickRegistrar")+".png" , request.getParameter("passRegistrar"));
             } catch (Exception ex) {
                 Logger.getLogger(registrarCliente.class.getName()).log(Level.SEVERE, null, ex);
 
