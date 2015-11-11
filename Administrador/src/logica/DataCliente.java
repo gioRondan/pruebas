@@ -5,6 +5,8 @@
  */
 package logica;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -41,7 +43,16 @@ public class DataCliente {
         this.nickname   = nickname;
         this.apellido   = apellido;
         this.email      = email;
-        this.fechaNac   = new DataFecha(fechaNac.getDay(), fechaNac.getMonth(), fechaNac.getYear());
+        System.out.println(fechaNac);
+        DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+        String fecha    = formatoFecha.format(fechaNac);
+        System.out.println(fecha);
+        String[] partes = fecha.split("/");
+        int dia = Integer.parseInt(partes[0]); //dd
+        int mes = Integer.parseInt(partes[1]); // mm
+        int anio = Integer.parseInt(partes[2]); // aaaa
+        this.fechaNac   = new DataFecha(dia, mes, anio);
+        System.out.println(this.fechaNac.getAnio());
         this.imagen     = imagen;
         this.password = password;
     }

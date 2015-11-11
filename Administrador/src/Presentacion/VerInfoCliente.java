@@ -279,7 +279,9 @@ public class VerInfoCliente extends javax.swing.JInternalFrame {
         clienteNombre.setText(dtinfocli.getNombre());
         clienteApellido.setText(dtinfocli.getApellido());
         clienteEmail.setText(dtinfocli.getEmail());
-        FechaNac.setText(fechaNac.getDia()+"/"+fechaNac.getMes()+"/"+fechaNac.getAnio());        
+        String prueba = fechaNac.getDia()+"/"+fechaNac.getMes()+"/"+fechaNac.getAnio();
+        String prueba2 = Integer.toString(fechaNac.getDia())+"/"+Integer.toString(fechaNac.getMes())+"/"+Integer.toString(fechaNac.getAnio());
+        FechaNac.setText(prueba);        
         this.rutaImagen = dtinfocli.getImagen();//falta revisar
         //Seteo el nombre de la imagen
 
