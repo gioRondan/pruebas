@@ -236,6 +236,9 @@ public class PublicadorProveedor {
    public DataPromocion informacionPromocion(String pvr, String nom)throws Exception{
        return ICP.informacionPromocion(pvr, nom);
    }
-   
+   @WebMethod
+   public DataInfoProveedor iniciarSesion(String nick, String pass){
+       return ICP.iniciarSesion(nick, pass);
+   }
    
 }
