@@ -7,6 +7,7 @@ package logica;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -145,6 +146,18 @@ public class ControladorCliente implements IControladorCliente{
         return date;
     }
 
+    public DataFecha toDataFecha(String fecha) {
+        DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+        String strFecha = formatoFecha.format(fecha);
+        String[] partes = fecha.split("/");
+        int dia = Integer.parseInt(partes[0]); //dd
+        int mes = Integer.parseInt(partes[1]); // mm
+        int anio = Integer.parseInt(partes[2]); // aaaa
+        DataFecha dtfecha = new DataFecha(dia, mes, anio);
+        
+        return dtfecha;
+    }
+       
     public void confirmarReserva(List<DataItemReserva> itemreserva,DataInfoCliente dtcliente) throws Exception{
         ManejadorCliente mcli = ManejadorCliente.getInstance();
         ManejadorProveedor mprov = ManejadorProveedor.getInstance();
