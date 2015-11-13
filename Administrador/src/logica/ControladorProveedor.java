@@ -372,5 +372,19 @@ public class ControladorProveedor implements IControladorProveedor{
         return mpr.obtenerPromocionesBuscados(aBuscar);
     }
 
+    @Override
+    public DataInfoProveedor iniciarSesion(String nick, String pass) {
+        ManejadorProveedor mcl = ManejadorProveedor.getInstance();
+        Proveedor aux = mcl.getProveedor(nick);
+        if ((aux !=null) &&( !aux.verificarPassword(pass))){
+            aux =null;
+        }
+        if (aux == null){
+            return null ;
+        }else{
+            return aux.getDataInfoProveedor();
+        }
+    }
+
 }
 

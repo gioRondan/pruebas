@@ -53,4 +53,5 @@ public interface IControladorProveedor {
     public List<DataServicio> buscarServicios(String aBuscar); 
     public List<DataPromocion> buscarPromociones(String aBuscar);
     public DataPromocion informacionPromocion(String pvr, String nom)throws Exception;
+    public DataInfoProveedor iniciarSesion(String nick, String pass);
 }
