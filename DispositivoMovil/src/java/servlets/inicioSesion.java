@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import servidor.DataInfoProveedor;
 
 /**
  *
@@ -25,21 +26,31 @@ public class inicioSesion extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet inicioSesion</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet inicioSesion at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
+        servidor.PublicadorProveedorService service = new servidor.PublicadorProveedorService();
+        servidor.PublicadorProveedor port = service.getPublicadorProveedorPort();
+        
+        if ((request.getSession().getAttribute("Login") == "Logeado")){
+            
+             request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);
+        }
+        else{
+            if(request.getParameter("entrar") != null){
+               String nick = (String) request.getParameter("nick");
+               String pass = (String) request.getParameter("pass");
+               DataInfoProveedor cliente = port.iniciarSesion(nick, pass);
+               
+               if(cliente != null){
+                   request.getSession().setAttribute("dataProveedor", cliente);
+                   request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);
+                   request.getSession().setAttribute("Login", "Logeado");
+               }else{
+                   request.getSession().setAttribute("Login", "Datosincorrectos");
+                   request.getRequestDispatcher("/WEB-INF/inicioSesion.jsp").forward(request, response); 
+               }
+            }else{
+
+              request.getRequestDispatcher("/WEB-INF/Usuarios/inicioSesion.jsp").forward(request, response);  
+            }
         }
     }
 
