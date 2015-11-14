@@ -41,15 +41,15 @@ public class inicioSesion extends HttpServlet {
                
                if(cliente != null){
                    request.getSession().setAttribute("dataProveedor", cliente);
-                   request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);
+                   request.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(request, response);
                    request.getSession().setAttribute("Login", "Logeado");
                }else{
                    request.getSession().setAttribute("Login", "Datosincorrectos");
-                   request.getRequestDispatcher("/WEB-INF/inicioSesion.jsp").forward(request, response); 
+                   request.getRequestDispatcher("/inicioSesion.jsp").forward(request, response); 
                }
             }else{
 
-              request.getRequestDispatcher("/WEB-INF/Usuarios/inicioSesion.jsp").forward(request, response);  
+              request.getRequestDispatcher("/inicioSesion.jsp").forward(request, response);  
             }
         }
     }
