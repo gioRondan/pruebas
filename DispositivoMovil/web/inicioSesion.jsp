@@ -7,7 +7,6 @@ t   : inicioSesion
 --%>
 
 <%@page import="java.util.List"%>
-<%@page import="servidor.DataCliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -47,11 +46,7 @@ t   : inicioSesion
     </style>
 
     <body class="login">
-        <div id="pageheader">
-            <%--<jsp:include page="Template.jsp" /> hacen lo mismo --%> 
-            <%@ include file="\WEB-INF\Template\Template.jsp" %>
-        </div>
-
+  
         <div class="container" >
             <div class="alert alert-success">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -77,9 +72,6 @@ t   : inicioSesion
                         </label>
                     </div>
                     <button class="btn btn-lg btn-primary btn-block" type="submit" name="entrar"><span class="glyphicon glyphicon-log-in"></span> Ingresar</button>
-                </form>
-                <form class="form-signin" action="registrarcliente"  method="POST">
-                    <button class="btn btn-lg btn-default btn-block" type="submit" name="registrar">Registrarse</button>
                 </form>
             </div>
         </div>
