@@ -44,42 +44,28 @@
         </style>
     </head>
     <body>
-        <div class="col-sm-12 col-xs-12">
-            <nav class="navbar navbar-inverse">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="index.jsp">Help4Travelling.com</a>
-                    </div>
-                    <div>
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a onClick="window.location = 'home';">Home</a></li>
-                            <!--                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Servicios / Promociones <span class="caret"></span></a>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a href="#">Servicios</a></li>
-                                                            <li><a href="#">Promociones</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a href="#">Proveedores</a></li>  
-                                                    <li><a href="#">Reservas</a></li>-->
-                            <form class="navbar-form navbar-left" role="search" action="home">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" value="" name="textodebusqueda" placeholder="Promociones y/o servicios">
-                                </div>
-                                <button type="submit" name="buscar" class="btn btn-default">Buscar</button>
-                            </form>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a onClick="window.location = 'vercarrito';">  Carrito</a></li>                      
-
-                            <%  if ((request.getSession().getAttribute("Login") == "Logeado")) { %>
-                            <li style="height: 50px;"><a onClick="window.location = 'iniciosesion'" style="padding-top:9px; height: 50px"><img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" label="Usuario" float="right" style="width:35px;height:35px;">  <% servidor.DataInfoCliente cliente = (servidor.DataInfoCliente) request.getSession().getAttribute("dataCliente");%><%=cliente.getNickname()%></a></li>
-                                    <%} else {%>
-                            <li><a onClick="window.location = 'iniciosesion';"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                                <% }%>
-                        </ul>
-                    </div>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="inicioSesion.jsp">Help4Travelling.com</a>
                 </div>
-            </nav>
-        </div>            
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Servicios <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">Promociones</a></li>
+                        <li><a href="#">Reservas</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
     </body>
 </html>
