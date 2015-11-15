@@ -29,28 +29,19 @@ public class inicioSesion extends HttpServlet {
         servidor.PublicadorProveedorService service = new servidor.PublicadorProveedorService();
         servidor.PublicadorProveedor port = service.getPublicadorProveedorPort();
         
-        if ((request.getSession().getAttribute("Login") == "Logeado")){
-            
-             request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);
-        }
-        else{
-            if(request.getParameter("entrar") != null){
                String nick = (String) request.getParameter("nick");
                String pass = (String) request.getParameter("pass");
-               DataInfoProveedor cliente = port.iniciarSesion(nick, pass);
                
-               if(cliente != null){
-                   request.getSession().setAttribute("dataProveedor", cliente);
+               
+               if(port.iniciarSesion(nick, pass)){
+                   DataInfoProveedor proveedor = port.verInfoProveedor(nick);
+                   request.getSession().setAttribute("dataProveedor", proveedor);
                    request.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(request, response);
-                   request.getSession().setAttribute("Login", "Logeado");
                }else{
                    request.getSession().setAttribute("Login", "Datosincorrectos");
                    request.getRequestDispatcher("/inicioSesion.jsp").forward(request, response); 
                }
-            }else{
-
-              request.getRequestDispatcher("/inicioSesion.jsp").forward(request, response);  
-            }
+            
         }
     }
 
