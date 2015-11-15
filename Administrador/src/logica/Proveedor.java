@@ -114,8 +114,10 @@ public class Proveedor extends Usuario{
         return result;
     }
 
-    void facturarReserva(Integer id) {
-        this.reservas.get(id).facturarItem(); 
+    String facturarReserva(Integer id) {
+        ItemReserva item = this.reservas.get(id);
+        item.facturarItem();
+        return item.getNickCliente();
     }
 
 }

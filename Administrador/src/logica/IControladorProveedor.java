@@ -54,7 +54,7 @@ public interface IControladorProveedor {
     public List<DataPromocion> buscarPromociones(String aBuscar);
     public DataPromocion informacionPromocion(String pvr, String nom)throws Exception;
     public DataInfoProveedor iniciarSesion(String nick, String pass);
-    public void actualizarEstadoReserva(String nick, Integer id);
+    public void facturarReserva(String nick, Integer id);
 
     public List<DataItemReserva> listarReservasXProveedor(String nick);
 }

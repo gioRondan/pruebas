@@ -16,6 +16,10 @@ public class ItemReserva {
     private Servicio servicio;
     private Promocion promocion;
     private Date inicio;
+
+    public Estado getEstado() {
+        return estado;
+    }
     private Date fin;
     private Estado estado;
     private String nickCliente;
@@ -54,5 +58,12 @@ public class ItemReserva {
         if(this.estado == Estado.pagada){
             this.estado = Estado.facturada;
         }
+    }
+    void setEstado(Estado estado){
+        this.estado = estado;
+    }
+
+    public String getNickCliente() {
+        return nickCliente;
     }
 }

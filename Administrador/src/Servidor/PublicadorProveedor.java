@@ -242,8 +242,8 @@ public class PublicadorProveedor {
        return ICP.iniciarSesion(nick, pass);
    }
    @WebMethod
-   public void actualizarEstadoReserva(String nick, Integer id){
-       ICP.actualizarEstadoReserva(nick, id);
+   public void facturarReserva(String nick, Integer id){
+       ICP.facturarReserva(nick, id);
    }
    @WebMethod
    public DataItemReserva[] listarReservasXProveedor(String nick){
