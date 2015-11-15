@@ -41,6 +41,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="dataItemReserva">
+<xs:sequence>
+<xs:element name="cantidad" type="xs:int"></xs:element>
+<xs:element name="fechaInicio" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="fechaFin" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="esServico" type="xs:boolean"></xs:element>
+<xs:element name="servicio" type="tns:dataServicio" minOccurs="0"></xs:element>
+<xs:element name="promocion" type="tns:dataPromocion" minOccurs="0"></xs:element>
+<xs:element name="nickCliente" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="dataInfoPromocion">
 <xs:sequence>
 <xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
@@ -107,6 +119,12 @@
 <xs:complexType name="dataProveedorArray" final="#all">
 <xs:sequence>
 <xs:element name="item" type="tns:dataProveedor" minOccurs="0" maxOccurs="unbounded" nillable="true"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dataItemReservaArray" final="#all">
+<xs:sequence>
+<xs:element name="item" type="tns:dataItemReserva" minOccurs="0" maxOccurs="unbounded" nillable="true"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
