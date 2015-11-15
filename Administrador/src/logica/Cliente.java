@@ -71,4 +71,8 @@ public class Cliente extends Usuario{
     public void addReserva(int identificador, Reserva res){
         reservas.put(identificador, res);
     }
+
+    void chequearReserva(Integer id) {
+        this.reservas.get(id).chequearEstado();
+    }
 }

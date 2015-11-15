@@ -387,10 +387,12 @@ public class ControladorProveedor implements IControladorProveedor{
     }
 
     @Override
-    public void actualizarEstadoReserva(String nick, Integer id) {
+    public void facturarReserva(String nick, Integer id) {
         ManejadorProveedor mpr = ManejadorProveedor.getInstance();
         Proveedor proveedor = mpr.getProveedor(nick);
-        proveedor.facturarReserva(id);
+        String nickCliente = proveedor.facturarReserva(id);
+        ManejadorCliente mcl = ManejadorCliente.getInstance();
+        mcl.chequearEstadoReserva(nickCliente, id);
     }
 
     @Override

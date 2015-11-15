@@ -76,5 +76,9 @@ public class ManejadorCliente {
     public int testGetId(){
         return identificador;
     }
+
+    void chequearEstadoReserva(String nickCliente, Integer id) {
+        this.clientes.get(nickCliente).chequearReserva(id);
+    }
     
 }

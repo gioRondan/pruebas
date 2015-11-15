@@ -71,6 +71,9 @@ public class Reserva {
     }
     public void setEstado(Estado estado){
         this.estado = estado;
+        for(ItemReserva it : item){
+            it.setEstado(estado);
+        }
     }
     public void agregarItem(ItemReserva ite){
         this.item.add(ite);
@@ -91,5 +94,17 @@ public class Reserva {
     public DataInfoReserva getDataInfoReserva() {
      
         return new DataInfoReserva( identificador,  fechaCreacion,  fechaInicio,  fechaFin,  precio,  estado, getDataItemsReserva());
+    }
+
+    void chequearEstado() {
+        boolean facturada = true;
+        for(ItemReserva it : item){
+            if (it.getEstado() == Estado.pagada){
+                facturada = false;
+            }
+        }
+        if(facturada){
+            this.estado = Estado.facturada;
+        }
     }
 }

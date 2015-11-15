@@ -148,6 +148,7 @@ public class PublicadorCliente {
    public boolean existeNickName(String nickName){
        return ICC.existeNickName(nickName);
    }
-  
    
+   @WebMethod
+   public boolean 
 }
