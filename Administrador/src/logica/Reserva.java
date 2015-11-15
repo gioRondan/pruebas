@@ -22,9 +22,10 @@ public class Reserva {
     private Date fechaFin;
     private float precio;
     private Estado estado;
+    private String nickCliente;
     private List<ItemReserva> item;
     
-    public Reserva(int identificador,Date fechaCreacion, Date fechaInicio, Date fechaFin, float precio, Estado estado){
+    public Reserva(int identificador,Date fechaCreacion, Date fechaInicio, Date fechaFin, float precio, Estado estado, String nickCliente){
         this.identificador=identificador;
         this.fechaCreacion = fechaCreacion;
         this.fechaInicio = fechaInicio;
@@ -32,6 +33,7 @@ public class Reserva {
         this.precio = precio;
         this.estado = estado;
         this.item = new ArrayList<ItemReserva>();
+        this.nickCliente = nickCliente;
     }
     
     public int getId(){
@@ -74,7 +76,7 @@ public class Reserva {
         this.item.add(ite);
     }
     public DataReserva getDataReserva(){
-        return new DataReserva(identificador, fechaCreacion, fechaInicio, fechaFin, precio, estado);
+        return new DataReserva(identificador, fechaCreacion, fechaInicio, fechaFin, precio, estado, nickCliente);
     }
     public void darDeBaja(){ 
         item.removeAll(item);

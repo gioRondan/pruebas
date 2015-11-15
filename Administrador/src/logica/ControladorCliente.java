@@ -35,7 +35,7 @@ public class ControladorCliente implements IControladorCliente{
         Cliente aux_cliente = mcli.getCliente(cliente);
         int clave1 = mcli.getUltimoid();
         ManejadorProveedor mpr = ManejadorProveedor.getInstance();
-        Reserva res = new Reserva(clave1,fecha_creacion,fecha_creacion,fecha_creacion,0,Estado.registrada);
+        Reserva res = new Reserva(clave1,fecha_creacion,fecha_creacion,fecha_creacion,0,Estado.registrada, aux_cliente.getNickname());
         aux_cliente.addReserva(res.getId(),res);
         Proveedor prov = mpr.getProveedor(proveedor);
         float preciototal=0;
@@ -163,20 +163,22 @@ public class ControladorCliente implements IControladorCliente{
         ManejadorProveedor mprov = ManejadorProveedor.getInstance();
         Cliente cliente = mcli.getCliente(dtcliente.getNickname());
         int clave1 = mcli.getUltimoid();
-        Reserva res = new Reserva(clave1,new Date(), new Date(), new Date(),0,Estado.registrada);
+        Reserva res = new Reserva(clave1,new Date(), new Date(), new Date(),0,Estado.registrada, cliente.getNickname());
         cliente.addReserva(res.getId(),res);
         float preciototal=0;
         for (DataItemReserva dtir : itemreserva){
             if (dtir.getesServico()){
                 Servicio servicio;
-                
-                    servicio = mprov.getProveedor(dtir.getServicio().getProveedor()).getServicio( dtir.getServicio().getNombre() );
-                    cliente.reservarServicio(clave1, servicio,dtir.getCantidad(), new Date(dtir.getFechaInicio().getDia(), dtir.getFechaInicio().getMes(), dtir.getFechaInicio().getAnio()), new Date(dtir.getFechaFin().getDia(), dtir.getFechaFin().getMes(), dtir.getFechaFin().getAnio()));
+                    Proveedor proveedor = mprov.getProveedor(dtir.getServicio().getProveedor());
+                    servicio = proveedor.getServicio( dtir.getServicio().getNombre() );
+                    ItemReserva item = new ItemReserva(dtir.getCantidad(), servicio, dtir.getFechaInicio(), dtir.getFechaFin(), cliente.getNickname() );
+                    proveedor.addReserva(res.getId(), item);
+                    cliente.reservarServicio(clave1, servicio,dtir.getCantidad(), dtir.getFechaInicio(), dtir.getFechaFin());
                     preciototal= preciototal + servicio.getPrecio()*dtir.getCantidad();
          
             }else{
                 Promocion promo = mprov.getProveedor(dtir.getPromocion().getNickProveedor()).getPromocion(dtir.getPromocion().getNombre());
-                cliente.reservarPromocion(clave1, promo,dtir.getCantidad(), new Date(dtir.getFechaInicio().getDia(), dtir.getFechaInicio().getMes(), dtir.getFechaInicio().getAnio()), new Date(dtir.getFechaFin().getDia(), dtir.getFechaFin().getMes(), dtir.getFechaFin().getAnio()));
+                cliente.reservarPromocion(clave1, promo,dtir.getCantidad(), dtir.getFechaInicio(), dtir.getFechaFin());
                 preciototal= preciototal + promo.getPrecioTotal()*dtir.getCantidad();
             }
             res.setPrecio(preciototal);

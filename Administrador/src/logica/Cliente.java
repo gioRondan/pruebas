@@ -42,7 +42,7 @@ public class Cliente extends Usuario{
     }
     public void reservarServicio(int identificador,Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
         Reserva res = reservas.get(identificador);
-        ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin);    
+        ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin, this.getNickname());    
         res.agregarItem(item);
     }
     public void modificarEstadoReserva(int identificador, Estado estado){
@@ -53,7 +53,7 @@ public class Cliente extends Usuario{
     }
     public void reservarPromocion(int clave,Promocion prom,int cantidad,Date fechaIni,Date fechaFin){
         Reserva res = reservas.get(clave);
-            ItemReserva item = new ItemReserva(cantidad,prom, fechaIni, fechaFin);
+            ItemReserva item = new ItemReserva(cantidad,prom, fechaIni, fechaFin, this.getNickname());
             res.agregarItem(item);
         
     }

@@ -17,27 +17,30 @@ import javax.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DataItemReserva {
     private int cantidad; //cantidad de promociones o servicios reservados
-    private DataFecha fechaInicio;
-    private DataFecha fechaFin;
+    private Date fechaInicio;
+    private Date fechaFin;
     private boolean esServico;
     private DataServicio servicio;
     private DataPromocion promocion;
+    private String nickCliente;
     //Constructores
     public DataItemReserva(){
         this.cantidad      = 0; 
-        this.fechaInicio   = new DataFecha();
-        this.fechaFin      = new DataFecha();
+        this.fechaInicio   = new Date();
+        this.fechaFin      = new Date();
         this.promocion        = null;
         this.servicio = null;
+        this.nickCliente = "";
     }
     
-    public DataItemReserva(int cantidad, Date fechaInicio, Date fechaFin, DataServicio servicio, DataPromocion promocion,boolean esservi){
+    public DataItemReserva(int cantidad, Date fechaInicio, Date fechaFin, DataServicio servicio, DataPromocion promocion,boolean esservi, String nickCliente){
         this.cantidad      = cantidad;
-        this.fechaInicio   = new DataFecha(fechaInicio.getDay(), fechaInicio.getMonth(), fechaInicio.getYear());
-        this.fechaFin      = new DataFecha(fechaFin.getDay(), fechaFin.getMonth(), fechaFin.getYear());
+        this.fechaInicio   = fechaInicio;
+        this.fechaFin      = fechaFin;
         this.servicio        = servicio;
         esServico = esservi;
         this.promocion = promocion;
+        this.nickCliente = nickCliente;
     }    
   
     //Getters
@@ -45,11 +48,11 @@ public class DataItemReserva {
         return cantidad;
     }
         
-    public DataFecha getFechaInicio(){
+    public Date getFechaInicio(){
         return fechaInicio;
     }
     
-    public DataFecha getFechaFin(){
+    public Date getFechaFin(){
         return fechaFin;
     }
 
@@ -61,6 +64,18 @@ public class DataItemReserva {
         return promocion;
     }
 
+    public void setNickCliente(String nickCliente) {
+        this.nickCliente = nickCliente;
+    }
+
+    public boolean isEsServico() {
+        return esServico;
+    }
+
+    public String getNickCliente() {
+        return nickCliente;
+    }
+
     public boolean getesServico(){
         return esServico;
     }
@@ -69,11 +84,11 @@ public class DataItemReserva {
         this.cantidad = cantidad;
     }
 
-    public void setFechaInicio(DataFecha fechaInicio) {
+    public void setFechaInicio(Date fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public void setFechaFin(DataFecha fechaFin) {
+    public void setFechaFin(Date fechaFin) {
         this.fechaFin = fechaFin;
     }
 

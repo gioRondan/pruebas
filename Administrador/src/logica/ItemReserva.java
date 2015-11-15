@@ -17,20 +17,23 @@ public class ItemReserva {
     private Promocion promocion;
     private Date inicio;
     private Date fin;
-    
-    public ItemReserva(int cantidad,Servicio serv, Date inicio, Date fin){
+    private Estado estado;
+    private String nickCliente;
+    public ItemReserva(int cantidad,Servicio serv, Date inicio, Date fin, String nickCliente){
         this.cantidad = cantidad;
         servicio=serv;
         promocion=null;
         this.inicio = inicio;
         this.fin = fin;
+        this.nickCliente = nickCliente;
     }
-    public ItemReserva(int cantidad,Promocion pro, Date inicio, Date fin){
+    public ItemReserva(int cantidad,Promocion pro, Date inicio, Date fin, String nickCliente){
         this.cantidad = cantidad;
         promocion=pro;
         servicio=null;
         this.inicio = inicio;
         this.fin = fin;
+        this.nickCliente = nickCliente;
     }
     public int getCantidad(){
         return cantidad;
@@ -40,9 +43,9 @@ public class ItemReserva {
     }
     public DataItemReserva getDataItem(){
         if (servicio==null){ 
-            return new DataItemReserva(cantidad, inicio, fin, null, promocion.getDataPromocion(),false);
+            return new DataItemReserva(cantidad, inicio, fin, null, promocion.getDataPromocion(),false, nickCliente);
         }else{
-            return new DataItemReserva(cantidad, inicio, fin, servicio.getDataServicio(),null,true);
+            return new DataItemReserva(cantidad, inicio, fin, servicio.getDataServicio(),null,true, nickCliente);
         }
             
     }

@@ -213,7 +213,7 @@ public class FlujoTest {
         assertEquals(false, ccl.existeNickName("nickcliente que no existe"));
 //###########################   confiramr reserva   ###############################################################
         List<DataItemReserva> items = new ArrayList<>();
-        DataItemReserva resCarrito = new DataItemReserva(1, new Date(1,1,2015), new Date(1,5,2015), serBuscados.get(0), null, true);
+        DataItemReserva resCarrito = new DataItemReserva(1, new Date(1,1,2015), new Date(1,5,2015), serBuscados.get(0), null, true, nickCliente);
         items.add(resCarrito);
         try{
         ccl.confirmarReserva(items, inicioSesion);

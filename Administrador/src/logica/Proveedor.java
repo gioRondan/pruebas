@@ -19,6 +19,7 @@ import java.util.Map;
  */
 public class Proveedor extends Usuario{
     private Empresa empresa;
+    private Map<Integer, ItemReserva> reservas;     //<cliente<id,reserva>> un cliente puede tener varias reservas de un mismo proveedor
     private Map<String, Promocion> promociones;
     private Map<String, Servicio> servicios;
     
@@ -26,6 +27,7 @@ public class Proveedor extends Usuario{
        super(nickname,nombre,apellido,email,fechaNac,imagen, pasword);
        promociones =  new LinkedHashMap();
        servicios =  new LinkedHashMap();
+       reservas = new LinkedHashMap();
     }
 
      
@@ -91,6 +93,23 @@ public class Proveedor extends Usuario{
             if(value.buscado(aBuscar)){
                 result.add(value.getDataPromocion());
             }
+        }
+        return result;
+    }
+    void addReserva(Integer id, ItemReserva reserva){
+//        Map<Integer, Reserva> mapRes = this.reservas.get(nickCliente);
+//        if(mapRes.isEmpty()){
+//            mapRes = new LinkedHashMap();
+//        }else{
+//            this.reservas.remove(nickCliente);
+//        }
+//        mapRes.put(reserva.getId(), reserva);
+        this.reservas.put(id, reserva);
+    }
+    List<DataReserva> getDataReservas(){
+        List result = new ArrayList<DataReserva>();
+        for(ItemReserva value : reservas.values()){
+            result.add(value.getDataItem());
         }
         return result;
     }

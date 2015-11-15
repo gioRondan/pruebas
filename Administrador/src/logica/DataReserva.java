@@ -22,7 +22,7 @@ public class DataReserva {
     private DataFecha fechaFin;
     private float precio;
     private Estado estado;
-    
+    private String nickCliente;
     //Constructores
     public DataReserva(){
         this.identificador = 0;
@@ -31,15 +31,17 @@ public class DataReserva {
         this.fechaFin      = new DataFecha();
         this.precio        = 0;
         this.estado        = Estado.registrada;        
+        this.nickCliente = "";
     }
     
-    public DataReserva(int identificador, Date fechaCreacion, Date fechaInicio, Date fechaFin, float precio, Estado estado){
+    public DataReserva(int identificador, Date fechaCreacion, Date fechaInicio, Date fechaFin, float precio, Estado estado, String nickCliente){
         this.identificador = identificador;
         this.fechaCreacion = new DataFecha(fechaCreacion.getDay(), fechaCreacion.getMonth(), fechaCreacion.getYear());
         this.fechaInicio   = new DataFecha(fechaInicio.getDay(), fechaInicio.getMonth(), fechaInicio.getYear());
         this.fechaFin      = new DataFecha(fechaFin.getDay(), fechaFin.getMonth(), fechaFin.getYear());
         this.precio        = precio;
         this.estado        = estado;        
+        this.nickCliente   = nickCliente;
     }
     
     //Getters
@@ -67,6 +69,14 @@ public class DataReserva {
         return estado;
     }
 
+    public int getIdentificador() {
+        return identificador;
+    }
+
+    public String getNickCliente() {
+        return nickCliente;
+    }
+
     public void setIdentificador(int identificador) {
         this.identificador = identificador;
     }
@@ -89,6 +99,10 @@ public class DataReserva {
 
     public void setEstado(Estado estado) {
         this.estado = estado;
+    }
+
+    public void setNickCliente(String nickCliente) {
+        this.nickCliente = nickCliente;
     }
     
     

@@ -362,7 +362,6 @@ public class realizarReserva extends javax.swing.JInternalFrame {
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null,ex.getMessage());
                 }
-                
                 DataExpira dtx= new DataExpira(fecha1,fecha2);
                 fechas.put(serinfo.getNombre(),dtx);
                 serviciosCant.put(serinfo.getNombre(),Integer.parseInt(cant.getValue().toString()));
