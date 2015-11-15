@@ -99,7 +99,7 @@ public class Reserva {
     void chequearEstado() {
         boolean facturada = true;
         for(ItemReserva it : item){
-            if (it.getEstado() == Estado.pagada){
+            if (it.getEstado() != Estado.facturada){
                 facturada = false;
             }
         }

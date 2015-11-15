@@ -149,6 +149,4 @@ public class PublicadorCliente {
        return ICC.existeNickName(nickName);
    }
    
-   @WebMethod
-   public boolean 
 }
