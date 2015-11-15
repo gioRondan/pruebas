@@ -19,6 +19,7 @@ import logica.DataCategoria;
 import logica.DataInfoPromocion;
 import logica.DataInfoProveedor;
 import logica.DataInfoServicio;
+import logica.DataItemReserva;
 import logica.DataPromocion;
 import logica.DataProveedor;
 import logica.DataServicio;
@@ -240,5 +241,19 @@ public class PublicadorProveedor {
    public DataInfoProveedor iniciarSesion(String nick, String pass){
        return ICP.iniciarSesion(nick, pass);
    }
-   
+   @WebMethod
+   public void actualizarEstadoReserva(String nick, Integer id){
+       ICP.actualizarEstadoReserva(nick, id);
+   }
+   @WebMethod
+   public DataItemReserva[] listarReservasXProveedor(String nick){
+       List<DataItemReserva> items = ICP.listarReservasXProveedor(nick);
+       DataItemReserva[] ret = new DataItemReserva[items.size()];
+       int i = 0;
+       for (DataItemReserva it : items){
+           ret[i] = it;
+           i++;
+       }
+       return ret;
+   }
 }

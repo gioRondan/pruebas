@@ -106,12 +106,17 @@ public class Proveedor extends Usuario{
 //        mapRes.put(reserva.getId(), reserva);
         this.reservas.put(id, reserva);
     }
-    List<DataReserva> getDataReservas(){
-        List result = new ArrayList<DataReserva>();
+    List<DataItemReserva> getDataReservas(){
+        List result = new ArrayList<DataItemReserva>();
         for(ItemReserva value : reservas.values()){
             result.add(value.getDataItem());
         }
         return result;
     }
+
+    void facturarReserva(Integer id) {
+        this.reservas.get(id).facturarItem(); 
+    }
+
 }
 

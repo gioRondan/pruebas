@@ -49,4 +49,10 @@ public class ItemReserva {
         }
             
     }
+
+    void facturarItem() {
+        if(this.estado == Estado.pagada){
+            this.estado = Estado.facturada;
+        }
+    }
 }

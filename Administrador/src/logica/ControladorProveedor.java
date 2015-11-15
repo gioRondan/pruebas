@@ -386,5 +386,19 @@ public class ControladorProveedor implements IControladorProveedor{
         }
     }
 
+    @Override
+    public void actualizarEstadoReserva(String nick, Integer id) {
+        ManejadorProveedor mpr = ManejadorProveedor.getInstance();
+        Proveedor proveedor = mpr.getProveedor(nick);
+        proveedor.facturarReserva(id);
+    }
+
+    @Override
+    public List<DataItemReserva> listarReservasXProveedor(String nick) {
+        ManejadorProveedor mpr = ManejadorProveedor.getInstance();
+        Proveedor proveedor = mpr.getProveedor(nick);
+        return proveedor.getDataReservas();
+    }
+
 }
 
