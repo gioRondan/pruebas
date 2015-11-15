@@ -238,8 +238,8 @@ public class PublicadorProveedor {
        return ICP.informacionPromocion(pvr, nom);
    }
    @WebMethod
-   public DataInfoProveedor iniciarSesion(String nick, String pass){
-       return ICP.iniciarSesion(nick, pass);
+   public boolean iniciarSesion(String nick, String pass){
+       return (ICP.iniciarSesion(nick, pass) != null);
    }
    @WebMethod
    public void facturarReserva(String nick, Integer id){
