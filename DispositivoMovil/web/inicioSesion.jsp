@@ -68,7 +68,6 @@ t   : inicioSesion
             </script>
         <div class="centerbox" >
             <div class="container">
-
                 <form class="form-signin" action="login"  method="POST">
                     <img class="img-circle" src="http://www.xn--sueo-iqa.net/wp-content/uploads/2014/06/so%C3%B1ar-con-cachorros-tigres.jpg" alt="Mountain View" style="width:150px;height:150px;">
                     <h2 class="form-signin-heading">Inicio de sesión</h2>

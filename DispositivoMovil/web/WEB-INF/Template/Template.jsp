@@ -3,6 +3,7 @@
     Created on : 08-oct-2015, 21:30:01
     Author     : Rodrigo
 --%>
+<%@page import="servidor.DataInfoProveedor"%>
 <%@page import="org.apache.catalina.connector.Request"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -64,6 +65,14 @@
                         <li><a href="#">Promociones</a></li>
                         <li><a href="#">Reservas</a></li>
                     </ul>
+                    <%
+                    if (request.getSession().getAttribute("dataProveedor") != null){    
+                    %>
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
+                    </ul>
+                    <%}%>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
