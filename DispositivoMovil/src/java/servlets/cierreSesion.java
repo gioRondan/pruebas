@@ -27,6 +27,7 @@ public class cierreSesion extends HttpServlet {
             throws ServletException, IOException {
             request.getSession().setAttribute("nick", "");
             request.getSession().setAttribute("pass", "");
+            request.getSession().setAttribute("dataProveedor", null);
             request.getSession().setAttribute("Login", "NoLogeado");
             request.getRequestDispatcher("/inicioSesion.jsp").forward(request, response);
     }

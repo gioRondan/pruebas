@@ -31,22 +31,10 @@ public class actualizarEstadoReserva extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet actualizarEstadoReserva</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet actualizarEstadoReserva at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
-        }
+        servidor.PublicadorProveedorService service = new servidor.PublicadorProveedorService();
+        servidor.PublicadorProveedor port = service.getPublicadorProveedorPort();
+        port.facturarReserva((String)request.getAttribute("nick"), (Integer) r
+                equest.getAttribute("reserva"));
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
