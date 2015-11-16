@@ -33,10 +33,8 @@ public class actualizarEstadoReserva extends HttpServlet {
             throws ServletException, IOException {
         servidor.PublicadorProveedorService service = new servidor.PublicadorProveedorService();
         servidor.PublicadorProveedor port = service.getPublicadorProveedorPort();
-        port.facturarReserva((String)request.getAttribute("nick"), (Integer) r
-                equest.getAttribute("reserva"));
+        port.facturarReserva((String)request.getAttribute("nick"), (Integer) request.getAttribute("reserva"));
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
