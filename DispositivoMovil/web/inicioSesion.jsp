@@ -52,11 +52,11 @@ t   : inicioSesion
         </div>
         <div class="container" >
             <div id="prueba" style="display: none;">
-                
-            <div class="alert alert-warning">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong id="estado" ><%= request.getSession().getAttribute("Login")%></strong> 
-            </div></div>
+                <div class="alert alert-danger">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong id="estado" ><%= request.getSession().getAttribute("Login")%></strong> 
+                </div>
+            </div>
         </div><br>
         <script>
             if (jQuery("#estado").text()=== "Datosincorrectos"){
