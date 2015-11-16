@@ -60,14 +60,14 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Servicios <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">Promociones</a></li>
-                        <li><a href="#">Reservas</a></li>
-                    </ul>
                     <%
                         if (request.getSession().getAttribute("dataProveedor") != null) {
                     %>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a onClick="window.location = 'verServiciosPromociones';" href="#">Servicios/Promociones <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">Reservas</a></li>
+                    </ul>
+                    
                     <ul class="nav navbar-nav navbar-right">
                         <li><a onClick="window.location = 'logout';" href="#"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
                     </ul>  
