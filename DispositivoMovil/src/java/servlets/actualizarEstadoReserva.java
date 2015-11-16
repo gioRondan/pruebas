@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import servidor.DataInfoProveedor;
 
 /**
  *
@@ -33,7 +34,12 @@ public class actualizarEstadoReserva extends HttpServlet {
             throws ServletException, IOException {
         servidor.PublicadorProveedorService service = new servidor.PublicadorProveedorService();
         servidor.PublicadorProveedor port = service.getPublicadorProveedorPort();
-        port.facturarReserva((String)request.getAttribute("nick"), (Integer) request.getAttribute("reserva"));
+        DataInfoProveedor proveedor = (DataInfoProveedor) request.getSession().getAttribute("dataProveedor");
+        if(request.getAttribute("listar") != null){
+            port.listarReservasXProveedor((String)request.getAttribute(proveedor.getNickname()));
+        }else{
+            port.facturarReserva((String)request.getAttribute(proveedor.getNickname()), (Integer) request.getAttribute("reserva"));
+        }
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

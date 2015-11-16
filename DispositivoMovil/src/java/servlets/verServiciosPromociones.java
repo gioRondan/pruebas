@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import servidor.DataInfoProveedor;
 
 /**
  *
@@ -33,9 +34,9 @@ public class verServiciosPromociones extends HttpServlet {
             throws ServletException, IOException {
         servidor.PublicadorProveedorService service = new servidor.PublicadorProveedorService();
         servidor.PublicadorProveedor port = service.getPublicadorProveedorPort();
-        String proveedor = (String) request.getAttribute("nick");
-        request.getSession().setAttribute("listaServicios", port.listarServiciosXProveedor(proveedor));
-        request.getSession().setAttribute("listaPromociones", port.listarPromocionesXProveedor(proveedor));
+        DataInfoProveedor proveedor = (DataInfoProveedor) request.getSession().getAttribute("dataProveedor");
+            request.getSession().setAttribute("listaServicios", port.listarServiciosXProveedor(proveedor.getNickname()));
+            request.getSession().setAttribute("listaPromociones", port.listarPromocionesXProveedor(proveedor.getNickname()));
         
     }
 
