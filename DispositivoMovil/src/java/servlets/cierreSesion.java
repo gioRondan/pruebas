@@ -25,12 +25,10 @@ public class cierreSesion extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if(request.getParameter("cerrarSesion") != null){
             request.getSession().setAttribute("nick", "");
             request.getSession().setAttribute("pass", "");
             request.getSession().setAttribute("Login", "NoLogeado");
             request.getRequestDispatcher("/inicioSesion.jsp").forward(request, response);
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

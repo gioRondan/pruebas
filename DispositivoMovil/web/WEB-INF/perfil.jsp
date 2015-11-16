@@ -24,14 +24,14 @@
         </div>
         <div class="centerbox">    
             <div class="container">    
-                <div class="alert alert-success col-xs-12 col-sm-6 col-lg-8 center">
+                <div class="alert alert-success col-xs-12 col-sm-6 col-lg-8 center perfil-center">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                     <strong>Bienvenido <%= cliente.getNombre()%> <%= cliente.getApellido()%> al sistema! </strong>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-lg-8 center">
+                <div class="col-xs-12 col-sm-6 col-lg-8 center perfil-center">
                     <h1 style="color: #ffffff">Información personal</h1>
                 </div>
-                <div class="panel panel-success col-xs-12 col-sm-6 col-lg-8 center">
+                <div class="panel panel-success col-xs-12 col-sm-6 col-lg-8 center perfil-center">
                     <div class="panel-heading">Perfil del Usuario</div>
                     <div class="panel-body">
                         <ul class="list-group">

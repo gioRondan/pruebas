@@ -83,3 +83,8 @@ div.horizontal a {
     text-align: center;
     margin: 0px auto;
 }
+
+.perfil-center{
+    float: none !important;
+    margin: 0px auto;
+}

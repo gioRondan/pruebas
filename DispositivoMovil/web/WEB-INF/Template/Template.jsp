@@ -66,12 +66,11 @@
                         <li><a href="#">Reservas</a></li>
                     </ul>
                     <%
-                    if (request.getSession().getAttribute("dataProveedor") != null){    
+                        if (request.getSession().getAttribute("dataProveedor") != null) {
                     %>
-                    
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
-                    </ul>
+                        <li><a onClick="window.location = 'logout';" href="#"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
+                    </ul>  
                     <%}%>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
