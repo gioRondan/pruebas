@@ -51,12 +51,20 @@ t   : inicioSesion
             <%@ include file="\WEB-INF\Template\Template.jsp" %>
         </div>
         <div class="container" >
-            <div class="alert alert-success">
+            <div id="prueba" style="display: none;">
+                
+            <div class="alert alert-warning">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <strong id="estado" ><%= request.getSession().getAttribute("Login")%></strong> 
-
-            </div>
+            </div></div>
         </div><br>
+        <script>
+            if (jQuery("#estado").text()=== "Datosincorrectos"){
+                jQuery("#prueba").css("display", "block");
+            }else{
+                jQuery("#prueba").css("display", "none");
+            }
+            </script>
         <div class="centerbox" >
             <div class="container">
 
