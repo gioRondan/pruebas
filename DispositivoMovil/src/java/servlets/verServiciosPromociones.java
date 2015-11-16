@@ -31,7 +31,19 @@ public class verServiciosPromociones extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        servidor.PublicadorProveedorService service = new servidor.PublicadorProveedorService();
+        servidor.PublicadorProveedor port = service.getPublicadorProveedorPort();
+        String proveedor = (String) request.getAttribute("nick");
+        if(request.getAttribute("servicios") != null){
+            request.getSession().setAttribute("listaServicios", port.listarServiciosXProveedor(proveedor));
+            request.getSession().setAttribute("listaPromociones", null);
+        }else if (request.getAttribute("promociones") != null){
+            request.getSession().setAttribute("listaServicios", null);
+            request.getSession().setAttribute("listaPromociones", port.listarPromocionesXProveedor(proveedor));
+        }else{      //quiere servicios y promociones
+            request.getSession().setAttribute("listaServicios", port.listarServiciosXProveedor(proveedor));
+            request.getSession().setAttribute("listaPromociones", port.listarPromocionesXProveedor(proveedor));
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

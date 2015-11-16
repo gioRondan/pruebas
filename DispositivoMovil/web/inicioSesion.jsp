@@ -60,6 +60,7 @@ t   : inicioSesion
         </div><br>
         <script>
             if (jQuery("#estado").text()=== "Datosincorrectos"){
+                jQuery("#estado").text("Los datos ingresados no son correctos");
                 jQuery("#prueba").css("display", "block");
             }else{
                 jQuery("#prueba").css("display", "none");
