@@ -390,13 +390,14 @@ public class ControladorProveedor implements IControladorProveedor{
     public void facturarReserva(String nick, Integer id) {
         ManejadorProveedor mpr = ManejadorProveedor.getInstance();
         Proveedor proveedor = mpr.getProveedor(nick);
-        String nickCliente = proveedor.facturarReserva(id);
+        proveedor.facturarReserva(id);
+        /*String nickCliente = proveedor.facturarReserva(id);
         ManejadorCliente mcl = ManejadorCliente.getInstance();
-        mcl.chequearEstadoReserva(nickCliente, id);
+        mcl.chequearEstadoReserva(nickCliente, id);*/
     }
 
     @Override
-    public List<DataItemReserva> listarReservasXProveedor(String nick) {
+    public List<DataReserva> listarReservasXProveedor(String nick) {
         ManejadorProveedor mpr = ManejadorProveedor.getInstance();
         Proveedor proveedor = mpr.getProveedor(nick);
         return proveedor.getDataReservas();

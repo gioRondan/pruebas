@@ -14,7 +14,7 @@ import java.util.Date;
  */
 public class Usuario {
     
-    private  String nickname;
+    protected  String nickname;
     private String nombre;
     private String apellido;
     private String email  ;

@@ -172,7 +172,7 @@ public class ControladorCliente implements IControladorCliente{
                     Proveedor proveedor = mprov.getProveedor(dtir.getServicio().getProveedor());
                     servicio = proveedor.getServicio( dtir.getServicio().getNombre() );
                     ItemReserva item = new ItemReserva(dtir.getCantidad(), servicio, dtir.getFechaInicio(), dtir.getFechaFin(), cliente.getNickname() );
-                    proveedor.addReserva(res.getId(), item);
+                    proveedor.addReserva(res.getId(), res);
                     cliente.reservarServicio(clave1, servicio,dtir.getCantidad(), dtir.getFechaInicio(), dtir.getFechaFin());
                     preciototal= preciototal + servicio.getPrecio()*dtir.getCantidad();
          

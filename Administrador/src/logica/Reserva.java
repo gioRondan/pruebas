@@ -22,6 +22,10 @@ public class Reserva {
     private Date fechaFin;
     private float precio;
     private Estado estado;
+
+    public String getNickCliente() {
+        return nickCliente;
+    }
     private String nickCliente;
     private List<ItemReserva> item;
     
@@ -99,6 +103,19 @@ public class Reserva {
     void chequearEstado() {
         boolean facturada = true;
         for(ItemReserva it : item){
+            if (it.getEstado() != Estado.facturada){
+                facturada = false;
+            }
+        }
+        if(facturada){
+            this.estado = Estado.facturada;
+        }
+    }
+
+    void facturar(String proveedor) {
+        boolean facturada = true;
+        for(ItemReserva it : item){
+            it.facturarItem(proveedor);
             if (it.getEstado() != Estado.facturada){
                 facturada = false;
             }

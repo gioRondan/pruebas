@@ -54,8 +54,8 @@ public class ItemReserva {
             
     }
 
-    void facturarItem() {
-        if(this.estado == Estado.pagada){
+    void facturarItem(String proveedor) {
+        if(esDeProveedor(proveedor) && (this.estado == Estado.pagada)){
             this.estado = Estado.facturada;
         }
     }
@@ -65,5 +65,19 @@ public class ItemReserva {
 
     public String getNickCliente() {
         return nickCliente;
+    }
+
+    private boolean esDeProveedor(String nick) {
+        boolean ret = true;
+        try{
+        if(this.servicio == null)
+            this.promocion.esdeProveedor(nick);
+        else
+            this.servicio.esdeProveedor(nick);
+        }
+        catch (Exception ex){
+                ret = false;
+        }
+        return ret;
     }
 }
