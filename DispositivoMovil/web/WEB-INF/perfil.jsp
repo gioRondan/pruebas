@@ -11,9 +11,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Perfil Proveedor</title>
     </head>
-    <body>
+    <body class="login">
         <%
             DataInfoProveedor cliente = (DataInfoProveedor) request.getSession().getAttribute("dataProveedor");
             DataFecha fecha = (DataFecha) request.getSession().getAttribute("fechaNacimiento");
