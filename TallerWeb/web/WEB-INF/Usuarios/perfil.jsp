@@ -28,10 +28,8 @@
                         <li id="pestana1"><a href='javascript:cambiarPestanna(pestanas,pestana1);'>Info</a></li>
                         <li id="pestana2"><a href='javascript:cambiarPestanna(pestanas,pestana2);'>Reservas</a></li>
                     </ul>
-                </div>
-
-             
-            <body onload="javascript:cambiarPestanna(pestanas,pestana1);"></body> <%--Para setear la pestanea 1 conmo activa  --%>
+                </div>             
+                <body onload="javascript:cambiarPestanna(pestanas,pestana1);"></body> <%--Para setear la pestanea 1 conmo activa--%>
                     <div id="contenidopestanas" style="width: 500px" >
                     <div id="cpestana1" >
                         <table>
@@ -92,7 +90,6 @@
                                         <td><%= c.getFechaCreacion().getDia()+"/"+c.getFechaCreacion().getMes()+"/"+c.getFechaCreacion().getAnio() %></td>
                                         <td><%=c.getPrecio() %></td>
                                         <td><%= c.getEstado().name() %></td> 
-
                                     </tr>
                                 <%}}%>
                             </tbody>
@@ -101,10 +98,9 @@
                 </div>
             </div>
         </div>
-         <form action="cierresesion" method="POST">
+        <form action="cierresesion" method="POST">
             <input type="submit" name="cerrarSesion" value="Cerrar Sesion"/>
         </form>
-        </div>
-        
+        </div>  
     </body>
 </html>

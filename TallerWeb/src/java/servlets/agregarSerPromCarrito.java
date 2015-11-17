@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import servidor.DataFecha;
 import servidor.DataItemReserva;
 import servidor.DataServicio;
 import servidor.Exception_Exception;
@@ -76,13 +77,35 @@ public class agregarSerPromCarrito extends HttpServlet {
                     nom = request.getParameter("nomServicio");
                     pvr = request.getParameter("nomProveedorServicio");
                     cant = Integer.parseInt(request.getParameter("cantItemReserva"));
-                    Date fini = null;//Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechainiItemReservaPromo"));
-                    Date ffin = null;//Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechafinItemReservaPromo"));
-                    try{
+                    
+                DataFecha fini = new DataFecha();
+                String fecha = request.getParameter("fechainiItemReservaPromo");
+                String[] partes = fecha.split("-");
+                int dia = Integer.parseInt(partes[2]); //dd
+                int mes = Integer.parseInt(partes[1]); // mm
+                int anio = Integer.parseInt(partes[0]); // aaaa
+                fini.setDia(dia);
+                fini.setMes(mes);
+                fini.setAnio(anio);
+                    
+                 //   Date fini = null;//Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechainiItemReservaPromo"));
+                    
+                 //   Date ffin = null;//Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechafinItemReservaPromo"));
+                DataFecha ffin = new DataFecha();
+                String fecha2 = request.getParameter("fechainiItemReservaPromo");
+                String[] partes2 = fecha.split("-");
+                int dia2 = Integer.parseInt(partes2[2]); //dd
+                int mes2 = Integer.parseInt(partes2[1]); // mm
+                int anio2 = Integer.parseInt(partes2[0]); // aaaa
+                ffin.setDia(dia2);
+                ffin.setMes(mes2);
+                ffin.setAnio(anio2);    
+                
+                try{
                         DataItemReserva dtr = new DataItemReserva();
                         dtr.setCantidad(cant);
-                        dtr.setFechaInicio(null);
-                        dtr.setFechaFin(null);
+                        dtr.setFechaInicio(fini);
+                        dtr.setFechaFin(ffin);
                         dtr.setServicio(port.informacionServicio(pvr,nom));
                         dtr.setEsServico(esser);
                         ir2.add(dtr);
@@ -95,13 +118,33 @@ public class agregarSerPromCarrito extends HttpServlet {
                     nom = request.getParameter("nomPromocion");
                     pvr = request.getParameter("nomProveedorPromocion");
                     cant = Integer.parseInt(request.getParameter("cantItemReservaPromo"));
-                    Date fini = null;//Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechainiItemReservaPromo"));
-                    Date ffin = null;//Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechafinItemReservaPromo"));
+                    
+                      DataFecha fini = new DataFecha();
+                String fecha = request.getParameter("fechainiItemReservaPromo");
+                String[] partes = fecha.split("-");
+                int dia = Integer.parseInt(partes[2]); //dd
+                int mes = Integer.parseInt(partes[1]); // mm
+                int anio = Integer.parseInt(partes[0]); // aaaa
+                fini.setDia(dia);
+                fini.setMes(mes);
+                fini.setAnio(anio);
+                    //Date fini = null;//Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechainiItemReservaPromo"));
+                    //Date ffin = null;//Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechafinItemReservaPromo"));
+                DataFecha ffin = new DataFecha();
+                String fecha2 = request.getParameter("fechainiItemReservaPromo");
+                String[] partes2 = fecha.split("-");
+                int dia2 = Integer.parseInt(partes2[2]); //dd
+                int mes2 = Integer.parseInt(partes2[1]); // mm
+                int anio2 = Integer.parseInt(partes2[0]); // aaaa
+                ffin.setDia(dia2);
+                ffin.setMes(mes2);
+                ffin.setAnio(anio2); 
+                   
                     try{
                         DataItemReserva dtr = new DataItemReserva();
                         dtr.setCantidad(cant);
-                        dtr.setFechaInicio(null);
-                        dtr.setFechaFin(null);
+                        dtr.setFechaInicio(fini);
+                        dtr.setFechaFin(ffin);
                         dtr.setPromocion(port.informacionPromocion(pvr,nom));
                         dtr.setEsServico(esser);
                         ir2.add(dtr);

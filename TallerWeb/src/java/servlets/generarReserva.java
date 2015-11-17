@@ -18,8 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import servidor.DataInfoCliente;
 import servidor.DataItemReserva;
-import servidor.DataItemReservaArray;
-import servidor.Exception_Exception;
+
 
 
 
@@ -43,22 +42,29 @@ public class generarReserva extends HttpServlet {
             throws ServletException, IOException {
         if(request.getParameter("comprar") != null){
             servidor.PublicadorClienteService service = new servidor.PublicadorClienteService();
-        servidor.PublicadorCliente port = service.getPublicadorClientePort();
+            servidor.PublicadorCliente port = service.getPublicadorClientePort();
             List<DataItemReserva> items = (List<DataItemReserva>) request.getSession().getAttribute("ItemsReservaActual");
             DataInfoCliente cli = (DataInfoCliente) request.getSession().getAttribute("dataCliente");
             if (items != null){
                 try {
-                    DataItemReservaArray arrayItems = (DataItemReservaArray) request.getSession().getAttribute("ItemsReservaActual");
-
+                    
+                    
+                    List<DataItemReserva> ir2 = (List<DataItemReserva>)request.getSession().getAttribute("ItemsReservaActual");
+                    DataItemReserva[] arrayItems = new DataItemReserva[ir2.size()];
+                    int i =0;
+                    for ( DataItemReserva ir : ir2  ){
+                        arrayItems[i]=ir;
+                        i++;
+                    }
                     port.confirmarReserva(arrayItems,cli);
+                    items.removeAll(items);//vacio el carrito
+                    request.getSession().setAttribute("ItemsReservaActual", items );
+                    DataInfoCliente cliente = (DataInfoCliente) request.getSession().getAttribute("dataCliente");
+                    cliente = port.iniciarSesion(cliente.getNickname(), cliente.getPassword());//reinicio sesion para actualizar los datos de las reservas 
+                    request.getSession().setAttribute("dataCliente", cliente);
                 } catch (Exception ex) {
                     Logger.getLogger(generarReserva.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                items.removeAll(items);//vacio el carrito
-                request.getSession().setAttribute("ItemsReservaActual", items );
-                DataInfoCliente cliente = (DataInfoCliente) request.getSession().getAttribute("dataCliente");
-                cliente = port.iniciarSesion(cliente.getNickname(), cliente.getPassword());//reinicio sesion para actualizar los datos de las reservas 
-                request.getSession().setAttribute("dataCliente", cliente);
+                }  
             }
             request.getRequestDispatcher("/index.jsp").forward(request, response);
         }
