@@ -147,9 +147,10 @@ public class PublicadorCliente {
    }
    
    @WebMethod
-   public void confirmarReserva2(DataItemReserva item, DataInfoCliente cli)throws Exception{
+   public void confirmarReserva2( DataInfoCliente cli)throws Exception{
        
        ICC.confirmarReserva(this.items, cli);
+       this.items = new ArrayList<>();
    }
    
    @WebMethod
