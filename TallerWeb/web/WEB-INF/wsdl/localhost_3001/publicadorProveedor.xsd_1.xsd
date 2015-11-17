@@ -41,6 +41,26 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="dataReserva">
+<xs:sequence>
+<xs:element name="identificador" type="xs:int"></xs:element>
+<xs:element name="fechaCreacion" type="tns:dataFecha" minOccurs="0"></xs:element>
+<xs:element name="fechaInicio" type="tns:dataFecha" minOccurs="0"></xs:element>
+<xs:element name="fechaFin" type="tns:dataFecha" minOccurs="0"></xs:element>
+<xs:element name="precio" type="xs:float"></xs:element>
+<xs:element name="estado" type="tns:estado" minOccurs="0"></xs:element>
+<xs:element name="nickCliente" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dataFecha">
+<xs:sequence>
+<xs:element name="dia" type="xs:int"></xs:element>
+<xs:element name="mes" type="xs:int"></xs:element>
+<xs:element name="anio" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="dataInfoPromocion">
 <xs:sequence>
 <xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
@@ -98,6 +118,15 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:simpleType name="estado">
+<xs:restriction base="xs:string">
+<xs:enumeration value="registrada"></xs:enumeration>
+<xs:enumeration value="cancelada"></xs:enumeration>
+<xs:enumeration value="pagada"></xs:enumeration>
+<xs:enumeration value="facturada"></xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+
 <xs:complexType name="dataProveedorArray" final="#all">
 <xs:sequence>
 <xs:element name="item" type="tns:dataProveedor" minOccurs="0" maxOccurs="unbounded" nillable="true"></xs:element>
@@ -107,6 +136,12 @@
 <xs:complexType name="dataServicioArray" final="#all">
 <xs:sequence>
 <xs:element name="item" type="tns:dataServicio" minOccurs="0" maxOccurs="unbounded" nillable="true"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dataReservaArray" final="#all">
+<xs:sequence>
+<xs:element name="item" type="tns:dataReserva" minOccurs="0" maxOccurs="unbounded" nillable="true"></xs:element>
 </xs:sequence>
 </xs:complexType>
 

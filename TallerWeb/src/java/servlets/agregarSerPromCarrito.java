@@ -9,12 +9,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 import servidor.DataFecha;
 import servidor.DataItemReserva;
 import servidor.DataServicio;
@@ -77,31 +83,28 @@ public class agregarSerPromCarrito extends HttpServlet {
                     nom = request.getParameter("nomServicio");
                     pvr = request.getParameter("nomProveedorServicio");
                     cant = Integer.parseInt(request.getParameter("cantItemReserva"));
-                    
-                DataFecha fini = new DataFecha();
+                   
+
+                
                 String fecha = request.getParameter("fechainiItemReservaPromo");
                 String[] partes = fecha.split("-");
                 int dia = Integer.parseInt(partes[2]); //dd
                 int mes = Integer.parseInt(partes[1]); // mm
                 int anio = Integer.parseInt(partes[0]); // aaaa
-                fini.setDia(dia);
-                fini.setMes(mes);
-                fini.setAnio(anio);
-                    
-                 //   Date fini = null;//Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechainiItemReservaPromo"));
-                    
-                 //   Date ffin = null;//Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechafinItemReservaPromo"));
-                DataFecha ffin = new DataFecha();
+                                  
+                 GregorianCalendar fechainicio = new GregorianCalendar(anio,mes,dia);
+                
+                 
                 String fecha2 = request.getParameter("fechainiItemReservaPromo");
-                String[] partes2 = fecha.split("-");
+                String[] partes2 = fecha2.split("-");
                 int dia2 = Integer.parseInt(partes2[2]); //dd
                 int mes2 = Integer.parseInt(partes2[1]); // mm
                 int anio2 = Integer.parseInt(partes2[0]); // aaaa
-                ffin.setDia(dia2);
-                ffin.setMes(mes2);
-                ffin.setAnio(anio2);    
-                
+                GregorianCalendar fechafin = new GregorianCalendar(anio2,mes2,dia2);  
+        
                 try{
+                        XMLGregorianCalendar fini = DatatypeFactory.newInstance().newXMLGregorianCalendar(fechainicio);
+                        XMLGregorianCalendar  ffin = DatatypeFactory.newInstance().newXMLGregorianCalendar(fechafin);
                         DataItemReserva dtr = new DataItemReserva();
                         dtr.setCantidad(cant);
                         dtr.setFechaInicio(fini);
@@ -119,28 +122,25 @@ public class agregarSerPromCarrito extends HttpServlet {
                     pvr = request.getParameter("nomProveedorPromocion");
                     cant = Integer.parseInt(request.getParameter("cantItemReservaPromo"));
                     
-                      DataFecha fini = new DataFecha();
-                String fecha = request.getParameter("fechainiItemReservaPromo");
-                String[] partes = fecha.split("-");
-                int dia = Integer.parseInt(partes[2]); //dd
-                int mes = Integer.parseInt(partes[1]); // mm
-                int anio = Integer.parseInt(partes[0]); // aaaa
-                fini.setDia(dia);
-                fini.setMes(mes);
-                fini.setAnio(anio);
-                    //Date fini = null;//Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechainiItemReservaPromo"));
-                    //Date ffin = null;//Fabrica.getInstance().getIControladorCliente().toDate(request.getParameter("fechafinItemReservaPromo"));
-                DataFecha ffin = new DataFecha();
-                String fecha2 = request.getParameter("fechainiItemReservaPromo");
-                String[] partes2 = fecha.split("-");
-                int dia2 = Integer.parseInt(partes2[2]); //dd
-                int mes2 = Integer.parseInt(partes2[1]); // mm
-                int anio2 = Integer.parseInt(partes2[0]); // aaaa
-                ffin.setDia(dia2);
-                ffin.setMes(mes2);
-                ffin.setAnio(anio2); 
+                    String fecha = request.getParameter("fechainiItemReservaPromo");
+                    String[] partes = fecha.split("-");
+                    int dia = Integer.parseInt(partes[2]); //dd
+                    int mes = Integer.parseInt(partes[1]); // mm
+                    int anio = Integer.parseInt(partes[0]); // aaaa
+
+                     GregorianCalendar fechainicio = new GregorianCalendar(anio,mes,dia);
+
+
+                    String fecha2 = request.getParameter("fechainiItemReservaPromo");
+                    String[] partes2 = fecha2.split("-");
+                    int dia2 = Integer.parseInt(partes2[2]); //dd
+                    int mes2 = Integer.parseInt(partes2[1]); // mm
+                    int anio2 = Integer.parseInt(partes2[0]); // aaaa
+                    GregorianCalendar fechafin = new GregorianCalendar(anio2,mes2,dia2);   
                    
                     try{
+                        XMLGregorianCalendar fini = DatatypeFactory.newInstance().newXMLGregorianCalendar(fechainicio);
+                        XMLGregorianCalendar  ffin = DatatypeFactory.newInstance().newXMLGregorianCalendar(fechafin);
                         DataItemReserva dtr = new DataItemReserva();
                         dtr.setCantidad(cant);
                         dtr.setFechaInicio(fini);
