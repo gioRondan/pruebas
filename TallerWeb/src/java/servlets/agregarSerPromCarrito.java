@@ -86,7 +86,7 @@ public class agregarSerPromCarrito extends HttpServlet {
                    
 
                 
-                String fecha = request.getParameter("fechainiItemReservaPromo");
+                String fecha = request.getParameter("fechainiItemReserva");
                 String[] partes = fecha.split("-");
                 int dia = Integer.parseInt(partes[2]); //dd
                 int mes = Integer.parseInt(partes[1]); // mm
@@ -95,7 +95,7 @@ public class agregarSerPromCarrito extends HttpServlet {
                  GregorianCalendar fechainicio = new GregorianCalendar(anio,mes,dia);
                 
                  
-                String fecha2 = request.getParameter("fechainiItemReservaPromo");
+                String fecha2 = request.getParameter("fechafinItemReserva");
                 String[] partes2 = fecha2.split("-");
                 int dia2 = Integer.parseInt(partes2[2]); //dd
                 int mes2 = Integer.parseInt(partes2[1]); // mm
@@ -122,7 +122,7 @@ public class agregarSerPromCarrito extends HttpServlet {
                     pvr = request.getParameter("nomProveedorPromocion");
                     cant = Integer.parseInt(request.getParameter("cantItemReservaPromo"));
                     
-                    String fecha = request.getParameter("fechainiItemReservaPromo");
+                    String fecha = request.getParameter("fechainiItemReserva");
                     String[] partes = fecha.split("-");
                     int dia = Integer.parseInt(partes[2]); //dd
                     int mes = Integer.parseInt(partes[1]); // mm
@@ -131,7 +131,7 @@ public class agregarSerPromCarrito extends HttpServlet {
                      GregorianCalendar fechainicio = new GregorianCalendar(anio,mes,dia);
 
 
-                    String fecha2 = request.getParameter("fechainiItemReservaPromo");
+                    String fecha2 = request.getParameter("fechainiItemReserva");
                     String[] partes2 = fecha2.split("-");
                     int dia2 = Integer.parseInt(partes2[2]); //dd
                     int mes2 = Integer.parseInt(partes2[1]); // mm

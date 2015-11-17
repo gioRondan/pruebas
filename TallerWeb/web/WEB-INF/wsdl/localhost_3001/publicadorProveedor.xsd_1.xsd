@@ -2,6 +2,16 @@
 
 <xs:element name="Exception" type="tns:Exception"></xs:element>
 
+<xs:complexType name="dataServicio">
+<xs:sequence>
+<xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="precio" type="xs:float"></xs:element>
+<xs:element name="imagen" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element name="proveedor" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="dataProveedor">
 <xs:sequence>
 <xs:element name="nickname" type="xs:string" minOccurs="0"></xs:element>
@@ -13,16 +23,6 @@
 <xs:element name="nombreEmpresa" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="urlEmpresa" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="password" type="xs:string" minOccurs="0"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="dataServicio">
-<xs:sequence>
-<xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="descripcion" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="precio" type="xs:float"></xs:element>
-<xs:element name="imagen" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
-<xs:element name="proveedor" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
@@ -127,15 +127,15 @@
 </xs:restriction>
 </xs:simpleType>
 
-<xs:complexType name="dataProveedorArray" final="#all">
-<xs:sequence>
-<xs:element name="item" type="tns:dataProveedor" minOccurs="0" maxOccurs="unbounded" nillable="true"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="dataServicioArray" final="#all">
 <xs:sequence>
 <xs:element name="item" type="tns:dataServicio" minOccurs="0" maxOccurs="unbounded" nillable="true"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dataProveedorArray" final="#all">
+<xs:sequence>
+<xs:element name="item" type="tns:dataProveedor" minOccurs="0" maxOccurs="unbounded" nillable="true"></xs:element>
 </xs:sequence>
 </xs:complexType>
 

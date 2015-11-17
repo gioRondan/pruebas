@@ -53,10 +53,11 @@ public class generarReserva extends HttpServlet {
                     DataItemReserva[] arrayItems = new DataItemReserva[ir2.size()];
                     int i =0;
                     for ( DataItemReserva ir : ir2  ){
-                        arrayItems[i]=ir;
+                        //arrayItems[i]=ir;
+                        port.agregarItemReserva(ir);
                         i++;
                     }
-                    port.confirmarReserva(arrayItems,cli);
+                    port.confirmarReserva2(ir2.get(0),cli);
                     items.removeAll(items);//vacio el carrito
                     request.getSession().setAttribute("ItemsReservaActual", items );
                     DataInfoCliente cliente = (DataInfoCliente) request.getSession().getAttribute("dataCliente");

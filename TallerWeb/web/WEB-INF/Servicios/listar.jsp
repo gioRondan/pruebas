@@ -185,11 +185,11 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Fecha inicio: </th>
-                                                                    <td><input style="width: 170px; " class="form-control" type="date" label="Fecha inicio:" id="Cantidad5" name="fechainiItemReservaPromo" ></td>
+                                                                    <td><input style="width: 170px; " class="form-control" type="date" label="Fecha inicio:" id="Cantidad5" name="fechainiItemReserva" ></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Fecha Fin: </th>
-                                                                    <td><input style="width: 170px; " class="form-control" type="date" label="Fecha Fin:" id="Cantidad6" name="fechafinItemReservaPromo"></td>
+                                                                    <td><input style="width: 170px; " class="form-control" type="date" label="Fecha Fin:" id="Cantidad6" name="fechafinItemReserva"></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th></th>
