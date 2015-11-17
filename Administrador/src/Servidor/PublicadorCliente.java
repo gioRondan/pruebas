@@ -162,5 +162,8 @@ public class PublicadorCliente {
    public boolean existeNickName(String nickName){
        return ICC.existeNickName(nickName);
    }
-   
+   @WebMethod
+   public void vaciarCarrito(){
+       this.items = new ArrayList<>();
+   }
 }
