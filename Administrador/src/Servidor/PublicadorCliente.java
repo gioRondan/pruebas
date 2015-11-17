@@ -40,6 +40,7 @@ import org.json.simple.JSONValue;
 public class PublicadorCliente {
    private Endpoint endpoint = null;
    public Fabrica fabrica = Fabrica.getInstance();
+   private List<DataItemReserva> items = new ArrayList<>();
    public IControladorCliente ICC = fabrica.getIControladorCliente();
    
    
@@ -137,6 +138,18 @@ public class PublicadorCliente {
            aux.add(itemsr[i]);
        }
        ICC.confirmarReserva(aux, cli);
+   }
+   
+   @WebMethod
+   public void agregarItemReserva(DataItemReserva item){
+       
+       this.items.add(item);
+   }
+   
+   @WebMethod
+   public void confirmarReserva2(DataItemReserva item, DataInfoCliente cli)throws Exception{
+       
+       ICC.confirmarReserva(this.items, cli);
    }
    
    @WebMethod

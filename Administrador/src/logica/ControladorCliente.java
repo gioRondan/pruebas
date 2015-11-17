@@ -206,4 +206,9 @@ public class ControladorCliente implements IControladorCliente{
         }
         return false;
     }
+
+    @Override
+    public void confirmarReserva2(DataItemReserva item, DataInfoCliente cli) {
+        
+    }
 }

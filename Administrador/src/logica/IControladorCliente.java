@@ -31,5 +31,7 @@ public interface IControladorCliente {
     public boolean existeEmail(String email);
     public boolean existeNickName(String nickName);
     public BufferedImage leerImgURL(String imgURL)throws Exception;
+
+    public void confirmarReserva2(DataItemReserva item, DataInfoCliente cli);
     
 }
