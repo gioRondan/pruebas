@@ -77,12 +77,6 @@
 <part name="arg5" type="xsd:string"></part>
 </message>
 <message name="altaServicioResponse"></message>
-<message name="verInfoProveedor">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="verInfoProveedorResponse">
-<part name="return" type="tns:dataInfoProveedor"></part>
-</message>
 <message name="ingresarNombreCategoria">
 <part name="arg0" type="xsd:string"></part>
 </message>
@@ -93,6 +87,12 @@
 <message name="seleccionarPadreResponse"></message>
 <message name="altaCategoria"></message>
 <message name="altaCategoriaResponse"></message>
+<message name="verInfoProveedor">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="verInfoProveedorResponse">
+<part name="return" type="tns:dataInfoProveedor"></part>
+</message>
 <message name="ingresarCategoriaBorrarServicio">
 <part name="arg0" type="xsd:string"></part>
 </message>
@@ -134,11 +134,6 @@
 <message name="iniciarSesionResponse">
 <part name="return" type="xsd:boolean"></part>
 </message>
-<message name="facturarReserva">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:int"></part>
-</message>
-<message name="facturarReservaResponse"></message>
 <message name="listarReservasXProveedor">
 <part name="arg0" type="xsd:string"></part>
 </message>
@@ -173,6 +168,11 @@
 <message name="informacionPromocionResponse">
 <part name="return" type="tns:dataPromocion"></part>
 </message>
+<message name="facturarReserva">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:int"></part>
+</message>
+<message name="facturarReservaResponse"></message>
 <portType name="PublicadorProveedor">
 <operation name="verInfoServicio" parameterOrder="arg0 arg1">
 <input wsam:Action="http://Servidor/PublicadorProveedor/verInfoServicioRequest" message="tns:verInfoServicio"></input>
@@ -230,10 +230,6 @@
 <output wsam:Action="http://Servidor/PublicadorProveedor/altaServicioResponse" message="tns:altaServicioResponse"></output>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://Servidor/PublicadorProveedor/altaServicio/Fault/Exception"></fault>
 </operation>
-<operation name="verInfoProveedor">
-<input wsam:Action="http://Servidor/PublicadorProveedor/verInfoProveedorRequest" message="tns:verInfoProveedor"></input>
-<output wsam:Action="http://Servidor/PublicadorProveedor/verInfoProveedorResponse" message="tns:verInfoProveedorResponse"></output>
-</operation>
 <operation name="ingresarNombreCategoria">
 <input wsam:Action="http://Servidor/PublicadorProveedor/ingresarNombreCategoriaRequest" message="tns:ingresarNombreCategoria"></input>
 <output wsam:Action="http://Servidor/PublicadorProveedor/ingresarNombreCategoriaResponse" message="tns:ingresarNombreCategoriaResponse"></output>
@@ -246,6 +242,10 @@
 <input wsam:Action="http://Servidor/PublicadorProveedor/altaCategoriaRequest" message="tns:altaCategoria"></input>
 <output wsam:Action="http://Servidor/PublicadorProveedor/altaCategoriaResponse" message="tns:altaCategoriaResponse"></output>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://Servidor/PublicadorProveedor/altaCategoria/Fault/Exception"></fault>
+</operation>
+<operation name="verInfoProveedor">
+<input wsam:Action="http://Servidor/PublicadorProveedor/verInfoProveedorRequest" message="tns:verInfoProveedor"></input>
+<output wsam:Action="http://Servidor/PublicadorProveedor/verInfoProveedorResponse" message="tns:verInfoProveedorResponse"></output>
 </operation>
 <operation name="ingresarCategoriaBorrarServicio">
 <input wsam:Action="http://Servidor/PublicadorProveedor/ingresarCategoriaBorrarServicioRequest" message="tns:ingresarCategoriaBorrarServicio"></input>
@@ -288,10 +288,6 @@
 <input wsam:Action="http://Servidor/PublicadorProveedor/iniciarSesionRequest" message="tns:iniciarSesion"></input>
 <output wsam:Action="http://Servidor/PublicadorProveedor/iniciarSesionResponse" message="tns:iniciarSesionResponse"></output>
 </operation>
-<operation name="facturarReserva" parameterOrder="arg0 arg1">
-<input wsam:Action="http://Servidor/PublicadorProveedor/facturarReservaRequest" message="tns:facturarReserva"></input>
-<output wsam:Action="http://Servidor/PublicadorProveedor/facturarReservaResponse" message="tns:facturarReservaResponse"></output>
-</operation>
 <operation name="listarReservasXProveedor">
 <input wsam:Action="http://Servidor/PublicadorProveedor/listarReservasXProveedorRequest" message="tns:listarReservasXProveedor"></input>
 <output wsam:Action="http://Servidor/PublicadorProveedor/listarReservasXProveedorResponse" message="tns:listarReservasXProveedorResponse"></output>
@@ -317,6 +313,10 @@
 <input wsam:Action="http://Servidor/PublicadorProveedor/informacionPromocionRequest" message="tns:informacionPromocion"></input>
 <output wsam:Action="http://Servidor/PublicadorProveedor/informacionPromocionResponse" message="tns:informacionPromocionResponse"></output>
 <fault message="tns:Exception" name="Exception" wsam:Action="http://Servidor/PublicadorProveedor/informacionPromocion/Fault/Exception"></fault>
+</operation>
+<operation name="facturarReserva" parameterOrder="arg0 arg1">
+<input wsam:Action="http://Servidor/PublicadorProveedor/facturarReservaRequest" message="tns:facturarReserva"></input>
+<output wsam:Action="http://Servidor/PublicadorProveedor/facturarReservaResponse" message="tns:facturarReservaResponse"></output>
 </operation>
 </portType>
 <binding name="PublicadorProveedorPortBinding" type="tns:PublicadorProveedor">
@@ -450,15 +450,6 @@
 <soap:fault name="Exception" use="literal"></soap:fault>
 </fault>
 </operation>
-<operation name="verInfoProveedor">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-</operation>
 <operation name="ingresarNombreCategoria">
 <soap:operation soapAction=""></soap:operation>
 <input>
@@ -488,6 +479,15 @@
 <fault name="Exception">
 <soap:fault name="Exception" use="literal"></soap:fault>
 </fault>
+</operation>
+<operation name="verInfoProveedor">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
 </operation>
 <operation name="ingresarCategoriaBorrarServicio">
 <soap:operation soapAction=""></soap:operation>
@@ -582,15 +582,6 @@
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
 </output>
 </operation>
-<operation name="facturarReserva">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-</operation>
 <operation name="listarReservasXProveedor">
 <soap:operation soapAction=""></soap:operation>
 <input>
@@ -650,6 +641,15 @@
 <fault name="Exception">
 <soap:fault name="Exception" use="literal"></soap:fault>
 </fault>
+</operation>
+<operation name="facturarReserva">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
 </operation>
 </binding>
 <service name="PublicadorProveedorService">

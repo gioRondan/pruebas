@@ -57,7 +57,7 @@ public class generarReserva extends HttpServlet {
                         port.agregarItemReserva(ir);
                         i++;
                     }
-                    port.confirmarReserva2(ir2.get(0),cli);
+                    port.confirmarReserva2(cli);
                     items.removeAll(items);//vacio el carrito
                     request.getSession().setAttribute("ItemsReservaActual", items );
                     DataInfoCliente cliente = (DataInfoCliente) request.getSession().getAttribute("dataCliente");

@@ -34,6 +34,26 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="dataInfoCliente">
+<xs:sequence>
+<xs:element name="nickname" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="apellido" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="email" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="fechaNac" type="tns:dataFecha" minOccurs="0"></xs:element>
+<xs:element name="imagen" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="reservas" type="tns:dataReserva" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element name="password" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="hola" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="dataItemReserva">
 <xs:sequence>
 <xs:element name="cantidad" type="xs:int"></xs:element>
@@ -62,26 +82,6 @@
 <xs:element name="descuento" type="xs:int"></xs:element>
 <xs:element name="precioTotal" type="xs:int"></xs:element>
 <xs:element name="nickProveedor" type="xs:string" minOccurs="0"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="dataInfoCliente">
-<xs:sequence>
-<xs:element name="nickname" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="apellido" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="email" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="fechaNac" type="tns:dataFecha" minOccurs="0"></xs:element>
-<xs:element name="imagen" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="reservas" type="tns:dataReserva" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
-<xs:element name="password" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="hola" type="xs:string" minOccurs="0"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="Exception">
-<xs:sequence>
-<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
