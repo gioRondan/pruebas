@@ -23,7 +23,7 @@ public class Linea implements Serializable {
     private Long id;
     private String nombre;
     private int Cantidad;
-    private int Precio;
+    private float Precio;
     private String NombreProveedor;
 
     public String getNombre() {
@@ -42,11 +42,11 @@ public class Linea implements Serializable {
         this.Cantidad = Cantidad;
     }
 
-    public int getPrecio() {
+    public float getPrecio() {
         return Precio;
     }
 
-    public void setPrecio(int Precio) {
+    public void setPrecio(float Precio) {
         this.Precio = Precio;
     }
 

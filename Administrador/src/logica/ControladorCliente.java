@@ -5,6 +5,8 @@
  */
 package logica;
 
+import Persistencia.Factura;
+import Persistencia.Linea;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.text.DateFormat;
@@ -14,6 +16,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import javax.imageio.ImageIO;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 
 
@@ -210,5 +216,44 @@ public class ControladorCliente implements IControladorCliente{
     @Override
     public void confirmarReserva2(DataItemReserva item, DataInfoCliente cli) {
         
+    }
+    
+    
+    
+    
+    // operacines persistencia
+    public void CrearFactura(long id,Date fecha, int IdRes,String nick,int total,List<DataItemReserva> items){
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory(
+                "Factura");
+        EntityManager em = emf.createEntityManager();
+            Factura fact = new Factura();
+            long Autonum = 1;
+            for (DataItemReserva dtir : items){
+                Linea lin = new Linea();
+                lin.setId(Autonum);
+                Autonum ++;
+                if (dtir.getesServico()){
+                    lin.setCantidad(dtir.getCantidad());
+                    lin.setNombre(dtir.getServicio().getNombre());
+                    lin.setNombreProveedor(dtir.getServicio().getProveedor());
+                    lin.setPrecio(dtir.getServicio().getPrecio());
+                }else{
+                    lin.setCantidad(dtir.getCantidad());
+                    lin.setNombre(dtir.getServicio().getNombre());
+                    lin.setNombreProveedor(dtir.getServicio().getProveedor());
+                    lin.setPrecio(dtir.getServicio().getPrecio());
+                }
+            }
+            fact.setId(id);
+            fact.setFechaGenerada(fecha);
+            fact.setIdReserva(IdRes);
+            fact.setLineas(null);
+            fact.setNickCliente(nick);
+            fact.setTotal(total);
+            em.getTransaction().begin();
+            em.persist(fact);
+            em.getTransaction().commit();
+            em.close();
+            emf.close();
     }
 }
