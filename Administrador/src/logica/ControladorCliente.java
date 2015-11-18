@@ -265,4 +265,10 @@ public class ControladorCliente implements IControladorCliente{
         
         return salida;
     }
+
+    @Override
+    public List<DataReserva> listarReservasXClienteRegistradas(String nomCliente) {
+        ManejadorCliente mCl = ManejadorCliente.getInstance();
+        return mCl.getCliente(nomCliente).getDataReservasRegistradas();
+    }
 }

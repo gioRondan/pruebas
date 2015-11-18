@@ -75,4 +75,13 @@ public class Cliente extends Usuario{
     void chequearReserva(Integer id) {
         this.reservas.get(id).chequearEstado();
     }
+
+    List<DataReserva> getDataReservasRegistradas() {
+        List<DataReserva> dts = new ArrayList<DataReserva>();
+        for (Reserva value : reservas.values()){
+            if (value.getEstado() == Estado.registrada)
+                dts.add(value.getDataReserva());
+        }
+        return dts;
+    }
 }

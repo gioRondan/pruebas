@@ -33,5 +33,7 @@ public interface IControladorCliente {
     public BufferedImage leerImgURL(String imgURL)throws Exception;
 
     public void confirmarReserva2(DataItemReserva item, DataInfoCliente cli);
+
+    public List<DataReserva> listarReservasXClienteRegistradas(String nomCliente);
     
 }

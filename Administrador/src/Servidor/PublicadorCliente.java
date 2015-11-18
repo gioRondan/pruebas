@@ -166,4 +166,15 @@ public class PublicadorCliente {
    public void vaciarCarrito(){
        this.items = new ArrayList<>();
    }
+   @WebMethod
+   public DataReserva[] listarReservasXClienteRegistradas(String nomCliente){
+       List<DataReserva> aux = ICC.listarReservasXClienteRegistradas(nomCliente);
+       DataReserva[] ret = new DataReserva[aux.size()];
+       int i = 0;
+       for(DataReserva it : aux){
+           ret[i] = it;
+           i++;
+       }
+       return ret;
+   }
 }
