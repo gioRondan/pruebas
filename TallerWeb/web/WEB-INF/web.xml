@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app id="WebApp_ID" version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
-
+    <filter>
+        <description>probando filtros</description>
+        <filter-name>prueba</filter-name>
+        <filter-class>servlets.inicioSesion</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>prueba</filter-name>
+        <servlet-name>Imagenes</servlet-name>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
     <servlet>
         <servlet-name>Imagenes</servlet-name>
         <servlet-class>servlets.Imagenes</servlet-class>
@@ -9,86 +18,67 @@
         <servlet-name>actualizarEstadoReserva</servlet-name>
         <url-pattern>/actualizarestadoreserva</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>agregarSerPromCarrito</servlet-name>
         <url-pattern>/agregaraacarrito</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>cierreSesion</servlet-name>
         <url-pattern>/cierresesion</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>generarReserva</servlet-name>
         <url-pattern>/generarreserva</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>inicioSesion</servlet-name>
         <url-pattern>/iniciosesion</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>registrarCliente</servlet-name>
         <url-pattern>/registrarcliente</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>verCarrito</servlet-name>
         <url-pattern>/vercarrito</url-pattern>
     </servlet-mapping>
-   
     <servlet-mapping>
         <servlet-name>verInfoPromocion</servlet-name>
         <url-pattern>/verinfopromocion</url-pattern>
     </servlet-mapping>
-      
     <servlet-mapping>
         <servlet-name>verInfoProveedor</servlet-name>
         <url-pattern>/verinfoproveedor</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>verInfoProveedor</servlet-name>
         <url-pattern>/verInfoProveedor</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>verInfoReserva</servlet-name>
         <url-pattern>/verinforeserva</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>existeusuario</servlet-name>
         <url-pattern>/existeusuario</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>verInfoServicio</servlet-name>
         <url-pattern>/verinfoservicio</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>verPerfil</servlet-name>
         <url-pattern>/verperfil</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>Home</servlet-name>
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>Imagenes</servlet-name>
         <url-pattern>/imagenes</url-pattern>
     </servlet-mapping>
-    
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-    
-
-    
-    </web-app>
+</web-app>
