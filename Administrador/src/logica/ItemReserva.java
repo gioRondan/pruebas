@@ -16,13 +16,10 @@ public class ItemReserva {
     private Servicio servicio;
     private Promocion promocion;
     private Date inicio;
-
-    public Estado getEstado() {
-        return estado;
-    }
     private Date fin;
     private Estado estado;
     private String nickCliente;
+    
     public ItemReserva(int cantidad,Servicio serv, Date inicio, Date fin, String nickCliente){
         this.cantidad = cantidad;
         servicio=serv;
@@ -30,6 +27,7 @@ public class ItemReserva {
         this.inicio = inicio;
         this.fin = fin;
         this.nickCliente = nickCliente;
+        this.estado = Estado.registrada;
     }
     public ItemReserva(int cantidad,Promocion pro, Date inicio, Date fin, String nickCliente){
         this.cantidad = cantidad;
@@ -38,9 +36,13 @@ public class ItemReserva {
         this.inicio = inicio;
         this.fin = fin;
         this.nickCliente = nickCliente;
+        this.estado = Estado.registrada;
     }
     public int getCantidad(){
         return cantidad;
+    }
+    public Estado getEstado() {
+        return estado;
     }
     public void setCantidad(int cantidad){
         this.cantidad = cantidad;
