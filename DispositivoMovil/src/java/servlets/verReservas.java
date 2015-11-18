@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import servidor.DataInfoProveedor;
 import servidor.DataProveedor;
 
 /**
@@ -34,7 +35,7 @@ public class verReservas extends HttpServlet {
             throws ServletException, IOException {
         servidor.PublicadorProveedorService service = new servidor.PublicadorProveedorService();
         servidor.PublicadorProveedor port = service.getPublicadorProveedorPort();
-        DataProveedor proveedor = (DataProveedor) request.getSession().getAttribute("dataProveedor");
+        DataInfoProveedor proveedor = (DataInfoProveedor) request.getSession().getAttribute("dataProveedor");
         request.getSession().setAttribute("reservas", port.listarReservasXProveedor(proveedor.getNickname()));
         request.getRequestDispatcher("/WEB-INF/verReservas.jsp").forward(request, response);
     }
