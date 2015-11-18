@@ -78,7 +78,7 @@ public class Proveedor extends Usuario{
     }
 
     List<DataServicio> getServiciosBuscados(String aBuscar) {
-        List result = new ArrayList<DataServicio>();
+        List<DataServicio> result = new ArrayList<>();
         for(Servicio value : servicios.values()){
             if(value.buscado(aBuscar)){
                 result.add(value.getDataServicio());
@@ -88,7 +88,7 @@ public class Proveedor extends Usuario{
     }
 
     List<DataPromocion> getPromocionesBuscados(String aBuscar) {
-        List result = new ArrayList<DataPromocion>();
+        List<DataPromocion> result = new ArrayList<>();
         for(Promocion value : promociones.values()){
             if(value.buscado(aBuscar)){
                 result.add(value.getDataPromocion());
@@ -106,10 +106,10 @@ public class Proveedor extends Usuario{
 //        mapRes.put(reserva.getId(), reserva);
         this.reservas.put(id, reserva);
     }
-    List<DataReserva> getDataReservas(){
-        List result = new ArrayList<DataItemReserva>();
+    List<DataInfoReserva> getDataReservas(){
+        List<DataInfoReserva> result = new ArrayList<>();
         for(Reserva value : reservas.values()){
-            result.add(value.getDataReserva());
+            result.add(value.getDataInfoReserva());
         }
         return result;
     }

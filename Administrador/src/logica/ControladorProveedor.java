@@ -397,7 +397,7 @@ public class ControladorProveedor implements IControladorProveedor{
     }
 
     @Override
-    public List<DataReserva> listarReservasXProveedor(String nick) {
+    public List<DataInfoReserva> listarReservasXProveedor(String nick) {
         ManejadorProveedor mpr = ManejadorProveedor.getInstance();
         Proveedor proveedor = mpr.getProveedor(nick);
         return proveedor.getDataReservas();

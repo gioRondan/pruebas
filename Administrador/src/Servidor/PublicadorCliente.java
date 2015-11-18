@@ -46,7 +46,7 @@ public class PublicadorCliente {
    
    @WebMethod(exclude = true)
    public void publicar(){
-       endpoint = Endpoint.publish("http://164.73.44.99:3000/publicadorCliente", this);
+       endpoint = Endpoint.publish(":3000/publicadorCliente", this);
    }
    @WebMethod(exclude = true)
    public Endpoint getEndpoint(){

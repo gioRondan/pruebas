@@ -18,6 +18,7 @@ import javax.xml.ws.Endpoint;
 import logica.DataCategoria;
 import logica.DataInfoPromocion;
 import logica.DataInfoProveedor;
+import logica.DataInfoReserva;
 import logica.DataInfoServicio;
 import logica.DataItemReserva;
 import logica.DataPromocion;
@@ -247,11 +248,11 @@ public class PublicadorProveedor {
        ICP.facturarReserva(nick, id);
    }
    @WebMethod
-   public DataReserva[] listarReservasXProveedor(String nick){
-       List<DataReserva> items = ICP.listarReservasXProveedor(nick);
-       DataReserva[] ret = new DataReserva[items.size()];
+   public DataInfoReserva[] listarReservasXProveedor(String nick){
+       List<DataInfoReserva> items = ICP.listarReservasXProveedor(nick);
+       DataInfoReserva[] ret = new DataInfoReserva[items.size()];
        int i = 0;
-       for (DataReserva it : items){
+       for (DataInfoReserva it : items){
            ret[i] = it;
            i++;
        }

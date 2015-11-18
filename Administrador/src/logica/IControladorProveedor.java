@@ -56,5 +56,5 @@ public interface IControladorProveedor {
     public DataInfoProveedor iniciarSesion(String nick, String pass);
     public void facturarReserva(String nick, Integer id);
 
-    public List<DataReserva> listarReservasXProveedor(String nick);
+    public List<DataInfoReserva> listarReservasXProveedor(String nick);
 }
