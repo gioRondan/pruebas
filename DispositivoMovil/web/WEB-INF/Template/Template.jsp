@@ -65,7 +65,7 @@
                     %>
                     <ul class="nav navbar-nav">
                         <li class="active"><a onClick="window.location = 'verServiciosPromociones';" href="#">Servicios/Promociones <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">Reservas</a></li>
+                        <li><a onClick="window.location = 'verReservas';" href="#">Reservas</a></li>
                     </ul>
                     
                     <ul class="nav navbar-nav navbar-right">
