@@ -114,11 +114,9 @@ public class Proveedor extends Usuario{
         return result;
     }
 
-    String facturarReserva(Integer id) {
+    void facturarReserva(Integer id) {
         Reserva res = this.reservas.get(id);
-        
         res.facturar(this.nickname);
-        return res.getNickCliente();
     }
 
 }
