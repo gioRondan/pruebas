@@ -5,6 +5,8 @@
  */
 package logica;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -36,9 +38,27 @@ public class DataReserva {
     
     public DataReserva(int identificador, Date fechaCreacion, Date fechaInicio, Date fechaFin, float precio, Estado estado, String nickCliente){
         this.identificador = identificador;
-        this.fechaCreacion = new DataFecha(fechaCreacion.getDay(), fechaCreacion.getMonth(), fechaCreacion.getYear());
-        this.fechaInicio   = new DataFecha(fechaInicio.getDay(), fechaInicio.getMonth(), fechaInicio.getYear());
-        this.fechaFin      = new DataFecha(fechaFin.getDay(), fechaFin.getMonth(), fechaFin.getYear());
+          DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+        String fecha  = formatoFecha.format(fechaCreacion);
+        String[] partes = fecha.split("/");
+        int dia = Integer.parseInt(partes[0]); //dd
+        int mes = Integer.parseInt(partes[1]); // mm
+        int anio = Integer.parseInt(partes[2]); // aaaa
+        this.fechaCreacion = new DataFecha(dia, mes, anio);
+        
+        fecha  = formatoFecha.format(fechaInicio);
+        partes = fecha.split("/");
+        dia = Integer.parseInt(partes[0]); //dd
+        mes = Integer.parseInt(partes[1]); // mm
+        anio = Integer.parseInt(partes[2]); // aaaa
+        this.fechaInicio   = new DataFecha(dia, mes, anio);
+        
+        fecha  = formatoFecha.format(fechaFin);
+        partes = fecha.split("/");
+        dia = Integer.parseInt(partes[0]); //dd
+        mes = Integer.parseInt(partes[1]); // mm
+        anio = Integer.parseInt(partes[2]); // aaaa
+        this.fechaFin      = new DataFecha(dia, mes, anio);
         this.precio        = precio;
         this.estado        = estado;        
         this.nickCliente   = nickCliente;
