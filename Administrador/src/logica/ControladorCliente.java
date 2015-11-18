@@ -12,6 +12,7 @@ import java.io.File;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -228,7 +229,9 @@ public class ControladorCliente implements IControladorCliente{
         EntityManager em = emf.createEntityManager();
             Factura fact = new Factura();
             long Autonum = 1;
+            Collection<Linea> lines = null;
             for (DataItemReserva dtir : items){
+                
                 Linea lin = new Linea();
                 lin.setId(Autonum);
                 Autonum ++;
@@ -243,11 +246,14 @@ public class ControladorCliente implements IControladorCliente{
                     lin.setNombreProveedor(dtir.getServicio().getProveedor());
                     lin.setPrecio(dtir.getServicio().getPrecio());
                 }
+            lines.add(lin);
             }
+            
+            
             fact.setId(id);
             fact.setFechaGenerada(fecha);
             fact.setIdReserva(IdRes);
-            fact.setLineas(null);
+            fact.setLineas(lines);
             fact.setNickCliente(nick);
             fact.setTotal(total);
             em.getTransaction().begin();
