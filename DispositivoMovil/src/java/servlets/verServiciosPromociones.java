@@ -37,7 +37,7 @@ public class verServiciosPromociones extends HttpServlet {
         DataInfoProveedor proveedor = (DataInfoProveedor) request.getSession().getAttribute("dataProveedor");
             request.getSession().setAttribute("listaServicios", port.listarServiciosXProveedor(proveedor.getNickname()));
             request.getSession().setAttribute("listaPromociones", port.listarPromocionesXProveedor(proveedor.getNickname()));
-        
+        request.getRequestDispatcher("/WEB-INF/Servicios-Promociones.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -2,6 +2,18 @@
 
 <xs:element name="Exception" type="tns:Exception"></xs:element>
 
+<xs:complexType name="dataReserva">
+<xs:sequence>
+<xs:element name="identificador" type="xs:int"></xs:element>
+<xs:element name="fechaCreacion" type="tns:dataFecha" minOccurs="0"></xs:element>
+<xs:element name="fechaInicio" type="tns:dataFecha" minOccurs="0"></xs:element>
+<xs:element name="fechaFin" type="tns:dataFecha" minOccurs="0"></xs:element>
+<xs:element name="precio" type="xs:float"></xs:element>
+<xs:element name="estado" type="tns:estado" minOccurs="0"></xs:element>
+<xs:element name="nickCliente" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="dataFecha">
 <xs:sequence>
 <xs:element name="dia" type="xs:int"></xs:element>
@@ -10,9 +22,15 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="Exception">
+<xs:complexType name="dataCliente">
 <xs:sequence>
-<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="nickname" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="apellido" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="email" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="fechaNac" type="tns:dataFecha" minOccurs="0"></xs:element>
+<xs:element name="imagen" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="password" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
@@ -30,27 +48,9 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="dataReserva">
+<xs:complexType name="Exception">
 <xs:sequence>
-<xs:element name="identificador" type="xs:int"></xs:element>
-<xs:element name="fechaCreacion" type="tns:dataFecha" minOccurs="0"></xs:element>
-<xs:element name="fechaInicio" type="tns:dataFecha" minOccurs="0"></xs:element>
-<xs:element name="fechaFin" type="tns:dataFecha" minOccurs="0"></xs:element>
-<xs:element name="precio" type="xs:float"></xs:element>
-<xs:element name="estado" type="tns:estado" minOccurs="0"></xs:element>
-<xs:element name="nickCliente" type="xs:string" minOccurs="0"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="dataInfoReserva">
-<xs:sequence>
-<xs:element name="id" type="xs:int"></xs:element>
-<xs:element name="fechaCreacion" type="tns:dataFecha" minOccurs="0"></xs:element>
-<xs:element name="fechaInicio" type="tns:dataFecha" minOccurs="0"></xs:element>
-<xs:element name="fechaFin" type="tns:dataFecha" minOccurs="0"></xs:element>
-<xs:element name="precio" type="xs:float"></xs:element>
-<xs:element name="estado" type="tns:estado" minOccurs="0"></xs:element>
-<xs:element name="items" type="tns:dataItemReserva" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
@@ -85,15 +85,15 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="dataCliente">
+<xs:complexType name="dataInfoReserva">
 <xs:sequence>
-<xs:element name="nickname" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="apellido" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="email" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="fechaNac" type="tns:dataFecha" minOccurs="0"></xs:element>
-<xs:element name="imagen" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="password" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="id" type="xs:int"></xs:element>
+<xs:element name="fechaCreacion" type="tns:dataFecha" minOccurs="0"></xs:element>
+<xs:element name="fechaInicio" type="tns:dataFecha" minOccurs="0"></xs:element>
+<xs:element name="fechaFin" type="tns:dataFecha" minOccurs="0"></xs:element>
+<xs:element name="precio" type="xs:float"></xs:element>
+<xs:element name="estado" type="tns:estado" minOccurs="0"></xs:element>
+<xs:element name="items" type="tns:dataItemReserva" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 </xs:sequence>
 </xs:complexType>
 

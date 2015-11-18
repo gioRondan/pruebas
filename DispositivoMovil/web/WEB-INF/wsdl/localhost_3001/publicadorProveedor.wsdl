@@ -20,8 +20,6 @@
 <message name="listarServiciosXCategoriaResponse">
 <part name="return" type="tns:dataServicioArray"></part>
 </message>
-<message name="altaCategoria"></message>
-<message name="altaCategoriaResponse"></message>
 <message name="listarProveedores"></message>
 <message name="listarProveedoresResponse">
 <part name="return" type="tns:dataProveedorArray"></part>
@@ -93,6 +91,24 @@
 <part name="arg0" type="xsd:string"></part>
 </message>
 <message name="seleccionarPadreResponse"></message>
+<message name="altaCategoria"></message>
+<message name="altaCategoriaResponse"></message>
+<message name="ingresarCategoriaBorrarServicio">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="ingresarCategoriaBorrarServicioResponse"></message>
+<message name="ingresarDescripcionServicio">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="ingresarDescripcionServicioResponse"></message>
+<message name="seleccionarProveedor">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="seleccionarProveedorResponse"></message>
+<message name="seleccionarServicio">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="seleccionarServicioResponse"></message>
 <message name="ingresarOrigenServicio">
 <part name="arg0" type="xsd:string"></part>
 </message>
@@ -111,28 +127,11 @@
 <part name="arg0" type="xsd:string"></part>
 </message>
 <message name="ingresarModificarImagenServicioResponse"></message>
-<message name="ingresarCategoriaBorrarServicio">
+<message name="buscarPromociones">
 <part name="arg0" type="xsd:string"></part>
 </message>
-<message name="ingresarCategoriaBorrarServicioResponse"></message>
-<message name="ingresarDescripcionServicio">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="ingresarDescripcionServicioResponse"></message>
-<message name="seleccionarProveedor">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="seleccionarProveedorResponse"></message>
-<message name="seleccionarServicio">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="seleccionarServicioResponse"></message>
-<message name="iniciarSesion">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:string"></part>
-</message>
-<message name="iniciarSesionResponse">
-<part name="return" type="xsd:boolean"></part>
+<message name="buscarPromocionesResponse">
+<part name="return" type="tns:dataPromocionArray"></part>
 </message>
 <message name="altaPais">
 <part name="arg0" type="xsd:string"></part>
@@ -148,12 +147,6 @@
 </message>
 <message name="buscarServiciosResponse">
 <part name="return" type="tns:dataServicioArray"></part>
-</message>
-<message name="buscarPromociones">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="buscarPromocionesResponse">
-<part name="return" type="tns:dataPromocionArray"></part>
 </message>
 <message name="informacionPromocion">
 <part name="arg0" type="xsd:string"></part>
@@ -171,7 +164,14 @@
 <part name="arg0" type="xsd:string"></part>
 </message>
 <message name="listarReservasXProveedorResponse">
-<part name="return" type="tns:dataItemReservaArray"></part>
+<part name="return" type="tns:dataReservaArray"></part>
+</message>
+<message name="iniciarSesion">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
+</message>
+<message name="iniciarSesionResponse">
+<part name="return" type="xsd:boolean"></part>
 </message>
 <portType name="PublicadorProveedor">
 <operation name="verInfoServicio" parameterOrder="arg0 arg1">
@@ -182,11 +182,6 @@
 <operation name="listarServiciosXCategoria">
 <input wsam:Action="http://Servidor/PublicadorProveedor/listarServiciosXCategoriaRequest" message="tns:listarServiciosXCategoria"></input>
 <output wsam:Action="http://Servidor/PublicadorProveedor/listarServiciosXCategoriaResponse" message="tns:listarServiciosXCategoriaResponse"></output>
-</operation>
-<operation name="altaCategoria">
-<input wsam:Action="http://Servidor/PublicadorProveedor/altaCategoriaRequest" message="tns:altaCategoria"></input>
-<output wsam:Action="http://Servidor/PublicadorProveedor/altaCategoriaResponse" message="tns:altaCategoriaResponse"></output>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://Servidor/PublicadorProveedor/altaCategoria/Fault/Exception"></fault>
 </operation>
 <operation name="listarProveedores">
 <input wsam:Action="http://Servidor/PublicadorProveedor/listarProveedoresRequest" message="tns:listarProveedores"></input>
@@ -247,6 +242,27 @@
 <input wsam:Action="http://Servidor/PublicadorProveedor/seleccionarPadreRequest" message="tns:seleccionarPadre"></input>
 <output wsam:Action="http://Servidor/PublicadorProveedor/seleccionarPadreResponse" message="tns:seleccionarPadreResponse"></output>
 </operation>
+<operation name="altaCategoria">
+<input wsam:Action="http://Servidor/PublicadorProveedor/altaCategoriaRequest" message="tns:altaCategoria"></input>
+<output wsam:Action="http://Servidor/PublicadorProveedor/altaCategoriaResponse" message="tns:altaCategoriaResponse"></output>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://Servidor/PublicadorProveedor/altaCategoria/Fault/Exception"></fault>
+</operation>
+<operation name="ingresarCategoriaBorrarServicio">
+<input wsam:Action="http://Servidor/PublicadorProveedor/ingresarCategoriaBorrarServicioRequest" message="tns:ingresarCategoriaBorrarServicio"></input>
+<output wsam:Action="http://Servidor/PublicadorProveedor/ingresarCategoriaBorrarServicioResponse" message="tns:ingresarCategoriaBorrarServicioResponse"></output>
+</operation>
+<operation name="ingresarDescripcionServicio">
+<input wsam:Action="http://Servidor/PublicadorProveedor/ingresarDescripcionServicioRequest" message="tns:ingresarDescripcionServicio"></input>
+<output wsam:Action="http://Servidor/PublicadorProveedor/ingresarDescripcionServicioResponse" message="tns:ingresarDescripcionServicioResponse"></output>
+</operation>
+<operation name="seleccionarProveedor">
+<input wsam:Action="http://Servidor/PublicadorProveedor/seleccionarProveedorRequest" message="tns:seleccionarProveedor"></input>
+<output wsam:Action="http://Servidor/PublicadorProveedor/seleccionarProveedorResponse" message="tns:seleccionarProveedorResponse"></output>
+</operation>
+<operation name="seleccionarServicio">
+<input wsam:Action="http://Servidor/PublicadorProveedor/seleccionarServicioRequest" message="tns:seleccionarServicio"></input>
+<output wsam:Action="http://Servidor/PublicadorProveedor/seleccionarServicioResponse" message="tns:seleccionarServicioResponse"></output>
+</operation>
 <operation name="ingresarOrigenServicio">
 <input wsam:Action="http://Servidor/PublicadorProveedor/ingresarOrigenServicioRequest" message="tns:ingresarOrigenServicio"></input>
 <output wsam:Action="http://Servidor/PublicadorProveedor/ingresarOrigenServicioResponse" message="tns:ingresarOrigenServicioResponse"></output>
@@ -268,25 +284,9 @@
 <input wsam:Action="http://Servidor/PublicadorProveedor/ingresarModificarImagenServicioRequest" message="tns:ingresarModificarImagenServicio"></input>
 <output wsam:Action="http://Servidor/PublicadorProveedor/ingresarModificarImagenServicioResponse" message="tns:ingresarModificarImagenServicioResponse"></output>
 </operation>
-<operation name="ingresarCategoriaBorrarServicio">
-<input wsam:Action="http://Servidor/PublicadorProveedor/ingresarCategoriaBorrarServicioRequest" message="tns:ingresarCategoriaBorrarServicio"></input>
-<output wsam:Action="http://Servidor/PublicadorProveedor/ingresarCategoriaBorrarServicioResponse" message="tns:ingresarCategoriaBorrarServicioResponse"></output>
-</operation>
-<operation name="ingresarDescripcionServicio">
-<input wsam:Action="http://Servidor/PublicadorProveedor/ingresarDescripcionServicioRequest" message="tns:ingresarDescripcionServicio"></input>
-<output wsam:Action="http://Servidor/PublicadorProveedor/ingresarDescripcionServicioResponse" message="tns:ingresarDescripcionServicioResponse"></output>
-</operation>
-<operation name="seleccionarProveedor">
-<input wsam:Action="http://Servidor/PublicadorProveedor/seleccionarProveedorRequest" message="tns:seleccionarProveedor"></input>
-<output wsam:Action="http://Servidor/PublicadorProveedor/seleccionarProveedorResponse" message="tns:seleccionarProveedorResponse"></output>
-</operation>
-<operation name="seleccionarServicio">
-<input wsam:Action="http://Servidor/PublicadorProveedor/seleccionarServicioRequest" message="tns:seleccionarServicio"></input>
-<output wsam:Action="http://Servidor/PublicadorProveedor/seleccionarServicioResponse" message="tns:seleccionarServicioResponse"></output>
-</operation>
-<operation name="iniciarSesion" parameterOrder="arg0 arg1">
-<input wsam:Action="http://Servidor/PublicadorProveedor/iniciarSesionRequest" message="tns:iniciarSesion"></input>
-<output wsam:Action="http://Servidor/PublicadorProveedor/iniciarSesionResponse" message="tns:iniciarSesionResponse"></output>
+<operation name="buscarPromociones">
+<input wsam:Action="http://Servidor/PublicadorProveedor/buscarPromocionesRequest" message="tns:buscarPromociones"></input>
+<output wsam:Action="http://Servidor/PublicadorProveedor/buscarPromocionesResponse" message="tns:buscarPromocionesResponse"></output>
 </operation>
 <operation name="altaPais">
 <input wsam:Action="http://Servidor/PublicadorProveedor/altaPaisRequest" message="tns:altaPais"></input>
@@ -301,10 +301,6 @@
 <input wsam:Action="http://Servidor/PublicadorProveedor/buscarServiciosRequest" message="tns:buscarServicios"></input>
 <output wsam:Action="http://Servidor/PublicadorProveedor/buscarServiciosResponse" message="tns:buscarServiciosResponse"></output>
 </operation>
-<operation name="buscarPromociones">
-<input wsam:Action="http://Servidor/PublicadorProveedor/buscarPromocionesRequest" message="tns:buscarPromociones"></input>
-<output wsam:Action="http://Servidor/PublicadorProveedor/buscarPromocionesResponse" message="tns:buscarPromocionesResponse"></output>
-</operation>
 <operation name="informacionPromocion" parameterOrder="arg0 arg1">
 <input wsam:Action="http://Servidor/PublicadorProveedor/informacionPromocionRequest" message="tns:informacionPromocion"></input>
 <output wsam:Action="http://Servidor/PublicadorProveedor/informacionPromocionResponse" message="tns:informacionPromocionResponse"></output>
@@ -317,6 +313,10 @@
 <operation name="listarReservasXProveedor">
 <input wsam:Action="http://Servidor/PublicadorProveedor/listarReservasXProveedorRequest" message="tns:listarReservasXProveedor"></input>
 <output wsam:Action="http://Servidor/PublicadorProveedor/listarReservasXProveedorResponse" message="tns:listarReservasXProveedorResponse"></output>
+</operation>
+<operation name="iniciarSesion" parameterOrder="arg0 arg1">
+<input wsam:Action="http://Servidor/PublicadorProveedor/iniciarSesionRequest" message="tns:iniciarSesion"></input>
+<output wsam:Action="http://Servidor/PublicadorProveedor/iniciarSesionResponse" message="tns:iniciarSesionResponse"></output>
 </operation>
 </portType>
 <binding name="PublicadorProveedorPortBinding" type="tns:PublicadorProveedor">
@@ -341,18 +341,6 @@
 <output>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
 </output>
-</operation>
-<operation name="altaCategoria">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"></soap:fault>
-</fault>
 </operation>
 <operation name="listarProveedores">
 <soap:operation soapAction=""></soap:operation>
@@ -489,6 +477,54 @@
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
 </output>
 </operation>
+<operation name="altaCategoria">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"></soap:fault>
+</fault>
+</operation>
+<operation name="ingresarCategoriaBorrarServicio">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+</operation>
+<operation name="ingresarDescripcionServicio">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+</operation>
+<operation name="seleccionarProveedor">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+</operation>
+<operation name="seleccionarServicio">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+</operation>
 <operation name="ingresarOrigenServicio">
 <soap:operation soapAction=""></soap:operation>
 <input>
@@ -537,43 +573,7 @@
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
 </output>
 </operation>
-<operation name="ingresarCategoriaBorrarServicio">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-</operation>
-<operation name="ingresarDescripcionServicio">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-</operation>
-<operation name="seleccionarProveedor">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-</operation>
-<operation name="seleccionarServicio">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-</operation>
-<operation name="iniciarSesion">
+<operation name="buscarPromociones">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
@@ -612,15 +612,6 @@
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
 </output>
 </operation>
-<operation name="buscarPromociones">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-</operation>
 <operation name="informacionPromocion">
 <soap:operation soapAction=""></soap:operation>
 <input>
@@ -643,6 +634,15 @@
 </output>
 </operation>
 <operation name="listarReservasXProveedor">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+</operation>
+<operation name="iniciarSesion">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
