@@ -256,4 +256,13 @@ public class ControladorCliente implements IControladorCliente{
             em.close();
             emf.close();
     }
+    public String ImprimirFactura(){
+        String salida = "******** Factura ********" + "/n";
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory(
+                "Impresion");
+        EntityManager em = emf.createEntityManager();
+        Query q = em.createQuery("SELECT a FROM Factura f WHERE f.id = ?1");
+        
+        return salida;
+    }
 }
