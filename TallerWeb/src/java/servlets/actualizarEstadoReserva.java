@@ -12,6 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import servidor.DataInfoCliente;
+import servidor.Estado;
 
 /**
  *
@@ -31,22 +33,20 @@ public class actualizarEstadoReserva extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet actualizarEstadoReserva</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet actualizarEstadoReserva at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
+       //actualizarEstadoReserva(int identificador, String nomCliente, Estado estado)
+        servidor.PublicadorClienteService service = new servidor.PublicadorClienteService();
+        servidor.PublicadorCliente port = service.getPublicadorClientePort();
+        String est =  (String) request.getParameter("estado");
+        if (est.equals("CANCELADA")){
+            int id = Integer.parseInt((String) request.getParameter("verInfoReserva"));
+            String nick =  (String) request.getParameter("nickCliente");
+            port.actualizarEstadoReserva(id, nick ,Estado.CANCELADA);
+            //reinicio sesion para actualizar los datos de las reservas 
+            DataInfoCliente cliente = (DataInfoCliente) request.getSession().getAttribute("dataCliente");
+            cliente = port.iniciarSesion(cliente.getNickname(), cliente.getPassword());
+            request.getSession().setAttribute("dataCliente", cliente);
         }
+        request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -87,5 +87,6 @@ public class actualizarEstadoReserva extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 
 }

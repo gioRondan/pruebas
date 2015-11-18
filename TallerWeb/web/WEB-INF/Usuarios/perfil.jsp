@@ -30,7 +30,7 @@
                     </ul>
                 </div>             
                 <body onload="javascript:cambiarPestanna(pestanas,pestana1);"></body> <%--Para setear la pestanea 1 conmo activa--%>
-                    <div id="contenidopestanas" style="width: 500px" >
+                    <div id="contenidopestanas" style="width: 600px" >
                     <div id="cpestana1" >
                         <table>
                             <tr>
@@ -38,7 +38,7 @@
                                     <h1 >Perfil</h1>
                                     <%
                                         DataInfoCliente cliente = (DataInfoCliente) request.getSession().getAttribute("dataCliente");
-                                        DataFecha fecha = (DataFecha)request.getSession().getAttribute("fechaNacimiento");
+                                       
                                     %>
                                     <br>
                                     Nickname: <%= cliente.getNickname()%>
@@ -75,21 +75,40 @@
                                     <th> Fechadecreacion </th>
                                     <th> Precio </th>
                                     <th> Estado </th>
+                                    <th> Mas Info </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <% 
+                                  
                                 List<DataReserva> a = cliente.getReservas();
                                 if (a!=null){
                                     for(DataReserva c : a){ 
                                 %> 
                                     <tr> 
-                                        <td>
-                                            <a href="<%="verinforeserva?nickCliente="+cliente.getNickname()+"&verInfoReserva="+c.getIdentificador()%> "><%=c.getIdentificador()%></a>
-                                        </td>
+                                        <td><%=c.getIdentificador()%></td>
                                         <td><%= c.getFechaCreacion().getDia()+"/"+c.getFechaCreacion().getMes()+"/"+c.getFechaCreacion().getAnio() %></td>
                                         <td><%=c.getPrecio() %></td>
-                                        <td><%= c.getEstado().name() %></td> 
+                                       
+                                            
+                                            <% if (c.getEstado().name().equals("REGISTRADA")){ %>
+                                             <td>
+                                                 <form action="actualizarestadoreserva">
+                                                    <select name="estado">
+                                                       <option value="REGISTRADA"><%= c.getEstado().name() %></option>
+                                                       <option value="CANCELADA">CANCELADA</option>
+                                                    </select>
+                                                       <input id="nickCliente" type="text" value="<%=cliente.getNickname()%>" name="nickCliente" hidden="true"/>
+                                                       <input id="verInfoReserva" type="text" value="<%=c.getIdentificador()%>" name="verInfoReserva" hidden="true"/>
+                                                       <input id="ord" type="submit" value="Guardar" name="ActualizarEstado" /><br>
+                                                </form>
+                                            </td>
+                                        <%}else{%>
+                                            <td><%= c.getEstado().name() %></td>
+                                        <%}%>
+                                        <td>
+                                            <a href="<%="verinforeserva?nickCliente="+cliente.getNickname()+"&verInfoReserva="+c.getIdentificador()%> "> Ver mas </a>
+                                        </td>
                                     </tr>
                                 <%}}%>
                             </tbody>
