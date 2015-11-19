@@ -4,6 +4,9 @@
     Author     : diego.roman
 --%>
 
+<%@page import="servidor.DataInfoReservaArray"%>
+<%@page import="java.util.List"%>
+<%@page import="servidor.DataInfoReserva"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,21 +20,29 @@
             <%@ include file="\WEB-INF\Template\Template.jsp" %>
         </div>
         <div class="centerbox">
-            <h1>Reservas</h1>
+            <h1>Reservas del proveedor</h1>
             <div class="container">
                 <div class="panel-group">
+                    <%
+                        DataInfoReservaArray reservas = (DataInfoReservaArray) request.getSession().getAttribute("reservas");
+                        List<DataInfoReserva> res = reservas.getItem();
+                        for (DataInfoReserva reserva : res) {
+                    %> 
                     <div class="panel panel-success">
                         <div class="panel-heading">
                             <h4 style="float: left;" class="panel-title">
-                                <a aria-expanded="false" class="collapsed" data-toggle="collapse" href="#collapse1">Collapsible panel</a>
-                            </h4><h4 style="text-align: right;" class="panel-title">
-                                <a aria-expanded="false" class="collapsed" data-toggle="collapse" href="#collapse1">Facturar</a>
+                                <a aria-expanded="false" class="collapsed" data-toggle="collapse" href="#collapse1"><%=reserva.getId()%></a>
+                            </h4>
+                            <h4 style="text-align: right;" class="panel-title">
+                                <a aria-expanded="false" class="collapsed" data-toggle="collapse" href="#">Facturar</a>
                             </h4>
                         </div>
                         <div style="height: 0px;" aria-expanded="false" id="collapse1" class="panel-collapse collapse">
                             <div class="panel-body">Panel Body</div>
                         </div>
                     </div>
+                    <% }
+                    %>
                 </div>
             </div>
         </div>
