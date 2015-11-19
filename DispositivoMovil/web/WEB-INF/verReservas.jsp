@@ -5,6 +5,7 @@
 --%>
 
 <%@page import="servidor.DataPromocion"%>
+<%@page import="servidor.Estado"%>
 <%@page import="servidor.DataServicio"%>
 <%@page import="java.util.Set"%>
 <%@page import="servidor.DataItemReserva"%>
@@ -37,9 +38,11 @@
                             <h4 style="float: left;" class="panel-title">
                                 <a aria-expanded="false" class="collapsed" data-toggle="collapse" href="#collapse1">Reserva <%=reserva.getId()%></a>
                             </h4>
+                            <% if (reserva.getEstado().name().equals("PAGADA")){%>
                             <h4 style="text-align: right;" class="panel-title">
                                 <a onClick="window.location = 'actualizarEstadoReserva?reserva=<%=reserva.getId()%>';" aria-expanded="false" class="collapsed" data-toggle="collapse" href="#">Facturar</a>
                             </h4>
+                            <%}%>
                         </div>
                         <%
                             List<DataItemReserva> items = reserva.getItems();
