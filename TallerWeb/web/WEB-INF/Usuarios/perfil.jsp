@@ -96,8 +96,8 @@
                                                  <form action="actualizarestadoreserva">
                                                     <select name="estado">
                                                        <option value="REGISTRADA"><%= c.getEstado().name() %></option>
-                                                       <option value="CANCELADA">Cancelar</option>
-                                                       <option value="PAGAR">Pagar</option>
+                                                       <option value="CANCELADA">CANCELAR</option>
+                                                       <option value="PAGAR">PAGAR</option>
                                                     </select>
                                                        <input id="nickCliente" type="text" value="<%=cliente.getNickname()%>" name="nickCliente" hidden="true"/>
                                                        <input id="verInfoReserva" type="text" value="<%=c.getIdentificador()%>" name="verInfoReserva" hidden="true"/>
