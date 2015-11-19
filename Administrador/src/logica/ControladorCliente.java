@@ -225,7 +225,7 @@ public class ControladorCliente implements IControladorCliente{
     // operacines persistencia
     public void CrearFactura(long id,Date fecha, int IdRes,String nick,int total,List<DataItemReserva> items){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory(
-                "Factura");
+                "AdministradorPU");
         EntityManager em = emf.createEntityManager();
             Factura fact = new Factura();
             long Autonum = 1;
@@ -265,7 +265,7 @@ public class ControladorCliente implements IControladorCliente{
     public String ImprimirFactura(){
         String salida = "******** Factura ********" + "/n";
         EntityManagerFactory emf = Persistence.createEntityManagerFactory(
-                "Impresion");
+                "AdministradorPU");
         EntityManager em = emf.createEntityManager();
         Query q = em.createQuery("SELECT a FROM Factura f WHERE f.id = ?1");
         
