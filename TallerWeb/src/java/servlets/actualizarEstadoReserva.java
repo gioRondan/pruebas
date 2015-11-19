@@ -37,15 +37,18 @@ public class actualizarEstadoReserva extends HttpServlet {
         servidor.PublicadorClienteService service = new servidor.PublicadorClienteService();
         servidor.PublicadorCliente port = service.getPublicadorClientePort();
         String est =  (String) request.getParameter("estado");
-        if (est.equals("CANCELADA")){
+        
             int id = Integer.parseInt((String) request.getParameter("verInfoReserva"));
             String nick =  (String) request.getParameter("nickCliente");
+        if (est.equals("CANCELADA"))
             port.actualizarEstadoReserva(id, nick ,Estado.CANCELADA);
+        else
+            port.actualizarEstadoReserva(id, nick ,Estado.PAGADA);
             //reinicio sesion para actualizar los datos de las reservas 
             DataInfoCliente cliente = (DataInfoCliente) request.getSession().getAttribute("dataCliente");
             cliente = port.iniciarSesion(cliente.getNickname(), cliente.getPassword());
             request.getSession().setAttribute("dataCliente", cliente);
-        }
+        
         request.getRequestDispatcher("/WEB-INF/Usuarios/perfil.jsp").forward(request, response);
     }
 
