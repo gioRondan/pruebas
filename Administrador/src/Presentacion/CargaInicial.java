@@ -17,7 +17,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.security.auth.callback.ConfirmationCallback;
 import logica.DataExpira;
+import logica.DataInfoCliente;
+import logica.DataItemReserva;
+import logica.DataPromocion;
+import logica.DataReserva;
+import logica.DataServicio;
 import logica.Estado;
 import logica.Fabrica;
 import logica.IControladorCliente;
@@ -285,15 +291,21 @@ public class CargaInicial {
             Map<String,DataExpira> fechass = new HashMap();
             Map<String,DataExpira> fechasp = new HashMap();
             //R1
-            servicio.put("Euro-Vuelo-S",1);
+            DataServicio dtser = new DataServicio( "Euro-Vuelo-S", "Vuelo con excelente atención y comodidad", 1100, null, "remus");
+            DataItemReserva dtitem = new DataItemReserva(1, null, null, dtser, null, true, "remus");
+            List<DataItemReserva> aux = new ArrayList<>();
+            aux.add(dtitem);
+            DataInfoCliente dtRemus = ICC.verInfoCliente("oWood");
+            ICC.confirmarReserva(aux, dtRemus);
+            //servicio.put("Euro-Vuelo-S",1);
             DataExpira f = new DataExpira(toDate("1/1/2015"),toDate("1/1/2015"));
-            fechass.put("Euro-Vuelo-S",f);
+            /*fechass.put("Euro-Vuelo-S",f);
             ICC.realizarReserva("remus","oWood",servicio,promocion,fechass,fechasp,toDate("1/1/2015"));    
             ICC.actualizarEstadoReserva(1, "oWood", Estado.facturada);
             servicio.clear();
             promocion.clear();
             fechass.clear();
-            fechasp.clear();
+            fechasp.clear();*/
             //R2
             servicio.put("Euro-Vuelo-S",2);
             servicio.put("Euro-Vuelo-LC",1);
