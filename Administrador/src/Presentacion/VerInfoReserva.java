@@ -355,8 +355,8 @@ public class VerInfoReserva extends javax.swing.JInternalFrame {
         Id.setText(reservaid);
         Precio.setText(Float.toString(inf.getPrecio()));
         Estado.setText(inf.getEstado().toString());
-        DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");	
-        Fechacreacion.setText(formatoFecha.format(inf.getFechaCreacion()));
+        	
+        Fechacreacion.setText(inf.getFechaCreacion().getDia()+"/"+inf.getFechaCreacion().getMes()+"/"+inf.getFechaCreacion().getAnio());
         dtIR = inf.getItems();
         for (DataItemReserva dtir : dtIR){
             DefaultMutableTreeNode ir = new DefaultMutableTreeNode();

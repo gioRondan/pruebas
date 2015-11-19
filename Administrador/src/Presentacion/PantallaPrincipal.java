@@ -24,8 +24,11 @@ import de.javasoft.plaf.synthetica.SyntheticaSkyMetallicLookAndFeel;
 import de.javasoft.plaf.synthetica.SyntheticaWhiteVisionLookAndFeel;
 import java.beans.PropertyVetoException;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Map;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -53,24 +56,38 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     public static String RutaImagenes=""; 
     
     private PantallaPrincipal() {
-        initComponents();
+       initComponents();
         this.setLocationRelativeTo(null);  
         Fabrica fabrica = Fabrica.getInstance();
         instancia = this;
         ICP = fabrica.getIControladorProveedor();
         ICC = fabrica.getIControladorCliente();
    
-       PantallaPrincipal.RutaImagenes= JOptionPane.showInputDialog("Seleccione una ruta para las imagenes");
-            if (PantallaPrincipal.RutaImagenes==null){  
-                PantallaPrincipal.RutaImagenes = "/ens/home01/r/rodrigo.linares/Imagenes/";
+     
+          try { 
+            Properties propiedades = new Properties();
+            propiedades.load(new FileInputStream("src/Propiedades/Propiedades.properties"));
+           //properties.load(new FileInputStream("src/properties/publish.properties"));
+            String url = propiedades.getProperty("rutaImagenes");
+            PantallaPrincipal.RutaImagenes = url;
+            } catch (IOException e) {
+                // PantallaPrincipal.RutaImagenes= JOptionPane.showInputDialog("Seleccione una ruta para las imagenes");
+                JOptionPane.showInputDialog("Error en cargar el archvo de propiedades "+e.getMessage());
             }
-            else if (PantallaPrincipal.RutaImagenes.isEmpty()){
-                PantallaPrincipal.RutaImagenes = "/ens/home01/r/rodrigo.linares/Imagenes/";
-            }
+           
             File usuarios=new File(PantallaPrincipal.RutaImagenes+"Usuarios"); 
             usuarios.mkdir();
             File servicios=new File(PantallaPrincipal.RutaImagenes+"Servicios"); 
             servicios.mkdir();
+            
+            CargaInicial c = new CargaInicial();
+            try{
+                c.cargar();
+                JOptionPane.showMessageDialog(null, "Los datos iniciales se cargaron correctamente.");
+            }
+            catch(Exception ex){
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }      
     
     }
     
@@ -1097,7 +1114,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 
                 PantallaPrincipal x = new PantallaPrincipal();
                 //Pantalla Principal maximisada
-                x.setExtendedState(MAXIMIZED_BOTH);
+               // x.setExtendedState(MAXIMIZED_BOTH);
                 x.setVisible(true);
                 
             }

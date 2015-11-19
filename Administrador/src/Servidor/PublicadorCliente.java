@@ -6,11 +6,16 @@
 package Servidor;
 
 import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
@@ -46,7 +51,15 @@ public class PublicadorCliente {
    
    @WebMethod(exclude = true)
    public void publicar(){
-       endpoint = Endpoint.publish("http://localhost:3000/publicadorCliente", this);
+       try {
+           Properties propiedades = new Properties();
+           propiedades.load(new FileInputStream("src/Propiedades/Propiedades.properties"));
+           //properties.load(new FileInputStream("src/properties/publish.properties"));
+           String url = propiedades.getProperty("publicadorcliente");
+           endpoint = Endpoint.publish(url, this);
+       } catch (IOException ex) {
+           Logger.getLogger(PublicadorCliente.class.getName()).log(Level.SEVERE, null, ex);
+       }
    }
    @WebMethod(exclude = true)
    public Endpoint getEndpoint(){
