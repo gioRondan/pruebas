@@ -99,7 +99,7 @@ public class Servicio {
         this.proveedor = proveedor;
     }
     public void esdeProveedor(String nomProv) throws Exception{
-        if (!(nomProv.equals(proveedor.getNombre()))){
+        if (!(nomProv.equals(proveedor.getNickname()))){
             throw new Exception("Los servicios deben ser de un mismo proveedor");
         }
     }
