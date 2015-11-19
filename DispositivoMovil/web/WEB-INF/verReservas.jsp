@@ -38,7 +38,7 @@
                                 <a aria-expanded="false" class="collapsed" data-toggle="collapse" href="#collapse1">Reserva <%=reserva.getId()%></a>
                             </h4>
                             <h4 style="text-align: right;" class="panel-title">
-                                <a aria-expanded="false" class="collapsed" data-toggle="collapse" href="#">Facturar</a>
+                                <a onClick="window.location = 'actualizarEstadoReserva?reserva=<%=reserva.getId()%>';" aria-expanded="false" class="collapsed" data-toggle="collapse" href="#">Facturar</a>
                             </h4>
                         </div>
                         <%
