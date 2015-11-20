@@ -38,6 +38,7 @@ public class Filtro2 implements Filter {
         if (debug) {
             log("Filtro2:DoBeforeProcessing");
         }
+	String ip = request.getLocalAddr();
 
 	// Write code here to process the request and/or response before
         // the rest of the filter chain is invoked.
