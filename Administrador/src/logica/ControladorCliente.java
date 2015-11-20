@@ -285,4 +285,11 @@ public class ControladorCliente implements IControladorCliente{
         ManejadorRegistro mr = ManejadorRegistro.getInstance();
         mr.addRegistro(new Registro(ip, url, browser, so));
     }
+
+    @Override
+    public List<Registro> obtenerRegistros() {
+        ManejadorRegistro mr = ManejadorRegistro.getInstance();
+        return mr.getRegistros();
+    }
+    
 }

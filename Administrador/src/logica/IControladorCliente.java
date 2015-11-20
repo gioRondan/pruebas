@@ -5,9 +5,9 @@
  */
 package logica;
 
+import RegistroAcceso.Registro;
 import java.awt.image.BufferedImage;
 import java.util.Date;
-
 import java.util.List;
 import java.util.Map;
 /**
@@ -37,5 +37,5 @@ public interface IControladorCliente {
     public List<DataReserva> listarReservasXClienteRegistradas(String nomCliente);
 
     public void actualizarRegistro(String ip, String url, String browser, String so);
-    
+    public List<Registro> obtenerRegistros();
 }
