@@ -33,6 +33,7 @@
                         List<DataInfoReserva> res = reservas.getItem();
                         int i = 1;
                         for (DataInfoReserva reserva : res) {
+                            
                     %> 
                     <div class="panel panel-success">
                         <div class="panel-heading">
