@@ -69,7 +69,7 @@ public class ItemReserva {
         return nickCliente;
     }
 
-    private boolean esDeProveedor(String nick) {
+    public boolean esDeProveedor(String nick) {
         boolean ret = true;
         try{
         if(this.servicio == null)

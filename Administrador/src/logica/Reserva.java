@@ -124,4 +124,17 @@ public class Reserva {
             this.estado = Estado.facturada;
         }
     }
+    public DataInfoReserva getDataInfoReservaXProveedor(String proveedor) {
+     
+        return new DataInfoReserva( identificador,  fechaCreacion,  fechaInicio,  fechaFin,  precio,  estado, getDataItemsReservaxProveedor( proveedor));
+    }
+
+    private Set<DataItemReserva> getDataItemsReservaxProveedor(String proveedor) {
+        Set<DataItemReserva> dts = new HashSet();
+        for(ItemReserva it : item){
+            if(it.esDeProveedor(proveedor))
+                dts.add(it.getDataItem());
+        }
+        return dts;
+    }
 }

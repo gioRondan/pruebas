@@ -113,7 +113,13 @@ public class Proveedor extends Usuario{
         }
         return result;
     }
-
+    List<DataInfoReserva> getDataReservasXProveedor(String proveedor){
+        List<DataInfoReserva> result = new ArrayList<>();
+        for(Reserva value : reservas.values()){
+            result.add(value.getDataInfoReservaXProveedor(proveedor));
+        }
+        return result;
+    }
     void facturarReserva(Integer id) {
         Reserva res = this.reservas.get(id);
         res.facturar(this.nickname);

@@ -400,7 +400,7 @@ public class ControladorProveedor implements IControladorProveedor{
     public List<DataInfoReserva> listarReservasXProveedor(String nick) {
         ManejadorProveedor mpr = ManejadorProveedor.getInstance();
         Proveedor proveedor = mpr.getProveedor(nick);
-        return proveedor.getDataReservas();
+        return proveedor.getDataReservasXProveedor(nick);
     }
 
 }
