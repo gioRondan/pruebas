@@ -56,8 +56,8 @@
                                         <a href="verinfoservicio?nomProveedorServicio=<%=item.getServicio().getProveedor()%>&nomServicio=<%=item.getServicio().getNombre()%>" ><%=item.getServicio().getNombre()%></a>
                                     </td>
                                     <td><%= item.getCantidad() %></td> 
-                                    <td><%= formatoFecha.format(item.getFechaInicio().toGregorianCalendar().getTime()) %></td>
-                                    <td><%= formatoFecha.format(item.getFechaFin().toGregorianCalendar().getTime()) %></td>
+                                    <td><%//= formatoFecha.format(item.getFechaInicio().toGregorianCalendar().getTime()) %></td>
+                                    <td><%//= formatoFecha.format(item.getFechaFin().toGregorianCalendar().getTime()) %></td>
                                     <td> Servicio </td> 
                                 </tr>
                             <%}else{%> 
@@ -66,8 +66,8 @@
                                         <a href="<%="verinfopromocion?nomProveedorPromocion="+item.getPromocion().getNickProveedor()+"&nomPromocion="+item.getPromocion().getNombre()%>" > <%=item.getPromocion().getNombre()%></a>
                                     </td>
                                     <td><%= item.getCantidad() %></td> 
-                                    <td><%= formatoFecha.format(item.getFechaInicio().toGregorianCalendar().getTime()) %></td>
-                                    <td><%= formatoFecha.format(item.getFechaFin().toGregorianCalendar().getTime()) %></td>
+                                    <td><%//= formatoFecha.format(item.getFechaInicio().toGregorianCalendar().getTime()) %></td>
+                                    <td><%//= formatoFecha.format(item.getFechaFin().toGregorianCalendar().getTime()) %></td>
                                     <td> Promocion </td> 
                                 </tr>
                            <%}//CIERRO IF ES SERCICIO%>

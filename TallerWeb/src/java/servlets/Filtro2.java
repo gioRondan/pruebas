@@ -38,8 +38,8 @@ public class Filtro2 implements Filter {
         if (debug) {
             log("Filtro2:DoBeforeProcessing");
         }
-	String ip = request.getLocalAddr();
-
+	String ip = request.getRemoteAddr();
+        String hostname = request.getRemoteHost();
 	// Write code here to process the request and/or response before
         // the rest of the filter chain is invoked.
 	// For example, a logging filter might log items on the request object,
