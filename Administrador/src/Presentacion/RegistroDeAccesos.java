@@ -8,6 +8,9 @@ package Presentacion;
 
 import RegistroAcceso.Registro;
 import java.util.List;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -66,7 +69,7 @@ public class RegistroDeAccesos extends javax.swing.JInternalFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
@@ -86,28 +89,33 @@ public class RegistroDeAccesos extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 713, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    @SuppressWarnings("empty-statement")
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("#");
+        model.addColumn("IP");
+        model.addColumn("URL");
+        model.addColumn("Browser");
+        model.addColumn("SO");
+        this.jTable1.setModel(model);
+        
         List<Registro> datos = pp.ICC.obtenerRegistros();
         int i = 0;
         for(Registro reg : datos){
-            Object[] ob = {i, reg.getIp(), reg.getUrl(), reg.getBrowser(), reg.getSo()};
-         //   DefaultTableModel model = (DefaultTableModel) getModel();
-          //  model.addRow(new Object[]{"Column 1", "Column 2", "Column 3"});
+            model.insertRow(i, new Object[] {i, reg.getIp(), reg.getUrl(), reg.getBrowser(), reg.getSo()});
+            i++;
         }
         
     }//GEN-LAST:event_formInternalFrameOpened
