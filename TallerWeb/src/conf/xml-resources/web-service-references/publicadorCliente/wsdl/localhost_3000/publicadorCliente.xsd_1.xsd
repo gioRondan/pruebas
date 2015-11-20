@@ -63,6 +63,7 @@
 <xs:element name="servicio" type="tns:dataServicio" minOccurs="0"></xs:element>
 <xs:element name="promocion" type="tns:dataPromocion" minOccurs="0"></xs:element>
 <xs:element name="nickCliente" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="estado" type="tns:estado" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
