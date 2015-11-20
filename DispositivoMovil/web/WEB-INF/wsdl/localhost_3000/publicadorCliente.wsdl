@@ -4,17 +4,6 @@
 <xsd:import namespace="http://Servidor/" schemaLocation="http://localhost:3000/publicadorCliente?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
-<message name="verInfoCliente">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="verInfoClienteResponse">
-<part name="return" type="tns:dataInfoCliente"></part>
-</message>
-<message name="cancelarReserva">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:int"></part>
-</message>
-<message name="cancelarReservaResponse"></message>
 <message name="altaCliente">
 <part name="arg0" type="xsd:string"></part>
 <part name="arg1" type="xsd:string"></part>
@@ -44,6 +33,17 @@
 </message>
 <message name="verInfoReservaResponse">
 <part name="return" type="tns:dataInfoReserva"></part>
+</message>
+<message name="cancelarReserva">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:int"></part>
+</message>
+<message name="cancelarReservaResponse"></message>
+<message name="verInfoCliente">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="verInfoClienteResponse">
+<part name="return" type="tns:dataInfoCliente"></part>
 </message>
 <message name="actualizarEstadoReserva">
 <part name="arg0" type="xsd:int"></part>
@@ -95,15 +95,14 @@
 <message name="listarReservasXClienteRegistradasResponse">
 <part name="return" type="tns:dataReservaArray"></part>
 </message>
+<message name="actualizarRegistro">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
+<part name="arg2" type="xsd:string"></part>
+<part name="arg3" type="xsd:string"></part>
+</message>
+<message name="actualizarRegistroResponse"></message>
 <portType name="PublicadorCliente">
-<operation name="verInfoCliente">
-<input wsam:Action="http://Servidor/PublicadorCliente/verInfoClienteRequest" message="tns:verInfoCliente"></input>
-<output wsam:Action="http://Servidor/PublicadorCliente/verInfoClienteResponse" message="tns:verInfoClienteResponse"></output>
-</operation>
-<operation name="cancelarReserva" parameterOrder="arg0 arg1">
-<input wsam:Action="http://Servidor/PublicadorCliente/cancelarReservaRequest" message="tns:cancelarReserva"></input>
-<output wsam:Action="http://Servidor/PublicadorCliente/cancelarReservaResponse" message="tns:cancelarReservaResponse"></output>
-</operation>
 <operation name="altaCliente" parameterOrder="arg0 arg1 arg2 arg3 arg4 arg5 arg6">
 <input wsam:Action="http://Servidor/PublicadorCliente/altaClienteRequest" message="tns:altaCliente"></input>
 <output wsam:Action="http://Servidor/PublicadorCliente/altaClienteResponse" message="tns:altaClienteResponse"></output>
@@ -120,6 +119,14 @@
 <operation name="verInfoReserva" parameterOrder="arg0 arg1">
 <input wsam:Action="http://Servidor/PublicadorCliente/verInfoReservaRequest" message="tns:verInfoReserva"></input>
 <output wsam:Action="http://Servidor/PublicadorCliente/verInfoReservaResponse" message="tns:verInfoReservaResponse"></output>
+</operation>
+<operation name="cancelarReserva" parameterOrder="arg0 arg1">
+<input wsam:Action="http://Servidor/PublicadorCliente/cancelarReservaRequest" message="tns:cancelarReserva"></input>
+<output wsam:Action="http://Servidor/PublicadorCliente/cancelarReservaResponse" message="tns:cancelarReservaResponse"></output>
+</operation>
+<operation name="verInfoCliente">
+<input wsam:Action="http://Servidor/PublicadorCliente/verInfoClienteRequest" message="tns:verInfoCliente"></input>
+<output wsam:Action="http://Servidor/PublicadorCliente/verInfoClienteResponse" message="tns:verInfoClienteResponse"></output>
 </operation>
 <operation name="actualizarEstadoReserva" parameterOrder="arg0 arg1 arg2">
 <input wsam:Action="http://Servidor/PublicadorCliente/actualizarEstadoReservaRequest" message="tns:actualizarEstadoReserva"></input>
@@ -163,27 +170,13 @@
 <input wsam:Action="http://Servidor/PublicadorCliente/listarReservasXClienteRegistradasRequest" message="tns:listarReservasXClienteRegistradas"></input>
 <output wsam:Action="http://Servidor/PublicadorCliente/listarReservasXClienteRegistradasResponse" message="tns:listarReservasXClienteRegistradasResponse"></output>
 </operation>
+<operation name="actualizarRegistro" parameterOrder="arg0 arg1 arg2 arg3">
+<input wsam:Action="http://Servidor/PublicadorCliente/actualizarRegistroRequest" message="tns:actualizarRegistro"></input>
+<output wsam:Action="http://Servidor/PublicadorCliente/actualizarRegistroResponse" message="tns:actualizarRegistroResponse"></output>
+</operation>
 </portType>
 <binding name="PublicadorClientePortBinding" type="tns:PublicadorCliente">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"></soap:binding>
-<operation name="verInfoCliente">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-</operation>
-<operation name="cancelarReserva">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servidor/"></soap:body>
-</output>
-</operation>
 <operation name="altaCliente">
 <soap:operation soapAction=""></soap:operation>
 <input>
@@ -215,6 +208,24 @@
 </output>
 </operation>
 <operation name="verInfoReserva">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+</operation>
+<operation name="cancelarReserva">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+</operation>
+<operation name="verInfoCliente">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
@@ -311,6 +322,15 @@
 </output>
 </operation>
 <operation name="listarReservasXClienteRegistradas">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servidor/"></soap:body>
+</output>
+</operation>
+<operation name="actualizarRegistro">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servidor/"></soap:body>
