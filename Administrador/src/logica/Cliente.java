@@ -40,9 +40,8 @@ public class Cliente extends Usuario{
         }
         return dts;
     }
-    public void reservarServicio(int identificador,Servicio serv,int cantidad,Date fechaIni,Date fechaFin){
+    public void reservarServicio(int identificador,Servicio serv,int cantidad,Date fechaIni,Date fechaFin, ItemReserva item){
         Reserva res = reservas.get(identificador);
-        ItemReserva item = new ItemReserva(cantidad,serv, fechaIni, fechaFin, this.getNickname());    
         res.agregarItem(item);
     }
     public void modificarEstadoReserva(int identificador, Estado estado){
@@ -51,10 +50,9 @@ public class Cliente extends Usuario{
             res.setEstado(estado);
         }
     }
-    public void reservarPromocion(int clave,Promocion prom,int cantidad,Date fechaIni,Date fechaFin){
+    public void reservarPromocion(int clave,Promocion prom,int cantidad,Date fechaIni,Date fechaFin, ItemReserva item){
         Reserva res = reservas.get(clave);
-            ItemReserva item = new ItemReserva(cantidad,prom, fechaIni, fechaFin, this.getNickname());
-            res.agregarItem(item);
+        res.agregarItem(item);
         
     }
     public void cancelarReserva(int identificador){

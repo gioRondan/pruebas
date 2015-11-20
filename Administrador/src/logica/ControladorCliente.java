@@ -50,14 +50,14 @@ public class ControladorCliente implements IControladorCliente{
         float preciototal=0;
         for(Map.Entry<String, Integer> entries : servicio.entrySet()){
            
-            aux_cliente.reservarServicio(clave1, prov.getServicio(entries.getKey()),entries.getValue(),fechas.get(entries.getKey()).getFechai(),fechas.get(entries.getKey()).getFechaf());
+            aux_cliente.reservarServicio(clave1, prov.getServicio(entries.getKey()),entries.getValue(),fechas.get(entries.getKey()).getFechai(),fechas.get(entries.getKey()).getFechaf(),null);
            
             preciototal= preciototal + prov.getServicio(entries.getKey()).getPrecio()*entries.getValue();
         }
         
         
         for(Map.Entry<String, Integer> entries : promocion.entrySet()){
-            aux_cliente.reservarPromocion(clave1, prov.getPromocion(entries.getKey()),entries.getValue(),fechaspromos.get(entries.getKey()).getFechai(),fechaspromos.get(entries.getKey()).getFechaf());
+            aux_cliente.reservarPromocion(clave1, prov.getPromocion(entries.getKey()),entries.getValue(),fechaspromos.get(entries.getKey()).getFechai(),fechaspromos.get(entries.getKey()).getFechaf(), null);
             
             preciototal= preciototal + prov.getPromocion(entries.getKey()).getPrecioTotal()*entries.getValue();
         }
@@ -182,15 +182,15 @@ public class ControladorCliente implements IControladorCliente{
                     servicio = proveedor.getServicio( dtir.getServicio().getNombre() );
                     ItemReserva item = new ItemReserva(dtir.getCantidad(), servicio, dtir.getFechaInicio(), dtir.getFechaFin(), cliente.getNickname() );
                     proveedor.addReserva(res.getId(), res);
-                    cliente.reservarServicio(clave1, servicio,dtir.getCantidad(), dtir.getFechaInicio(), dtir.getFechaFin());
+                    cliente.reservarServicio(clave1, servicio,dtir.getCantidad(), dtir.getFechaInicio(), dtir.getFechaFin(), item);
                     preciototal= preciototal + servicio.getPrecio()*dtir.getCantidad();
          
             }else{
-                Proveedor proveedor = mprov.getProveedor(dtir.getServicio().getProveedor());
+                Proveedor proveedor = mprov.getProveedor(dtir.getPromocion().getNickProveedor());
                 Promocion promo = proveedor.getPromocion(dtir.getPromocion().getNombre());
                 ItemReserva item = new ItemReserva(dtir.getCantidad(), promo, dtir.getFechaInicio(), dtir.getFechaFin(), cliente.getNickname() );
                 proveedor.addReserva(res.getId(), res);
-                cliente.reservarPromocion(clave1, promo,dtir.getCantidad(), dtir.getFechaInicio(), dtir.getFechaFin());
+                cliente.reservarPromocion(clave1, promo,dtir.getCantidad(), dtir.getFechaInicio(), dtir.getFechaFin(), item);
                 preciototal= preciototal + promo.getPrecioTotal()*dtir.getCantidad();
             }
             res.setPrecio(preciototal);

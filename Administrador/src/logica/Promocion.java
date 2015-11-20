@@ -55,7 +55,7 @@ public class Promocion {
         servicios.put(servicio.getNombre(), servicio);
     }
     public void esdeProveedor(String nomProv) throws Exception{
-        if (!(nomProv.equals(proveedor.getNombre()))){
+        if (!(nomProv.equals(proveedor.getNickname()))){
             throw new Exception("Las promociones deben ser de un mismo proveedor");
         }
     }
