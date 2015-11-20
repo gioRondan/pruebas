@@ -33,46 +33,62 @@
                         List<DataInfoReserva> res = reservas.getItem();
                         int i = 1;
                         for (DataInfoReserva reserva : res) {
-                            
+                            String est = reserva.getItems().get(0).getEstado().name();
+                            String clase = "";
+                            if (est.equals("PAGADA")) {
+                                clase = "panel-success";
+                            } else if (est.equals("REGISTRADA") || est.equals("CANCELADA")) {
+                                clase = "panel-danger";
+                            } else {
+                                clase = "panel-info";
+                            }
                     %> 
-                    <div class="panel panel-success">
+
+                    <div class="panel <%=clase%>">
                         <div class="panel-heading">
                             <h4 style="float: left;" class="panel-title">
                                 <a aria-expanded="false" class="collapsed" data-toggle="collapse" href="#collapse<%=i%>">Reserva <%=reserva.getId()%></a>
                             </h4>
-                                <% if (reserva.getItems().get(0).getEstado().name().equals("PAGADA")){%>
                             <h4 style="text-align: right;" class="panel-title">
+                                <% if (est.equals("PAGADA")) {%>
                                 <a onClick="window.location = 'actualizarEstadoReserva?reserva=<%=reserva.getId()%>';" aria-expanded="false" class="collapsed" data-toggle="collapse" href="#">Facturar</a>
+                                <%
+                                } else if (est.equals("FACTURADA")) {
+                                %>
+                                <a aria-expanded="false" class="collapsed" data-toggle="collapse" style="text-decoration: none; cursor: default;">Facturada</a>
+                                <%
+                                } else if (est.equals("CANCELADA")) {
+                                %>
+                                <a aria-expanded="false" class="collapsed" data-toggle="collapse" style="text-decoration: none; cursor: default;">Cancelada</a>
+                                <%
+                                    }
+                                %>
                             </h4>
-                            <%
-                            }%>
                         </div>
-                        <%
-                            List<DataItemReserva> items = reserva.getItems();
-                            for (DataItemReserva it : items) {
-                                
-                                if (it.isEsServico()){
-                                    DataServicio serv = it.getServicio();
-                        %>     
                         <div style="height: 0px;" aria-expanded="false" id="collapse<%=i%>" class="panel-collapse collapse">
+                            <%
+                                List<DataItemReserva> items = reserva.getItems();
+                                for (DataItemReserva it : items) {
+
+                                    if (it.isEsServico()) {
+                                        DataServicio serv = it.getServicio();
+                            %>     
                             <div class="panel-body"><%=serv.getNombre()%></div>
-                        </div>
-                        <%
-                                }
-                                else{
-                                    DataPromocion promo = it.getPromocion();
-                        %>
-                        <div style="height: 0px;" aria-expanded="false" id="collapse1" class="panel-collapse collapse">
+                            <%
+                            } else {
+                                DataPromocion promo = it.getPromocion();
+                            %>
                             <div class="panel-body"><%=promo.getNombre()%></div>
-                        </div>
-                        <%
+                            <%
                                 }
-                        %>        
-                        <%        
-                            i++;}
-                        %>   
+                            %>        
+                            <%
+                                }
+                            %>   
+                        </div>
                     </div>
-                    <% }
+                    <% i++;
+                        }
                     %>
                 </div>
             </div>
