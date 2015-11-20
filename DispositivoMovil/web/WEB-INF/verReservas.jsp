@@ -49,6 +49,7 @@
                         <%
                             List<DataItemReserva> items = reserva.getItems();
                             for (DataItemReserva it : items) {
+                                
                                 if (it.isEsServico()){
                                     DataServicio serv = it.getServicio();
                         %>     
@@ -67,10 +68,10 @@
                                 }
                         %>        
                         <%        
-                            }
+                            i++;}
                         %>   
                     </div>
-                    <% i++;}
+                    <% }
                     %>
                 </div>
             </div>
