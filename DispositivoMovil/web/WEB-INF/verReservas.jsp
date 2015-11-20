@@ -61,8 +61,10 @@
                                 %>
                                 <a aria-expanded="false" class="collapsed" data-toggle="collapse" style="text-decoration: none; cursor: default;">Cancelada</a>
                                 <%
-                                    }
+                                    } else {
                                 %>
+                                <a aria-expanded="false" class="collapsed" data-toggle="collapse" style="text-decoration: none; cursor: default;">Registrada</a>
+                                <% } %>
                             </h4>
                         </div>
                         <div style="height: 0px;" aria-expanded="false" id="collapse<%=i%>" class="panel-collapse collapse">

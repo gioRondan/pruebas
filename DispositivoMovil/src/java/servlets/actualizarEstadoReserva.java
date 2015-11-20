@@ -37,6 +37,7 @@ public class actualizarEstadoReserva extends HttpServlet {
         DataInfoProveedor proveedor = (DataInfoProveedor) request.getSession().getAttribute("dataProveedor");
         String id = request.getParameter("reserva");
         port.facturarReserva(proveedor.getNickname(), Integer.parseInt(id));
+        request.getSession().setAttribute("reservas", port.listarReservasXProveedor(proveedor.getNickname()));
         request.getRequestDispatcher("/WEB-INF/verReservas.jsp").forward(request, response);
     
         
