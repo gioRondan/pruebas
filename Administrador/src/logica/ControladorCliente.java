@@ -7,6 +7,8 @@ package logica;
 
 import Persistencia.Factura;
 import Persistencia.Linea;
+import RegistroAcceso.ManejadorRegistro;
+import RegistroAcceso.Registro;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.text.DateFormat;
@@ -276,5 +278,11 @@ public class ControladorCliente implements IControladorCliente{
     public List<DataReserva> listarReservasXClienteRegistradas(String nomCliente) {
         ManejadorCliente mCl = ManejadorCliente.getInstance();
         return mCl.getCliente(nomCliente).getDataReservasRegistradas();
+    }
+
+    @Override
+    public void actualizarRegistro(String ip, String url, String browser, String so) {
+        ManejadorRegistro mr = ManejadorRegistro.getInstance();
+        mr.addRegistro(new Registro(ip, url, browser, so));
     }
 }

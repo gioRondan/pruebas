@@ -14,11 +14,20 @@ import java.util.List;
  * @author giovani.rondan
  */
 public class ManejadorRegistro {
-    private List<Registro> registros = new ArrayList<>();
+    private List<Registro> registros;
+    private static ManejadorRegistro instance = null;
 
-    public ManejadorRegistro() {
+    public ManejadorRegistro(){
+        this.registros = new ArrayList<>();
     }
 
+    public static ManejadorRegistro getInstance() {
+        if (instance == null)
+            instance = new ManejadorRegistro();
+        return instance;
+    }
+
+    
     public List<Registro> getRegistros() {
         return registros;
     }

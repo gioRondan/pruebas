@@ -190,4 +190,8 @@ public class PublicadorCliente {
        }
        return ret;
    }
+   @WebMethod
+   public void actualizarRegistro(String ip, String url, String browser, String so){
+       ICC.actualizarRegistro(ip, url, browser, so);
+   }
 }
