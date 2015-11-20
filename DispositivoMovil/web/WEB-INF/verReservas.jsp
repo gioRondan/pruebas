@@ -31,18 +31,20 @@
                     <%
                         DataInfoReservaArray reservas = (DataInfoReservaArray) request.getSession().getAttribute("reservas");
                         List<DataInfoReserva> res = reservas.getItem();
+                        int i = 1;
                         for (DataInfoReserva reserva : res) {
                     %> 
                     <div class="panel panel-success">
                         <div class="panel-heading">
                             <h4 style="float: left;" class="panel-title">
-                                <a aria-expanded="false" class="collapsed" data-toggle="collapse" href="#collapse1">Reserva <%=reserva.getId()%></a>
+                                <a aria-expanded="false" class="collapsed" data-toggle="collapse" href="#collapse<%=i%>">Reserva <%=reserva.getId()%></a>
                             </h4>
-                            <% if (reserva.getEstado().name().equals("PAGADA")){%>
+                                <% if (reserva.getItems().get(0).getEstado().name().equals("PAGADA")){%>
                             <h4 style="text-align: right;" class="panel-title">
                                 <a onClick="window.location = 'actualizarEstadoReserva?reserva=<%=reserva.getId()%>';" aria-expanded="false" class="collapsed" data-toggle="collapse" href="#">Facturar</a>
                             </h4>
-                            <%}%>
+                            <%
+                            }%>
                         </div>
                         <%
                             List<DataItemReserva> items = reserva.getItems();
@@ -50,7 +52,7 @@
                                 if (it.isEsServico()){
                                     DataServicio serv = it.getServicio();
                         %>     
-                        <div style="height: 0px;" aria-expanded="false" id="collapse1" class="panel-collapse collapse">
+                        <div style="height: 0px;" aria-expanded="false" id="collapse<%=i%>" class="panel-collapse collapse">
                             <div class="panel-body"><%=serv.getNombre()%></div>
                         </div>
                         <%
@@ -68,7 +70,7 @@
                             }
                         %>   
                     </div>
-                    <% }
+                    <% i++;}
                     %>
                 </div>
             </div>
