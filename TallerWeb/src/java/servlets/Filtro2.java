@@ -16,6 +16,7 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -40,6 +41,16 @@ public class Filtro2 implements Filter {
         }
 	String ip = request.getRemoteAddr();
         String hostname = request.getRemoteHost();
+         
+        HttpServletRequest req = (HttpServletRequest) request;
+        String userAgent = req.getHeader("User-Agent");
+//        WebClient client = WebClient.detect(req);
+//        if (client.getUserAgent().equals(UserAgent.IE)) {
+//            // do something for IE only
+//        } else if (client.getUserAgent().equals(UserAgent.FIREFOX) &&
+//                 client.getPlatform().equals(Platform.LINUX)) {
+//            // etc.
+//        }
 	// Write code here to process the request and/or response before
         // the rest of the filter chain is invoked.
 	// For example, a logging filter might log items on the request object,
