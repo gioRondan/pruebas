@@ -23,6 +23,8 @@ public class DataItemReserva {
     private DataServicio servicio;
     private DataPromocion promocion;
     private String nickCliente;
+    private Estado estado;
+
     //Constructores
     public DataItemReserva(){
         this.cantidad      = 0; 
@@ -32,8 +34,12 @@ public class DataItemReserva {
         this.servicio = null;
         this.nickCliente = "";
     }
+
+    public Estado getEstado() {
+        return estado;
+    }
     
-    public DataItemReserva(int cantidad, Date fechaInicio, Date fechaFin, DataServicio servicio, DataPromocion promocion,boolean esservi, String nickCliente){
+    public DataItemReserva(int cantidad, Date fechaInicio, Date fechaFin, DataServicio servicio, DataPromocion promocion,boolean esservi, String nickCliente, Estado estado){
         this.cantidad      = cantidad;
         this.fechaInicio   = fechaInicio;
         this.fechaFin      = fechaFin;
@@ -41,7 +47,12 @@ public class DataItemReserva {
         esServico = esservi;
         this.promocion = promocion;
         this.nickCliente = nickCliente;
+        this.estado = estado;
     }    
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
   
     //Getters
     public int getCantidad(){

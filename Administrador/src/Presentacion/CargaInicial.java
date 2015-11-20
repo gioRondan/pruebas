@@ -292,7 +292,7 @@ public class CargaInicial {
             Map<String,DataExpira> fechasp = new HashMap();
             //R1
             DataServicio dtser = new DataServicio( "Euro-Vuelo-S", "Vuelo con excelente atención y comodidad", 1100, null, "remus");
-            DataItemReserva dtitem = new DataItemReserva(1, null, null, dtser, null, true, "remus");
+            DataItemReserva dtitem = new DataItemReserva(1, null, null, dtser, null, true, "remus", Estado.registrada);
             List<DataItemReserva> aux = new ArrayList<>();
             aux.add(dtitem);
             DataInfoCliente dtRemus = ICC.verInfoCliente("oWood");
