@@ -41,36 +41,42 @@ public class Filtro2 implements Filter {
         }
 	String ip = request.getRemoteAddr();
         String hostname = request.getRemoteHost();
-         
+        String so;
+        String browser;
         HttpServletRequest req = (HttpServletRequest) request;
         String userAgent = req.getHeader("User-Agent");
-//        WebClient client = WebClient.detect(req);
-//        if (client.getUserAgent().equals(UserAgent.IE)) {
-//            // do something for IE only
-//        } else if (client.getUserAgent().equals(UserAgent.FIREFOX) &&
-//                 client.getPlatform().equals(Platform.LINUX)) {
-//            // etc.
-//        }
-	// Write code here to process the request and/or response before
-        // the rest of the filter chain is invoked.
-	// For example, a logging filter might log items on the request object,
-        // such as the parameters.
-	/*
-         for (Enumeration en = request.getParameterNames(); en.hasMoreElements(); ) {
-         String name = (String)en.nextElement();
-         String values[] = request.getParameterValues(name);
-         int n = values.length;
-         StringBuffer buf = new StringBuffer();
-         buf.append(name);
-         buf.append("=");
-         for(int i=0; i < n; i++) {
-         buf.append(values[i]);
-         if (i < n-1)
-         buf.append(",");
-         }
-         log(buf.toString());
-         }
-         */
+        String url1 = req.getRequestURI();
+        String url2 = request.getServerName();
+        int url3 = request.getServerPort();
+        String url = "";
+               url=  url.concat(url2);
+               url= url.concat(":");
+        url =url.concat(Integer.toString(url3));
+        url= url.concat(url1);
+                
+        if(userAgent.contains("Linux"))
+            so = "Linux";
+        else if (userAgent.contains("Windows")){
+            so = "Windows";
+        } else if (userAgent.contains("Mac")){
+            so = "Mac";
+        } else  
+            so = "Otro";
+        if (userAgent.contains("Mozilla")){
+            browser = "Firefox";
+        } else if (userAgent.contains("Chrome")){
+            browser = "Chrome";
+        } else if (userAgent.contains("Opera")){
+            browser = "Opera";
+        }else if (userAgent.contains("Safari")){
+            browser = "Safari";
+        }else
+            browser = "Otro";
+            
+        servidor.PublicadorClienteService service = new servidor.PublicadorClienteService();
+        servidor.PublicadorCliente port = service.getPublicadorClientePort();
+        port.actualizarRegistro(ip, url, browser, so);
+
     }    
     
     private void doAfterProcessing(ServletRequest request, ServletResponse response)
