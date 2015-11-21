@@ -26,6 +26,7 @@ public class Servicio {
     private Ciudad destino=null;
     private Map<String, Categoria> categorias;
     private Proveedor proveedor;
+    private int visitas;
     
     public Servicio(String nombre,String descripcion,float precio){
         this.nombre=nombre;
@@ -34,8 +35,15 @@ public class Servicio {
         this.imagen=new String[3];
         this.categorias = new HashMap();
         proveedor = null;
+        visitas = 0;
     }
 
+    public int getVisitas() {
+        return visitas;
+    }
+    public void addVisita(){
+        visitas++;
+    }
     public void setNombre(String nom){
         this.nombre = nom;
     }
