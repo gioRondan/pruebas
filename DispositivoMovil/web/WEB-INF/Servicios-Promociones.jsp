@@ -25,8 +25,8 @@
                 <%@ include file="\WEB-INF\Template\Template.jsp" %>
             </div>
         <div class="centerbox">
-            <div class="container">
-                <h2>Dynamic Tabs</h2>
+            <div class="container" style="width: 100%;">
+                <h2 style="text-align: center;">Servicios y Promociones</h2>
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#servicios">Servicios</a></li>
                     <li><a data-toggle="tab" href="#promociones">Promociones</a></li>

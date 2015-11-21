@@ -25,8 +25,8 @@
             <%@ include file="\WEB-INF\Template\Template.jsp" %>
         </div>
         <div class="centerbox">
-            <h1>Reservas del proveedor</h1>
-            <div class="container">
+            <h1 style="text-align: center;">Reservas del proveedor</h1>
+            <div class="container" style="width: 100%;">
                 <div class="panel-group">
                     <%
                         DataInfoReservaArray reservas = (DataInfoReservaArray) request.getSession().getAttribute("reservas");
