@@ -62,7 +62,7 @@ public class Filtro2 implements Filter {
             so = "Mac";
         } else  
             so = "Otro";
-        if (userAgent.contains("Mozilla")){
+        if (userAgent.contains("Firefox")){
             browser = "Firefox";
         } else if (userAgent.contains("Chrome")){
             browser = "Chrome";
